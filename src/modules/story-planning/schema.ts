@@ -153,6 +153,7 @@ export function parseRulePack(input: unknown): RulePack {
     "requires",
     "actions",
     "reactions",
+    "plans",
   ]);
   if (p.schemaVersion !== 1) throw Error("不支持的规则包版本");
   if (!idPattern.test(string(p.id))) throw Error("规则包编号不合法");
@@ -201,6 +202,62 @@ export function parseRulePack(input: unknown): RulePack {
     number(r.priority, -1_000, 1_000);
     condition(r.when, s);
     effects(r.effects, s);
+  }
+
+  const planIds = new Set<string>();
+  for (const item of array(p.plans ?? [], 16)) {
+    const plan = record(item);
+    keys(plan, ["id", "title", "questId", "stages"]);
+    const id = string(plan.id);
+    if (!idPattern.test(id) || planIds.has(id))
+      throw Error("任务计划编号不合法或重复");
+    planIds.add(id);
+    validateTemplate(string(plan.title), "world");
+    if (!["main", "side"].includes(String(plan.questId)))
+      throw Error("任务计划关联任务不合法");
+    const stages = array(plan.stages, 16).map(record);
+    if (!stages.length) throw Error("任务计划不能为空");
+    const ids = new Set<string>();
+    for (const stage of stages) {
+      keys(stage, ["id", "title", "requires", "complete", "routes"]);
+      const id = string(stage.id);
+      if (!idPattern.test(id) || ids.has(id))
+        throw Error("阶段编号不合法或重复");
+      ids.add(id);
+      validateTemplate(string(stage.title), "world");
+      condition(stage.complete, "world");
+      array(stage.requires).forEach(string);
+      const routes = new Set<string>();
+      for (const item of array(stage.routes, 16)) {
+        const route = record(item);
+        keys(route, ["id", "title", "when", "actionIds", "npcWhen"]);
+        const rid = string(route.id);
+        if (!idPattern.test(rid) || routes.has(rid))
+          throw Error("路线编号不合法或重复");
+        routes.add(rid);
+        validateTemplate(string(route.title), "world");
+        condition(route.when, "world");
+        if (route.npcWhen !== undefined) condition(route.npcWhen, "npc");
+        array(route.actionIds).forEach((a) => {
+          if (!idPattern.test(string(a))) throw Error("路线行动编号不合法");
+        });
+      }
+    }
+    const graph = new Map(
+      stages.map((s) => [String(s.id), s.requires as string[]]),
+    );
+    const done = new Set<string>(),
+      pending = new Set<string>();
+    const visit = (id: string) => {
+      if (!ids.has(id)) throw Error("阶段依赖不存在");
+      if (pending.has(id)) throw Error("阶段存在循环依赖");
+      if (done.has(id)) return;
+      pending.add(id);
+      for (const dep of graph.get(id)!) visit(dep);
+      pending.delete(id);
+      done.add(id);
+    };
+    for (const id of ids) visit(id);
   }
   return p as unknown as RulePack;
 }

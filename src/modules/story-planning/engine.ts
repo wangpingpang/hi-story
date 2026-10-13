@@ -2,6 +2,10 @@ import corePack from "../../../content/story/core-rules.json";
 import { RuleRegistry } from "./registry";
 import { contexts, evaluate, execute, type Budget } from "./interpreter";
 import { template, type Context } from "./fields";
+import { initializeStory as createWorld } from "./initialize";
+import { changedFields, collectDependencies } from "./dependencies";
+import { reconcileIndexed } from "./scheduler";
+import { updatePlans } from "./planner";
 import type { Change, Option, World } from "./model";
 import type { ActionRule } from "./rule-types";
 export function createStoryRegistry() {
@@ -12,10 +16,6 @@ interface BoundAction {
   rule: ActionRule;
   context: Context;
   option: Option;
-}
-function dependencies(rule: ActionRule): string[] {
-  const text = JSON.stringify(rule);
-  return [...new Set([...text.matchAll(/"ref":"([^"]+)"/g)].map((m) => m[1]))];
 }
 function available(w: World, registry: RuleRegistry): BoundAction[] {
   if (w.ending) return [];
@@ -38,10 +38,19 @@ function available(w: World, registry: RuleRegistry): BoundAction[] {
           context,
           option: {
             id,
+            actionId: rule.id,
+            npcId: context.npc?.id,
+            questId: context.quest?.id,
             category: rule.category,
             text: template(rule.text, context),
             cost: rule.cost,
-            dependencies: dependencies(rule),
+            dependencies: [
+              ...collectDependencies(rule, {
+                scope: rule.scope,
+                npcId: context.npc?.id,
+                questId: context.quest?.id,
+              }),
+            ],
             external: rule.external,
             packId,
           },
@@ -52,27 +61,45 @@ function available(w: World, registry: RuleRegistry): BoundAction[] {
 export function storyOptions(w: World, registry = defaults): Option[] {
   return available(w, registry).map((a) => a.option);
 }
-function reconcile(
+function updateWorld(
+  before: World,
   w: World,
   registry: RuleRegistry,
   id: string,
   budget: Budget,
+  full = false,
 ) {
-  // A reaction may enable a later reaction. Each rule/entity pair fires once per transaction.
-  const fired = new Set<string>();
-  let progress = true;
-  while (progress) {
-    progress = false;
-    for (const { packId, rule } of registry.reactions())
-      for (const context of contexts(rule.scope, { world: w })) {
-        const key = `${packId}/${rule.id}/${context.npc?.id ?? context.quest?.id ?? "world"}`;
-        if (fired.has(key) || !evaluate(rule.when, context, budget)) continue;
-        fired.add(key);
-        progress = true;
-        const text = execute(rule.effects, context, budget).join("");
-        if (text) w.history.push({ id: `${id}:${key}`, time: w.time, text });
-      }
-  }
+  w.lastUpdate = {
+    changedFields: [],
+    evaluatedReactions: [],
+    firedReactions: [],
+    replannedPlans: [],
+  };
+  const dirty = reconcileIndexed(
+    w,
+    registry,
+    id,
+    budget,
+    changedFields(before, w),
+    full,
+  );
+  w.lastUpdate.changedFields = [...dirty].sort();
+  updatePlans(w, registry, storyOptions(w, registry), dirty, id, budget, full);
+}
+export function initializeStory(
+  seed: string,
+  background?: { text: string; tags: string[] },
+): World {
+  const w = createWorld(seed, background);
+  updateWorld(
+    structuredClone(w),
+    w,
+    defaults,
+    "init",
+    { remaining: 20_000 },
+    true,
+  );
+  return w;
 }
 function validateTransition(before: World, after: World) {
   if (!Number.isFinite(after.time) || after.time < before.time)
@@ -94,7 +121,7 @@ export function applyRuleChange(
   const w = structuredClone(state);
   w.revision++;
   w.history.push({ id, time: w.time, text: message });
-  reconcile(w, registry, id, { remaining: 20_000 });
+  updateWorld(state, w, registry, id, { remaining: 20_000 }, true);
   validateTransition(state, w);
   return w;
 }
@@ -162,7 +189,7 @@ export function processPlayerAction(
     time: w.time,
     text: bound.option.text + result,
   });
-  reconcile(w, registry, command.id, budget);
+  updateWorld(state, w, registry, command.id, budget);
   validateTransition(state, w);
   return { world: w };
 }
@@ -175,6 +202,14 @@ const changeHandlers: {
     if (!n) throw Error("人物不存在");
     n.alive = false;
     return `${n.name}死亡，互动和委托重新检查。`;
+  },
+  "npc-move": (w, c) => {
+    const npc = w.npcs.find((n) => n.id === c.npcId);
+    if (!npc) throw Error("人物不存在");
+    if (!c.location.trim() || c.location.length > 128)
+      throw Error("地点编号不合法");
+    npc.location = c.location;
+    return `${npc.name}移动到${c.location}。`;
   },
   time: (w, c) => {
     if (!Number.isFinite(c.hours) || c.hours < 0)
@@ -214,7 +249,7 @@ export function receiveWorldChange(
   w.processed.push(id);
   w.revision++;
   w.history.push({ id, time: w.time, text });
-  reconcile(w, registry, id, { remaining: 20_000 });
+  updateWorld(state, w, registry, id, { remaining: 20_000 });
   validateTransition(state, w);
   return w;
 }

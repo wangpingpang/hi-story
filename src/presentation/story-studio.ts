@@ -7,7 +7,31 @@ export function renderStoryStudio(
   draw: () => void,
 ) {
   const { world: w, options, packs, rulesRevision, pending } = studio.query();
-  root.innerHTML = `<header class="masthead"><a href="./">hi-story</a><a href="?view=character-generator">人物工坊</a></header><main class="atelier"><h1>随机故事工坊</h1><p>中世纪剑与魔法 · 本地规则生成</p><form><label>种子 <input name="seed" value="${e(w.seed)}" required></label> <label>背景 <input name="background" value="${e(w.background.text)}" required></label> <button>生成新故事</button></form><div class="atelier-layout"><section class="card"><h2>${e(w.goal)}</h2><p>${e(w.location)} · 第${w.time}小时 · 金币${w.gold} · 委托期限${w.deadline}小时</p>${w.quests.map((q) => `<p>${e(q.title)}：${e(q.status)} ${e(q.reason)}</p>`).join("")}<p>${e(w.ending)}</p><h2>故事记录</h2>${w.history.map((h) => `<p>${h.time}时：${e(h.text)}</p>`).join("")}</section><section class="card"><h2>可选行动（${options.length}）</h2>${[
+  const stageLabels = {
+    locked: "前置未满足",
+    ready: "可推进",
+    blocked: "暂时受阻",
+    completed: "已完成",
+    invalidated: "条件需恢复",
+    closed: "已结束",
+  };
+  const plans = w.plans
+    .filter((p) => p.status !== "retired")
+    .map((p) => {
+      const current = p.stages.find((s) => s.id === p.currentStageId);
+      return `<section aria-label="阶段任务" data-plan="${e(p.id)}"><h3>${e(p.title)}</h3><ol>${p.stages.map((s) => `<li data-stage="${e(s.id)}">${e(s.title)}：${stageLabels[s.status]}${s.completedAt === undefined ? "" : `（首次完成于${s.completedAt}时）`}</li>`).join("")}</ol>${
+        current
+          ? `<p>当前阶段：${e(current.title)}</p><p>可行路线：${e(
+              current.routes
+                .filter((r) => r.available)
+                .map((r) => r.title)
+                .join("、") || "暂时没有可执行路线，等待条件变化。",
+            )}</p>`
+          : ""
+      }</section>`;
+    })
+    .join("");
+  root.innerHTML = `<header class="masthead"><a href="./">hi-story</a><a href="?view=character-generator">人物工坊</a></header><main class="atelier"><h1>随机故事工坊</h1><p>中世纪剑与魔法 · 本地规则生成</p><form><label>种子 <input name="seed" value="${e(w.seed)}" required></label> <label>背景 <input name="background" value="${e(w.background.text)}" required></label> <button>生成新故事</button></form><div class="atelier-layout"><section class="card"><h2>${e(w.goal)}</h2><p>${e(w.location)} · 第${w.time}小时 · 金币${w.gold} · 委托期限${w.deadline}小时</p>${w.quests.map((q) => `<p>${e(q.title)}：${e(q.status)} ${e(q.reason)}</p>`).join("")}<p>${e(w.ending)}</p><h2>阶段任务</h2>${plans}<h2>故事记录</h2>${w.history.map((h) => `<p>${h.time}时：${e(h.text)}</p>`).join("")}</section><section class="card"><h2>可选行动（${options.length}）</h2>${[
     ...new Set(options.map((o) => o.category)),
   ]
     .map(
@@ -94,14 +118,12 @@ export function renderStoryStudio(
         root.querySelector("#story-message")!.textContent = String(error);
       }
     });
-  root
-    .querySelector("[data-access]")!
-    .addEventListener("click", () =>
-      update(() =>
-        studio.change(`access-${w.revision}`, {
-          kind: "access",
-          accessible: !w.accessible,
-        }),
-      ),
-    );
+  root.querySelector("[data-access]")!.addEventListener("click", () =>
+    update(() =>
+      studio.change(`access-${w.revision}`, {
+        kind: "access",
+        accessible: !w.accessible,
+      }),
+    ),
+  );
 }

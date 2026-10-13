@@ -30,6 +30,23 @@ export class RuleRegistry {
       if (other.id !== pack.id)
         for (const a of other.actions)
           if (actionIds.has(a.id)) throw Error(`行动编号冲突：${a.id}`);
+
+    const packs = [...this.entries.values()]
+      .filter((p) => p.id !== pack.id)
+      .concat(pack);
+    const owners = new Map(
+      packs.flatMap((p) => p.actions.map((a) => [a.id, p.id] as const)),
+    );
+    for (const p of packs)
+      for (const plan of p.plans ?? [])
+        for (const stage of plan.stages)
+          for (const route of stage.routes)
+            for (const actionId of route.actionIds) {
+              const owner = owners.get(actionId);
+              if (!owner) throw Error(`路线引用未知行动：${actionId}`);
+              if (owner !== p.id && !p.requires.includes(owner))
+                throw Error(`路线缺少行动所属包依赖：${owner}`);
+            }
     // Replacing a pack may introduce a new dependency cycle.
     const graph = new Map([...this.entries].map(([id, p]) => [id, p.requires]));
     graph.set(pack.id, pack.requires);
@@ -97,5 +114,14 @@ export class RuleRegistry {
           a.rule.priority - b.rule.priority ||
           `${a.packId}/${a.rule.id}`.localeCompare(`${b.packId}/${b.rule.id}`),
       );
+  }
+  plans() {
+    return [...this.entries.values()].flatMap((p) =>
+      (p.plans ?? []).map((rule) => ({
+        packId: p.id,
+        version: p.version,
+        rule,
+      })),
+    );
   }
 }

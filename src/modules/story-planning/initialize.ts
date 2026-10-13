@@ -1,3 +1,4 @@
+import { generateCharacterWithParams } from "../characters/index";
 import catalog from "../../../content/story/catalog.json";
 import { hash, pick, random } from "./random";
 import type { World } from "./model";
@@ -13,15 +14,28 @@ export function initializeStory(
   const npcs = Array.from({ length: 3 }, (_, i) => {
     const name = pick(r, names);
     names.splice(names.indexOf(name), 1);
+    const role = pick(r, catalog.roles),
+      trait = pick(r, catalog.traits);
+    const goal =
+      i === 0 ? `取得${c.need}` : i === 1 ? "保护村民" : "研究古老历史";
+    const profile = generateCharacterWithParams({
+      seed: `story-${hash(seed).toString(16)}:npc-${i}`,
+      name,
+      occupation: role,
+      background: `在${location}生活的${role}，卷入了${c.reason}。`,
+      personality: { traits: [trait] },
+      motivation: goal,
+    });
     return {
       id: `npc-${i}`,
-      name,
-      role: pick(r, catalog.roles),
-      trait: pick(r, catalog.traits),
+      profile,
+      name: profile.name,
+      role: profile.identity.occupation,
+      trait: profile.personality.traits[0],
       alive: true,
       location,
       trust: 0,
-      goal: i === 0 ? `取得${c.need}` : i === 1 ? "保护村民" : "研究古老历史",
+      goal: profile.motivation,
       event: c.reason,
       response: pick(r, ["请求交换条件", "请求玩家协助", "暂时保持观望"]),
       knowledge: i === 0 || i === 2 ? ["主线线索"] : [],
@@ -38,6 +52,14 @@ export function initializeStory(
     goal: c.goal,
     location,
     accessible: true,
+    targetReached: false,
+    plans: [],
+    lastUpdate: {
+      changedFields: [],
+      evaluatedReactions: [],
+      firedReactions: [],
+      replannedPlans: [],
+    },
     npcs,
     conflict: c,
     gold: 12,

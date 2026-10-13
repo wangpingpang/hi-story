@@ -1,9 +1,11 @@
 import type { NPC, Quest, World } from "./model";
+import { changeKeys } from "./dependency-keys";
 import type { Scalar, Value } from "./rule-types";
 export interface Context {
   world: World;
   npc?: NPC;
   quest?: Quest;
+  changes?: Set<string>;
 }
 type ReadValue = Scalar | string[];
 interface Field {
@@ -30,7 +32,13 @@ function worldField<K extends keyof World>(
 }
 worldField("gold", "number", 0);
 fields.set("time", { read: (c) => c.world.time });
-for (const key of ["clue", "resource", "notes", "accessible"] as const)
+for (const key of [
+  "clue",
+  "resource",
+  "notes",
+  "accessible",
+  "targetReached",
+] as const)
   worldField(key, "boolean");
 worldField("ending", "string");
 for (const key of ["goal", "location", "deadline"] as const)
@@ -139,7 +147,10 @@ export function write(path: string, v: ReadValue, c: Context) {
     (f.choices && !f.choices.includes(v as string))
   )
     throw Error(`字段值不合法：${path}`);
+  const previous = f.read(c);
   f.write(c, v);
+  if (previous !== v)
+    for (const key of changeKeys(path, c)) c.changes?.add(key);
 }
 export function template(text: string, c: Context) {
   return text.replace(/\{([a-zA-Z0-9_.-]+)\}/g, (_, path) =>
@@ -149,4 +160,8 @@ export function template(text: string, c: Context) {
 export function validateTemplate(text: string, scope: string) {
   for (const m of text.matchAll(/\{([a-zA-Z0-9_.-]+)\}/g))
     validateField(m[1], false, scope);
+}
+
+export function fieldPaths(): string[] {
+  return [...fields.keys()];
 }

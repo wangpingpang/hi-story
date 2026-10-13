@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "core",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "name": "基础故事规则",
   "requires": [],
   "actions": [
@@ -364,6 +364,13 @@
               "ref": "accessible"
             },
             "right": true
+          },
+          {
+            "op": "eq",
+            "left": {
+              "ref": "targetReached"
+            },
+            "right": true
           }
         ]
       },
@@ -451,6 +458,57 @@
               "value": "玩家离开"
             }
           ]
+        }
+      ]
+    },
+    {
+      "id": "travel",
+      "scope": "world",
+      "category": "探索",
+      "text": "按线索抵达目标地点",
+      "cost": 2,
+      "when": {
+        "op": "all",
+        "args": [
+          {
+            "op": "eq",
+            "left": {
+              "ref": "clue"
+            },
+            "right": true
+          },
+          {
+            "op": "eq",
+            "left": {
+              "ref": "resource"
+            },
+            "right": true
+          },
+          {
+            "op": "eq",
+            "left": {
+              "ref": "accessible"
+            },
+            "right": true
+          },
+          {
+            "op": "eq",
+            "left": {
+              "ref": "targetReached"
+            },
+            "right": false
+          }
+        ]
+      },
+      "effects": [
+        {
+          "op": "set",
+          "path": "targetReached",
+          "value": true
+        },
+        {
+          "op": "text",
+          "template": "；你抵达了完成目标所需的地点。"
         }
       ]
     }
@@ -735,6 +793,225 @@
           "op": "format",
           "path": "ending",
           "template": "旅程结束：{main.reason}"
+        }
+      ]
+    }
+  ],
+  "plans": [
+    {
+      "id": "journey",
+      "title": "通向{goal}的旅程",
+      "questId": "main",
+      "stages": [
+        {
+          "id": "learn",
+          "title": "取得目标线索",
+          "requires": [],
+          "complete": {
+            "op": "eq",
+            "left": {
+              "ref": "clue"
+            },
+            "right": true
+          },
+          "routes": [
+            {
+              "id": "notes",
+              "title": "研究既存笔记",
+              "when": {
+                "op": "eq",
+                "left": {
+                  "ref": "notes"
+                },
+                "right": true
+              },
+              "actionIds": [
+                "notes"
+              ]
+            },
+            {
+              "id": "witness",
+              "title": "向知情者获取信息",
+              "when": {
+                "op": "some",
+                "collection": "npcs",
+                "where": {
+                  "op": "all",
+                  "args": [
+                    {
+                      "op": "eq",
+                      "left": {
+                        "ref": "npc.alive"
+                      },
+                      "right": true
+                    },
+                    {
+                      "op": "includes",
+                      "left": {
+                        "ref": "npc.knowledge"
+                      },
+                      "right": "主线线索"
+                    }
+                  ]
+                }
+              },
+              "actionIds": [
+                "ask",
+                "threat"
+              ],
+              "npcWhen": {
+                "op": "includes",
+                "left": {
+                  "ref": "npc.knowledge"
+                },
+                "right": "主线线索"
+              }
+            }
+          ]
+        },
+        {
+          "id": "gather",
+          "title": "准备{conflict.need}",
+          "requires": [
+            "learn"
+          ],
+          "complete": {
+            "op": "eq",
+            "left": {
+              "ref": "resource"
+            },
+            "right": true
+          },
+          "routes": [
+            {
+              "id": "buy",
+              "title": "通过交易取得物资",
+              "when": {
+                "op": "eq",
+                "left": {
+                  "ref": "accessible"
+                },
+                "right": true
+              },
+              "actionIds": [
+                "buy"
+              ]
+            },
+            {
+              "id": "search",
+              "title": "冒险搜寻物资",
+              "when": {
+                "op": "eq",
+                "left": {
+                  "ref": "accessible"
+                },
+                "right": true
+              },
+              "actionIds": [
+                "search"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "reach",
+          "title": "抵达目标地点",
+          "requires": [
+            "gather"
+          ],
+          "complete": {
+            "op": "all",
+            "args": [
+              {
+                "op": "eq",
+                "left": {
+                  "ref": "targetReached"
+                },
+                "right": true
+              },
+              {
+                "op": "eq",
+                "left": {
+                  "ref": "accessible"
+                },
+                "right": true
+              }
+            ]
+          },
+          "routes": [
+            {
+              "id": "travel",
+              "title": "按线索前往目标地点",
+              "when": {
+                "op": "eq",
+                "left": {
+                  "ref": "accessible"
+                },
+                "right": true
+              },
+              "actionIds": [
+                "travel"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "finish",
+          "title": "完成{goal}",
+          "requires": [
+            "learn",
+            "gather",
+            "reach"
+          ],
+          "complete": {
+            "op": "eq",
+            "left": {
+              "ref": "main.status"
+            },
+            "right": "success"
+          },
+          "routes": [
+            {
+              "id": "resolve",
+              "title": "完成最终行动",
+              "when": {
+                "op": "all",
+                "args": [
+                  {
+                    "op": "eq",
+                    "left": {
+                      "ref": "clue"
+                    },
+                    "right": true
+                  },
+                  {
+                    "op": "eq",
+                    "left": {
+                      "ref": "resource"
+                    },
+                    "right": true
+                  },
+                  {
+                    "op": "eq",
+                    "left": {
+                      "ref": "accessible"
+                    },
+                    "right": true
+                  },
+                  {
+                    "op": "eq",
+                    "left": {
+                      "ref": "targetReached"
+                    },
+                    "right": true
+                  }
+                ]
+              },
+              "actionIds": [
+                "resolve"
+              ]
+            }
+          ]
         }
       ]
     }

@@ -43,4 +43,26 @@ export interface RulePack {
   requires: string[];
   actions: ActionRule[];
   reactions: ReactionRule[];
+  plans?: PlanRule[];
+}
+
+export interface RouteRule {
+  id: string;
+  title: string;
+  when: Condition;
+  actionIds: string[];
+  npcWhen?: Condition;
+}
+export interface StageRule {
+  id: string;
+  title: string;
+  requires: string[];
+  complete: Condition;
+  routes: RouteRule[];
+}
+export interface PlanRule {
+  id: string;
+  title: string;
+  questId: "main" | "side";
+  stages: StageRule[];
 }

@@ -16,6 +16,7 @@ test("故事工坊：死亡联动、主线闭环和移动布局", async ({ page 
   await expect(page.getByText(/委托人死亡，原委托终止/)).toBeVisible();
   await page.locator('[data-option="notes"]').click();
   await page.locator('[data-option="buy"]').click();
+  await page.locator('[data-option="travel"]').click();
   await page.locator('[data-option="resolve"]').click();
   await expect(page.getByText(/^你完成了目标/)).toBeVisible();
   await expect(page.locator("[data-option]")).toHaveCount(0);
@@ -79,4 +80,32 @@ test("故事规则包：加载、使用、导入和卸载保留事实", async ({
     ),
   ).toBe(true);
   expect(errors).toEqual([]);
+});
+
+test("阶段路线随道路变化更新，恢复后完成四阶段", async ({ page }) => {
+  await page.goto("/?view=story-generator");
+  const stages = page.locator('[data-plan="core/journey"]');
+  await expect(stages.locator('[data-stage="learn"]')).toContainText("可推进");
+  await page.locator('[data-option="notes"]').click();
+  await page.locator('[data-option="buy"]').click();
+  await page.getByRole("button", { name: "切换目标地点通行状态" }).click();
+  await expect(stages.locator('[data-stage="reach"]')).toContainText(
+    "暂时受阻",
+  );
+  await expect(page.locator('[data-option="travel"]')).toHaveCount(0);
+  await page.getByRole("button", { name: "切换目标地点通行状态" }).click();
+  await page.locator('[data-option="travel"]').click();
+  await expect(stages.locator('[data-stage="reach"]')).toContainText("已完成");
+  await page.getByRole("button", { name: "切换目标地点通行状态" }).click();
+  await expect(stages.locator('[data-stage="reach"]')).toContainText(
+    "条件需恢复",
+  );
+  await page.getByRole("button", { name: "切换目标地点通行状态" }).click();
+  await page.locator('[data-option="resolve"]').click();
+  await expect(page.getByText(/^你完成了目标/)).toBeVisible();
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= innerWidth,
+    ),
+  ).toBe(true);
 });

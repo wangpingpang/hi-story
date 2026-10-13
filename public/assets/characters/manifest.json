@@ -1,0 +1,107 @@
+{
+  "version": "character-art/1",
+  "status": "source-art-draft",
+  "runtimeIntegrated": false,
+  "note": "Generated source sheets, not normalized rendering atlases. Do not assume equal cells or plug into the existing 64x96 rig before slicing and registration QA. Female body/clothing choices are not yet in the runtime enum.",
+  "engine": "built-in image generation",
+  "assets": [
+    {
+      "file": "character-parts-v1.png",
+      "size": [
+        1161,
+        1354
+      ],
+      "format": "RGBA PNG",
+      "rows": [
+        [
+          "crop",
+          "bob",
+          "long",
+          "ponytail",
+          "bun",
+          "mohawk"
+        ],
+        [
+          "oval",
+          "round",
+          "square",
+          "angular"
+        ],
+        [
+          "slim",
+          "balanced",
+          "broad",
+          "stocky"
+        ],
+        [
+          "tunic",
+          "shirt",
+          "vest",
+          "coat",
+          "armor"
+        ],
+        [
+          "straight",
+          "loose",
+          "shorts",
+          "patched"
+        ],
+        [
+          "boots",
+          "ankle",
+          "cloth",
+          "sandals"
+        ],
+        [
+          "none (empty)",
+          "scarf",
+          "glasses",
+          "earring",
+          "satchel",
+          "pendant"
+        ]
+      ],
+      "prompts": {
+        "generate": "Use case: stylized-concept.\nAsset type: modular pixel-art character PARTS ATLAS for the indie browser RPG hi-story. This is source game artwork, NOT a website screenshot, NOT an infographic, NOT a decorative poster.\nPrimary request: create an ORIGINAL, carefully organized transparent PNG sheet containing the seven modular categories of character parts used by a procedural human character generator: hair, face shape, body build, upper clothes, trousers, footwear, accessories.\nStyle: crisp handcrafted 2D pixel art for a grounded medieval-fantasy travel RPG, restrained earth colors, muted teal, terracotta, leather brown, brass accents, dark charcoal pixel outlines, 3-tone shading, readable silhouettes, adult characters with approximately 4-head-tall proportions. Front-facing orthographic neutral standing rig; no perspective; no animation. Visible square pixels, no blurry painted shading, no anti-aliased watercolor edges.\nComposition: portrait atlas, SIX evenly spaced columns and SEVEN evenly spaced rows. All cells are the same size, with ample transparent padding and absolutely no overlap. Each cell conceptually holds the SAME full-character registration area. Aim for 1536 by 1792 pixels. No drawn grid lines. Every piece is centered/aligned to the same rig in its own cell, so hair and faces occur near the top of a cell, shirts at torso height, pants below the waist, and shoes near the foot baseline. Treat these as paper-doll rendering layers, not inventory icons.\nROW 1, left to right, exactly SIX isolated hair overlays: short cropped hair, ear-length bob, long hair, ponytail, top bun, mohawk. Draw ONLY the hair shapes; NO faces, NO heads underneath, NO necks, NO bodies. Varied dark brown, black, chestnut, golden, silver, muted purple hair.\nROW 2, left to right, exactly FOUR isolated bald face/head shapes: oval face, round face, square face, angular face. All use the same warm medium skin and same eye/mouth placement, for use under hair. No hairstyles, hats or clothes. Columns 5 and 6 are fully transparent empty cells.\nROW 3, left to right, exactly FOUR adult HEADLESS body bases: slim, balanced, broad-shouldered, stocky. Neutral front-facing standing stance, arms slightly away from torso, feet at same baseline. Neck, torso, arms, hands, legs and bare feet visible, modest opaque simple neutral underwear, nonsexual. No heads, no hair, no shoes, no outer clothing. Columns 5 and 6 empty.\nROW 4, left to right, exactly FIVE upper-clothing layers: belted travel tunic, simple collared shirt, sleeveless vest, short travel coat, light leather-and-metal armor. ONLY the garments, with transparent neck openings and no skin, no head, no legs, no trousers or accessories. Column 6 empty.\nROW 5, left to right, exactly FOUR lower-clothing layers: straight trousers, loose trousers, knee-length shorts, patched trousers. Draw ONLY the trousers with leg openings; no torso, skin, heads or shoes. Columns 5 and 6 empty.\nROW 6, left to right, exactly FOUR paired footwear layers: tall leather boots, ankle boots, cloth shoes, leather sandals. Each cell holds a matching left/right pair spaced to the standing rig. No legs, no trousers. Columns 5 and 6 empty.\nROW 7, left to right: column 1 is FULLY EMPTY transparent (the no-accessory option); column 2 a scarf layer, column 3 round wire-frame glasses, column 4 one small brass earring, column 5 a diagonal travel-satchel strap and leather bag, column 6 a pendant necklace. ONLY the accessories, no mannequin or body behind them.\nTransparency is essential: genuine alpha transparent canvas and transparent space inside and between layers. Do not draw a white, beige, gray, black or checkerboard background. No scene, floor, shadows, UI panels, labels, letters, numbers, captions, logos, watermark, extra weapons, extra objects, or complete dressed characters. Maintain a single consistent pixel art scale and consistent front-facing registration throughout.",
+        "cleanup": "Use case: precise-object-edit.\nInput image 1 is the EDIT TARGET: a transparent modular character parts atlas for hi-story.\nPrimary request: clean and simplify this exact asset sheet into genuine crisp retro RPG pixel sprites. Keep the same seven category rows, same count and left-to-right order of parts, same basic designs, same proportions, and same empty cells. Do not add complete characters or new objects.\nIMPORTANT TRANSPARENCY CLEANUP: replace red/green/yellow edge artifacts with the intended dark charcoal outlines; remove ALL stray red halos and isolated fringe pixels. The sprite artwork itself must be SOLID and FULLY OPAQUE, with real alpha=0 transparency elsewhere. Nothing should be translucent or faded. No red glow, no checkerboard, no matte background. Clean binary cutout edges.\nPIXEL STYLE: simplify every sprite to low-resolution, clearly readable square pixel clusters, as if each full body were originally around 48 x 72 logical pixels and enlarged with nearest-neighbor. Hard pixel steps, no smooth antialiasing, no painterly high-frequency texture. Use at most three shading tones per material plus charcoal outlines. Preserve a warm muted medieval-fantasy palette.\nMODULARITY CLEANUP: remove the diagonal strap and small pouch from the first upper garment, leaving ONLY a plain belted tunic. Trousers must end at fabric cuffs and have NO built-in footwear, legs or skin. Body bases remain headless with modest opaque underwear; do not change anatomy or make them sexual. The satchel remains solely in the accessory row.\nPreserve exactly six hairs; four bald faces; four headless body builds; five upper garments; four trouser designs; four paired footwear designs; an empty no-accessory position followed by scarf, glasses, earring, satchel and pendant. No text, labels, grid lines, watermark, shadows, gradient background or scenery. Actual PNG alpha transparency, solid pixels on all artwork."
+      }
+    },
+    {
+      "file": "female-parts-v1.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "format": "RGBA PNG",
+      "rows": [
+        [
+          "女性纤细身材",
+          "女性匀称身材",
+          "女性运动型宽肩身材",
+          "女性敦实身材"
+        ],
+        [
+          "束腰旅人衫",
+          "长袖亚麻衬衣",
+          "贴身马甲",
+          "短旅行外套",
+          "轻甲",
+          "交叠式长袖上衣"
+        ],
+        [
+          "直筒旅行裤",
+          "宽腿裤",
+          "及膝短裤",
+          "及膝A字裙",
+          "及小腿长裙",
+          "补丁旅行裤"
+        ]
+      ],
+      "reference": "character-parts-v1.png",
+      "prompts": {
+        "generate": "Use case: stylized-concept.\nInput image 1 is a STYLE REFERENCE ONLY: the existing hi-story modular pixel character atlas. Create a NEW companion atlas of FEMALE BODY BASES AND FEMALE TRAVEL CLOTHING. Do not reproduce or modify the old sheet.\nAsset type: transparent PNG modular paper-doll character sprite source assets for hi-story, a medieval-fantasy pixel RPG.\nStyle and invariants: match the reference's front-facing orthographic view, adult RPG character proportions, charcoal pixel outlines, muted earthy travel palette, leather/brass details, and neutral standing stance. Cleaner and slightly simpler pixel clusters, sharp stepped pixels, opaque artwork over real alpha transparency. No red, green or yellow edge contamination, no glow, no antialiasing blur, no checkerboard/background matte, no shadows or scenery. All humans are ADULT women age 25 or older, nonsexual character-design bases. Practical travel clothing, not pin-up costumes.\nLayout: a clearly spaced atlas of THREE horizontal rows, SIX equal-width columns, no borders, no text. Every item has generous transparent margins; no overlap; keep all items entirely visible. Use the same consistent full-character rig and pixel scale across the whole sheet.\nROW 1: four front-facing HEADLESS FEMALE BODY BASES, left to right: slim, balanced, athletic broad-shouldered, stocky/curvy. Adult anatomy, natural moderate proportions, distinct build silhouettes, hands relaxed slightly away from torso, feet at same baseline. All wear opaque modest neutral-gray athletic underwear: fully covering bra-like top and high-waisted boyshorts. No nudity, no visible nipples/genitals, no exaggerated breasts or hips. No heads, no hair, no footwear, no outer clothes. Cells 5 and 6 empty transparent.\nROW 2: six isolated WOMEN'S UPPER CLOTHING layers: (1) belted forest-green travel tunic with subtle fitted waist, (2) cream long-sleeve linen blouse with laced neckline, (3) chestnut sleeveless fitted waistcoat, (4) muted teal short traveler coat with brass trim, (5) padded leather-and-metal light armor adapted to a female torso, (6) rust-red long-sleeve wrap blouse with an opaque closed neckline. Render ONLY the clothing. Transparent neck openings and no skin, mannequin, head, hands, pants, bag, belt-pouch or built-in accessories. Same torso registration and scale.\nROW 3: six isolated WOMEN'S LOWER CLOTHING layers: (1) straight travel trousers in charcoal brown, (2) loose wide-leg trousers in slate teal, (3) modest knee-length travel shorts in tan, (4) practical knee-length A-line skirt in terracotta, (5) long calf-length skirt in muted forest green with a small walking slit, (6) patched travel trousers in brown. Render ONLY the garments; no body, skin, head, feet or footwear. Skirts opaque and modest, no sheer fabrics.\nA cohesive original game asset sheet. No letters, numbers, captions, logos, watermark, decorative icons, extra objects, complete dressed figures, modern high heels, lingerie costumes or weapons. Transparent background and solid opaque pixels on the artwork.",
+        "cleanup": "Use case: background-extraction.\nImage 1 is the EDIT TARGET, a female pixel RPG body-and-clothing asset sheet.\nRemove ONLY the entire diffuse brown/green/red/black background, colored haze, matte and all ground shadows. The result must be a genuine transparent PNG containing ONLY the four headless adult female body bases, six upper garments and six lower garments as clean cutout sprites.\nPreserve every sprite EXACTLY: identical anatomy, modest underwear, garment designs, pixels, colors, shading, sizes, positions and ordering. Do not redesign, move, merge, omit or add any item. Preserve transparent neck/sleeve/leg openings.\nAll pixels outside and between sprites must have alpha ZERO, including the colored blurry halo close to contours and the empty upper-right area. All solid sprite interior pixels should be fully opaque. No translucent backdrop, no rectangular plate behind clothing, no red/green/yellow fringe, no decorative gradient, no fake printed checkerboard. Crisp charcoal cutout outlines, no glow or soft shadows.\nNo text, labels, logos or watermark. This is a background removal edit only, not a new illustration."
+      }
+    }
+  ]
+}

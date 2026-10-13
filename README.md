@@ -75,3 +75,13 @@ CHROMIUM_PATH=/path/to/chromium npm run test:e2e
 - `manifest.json`：各行部件清单、源图尺寸、完整生成和清理提示词。
 
 这是尚待切片和校准的首版图片素材，不是已经对齐的等尺寸图集；当前工坊仍使用 SVG，女性身材和裙装尚未写入运行时枚举。后续接入前需检查透明边缘、统一骨架锚点与服装适配。图片已归入开发分支，未发布到线上。
+
+### 完整随机人物资料 v1
+
+`generateCharacter(seed, options?)` 生成姓名、性别、年龄、职业、背景、专长、NPC 初始性格、动机及七部件外观。职业与背景、穿搭相互匹配；支持指定参数和玩家自定义背景。玩家性格留待后续选择证据，不在初始化时随机贴标签。
+
+```sh
+npm run characters:generate -- --seed hi-story-20261014 --count 5
+```
+
+[接口与范围](docs/character-generator.md#完整随机人物资料-v1) · [五次实际返回结果](docs/examples/random-characters-v1.json)。网页仍展示固定故事人物，此接口可供后续初始化和 NPC 生成调用。

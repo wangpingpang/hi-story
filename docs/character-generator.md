@@ -60,3 +60,32 @@ validateAppearance(edited);
 本轮验收：Node 24.19.0、Chromium 153.0.8010.0；58 项逻辑测试和 10 项桌面/窄屏生产浏览器测试全部通过，类型、领域边界和生产构建均通过。测试服务器绑定到回环地址，避免受运行环境的网络接口枚举限制影响。标准 Playwright 浏览器下载不可用，本轮使用独立的 Chromium 运行包，未加入项目依赖。
 
 工坊页面截图：[桌面](evidence/character-generator-desktop.png)、[窄屏](evidence/character-generator-narrow.png)。此前故事小样的验收文件保持原始记录。
+
+## 完整随机人物资料 v1
+
+新增公开接口 `generateCharacter(seed, options?)`，版本为 `random-character/1`。默认生成 NPC：姓名、性别、18–70 岁年龄、职业、职业背景、专长、初始性格、当前动机，以及完整七部件外观。职业目录包含递信人、草药师、铁匠、巡林人、商队护卫、旅店掌柜、法师学徒、抄写员；背景、动机、衣裤鞋和饰品按职业选择，姓名和外观不按性格贴标签。
+
+```ts
+import { generateCharacter, generatedCharacterSnapshot } from '../modules/characters';
+
+const npc = generateCharacter('world-1:npc-42');
+const player = generateCharacter('world-1:player-1', {
+  control: 'player', gender: 'female', age: 24,
+  occupationId: 'ranger', name: '自定义旅人', background: '在林地长大，后来离乡旅行。',
+});
+const immutable = generatedCharacterSnapshot(npc);
+```
+
+NPC 初始性格来自三个独立维度，各取一项，不代表已观察到的行为证据。玩家初始 `personality.traits` 为空，来源为 `choice-evidence`，后续仍由性格领域根据选择描述倾向。自定义背景原样保留并标记 `provided`，不另外推断出生地。动机只是背景设定，生成器不会创建任务、地图、遭遇或已确认事实。
+
+种子对各字段独立派生随机序列；相同版本、目录、种子和参数可以完整复现。覆盖性别不会扰动年龄、职业与外观。`actorId` 为 `character:<seed>`，同种子视作同一人物；调用方应为不同人物分配不同种子。这不是全球唯一编号服务。仅初始成年人物范围已实现，后续可扩展年龄和身份目录。
+
+完整资料生成器通过以下命令调用，不需要启动网页：
+
+```sh
+npm run characters:generate -- --seed hi-story-20261014 --count 5
+```
+
+命令逐次调用生成接口，使用 `hi-story-20261014:1` 至 `:5` 五个子种子，输出一个包含五份完整人物资料的 JSON。不指定种子时使用新 UUID；调用次数范围为 1–100。原始五次返回结果在 [random-characters-v1.json](examples/random-characters-v1.json)。
+
+当前网页工坊仍为外观编辑器，完整资料接口尚未替换固定故事中的沈青与陆砚。男女都可以生成资料和选择现有外观，女性 PNG 源图及裙装仍保持已归档原型状态，尚未绑定渲染器。生成器不依赖素材文件，当前输出不能视为已完成精灵图装配。

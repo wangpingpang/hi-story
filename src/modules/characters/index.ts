@@ -2,6 +2,10 @@ import { freeze, type DeepReadonly } from '../../contracts';
 import { generateAppearance, validateAppearance, type Appearance } from './appearance';
 export { APPEARANCE_VERSION, APPEARANCE_SLOTS, APPEARANCE_CATALOG, generateAppearance, validateAppearance, rerollAppearance, rerollAppearancePart, setAppearancePart } from './appearance';
 export type { Appearance, AppearancePart, AppearanceSlot } from './appearance';
+export { RANDOM_CHARACTER_VERSION, generateCharacter, validateGeneratedCharacter, generatedCharacterSnapshot } from './generator';
+export type { GeneratedCharacter, CharacterGenerationOptions, Gender } from './generator';
+export { PROFILE_CATALOG, OCCUPATIONS } from './profile-catalog';
+export type { OccupationId } from './profile-catalog';
 
 export type CharacterId = 'courier' | 'luyan';
 export type Condition = 'ready' | 'exerted';

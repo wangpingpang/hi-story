@@ -8,6 +8,7 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:e2e": "playwright test",
+    "characters:generate": "node tooling/generate-characters.mjs",
     "check:boundaries": "node tooling/boundaries.mjs",
     "build": "vite build",
     "preview": "vite preview --host 0.0.0.0"

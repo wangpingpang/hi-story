@@ -1,4 +1,5 @@
 import { freeze, type DeepReadonly } from '../../contracts';
+import { assertSeed, seededRandom } from './random';
 
 export const APPEARANCE_VERSION = 'appearance/1' as const;
 export const APPEARANCE_SLOTS = ['hair', 'face', 'body', 'top', 'pants', 'shoes', 'accessory'] as const;
@@ -21,36 +22,22 @@ export const APPEARANCE_CATALOG = freeze({
   accessory: { label: '饰品', styles: styles([['none','无饰品'],['scarf','围巾'],['glasses','眼镜'],['earring','耳饰'],['satchel','挎包'],['pendant','吊坠']]), colors: ['#d4b071','#a8584f','#699895','#b7bacb','#795e45'] },
 });
 
-function checkSeed(seed: string): void {
-  if (typeof seed !== 'string' || !seed.trim() || seed.length > 128) throw Error('种子须为 1–128 个字符，且不能全为空白');
-}
 function checkSlot(slot: AppearanceSlot): void {
   if (!APPEARANCE_SLOTS.includes(slot)) throw Error('未知外观部件');
 }
-// FNV-1a followed by Mulberry32; explicit integer operations make results reproducible.
-function random(seed: string): () => number {
-  let state = 2166136261;
-  for (let i = 0; i < seed.length; i++) state = Math.imul(state ^ seed.charCodeAt(i), 16777619) >>> 0;
-  return () => {
-    let x = state += 0x6d2b79f5;
-    x = Math.imul(x ^ (x >>> 15), x | 1);
-    x ^= x + Math.imul(x ^ (x >>> 7), x | 61);
-    return ((x ^ (x >>> 14)) >>> 0) / 4294967296;
-  };
-}
 function generatePart(seed: string, slot: AppearanceSlot): AppearancePart {
-  const rng = random(`${APPEARANCE_VERSION}:${seed}:${slot}`), catalog = APPEARANCE_CATALOG[slot];
+  const rng = seededRandom(`${APPEARANCE_VERSION}:${seed}:${slot}`), catalog = APPEARANCE_CATALOG[slot];
   return { styleId: catalog.styles[Math.floor(rng() * catalog.styles.length)].id, color: catalog.colors[Math.floor(rng() * catalog.colors.length)] };
 }
 
 export function generateAppearance(seed: string): Appearance {
-  checkSeed(seed);
+  assertSeed(seed);
   const parts = Object.fromEntries(APPEARANCE_SLOTS.map(slot => [slot, generatePart(seed, slot)])) as Appearance['parts'];
   return { version: APPEARANCE_VERSION, seed, parts };
 }
 export function validateAppearance(model: DeepReadonly<Appearance>): void {
   if (!model || model.version !== APPEARANCE_VERSION) throw Error('外观版本无效');
-  checkSeed(model.seed);
+  assertSeed(model.seed);
   if (!model.parts || Object.keys(model.parts).length !== APPEARANCE_SLOTS.length) throw Error('外观须包含七个部件');
   for (const slot of APPEARANCE_SLOTS) {
     const part = model.parts[slot], catalog = APPEARANCE_CATALOG[slot];

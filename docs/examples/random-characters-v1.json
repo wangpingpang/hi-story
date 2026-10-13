@@ -1,0 +1,302 @@
+{
+  "generatorVersion": "random-character/1",
+  "seed": "hi-story-20261014",
+  "callCount": 5,
+  "characters": [
+    {
+      "version": "random-character/1",
+      "seed": "hi-story-20261014:1",
+      "actorId": "character:hi-story-20261014:1",
+      "control": "npc",
+      "name": "伊恩·风铃",
+      "gender": "male",
+      "age": 50,
+      "identity": {
+        "occupationId": "ranger",
+        "occupation": "巡林人",
+        "expertise": "追踪足迹、辨认地形与林地巡查",
+        "background": "出身于旧港城区。曾为村民巡查林间道路，在一次暴雨后带领迷路者返回村庄。",
+        "backgroundSource": "generated"
+      },
+      "personality": {
+        "source": "npc-initial",
+        "traits": [
+          "好奇",
+          "寡言",
+          "重义"
+        ]
+      },
+      "motivation": "想重新标记一条被废弃的山林小径。",
+      "appearance": {
+        "version": "appearance/1",
+        "seed": "hi-story-20261014:1",
+        "parts": {
+          "hair": {
+            "styleId": "crop",
+            "color": "#dfbf79"
+          },
+          "face": {
+            "styleId": "oval",
+            "color": "#263343"
+          },
+          "body": {
+            "styleId": "stocky",
+            "color": "#c58b65"
+          },
+          "top": {
+            "styleId": "tunic",
+            "color": "#9b8557"
+          },
+          "pants": {
+            "styleId": "straight",
+            "color": "#927861"
+          },
+          "shoes": {
+            "styleId": "ankle",
+            "color": "#302d31"
+          },
+          "accessory": {
+            "styleId": "satchel",
+            "color": "#795e45"
+          }
+        }
+      }
+    },
+    {
+      "version": "random-character/1",
+      "seed": "hi-story-20261014:2",
+      "actorId": "character:hi-story-20261014:2",
+      "control": "npc",
+      "name": "罗恩·风铃",
+      "gender": "male",
+      "age": 54,
+      "identity": {
+        "occupationId": "courier",
+        "occupation": "递信人",
+        "expertise": "认路、递信与凭证核验",
+        "background": "出身于旧港城区。曾跟随老递信人学习辨认驿路，后来独立完成了第一趟跨城递送。",
+        "backgroundSource": "generated"
+      },
+      "personality": {
+        "source": "npc-initial",
+        "traits": [
+          "果断",
+          "健谈",
+          "重义"
+        ]
+      },
+      "motivation": "想弄清一封无人认领旧信的收件人。",
+      "appearance": {
+        "version": "appearance/1",
+        "seed": "hi-story-20261014:2",
+        "parts": {
+          "hair": {
+            "styleId": "bob",
+            "color": "#dfbf79"
+          },
+          "face": {
+            "styleId": "square",
+            "color": "#5d6842"
+          },
+          "body": {
+            "styleId": "slim",
+            "color": "#dfb18c"
+          },
+          "top": {
+            "styleId": "tunic",
+            "color": "#705d83"
+          },
+          "pants": {
+            "styleId": "patched",
+            "color": "#324553"
+          },
+          "shoes": {
+            "styleId": "ankle",
+            "color": "#8b694e"
+          },
+          "accessory": {
+            "styleId": "scarf",
+            "color": "#b7bacb"
+          }
+        }
+      }
+    },
+    {
+      "version": "random-character/1",
+      "seed": "hi-story-20261014:3",
+      "actorId": "character:hi-story-20261014:3",
+      "control": "npc",
+      "name": "艾琳·白榆",
+      "gender": "female",
+      "age": 41,
+      "identity": {
+        "occupationId": "innkeeper",
+        "occupation": "旅店掌柜",
+        "expertise": "接待旅人、管理物资与辨认地方消息",
+        "background": "出身于杉木林地。曾经营河岸旅店，在旧桥修复后恢复了来往旅人的住宿生意。",
+        "backgroundSource": "generated"
+      },
+      "personality": {
+        "source": "npc-initial",
+        "traits": [
+          "谨慎",
+          "直率",
+          "守信"
+        ]
+      },
+      "motivation": "想寻得稳定且价格合理的粮食供应。",
+      "appearance": {
+        "version": "appearance/1",
+        "seed": "hi-story-20261014:3",
+        "parts": {
+          "hair": {
+            "styleId": "long",
+            "color": "#614436"
+          },
+          "face": {
+            "styleId": "round",
+            "color": "#263343"
+          },
+          "body": {
+            "styleId": "stocky",
+            "color": "#f1d0ac"
+          },
+          "top": {
+            "styleId": "vest",
+            "color": "#59738c"
+          },
+          "pants": {
+            "styleId": "loose",
+            "color": "#72647d"
+          },
+          "shoes": {
+            "styleId": "ankle",
+            "color": "#8b694e"
+          },
+          "accessory": {
+            "styleId": "earring",
+            "color": "#795e45"
+          }
+        }
+      }
+    },
+    {
+      "version": "random-character/1",
+      "seed": "hi-story-20261014:4",
+      "actorId": "character:hi-story-20261014:4",
+      "control": "npc",
+      "name": "艾琳·杉木",
+      "gender": "female",
+      "age": 44,
+      "identity": {
+        "occupationId": "caravan-guard",
+        "occupation": "商队护卫",
+        "expertise": "护送、营地警戒与风险观察",
+        "background": "出身于杉木林地。曾为沿河商队守夜，在一次险情中及时示警，让车队安全退回驿站。",
+        "backgroundSource": "generated"
+      },
+      "personality": {
+        "source": "npc-initial",
+        "traits": [
+          "好奇",
+          "直率",
+          "求知"
+        ]
+      },
+      "motivation": "想确认下一段商路是否仍然安全。",
+      "appearance": {
+        "version": "appearance/1",
+        "seed": "hi-story-20261014:4",
+        "parts": {
+          "hair": {
+            "styleId": "long",
+            "color": "#dfbf79"
+          },
+          "face": {
+            "styleId": "square",
+            "color": "#5d6842"
+          },
+          "body": {
+            "styleId": "broad",
+            "color": "#c58b65"
+          },
+          "top": {
+            "styleId": "coat",
+            "color": "#705d83"
+          },
+          "pants": {
+            "styleId": "straight",
+            "color": "#72647d"
+          },
+          "shoes": {
+            "styleId": "ankle",
+            "color": "#654432"
+          },
+          "accessory": {
+            "styleId": "scarf",
+            "color": "#d4b071"
+          }
+        }
+      }
+    },
+    {
+      "version": "random-character/1",
+      "seed": "hi-story-20261014:5",
+      "actorId": "character:hi-story-20261014:5",
+      "control": "npc",
+      "name": "伊恩·灰溪",
+      "gender": "male",
+      "age": 18,
+      "identity": {
+        "occupationId": "apprentice-mage",
+        "occupation": "法师学徒",
+        "expertise": "基础符文、文献阅读与魔法现象记录",
+        "background": "出身于白榆村。曾协助导师整理旧书库，将散落的基础符文笔记编成了索引。",
+        "backgroundSource": "generated"
+      },
+      "personality": {
+        "source": "npc-initial",
+        "traits": [
+          "好奇",
+          "温和",
+          "重义"
+        ]
+      },
+      "motivation": "想核对一处遗迹碑文上的陌生符号。",
+      "appearance": {
+        "version": "appearance/1",
+        "seed": "hi-story-20261014:5",
+        "parts": {
+          "hair": {
+            "styleId": "bob",
+            "color": "#dfbf79"
+          },
+          "face": {
+            "styleId": "round",
+            "color": "#5d6842"
+          },
+          "body": {
+            "styleId": "slim",
+            "color": "#9c664b"
+          },
+          "top": {
+            "styleId": "tunic",
+            "color": "#59738c"
+          },
+          "pants": {
+            "styleId": "straight",
+            "color": "#60594e"
+          },
+          "shoes": {
+            "styleId": "ankle",
+            "color": "#654432"
+          },
+          "accessory": {
+            "styleId": "pendant",
+            "color": "#699895"
+          }
+        }
+      }
+    }
+  ]
+}

@@ -36,7 +36,7 @@ Vite 8.3.4 + TypeScript 7.0.2，原生 DOM 与 SVG。三幕确定性选择不需
 | rules | 未实现，README 边界 | 后续纯计算骰子/属性规则；本次没有随机检定 |
 | combat | 未实现，README 边界 | 无战棋、战斗回合、伤害 |
 | objectives | 已实现 create / complete | 任务完成、今晚/次晨处理、公开簿姓名；耗时 ≤3 今晚，否则明早，都成功 |
-| story-planning | 未实现，README 边界 | 固定顺序；后续仅计划未来，不能重写事实 |
+| story-planning | 独立随机故事工坊：规则包注册表、通用解释器与事务结算 | 世界事实保留，扩展包运行时装卸；详见 story-rule-packs.md |
 | story-runtime | 已实现 eventId / append | 事件实例身份、已确认选择事实；唯一事件不重复结算。未实现通用 proposed/prepared 生命周期 |
 | npc | 最小 create / observeRiver | 陆砚只记忆亲历合作，能安全独立搬箱；不知道桥上取舍、信件内容和投递方式 |
 | party | 未实现，README 边界 | 没有招募和组队。帮助不会创建队伍；UI「独自旅行」是本次固定事实 |

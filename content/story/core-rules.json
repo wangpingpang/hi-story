@@ -1,0 +1,742 @@
+{
+  "schemaVersion": 1,
+  "id": "core",
+  "version": "2.0.0",
+  "name": "基础故事规则",
+  "requires": [],
+  "actions": [
+    {
+      "id": "ask",
+      "scope": "npc",
+      "category": "交流",
+      "text": "询问{npc.name}的经历与线索",
+      "cost": 1,
+      "when": {
+        "op": "all",
+        "args": [
+          {
+            "op": "eq",
+            "left": {
+              "ref": "npc.alive"
+            },
+            "right": true
+          },
+          {
+            "op": "eq",
+            "left": {
+              "ref": "npc.location"
+            },
+            "right": {
+              "ref": "location"
+            }
+          }
+        ]
+      },
+      "effects": [
+        {
+          "op": "text",
+          "template": "；{npc.name}是{npc.trait}的{npc.role}，希望{npc.goal}。"
+        },
+        {
+          "op": "when",
+          "condition": {
+            "op": "includes",
+            "left": {
+              "ref": "npc.knowledge"
+            },
+            "right": "主线线索"
+          },
+          "then": [
+            {
+              "op": "set",
+              "path": "clue",
+              "value": true
+            },
+            {
+              "op": "text",
+              "template": "你获得了目标线索。"
+            }
+          ],
+          "otherwise": []
+        }
+      ]
+    },
+    {
+      "id": "comfort",
+      "scope": "npc",
+      "category": "交流",
+      "text": "安慰{npc.name}，建立信任",
+      "cost": 1,
+      "when": {
+        "op": "all",
+        "args": [
+          {
+            "op": "eq",
+            "left": {
+              "ref": "npc.alive"
+            },
+            "right": true
+          },
+          {
+            "op": "eq",
+            "left": {
+              "ref": "npc.location"
+            },
+            "right": {
+              "ref": "location"
+            }
+          }
+        ]
+      },
+      "effects": [
+        {
+          "op": "add",
+          "path": "npc.trust",
+          "value": 1
+        },
+        {
+          "op": "text",
+          "template": "；{npc.name}的信任提高。"
+        }
+      ]
+    },
+    {
+      "id": "threat",
+      "scope": "npc",
+      "category": "交流",
+      "text": "威胁{npc.name}交出信息",
+      "cost": 1,
+      "when": {
+        "op": "all",
+        "args": [
+          {
+            "op": "eq",
+            "left": {
+              "ref": "npc.alive"
+            },
+            "right": true
+          },
+          {
+            "op": "eq",
+            "left": {
+              "ref": "npc.location"
+            },
+            "right": {
+              "ref": "location"
+            }
+          }
+        ]
+      },
+      "effects": [
+        {
+          "op": "add",
+          "path": "npc.trust",
+          "value": -2
+        },
+        {
+          "op": "when",
+          "condition": {
+            "op": "includes",
+            "left": {
+              "ref": "npc.knowledge"
+            },
+            "right": "主线线索"
+          },
+          "then": [
+            {
+              "op": "chance",
+              "probability": 0.5,
+              "then": [
+                {
+                  "op": "set",
+                  "path": "clue",
+                  "value": true
+                },
+                {
+                  "op": "text",
+                  "template": "；对方透露了线索。"
+                }
+              ],
+              "otherwise": [
+                {
+                  "op": "text",
+                  "template": "；对方拒绝合作。"
+                }
+              ]
+            }
+          ],
+          "otherwise": [
+            {
+              "op": "text",
+              "template": "；对方拒绝合作。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "attack",
+      "scope": "npc",
+      "category": "干预",
+      "text": "攻击{npc.name}（交由战斗结算）",
+      "cost": 1,
+      "when": {
+        "op": "all",
+        "args": [
+          {
+            "op": "eq",
+            "left": {
+              "ref": "npc.alive"
+            },
+            "right": true
+          },
+          {
+            "op": "eq",
+            "left": {
+              "ref": "npc.location"
+            },
+            "right": {
+              "ref": "location"
+            }
+          }
+        ]
+      },
+      "effects": [],
+      "external": "combat"
+    },
+    {
+      "id": "notes",
+      "scope": "world",
+      "category": "调查",
+      "text": "研究已经存在的笔记",
+      "cost": 2,
+      "when": {
+        "op": "all",
+        "args": [
+          {
+            "op": "eq",
+            "left": {
+              "ref": "clue"
+            },
+            "right": false
+          },
+          {
+            "op": "eq",
+            "left": {
+              "ref": "notes"
+            },
+            "right": true
+          }
+        ]
+      },
+      "effects": [
+        {
+          "op": "set",
+          "path": "clue",
+          "value": true
+        },
+        {
+          "op": "text",
+          "template": "；你找到目标地点的记录。"
+        }
+      ]
+    },
+    {
+      "id": "search",
+      "scope": "world",
+      "category": "调查",
+      "text": "冒险搜寻{conflict.need}",
+      "cost": 3,
+      "when": {
+        "op": "all",
+        "args": [
+          {
+            "op": "eq",
+            "left": {
+              "ref": "resource"
+            },
+            "right": false
+          },
+          {
+            "op": "eq",
+            "left": {
+              "ref": "accessible"
+            },
+            "right": true
+          }
+        ]
+      },
+      "effects": [
+        {
+          "op": "chance",
+          "probability": 0.65,
+          "then": [
+            {
+              "op": "set",
+              "path": "resource",
+              "value": true
+            },
+            {
+              "op": "text",
+              "template": "；你取得所需物资。"
+            }
+          ],
+          "otherwise": [
+            {
+              "op": "text",
+              "template": "；搜寻失败，仍可尝试其他办法。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "buy",
+      "scope": "world",
+      "category": "交易",
+      "text": "支付5金币取得{conflict.need}",
+      "cost": 1,
+      "when": {
+        "op": "all",
+        "args": [
+          {
+            "op": "eq",
+            "left": {
+              "ref": "resource"
+            },
+            "right": false
+          },
+          {
+            "op": "eq",
+            "left": {
+              "ref": "accessible"
+            },
+            "right": true
+          },
+          {
+            "op": "gte",
+            "left": {
+              "ref": "gold"
+            },
+            "right": 5
+          }
+        ]
+      },
+      "effects": [
+        {
+          "op": "add",
+          "path": "gold",
+          "value": -5
+        },
+        {
+          "op": "set",
+          "path": "resource",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "resolve",
+      "scope": "world",
+      "category": "主线",
+      "text": "前往目标地点完成：{goal}",
+      "cost": 3,
+      "when": {
+        "op": "all",
+        "args": [
+          {
+            "op": "eq",
+            "left": {
+              "ref": "clue"
+            },
+            "right": true
+          },
+          {
+            "op": "eq",
+            "left": {
+              "ref": "resource"
+            },
+            "right": true
+          },
+          {
+            "op": "eq",
+            "left": {
+              "ref": "accessible"
+            },
+            "right": true
+          }
+        ]
+      },
+      "effects": [
+        {
+          "op": "set",
+          "path": "main.status",
+          "value": "success"
+        },
+        {
+          "op": "set",
+          "path": "main.reason",
+          "value": "线索、物资和通行条件齐备，完成目标"
+        }
+      ]
+    },
+    {
+      "id": "decline",
+      "scope": "world",
+      "category": "退出",
+      "text": "拒绝当前委托",
+      "cost": 0,
+      "when": {
+        "op": "eq",
+        "left": {
+          "ref": "side.status"
+        },
+        "right": "active"
+      },
+      "effects": [
+        {
+          "op": "set",
+          "path": "side.status",
+          "value": "abandoned"
+        },
+        {
+          "op": "set",
+          "path": "side.reason",
+          "value": "玩家拒绝"
+        }
+      ]
+    },
+    {
+      "id": "wait",
+      "scope": "world",
+      "category": "时间",
+      "text": "等待3小时，观察局势",
+      "cost": 3,
+      "when": {
+        "op": "all",
+        "args": []
+      },
+      "effects": []
+    },
+    {
+      "id": "leave",
+      "scope": "world",
+      "category": "退出",
+      "text": "离开并结束本次旅程",
+      "cost": 0,
+      "when": {
+        "op": "all",
+        "args": []
+      },
+      "effects": [
+        {
+          "op": "each",
+          "collection": "quests",
+          "condition": {
+            "op": "eq",
+            "left": {
+              "ref": "quest.status"
+            },
+            "right": "active"
+          },
+          "effects": [
+            {
+              "op": "set",
+              "path": "quest.status",
+              "value": "abandoned"
+            },
+            {
+              "op": "set",
+              "path": "quest.reason",
+              "value": "玩家离开"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "reactions": [
+    {
+      "id": "side-success",
+      "scope": "world",
+      "priority": 10,
+      "when": {
+        "op": "all",
+        "args": [
+          {
+            "op": "eq",
+            "left": {
+              "ref": "side.status"
+            },
+            "right": "active"
+          },
+          {
+            "op": "eq",
+            "left": {
+              "ref": "resource"
+            },
+            "right": true
+          }
+        ]
+      },
+      "effects": [
+        {
+          "op": "set",
+          "path": "side.status",
+          "value": "success"
+        },
+        {
+          "op": "set",
+          "path": "side.reason",
+          "value": "所需物资已取得"
+        }
+      ]
+    },
+    {
+      "id": "side-death",
+      "scope": "world",
+      "priority": 20,
+      "when": {
+        "op": "all",
+        "args": [
+          {
+            "op": "eq",
+            "left": {
+              "ref": "side.status"
+            },
+            "right": "active"
+          },
+          {
+            "op": "some",
+            "collection": "npcs",
+            "where": {
+              "op": "all",
+              "args": [
+                {
+                  "op": "eq",
+                  "left": {
+                    "ref": "npc.id"
+                  },
+                  "right": "npc-0"
+                },
+                {
+                  "op": "eq",
+                  "left": {
+                    "ref": "npc.alive"
+                  },
+                  "right": false
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "effects": [
+        {
+          "op": "set",
+          "path": "side.status",
+          "value": "failed"
+        },
+        {
+          "op": "set",
+          "path": "side.reason",
+          "value": "委托人死亡，原委托终止"
+        }
+      ]
+    },
+    {
+      "id": "side-expired",
+      "scope": "world",
+      "priority": 30,
+      "when": {
+        "op": "all",
+        "args": [
+          {
+            "op": "eq",
+            "left": {
+              "ref": "side.status"
+            },
+            "right": "active"
+          },
+          {
+            "op": "gte",
+            "left": {
+              "ref": "time"
+            },
+            "right": {
+              "ref": "deadline"
+            }
+          }
+        ]
+      },
+      "effects": [
+        {
+          "op": "set",
+          "path": "side.status",
+          "value": "expired"
+        },
+        {
+          "op": "set",
+          "path": "side.reason",
+          "value": "错过期限，冲突留下持续影响"
+        },
+        {
+          "op": "each",
+          "collection": "npcs",
+          "condition": {
+            "op": "eq",
+            "left": {
+              "ref": "npc.id"
+            },
+            "right": "npc-1"
+          },
+          "effects": [
+            {
+              "op": "set",
+              "path": "npc.response",
+              "value": "期限已过，我们必须面对损失。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "main-failed",
+      "scope": "world",
+      "priority": 40,
+      "when": {
+        "op": "all",
+        "args": [
+          {
+            "op": "eq",
+            "left": {
+              "ref": "main.status"
+            },
+            "right": "active"
+          },
+          {
+            "op": "eq",
+            "left": {
+              "ref": "clue"
+            },
+            "right": false
+          },
+          {
+            "op": "eq",
+            "left": {
+              "ref": "notes"
+            },
+            "right": false
+          },
+          {
+            "op": "not",
+            "arg": {
+              "op": "some",
+              "collection": "npcs",
+              "where": {
+                "op": "all",
+                "args": [
+                  {
+                    "op": "eq",
+                    "left": {
+                      "ref": "npc.alive"
+                    },
+                    "right": true
+                  },
+                  {
+                    "op": "includes",
+                    "left": {
+                      "ref": "npc.knowledge"
+                    },
+                    "right": "主线线索"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "effects": [
+        {
+          "op": "set",
+          "path": "main.status",
+          "value": "failed"
+        },
+        {
+          "op": "set",
+          "path": "main.reason",
+          "value": "现存线索全部失去"
+        }
+      ]
+    },
+    {
+      "id": "ending-success",
+      "scope": "world",
+      "priority": 90,
+      "when": {
+        "op": "all",
+        "args": [
+          {
+            "op": "eq",
+            "left": {
+              "ref": "main.status"
+            },
+            "right": "success"
+          },
+          {
+            "op": "eq",
+            "left": {
+              "ref": "ending"
+            },
+            "right": ""
+          }
+        ]
+      },
+      "effects": [
+        {
+          "op": "format",
+          "path": "ending",
+          "template": "你完成了目标：{goal}。"
+        }
+      ]
+    },
+    {
+      "id": "ending-other",
+      "scope": "world",
+      "priority": 100,
+      "when": {
+        "op": "all",
+        "args": [
+          {
+            "op": "ne",
+            "left": {
+              "ref": "main.status"
+            },
+            "right": "active"
+          },
+          {
+            "op": "ne",
+            "left": {
+              "ref": "main.status"
+            },
+            "right": "success"
+          },
+          {
+            "op": "eq",
+            "left": {
+              "ref": "ending"
+            },
+            "right": ""
+          }
+        ]
+      },
+      "effects": [
+        {
+          "op": "format",
+          "path": "ending",
+          "template": "旅程结束：{main.reason}"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,163 @@
+{
+  "schemaVersion": 1,
+  "id": "camp",
+  "version": "1.0.0",
+  "name": "营地休整",
+  "requires": [
+    "core"
+  ],
+  "actions": [
+    {
+      "id": "camp/rest",
+      "scope": "world",
+      "category": "营地",
+      "text": "花费2金币在营地休整",
+      "cost": 2,
+      "when": {
+        "op": "gte",
+        "left": {
+          "ref": "gold"
+        },
+        "right": 2
+      },
+      "effects": [
+        {
+          "op": "add",
+          "path": "gold",
+          "value": -2
+        },
+        {
+          "op": "each",
+          "collection": "npcs",
+          "condition": {
+            "op": "eq",
+            "left": {
+              "ref": "npc.alive"
+            },
+            "right": true
+          },
+          "effects": [
+            {
+              "op": "add",
+              "path": "npc.trust",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "op": "text",
+          "template": "；同行者受到照顾，信任提高。"
+        }
+      ]
+    },
+    {
+      "id": "camp/listen",
+      "scope": "world",
+      "category": "营地",
+      "text": "围着篝火打听目标线索",
+      "cost": 1,
+      "when": {
+        "op": "all",
+        "args": [
+          {
+            "op": "eq",
+            "left": {
+              "ref": "clue"
+            },
+            "right": false
+          },
+          {
+            "op": "some",
+            "collection": "npcs",
+            "where": {
+              "op": "all",
+              "args": [
+                {
+                  "op": "eq",
+                  "left": {
+                    "ref": "npc.alive"
+                  },
+                  "right": true
+                },
+                {
+                  "op": "includes",
+                  "left": {
+                    "ref": "npc.knowledge"
+                  },
+                  "right": "主线线索"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "effects": [
+        {
+          "op": "chance",
+          "probability": 0.4,
+          "then": [
+            {
+              "op": "set",
+              "path": "clue",
+              "value": true
+            },
+            {
+              "op": "text",
+              "template": "；知情者向你透露了线索。"
+            }
+          ],
+          "otherwise": [
+            {
+              "op": "text",
+              "template": "；今晚没有得到新线索。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "reactions": [
+    {
+      "id": "friendship",
+      "scope": "npc",
+      "priority": 50,
+      "when": {
+        "op": "all",
+        "args": [
+          {
+            "op": "eq",
+            "left": {
+              "ref": "npc.alive"
+            },
+            "right": true
+          },
+          {
+            "op": "gte",
+            "left": {
+              "ref": "npc.trust"
+            },
+            "right": 3
+          },
+          {
+            "op": "ne",
+            "left": {
+              "ref": "npc.response"
+            },
+            "right": "愿意分享自己的计划。"
+          }
+        ]
+      },
+      "effects": [
+        {
+          "op": "set",
+          "path": "npc.response",
+          "value": "愿意分享自己的计划。"
+        },
+        {
+          "op": "text",
+          "template": "{npc.name}因积累的信任，愿意分享自己的计划。"
+        }
+      ]
+    }
+  ]
+}

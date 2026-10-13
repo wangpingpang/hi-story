@@ -9,7 +9,7 @@ import * as npc from '../modules/npc';
 import * as relations from '../modules/relations';
 import * as personality from '../modules/personality';
 import { MemoryStore } from '../infrastructure/memory-store';
-function initial(runId:string){return {version:VERSION,adventure:adventure.start(runId),characters:characters.create(),characterModelVersion:characters.MODEL_VERSION,inventory:inventory.create(),objective:objectives.create(),npc:npc.create(),relations:relations.create(),facts:[] as Fact[],evidence:[] as personality.Evidence[],receipts:{} as Record<string,{fingerprint:string; revision:number}>};}
+function initial(runId:string){return {version:VERSION,adventure:adventure.start(runId),characters:characters.create(runId),characterModelVersion:characters.MODEL_VERSION,inventory:inventory.create(),objective:objectives.create(),npc:npc.create(),relations:relations.create(),facts:[] as Fact[],evidence:[] as personality.Evidence[],receipts:{} as Record<string,{fingerprint:string; revision:number}>};}
 export type State=ReturnType<typeof initial>;
 export type Result={ok:true; revision:number; duplicate:boolean}|{ok:false; reason:string};
 export class Game {

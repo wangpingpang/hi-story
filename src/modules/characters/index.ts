@@ -1,4 +1,7 @@
 import { freeze, type DeepReadonly } from '../../contracts';
+import { generateAppearance, validateAppearance, type Appearance } from './appearance';
+export { APPEARANCE_VERSION, APPEARANCE_SLOTS, APPEARANCE_CATALOG, generateAppearance, validateAppearance, rerollAppearance, rerollAppearancePart, setAppearancePart } from './appearance';
+export type { Appearance, AppearancePart, AppearanceSlot } from './appearance';
 
 export type CharacterId = 'courier' | 'luyan';
 export type Condition = 'ready' | 'exerted';
@@ -7,15 +10,16 @@ export interface Character {
  name: string;
  control: 'player' | 'npc';
  identity: { occupation: string; background: string; expertise: string };
+ appearance: Appearance;
  condition: Condition;
  changes: { from: Condition; to: Condition; sourceEventId: string }[];
 }
 export type Roster = Record<CharacterId, Character>;
-export const MODEL_VERSION = 'characters/1';
-export function create(): Roster {
+export const MODEL_VERSION = 'characters/2';
+export function create(seed = 'fog-bridge'): Roster {
  return {
-  courier: { actorId:'courier', name:'沈青', control:'player', identity:{occupation:'递信人',background:'这一程受托将封好的信送往河岸驿站。',expertise:'递信与凭证核验'},condition:'ready',changes:[] },
-  luyan: { actorId:'luyan', name:'陆砚', control:'npc', identity:{occupation:'渡口搬运人',background:'正在旧渡口将木箱搬向棚屋，能按自己的节奏安全完成。',expertise:'搬运与渡口路径'},condition:'ready',changes:[] }
+  courier: { actorId:'courier', name:'沈青', control:'player', identity:{occupation:'递信人',background:'这一程受托将封好的信送往河岸驿站。',expertise:'递信与凭证核验'},appearance:generateAppearance(`${seed}:courier`),condition:'ready',changes:[] },
+  luyan: { actorId:'luyan', name:'陆砚', control:'npc', identity:{occupation:'渡口搬运人',background:'正在旧渡口将木箱搬向棚屋，能按自己的节奏安全完成。',expertise:'搬运与渡口路径'},appearance:generateAppearance(`${seed}:luyan`),condition:'ready',changes:[] }
  };
 }
 export function validate(roster: Roster): void {
@@ -23,6 +27,7 @@ export function validate(roster: Roster): void {
   const c=roster[id];
   if(!c || c.actorId!==id || c.control!==(id==='courier'?'player':'npc'))throw Error('人物身份或控制类型无效');
   if(![c.name,c.identity?.occupation,c.identity?.background,c.identity?.expertise].every(v=>typeof v==='string'&&v.trim()))throw Error('人物资料不完整');
+  validateAppearance(c.appearance);
   if(!['ready','exerted'].includes(c.condition)||!Array.isArray(c.changes))throw Error('人物状态无效');
   let previous:Condition='ready';
   const events=new Set<string>();

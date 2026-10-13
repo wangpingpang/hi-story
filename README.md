@@ -54,3 +54,14 @@ CHROMIUM_PATH=/path/to/chromium npm run test:e2e
 公开 demo：https://wangpingpang.github.io/hi-story/
 
 发布使用独立 `gh-pages` 静态分支；开发分支推送不会直接发布，未合并 main。[部署与公网验收记录](docs/deployment.md)。
+
+### 随机人物工坊
+
+开发分支 `codex/character-profiles` 新增七部件像素外观：**发型、脸型、身材、上衣、裤子、鞋、饰品**。运行开发服务器后，访问 `/?view=character-generator`，或从旅程中的人物资料卡打开「人物工坊」。
+
+- 整人随机、单部件重抽、手动选样式与颜色；支持锁定任意部件。
+- 同一种子复现同一初始人物；导出 JSON 完整保留锁定和手动组合后的外观数据。
+- 沈青和陆砚每局生成外观，同局内保持稳定；人物资料及场景使用同一模型。
+- 使用本地代码生成 SVG 像素人物，不依赖图片服务；七部件共用骨架，衣裤随身材调整。
+
+[模型结构、公开接口与扩展说明](docs/character-generator.md)。这是静态二维外观模型，动作动画尚未实现。开发分支的工坊尚未发布到上述在线 demo。

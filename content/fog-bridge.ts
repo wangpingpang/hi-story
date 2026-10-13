@@ -1,0 +1,15 @@
+import { freeze, type ChoiceId, type Stage } from '../src/contracts';
+export interface Choice {id:ChoiceId; stage:Stage; title:string; detail:string; coins:number; rope:number; time:number; help:boolean; evidence:'time'|'resources'|'privacy'|'open'; fact:string}
+export const VERSION='fog-bridge/1.0.0';
+export const choices=freeze<Choice[]>([
+{id:'A',stage:'bridge',title:'付钱即刻过桥',detail:'铜钱 −2 · 耗时 +0',coins:2,rope:0,time:0,help:false,evidence:'time',fact:'你付了两枚铜钱，立即走过雾桥。'},
+{id:'B',stage:'bridge',title:'核验递信凭证',detail:'铜钱 −1 · 耗时 +1',coins:1,rope:0,time:1,help:false,evidence:'resources',fact:'守桥人核验凭证后收下一枚铜钱，放你通行。'},
+{id:'C',stage:'bridge',title:'以绳索换通行',detail:'绳索 −1 · 耗时 +0',coins:0,rope:1,time:0,help:false,evidence:'time',fact:'你将绳索交给守桥人，换来了即时通行。'},
+{id:'D',stage:'bridge',title:'等候免费开放',detail:'不耗物资 · 耗时 +2',coins:0,rope:0,time:2,help:false,evidence:'resources',fact:'你等到雾桥免费开放，保留了所有物资。'},
+{id:'solo',stage:'river',title:'沿河独行',detail:'不耗物资 · 耗时 +1 · 关系不变',coins:0,rope:0,time:1,help:false,evidence:'time',fact:'你沿河继续赶路。陆砚按自己的节奏安全搬完了箱子。'},
+{id:'rope',stage:'river',title:'用绳索绑箱合作',detail:'绳索 −1 · 耗时 +1 · 获草图与信任',coins:0,rope:1,time:1,help:true,evidence:'time',fact:'你用绳索与陆砚合作搬箱，获得旧渡口草图和他的信任。随后各自上路。'},
+{id:'carry',stage:'river',title:'分段抬箱',detail:'不耗物资 · 耗时 +2 · 获草图与信任',coins:0,rope:0,time:2,help:true,evidence:'resources',fact:'你与陆砚分段抬箱，获得旧渡口草图和他的信任。随后各自上路。'},
+{id:'public',stage:'post',title:'当面签收',detail:'耗时 +0 · 角色名「沈青」进入公开递送簿',coins:0,rope:0,time:0,help:false,evidence:'open',fact:'驿员当面签收，角色名「沈青」记入公开递送簿。'},
+{id:'anonymous',stage:'post',title:'匿名投递',detail:'耗时 +1 · 不公开姓名',coins:0,rope:0,time:1,help:false,evidence:'privacy',fact:'你等待匿名投递窗口，递送簿没有公开你的姓名。'}
+]);
+export const scenes=freeze({bridge:{number:'01',name:'雾桥关口',subtitle:'雾未散，桥已醒',body:'一封封好的信，要送往河岸尽头的驿站。守桥人给你四种通行方式。今晚的处理窗口，会在累计耗时 3 后关闭。'},river:{number:'02',name:'旧渡口',subtitle:'有人相遇，也可以擦肩',body:'陆砚正把木箱搬向棚屋。他能安全独自完成，也愿意与你合作。帮助只是一段相遇，不意味着入队；继续赶路也不会损害关系。'},post:{number:'03',name:'河岸驿站',subtitle:'信会抵达，名字由你决定',body:'灯下的驿员留着两个入口。当面签收会公开角色名；匿名窗口需要多等一会儿。总耗时不超过 3，今晚处理；超过 3，明早处理。两种结果都完成任务。'},ended:{number:'终',name:'此程已落笔',subtitle:'每个取舍，都留下了一点痕迹',body:''}});

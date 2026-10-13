@@ -48,3 +48,9 @@ CHROMIUM_PATH=/path/to/chromium npm run test:e2e
 - [测试证据](docs/evidence/)
 
 没有服务器、数据库、战棋、随机地图或多人；帮助不等于组队。性格记录只描述本局角色取舍，不推断真实用户。
+
+### 在线试玩
+
+公开 demo：https://wangpingpang.github.io/hi-story/
+
+发布使用独立 `gh-pages` 静态分支；开发分支推送不会直接发布，未合并 main。[部署与公网验收记录](docs/deployment.md)。

@@ -34,7 +34,7 @@
 
 - 框架与 17 领域清单详见 architecture.md；8 个必要领域有实现，9 个明确未实现。
 - `artifacts/hi-story-preview.zip` 为可运行生产包，解压后 `python3 -m http.server 8080`，访问 `http://localhost:8080`。包内文件逐字节等于本次测试 dist，SHA-256 见 evidence/artifact-sha256.txt。
-- 没有公开部署；GitHub 功能分支为 `codex/fog-bridge-demo`，未合并 main。
+- 原验收时未公开部署；用户随后授权 GitHub Pages，已于 2026-10-13 发布并完成公网真实浏览器试玩，详见 [部署报告](deployment.md)。功能分支为 `codex/fog-bridge-demo`，发布分支为 `gh-pages`，未合并 main。
 - `gh auth status` 报 GH_TOKEN 无效，但实际 `git push` 成功，`git ls-remote` 已确认远端功能提交；没有新建密钥或修改权限。
 - 仅验证此 Chromium 版本的桌面/窄屏模拟环境；未声称跨 Firefox、Safari、真实移动设备或完整 WCAG 审计通过。
 - 内存存档，刷新新开局；无服务器、数据库、随机地图、战棋、DND、多人或持久人格推断。

@@ -1,13 +1,15 @@
 import { freeze } from '../contracts';
 import * as characters from '../modules/characters';
-export { APPEARANCE_CATALOG as appearanceCatalog, APPEARANCE_SLOTS as appearanceSlots } from '../modules/characters';
-export type { Appearance, AppearanceSlot, AppearancePart } from '../modules/characters';
+export { APPEARANCE_CATALOG as appearanceCatalog, appearanceCatalogFor, APPEARANCE_SLOTS as appearanceSlots } from '../modules/characters';
+export type { Appearance, AppearanceSlot, AppearancePart, AppearanceVersion, Gender } from '../modules/characters';
 
 export class CharacterStudio {
   #model: characters.Appearance;
   #locked = new Set<characters.AppearanceSlot>();
-  constructor(seed: string) { this.#model = characters.generateAppearance(seed); }
-  query() { return freeze({ model: structuredClone(this.#model), locked: [...this.#locked] }); }
+  #gender: characters.Gender = 'male';
+  constructor(seed: string) { this.#model = characters.generateAppearance(seed,'appearance/2'); }
+  query() { return freeze({ model: structuredClone(this.#model), locked: [...this.#locked], gender:this.#gender }); }
+  setGender(gender: characters.Gender) { if(!['male','female'].includes(gender))throw Error('身体类型无效');this.#gender=gender; }
   generate(seed: string) { this.#model = characters.rerollAppearance(this.#model, seed, [...this.#locked]); }
   reroll(slot: characters.AppearanceSlot, seed: string) {
     if (this.#locked.has(slot)) throw Error('请先解锁该部件');

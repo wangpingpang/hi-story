@@ -2,11 +2,12 @@ import { freeze, type DeepReadonly } from '../../contracts';
 import { assertSeed, seededRandom } from './random';
 
 export const APPEARANCE_VERSION = 'appearance/1' as const;
+export type AppearanceVersion = 'appearance/1' | 'appearance/2';
 export const APPEARANCE_SLOTS = ['hair', 'face', 'body', 'top', 'pants', 'shoes', 'accessory'] as const;
 export type AppearanceSlot = typeof APPEARANCE_SLOTS[number];
 export interface AppearancePart { styleId: string; color: string }
 export interface Appearance {
-  version: typeof APPEARANCE_VERSION;
+  version: AppearanceVersion;
   seed: string;
   parts: Record<AppearanceSlot, AppearancePart>;
 }
@@ -21,33 +22,45 @@ export const APPEARANCE_CATALOG = freeze({
   shoes: { label: '鞋', styles: styles([['boots','长靴'],['ankle','短靴'],['cloth','布鞋'],['sandals','凉鞋']]), colors: ['#302d31','#654432','#8b694e','#575c65'] },
   accessory: { label: '饰品', styles: styles([['none','无饰品'],['scarf','围巾'],['glasses','眼镜'],['earring','耳饰'],['satchel','挎包'],['pendant','吊坠']]), colors: ['#d4b071','#a8584f','#699895','#b7bacb','#795e45'] },
 });
+export const APPEARANCE_CATALOG_V2 = freeze({
+  ...APPEARANCE_CATALOG,
+  top: { ...APPEARANCE_CATALOG.top, styles: [...APPEARANCE_CATALOG.top.styles, {id:'wrap',label:'交叠式上衣'}] },
+  pants: { ...APPEARANCE_CATALOG.pants, label:'下装', styles: [...APPEARANCE_CATALOG.pants.styles, {id:'skirt',label:'及膝裙'}, {id:'long-skirt',label:'长裙'}] },
+});
+export function appearanceCatalogFor(version: AppearanceVersion) {
+  if(version==='appearance/1')return APPEARANCE_CATALOG;
+  if(version==='appearance/2')return APPEARANCE_CATALOG_V2;
+  throw Error('外观版本无效');
+}
 
 function checkSlot(slot: AppearanceSlot): void {
   if (!APPEARANCE_SLOTS.includes(slot)) throw Error('未知外观部件');
 }
-function generatePart(seed: string, slot: AppearanceSlot): AppearancePart {
-  const rng = seededRandom(`${APPEARANCE_VERSION}:${seed}:${slot}`), catalog = APPEARANCE_CATALOG[slot];
+function generatePart(seed: string, slot: AppearanceSlot, version: AppearanceVersion): AppearancePart {
+  const rng = seededRandom(`${version}:${seed}:${slot}`), catalog = appearanceCatalogFor(version)[slot];
   return { styleId: catalog.styles[Math.floor(rng() * catalog.styles.length)].id, color: catalog.colors[Math.floor(rng() * catalog.colors.length)] };
 }
 
-export function generateAppearance(seed: string): Appearance {
+export function generateAppearance(seed: string, version: AppearanceVersion = APPEARANCE_VERSION): Appearance {
   assertSeed(seed);
-  const parts = Object.fromEntries(APPEARANCE_SLOTS.map(slot => [slot, generatePart(seed, slot)])) as Appearance['parts'];
-  return { version: APPEARANCE_VERSION, seed, parts };
+  appearanceCatalogFor(version);
+  const parts = Object.fromEntries(APPEARANCE_SLOTS.map(slot => [slot, generatePart(seed, slot, version)])) as Appearance['parts'];
+  return { version, seed, parts };
 }
 export function validateAppearance(model: DeepReadonly<Appearance>): void {
-  if (!model || model.version !== APPEARANCE_VERSION) throw Error('外观版本无效');
+  if (!model) throw Error('外观版本无效');
+  const catalogs = appearanceCatalogFor(model.version);
   assertSeed(model.seed);
   if (!model.parts || Object.keys(model.parts).length !== APPEARANCE_SLOTS.length) throw Error('外观须包含七个部件');
   for (const slot of APPEARANCE_SLOTS) {
-    const part = model.parts[slot], catalog = APPEARANCE_CATALOG[slot];
+    const part = model.parts[slot], catalog = catalogs[slot];
     if (!Object.hasOwn(model.parts, slot) || !part || !catalog.styles.some(s => s.id === part.styleId) || !catalog.colors.some(c => c === part.color)) throw Error(`${catalog.label}样式或颜色无效`);
   }
 }
 export function rerollAppearance(model: DeepReadonly<Appearance>, seed: string, locked: readonly AppearanceSlot[] = []): Appearance {
   validateAppearance(model);
   locked.forEach(checkSlot);
-  const next = generateAppearance(seed);
+  const next = generateAppearance(seed, model.version);
   for (const slot of locked) next.parts[slot] = { ...model.parts[slot] };
   return next;
 }

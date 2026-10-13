@@ -1,0 +1,81 @@
+{
+  "generatorVersion": "random-character/1",
+  "seed": null,
+  "source": "params",
+  "callCount": 1,
+  "characters": [
+    {
+      "version": "random-character/1",
+      "seed": "story-001:npc-003",
+      "actorId": "character:story-001:npc-003",
+      "control": "npc",
+      "name": "艾琳·河湾",
+      "gender": "female",
+      "age": 32,
+      "identity": {
+        "occupationId": "custom",
+        "occupation": "游商",
+        "expertise": "货物估价、商路消息与谈判",
+        "background": "曾在河湾经营货摊，商路恢复后带着剩余货物开始旅行。",
+        "backgroundSource": "provided"
+      },
+      "personality": {
+        "source": "story-input",
+        "traits": [
+          "谨慎",
+          "重视承诺"
+        ],
+        "parameters": {
+          "caution": 0.8,
+          "trust": 0.35
+        }
+      },
+      "preferences": {
+        "source": "provided",
+        "likes": [
+          "公平交易",
+          "热汤"
+        ],
+        "dislikes": [
+          "失约",
+          "欺骗"
+        ]
+      },
+      "motivation": "想找一个可靠的伙伴将货物运往北境。",
+      "appearance": {
+        "version": "appearance/2",
+        "seed": "story-001:npc-003",
+        "parts": {
+          "hair": {
+            "styleId": "ponytail",
+            "color": "#614436"
+          },
+          "face": {
+            "styleId": "round",
+            "color": "#574439"
+          },
+          "body": {
+            "styleId": "balanced",
+            "color": "#dfb18c"
+          },
+          "top": {
+            "styleId": "wrap",
+            "color": "#ad6650"
+          },
+          "pants": {
+            "styleId": "long-skirt",
+            "color": "#535c44"
+          },
+          "shoes": {
+            "styleId": "boots",
+            "color": "#654432"
+          },
+          "accessory": {
+            "styleId": "satchel",
+            "color": "#795e45"
+          }
+        }
+      }
+    }
+  ]
+}

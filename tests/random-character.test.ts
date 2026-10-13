@@ -15,6 +15,7 @@ describe('random-character/1',()=>{
     for(let index=0;index<1000;index++) {
       const model=generateCharacter(`profile-coverage:${index}`);validateGeneratedCharacter(model);
       expect(model.age).toBeGreaterThanOrEqual(18);expect(model.age).toBeLessThanOrEqual(70);
+      if(model.identity.occupationId==='custom')throw Error('未指定自定义职业时不应生成自定义职业');
       const job=OCCUPATIONS[model.identity.occupationId];
       for(const slot of ['top','pants','shoes','accessory'] as const) expect([...job.wardrobe[slot]]).toContain(model.appearance.parts[slot].styleId);
       expect(job.histories.some(history=>model.identity.background.endsWith(history))).toBe(true);

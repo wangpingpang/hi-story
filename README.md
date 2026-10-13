@@ -41,7 +41,7 @@ CHROMIUM_PATH=/path/to/chromium npm run test:e2e
 
 - `src/modules`：17 领域边界，8 个必要领域有最小实现，其余明确未实现。
 - `src/application`：命令验证、幂等、工作副本与原子提交。
-- `src/input` / `src/presentation`：快照绑定输入、可访问 HTML 与像素 SVG。
+- `src/input` / `src/presentation`：快照绑定输入、可访问 HTML、场景 SVG 与 PNG 人物装配。
 - `src/infrastructure`：内存快照存储；`content`：版本化场景配置。
 - [架构、选型与模块清单](docs/architecture.md)
 - [最终验收报告](docs/test-report.md)
@@ -57,12 +57,12 @@ CHROMIUM_PATH=/path/to/chromium npm run test:e2e
 
 ### 随机人物工坊
 
-开发分支 `codex/character-profiles` 新增七部件像素外观：**发型、脸型、身材、上衣、裤子、鞋、饰品**。运行开发服务器后，访问 `/?view=character-generator`，或从旅程中的人物资料卡打开「人物工坊」。
+开发分支 `codex/character-profiles` 新增七部件像素外观：**发型、脸型、身材、上衣、下装、鞋、饰品**。运行开发服务器后，访问 `/?view=character-generator`，或从旅程中的人物资料卡打开「人物工坊」。
 
 - 整人随机、单部件重抽、手动选样式与颜色；支持锁定任意部件。
-- 同一种子复现同一初始人物；导出 JSON 完整保留锁定和手动组合后的外观数据。
+- 同一种子复现同一初始外观；导出 JSON 完整保留手动组合后的外观和所选身体类型，支持透明 PNG 导出。
 - 沈青和陆砚每局生成外观，同局内保持稳定；人物资料及场景使用同一模型。
-- 使用本地代码生成 SVG 像素人物，不依赖图片服务；七部件共用骨架，衣裤随身材调整。
+- 使用已归档的本地 PNG 部件装配人物；可切换男性/女性身体，选择交叠式上衣、及膝裙和长裙，衣物按身材调整。
 
 [模型结构、公开接口与扩展说明](docs/character-generator.md)。这是静态二维外观模型，动作动画尚未实现。开发分支的工坊尚未发布到上述在线 demo。
 
@@ -74,7 +74,9 @@ CHROMIUM_PATH=/path/to/chromium npm run test:e2e
 - `female-parts-v1.png`：女性纤细、匀称、运动型宽肩、敦实四种身材，六种上衣与六种下装（含及膝裙、长裙）。
 - `manifest.json`：各行部件清单、源图尺寸、完整生成和清理提示词。
 
-这是尚待切片和校准的首版图片素材，不是已经对齐的等尺寸图集；当前工坊仍使用 SVG，女性身材和裙装尚未写入运行时枚举。后续接入前需检查透明边缘、统一骨架锚点与服装适配。图片已归入开发分支，未发布到线上。
+源图已经通过版本化切片坐标、透明边缘清理、锚点校准和材质着色接入工坊与原故事人物展示；原图保持原样。规范画布为 144 × 288，工坊导出 576 × 1152 透明 PNG。女性身体、衣物与裙装已接入 `appearance/2`，`appearance/1` 的旧种子结果保持兼容。当前为固定正面站姿，尚无动作动画。
+
+五次人物资料的装配结果：[总览](docs/examples/assembled/gallery.png) · [图片与数据](docs/examples/assembled/) · [下载包](artifacts/assembled-characters-v1.zip)。
 
 ### 随机故事工坊
 
@@ -90,3 +92,14 @@ npm run characters:generate -- --seed hi-story-20261014 --count 5
 ```
 
 [接口与范围](docs/character-generator.md#完整随机人物资料-v1) · [五次实际返回结果](docs/examples/random-characters-v1.json)。网页仍展示固定故事人物，此接口可供后续初始化和 NPC 生成调用。
+
+### 故事传参生成 NPC
+
+`generateCharacterWithParams({ seed, name?, occupation?, background?, personality?, preferences?, appearanceParts?, ... })` 保留故事已确定的性格、喜好、厌恶、动机和外观参数，自动补齐其余字段。支持 0–1 的自定义性格数值，并校验参数冲突与非法值。
+
+```sh
+npm run characters:generate -- --params docs/examples/story-npc-params.json
+CHROMIUM_PATH=/path/to/chromium npm run characters:render -- --input docs/examples/random-characters-v1.json
+```
+
+[人物生成器说明](人物生成器说明.md) 包含公开接口、参数、枚举、素材装配和故事模块边界；[带参输入](docs/examples/story-npc-params.json) 与 [实际返回结果](docs/examples/story-npc-result.json) 可直接参考。根目录 `AGENTS.md` 已约定需要人物生成时调用本生成器。

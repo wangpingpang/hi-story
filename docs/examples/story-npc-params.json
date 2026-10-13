@@ -1,0 +1,19 @@
+{
+  "seed": "story-001:npc-003",
+  "name": "艾琳·河湾",
+  "gender": "female",
+  "age": 32,
+  "occupation": "游商",
+  "expertise": "货物估价、商路消息与谈判",
+  "background": "曾在河湾经营货摊，商路恢复后带着剩余货物开始旅行。",
+  "personality": { "traits": ["谨慎", "重视承诺"], "parameters": { "caution": 0.8, "trust": 0.35 } },
+  "preferences": { "likes": ["公平交易", "热汤"], "dislikes": ["失约", "欺骗"] },
+  "motivation": "想找一个可靠的伙伴将货物运往北境。",
+  "appearanceParts": {
+    "hair": { "styleId": "ponytail", "color": "#614436" },
+    "body": { "styleId": "balanced", "color": "#dfb18c" },
+    "top": { "styleId": "wrap", "color": "#ad6650" },
+    "pants": { "styleId": "long-skirt", "color": "#535c44" },
+    "accessory": { "styleId": "satchel", "color": "#795e45" }
+  }
+}

@@ -1,9 +1,9 @@
 import { freeze, type DeepReadonly } from '../../contracts';
 import { generateAppearance, validateAppearance, type Appearance } from './appearance';
-export { APPEARANCE_VERSION, APPEARANCE_SLOTS, APPEARANCE_CATALOG, generateAppearance, validateAppearance, rerollAppearance, rerollAppearancePart, setAppearancePart } from './appearance';
-export type { Appearance, AppearancePart, AppearanceSlot } from './appearance';
-export { RANDOM_CHARACTER_VERSION, generateCharacter, validateGeneratedCharacter, generatedCharacterSnapshot } from './generator';
-export type { GeneratedCharacter, CharacterGenerationOptions, Gender } from './generator';
+export { APPEARANCE_VERSION, APPEARANCE_SLOTS, APPEARANCE_CATALOG, APPEARANCE_CATALOG_V2, appearanceCatalogFor, generateAppearance, validateAppearance, rerollAppearance, rerollAppearancePart, setAppearancePart } from './appearance';
+export type { Appearance, AppearancePart, AppearanceSlot, AppearanceVersion } from './appearance';
+export { RANDOM_CHARACTER_VERSION, generateCharacter, generateCharacterWithParams, validateGeneratedCharacter, generatedCharacterSnapshot } from './generator';
+export type { GeneratedCharacter, CharacterGenerationOptions, CharacterGenerationParams, Gender } from './generator';
 export { PROFILE_CATALOG, OCCUPATIONS } from './profile-catalog';
 export type { OccupationId } from './profile-catalog';
 

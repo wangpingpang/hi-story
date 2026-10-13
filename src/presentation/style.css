@@ -15,3 +15,6 @@
 .atelier details button { max-width:100%; white-space:normal; overflow-wrap:anywhere; }
 .atelier form { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:24px; }
 .atelier form input { max-width:100%; }
+
+.body-rig{display:flex;justify-content:space-between;align-items:center;gap:12px;border-top:1px solid #3a4b4d;padding:15px 0;font-size:13px}.body-rig select{font:inherit;color:#eee5d2;background:#22373b;border:1px solid #4c605d;border-radius:4px;padding:7px 10px}.portrait-stage .character-sprite{width:192px;height:320px}
+@media(max-width:760px){.portrait-stage .character-sprite{width:160px;height:260px}}

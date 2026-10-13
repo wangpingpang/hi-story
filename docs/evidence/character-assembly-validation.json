@@ -1,0 +1,99 @@
+{
+  "verifiedAt": "2026-10-13T18:29:41.838679+00:00",
+  "node": "24.19.0",
+  "chromium": "153.0.8010.0",
+  "checks": {
+    "typecheck": "passed",
+    "unitTests": {
+      "passed": 98,
+      "files": 6
+    },
+    "boundaries": "passed",
+    "productionBuild": "passed",
+    "browserTests": {
+      "passed": 16,
+      "viewports": [
+        "1440x1000",
+        "375x812"
+      ],
+      "report": "character-assembly-browser-results.json"
+    },
+    "storyParameterCli": "passed",
+    "parameterImageAssembly": "passed",
+    "agentsRule": "passed"
+  },
+  "artVersion": "character-art/2",
+  "images": [
+    {
+      "file": "docs/examples/assembled/character-01.png",
+      "dimensions": [
+        576,
+        1152
+      ],
+      "opaquePixels": 270176,
+      "transparentPixels": 393376,
+      "partialAlphaPixels": 0,
+      "sha256": "1fa5c35a70632ebd26c7f86156fa802760344fdab2e38d440ff40e8f2d6ac932",
+      "sourceDataPreserved": true
+    },
+    {
+      "file": "docs/examples/assembled/character-02.png",
+      "dimensions": [
+        576,
+        1152
+      ],
+      "opaquePixels": 253536,
+      "transparentPixels": 410016,
+      "partialAlphaPixels": 0,
+      "sha256": "190f6dbf6150eeeee0e25c167b1eceb7bd3aa75626a9aaa85d5c5fb99c804c93",
+      "sourceDataPreserved": true
+    },
+    {
+      "file": "docs/examples/assembled/character-03.png",
+      "dimensions": [
+        576,
+        1152
+      ],
+      "opaquePixels": 312624,
+      "transparentPixels": 350928,
+      "partialAlphaPixels": 0,
+      "sha256": "9fad590f255cb347ec5a51d3cb44085e00b61996bdc9be316c9930ec24e00cc3",
+      "sourceDataPreserved": true
+    },
+    {
+      "file": "docs/examples/assembled/character-04.png",
+      "dimensions": [
+        576,
+        1152
+      ],
+      "opaquePixels": 298704,
+      "transparentPixels": 364848,
+      "partialAlphaPixels": 0,
+      "sha256": "e2b39e6e9c0612bb62bb2b4e06bfd7e6caafbd2855360e1a9121cf25b9099cc8",
+      "sourceDataPreserved": true
+    },
+    {
+      "file": "docs/examples/assembled/character-05.png",
+      "dimensions": [
+        576,
+        1152
+      ],
+      "opaquePixels": 247552,
+      "transparentPixels": 416000,
+      "partialAlphaPixels": 0,
+      "sha256": "f638b8dfa8f913dc77012b8cba16e1cead77c36b2b74d673cab1563290225709",
+      "sourceDataPreserved": true
+    }
+  ],
+  "visualInspection": [
+    "five original profiles assembled without changing their data",
+    "male/female body and clothing mapping",
+    "wrap top with long skirt and satchel",
+    "transparent cutout and no floating source fragments"
+  ],
+  "limitations": [
+    "front-facing static pose",
+    "no movement/combat animations",
+    "story NPC runtime still uses its existing state model"
+  ]
+}

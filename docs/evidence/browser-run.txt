@@ -1,0 +1,30 @@
+
+> hi-story@0.1.0 test:e2e
+> playwright test
+
+[WebServer] (node:2900) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:2913) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 8 tests using 1 worker
+
+(node:2937) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [desktop] › tests/e2e/game.spec.ts:10:1 › tonight, cooperation, visible feedback, accessible keyboard and restart (8.9s)
+  ✓  2 [desktop] › tests/e2e/game.spec.ts:15:1 › morning, solo has no penalty, anonymous and layout (7.9s)
+  ✓  3 [desktop] › tests/e2e/game.spec.ts:16:1 › disabled rope includes reason; restart in every phase (5.8s)
+  ✓  4 [desktop] › tests/e2e/game.spec.ts:17:1 › rapid distinct clicks and stale restart timeout cannot affect next run (4.6s)
+(node:3179) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  5 [narrow] › tests/e2e/game.spec.ts:10:1 › tonight, cooperation, visible feedback, accessible keyboard and restart (7.4s)
+  ✓  6 [narrow] › tests/e2e/game.spec.ts:15:1 › morning, solo has no penalty, anonymous and layout (4.9s)
+  ✓  7 [narrow] › tests/e2e/game.spec.ts:16:1 › disabled rope includes reason; restart in every phase (4.0s)
+  ✓  8 [narrow] › tests/e2e/game.spec.ts:17:1 › rapid distinct clicks and stale restart timeout cannot affect next run (3.7s)
+
+  8 passed (59.3s)
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice

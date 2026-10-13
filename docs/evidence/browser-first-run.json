@@ -1,0 +1,657 @@
+{
+  "config": {
+    "argv": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+      "/workspace/hi-story/node_modules/.bin/playwright",
+      "test"
+    ],
+    "configFile": "/workspace/hi-story/playwright.config.ts",
+    "rootDir": "/workspace/hi-story/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 2
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/workspace/hi-story/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "/workspace/hi-story/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/workspace/hi-story/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "narrow",
+        "name": "narrow",
+        "testDir": "/workspace/hi-story/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/workspace/hi-story/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "name": "desktop",
+        "testDir": "/workspace/hi-story/tests/e2e",
+        "snapshotDir": "/workspace/hi-story/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4173",
+          "launchOptions": {
+            "executablePath": "/usr/bin/chromium",
+            "args": [
+              "--no-sandbox"
+            ]
+          },
+          "trace": "retain-on-failure",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/workspace/hi-story/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "name": "narrow",
+        "testDir": "/workspace/hi-story/tests/e2e",
+        "snapshotDir": "/workspace/hi-story/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4173",
+          "launchOptions": {
+            "executablePath": "/usr/bin/chromium",
+            "args": [
+              "--no-sandbox"
+            ]
+          },
+          "trace": "retain-on-failure",
+          "viewport": {
+            "width": 375,
+            "height": 812
+          },
+          "isMobile": true,
+          "hasTouch": true
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "narrow"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "docs/evidence/browser-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.0",
+    "workers": 2,
+    "webServer": {
+      "command": "npm run preview -- --port 4173 --strictPort",
+      "url": "http://127.0.0.1:4173",
+      "reuseExistingServer": false
+    }
+  },
+  "suites": [
+    {
+      "title": "game.spec.ts",
+      "file": "game.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "tonight, cooperation, visible feedback, accessible keyboard and restart",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 13816,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('coins')\nExpected: \u001b[32m\"1\"\u001b[39m\nReceived: \u001b[31m\"1\u001b[7m 枚\u001b[27m\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('coins') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('coins')\u001b[22m\n\u001b[2m    11 × locator resolved to <strong data-testid=\"coins\">…</strong>\u001b[22m\n\u001b[2m       - unexpected value \"1 枚\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('coins')\nExpected: \u001b[32m\"1\"\u001b[39m\nReceived: \u001b[31m\"1\u001b[7m 枚\u001b[27m\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('coins') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('coins')\u001b[22m\n\u001b[2m    11 × locator resolved to <strong data-testid=\"coins\">…</strong>\u001b[22m\n\u001b[2m       - unexpected value \"1 枚\"\u001b[22m\n\n    at /workspace/hi-story/tests/e2e/game.spec.ts:13:42",
+                    "location": {
+                      "file": "/workspace/hi-story/tests/e2e/game.spec.ts",
+                      "column": 42,
+                      "line": 13
+                    },
+                    "snippet": "  11 |  await noOverflow(page);await expect(page.getByRole('heading',{name:'雾桥递信'})).toBeVisible();\n  12 |  const first=page.getByRole('button',{name:/付钱即刻过桥/});await first.focus();await expect(first).toBeFocused();await page.keyboard.press('Enter');await expect(page.getByRole('heading',{name:'有人相遇，也可以擦肩'})).toBeFocused();\n> 13 |  await expect(page.getByTestId('coins')).toHaveText('1');await select(page,'rope');await expect(page.getByText('陆砚 · 信任 +1',{exact:false})).toBeVisible();await expect(page.getByText('▧ 旧渡口草图 · 已获得')).toBeVisible();await select(page,'public');await expect(page.getByRole('heading',{name:'信已送达，今晚处理'})).toBeVisible();await expect(page.getByText('递送簿 · 沈青',{exact:true})).toBeVisible();await expect(page.getByTestId('time')).toHaveText('1');await noOverflow(page);await page.screenshot({path:`docs/evidence/${info.project.name}-tonight.png`,fullPage:true});await page.getByRole('button',{name:'再走一段不同的路 →'}).click();await expect(page.getByTestId('coins')).toHaveText('3');await expect(page.getByTestId('time')).toHaveText('0');\n     |                                          ^\n  14 | });\n  15 | test('morning, solo has no penalty, anonymous and layout',async({page},info)=>{await select(page,'D');await select(page,'solo');await select(page,'anonymous');await expect(page.getByRole('heading',{name:'信已送达，明早处理'})).toBeVisible();await expect(page.getByTestId('time')).toHaveText('4');await expect(page.getByText('递送簿 · 匿名',{exact:true})).toBeVisible();await expect(page.getByText(/陆砚 · 关系未变/)).toBeVisible();await expect(page.getByText(/陆砚已安全搬完木箱/)).toBeVisible();await expect(page.locator('[data-choice]')).toHaveCount(0);await noOverflow(page);await page.screenshot({path:`docs/evidence/${info.project.name}-morning.png`,fullPage:true});});\n  16 | test('disabled rope includes reason; restart in every phase',async({page},info)=>{await page.screenshot({path:`docs/evidence/${info.project.name}-start.png`,fullPage:true});await page.getByRole('button',{name:'重新开始 ↺'}).click();await select(page,'C');await expect(page.getByRole('button',{name:/用绳索绑箱合作/})).toBeDisabled();await expect(page.getByText('缺少绳索：已在雾桥换取通行')).toBeVisible();await noOverflow(page);await page.getByRole('button',{name:'重新开始 ↺'}).click();await select(page,'B');await select(page,'carry');await page.getByRole('button',{name:'重新开始 ↺'}).click();await expect(page.getByTestId('coins')).toHaveText('3');await expect(page.getByTestId('rope')).toHaveText('1');await expect(page.getByText(/取舍证据 · 0 条/)).toBeVisible();});"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/workspace/hi-story/tests/e2e/game.spec.ts",
+                        "column": 42,
+                        "line": 13
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('coins')\nExpected: \u001b[32m\"1\"\u001b[39m\nReceived: \u001b[31m\"1\u001b[7m 枚\u001b[27m\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('coins') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('coins')\u001b[22m\n\u001b[2m    11 × locator resolved to <strong data-testid=\"coins\">…</strong>\u001b[22m\n\u001b[2m       - unexpected value \"1 枚\"\u001b[22m\n\n\n  11 |  await noOverflow(page);await expect(page.getByRole('heading',{name:'雾桥递信'})).toBeVisible();\n  12 |  const first=page.getByRole('button',{name:/付钱即刻过桥/});await first.focus();await expect(first).toBeFocused();await page.keyboard.press('Enter');await expect(page.getByRole('heading',{name:'有人相遇，也可以擦肩'})).toBeFocused();\n> 13 |  await expect(page.getByTestId('coins')).toHaveText('1');await select(page,'rope');await expect(page.getByText('陆砚 · 信任 +1',{exact:false})).toBeVisible();await expect(page.getByText('▧ 旧渡口草图 · 已获得')).toBeVisible();await select(page,'public');await expect(page.getByRole('heading',{name:'信已送达，今晚处理'})).toBeVisible();await expect(page.getByText('递送簿 · 沈青',{exact:true})).toBeVisible();await expect(page.getByTestId('time')).toHaveText('1');await noOverflow(page);await page.screenshot({path:`docs/evidence/${info.project.name}-tonight.png`,fullPage:true});await page.getByRole('button',{name:'再走一段不同的路 →'}).click();await expect(page.getByTestId('coins')).toHaveText('3');await expect(page.getByTestId('time')).toHaveText('0');\n     |                                          ^\n  14 | });\n  15 | test('morning, solo has no penalty, anonymous and layout',async({page},info)=>{await select(page,'D');await select(page,'solo');await select(page,'anonymous');await expect(page.getByRole('heading',{name:'信已送达，明早处理'})).toBeVisible();await expect(page.getByTestId('time')).toHaveText('4');await expect(page.getByText('递送簿 · 匿名',{exact:true})).toBeVisible();await expect(page.getByText(/陆砚 · 关系未变/)).toBeVisible();await expect(page.getByText(/陆砚已安全搬完木箱/)).toBeVisible();await expect(page.locator('[data-choice]')).toHaveCount(0);await noOverflow(page);await page.screenshot({path:`docs/evidence/${info.project.name}-morning.png`,fullPage:true});});\n  16 | test('disabled rope includes reason; restart in every phase',async({page},info)=>{await page.screenshot({path:`docs/evidence/${info.project.name}-start.png`,fullPage:true});await page.getByRole('button',{name:'重新开始 ↺'}).click();await select(page,'C');await expect(page.getByRole('button',{name:/用绳索绑箱合作/})).toBeDisabled();await expect(page.getByText('缺少绳索：已在雾桥换取通行')).toBeVisible();await noOverflow(page);await page.getByRole('button',{name:'重新开始 ↺'}).click();await select(page,'B');await select(page,'carry');await page.getByRole('button',{name:'重新开始 ↺'}).click();await expect(page.getByTestId('coins')).toHaveText('3');await expect(page.getByTestId('rope')).toHaveText('1');await expect(page.getByText(/取舍证据 · 0 条/)).toBeVisible();});\n    at /workspace/hi-story/tests/e2e/game.spec.ts:13:42"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T13:52:33.388Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/workspace/hi-story/test-results/game-tonight-cooperation-v-af84d-ssible-keyboard-and-restart-desktop/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/workspace/hi-story/test-results/game-tonight-cooperation-v-af84d-ssible-keyboard-and-restart-desktop/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/workspace/hi-story/tests/e2e/game.spec.ts",
+                    "column": 42,
+                    "line": 13
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "8b1bb1493a64c9fc3ab6-fa5004f6452c75e1195d",
+          "file": "game.spec.ts",
+          "line": 10,
+          "column": 1
+        },
+        {
+          "title": "morning, solo has no penalty, anonymous and layout",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 10035,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T13:52:33.674Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8b1bb1493a64c9fc3ab6-87ed8e0ee218d67b7a16",
+          "file": "game.spec.ts",
+          "line": 15,
+          "column": 1
+        },
+        {
+          "title": "disabled rope includes reason; restart in every phase",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 17108,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('coins')\nExpected: \u001b[32m\"3\"\u001b[39m\nReceived: \u001b[31m\"3\u001b[7m 枚\u001b[27m\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('coins') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('coins')\u001b[22m\n\u001b[2m    13 × locator resolved to <strong data-testid=\"coins\">…</strong>\u001b[22m\n\u001b[2m       - unexpected value \"3 枚\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('coins')\nExpected: \u001b[32m\"3\"\u001b[39m\nReceived: \u001b[31m\"3\u001b[7m 枚\u001b[27m\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('coins') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('coins')\u001b[22m\n\u001b[2m    13 × locator resolved to <strong data-testid=\"coins\">…</strong>\u001b[22m\n\u001b[2m       - unexpected value \"3 枚\"\u001b[22m\n\n    at /workspace/hi-story/tests/e2e/game.spec.ts:16:606",
+                    "location": {
+                      "file": "/workspace/hi-story/tests/e2e/game.spec.ts",
+                      "column": 606,
+                      "line": 16
+                    },
+                    "snippet": "  14 | });\n  15 | test('morning, solo has no penalty, anonymous and layout',async({page},info)=>{await select(page,'D');await select(page,'solo');await select(page,'anonymous');await expect(page.getByRole('heading',{name:'信已送达，明早处理'})).toBeVisible();await expect(page.getByTestId('time')).toHaveText('4');await expect(page.getByText('递送簿 · 匿名',{exact:true})).toBeVisible();await expect(page.getByText(/陆砚 · 关系未变/)).toBeVisible();await expect(page.getByText(/陆砚已安全搬完木箱/)).toBeVisible();await expect(page.locator('[data-choice]')).toHaveCount(0);await noOverflow(page);await page.screenshot({path:`docs/evidence/${info.project.name}-morning.png`,fullPage:true});});\n> 16 | test('disabled rope includes reason; restart in every phase',async({page},info)=>{await page.screenshot({path:`docs/evidence/${info.project.name}-start.png`,fullPage:true});await page.getByRole('button',{name:'重新开始 ↺'}).click();await select(page,'C');await expect(page.getByRole('button',{name:/用绳索绑箱合作/})).toBeDisabled();await expect(page.getByText('缺少绳索：已在雾桥换取通行')).toBeVisible();await noOverflow(page);await page.getByRole('button',{name:'重新开始 ↺'}).click();await select(page,'B');await select(page,'carry');await page.getByRole('button',{name:'重新开始 ↺'}).click();await expect(page.getByTestId('coins')).toHaveText('3');await expect(page.getByTestId('rope')).toHaveText('1');await expect(page.getByText(/取舍证据 · 0 条/)).toBeVisible();});\n     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ^\n  17 | test('rapid distinct clicks and stale restart timeout cannot affect next run',async({page})=>{await page.evaluate(()=>{const a=document.querySelector<HTMLButtonElement>('[data-choice=\"A\"]')!,b=document.querySelector<HTMLButtonElement>('[data-choice=\"B\"]')!;a.click();b.click();});await expect(page.getByRole('heading',{name:'有人相遇，也可以擦肩'})).toBeVisible();await expect(page.getByTestId('coins')).toHaveText('1');await page.getByRole('button',{name:'重新开始 ↺'}).click();await page.locator('[data-choice=\"D\"]').click();await page.getByRole('button',{name:'重新开始 ↺'}).click();await page.waitForTimeout(350);await expect(page.getByTestId('time')).toHaveText('0');await expect(page.locator('[data-choice=\"A\"]')).toBeEnabled();await select(page,'A');await expect(page.getByTestId('coins')).toHaveText('1');});\n  18 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/workspace/hi-story/tests/e2e/game.spec.ts",
+                        "column": 606,
+                        "line": 16
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('coins')\nExpected: \u001b[32m\"3\"\u001b[39m\nReceived: \u001b[31m\"3\u001b[7m 枚\u001b[27m\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('coins') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('coins')\u001b[22m\n\u001b[2m    13 × locator resolved to <strong data-testid=\"coins\">…</strong>\u001b[22m\n\u001b[2m       - unexpected value \"3 枚\"\u001b[22m\n\n\n  14 | });\n  15 | test('morning, solo has no penalty, anonymous and layout',async({page},info)=>{await select(page,'D');await select(page,'solo');await select(page,'anonymous');await expect(page.getByRole('heading',{name:'信已送达，明早处理'})).toBeVisible();await expect(page.getByTestId('time')).toHaveText('4');await expect(page.getByText('递送簿 · 匿名',{exact:true})).toBeVisible();await expect(page.getByText(/陆砚 · 关系未变/)).toBeVisible();await expect(page.getByText(/陆砚已安全搬完木箱/)).toBeVisible();await expect(page.locator('[data-choice]')).toHaveCount(0);await noOverflow(page);await page.screenshot({path:`docs/evidence/${info.project.name}-morning.png`,fullPage:true});});\n> 16 | test('disabled rope includes reason; restart in every phase',async({page},info)=>{await page.screenshot({path:`docs/evidence/${info.project.name}-start.png`,fullPage:true});await page.getByRole('button',{name:'重新开始 ↺'}).click();await select(page,'C');await expect(page.getByRole('button',{name:/用绳索绑箱合作/})).toBeDisabled();await expect(page.getByText('缺少绳索：已在雾桥换取通行')).toBeVisible();await noOverflow(page);await page.getByRole('button',{name:'重新开始 ↺'}).click();await select(page,'B');await select(page,'carry');await page.getByRole('button',{name:'重新开始 ↺'}).click();await expect(page.getByTestId('coins')).toHaveText('3');await expect(page.getByTestId('rope')).toHaveText('1');await expect(page.getByText(/取舍证据 · 0 条/)).toBeVisible();});\n     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ^\n  17 | test('rapid distinct clicks and stale restart timeout cannot affect next run',async({page})=>{await page.evaluate(()=>{const a=document.querySelector<HTMLButtonElement>('[data-choice=\"A\"]')!,b=document.querySelector<HTMLButtonElement>('[data-choice=\"B\"]')!;a.click();b.click();});await expect(page.getByRole('heading',{name:'有人相遇，也可以擦肩'})).toBeVisible();await expect(page.getByTestId('coins')).toHaveText('1');await page.getByRole('button',{name:'重新开始 ↺'}).click();await page.locator('[data-choice=\"D\"]').click();await page.getByRole('button',{name:'重新开始 ↺'}).click();await page.waitForTimeout(350);await expect(page.getByTestId('time')).toHaveText('0');await expect(page.locator('[data-choice=\"A\"]')).toBeEnabled();await select(page,'A');await expect(page.getByTestId('coins')).toHaveText('1');});\n  18 |\n    at /workspace/hi-story/tests/e2e/game.spec.ts:16:606"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T13:52:46.100Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/workspace/hi-story/test-results/game-disabled-rope-includes-reason-restart-in-every-phase-desktop/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/workspace/hi-story/test-results/game-disabled-rope-includes-reason-restart-in-every-phase-desktop/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/workspace/hi-story/tests/e2e/game.spec.ts",
+                    "column": 606,
+                    "line": 16
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "8b1bb1493a64c9fc3ab6-c7a456f201890b9cd41c",
+          "file": "game.spec.ts",
+          "line": 16,
+          "column": 1
+        },
+        {
+          "title": "rapid distinct clicks and stale restart timeout cannot affect next run",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 9787,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('coins')\nExpected: \u001b[32m\"1\"\u001b[39m\nReceived: \u001b[31m\"1\u001b[7m 枚\u001b[27m\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('coins') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('coins')\u001b[22m\n\u001b[2m    12 × locator resolved to <strong data-testid=\"coins\">…</strong>\u001b[22m\n\u001b[2m       - unexpected value \"1 枚\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('coins')\nExpected: \u001b[32m\"1\"\u001b[39m\nReceived: \u001b[31m\"1\u001b[7m 枚\u001b[27m\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('coins') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('coins')\u001b[22m\n\u001b[2m    12 × locator resolved to <strong data-testid=\"coins\">…</strong>\u001b[22m\n\u001b[2m       - unexpected value \"1 枚\"\u001b[22m\n\n    at /workspace/hi-story/tests/e2e/game.spec.ts:17:395",
+                    "location": {
+                      "file": "/workspace/hi-story/tests/e2e/game.spec.ts",
+                      "column": 395,
+                      "line": 17
+                    },
+                    "snippet": "  15 | test('morning, solo has no penalty, anonymous and layout',async({page},info)=>{await select(page,'D');await select(page,'solo');await select(page,'anonymous');await expect(page.getByRole('heading',{name:'信已送达，明早处理'})).toBeVisible();await expect(page.getByTestId('time')).toHaveText('4');await expect(page.getByText('递送簿 · 匿名',{exact:true})).toBeVisible();await expect(page.getByText(/陆砚 · 关系未变/)).toBeVisible();await expect(page.getByText(/陆砚已安全搬完木箱/)).toBeVisible();await expect(page.locator('[data-choice]')).toHaveCount(0);await noOverflow(page);await page.screenshot({path:`docs/evidence/${info.project.name}-morning.png`,fullPage:true});});\n  16 | test('disabled rope includes reason; restart in every phase',async({page},info)=>{await page.screenshot({path:`docs/evidence/${info.project.name}-start.png`,fullPage:true});await page.getByRole('button',{name:'重新开始 ↺'}).click();await select(page,'C');await expect(page.getByRole('button',{name:/用绳索绑箱合作/})).toBeDisabled();await expect(page.getByText('缺少绳索：已在雾桥换取通行')).toBeVisible();await noOverflow(page);await page.getByRole('button',{name:'重新开始 ↺'}).click();await select(page,'B');await select(page,'carry');await page.getByRole('button',{name:'重新开始 ↺'}).click();await expect(page.getByTestId('coins')).toHaveText('3');await expect(page.getByTestId('rope')).toHaveText('1');await expect(page.getByText(/取舍证据 · 0 条/)).toBeVisible();});\n> 17 | test('rapid distinct clicks and stale restart timeout cannot affect next run',async({page})=>{await page.evaluate(()=>{const a=document.querySelector<HTMLButtonElement>('[data-choice=\"A\"]')!,b=document.querySelector<HTMLButtonElement>('[data-choice=\"B\"]')!;a.click();b.click();});await expect(page.getByRole('heading',{name:'有人相遇，也可以擦肩'})).toBeVisible();await expect(page.getByTestId('coins')).toHaveText('1');await page.getByRole('button',{name:'重新开始 ↺'}).click();await page.locator('[data-choice=\"D\"]').click();await page.getByRole('button',{name:'重新开始 ↺'}).click();await page.waitForTimeout(350);await expect(page.getByTestId('time')).toHaveText('0');await expect(page.locator('[data-choice=\"A\"]')).toBeEnabled();await select(page,'A');await expect(page.getByTestId('coins')).toHaveText('1');});\n     |                                                                                                                                                                                                                                                                                                                                                                                                           ^\n  18 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/workspace/hi-story/tests/e2e/game.spec.ts",
+                        "column": 395,
+                        "line": 17
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('coins')\nExpected: \u001b[32m\"1\"\u001b[39m\nReceived: \u001b[31m\"1\u001b[7m 枚\u001b[27m\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('coins') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('coins')\u001b[22m\n\u001b[2m    12 × locator resolved to <strong data-testid=\"coins\">…</strong>\u001b[22m\n\u001b[2m       - unexpected value \"1 枚\"\u001b[22m\n\n\n  15 | test('morning, solo has no penalty, anonymous and layout',async({page},info)=>{await select(page,'D');await select(page,'solo');await select(page,'anonymous');await expect(page.getByRole('heading',{name:'信已送达，明早处理'})).toBeVisible();await expect(page.getByTestId('time')).toHaveText('4');await expect(page.getByText('递送簿 · 匿名',{exact:true})).toBeVisible();await expect(page.getByText(/陆砚 · 关系未变/)).toBeVisible();await expect(page.getByText(/陆砚已安全搬完木箱/)).toBeVisible();await expect(page.locator('[data-choice]')).toHaveCount(0);await noOverflow(page);await page.screenshot({path:`docs/evidence/${info.project.name}-morning.png`,fullPage:true});});\n  16 | test('disabled rope includes reason; restart in every phase',async({page},info)=>{await page.screenshot({path:`docs/evidence/${info.project.name}-start.png`,fullPage:true});await page.getByRole('button',{name:'重新开始 ↺'}).click();await select(page,'C');await expect(page.getByRole('button',{name:/用绳索绑箱合作/})).toBeDisabled();await expect(page.getByText('缺少绳索：已在雾桥换取通行')).toBeVisible();await noOverflow(page);await page.getByRole('button',{name:'重新开始 ↺'}).click();await select(page,'B');await select(page,'carry');await page.getByRole('button',{name:'重新开始 ↺'}).click();await expect(page.getByTestId('coins')).toHaveText('3');await expect(page.getByTestId('rope')).toHaveText('1');await expect(page.getByText(/取舍证据 · 0 条/)).toBeVisible();});\n> 17 | test('rapid distinct clicks and stale restart timeout cannot affect next run',async({page})=>{await page.evaluate(()=>{const a=document.querySelector<HTMLButtonElement>('[data-choice=\"A\"]')!,b=document.querySelector<HTMLButtonElement>('[data-choice=\"B\"]')!;a.click();b.click();});await expect(page.getByRole('heading',{name:'有人相遇，也可以擦肩'})).toBeVisible();await expect(page.getByTestId('coins')).toHaveText('1');await page.getByRole('button',{name:'重新开始 ↺'}).click();await page.locator('[data-choice=\"D\"]').click();await page.getByRole('button',{name:'重新开始 ↺'}).click();await page.waitForTimeout(350);await expect(page.getByTestId('time')).toHaveText('0');await expect(page.locator('[data-choice=\"A\"]')).toBeEnabled();await select(page,'A');await expect(page.getByTestId('coins')).toHaveText('1');});\n     |                                                                                                                                                                                                                                                                                                                                                                                                           ^\n  18 |\n    at /workspace/hi-story/tests/e2e/game.spec.ts:17:395"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T13:52:53.003Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/workspace/hi-story/test-results/game-rapid-distinct-clicks-b72ab-eout-cannot-affect-next-run-desktop/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/workspace/hi-story/test-results/game-rapid-distinct-clicks-b72ab-eout-cannot-affect-next-run-desktop/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/workspace/hi-story/tests/e2e/game.spec.ts",
+                    "column": 395,
+                    "line": 17
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "8b1bb1493a64c9fc3ab6-521696df3a04434cd6a9",
+          "file": "game.spec.ts",
+          "line": 17,
+          "column": 1
+        },
+        {
+          "title": "tonight, cooperation, visible feedback, accessible keyboard and restart",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 15102,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('coins')\nExpected: \u001b[32m\"1\"\u001b[39m\nReceived: \u001b[31m\"1\u001b[7m 枚\u001b[27m\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('coins') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('coins')\u001b[22m\n\u001b[2m    12 × locator resolved to <strong data-testid=\"coins\">…</strong>\u001b[22m\n\u001b[2m       - unexpected value \"1 枚\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('coins')\nExpected: \u001b[32m\"1\"\u001b[39m\nReceived: \u001b[31m\"1\u001b[7m 枚\u001b[27m\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('coins') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('coins')\u001b[22m\n\u001b[2m    12 × locator resolved to <strong data-testid=\"coins\">…</strong>\u001b[22m\n\u001b[2m       - unexpected value \"1 枚\"\u001b[22m\n\n    at /workspace/hi-story/tests/e2e/game.spec.ts:13:42",
+                    "location": {
+                      "file": "/workspace/hi-story/tests/e2e/game.spec.ts",
+                      "column": 42,
+                      "line": 13
+                    },
+                    "snippet": "  11 |  await noOverflow(page);await expect(page.getByRole('heading',{name:'雾桥递信'})).toBeVisible();\n  12 |  const first=page.getByRole('button',{name:/付钱即刻过桥/});await first.focus();await expect(first).toBeFocused();await page.keyboard.press('Enter');await expect(page.getByRole('heading',{name:'有人相遇，也可以擦肩'})).toBeFocused();\n> 13 |  await expect(page.getByTestId('coins')).toHaveText('1');await select(page,'rope');await expect(page.getByText('陆砚 · 信任 +1',{exact:false})).toBeVisible();await expect(page.getByText('▧ 旧渡口草图 · 已获得')).toBeVisible();await select(page,'public');await expect(page.getByRole('heading',{name:'信已送达，今晚处理'})).toBeVisible();await expect(page.getByText('递送簿 · 沈青',{exact:true})).toBeVisible();await expect(page.getByTestId('time')).toHaveText('1');await noOverflow(page);await page.screenshot({path:`docs/evidence/${info.project.name}-tonight.png`,fullPage:true});await page.getByRole('button',{name:'再走一段不同的路 →'}).click();await expect(page.getByTestId('coins')).toHaveText('3');await expect(page.getByTestId('time')).toHaveText('0');\n     |                                          ^\n  14 | });\n  15 | test('morning, solo has no penalty, anonymous and layout',async({page},info)=>{await select(page,'D');await select(page,'solo');await select(page,'anonymous');await expect(page.getByRole('heading',{name:'信已送达，明早处理'})).toBeVisible();await expect(page.getByTestId('time')).toHaveText('4');await expect(page.getByText('递送簿 · 匿名',{exact:true})).toBeVisible();await expect(page.getByText(/陆砚 · 关系未变/)).toBeVisible();await expect(page.getByText(/陆砚已安全搬完木箱/)).toBeVisible();await expect(page.locator('[data-choice]')).toHaveCount(0);await noOverflow(page);await page.screenshot({path:`docs/evidence/${info.project.name}-morning.png`,fullPage:true});});\n  16 | test('disabled rope includes reason; restart in every phase',async({page},info)=>{await page.screenshot({path:`docs/evidence/${info.project.name}-start.png`,fullPage:true});await page.getByRole('button',{name:'重新开始 ↺'}).click();await select(page,'C');await expect(page.getByRole('button',{name:/用绳索绑箱合作/})).toBeDisabled();await expect(page.getByText('缺少绳索：已在雾桥换取通行')).toBeVisible();await noOverflow(page);await page.getByRole('button',{name:'重新开始 ↺'}).click();await select(page,'B');await select(page,'carry');await page.getByRole('button',{name:'重新开始 ↺'}).click();await expect(page.getByTestId('coins')).toHaveText('3');await expect(page.getByTestId('rope')).toHaveText('1');await expect(page.getByText(/取舍证据 · 0 条/)).toBeVisible();});"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/workspace/hi-story/tests/e2e/game.spec.ts",
+                        "column": 42,
+                        "line": 13
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('coins')\nExpected: \u001b[32m\"1\"\u001b[39m\nReceived: \u001b[31m\"1\u001b[7m 枚\u001b[27m\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('coins') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('coins')\u001b[22m\n\u001b[2m    12 × locator resolved to <strong data-testid=\"coins\">…</strong>\u001b[22m\n\u001b[2m       - unexpected value \"1 枚\"\u001b[22m\n\n\n  11 |  await noOverflow(page);await expect(page.getByRole('heading',{name:'雾桥递信'})).toBeVisible();\n  12 |  const first=page.getByRole('button',{name:/付钱即刻过桥/});await first.focus();await expect(first).toBeFocused();await page.keyboard.press('Enter');await expect(page.getByRole('heading',{name:'有人相遇，也可以擦肩'})).toBeFocused();\n> 13 |  await expect(page.getByTestId('coins')).toHaveText('1');await select(page,'rope');await expect(page.getByText('陆砚 · 信任 +1',{exact:false})).toBeVisible();await expect(page.getByText('▧ 旧渡口草图 · 已获得')).toBeVisible();await select(page,'public');await expect(page.getByRole('heading',{name:'信已送达，今晚处理'})).toBeVisible();await expect(page.getByText('递送簿 · 沈青',{exact:true})).toBeVisible();await expect(page.getByTestId('time')).toHaveText('1');await noOverflow(page);await page.screenshot({path:`docs/evidence/${info.project.name}-tonight.png`,fullPage:true});await page.getByRole('button',{name:'再走一段不同的路 →'}).click();await expect(page.getByTestId('coins')).toHaveText('3');await expect(page.getByTestId('time')).toHaveText('0');\n     |                                          ^\n  14 | });\n  15 | test('morning, solo has no penalty, anonymous and layout',async({page},info)=>{await select(page,'D');await select(page,'solo');await select(page,'anonymous');await expect(page.getByRole('heading',{name:'信已送达，明早处理'})).toBeVisible();await expect(page.getByTestId('time')).toHaveText('4');await expect(page.getByText('递送簿 · 匿名',{exact:true})).toBeVisible();await expect(page.getByText(/陆砚 · 关系未变/)).toBeVisible();await expect(page.getByText(/陆砚已安全搬完木箱/)).toBeVisible();await expect(page.locator('[data-choice]')).toHaveCount(0);await noOverflow(page);await page.screenshot({path:`docs/evidence/${info.project.name}-morning.png`,fullPage:true});});\n  16 | test('disabled rope includes reason; restart in every phase',async({page},info)=>{await page.screenshot({path:`docs/evidence/${info.project.name}-start.png`,fullPage:true});await page.getByRole('button',{name:'重新开始 ↺'}).click();await select(page,'C');await expect(page.getByRole('button',{name:/用绳索绑箱合作/})).toBeDisabled();await expect(page.getByText('缺少绳索：已在雾桥换取通行')).toBeVisible();await noOverflow(page);await page.getByRole('button',{name:'重新开始 ↺'}).click();await select(page,'B');await select(page,'carry');await page.getByRole('button',{name:'重新开始 ↺'}).click();await expect(page.getByTestId('coins')).toHaveText('3');await expect(page.getByTestId('rope')).toHaveText('1');await expect(page.getByText(/取舍证据 · 0 条/)).toBeVisible();});\n    at /workspace/hi-story/tests/e2e/game.spec.ts:13:42"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T13:53:17.885Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/workspace/hi-story/test-results/game-tonight-cooperation-v-af84d-ssible-keyboard-and-restart-narrow/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/workspace/hi-story/test-results/game-tonight-cooperation-v-af84d-ssible-keyboard-and-restart-narrow/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/workspace/hi-story/tests/e2e/game.spec.ts",
+                    "column": 42,
+                    "line": 13
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "8b1bb1493a64c9fc3ab6-c8b9fcc8ea2afa785885",
+          "file": "game.spec.ts",
+          "line": 10,
+          "column": 1
+        },
+        {
+          "title": "morning, solo has no penalty, anonymous and layout",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7241,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T13:53:11.337Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8b1bb1493a64c9fc3ab6-0734b8315a7aa6a49cc7",
+          "file": "game.spec.ts",
+          "line": 15,
+          "column": 1
+        },
+        {
+          "title": "disabled rope includes reason; restart in every phase",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 18269,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('coins')\nExpected: \u001b[32m\"3\"\u001b[39m\nReceived: \u001b[31m\"3\u001b[7m 枚\u001b[27m\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('coins') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('coins')\u001b[22m\n\u001b[2m    10 × locator resolved to <strong data-testid=\"coins\">…</strong>\u001b[22m\n\u001b[2m       - unexpected value \"3 枚\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('coins')\nExpected: \u001b[32m\"3\"\u001b[39m\nReceived: \u001b[31m\"3\u001b[7m 枚\u001b[27m\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('coins') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('coins')\u001b[22m\n\u001b[2m    10 × locator resolved to <strong data-testid=\"coins\">…</strong>\u001b[22m\n\u001b[2m       - unexpected value \"3 枚\"\u001b[22m\n\n    at /workspace/hi-story/tests/e2e/game.spec.ts:16:606",
+                    "location": {
+                      "file": "/workspace/hi-story/tests/e2e/game.spec.ts",
+                      "column": 606,
+                      "line": 16
+                    },
+                    "snippet": "  14 | });\n  15 | test('morning, solo has no penalty, anonymous and layout',async({page},info)=>{await select(page,'D');await select(page,'solo');await select(page,'anonymous');await expect(page.getByRole('heading',{name:'信已送达，明早处理'})).toBeVisible();await expect(page.getByTestId('time')).toHaveText('4');await expect(page.getByText('递送簿 · 匿名',{exact:true})).toBeVisible();await expect(page.getByText(/陆砚 · 关系未变/)).toBeVisible();await expect(page.getByText(/陆砚已安全搬完木箱/)).toBeVisible();await expect(page.locator('[data-choice]')).toHaveCount(0);await noOverflow(page);await page.screenshot({path:`docs/evidence/${info.project.name}-morning.png`,fullPage:true});});\n> 16 | test('disabled rope includes reason; restart in every phase',async({page},info)=>{await page.screenshot({path:`docs/evidence/${info.project.name}-start.png`,fullPage:true});await page.getByRole('button',{name:'重新开始 ↺'}).click();await select(page,'C');await expect(page.getByRole('button',{name:/用绳索绑箱合作/})).toBeDisabled();await expect(page.getByText('缺少绳索：已在雾桥换取通行')).toBeVisible();await noOverflow(page);await page.getByRole('button',{name:'重新开始 ↺'}).click();await select(page,'B');await select(page,'carry');await page.getByRole('button',{name:'重新开始 ↺'}).click();await expect(page.getByTestId('coins')).toHaveText('3');await expect(page.getByTestId('rope')).toHaveText('1');await expect(page.getByText(/取舍证据 · 0 条/)).toBeVisible();});\n     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ^\n  17 | test('rapid distinct clicks and stale restart timeout cannot affect next run',async({page})=>{await page.evaluate(()=>{const a=document.querySelector<HTMLButtonElement>('[data-choice=\"A\"]')!,b=document.querySelector<HTMLButtonElement>('[data-choice=\"B\"]')!;a.click();b.click();});await expect(page.getByRole('heading',{name:'有人相遇，也可以擦肩'})).toBeVisible();await expect(page.getByTestId('coins')).toHaveText('1');await page.getByRole('button',{name:'重新开始 ↺'}).click();await page.locator('[data-choice=\"D\"]').click();await page.getByRole('button',{name:'重新开始 ↺'}).click();await page.waitForTimeout(350);await expect(page.getByTestId('time')).toHaveText('0');await expect(page.locator('[data-choice=\"A\"]')).toBeEnabled();await select(page,'A');await expect(page.getByTestId('coins')).toHaveText('1');});\n  18 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/workspace/hi-story/tests/e2e/game.spec.ts",
+                        "column": 606,
+                        "line": 16
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('coins')\nExpected: \u001b[32m\"3\"\u001b[39m\nReceived: \u001b[31m\"3\u001b[7m 枚\u001b[27m\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('coins') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('coins')\u001b[22m\n\u001b[2m    10 × locator resolved to <strong data-testid=\"coins\">…</strong>\u001b[22m\n\u001b[2m       - unexpected value \"3 枚\"\u001b[22m\n\n\n  14 | });\n  15 | test('morning, solo has no penalty, anonymous and layout',async({page},info)=>{await select(page,'D');await select(page,'solo');await select(page,'anonymous');await expect(page.getByRole('heading',{name:'信已送达，明早处理'})).toBeVisible();await expect(page.getByTestId('time')).toHaveText('4');await expect(page.getByText('递送簿 · 匿名',{exact:true})).toBeVisible();await expect(page.getByText(/陆砚 · 关系未变/)).toBeVisible();await expect(page.getByText(/陆砚已安全搬完木箱/)).toBeVisible();await expect(page.locator('[data-choice]')).toHaveCount(0);await noOverflow(page);await page.screenshot({path:`docs/evidence/${info.project.name}-morning.png`,fullPage:true});});\n> 16 | test('disabled rope includes reason; restart in every phase',async({page},info)=>{await page.screenshot({path:`docs/evidence/${info.project.name}-start.png`,fullPage:true});await page.getByRole('button',{name:'重新开始 ↺'}).click();await select(page,'C');await expect(page.getByRole('button',{name:/用绳索绑箱合作/})).toBeDisabled();await expect(page.getByText('缺少绳索：已在雾桥换取通行')).toBeVisible();await noOverflow(page);await page.getByRole('button',{name:'重新开始 ↺'}).click();await select(page,'B');await select(page,'carry');await page.getByRole('button',{name:'重新开始 ↺'}).click();await expect(page.getByTestId('coins')).toHaveText('3');await expect(page.getByTestId('rope')).toHaveText('1');await expect(page.getByText(/取舍证据 · 0 条/)).toBeVisible();});\n     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ^\n  17 | test('rapid distinct clicks and stale restart timeout cannot affect next run',async({page})=>{await page.evaluate(()=>{const a=document.querySelector<HTMLButtonElement>('[data-choice=\"A\"]')!,b=document.querySelector<HTMLButtonElement>('[data-choice=\"B\"]')!;a.click();b.click();});await expect(page.getByRole('heading',{name:'有人相遇，也可以擦肩'})).toBeVisible();await expect(page.getByTestId('coins')).toHaveText('1');await page.getByRole('button',{name:'重新开始 ↺'}).click();await page.locator('[data-choice=\"D\"]').click();await page.getByRole('button',{name:'重新开始 ↺'}).click();await page.waitForTimeout(350);await expect(page.getByTestId('time')).toHaveText('0');await expect(page.locator('[data-choice=\"A\"]')).toBeEnabled();await select(page,'A');await expect(page.getByTestId('coins')).toHaveText('1');});\n  18 |\n    at /workspace/hi-story/tests/e2e/game.spec.ts:16:606"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T13:53:22.016Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/workspace/hi-story/test-results/game-disabled-rope-includes-reason-restart-in-every-phase-narrow/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/workspace/hi-story/test-results/game-disabled-rope-includes-reason-restart-in-every-phase-narrow/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/workspace/hi-story/tests/e2e/game.spec.ts",
+                    "column": 606,
+                    "line": 16
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "8b1bb1493a64c9fc3ab6-5cad997551c56ead288e",
+          "file": "game.spec.ts",
+          "line": 16,
+          "column": 1
+        },
+        {
+          "title": "rapid distinct clicks and stale restart timeout cannot affect next run",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 10836,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('coins')\nExpected: \u001b[32m\"1\"\u001b[39m\nReceived: \u001b[31m\"1\u001b[7m 枚\u001b[27m\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('coins') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('coins')\u001b[22m\n\u001b[2m    11 × locator resolved to <strong data-testid=\"coins\">…</strong>\u001b[22m\n\u001b[2m       - unexpected value \"1 枚\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('coins')\nExpected: \u001b[32m\"1\"\u001b[39m\nReceived: \u001b[31m\"1\u001b[7m 枚\u001b[27m\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('coins') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('coins')\u001b[22m\n\u001b[2m    11 × locator resolved to <strong data-testid=\"coins\">…</strong>\u001b[22m\n\u001b[2m       - unexpected value \"1 枚\"\u001b[22m\n\n    at /workspace/hi-story/tests/e2e/game.spec.ts:17:395",
+                    "location": {
+                      "file": "/workspace/hi-story/tests/e2e/game.spec.ts",
+                      "column": 395,
+                      "line": 17
+                    },
+                    "snippet": "  15 | test('morning, solo has no penalty, anonymous and layout',async({page},info)=>{await select(page,'D');await select(page,'solo');await select(page,'anonymous');await expect(page.getByRole('heading',{name:'信已送达，明早处理'})).toBeVisible();await expect(page.getByTestId('time')).toHaveText('4');await expect(page.getByText('递送簿 · 匿名',{exact:true})).toBeVisible();await expect(page.getByText(/陆砚 · 关系未变/)).toBeVisible();await expect(page.getByText(/陆砚已安全搬完木箱/)).toBeVisible();await expect(page.locator('[data-choice]')).toHaveCount(0);await noOverflow(page);await page.screenshot({path:`docs/evidence/${info.project.name}-morning.png`,fullPage:true});});\n  16 | test('disabled rope includes reason; restart in every phase',async({page},info)=>{await page.screenshot({path:`docs/evidence/${info.project.name}-start.png`,fullPage:true});await page.getByRole('button',{name:'重新开始 ↺'}).click();await select(page,'C');await expect(page.getByRole('button',{name:/用绳索绑箱合作/})).toBeDisabled();await expect(page.getByText('缺少绳索：已在雾桥换取通行')).toBeVisible();await noOverflow(page);await page.getByRole('button',{name:'重新开始 ↺'}).click();await select(page,'B');await select(page,'carry');await page.getByRole('button',{name:'重新开始 ↺'}).click();await expect(page.getByTestId('coins')).toHaveText('3');await expect(page.getByTestId('rope')).toHaveText('1');await expect(page.getByText(/取舍证据 · 0 条/)).toBeVisible();});\n> 17 | test('rapid distinct clicks and stale restart timeout cannot affect next run',async({page})=>{await page.evaluate(()=>{const a=document.querySelector<HTMLButtonElement>('[data-choice=\"A\"]')!,b=document.querySelector<HTMLButtonElement>('[data-choice=\"B\"]')!;a.click();b.click();});await expect(page.getByRole('heading',{name:'有人相遇，也可以擦肩'})).toBeVisible();await expect(page.getByTestId('coins')).toHaveText('1');await page.getByRole('button',{name:'重新开始 ↺'}).click();await page.locator('[data-choice=\"D\"]').click();await page.getByRole('button',{name:'重新开始 ↺'}).click();await page.waitForTimeout(350);await expect(page.getByTestId('time')).toHaveText('0');await expect(page.locator('[data-choice=\"A\"]')).toBeEnabled();await select(page,'A');await expect(page.getByTestId('coins')).toHaveText('1');});\n     |                                                                                                                                                                                                                                                                                                                                                                                                           ^\n  18 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/workspace/hi-story/tests/e2e/game.spec.ts",
+                        "column": 395,
+                        "line": 17
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('coins')\nExpected: \u001b[32m\"1\"\u001b[39m\nReceived: \u001b[31m\"1\u001b[7m 枚\u001b[27m\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('coins') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('coins')\u001b[22m\n\u001b[2m    11 × locator resolved to <strong data-testid=\"coins\">…</strong>\u001b[22m\n\u001b[2m       - unexpected value \"1 枚\"\u001b[22m\n\n\n  15 | test('morning, solo has no penalty, anonymous and layout',async({page},info)=>{await select(page,'D');await select(page,'solo');await select(page,'anonymous');await expect(page.getByRole('heading',{name:'信已送达，明早处理'})).toBeVisible();await expect(page.getByTestId('time')).toHaveText('4');await expect(page.getByText('递送簿 · 匿名',{exact:true})).toBeVisible();await expect(page.getByText(/陆砚 · 关系未变/)).toBeVisible();await expect(page.getByText(/陆砚已安全搬完木箱/)).toBeVisible();await expect(page.locator('[data-choice]')).toHaveCount(0);await noOverflow(page);await page.screenshot({path:`docs/evidence/${info.project.name}-morning.png`,fullPage:true});});\n  16 | test('disabled rope includes reason; restart in every phase',async({page},info)=>{await page.screenshot({path:`docs/evidence/${info.project.name}-start.png`,fullPage:true});await page.getByRole('button',{name:'重新开始 ↺'}).click();await select(page,'C');await expect(page.getByRole('button',{name:/用绳索绑箱合作/})).toBeDisabled();await expect(page.getByText('缺少绳索：已在雾桥换取通行')).toBeVisible();await noOverflow(page);await page.getByRole('button',{name:'重新开始 ↺'}).click();await select(page,'B');await select(page,'carry');await page.getByRole('button',{name:'重新开始 ↺'}).click();await expect(page.getByTestId('coins')).toHaveText('3');await expect(page.getByTestId('rope')).toHaveText('1');await expect(page.getByText(/取舍证据 · 0 条/)).toBeVisible();});\n> 17 | test('rapid distinct clicks and stale restart timeout cannot affect next run',async({page})=>{await page.evaluate(()=>{const a=document.querySelector<HTMLButtonElement>('[data-choice=\"A\"]')!,b=document.querySelector<HTMLButtonElement>('[data-choice=\"B\"]')!;a.click();b.click();});await expect(page.getByRole('heading',{name:'有人相遇，也可以擦肩'})).toBeVisible();await expect(page.getByTestId('coins')).toHaveText('1');await page.getByRole('button',{name:'重新开始 ↺'}).click();await page.locator('[data-choice=\"D\"]').click();await page.getByRole('button',{name:'重新开始 ↺'}).click();await page.waitForTimeout(350);await expect(page.getByTestId('time')).toHaveText('0');await expect(page.locator('[data-choice=\"A\"]')).toBeEnabled();await select(page,'A');await expect(page.getByTestId('coins')).toHaveText('1');});\n     |                                                                                                                                                                                                                                                                                                                                                                                                           ^\n  18 |\n    at /workspace/hi-story/tests/e2e/game.spec.ts:17:395"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T13:53:41.020Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/workspace/hi-story/test-results/game-rapid-distinct-clicks-b72ab-eout-cannot-affect-next-run-narrow/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/workspace/hi-story/test-results/game-rapid-distinct-clicks-b72ab-eout-cannot-affect-next-run-narrow/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/workspace/hi-story/tests/e2e/game.spec.ts",
+                    "column": 395,
+                    "line": 17
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "8b1bb1493a64c9fc3ab6-48ad29f941a0f99b9fee",
+          "file": "game.spec.ts",
+          "line": 17,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-13T13:52:20.069Z",
+    "duration": 95588.338,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 6,
+    "flaky": 0
+  }
+}

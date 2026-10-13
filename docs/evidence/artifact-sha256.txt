@@ -1,0 +1,2 @@
+8bd9dec693e3fff13c37d626bfe0269aa4835fe493efb9364b6a1eef3ec993a7  artifacts/hi-story-preview.zip
+Verified: each bundled production file equals tested dist byte-for-byte.

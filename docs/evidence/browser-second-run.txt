@@ -1,0 +1,90 @@
+
+> hi-story@0.1.0 test:e2e
+> playwright test
+
+[WebServer] (node:2224) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:2244) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 8 tests using 2 workers
+
+(node:2277) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2276) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [desktop] › tests/e2e/game.spec.ts:15:1 › morning, solo has no penalty, anonymous and layout (48.3s)
+  ✘  2 [desktop] › tests/e2e/game.spec.ts:10:1 › tonight, cooperation, visible feedback, accessible keyboard and restart (38.1s)
+(node:2556) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2565) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  4 [desktop] › tests/e2e/game.spec.ts:17:1 › rapid distinct clicks and stale restart timeout cannot affect next run (19.3s)
+  ✓  3 [desktop] › tests/e2e/game.spec.ts:16:1 › disabled rope includes reason; restart in every phase (22.8s)
+(node:2833) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2842) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+  1) [desktop] › tests/e2e/game.spec.ts:10:1 › tonight, cooperation, visible feedback, accessible keyboard and restart 
+
+    Test timeout of 30000ms exceeded while running "beforeEach" hook.
+
+      1 | import {test,expect,type Page} from '@playwright/test';
+      2 | const select=async(page:Page,id:string)=>{await page.locator(`[data-choice="${id}"]`).click();await expect(page.locator(`[data-choice="${id}"]`)).toHaveCount(0);};
+    > 3 | test.beforeEach(async({page})=>{
+        |      ^
+      4 |  const failures:string[]=[];
+      5 |  page.on('pageerror',e=>failures.push(e.message));page.on('console',m=>{if(m.type()==='error')failures.push(m.text());});page.on('requestfailed',r=>failures.push(r.url()));page.on('response',r=>{if(r.status()>=400)failures.push(`${r.status()} ${r.url()}`);});
+      6 |  (page as Page&{failures:string[]}).failures=failures;await page.goto('/');
+        at /workspace/hi-story/tests/e2e/game.spec.ts:3:6
+
+    Error Context: test-results/game-tonight-cooperation-v-af84d-ssible-keyboard-and-restart-desktop/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/game-tonight-cooperation-v-af84d-ssible-keyboard-and-restart-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/game-tonight-cooperation-v-af84d-ssible-keyboard-and-restart-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [desktop] › tests/e2e/game.spec.ts:15:1 › morning, solo has no penalty, anonymous and layout ──
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for locator('[data-choice="solo"]')
+
+
+      1 | import {test,expect,type Page} from '@playwright/test';
+    > 2 | const select=async(page:Page,id:string)=>{await page.locator(`[data-choice="${id}"]`).click();await expect(page.locator(`[data-choice="${id}"]`)).toHaveCount(0);};
+        |                                                                                       ^
+      3 | test.beforeEach(async({page})=>{
+      4 |  const failures:string[]=[];
+      5 |  page.on('pageerror',e=>failures.push(e.message));page.on('console',m=>{if(m.type()==='error')failures.push(m.text());});page.on('requestfailed',r=>failures.push(r.url()));page.on('response',r=>{if(r.status()>=400)failures.push(`${r.status()} ${r.url()}`);});
+        at select (/workspace/hi-story/tests/e2e/game.spec.ts:2:87)
+        at /workspace/hi-story/tests/e2e/game.spec.ts:15:109
+
+    Error Context: test-results/game-morning-solo-has-no-penalty-anonymous-and-layout-desktop/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/game-morning-solo-has-no-penalty-anonymous-and-layout-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/game-morning-solo-has-no-penalty-anonymous-and-layout-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    [desktop] › tests/e2e/game.spec.ts:10:1 › tonight, cooperation, visible feedback, accessible keyboard and restart 
+    [desktop] › tests/e2e/game.spec.ts:15:1 › morning, solo has no penalty, anonymous and layout ───
+  4 did not run
+  2 passed (2.5m)
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice

@@ -1,3 +1,5 @@
+import { StoryStudio } from './application/story-studio';
+import { renderStoryStudio } from './presentation/story-studio';
 import { Game } from './application/game';
 import { choiceCommand } from './input';
 import { render } from './presentation';
@@ -36,4 +38,8 @@ if (new URLSearchParams(location.search).get('view') === 'character-generator') 
   },message);
  }
  drawStudio();
+} else if (new URLSearchParams(location.search).get('view') === 'story-generator') {
+ const studio = new StoryStudio('hi-story:story:001');
+ const drawStory = () => renderStoryStudio(root, studio, drawStory);
+ drawStory();
 } else draw();

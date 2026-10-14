@@ -124,3 +124,12 @@ CHROMIUM_PATH=/path/to/chromium npm run characters:render -- --input docs/exampl
 - `npm run maps:generate` 生成并校验示例地图。
 
 下一阶段协议为`demo-contract/2`，本局快照schemaVersion为2；空间版本`story-spatial/2`、地图`bounded-map/2`。本局已生成地图不因选择重抽。[本阶段说明与验收](docs/demo-next-stage-report.md) · [声明式布局目录](content/story/spatial-layouts.json)。
+
+
+## 全角色共用职业模块（开发初版）
+
+公开入口：`src/modules/professions/index.ts`。12职业、36专精、252能力目录，提供固定生命成长、等级/专精/兼职、技能熟练、独立资源池与休息规则。玩家、伙伴、敌人、居民共用定义；生活职业与性格分别保存。
+
+当前9项主动技能已接入运行器与生命周期事务，其余定义拒绝施放。显式职业模式采用`adventure-dnd/2-professions`，支持保存恢复；默认网页与旧模板仍保留。本轮不发布新游戏页面。
+
+详见[职业模块说明](职业模块说明.md)、[完整设计攻略](docs/profession-guide.md)与[验证记录](docs/profession-validation.md)。

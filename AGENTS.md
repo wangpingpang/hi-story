@@ -4,6 +4,8 @@
 
 在需要地图生成时，调用地图生成器：《地图生成器说明.md》
 
+在需要职业定义、角色成长、专精、兼职或职业技能时，调用职业模块：《职业模块说明.md》；公开入口 `src/modules/professions/index.ts`。
+
 ## 开发与同步
 
 - 在 `codex/<task>` 开发分支工作，正常提交与推送属于已授权开发流程；不强制推送、不覆盖其他窗口修改。
@@ -33,3 +35,7 @@
 ## v0.1.0 冒险执行基线
 
 开发分支 codex/v010-adventure。新冒险公开入口为 application.createAdventureApplication，协议 demo-contract/3 / schemaVersion=3；原 GameApplication/schema2 保留回归。新界面默认入口与 ?view=demo，原 Demo 为 ?view=demo-legacy，原雾桥为 ?view=fog-bridge。当前逻辑自测已通过，浏览器/发布状态见 docs/v0.1.0-validation.md；不要把云端候选提交当作已发布。
+
+## 职业规则初版
+
+开发分支 codex/profession-module。职业目录 class-framework/1；可选接入规则 adventure-dnd/2-professions。252项为目录，主动执行9项；未实现项必须拒绝，不能扣资源或伪造成功。职业状态只由运行器持有，生命周期统一提交。默认页面/旧存档保持原模式，本轮不发布游戏。见《职业模块说明.md》及 docs/profession-validation.md。

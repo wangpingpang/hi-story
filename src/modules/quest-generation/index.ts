@@ -45,3 +45,5 @@ export function createTaskGenerator(): TaskGeneratorRegistry {
   }});
   return registry;
 }
+
+export * from './adventure';

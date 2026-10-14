@@ -120,3 +120,5 @@ export function battleAction(state:RuntimeState,action:'attack'|'defend'|'flee'|
   if(player.hp===0){b.status='defeat';b.log.push('你倒下了。');}
   validateRuntime(next);return next;
 }
+
+export * from './adventure';

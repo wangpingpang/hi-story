@@ -13,7 +13,7 @@ export async function openDemo(page: Page, seed: string): Promise<DemoFixture> {
     if(!result.ok)throw Error(result.error.message);
     snapshot=structuredClone(app.query().snapshot!) as RunSnapshot;app.dispose();
   }finally{await server.close();}
-  await page.goto(`/?view=demo&seed=${encodeURIComponent(seed)}`);
+  await page.goto(`/?view=demo-legacy&seed=${encodeURIComponent(seed)}`);
   await expect(page.getByRole('heading',{name:'世界地图',exact:true})).toBeVisible();
   return {snapshot,position:{...snapshot.runtime.actors[snapshot.playerActorId].position}};
 }

@@ -10,7 +10,7 @@ test.beforeEach(({page})=>{
 test.afterEach(({page})=>expect(failures.get(page)).toEqual([]));
 
 test('探索入口、移动、阅读、重开和窄屏布局',async({page})=>{
-  await page.goto('/?view=demo&seed=browser-demo');
+  await page.goto('/?view=demo-legacy&seed=browser-demo');
   await expect(page.getByRole('heading',{name:'世界地图',exact:true})).toBeVisible();
   await expect(page.getByText('坐标 3, 3 ·', {exact:false})).toBeVisible();
   await page.getByRole('button',{name:'研究已经存在的笔记',exact:false}).click();

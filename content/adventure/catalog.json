@@ -1,0 +1,1564 @@
+{
+  "version": "adventure-content/1",
+  "mainlines": [
+    {
+      "id": "letter",
+      "title": "将密信送往暮光塔",
+      "intro": "塔中的守望者失联，商道流传着不同版本的消息。",
+      "requiredItem": "supply",
+      "sourceAnchor": "supply"
+    },
+    {
+      "id": "seal",
+      "title": "解除暮光塔的古老封印",
+      "intro": "古老结界正在吞噬旅人的记忆，你必须找到仪式符文。",
+      "requiredItem": "seal",
+      "sourceAnchor": "shrine"
+    },
+    {
+      "id": "relic",
+      "title": "夺回暮光塔的星辉遗物",
+      "intro": "被偷走的星辉遗物藏在支路遗迹，守卫对陌生人充满戒心。",
+      "requiredItem": "relic",
+      "sourceAnchor": "cache"
+    }
+  ],
+  "items": [
+    {
+      "id": "potion",
+      "name": "生命药剂",
+      "description": "恢复10点生命；战斗中消耗行动。",
+      "price": 6,
+      "sellable": true,
+      "heal": 10
+    },
+    {
+      "id": "herb",
+      "name": "银叶草",
+      "description": "用于治疗、交付和仪式。",
+      "price": 2,
+      "sellable": true,
+      "heal": 0
+    },
+    {
+      "id": "rope",
+      "name": "攀登绳",
+      "description": "修复捷径、跨越障碍。",
+      "price": 3,
+      "sellable": true,
+      "heal": 0
+    },
+    {
+      "id": "torch",
+      "name": "火把",
+      "description": "探索仪式与遗迹，提供奥秘检定优势。",
+      "price": 2,
+      "sellable": true,
+      "heal": 0
+    },
+    {
+      "id": "clue",
+      "name": "主线线索",
+      "description": "决定后续目标的可信情报。",
+      "price": 0,
+      "sellable": false,
+      "heal": 0
+    },
+    {
+      "id": "supply",
+      "name": "旅途物资",
+      "description": "完成目标需要的补给。",
+      "price": 4,
+      "sellable": true,
+      "heal": 0
+    },
+    {
+      "id": "relic",
+      "name": "失落遗物",
+      "description": "遗迹主线物品，不能出售。",
+      "price": 0,
+      "sellable": false,
+      "heal": 0
+    },
+    {
+      "id": "seal",
+      "name": "封印符文",
+      "description": "解除封印主线物品，不能出售。",
+      "price": 0,
+      "sellable": false,
+      "heal": 0
+    }
+  ],
+  "events": [
+    {
+      "id": "notes",
+      "title": "残存的旅行笔记",
+      "anchorId": "notes",
+      "when": {
+        "kind": "all",
+        "conditions": []
+      },
+      "choices": [
+        {
+          "id": "read",
+          "text": "阅读地图，确认目标与线索",
+          "time": 0.25,
+          "gold": 0,
+          "items": {},
+          "success": [
+            {
+              "kind": "item",
+              "itemId": "clue",
+              "amount": 1
+            },
+            {
+              "kind": "fact",
+              "id": "notes-read"
+            }
+          ],
+          "failure": []
+        },
+        {
+          "id": "decode",
+          "text": "解读暗文，寻找更深的秘密",
+          "time": 0.25,
+          "gold": 0,
+          "items": {},
+          "check": {
+            "skill": "arcana",
+            "dc": 12
+          },
+          "success": [
+            {
+              "kind": "item",
+              "itemId": "clue",
+              "amount": 1
+            },
+            {
+              "kind": "fact",
+              "id": "decoded"
+            },
+            {
+              "kind": "gold",
+              "amount": 3
+            }
+          ],
+          "failure": [
+            {
+              "kind": "item",
+              "itemId": "clue",
+              "amount": 1
+            },
+            {
+              "kind": "fact",
+              "id": "notes-read"
+            }
+          ]
+        },
+        {
+          "id": "trace",
+          "text": "核对足迹，寻找近期旅人",
+          "time": 0.25,
+          "gold": 0,
+          "items": {},
+          "check": {
+            "skill": "perception",
+            "dc": 11
+          },
+          "success": [
+            {
+              "kind": "item",
+              "itemId": "clue",
+              "amount": 1
+            },
+            {
+              "kind": "fact",
+              "id": "tracks"
+            }
+          ],
+          "failure": [
+            {
+              "kind": "item",
+              "itemId": "clue",
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "supply",
+      "title": "被遗弃的补给营地",
+      "anchorId": "supply",
+      "when": {
+        "kind": "all",
+        "conditions": []
+      },
+      "choices": [
+        {
+          "id": "gather",
+          "text": "整理营地，取走旅途物资",
+          "time": 0.25,
+          "gold": 0,
+          "items": {},
+          "success": [
+            {
+              "kind": "item",
+              "itemId": "supply",
+              "amount": 1
+            },
+            {
+              "kind": "item",
+              "itemId": "herb",
+              "amount": 2
+            },
+            {
+              "kind": "fact",
+              "id": "camp-found"
+            }
+          ],
+          "failure": []
+        },
+        {
+          "id": "scout",
+          "text": "谨慎察觉陷阱，寻找额外收获",
+          "time": 0.25,
+          "gold": 0,
+          "items": {},
+          "check": {
+            "skill": "perception",
+            "dc": 12
+          },
+          "success": [
+            {
+              "kind": "item",
+              "itemId": "supply",
+              "amount": 1
+            },
+            {
+              "kind": "item",
+              "itemId": "potion",
+              "amount": 1
+            },
+            {
+              "kind": "fact",
+              "id": "camp-found"
+            }
+          ],
+          "failure": [
+            {
+              "kind": "item",
+              "itemId": "supply",
+              "amount": 1
+            },
+            {
+              "kind": "hp",
+              "target": "player",
+              "amount": -3
+            },
+            {
+              "kind": "fact",
+              "id": "camp-found"
+            }
+          ]
+        },
+        {
+          "id": "secure",
+          "text": "拆解机关，保留营地用品",
+          "time": 0.25,
+          "gold": 0,
+          "items": {},
+          "check": {
+            "skill": "sleight",
+            "dc": 12
+          },
+          "success": [
+            {
+              "kind": "item",
+              "itemId": "supply",
+              "amount": 1
+            },
+            {
+              "kind": "item",
+              "itemId": "rope",
+              "amount": 1
+            },
+            {
+              "kind": "fact",
+              "id": "camp-found"
+            }
+          ],
+          "failure": [
+            {
+              "kind": "item",
+              "itemId": "supply",
+              "amount": 1
+            },
+            {
+              "kind": "fact",
+              "id": "camp-found"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shrine",
+      "title": "银月祭坛",
+      "anchorId": "shrine",
+      "when": {
+        "kind": "all",
+        "conditions": []
+      },
+      "choices": [
+        {
+          "id": "study",
+          "text": "研究符文，提取封印印记",
+          "time": 0.25,
+          "gold": 0,
+          "items": {},
+          "check": {
+            "skill": "arcana",
+            "dc": 12
+          },
+          "success": [
+            {
+              "kind": "item",
+              "itemId": "seal",
+              "amount": 1
+            },
+            {
+              "kind": "fact",
+              "id": "shrine-found"
+            }
+          ],
+          "failure": [
+            {
+              "kind": "fact",
+              "id": "shrine-found"
+            }
+          ]
+        },
+        {
+          "id": "offer",
+          "text": "献上银叶草，换取封印印记",
+          "time": 0.25,
+          "gold": 0,
+          "items": {
+            "herb": 1
+          },
+          "success": [
+            {
+              "kind": "item",
+              "itemId": "seal",
+              "amount": 1
+            },
+            {
+              "kind": "fact",
+              "id": "shrine-found"
+            }
+          ],
+          "failure": []
+        },
+        {
+          "id": "pray",
+          "text": "耐心整理石刻，复原仪式",
+          "time": 0.25,
+          "gold": 0,
+          "items": {},
+          "success": [
+            {
+              "kind": "item",
+              "itemId": "seal",
+              "amount": 1
+            },
+            {
+              "kind": "fact",
+              "id": "shrine-found"
+            }
+          ],
+          "failure": []
+        }
+      ]
+    },
+    {
+      "id": "cache",
+      "title": "支路遗迹的锁箱",
+      "anchorId": "cache",
+      "when": {
+        "kind": "all",
+        "conditions": []
+      },
+      "choices": [
+        {
+          "id": "unlock",
+          "text": "巧手开锁，取回遗物",
+          "time": 0.25,
+          "gold": 0,
+          "items": {},
+          "check": {
+            "skill": "sleight",
+            "dc": 13
+          },
+          "success": [
+            {
+              "kind": "item",
+              "itemId": "relic",
+              "amount": 1
+            },
+            {
+              "kind": "gold",
+              "amount": 4
+            },
+            {
+              "kind": "fact",
+              "id": "cache-found"
+            }
+          ],
+          "failure": [
+            {
+              "kind": "fact",
+              "id": "cache-found"
+            }
+          ]
+        },
+        {
+          "id": "force",
+          "text": "用力量打开锁箱",
+          "time": 0.25,
+          "gold": 0,
+          "items": {},
+          "check": {
+            "skill": "athletics",
+            "dc": 12
+          },
+          "success": [
+            {
+              "kind": "item",
+              "itemId": "relic",
+              "amount": 1
+            },
+            {
+              "kind": "fact",
+              "id": "cache-found"
+            }
+          ],
+          "failure": [
+            {
+              "kind": "hp",
+              "target": "player",
+              "amount": -2
+            },
+            {
+              "kind": "fact",
+              "id": "cache-found"
+            }
+          ]
+        },
+        {
+          "id": "patient",
+          "text": "沿支路找到备用钥匙，取出遗物",
+          "time": 0.25,
+          "gold": 0,
+          "items": {},
+          "success": [
+            {
+              "kind": "item",
+              "itemId": "relic",
+              "amount": 1
+            },
+            {
+              "kind": "fact",
+              "id": "cache-found"
+            }
+          ],
+          "failure": []
+        }
+      ]
+    },
+    {
+      "id": "gate",
+      "title": "坍塌的捷径",
+      "anchorId": "gate",
+      "when": {
+        "kind": "all",
+        "conditions": []
+      },
+      "choices": [
+        {
+          "id": "rope",
+          "text": "消耗绳索，架起可通行的捷径",
+          "time": 0.25,
+          "gold": 0,
+          "items": {
+            "rope": 1
+          },
+          "success": [
+            {
+              "kind": "door",
+              "id": "shortcut",
+              "open": true
+            },
+            {
+              "kind": "fact",
+              "id": "gate-open"
+            }
+          ],
+          "failure": []
+        },
+        {
+          "id": "lift",
+          "text": "尝试运动检定，搬开倒木",
+          "time": 0.25,
+          "gold": 0,
+          "items": {},
+          "check": {
+            "skill": "athletics",
+            "dc": 13
+          },
+          "success": [
+            {
+              "kind": "door",
+              "id": "shortcut",
+              "open": true
+            },
+            {
+              "kind": "fact",
+              "id": "gate-open"
+            }
+          ],
+          "failure": [
+            {
+              "kind": "fact",
+              "id": "gate-checked"
+            }
+          ]
+        },
+        {
+          "id": "detour",
+          "text": "标记替代道路，从外侧支路绕行",
+          "time": 0.25,
+          "gold": 0,
+          "items": {},
+          "success": [
+            {
+              "kind": "fact",
+              "id": "detour"
+            }
+          ],
+          "failure": []
+        }
+      ]
+    },
+    {
+      "id": "watch",
+      "title": "风蚀哨塔",
+      "anchorId": "watch",
+      "when": {
+        "kind": "all",
+        "conditions": []
+      },
+      "choices": [
+        {
+          "id": "observe",
+          "text": "察觉周围，找到守卫的盲区",
+          "time": 0.25,
+          "gold": 0,
+          "items": {},
+          "check": {
+            "skill": "perception",
+            "dc": 12
+          },
+          "success": [
+            {
+              "kind": "fact",
+              "id": "guardian-bypass"
+            },
+            {
+              "kind": "fact",
+              "id": "watch-found"
+            }
+          ],
+          "failure": [
+            {
+              "kind": "fact",
+              "id": "watch-found"
+            }
+          ]
+        },
+        {
+          "id": "sneak",
+          "text": "隐匿经过，避开守卫",
+          "time": 0.25,
+          "gold": 0,
+          "items": {},
+          "check": {
+            "skill": "stealth",
+            "dc": 12
+          },
+          "success": [
+            {
+              "kind": "fact",
+              "id": "guardian-bypass"
+            },
+            {
+              "kind": "fact",
+              "id": "watch-found"
+            }
+          ],
+          "failure": [
+            {
+              "kind": "fact",
+              "id": "watch-found"
+            }
+          ]
+        },
+        {
+          "id": "record",
+          "text": "抄录守卫换岗时间",
+          "time": 0.25,
+          "gold": 0,
+          "items": {},
+          "success": [
+            {
+              "kind": "fact",
+              "id": "guardian-bypass"
+            },
+            {
+              "kind": "fact",
+              "id": "watch-found"
+            }
+          ],
+          "failure": []
+        }
+      ]
+    },
+    {
+      "id": "camp-pact",
+      "title": "营地的承诺",
+      "anchorId": "market",
+      "when": {
+        "kind": "all",
+        "conditions": []
+      },
+      "choices": [
+        {
+          "id": "honor",
+          "text": "兑现承诺，赠送一份物资",
+          "time": 0.25,
+          "gold": 0,
+          "items": {
+            "supply": 1
+          },
+          "success": [
+            {
+              "kind": "fact",
+              "id": "pact-kept"
+            },
+            {
+              "kind": "trust",
+              "npcId": "npc-0",
+              "amount": 2
+            },
+            {
+              "kind": "gold",
+              "amount": 4
+            }
+          ],
+          "failure": []
+        },
+        {
+          "id": "discuss",
+          "text": "说服旅人，以消息代替物资",
+          "time": 0.25,
+          "gold": 0,
+          "items": {},
+          "check": {
+            "skill": "persuasion",
+            "dc": 12
+          },
+          "success": [
+            {
+              "kind": "fact",
+              "id": "pact-kept"
+            },
+            {
+              "kind": "trust",
+              "npcId": "npc-0",
+              "amount": 1
+            }
+          ],
+          "failure": [
+            {
+              "kind": "fact",
+              "id": "pact-broken"
+            },
+            {
+              "kind": "trust",
+              "npcId": "npc-0",
+              "amount": -1
+            }
+          ]
+        },
+        {
+          "id": "decline",
+          "text": "拒绝约定，承担失信的后果",
+          "time": 0.25,
+          "gold": 0,
+          "items": {},
+          "success": [
+            {
+              "kind": "fact",
+              "id": "pact-broken"
+            },
+            {
+              "kind": "trust",
+              "npcId": "npc-0",
+              "amount": -2
+            }
+          ],
+          "failure": []
+        }
+      ]
+    },
+    {
+      "id": "echo-riddle",
+      "title": "回声中的谜语",
+      "anchorId": "shrine",
+      "when": {
+        "kind": "all",
+        "conditions": []
+      },
+      "choices": [
+        {
+          "id": "solve",
+          "text": "以奥秘知识回应回声",
+          "time": 0.25,
+          "gold": 0,
+          "items": {},
+          "check": {
+            "skill": "arcana",
+            "dc": 12
+          },
+          "success": [
+            {
+              "kind": "fact",
+              "id": "echo-solved"
+            },
+            {
+              "kind": "item",
+              "itemId": "seal",
+              "amount": 1
+            }
+          ],
+          "failure": [
+            {
+              "kind": "fact",
+              "id": "echo-failed"
+            }
+          ]
+        },
+        {
+          "id": "listen",
+          "text": "洞察回声的真正意图",
+          "time": 0.25,
+          "gold": 0,
+          "items": {},
+          "check": {
+            "skill": "insight",
+            "dc": 12
+          },
+          "success": [
+            {
+              "kind": "fact",
+              "id": "echo-solved"
+            },
+            {
+              "kind": "gold",
+              "amount": 3
+            }
+          ],
+          "failure": [
+            {
+              "kind": "fact",
+              "id": "echo-failed"
+            }
+          ]
+        },
+        {
+          "id": "gift",
+          "text": "献上草药，安抚回声",
+          "time": 0.25,
+          "gold": 0,
+          "items": {
+            "herb": 1
+          },
+          "success": [
+            {
+              "kind": "fact",
+              "id": "echo-solved"
+            },
+            {
+              "kind": "item",
+              "itemId": "seal",
+              "amount": 1
+            }
+          ],
+          "failure": []
+        }
+      ]
+    },
+    {
+      "id": "echo-warning",
+      "title": "哨塔的后续警告",
+      "anchorId": "watch",
+      "when": {
+        "kind": "all",
+        "conditions": []
+      },
+      "choices": [
+        {
+          "id": "trust",
+          "text": "相信警告，记录安全路线",
+          "time": 0.25,
+          "gold": 0,
+          "items": {},
+          "success": [
+            {
+              "kind": "fact",
+              "id": "guardian-bypass"
+            },
+            {
+              "kind": "fact",
+              "id": "echo-chain-done"
+            }
+          ],
+          "failure": []
+        },
+        {
+          "id": "question",
+          "text": "质疑警告，进行洞察检定",
+          "time": 0.25,
+          "gold": 0,
+          "items": {},
+          "check": {
+            "skill": "insight",
+            "dc": 12
+          },
+          "success": [
+            {
+              "kind": "fact",
+              "id": "guardian-bypass"
+            },
+            {
+              "kind": "fact",
+              "id": "echo-chain-done"
+            },
+            {
+              "kind": "gold",
+              "amount": 2
+            }
+          ],
+          "failure": [
+            {
+              "kind": "fact",
+              "id": "echo-chain-done"
+            }
+          ]
+        },
+        {
+          "id": "ignore",
+          "text": "忽略警告，保留自己的判断",
+          "time": 0.25,
+          "gold": 0,
+          "items": {},
+          "success": [
+            {
+              "kind": "fact",
+              "id": "echo-chain-done"
+            }
+          ],
+          "failure": []
+        }
+      ]
+    },
+    {
+      "id": "pact-reward",
+      "title": "祭坛旁的重逢",
+      "anchorId": "shrine",
+      "when": {
+        "kind": "all",
+        "conditions": []
+      },
+      "choices": [
+        {
+          "id": "share",
+          "text": "分享消息，加深与旅人的关系",
+          "time": 0.25,
+          "gold": 0,
+          "items": {},
+          "success": [
+            {
+              "kind": "fact",
+              "id": "pact-chain-done"
+            },
+            {
+              "kind": "trust",
+              "npcId": "npc-0",
+              "amount": 1
+            },
+            {
+              "kind": "item",
+              "itemId": "potion",
+              "amount": 1
+            }
+          ],
+          "failure": []
+        },
+        {
+          "id": "trade",
+          "text": "交换地图与补给",
+          "time": 0.25,
+          "gold": 0,
+          "items": {},
+          "success": [
+            {
+              "kind": "fact",
+              "id": "pact-chain-done"
+            },
+            {
+              "kind": "item",
+              "itemId": "supply",
+              "amount": 1
+            }
+          ],
+          "failure": []
+        },
+        {
+          "id": "depart",
+          "text": "保留距离，结束这一段相遇",
+          "time": 0.25,
+          "gold": 0,
+          "items": {},
+          "success": [
+            {
+              "kind": "fact",
+              "id": "pact-chain-done"
+            }
+          ],
+          "failure": []
+        }
+      ]
+    },
+    {
+      "id": "herbalist",
+      "title": "散落的草药包",
+      "anchorId": "market",
+      "when": {
+        "kind": "all",
+        "conditions": []
+      },
+      "choices": [
+        {
+          "id": "return",
+          "text": "把银叶草交给营地医者",
+          "time": 0.25,
+          "gold": 0,
+          "items": {
+            "herb": 1
+          },
+          "success": [
+            {
+              "kind": "fact",
+              "id": "herb-delivered"
+            },
+            {
+              "kind": "gold",
+              "amount": 3
+            }
+          ],
+          "failure": []
+        },
+        {
+          "id": "treat",
+          "text": "进行医药检定，帮助受伤旅人",
+          "time": 0.25,
+          "gold": 0,
+          "items": {
+            "herb": 1
+          },
+          "check": {
+            "skill": "medicine",
+            "dc": 11
+          },
+          "success": [
+            {
+              "kind": "fact",
+              "id": "herb-delivered"
+            },
+            {
+              "kind": "item",
+              "itemId": "potion",
+              "amount": 1
+            }
+          ],
+          "failure": [
+            {
+              "kind": "fact",
+              "id": "herb-attempted"
+            }
+          ]
+        },
+        {
+          "id": "keep",
+          "text": "保留草药以备后用",
+          "time": 0.25,
+          "gold": 0,
+          "items": {},
+          "success": [
+            {
+              "kind": "fact",
+              "id": "herb-kept"
+            }
+          ],
+          "failure": []
+        }
+      ]
+    },
+    {
+      "id": "tower-door",
+      "title": "暮光塔前的守望",
+      "anchorId": "goal",
+      "when": {
+        "kind": "all",
+        "conditions": [
+          {
+            "kind": "item",
+            "itemId": "clue",
+            "count": 1
+          },
+          {
+            "kind": "fact",
+            "id": "guardian-bypass"
+          }
+        ]
+      },
+      "choices": [
+        {
+          "id": "complete",
+          "text": "交付目标物品，完成这次冒险",
+          "time": 0.25,
+          "gold": 0,
+          "items": {},
+          "success": [
+            {
+              "kind": "fact",
+              "id": "main-complete"
+            },
+            {
+              "kind": "ending",
+              "outcome": "success"
+            }
+          ],
+          "failure": []
+        }
+      ]
+    },
+    {
+      "id": "cache-recover",
+      "title": "寻找遗迹的另一个入口",
+      "anchorId": "cache",
+      "when": {
+        "kind": "not",
+        "condition": {
+          "kind": "item",
+          "itemId": "relic",
+          "count": 1
+        }
+      },
+      "choices": [
+        {
+          "id": "recover",
+          "text": "耐心搜寻，补齐目标物品",
+          "time": 1,
+          "gold": 0,
+          "items": {},
+          "success": [
+            {
+              "kind": "item",
+              "itemId": "relic",
+              "amount": 1
+            }
+          ],
+          "failure": []
+        }
+      ]
+    },
+    {
+      "id": "shrine-recover",
+      "title": "整理祭坛遗漏的石刻",
+      "anchorId": "shrine",
+      "when": {
+        "kind": "not",
+        "condition": {
+          "kind": "item",
+          "itemId": "seal",
+          "count": 1
+        }
+      },
+      "choices": [
+        {
+          "id": "recover",
+          "text": "耐心搜寻，补齐目标物品",
+          "time": 1,
+          "gold": 0,
+          "items": {},
+          "success": [
+            {
+              "kind": "item",
+              "itemId": "seal",
+              "amount": 1
+            }
+          ],
+          "failure": []
+        }
+      ]
+    }
+  ],
+  "quests": [
+    {
+      "id": "explorer",
+      "title": "探访银月祭坛",
+      "condition": {
+        "kind": "visit",
+        "anchorId": "shrine"
+      },
+      "reward": [
+        {
+          "kind": "gold",
+          "amount": 2
+        }
+      ],
+      "initial": true
+    },
+    {
+      "id": "supplies",
+      "title": "寻找遗弃营地",
+      "condition": {
+        "kind": "fact",
+        "id": "camp-found"
+      },
+      "reward": [
+        {
+          "kind": "gold",
+          "amount": 2
+        }
+      ],
+      "initial": true
+    },
+    {
+      "id": "herbalist",
+      "title": "交付银叶草",
+      "condition": {
+        "kind": "fact",
+        "id": "herb-delivered"
+      },
+      "reward": [
+        {
+          "kind": "gold",
+          "amount": 4
+        }
+      ],
+      "initial": true
+    },
+    {
+      "id": "shortcut",
+      "title": "恢复坍塌捷径",
+      "condition": {
+        "kind": "fact",
+        "id": "gate-open"
+      },
+      "reward": [
+        {
+          "kind": "gold",
+          "amount": 3
+        }
+      ],
+      "initial": true
+    },
+    {
+      "id": "pact",
+      "title": "兑现营地承诺",
+      "condition": {
+        "kind": "fact",
+        "id": "pact-chain-done"
+      },
+      "reward": [
+        {
+          "kind": "gold",
+          "amount": 5
+        }
+      ],
+      "initial": false
+    },
+    {
+      "id": "echo",
+      "title": "追寻遗迹回声",
+      "condition": {
+        "kind": "fact",
+        "id": "echo-chain-done"
+      },
+      "reward": [
+        {
+          "kind": "gold",
+          "amount": 5
+        }
+      ],
+      "initial": false
+    }
+  ],
+  "followups": [
+    {
+      "id": "pact-start",
+      "when": {
+        "kind": "fact",
+        "id": "npc-0:persuasion:success"
+      },
+      "effects": [
+        {
+          "kind": "event",
+          "templateId": "camp-pact"
+        },
+        {
+          "kind": "quest",
+          "questId": "pact"
+        }
+      ]
+    },
+    {
+      "id": "pact-next",
+      "when": {
+        "kind": "fact",
+        "id": "pact-kept"
+      },
+      "effects": [
+        {
+          "kind": "event",
+          "templateId": "pact-reward"
+        }
+      ]
+    },
+    {
+      "id": "echo-start",
+      "when": {
+        "kind": "fact",
+        "id": "cache-found"
+      },
+      "effects": [
+        {
+          "kind": "spawn",
+          "npcId": "echo",
+          "anchorId": "reserve"
+        },
+        {
+          "kind": "event",
+          "templateId": "echo-riddle"
+        },
+        {
+          "kind": "quest",
+          "questId": "echo"
+        }
+      ]
+    },
+    {
+      "id": "echo-next",
+      "when": {
+        "kind": "any",
+        "conditions": [
+          {
+            "kind": "fact",
+            "id": "echo-solved"
+          },
+          {
+            "kind": "fact",
+            "id": "echo-failed"
+          }
+        ]
+      },
+      "effects": [
+        {
+          "kind": "event",
+          "templateId": "echo-warning"
+        }
+      ]
+    },
+    {
+      "id": "cache-recover",
+      "when": {
+        "kind": "fact",
+        "id": "cache-found"
+      },
+      "effects": [
+        {
+          "kind": "event",
+          "templateId": "cache-recover"
+        }
+      ]
+    },
+    {
+      "id": "shrine-recover",
+      "when": {
+        "kind": "fact",
+        "id": "shrine-found"
+      },
+      "effects": [
+        {
+          "kind": "event",
+          "templateId": "shrine-recover"
+        }
+      ]
+    },
+    {
+      "id": "guardian-permission",
+      "when": {
+        "kind": "any",
+        "conditions": [
+          {
+            "kind": "fact",
+            "id": "npc-2:persuasion:success"
+          },
+          {
+            "kind": "fact",
+            "id": "npc-2:deception:success"
+          },
+          {
+            "kind": "fact",
+            "id": "npc-2:intimidation:success"
+          },
+          {
+            "kind": "trust",
+            "npcId": "npc-2",
+            "min": 2
+          },
+          {
+            "kind": "fact",
+            "id": "guardian-defeated"
+          }
+        ]
+      },
+      "effects": [
+        {
+          "kind": "fact",
+          "id": "guardian-bypass"
+        }
+      ]
+    }
+  ],
+  "social": [
+    {
+      "id": "persuade",
+      "label": "诚恳说服，请求分享情报",
+      "skill": "persuasion",
+      "dc": 12,
+      "success": [
+        {
+          "kind": "fact",
+          "id": "{npc}:persuasion:success"
+        },
+        {
+          "kind": "trust",
+          "npcId": "{npc}",
+          "amount": 2
+        },
+        {
+          "kind": "item",
+          "itemId": "clue",
+          "amount": 1
+        }
+      ],
+      "failure": [
+        {
+          "kind": "fact",
+          "id": "{npc}:persuasion:failed"
+        },
+        {
+          "kind": "trust",
+          "npcId": "{npc}",
+          "amount": -1
+        }
+      ]
+    },
+    {
+      "id": "deceive",
+      "label": "编造身份，套取隐秘情报",
+      "skill": "deception",
+      "dc": 13,
+      "success": [
+        {
+          "kind": "fact",
+          "id": "{npc}:deception:success"
+        },
+        {
+          "kind": "trust",
+          "npcId": "{npc}",
+          "amount": 0
+        },
+        {
+          "kind": "item",
+          "itemId": "clue",
+          "amount": 1
+        }
+      ],
+      "failure": [
+        {
+          "kind": "fact",
+          "id": "{npc}:deception:failed"
+        },
+        {
+          "kind": "trust",
+          "npcId": "{npc}",
+          "amount": -2
+        }
+      ]
+    },
+    {
+      "id": "intimidate",
+      "label": "威吓对方，要求让步",
+      "skill": "intimidation",
+      "dc": 13,
+      "success": [
+        {
+          "kind": "fact",
+          "id": "{npc}:intimidation:success"
+        },
+        {
+          "kind": "trust",
+          "npcId": "{npc}",
+          "amount": -1
+        },
+        {
+          "kind": "item",
+          "itemId": "clue",
+          "amount": 1
+        }
+      ],
+      "failure": [
+        {
+          "kind": "fact",
+          "id": "{npc}:intimidation:failed"
+        },
+        {
+          "kind": "trust",
+          "npcId": "{npc}",
+          "amount": -2
+        }
+      ]
+    },
+    {
+      "id": "insight",
+      "label": "洞察动机，寻找谈判切入点",
+      "skill": "insight",
+      "dc": 12,
+      "success": [
+        {
+          "kind": "fact",
+          "id": "{npc}:insight:success"
+        },
+        {
+          "kind": "trust",
+          "npcId": "{npc}",
+          "amount": 0
+        }
+      ],
+      "failure": [
+        {
+          "kind": "fact",
+          "id": "{npc}:insight:failed"
+        },
+        {
+          "kind": "trust",
+          "npcId": "{npc}",
+          "amount": 0
+        }
+      ]
+    },
+    {
+      "id": "medicine",
+      "label": "医药援助，照顾旅人伤势",
+      "skill": "medicine",
+      "dc": 11,
+      "success": [
+        {
+          "kind": "fact",
+          "id": "{npc}:medicine:success"
+        },
+        {
+          "kind": "trust",
+          "npcId": "{npc}",
+          "amount": 2
+        },
+        {
+          "kind": "hp",
+          "target": "npc",
+          "amount": 4
+        }
+      ],
+      "failure": [
+        {
+          "kind": "fact",
+          "id": "{npc}:medicine:failed"
+        },
+        {
+          "kind": "trust",
+          "npcId": "{npc}",
+          "amount": 0
+        }
+      ]
+    },
+    {
+      "id": "arcana",
+      "label": "讨论奥秘，解读人物携带的符文",
+      "skill": "arcana",
+      "dc": 13,
+      "success": [
+        {
+          "kind": "fact",
+          "id": "{npc}:arcana:success"
+        },
+        {
+          "kind": "trust",
+          "npcId": "{npc}",
+          "amount": 1
+        }
+      ],
+      "failure": [
+        {
+          "kind": "fact",
+          "id": "{npc}:arcana:failed"
+        },
+        {
+          "kind": "trust",
+          "npcId": "{npc}",
+          "amount": 0
+        }
+      ]
+    }
+  ],
+  "encounters": [
+    {
+      "id": "guard",
+      "label": "誓约守卫",
+      "archetype": "warden"
+    },
+    {
+      "id": "scout",
+      "label": "巡林斥候",
+      "archetype": "ranger"
+    },
+    {
+      "id": "arcane",
+      "label": "秘文守望者",
+      "archetype": "scholar"
+    }
+  ]
+}

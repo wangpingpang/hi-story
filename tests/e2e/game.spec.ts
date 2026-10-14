@@ -3,7 +3,7 @@ const select=async(page:Page,id:string)=>{await page.locator(`[data-choice="${id
 test.beforeEach(async({page})=>{
  const failures:string[]=[];
  page.on('pageerror',e=>failures.push(e.message));page.on('console',m=>{if(m.type()==='error')failures.push(m.text());});page.on('requestfailed',r=>failures.push(r.url()));page.on('response',r=>{if(r.status()>=400)failures.push(`${r.status()} ${r.url()}`);});
- (page as Page&{failures:string[]}).failures=failures;await page.goto('/');
+ (page as Page&{failures:string[]}).failures=failures;await page.goto('/?view=fog-bridge');
 });
 test.afterEach(async({page})=>{expect((page as Page&{failures:string[]}).failures).toEqual([]);});
 async function noOverflow(page:Page){expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);}

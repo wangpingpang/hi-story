@@ -1,4 +1,6 @@
-import { createGameApplication } from './application';
+import { createGameApplication, createAdventureApplication } from './application';
+import { mountAdventure } from './presentation/adventure';
+import { createBrowserSavePort } from './infrastructure/adventure-save';
 import { mountDemo } from './presentation/demo';
 import { StoryStudio } from './application/story-studio';
 import { renderStoryStudio } from './presentation/story-studio';
@@ -25,7 +27,15 @@ function draw(focus=false,message=''){
  },()=>{busy=false;game.restart();draw(true);},message);
  if(focus)root.querySelector<HTMLElement>('h2')?.focus();
 }
-if (new URLSearchParams(location.search).get('view') === 'demo') {
+if (!new URLSearchParams(location.search).get('view') || new URLSearchParams(location.search).get('view') === 'demo') {
+ let storage;try{storage=createBrowserSavePort(localStorage);}catch{storage=undefined;}
+ const app=createAdventureApplication({storage});
+ const seed=new URLSearchParams(location.search).get('seed');
+ const continued=await app.continueSaved();
+ if(continued.ok&&seed&&app.query().snapshot?.seed!==seed){const result=await app.restart({seed});if(!result.ok)throw Error(result.error.message);}
+ else if(!continued.ok){const result=await app.initialize({seed:seed||'hi-story-v010'});if(!result.ok)throw Error(result.error.message);}
+ document.title='暮光山谷 · hi-story v0.1.0';mountAdventure(root,app);
+} else if (new URLSearchParams(location.search).get('view') === 'demo-legacy') {
  const app = createGameApplication();
  const result = await app.initialize({seed:new URLSearchParams(location.search).get('seed') || 'hi-story-demo'});
  if(!result.ok) throw Error(result.error.message);

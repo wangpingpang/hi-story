@@ -52,3 +52,5 @@ export function settleEvent(state:ThingsState,event:BoundEvent):ThingsState {
   Object.defineProperty(next.attempts,event.optionId,{value:(Object.hasOwn(next.attempts,event.optionId)?next.attempts[event.optionId]:0)+1,enumerable:true,writable:true,configurable:true});
   next.facts.push({eventId:event.eventInstanceId,optionId:event.optionId,text:event.text});return next;
 }
+
+export * from './adventure';

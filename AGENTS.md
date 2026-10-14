@@ -29,3 +29,7 @@
 - 下一阶段统一交付依据为《v0.1.0阶段说明.md》，开发前读取。V01—V03 是内部批次，完整冒险、结构化效果/背包/任务、连续事件、检定战斗和存档恢复统一验收发布。
 - 阶段说明和各模块“v0.1.0 开发目标”是待实现范围，当前 demo-contract/2/schemaVersion=2 保持有效；新增接口和版本随代码同步。
 - 自测通过后才能推送；发布再等真实浏览器整局验收。批次进度更新 docs/development-backlog.md，决定性改动更新受影响说明与 docs/decisions.md。
+
+## v0.1.0 冒险执行基线
+
+开发分支 codex/v010-adventure。新冒险公开入口为 application.createAdventureApplication，协议 demo-contract/3 / schemaVersion=3；原 GameApplication/schema2 保留回归。新界面默认入口与 ?view=demo，原 Demo 为 ?view=demo-legacy，原雾桥为 ?view=fog-bridge。当前逻辑自测已通过，浏览器/发布状态见 docs/v0.1.0-validation.md；不要把云端候选提交当作已发布。

@@ -29,11 +29,20 @@ function path(app:GameApplication,target:Point):Point[] {
   }throw Error('目标不可达');
 }
 async function go(app:GameApplication,target:Point) {for(const p of path(app,target))await act(app,'world.move',{...p});}
+function anchor(app:GameApplication,id:string):Point {return snapshot(app).runtime.map.anchors.find(a=>a.id===id)!.position;}
+async function goNear(app:GameApplication,target:Point) {
+  const s=snapshot(app),region=s.runtime.map.cells[target.y][target.x].regionId;
+  const candidates=[{x:target.x-1,y:target.y},{x:target.x+1,y:target.y},{x:target.x,y:target.y-1},{x:target.x,y:target.y+1}]
+    .filter(p=>s.runtime.map.cells[p.y]?.[p.x]?.regionId===region)
+    .flatMap(p=>{try{return [{point:p,route:path(app,p)}];}catch{return [];}}).sort((a,b)=>a.route.length-b.route.length);
+  expect(candidates.length).toBeGreaterThan(0);await go(app,candidates[0].point);
+}
 async function open(seed='demo-test',ports:Parameters<typeof createGameApplication>[0]={}) {
   const app=createGameApplication(ports);expect(await app.initialize({seed})).toMatchObject({ok:true});return app;
 }
 async function encounter(app:GameApplication) {
-  await go(app,{x:4,y:6});await choose(app,'attack:npc-0');expect(snapshot(app).status).toBe('waiting-result');
+  const actor=Object.values(snapshot(app).runtime.actors).find(a=>a.storyNpcId==='npc-0')!;
+  await goNear(app,actor.position);await choose(app,'attack:npc-0');expect(snapshot(app).status).toBe('waiting-result');
 }
 describe('六模块 Demo 集成与事务',()=>{
   it('40个种子都有固定起终点、完整人物绑定和可达路径；同种子生成一致',async()=>{
@@ -52,7 +61,7 @@ describe('六模块 Demo 集成与事务',()=>{
     const app=await open();expect(app.query().events.some(e=>e.optionId==='travel')).toBe(false);
     const buy=app.query().events.find(e=>e.optionId==='buy')!;
     expect(await app.dispatch(command(app,'event.choose',{optionId:buy.optionId,eventInstanceId:buy.eventInstanceId}))).toMatchObject({ok:false,error:{code:'OUT_OF_RANGE'}});
-    await choose(app,'notes');await go(app,{x:7,y:4});await choose(app,'buy');
+    await choose(app,'notes');await go(app,anchor(app,'market'));await choose(app,'buy');
     expect(app.query().events.some(e=>e.optionId==='resolve')).toBe(false);
     await go(app,{x:28,y:16});expect(snapshot(app).story.targetReached).toBe(true);
     await choose(app,'resolve');const s=snapshot(app);
@@ -148,14 +157,16 @@ describe('六模块 Demo 集成与事务',()=>{
 });
 describe('运行器与任务参与者边界',()=>{
   it('人物占位阻止穿越，迷雾按视线遮挡；运行操作不改输入',async()=>{
-    const app=await open(),s=snapshot(app);await go(app,{x:4,y:6});const runtime=snapshot(app).runtime;
-    expect(()=>moveRuntime(runtime,{x:5,y:6})).toThrow('占据');expect(runtime).toEqual(snapshot(app).runtime);
+    const app=await open(),s=snapshot(app),npc=Object.values(s.runtime.actors).find(a=>a.storyNpcId==='npc-0')!;
+    await goNear(app,npc.position);const runtime=snapshot(app).runtime;
+    expect(()=>moveRuntime(runtime,npc.position)).toThrow('占据');expect(runtime).toEqual(snapshot(app).runtime);
     const blocked=structuredClone(s.runtime);blocked.map.cells[3][4].blocksSight=true;
     const moved=moveRuntime(blocked,{x:3,y:4});
     expect(moved.visible).toContain('4,3');expect(canInteract(moved,{x:5,y:3})).toBe(false);
   });
   it('战斗随机流取决于种子和战斗序号，随机请求ID不影响骰子',async()=>{
-    const app=await open();await go(app,{x:4,y:6});const r=snapshot(app).runtime,enemy=Object.values(r.actors).find(a=>a.storyNpcId==='npc-0')!.actorId;
+    const app=await open(),npc=Object.values(snapshot(app).runtime.actors).find(a=>a.storyNpcId==='npc-0')!;
+    await goNear(app,npc.position);const r=snapshot(app).runtime,enemy=npc.actorId;
     let a=startBattle(r,enemy,'request-a','replay'),b=startBattle(r,enemy,'request-b','replay');
     for(const p of [{x:2,y:2},{x:3,y:2}]){a=battleAction(a,'move',p);b=battleAction(b,'move',p);}
     a=battleAction(a,'attack');b=battleAction(b,'attack');expect(a.battle!.log).toEqual(b.battle!.log);expect(a.actors).toEqual(b.actors);

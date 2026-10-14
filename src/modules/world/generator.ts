@@ -5,7 +5,7 @@ import { createMapStrategyRegistry, type MapStrategyRegistry } from './registry'
 import { validateRequest } from './validation';
 import type { GeneratedMap, MapGenerationRequest, MapGenerationResult, Point, RegionPlacement, Size } from './types';
 
-export const MAP_GENERATOR_VERSION = 'bounded-map/1' as const;
+export const MAP_GENERATOR_VERSION = 'bounded-map/2' as const;
 
 function checkLayout(raw: RegionPlacement[], request: MapGenerationRequest): RegionPlacement[] {
   const fail = (message: string): never => { throw new MapGenerationError('STRATEGY_ERROR', message); };
@@ -103,7 +103,8 @@ function buildMap(request: MapGenerationRequest, layout: RegionPlacement[], rand
     return requiredPaths.every(path => {
       const from = anchors.find(anchor => anchor.id === path.fromAnchorId)!.position;
       const to = anchors.find(anchor => anchor.id === path.toAnchorId)!.position;
-      return gridPath(request.bounds, from, to, p => cells[p.y][p.x].walkable) !== null;
+      return gridPath(request.bounds, from, to, p => cells[p.y][p.x].walkable
+        && (!request.constraints?.requiredPathsAvoidPlacements || cells[p.y][p.x].placementIds.length === 0)) !== null;
     });
   }
   if (!pathsSatisfied()) impossible('地貌与连接状态使必须可达的关键点无法连通');
@@ -116,7 +117,7 @@ function buildMap(request: MapGenerationRequest, layout: RegionPlacement[], rand
       if (near && (distance(p, near) < (rule!.minDistance ?? 0) || distance(p, near) > (rule!.maxDistance ?? Infinity))) return false;
       if (!request.constraints?.allowObjectOverlap && placements.some(other => !separated(
         { position: p, size: spec.footprint }, { position: other.position, size: other.footprint }, request.constraints?.minObjectSpacing ?? 0))) return false;
-      if (!spec.blocksMovement) return true;
+      if (!spec.blocksMovement && !request.constraints?.requiredPathsAvoidPlacements) return true;
       if (anchors.some(anchor => points.some(q => pointKey(q) === pointKey(anchor.position)))) return false;
       const previous = points.map(q => cells[q.y][q.x].walkable);
       for (const q of points) cells[q.y][q.x].walkable = false;

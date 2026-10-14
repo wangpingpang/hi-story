@@ -55,10 +55,28 @@ export function createRuntime(map:GeneratedMap,player:GeneratedCharacter,npcs:{i
 export function validateRuntime(state:RuntimeState):void {
   requireValue(state.map.bounds.width===state.map.cells[0]?.length&&state.map.bounds.height===state.map.cells.length,'INVARIANT_VIOLATION','地图尺寸与格子不一致。');
   requireValue(state.actors[state.playerActorId]?.profile.control==='player','INVARIANT_VIOLATION','玩家身份无效。');
+  const occupied=new Set<string>();
   for(const [id,a]of Object.entries(state.actors)){
     requireValue(id===a.actorId&&a.profile.actorId===id&&Number.isInteger(a.hp)&&a.hp>=0&&a.hp<=a.maxHp,'INVARIANT_VIOLATION','人物状态无效。');
     requireValue(Number.isInteger(a.position.x)&&Number.isInteger(a.position.y)&&state.map.cells[a.position.y]?.[a.position.x]?.walkable,'INVARIANT_VIOLATION','人物位置无效。');
+    if(a.hp>0){requireValue(!occupied.has(key(a.position)),'INVALID_BINDING','存活人物不能占据同一格。');occupied.add(key(a.position));}
   }
+}
+/** Validate real access after living actors occupy their generated positions. */
+export function validateRuntimeAccess(state:RuntimeState,anchorIds:string[]):void {
+  const player=state.actors[state.playerActorId];
+  const blocked=new Set(Object.values(state.actors).filter(a=>a.actorId!==player.actorId&&a.hp>0).map(a=>key(a.position)));
+  const queue:Point[]=[player.position],seen=new Set([key(player.position)]);
+  for(let i=0;i<queue.length;i++){
+    const p=queue[i];
+    for(const q of [{x:p.x-1,y:p.y},{x:p.x+1,y:p.y},{x:p.x,y:p.y-1},{x:p.x,y:p.y+1}]){
+      const id=key(q);
+      if(!seen.has(id)&&!blocked.has(id)&&state.map.cells[q.y]?.[q.x]?.walkable){seen.add(id);queue.push(q);}
+    }
+  }
+  for(const id of anchorIds)requireValue(seen.has(key(anchor(state.map,id))),'UNREACHABLE_BINDING',`人物占位后地点不可达：${id}`);
+  for(const actor of Object.values(state.actors).filter(a=>a.actorId!==player.actorId&&a.hp>0))
+    requireValue(queue.some(p=>distance(p,actor.position)===1),'UNREACHABLE_BINDING','人物没有可达的相邻交互位置。');
 }
 export function moveRuntime(state:RuntimeState,to:Point):RuntimeState {
   requireValue(!state.battle||state.battle.status!=='active','WAITING_RESULT','请先完成战斗。');

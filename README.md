@@ -3,7 +3,7 @@
 
 ## 生成与探索 Demo
 
-最新集成分支：`codex/demo-integration-v1`。执行下方本地运行命令后访问`/?view=demo`：有种子开局、32×20地图与迷雾、真实移动、NPC事件、物资和任务、7×5简化骰子战棋、成功/战败结局与同种子重开。地图是三地区模板，后续继续扩展随机迷宫与内容。
+最新集成分支：`codex/demo-integration-v1`。执行下方本地运行命令后访问`/?view=demo`：有种子开局、32×20地图与迷雾、真实移动、NPC事件、物资和任务、7×5简化骰子战棋、成功/战败结局与同种子重开。地图现有林间北径、南方营地、东部山隘、遗迹岔路四种声明式布局；市场、补给与NPC落点随种子变化，起终点保持固定。后续继续扩展任意迷宫与动态故事内容。
 
 开发按六模块管理：[边界与同步规则](模块边界与开发同步说明.md)。每个决定性改动将代码、受影响说明与[决定记录](docs/decisions.md)放入同一次提交，作为各窗口同步依据。[本轮验收](docs/demo-integration-report.md) · [后续任务](docs/development-backlog.md)。当前无持久存档，刷新重新开局；集成 Demo 已发布：[开始生成与探索](https://wangpingpang.github.io/hi-story/?view=demo)。
 
@@ -118,3 +118,5 @@ CHROMIUM_PATH=/path/to/chromium npm run characters:render -- --input docs/exampl
 
 - [地图生成器说明](地图生成器说明.md)
 - `npm run maps:generate` 生成并校验示例地图。
+
+下一阶段协议为`demo-contract/2`，本局快照schemaVersion为2；空间版本`story-spatial/2`、地图`bounded-map/2`。本局已生成地图不因选择重抽。[本阶段说明与验收](docs/demo-next-stage-report.md) · [声明式布局目录](content/story/spatial-layouts.json)。

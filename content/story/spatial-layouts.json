@@ -1,0 +1,793 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "spatial-catalog/1",
+  "bounds": {
+    "width": 32,
+    "height": 20
+  },
+  "layouts": [
+    {
+      "id": "north-road",
+      "label": "林间北径",
+      "tags": [
+        "草药",
+        "道路"
+      ],
+      "regions": [
+        {
+          "id": "home",
+          "label": "出生地",
+          "positionRange": {
+            "x": [
+              1,
+              1
+            ],
+            "y": [
+              1,
+              1
+            ]
+          },
+          "sizeRange": {
+            "width": [
+              9,
+              10
+            ],
+            "height": [
+              9,
+              11
+            ]
+          },
+          "shape": "rectangle"
+        },
+        {
+          "id": "supply-area",
+          "label": "补给地",
+          "positionRange": {
+            "x": [
+              13,
+              16
+            ],
+            "y": [
+              1,
+              3
+            ]
+          },
+          "sizeRange": {
+            "width": [
+              6,
+              7
+            ],
+            "height": [
+              6,
+              7
+            ]
+          },
+          "shape": "rectangle"
+        },
+        {
+          "id": "goal-area",
+          "label": "目标地",
+          "positionRange": {
+            "x": [
+              24,
+              24
+            ],
+            "y": [
+              12,
+              12
+            ]
+          },
+          "sizeRange": {
+            "width": [
+              7,
+              7
+            ],
+            "height": [
+              7,
+              7
+            ]
+          },
+          "shape": "rectangle"
+        }
+      ],
+      "connections": [
+        {
+          "id": "home-supply",
+          "from": "home",
+          "to": "supply-area",
+          "width": 1
+        },
+        {
+          "id": "supply-goal",
+          "from": "supply-area",
+          "to": "goal-area",
+          "width": 1,
+          "requiresAccess": true
+        }
+      ],
+      "anchors": [
+        {
+          "id": "spawn",
+          "regionId": "home",
+          "position": {
+            "x": 3,
+            "y": 3
+          }
+        },
+        {
+          "id": "notes",
+          "regionId": "home",
+          "positionCandidates": [
+            {
+              "x": 2,
+              "y": 3
+            },
+            {
+              "x": 3,
+              "y": 2
+            },
+            {
+              "x": 4,
+              "y": 3
+            },
+            {
+              "x": 3,
+              "y": 4
+            }
+          ]
+        },
+        {
+          "id": "market",
+          "regionId": "home"
+        },
+        {
+          "id": "supply",
+          "regionId": "supply-area"
+        },
+        {
+          "id": "goal",
+          "regionId": "goal-area",
+          "position": {
+            "x": 28,
+            "y": 16
+          }
+        }
+      ],
+      "npcRegionIds": [
+        "home",
+        "supply-area",
+        "goal-area"
+      ],
+      "terrain": [
+        {
+          "id": "home-obstacle",
+          "regionId": "home",
+          "terrainRef": "story:terrain:fallen-tree",
+          "shapeSpec": {
+            "shape": "rectangle",
+            "size": {
+              "width": 2,
+              "height": 2
+            }
+          },
+          "walkable": false,
+          "blocksSight": true,
+          "position": {
+            "x": 7,
+            "y": 7
+          }
+        },
+        {
+          "id": "supply-obstacle",
+          "regionId": "supply-area",
+          "terrainRef": "story:terrain:rock",
+          "shapeSpec": {
+            "shape": "rectangle",
+            "size": {
+              "width": 2,
+              "height": 1
+            }
+          },
+          "walkable": false,
+          "blocksSight": true
+        }
+      ]
+    },
+    {
+      "id": "south-camp",
+      "label": "南方营地",
+      "tags": [
+        "营地",
+        "关卡"
+      ],
+      "regions": [
+        {
+          "id": "home",
+          "label": "出生地",
+          "positionRange": {
+            "x": [
+              1,
+              1
+            ],
+            "y": [
+              1,
+              1
+            ]
+          },
+          "sizeRange": {
+            "width": [
+              9,
+              10
+            ],
+            "height": [
+              9,
+              11
+            ]
+          },
+          "shape": "rectangle"
+        },
+        {
+          "id": "supply-area",
+          "label": "补给地",
+          "positionRange": {
+            "x": [
+              12,
+              15
+            ],
+            "y": [
+              12,
+              13
+            ]
+          },
+          "sizeRange": {
+            "width": [
+              6,
+              7
+            ],
+            "height": [
+              6,
+              7
+            ]
+          },
+          "shape": "rectangle"
+        },
+        {
+          "id": "goal-area",
+          "label": "目标地",
+          "positionRange": {
+            "x": [
+              24,
+              24
+            ],
+            "y": [
+              12,
+              12
+            ]
+          },
+          "sizeRange": {
+            "width": [
+              7,
+              7
+            ],
+            "height": [
+              7,
+              7
+            ]
+          },
+          "shape": "rectangle"
+        }
+      ],
+      "connections": [
+        {
+          "id": "home-supply",
+          "from": "home",
+          "to": "supply-area",
+          "width": 1
+        },
+        {
+          "id": "supply-goal",
+          "from": "supply-area",
+          "to": "goal-area",
+          "width": 1,
+          "requiresAccess": true
+        }
+      ],
+      "anchors": [
+        {
+          "id": "spawn",
+          "regionId": "home",
+          "position": {
+            "x": 3,
+            "y": 3
+          }
+        },
+        {
+          "id": "notes",
+          "regionId": "home",
+          "positionCandidates": [
+            {
+              "x": 2,
+              "y": 3
+            },
+            {
+              "x": 3,
+              "y": 2
+            },
+            {
+              "x": 4,
+              "y": 3
+            },
+            {
+              "x": 3,
+              "y": 4
+            }
+          ]
+        },
+        {
+          "id": "market",
+          "regionId": "home"
+        },
+        {
+          "id": "supply",
+          "regionId": "supply-area"
+        },
+        {
+          "id": "goal",
+          "regionId": "goal-area",
+          "position": {
+            "x": 28,
+            "y": 16
+          }
+        }
+      ],
+      "npcRegionIds": [
+        "home",
+        "supply-area",
+        "goal-area"
+      ],
+      "terrain": [
+        {
+          "id": "home-obstacle",
+          "regionId": "home",
+          "terrainRef": "story:terrain:fallen-tree",
+          "shapeSpec": {
+            "shape": "rectangle",
+            "size": {
+              "width": 2,
+              "height": 2
+            }
+          },
+          "walkable": false,
+          "blocksSight": true,
+          "position": {
+            "x": 7,
+            "y": 7
+          }
+        },
+        {
+          "id": "supply-obstacle",
+          "regionId": "supply-area",
+          "terrainRef": "story:terrain:rock",
+          "shapeSpec": {
+            "shape": "rectangle",
+            "size": {
+              "width": 2,
+              "height": 1
+            }
+          },
+          "walkable": false,
+          "blocksSight": true
+        }
+      ]
+    },
+    {
+      "id": "east-pass",
+      "label": "东部山隘",
+      "tags": [
+        "堡垒",
+        "道路"
+      ],
+      "regions": [
+        {
+          "id": "home",
+          "label": "出生地",
+          "positionRange": {
+            "x": [
+              1,
+              1
+            ],
+            "y": [
+              1,
+              1
+            ]
+          },
+          "sizeRange": {
+            "width": [
+              9,
+              10
+            ],
+            "height": [
+              9,
+              11
+            ]
+          },
+          "shape": "rectangle"
+        },
+        {
+          "id": "supply-area",
+          "label": "补给地",
+          "positionRange": {
+            "x": [
+              19,
+              21
+            ],
+            "y": [
+              1,
+              3
+            ]
+          },
+          "sizeRange": {
+            "width": [
+              6,
+              7
+            ],
+            "height": [
+              6,
+              7
+            ]
+          },
+          "shape": "rectangle"
+        },
+        {
+          "id": "goal-area",
+          "label": "目标地",
+          "positionRange": {
+            "x": [
+              24,
+              24
+            ],
+            "y": [
+              12,
+              12
+            ]
+          },
+          "sizeRange": {
+            "width": [
+              7,
+              7
+            ],
+            "height": [
+              7,
+              7
+            ]
+          },
+          "shape": "rectangle"
+        }
+      ],
+      "connections": [
+        {
+          "id": "home-supply",
+          "from": "home",
+          "to": "supply-area",
+          "width": 1
+        },
+        {
+          "id": "supply-goal",
+          "from": "supply-area",
+          "to": "goal-area",
+          "width": 1,
+          "requiresAccess": true
+        }
+      ],
+      "anchors": [
+        {
+          "id": "spawn",
+          "regionId": "home",
+          "position": {
+            "x": 3,
+            "y": 3
+          }
+        },
+        {
+          "id": "notes",
+          "regionId": "home",
+          "positionCandidates": [
+            {
+              "x": 2,
+              "y": 3
+            },
+            {
+              "x": 3,
+              "y": 2
+            },
+            {
+              "x": 4,
+              "y": 3
+            },
+            {
+              "x": 3,
+              "y": 4
+            }
+          ]
+        },
+        {
+          "id": "market",
+          "regionId": "home"
+        },
+        {
+          "id": "supply",
+          "regionId": "supply-area"
+        },
+        {
+          "id": "goal",
+          "regionId": "goal-area",
+          "position": {
+            "x": 28,
+            "y": 16
+          }
+        }
+      ],
+      "npcRegionIds": [
+        "home",
+        "supply-area",
+        "goal-area"
+      ],
+      "terrain": [
+        {
+          "id": "home-obstacle",
+          "regionId": "home",
+          "terrainRef": "story:terrain:fallen-tree",
+          "shapeSpec": {
+            "shape": "rectangle",
+            "size": {
+              "width": 2,
+              "height": 2
+            }
+          },
+          "walkable": false,
+          "blocksSight": true,
+          "position": {
+            "x": 7,
+            "y": 7
+          }
+        },
+        {
+          "id": "supply-obstacle",
+          "regionId": "supply-area",
+          "terrainRef": "story:terrain:rock",
+          "shapeSpec": {
+            "shape": "rectangle",
+            "size": {
+              "width": 2,
+              "height": 1
+            }
+          },
+          "walkable": false,
+          "blocksSight": true
+        }
+      ]
+    },
+    {
+      "id": "ruin-fork",
+      "label": "遗迹岔路",
+      "tags": [
+        "遗迹",
+        "魔法"
+      ],
+      "regions": [
+        {
+          "id": "home",
+          "label": "出生地",
+          "positionRange": {
+            "x": [
+              1,
+              1
+            ],
+            "y": [
+              1,
+              1
+            ]
+          },
+          "sizeRange": {
+            "width": [
+              9,
+              10
+            ],
+            "height": [
+              9,
+              11
+            ]
+          },
+          "shape": "rectangle"
+        },
+        {
+          "id": "supply-area",
+          "label": "补给地",
+          "positionRange": {
+            "x": [
+              14,
+              15
+            ],
+            "y": [
+              1,
+              2
+            ]
+          },
+          "sizeRange": {
+            "width": [
+              6,
+              7
+            ],
+            "height": [
+              6,
+              7
+            ]
+          },
+          "shape": "rectangle"
+        },
+        {
+          "id": "goal-area",
+          "label": "目标地",
+          "positionRange": {
+            "x": [
+              24,
+              24
+            ],
+            "y": [
+              12,
+              12
+            ]
+          },
+          "sizeRange": {
+            "width": [
+              7,
+              7
+            ],
+            "height": [
+              7,
+              7
+            ]
+          },
+          "shape": "rectangle"
+        },
+        {
+          "id": "ruins",
+          "label": "古代遗迹",
+          "positionRange": {
+            "x": [
+              13,
+              15
+            ],
+            "y": [
+              12,
+              13
+            ]
+          },
+          "sizeRange": {
+            "width": [
+              5,
+              6
+            ],
+            "height": [
+              5,
+              6
+            ]
+          },
+          "shape": "rectangle"
+        }
+      ],
+      "connections": [
+        {
+          "id": "home-supply",
+          "from": "home",
+          "to": "supply-area",
+          "width": 1
+        },
+        {
+          "id": "supply-goal",
+          "from": "supply-area",
+          "to": "goal-area",
+          "width": 1,
+          "requiresAccess": true
+        },
+        {
+          "id": "home-ruins",
+          "from": "home",
+          "to": "ruins",
+          "width": 1
+        }
+      ],
+      "anchors": [
+        {
+          "id": "spawn",
+          "regionId": "home",
+          "position": {
+            "x": 3,
+            "y": 3
+          }
+        },
+        {
+          "id": "notes",
+          "regionId": "home",
+          "positionCandidates": [
+            {
+              "x": 2,
+              "y": 3
+            },
+            {
+              "x": 3,
+              "y": 2
+            },
+            {
+              "x": 4,
+              "y": 3
+            },
+            {
+              "x": 3,
+              "y": 4
+            }
+          ]
+        },
+        {
+          "id": "market",
+          "regionId": "home"
+        },
+        {
+          "id": "supply",
+          "regionId": "supply-area"
+        },
+        {
+          "id": "goal",
+          "regionId": "goal-area",
+          "position": {
+            "x": 28,
+            "y": 16
+          }
+        },
+        {
+          "id": "ruins",
+          "regionId": "ruins"
+        }
+      ],
+      "npcRegionIds": [
+        "home",
+        "supply-area",
+        "ruins"
+      ],
+      "terrain": [
+        {
+          "id": "home-obstacle",
+          "regionId": "home",
+          "terrainRef": "story:terrain:fallen-tree",
+          "shapeSpec": {
+            "shape": "rectangle",
+            "size": {
+              "width": 2,
+              "height": 2
+            }
+          },
+          "walkable": false,
+          "blocksSight": true,
+          "position": {
+            "x": 7,
+            "y": 7
+          }
+        },
+        {
+          "id": "supply-obstacle",
+          "regionId": "supply-area",
+          "terrainRef": "story:terrain:rock",
+          "shapeSpec": {
+            "shape": "rectangle",
+            "size": {
+              "width": 2,
+              "height": 1
+            }
+          },
+          "walkable": false,
+          "blocksSight": true
+        }
+      ]
+    }
+  ]
+}

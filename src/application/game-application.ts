@@ -1,10 +1,10 @@
 import { freeze, type DeepReadonly } from '../contracts';
 import { GameError, requireValue, record, canonical, seedHash } from '../contracts/demo';
-import { initializeStory, createStoryRegistry, createStoryMapRequest, processPlayerAction, receiveWorldChange, storyOptions, type World, type CombatRequest } from '../modules/story-planning';
+import { initializeStory, createStoryRegistry, createStorySpatialPlan, processPlayerAction, receiveWorldChange, storyOptions, type World, type CombatRequest } from '../modules/story-planning';
 import { generateCharacterWithParams } from '../modules/characters';
 import { generateMap, type MapGenerationResult, type MapGenerationRequest } from '../modules/world';
 import { createTaskGenerator } from '../modules/quest-generation';
-import { createRuntime, validateRuntime, moveRuntime, startBattle, battleAction, getAnchorPosition, type RuntimeState } from '../modules/runtime';
+import { createRuntime, validateRuntime, validateRuntimeAccess, moveRuntime, startBattle, battleAction, getAnchorPosition, type RuntimeState } from '../modules/runtime';
 import { createThings, reconcileThings, projectStory, bindEvents, settleEvent, type ThingsState, type BoundEvent } from '../modules/things';
 export interface DemoCommand {
   commandId:string; runId:string; actorId:string; expectedRevision:number;
@@ -12,9 +12,10 @@ export interface DemoCommand {
 }
 export interface CommandReceipt { fingerprint:string; revision:number; commandId:string }
 export interface RunSnapshot {
-  schemaVersion:1; runId:string; seed:string; revision:number;
+  schemaVersion:2; runId:string; seed:string; revision:number;
   status:'active'|'waiting-result'|'ended'; playerActorId:string;
   versions:{contracts:string;map:string;story:string};
+  spatial:{version:string;catalogVersion:string;layoutId:string;label:string};
   story:World; runtime:RuntimeState; things:ThingsState;
   pending?:{request:CombatRequest;event:BoundEvent};
   receipts:Record<string,CommandReceipt>;
@@ -104,14 +105,20 @@ export class GameApplication {
     this.busy=true;this.notify();
     try {
       requireValue(typeof seed==='string'&&seed.trim()&&seed.length<=128,'INVALID_SEED','种子须为1至128个字符。');
-      const story=initializeStory(seed),request=createStoryMapRequest(story);
+      let story=initializeStory(seed);
+      const spatial=createStorySpatialPlan(story),request=spatial.request;
       const generated=await (this.ports.createMap??generateMap)(request);
       requireValue(generated.ok,'INITIALIZATION_FAILED',generated.ok?'':'地图生成失败：'+generated.error.message);
       const player=generateCharacterWithParams({seed:`player-${seedHash(seed).toString(16)}`,control:'player'});
       const runtime=createRuntime(generated.map,player,story.npcs);
+      validateRuntimeAccess(runtime,[...new Set((request.constraints?.requiredPaths??[]).flatMap(p=>[p.fromAnchorId,p.toAnchorId]))]);
+      for(const npc of story.npcs){
+        const location=spatial.npcLocations[npc.id];
+        if(location!==npc.location)story=receiveWorldChange(story,`init:space:${npc.id}`,{kind:'npc-move',npcId:npc.id,location},this.registry);
+      }
       const blueprints=this.taskGenerator.generate({seed,quests:story.quests,anchorIds:generated.map.anchors.map(a=>a.id)});
       const things=reconcileThings(createThings(story,blueprints),story,runtime.visitedAnchorIds);
-      const candidate:RunSnapshot={schemaVersion:1,runId:`run:${crypto.randomUUID()}`,seed,revision:0,status:'active',playerActorId:player.actorId,versions:{contracts:'demo-contract/1',map:generated.map.generatorVersion,story:'story-adapter/1'},story:projectStory(story,things),runtime,things,receipts:{}};
+      const candidate:RunSnapshot={schemaVersion:2,runId:`run:${crypto.randomUUID()}`,seed,revision:0,status:'active',playerActorId:player.actorId,versions:{contracts:'demo-contract/2',map:generated.map.generatorVersion,story:'story-adapter/2'},spatial:{version:spatial.version,catalogVersion:spatial.catalogVersion,layoutId:spatial.layoutId,label:spatial.label},story:projectStory(story,things),runtime,things,receipts:{}};
       this.validate(candidate);await this.ports.beforeCommit?.(freeze(structuredClone(candidate)));this.validEpoch(epoch);
       this.current=candidate;this.busy=false;this.notify();return {ok:true,value:this.query()};
     }finally{if(this.busy){this.busy=false;this.notify();}}

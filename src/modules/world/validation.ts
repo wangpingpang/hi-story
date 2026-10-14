@@ -110,6 +110,7 @@ export function validateRequest(input: unknown): MapGenerationRequest {
     const c = object(r.constraints, 'constraints');
     if (c.minObjectSpacing !== undefined) integer(c.minObjectSpacing, 'constraints.minObjectSpacing', 0, 16);
     flag(c.allowObjectOverlap, 'constraints.allowObjectOverlap');
+    flag(c.requiredPathsAvoidPlacements, 'constraints.requiredPathsAvoidPlacements');
     if (c.requiredPaths !== undefined) {
       if (!Array.isArray(c.requiredPaths) || c.requiredPaths.length > 256) invalid('constraints.requiredPaths', '需要数组，最多 256 项');
       c.requiredPaths.forEach((value, i) => {

@@ -52,6 +52,8 @@ export interface MapGenerationRequest {
     requiredPaths?: { fromAnchorId: string; toAnchorId: string }[];
     minObjectSpacing?: number;
     allowObjectOverlap?: boolean;
+    /** Reserve routes around object footprints even if static collision is false. */
+    requiredPathsAvoidPlacements?: boolean;
   };
 }
 export interface RegionPlacement { id: string; position: Point; size: Size }
@@ -70,7 +72,7 @@ export interface MapCell {
   blocksSight: boolean;
 }
 export interface GeneratedMap {
-  generatorVersion: 'bounded-map/1';
+  generatorVersion: 'bounded-map/2';
   schemaVersion: 1;
   seed: string | number;
   bounds: Size;

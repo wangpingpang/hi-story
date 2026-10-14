@@ -22,7 +22,7 @@
 | 任务生成 | 任务生成模块说明.md | src/modules/quest-generation/index.ts |
 | 地图生成 | 地图生成器说明.md | src/modules/world/index.ts |
 
-随机任务生成器是任务生成模块的参与者；人物生成器是现有独立依赖。当前协议为 demo-contract/2、快照 schemaVersion=2；当前验收见 docs/demo-next-stage-report.md，首阶段历史记录见 docs/demo-integration-report.md，后续工作见 docs/development-backlog.md。
+随机任务生成器是任务生成模块的参与者；人物生成器是现有独立依赖。旧 Demo 协议为 demo-contract/2、快照 schemaVersion=2；历史空间 v2 验收见 docs/demo-next-stage-report.md，首阶段历史记录见 docs/demo-integration-report.md，后续工作见 docs/development-backlog.md。
 
 ## 当前阶段 v0.1.0
 

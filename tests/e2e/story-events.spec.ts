@@ -1,0 +1,38 @@
+import { test, expect } from "@playwright/test";
+test("探索事件：物品消耗、线索、任务推进及重新安装不重复领奖", async ({ page }) => {
+  const errors: string[] = [];
+  page.on("pageerror", e => errors.push(e.message));
+  await page.goto("/?view=story-generator");
+  await page.getByRole("button", { name: "加载探索事件", exact: true }).click();
+  await page.locator('[data-option="exploration/open"]').click();
+  await expect(page.locator("[data-holdings]")).toContainText("绳索 × 1");
+  await expect(page.locator("[data-clues]")).toContainText("目标地点线索");
+  await expect(page.locator('[data-plan="core/journey"] [data-stage="learn"]')).toContainText("已完成");
+  await expect(page.locator('[data-option="exploration/sell"]')).toHaveCount(0);
+  await page.getByRole("button", { name: "卸载探索事件", exact: true }).click();
+  await page.getByRole("button", { name: "加载探索事件", exact: true }).click();
+  await expect(page.locator('[data-option="exploration/open"]')).toHaveCount(0);
+  await page.locator('[data-option="exploration/prepare"]').click();
+  await expect(page.locator("[data-holdings]")).toContainText("任务物资 × 1");
+  await expect(page.locator("[data-holdings]")).not.toContainText("绳索");
+  await expect(page.locator('[data-plan="core/journey"] [data-stage="gather"]')).toContainText("已完成");
+  await expect(page.locator("[data-settlements]")).toContainText("绳索 -1");
+  await page.locator('[data-option="travel"]').click();
+  await page.locator('[data-option="resolve"]').click();
+  await expect(page.getByText(/^你完成了目标/)).toBeVisible();
+  await page.getByRole("button", { name: "生成新故事" }).click();
+  await expect(page.locator("[data-clues]")).toContainText("尚未获得");
+  await expect(page.locator("[data-settlements]")).toContainText("尚未结算事件");
+  await expect(page.locator('[data-option="exploration/open"]')).toBeVisible();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  expect(errors).toEqual([]);
+});
+test("战斗等待中可重新开始，旧输入不能进入新局", async ({ page }) => {
+  await page.goto("/?view=story-generator");
+  await page.locator('[data-option="attack:npc-0"]').click();
+  await expect(page.getByRole("button", { name: "生成新故事" })).toBeEnabled();
+  await page.getByRole("button", { name: "生成新故事" }).click();
+  await expect(page.locator('[data-combat]')).toHaveCount(0);
+  await expect(page.locator('[data-option="attack:npc-0"]')).toBeVisible();
+  await expect(page.locator("[data-settlements]")).toContainText("尚未结算事件");
+});

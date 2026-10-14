@@ -1,3 +1,4 @@
+import { reconcilePlanProgress } from "../objectives/index";
 import { collectDependencies } from "./dependencies";
 import { evaluate, type Budget } from "./interpreter";
 import { template } from "./fields";
@@ -143,5 +144,5 @@ export function updatePlans(
         })),
       });
     }
-  w.plans = next;
+  w.plans = reconcilePlanProgress(w.plans, next);
 }

@@ -175,7 +175,14 @@ export function parseRulePack(input: unknown): RulePack {
       "when",
       "effects",
       "external",
+      "event",
     ]);
+    if (a.event !== undefined) {
+      const event = record(a.event);
+      keys(event, ["id", "repeat", "questId"]);
+      if (!idPattern.test(string(event.id)) || !["once", "repeatable"].includes(String(event.repeat)) ||
+          (event.questId !== undefined && !["main", "side"].includes(String(event.questId)))) throw Error("事件绑定不合法");
+    }
     const id = string(a.id);
     if (!idPattern.test(id) || ids.has(id)) throw Error("行动编号不合法或重复");
     ids.add(id);

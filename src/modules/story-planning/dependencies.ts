@@ -45,7 +45,7 @@ export function changedFields(before: World, after: World): Set<string> {
   const snapshot = (w: World) => {
     const result = new Map<string, string>();
     // Accessors supply canonical field names, including new host fields added later.
-    for (const path of fieldPaths()) {
+    for (const path of fieldPaths(w)) {
       const scopes = path.startsWith("npc.")
         ? w.npcs.map((npc) => ({ world: w, npc }))
         : path.startsWith("quest.")

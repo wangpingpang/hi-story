@@ -1,3 +1,6 @@
+import { validateHoldings } from "../inventory/index";
+import { validateQuestTransitions } from "../objectives/index";
+import { write } from "./fields";
 import corePack from "../../../content/story/core-rules.json";
 import { RuleRegistry } from "./registry";
 import { contexts, evaluate, execute, type Budget } from "./interpreter";
@@ -52,6 +55,7 @@ function available(w: World, registry: RuleRegistry): BoundAction[] {
               }),
             ],
             external: rule.external,
+            event: rule.event,
             packId,
           },
         });
@@ -104,11 +108,8 @@ export function initializeStory(
 function validateTransition(before: World, after: World) {
   if (!Number.isFinite(after.time) || after.time < before.time)
     throw Error("世界时间不能倒退或溢出");
-  for (const old of before.quests.filter((q) => q.status !== "active")) {
-    const next = after.quests.find((q) => q.id === old.id);
-    if (!next || next.status !== old.status || next.reason !== old.reason)
-      throw Error("已结束任务的结局不可改写");
-  }
+  validateHoldings(after.inventory);
+  validateQuestTransitions(before.quests, after.quests);
   if (before.ending && before.ending !== after.ending)
     throw Error("已经发生的终局不可改写");
 }
@@ -224,11 +225,11 @@ const changeHandlers: {
       : "目标地点无法通行，相关行动失效。";
   },
   resource: (w, c) => {
-    w.resource = c.available;
+    write("resource", c.available, { world: w });
     return "任务物资状态发生变化。";
   },
   notes: (w, c) => {
-    w.notes = c.available;
+    write("notes", c.available, { world: w });
     return "既存笔记状态发生变化。";
   },
 };

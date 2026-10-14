@@ -1,3 +1,4 @@
+import { createHoldings } from "../inventory/index";
 import { generateCharacterWithParams } from "../characters/index";
 import catalog from "../../../content/story/catalog.json";
 import { hash, pick, random } from "./random";
@@ -62,6 +63,7 @@ export function initializeStory(
     },
     npcs,
     conflict: c,
+    inventory: createHoldings(),
     gold: 12,
     clue: false,
     resource: false,

@@ -1,5 +1,7 @@
 import type { GeneratedCharacter } from "../characters/index";
-export type Status = "active" | "success" | "failed" | "abandoned" | "expired";
+import type { Holdings } from "../inventory/index";
+import type { QuestStatus, QuestState, PlanProgress } from "../objectives/index";
+export type Status = QuestStatus;
 export interface NPC {
   profile: GeneratedCharacter;
   id: string;
@@ -14,13 +16,7 @@ export interface NPC {
   response: string;
   knowledge: string[];
 }
-export interface Quest {
-  id: string;
-  title: string;
-  status: Status;
-  reason: string;
-  dependencies: string[];
-}
+export type Quest = QuestState;
 export interface Option {
   id: string;
   actionId: string;
@@ -32,6 +28,7 @@ export interface Option {
   dependencies: string[];
   packId: string;
   external?: "combat";
+  event?: { id: string; repeat: "once" | "repeatable"; questId?: "main" | "side" };
 }
 export interface World {
   version: 1;
@@ -49,6 +46,7 @@ export interface World {
   lastUpdate: UpdateTrace;
   npcs: NPC[];
   conflict: { id: string; need: string; reason: string; obstacle: string };
+  inventory: Holdings;
   gold: number;
   clue: boolean;
   resource: boolean;
@@ -73,27 +71,5 @@ export interface UpdateTrace {
   firedReactions: string[];
   replannedPlans: string[];
 }
-export interface RouteProgress {
-  id: string;
-  title: string;
-  available: boolean;
-  optionIds: string[];
-}
-export interface StageProgress {
-  id: string;
-  title: string;
-  status:
-    "locked" | "ready" | "blocked" | "completed" | "invalidated" | "closed";
-  completedAt?: number;
-  routes: RouteProgress[];
-}
-export interface PlanProgress {
-  id: string;
-  packId: string;
-  version: string;
-  title: string;
-  questId: string;
-  status: Status | "retired";
-  currentStageId?: string;
-  stages: StageProgress[];
-}
+
+export type { RouteProgress, StageProgress, PlanProgress } from "../objectives/index";

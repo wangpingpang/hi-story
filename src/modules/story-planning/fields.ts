@@ -1,3 +1,5 @@
+import { quantity, setQuantity, setClue, validateItemId } from "../inventory/index";
+import { transitionQuest, explainQuest } from "../objectives/index";
 import type { NPC, Quest, World } from "./model";
 import { changeKeys } from "./dependency-keys";
 import type { Scalar, Value } from "./rule-types";
@@ -30,12 +32,35 @@ function worldField<K extends keyof World>(
     },
   });
 }
-worldField("gold", "number", 0);
+export function syncHoldings(w: World) {
+  w.gold = quantity(w.inventory, "gold");
+  w.resource = quantity(w.inventory, "supplies") > 0;
+  w.notes = quantity(w.inventory, "notes") > 0;
+  w.clue = w.inventory.clues.includes("main");
+}
+function holdingField(path: string): Field | undefined {
+  const alias = { gold: "gold", resource: "supplies", notes: "notes" }[path];
+  const item = path.startsWith("item.") ? path.slice(5) : alias;
+  const clue = path.startsWith("clue.") ? path.slice(5) : path === "clue" ? "main" : undefined;
+  if (item) {
+    validateItemId(item);
+    const flag = path === "resource" || path === "notes";
+    return { type: flag ? "boolean" : "number",
+      read: c => flag ? quantity(c.world.inventory, item) > 0 : quantity(c.world.inventory, item),
+      write: (c, v) => { c.world.inventory = setQuantity(c.world.inventory, item, flag ? (v ? Math.max(1, quantity(c.world.inventory, item)) : 0) : v as number); syncHoldings(c.world); }
+    };
+  }
+  if (clue) {
+    validateItemId(clue);
+    return { type: "boolean", read: c => c.world.inventory.clues.includes(clue),
+      write: (c, v) => { c.world.inventory = setClue(c.world.inventory, clue, v as boolean); syncHoldings(c.world); }
+    };
+  }
+}
+const fieldFor = (path: string) => holdingField(path) ?? fields.get(path);
+for (const path of ["gold", "resource", "notes", "clue"]) fields.set(path, holdingField(path)!);
 fields.set("time", { read: (c) => c.world.time });
 for (const key of [
-  "clue",
-  "resource",
-  "notes",
   "accessible",
   "targetReached",
 ] as const)
@@ -91,14 +116,14 @@ fields.set("quest.status", {
   choices: statuses,
   read: (c) => quest(c).status,
   write: (c, v) => {
-    quest(c).status = v as Quest["status"];
+    Object.assign(quest(c), transitionQuest(quest(c), v as Quest["status"]));
   },
 });
 fields.set("quest.reason", {
   type: "string",
   read: (c) => quest(c).reason,
   write: (c, v) => {
-    quest(c).reason = v as string;
+    Object.assign(quest(c), explainQuest(quest(c), v as string));
   },
 });
 for (const id of ["main", "side"])
@@ -113,12 +138,12 @@ for (const id of ["main", "side"])
       choices: key === "status" ? statuses : undefined,
       read: (c) => target(c)[key],
       write: (c, v) => {
-        target(c)[key] = v as Quest["status"];
+        Object.assign(target(c), key === "status" ? transitionQuest(target(c), v as Quest["status"]) : explainQuest(target(c), v as string));
       },
     });
   }
 export function validateField(path: string, write = false, scope?: string) {
-  const field = fields.get(path);
+  const field = fieldFor(path);
   if (!field || (write && !field.write))
     throw Error(`不支持的${write ? "写入" : "读取"}字段：${path}`);
   if (
@@ -129,7 +154,7 @@ export function validateField(path: string, write = false, scope?: string) {
   return field;
 }
 export function read(path: string, c: Context): ReadValue {
-  const f = fields.get(path);
+  const f = fieldFor(path);
   if (!f) throw Error(`未知字段 ${path}`);
   return f.read(c);
 }
@@ -137,7 +162,7 @@ export function value(v: Value, c: Context): ReadValue {
   return typeof v === "object" ? read(v.ref, c) : v;
 }
 export function write(path: string, v: ReadValue, c: Context) {
-  const f = fields.get(path);
+  const f = fieldFor(path);
   if (!f?.write) throw Error(`字段不可写：${path}`);
   if (
     Array.isArray(v) ||
@@ -151,6 +176,10 @@ export function write(path: string, v: ReadValue, c: Context) {
   f.write(c, v);
   if (previous !== v)
     for (const key of changeKeys(path, c)) c.changes?.add(key);
+  if (previous !== v) {
+    const pairs = [["gold", "item.gold"], ["resource", "item.supplies"], ["notes", "item.notes"], ["clue", "clue.main"]];
+    for (const pair of pairs) if (pair.includes(path)) for (const key of pair) c.changes?.add(key);
+  }
 }
 export function template(text: string, c: Context) {
   return text.replace(/\{([a-zA-Z0-9_.-]+)\}/g, (_, path) =>
@@ -162,6 +191,6 @@ export function validateTemplate(text: string, scope: string) {
     validateField(m[1], false, scope);
 }
 
-export function fieldPaths(): string[] {
-  return [...fields.keys()];
+export function fieldPaths(w?: World): string[] {
+  return [...fields.keys(), ...Object.keys(w?.inventory.items ?? {}).map(id => `item.${id}`), ...(w?.inventory.clues ?? []).map(id => `clue.${id}`)];
 }

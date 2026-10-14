@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "id": "exploration",
+  "version": "1.0.0",
+  "name": "行囊探索",
+  "requires": [
+    "core"
+  ],
+  "actions": [
+    {
+      "scope": "world",
+      "category": "探索行囊",
+      "cost": 1,
+      "when": {
+        "op": "eq",
+        "left": {
+          "ref": "accessible"
+        },
+        "right": true
+      },
+      "event": {
+        "id": "lost-satchel",
+        "repeat": "once",
+        "questId": "main"
+      },
+      "id": "exploration/open",
+      "text": "打开遗留行囊：获得绳索与线索",
+      "effects": [
+        {
+          "op": "add",
+          "path": "item.rope",
+          "value": 1
+        },
+        {
+          "op": "set",
+          "path": "clue.main",
+          "value": true
+        }
+      ]
+    },
+    {
+      "scope": "world",
+      "category": "探索行囊",
+      "cost": 1,
+      "when": {
+        "op": "eq",
+        "left": {
+          "ref": "accessible"
+        },
+        "right": true
+      },
+      "event": {
+        "id": "lost-satchel",
+        "repeat": "once",
+        "questId": "main"
+      },
+      "id": "exploration/sell",
+      "text": "卖出遗留行囊：获得3金币",
+      "effects": [
+        {
+          "op": "add",
+          "path": "gold",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "id": "exploration/prepare",
+      "scope": "world",
+      "category": "准备物资",
+      "text": "使用1捆绳索取得任务物资",
+      "cost": 1,
+      "event": {
+        "id": "rope-supplies",
+        "repeat": "once",
+        "questId": "main"
+      },
+      "when": {
+        "op": "all",
+        "args": [
+          {
+            "op": "gte",
+            "left": {
+              "ref": "item.rope"
+            },
+            "right": 1
+          },
+          {
+            "op": "eq",
+            "left": {
+              "ref": "resource"
+            },
+            "right": false
+          },
+          {
+            "op": "eq",
+            "left": {
+              "ref": "accessible"
+            },
+            "right": true
+          }
+        ]
+      },
+      "effects": [
+        {
+          "op": "add",
+          "path": "item.rope",
+          "value": -1
+        },
+        {
+          "op": "set",
+          "path": "resource",
+          "value": true
+        }
+      ]
+    }
+  ],
+  "reactions": []
+}

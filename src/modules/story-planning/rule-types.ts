@@ -27,6 +27,7 @@ export interface ActionRule {
   when: Condition;
   effects: Effect[];
   external?: "combat";
+  event?: { id: string; repeat: "once" | "repeatable"; questId?: "main" | "side" };
 }
 export interface ReactionRule {
   id: string;

@@ -105,3 +105,9 @@ CHROMIUM_PATH=/path/to/chromium npm run characters:render -- --input docs/exampl
 ```
 
 [人物生成器说明](人物生成器说明.md) 包含公开接口、参数、枚举、素材装配和故事模块边界；[带参输入](docs/examples/story-npc-params.json) 与 [实际返回结果](docs/examples/story-npc-result.json) 可直接参考。根目录 `AGENTS.md` 已约定需要人物生成时调用本生成器。
+
+## 任务、物品与事件接入
+
+故事工坊 `/?view=story-generator` 已接入通用物品/线索状态与事件实例。点击“加载探索事件”可试玩打开行囊、消耗绳索、取得物资及任务完成；卸载并重新加载规则包不会重复发放一次性奖励。
+
+模块边界、公开接口、防重与事务流程见 [事物模块说明.md](事物模块说明.md)，实际验证见 [验证记录](docs/things-events-validation.md)。当前探索基于故事地点，独立地图移动和持久存档待接入。

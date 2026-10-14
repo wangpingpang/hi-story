@@ -1,12 +1,18 @@
 import { expect, type Page } from '@playwright/test';
-import { createGameApplication, type RunSnapshot } from '../../src/application';
+import type { RunSnapshot } from '../../src/application';
+import { createServer } from 'vite';
 import type { Point } from '../../src/modules/world';
 
 export interface DemoFixture { snapshot: RunSnapshot; position: Point }
 export async function openDemo(page: Page, seed: string): Promise<DemoFixture> {
-  const app=createGameApplication();const result=await app.initialize({seed});
-  if(!result.ok)throw Error(result.error.message);
-  const snapshot=structuredClone(app.query().snapshot!) as RunSnapshot;app.dispose();
+  const server=await createServer({configFile:false,logLevel:'error',server:{middlewareMode:true},appType:'custom'});
+  let snapshot:RunSnapshot;
+  try{
+    const {createGameApplication}=await server.ssrLoadModule('/src/application/index.ts') as typeof import('../../src/application');
+    const app=createGameApplication();const result=await app.initialize({seed});
+    if(!result.ok)throw Error(result.error.message);
+    snapshot=structuredClone(app.query().snapshot!) as RunSnapshot;app.dispose();
+  }finally{await server.close();}
   await page.goto(`/?view=demo&seed=${encodeURIComponent(seed)}`);
   await expect(page.getByRole('heading',{name:'世界地图',exact:true})).toBeVisible();
   return {snapshot,position:{...snapshot.runtime.actors[snapshot.playerActorId].position}};

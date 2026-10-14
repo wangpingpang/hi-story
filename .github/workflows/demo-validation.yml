@@ -1,7 +1,7 @@
 name: Validate integrated demo
 on:
   push:
-    branches: [codex/demo-next-stage, codex/v010-adventure]
+    branches: [codex/demo-next-stage, codex/v010-adventure, codex/v020-hd2d]
   workflow_dispatch:
 permissions:
   contents: read

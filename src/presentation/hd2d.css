@@ -1,0 +1,27 @@
+/* Rendering-only atmosphere; never changes visibility, RNG, HP or movement rules. */
+.adventure-shell{background:radial-gradient(ellipse at 40% 45%,#667d58,#243f38 65%,#162e31)}
+.adventure-map{filter:saturate(.86) contrast(1.08)}
+.scene-light,.scene-weather,.scene-rays{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.scene-light{background:linear-gradient(135deg,#f4ce6b1f,transparent 45%,#183e5744);mix-blend-mode:screen}
+.light-night .scene-light{background:#17345177;mix-blend-mode:multiply}
+.light-night .adventure-map{filter:saturate(.7) brightness(.72) contrast(1.1)}
+.scene-rays{background:linear-gradient(118deg,transparent 20%,#ffe0a414 21%,transparent 29%,#ffe9b51c 30%,transparent 39%,#ffe5a711 40%,transparent 50%);filter:blur(7px);mix-blend-mode:screen}
+.light-night .scene-rays,.weather-rain .scene-rays,.weather-snow .scene-rays{opacity:0}
+.scene-weather{opacity:.5}
+.weather-mist .scene-weather{inset:-20%;background:radial-gradient(ellipse at 20% 65%,#d1ddbd44,transparent 48%),radial-gradient(ellipse at 75% 35%,#e4e5c833,transparent 48%);filter:blur(22px);animation:mist-drift 25s ease-in-out infinite alternate}
+.weather-rain .scene-weather{inset:-100%;background-image:repeating-linear-gradient(107deg,transparent 0 61px,#d9e4d044 62px,transparent 63px 113px);background-size:127px 110px;animation:rain-fall 1s linear infinite;opacity:.25;transform:rotate(4deg)}
+.weather-snow .scene-weather{inset:-80%;background-image:radial-gradient(circle,#fff8dbcc 1px,transparent 2px),radial-gradient(circle,#e8f0dc99 1.5px,transparent 2.5px);background-size:97px 113px,163px 173px;background-position:0 0,43px 71px;animation:snow-fall 18s linear infinite}
+.world-lantern{animation:lantern-breathe 4s ease-in-out infinite alternate;mix-blend-mode:screen}
+.scene-vignette{background:radial-gradient(ellipse at 48% 48%,transparent 34%,#13222033 75%,#091c2499)}
+.adventure-panel{background:linear-gradient(145deg,#182c2bf2,#122321f2);border-color:#bca66a66;box-shadow:0 20px 55px #01181377,inset 0 0 0 3px #b49d6620}
+.adventure-header{background:linear-gradient(#122525e6,#12252555,transparent)}
+.journey-heading>span{color:#dbc48a}.iso-label{letter-spacing:1px;fill:#f4dba4}.iso-name{font-size:10px;stroke-width:3px}
+.equipment-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.equipment-gallery figure{margin:0;padding:6px;background:#d4c48c0a;border:1px solid #cbb27833;border-radius:4px}.equipment-gallery svg{width:100%;height:80px}.equipment-gallery figcaption{font-size:9px;color:#cbbd9c;text-align:center}.equipment-gallery p{grid-column:1/-1;font-size:10px;color:#9eb59f}
+.weather-options{display:flex;gap:5px;flex-wrap:wrap;margin:12px 0}.weather-options button{font-size:10px;min-height:30px;padding:4px 9px}.weather-options button[aria-pressed=true]{border-color:#e3c87e;background:#53604a}
+.profession-skill{display:grid;gap:6px;margin-top:14px}.profession-skill button{text-align:left;font-size:11px}.profession-skill small{font-size:10px;color:#c2b690}.profession-resources{font-size:11px;color:#e0c990}
+.dice-new>b{animation:dice-reveal .7s cubic-bezier(.2,.7,.3,1)}.dice-new.success{animation:check-success .7s ease-out}.dice-new.failed{animation:check-fail .35s ease-in-out}
+@keyframes dice-reveal{0%{transform:rotate(-180deg) scale(.4)}65%{transform:rotate(15deg) scale(1.25)}100%{transform:none}}
+@keyframes check-success{0%{box-shadow:0 0 35px #e9d48daa}100%{box-shadow:none}}
+@keyframes check-fail{25%{translate:-5px}75%{translate:5px}}
+@keyframes mist-drift{to{transform:translate(6%,-3%)}}@keyframes rain-fall{to{background-position:-20px 110px}}@keyframes snow-fall{to{transform:translate(-50px,173px)}}@keyframes lantern-breathe{to{opacity:.65}}
+@media(prefers-reduced-motion:reduce){.adventure-shell *{animation:none!important;scroll-behavior:auto!important}}

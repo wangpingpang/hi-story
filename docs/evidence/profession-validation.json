@@ -1,0 +1,33 @@
+{
+  "baseCommit": "3f9fec5",
+  "branch": "codex/profession-module",
+  "framework": "class-framework/1",
+  "optInRuntimeRules": "adventure-dnd/2-professions",
+  "classes": 12,
+  "specializations": 36,
+  "skillDefinitions": 252,
+  "executableActiveSkills": 9,
+  "tests": {
+    "passed": 209,
+    "failed": 0,
+    "files": 14,
+    "newProfessionTests": 42
+  },
+  "checks": {
+    "typecheck": "passed",
+    "boundaries": "passed",
+    "build": "passed",
+    "diffWhitespace": "passed",
+    "UTF8": "passed"
+  },
+  "browserQA": "not_run_backend_API_change_no_new_game_UI",
+  "productionDeployment": "not_performed",
+  "buildSHA256": {
+    "index.html": "39fd2693a8d424d7e19feaf41be7c4024a661196037f4c89742632d31f054a50",
+    "assets/index-BGVROkSw.js": "1bdd33ab449afdcd7cf33d1dc9b0f71e09e793230b2418e7181278d3f2cd91ed",
+    "assets/index-B7lRwY1b.css": "d86110b297b07956d975198c7375cd41389b69067d4cbd46a782225174a73408",
+    "assets/characters/manifest.json": "87af97acb3c4697e8ac7d3adaddfc21375e93b2b13f409e05a38c27f14ef2d38",
+    "assets/characters/character-parts-v1.png": "8fee8fb90dd7cf28d8b201e26804e73bd1863395f9a32063a84bfbba730b7e9f",
+    "assets/characters/female-parts-v1.png": "a3a1ae3d4c8178a9930802ef84763801622d52de6c45a5f856b49d2bea9e8d1f"
+  }
+}

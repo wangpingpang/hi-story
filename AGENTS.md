@@ -1,8 +1,14 @@
 # 项目约定
 
+## v0.2.0 当前集成迭代
+
+开发分支 codex/v020-hd2d，阶段依据《v0.2.0阶段说明.md》。集成公开职业模块14e9080、公开装备包与原创HD-2D场景；内部动作/形态制作规范不得复制至公开仓库。产品版本0.2.0，领域快照版本0.1.0/schema3保持兼容。自测213项通过，真实浏览器与发布状态以docs/v0.2.0-validation.md为准。
+
 在需要人物生成时，调用人物生成器：《人物生成器说明.md》
 
 在需要地图生成时，调用地图生成器：《地图生成器说明.md》
+
+在需要职业定义、角色成长、专精、兼职或职业技能时，调用职业模块：《职业模块说明.md》；公开入口 `src/modules/professions/index.ts`。
 
 ## 开发与同步
 
@@ -33,3 +39,9 @@
 ## v0.1.0 冒险执行基线
 
 开发分支 codex/v010-adventure。新冒险公开入口为 application.createAdventureApplication，协议 demo-contract/3 / schemaVersion=3；原 GameApplication/schema2 保留回归。新界面默认入口与 ?view=demo，原 Demo 为 ?view=demo-legacy，原雾桥为 ?view=fog-bridge。本轮167项逻辑/52项浏览器及公网验证通过并发布，最终状态见 docs/v0.1.0-validation.md。集成窗口从更新后的 codex/demo-integration-v1 读取；旧段落为历史基线。
+
+开发分支 codex/v010-adventure。新冒险公开入口为 application.createAdventureApplication，协议 demo-contract/3 / schemaVersion=3；原 GameApplication/schema2 保留回归。新界面默认入口与 ?view=demo，原 Demo 为 ?view=demo-legacy，原雾桥为 ?view=fog-bridge。当前逻辑自测已通过，浏览器/发布状态见 docs/v0.1.0-validation.md；不要把云端候选提交当作已发布。
+
+## 职业规则初版
+
+开发分支 codex/profession-module。职业目录 class-framework/1；可选接入规则 adventure-dnd/2-professions。252项为目录，主动执行9项；未实现项必须拒绝，不能扣资源或伪造成功。职业状态只由运行器持有，生命周期统一提交。默认页面/旧存档保持原模式，本轮不发布游戏。见《职业模块说明.md》及 docs/profession-validation.md。

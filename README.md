@@ -1,4 +1,8 @@
 # hi-story
+
+## v0.2.0 · HD-2D 集成
+
+地图主场景新增8种原创建筑/植被、地表纹理、暖光、天气与角色/镜头平滑移动。旅程设置可启用12职业开局，已实现技能和休息使用真实事务；背包新增公开装备素材图鉴。不是完整3D或8方向动画，装备尚未穿戴结算。范围见《v0.2.0阶段说明.md》，验证与发布状态见docs/v0.2.0-validation.md。
 你的故事写到了哪
 
 ## v0.1.0 开发阶段
@@ -126,3 +130,12 @@ CHROMIUM_PATH=/path/to/chromium npm run characters:render -- --input docs/exampl
 下一阶段协议为`demo-contract/2`，本局快照schemaVersion为2；空间版本`story-spatial/2`、地图`bounded-map/2`。本局已生成地图不因选择重抽。[本阶段说明与验收](docs/demo-next-stage-report.md) · [声明式布局目录](content/story/spatial-layouts.json)。
 
 默认主页与 `?view=demo` 已更新为 v0.1.0 地图主场景；167项逻辑、52项浏览器和公网验证通过。自动保存/刷新继续、三主线及动态事件已可用。[完整交付报告](docs/v0.1.0-validation.md)。
+
+
+## 全角色共用职业模块（开发初版）
+
+公开入口：`src/modules/professions/index.ts`。12职业、36专精、252能力目录，提供固定生命成长、等级/专精/兼职、技能熟练、独立资源池与休息规则。玩家、伙伴、敌人、居民共用定义；生活职业与性格分别保存。
+
+当前9项主动技能已接入运行器与生命周期事务，其余定义拒绝施放。显式职业模式采用`adventure-dnd/2-professions`，支持保存恢复；默认网页与旧模板仍保留。本轮不发布新游戏页面。
+
+详见[职业模块说明](职业模块说明.md)、[完整设计攻略](docs/profession-guide.md)与[验证记录](docs/profession-validation.md)。

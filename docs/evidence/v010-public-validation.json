@@ -1,0 +1,55 @@
+{
+  "status": "passed",
+  "testedSource": "3f9fec50b7dd5b982733cb198d352e7fc3d1f40f",
+  "url": "https://wangpingpang.github.io/hi-story/?view=demo&seed=public-v010",
+  "checkedAt": "2026-10-14T17:39:48.975Z",
+  "files": [
+    {
+      "path": "assets/characters/character-parts-v1.png",
+      "status": 200,
+      "sha256": "8fee8fb90dd7cf28d8b201e26804e73bd1863395f9a32063a84bfbba730b7e9f",
+      "size": 1234506
+    },
+    {
+      "path": "assets/characters/female-parts-v1.png",
+      "status": 200,
+      "sha256": "a3a1ae3d4c8178a9930802ef84763801622d52de6c45a5f856b49d2bea9e8d1f",
+      "size": 1889616
+    },
+    {
+      "path": "assets/characters/manifest.json",
+      "status": 200,
+      "sha256": "87af97acb3c4697e8ac7d3adaddfc21375e93b2b13f409e05a38c27f14ef2d38",
+      "size": 12735
+    },
+    {
+      "path": "assets/index-6m0kND57.js",
+      "status": 200,
+      "sha256": "f22f8b946aa5b1d18b236db196eeba82733fa67074a5859a2733b41da127efdf",
+      "size": 215083
+    },
+    {
+      "path": "assets/index-B7lRwY1b.css",
+      "status": 200,
+      "sha256": "d86110b297b07956d975198c7375cd41389b69067d4cbd46a782225174a73408",
+      "size": 24203
+    },
+    {
+      "path": "index.html",
+      "status": 200,
+      "sha256": "d075972c6106dd1edb81012ad95e131cd1d2313562b3e2a56febe654138e7d08",
+      "size": 785
+    }
+  ],
+  "desktop": "1440x1000",
+  "narrow": "375x812",
+  "checks": [
+    "exact published assets",
+    "2.5D sprite scene",
+    "real movement",
+    "refresh restore",
+    "scene inventory",
+    "narrow overflow"
+  ],
+  "errors": []
+}

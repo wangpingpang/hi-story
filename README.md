@@ -3,7 +3,7 @@
 
 ## v0.1.0 开发阶段
 
-下一版本目标是能完成、能失败、能保存的单人随机冒险：3 套主线、连续事件与真实路线变化、背包与组合任务、检定与多敌战斗、刷新恢复和结局回顾。单局以 20—40 分钟为试玩调优目标。详见 [v0.1.0阶段说明](v0.1.0阶段说明.md) 与 [批次任务卡](docs/development-backlog.md)。本轮已实现，正在验收：新增六属性/熟练/优势劣势的 NPC 互动；等距 2.5D 高差/遮挡与地图中的像素人物；背包/任务/对话/战斗均在地图浮层中操作。完成状态以 [v0.1.0验收](docs/v0.1.0-validation.md)为准。
+下一版本目标是能完成、能失败、能保存的单人随机冒险：3 套主线、连续事件与真实路线变化、背包与组合任务、检定与多敌战斗、刷新恢复和结局回顾。单局以 20—40 分钟为试玩调优目标。详见 [v0.1.0阶段说明](v0.1.0阶段说明.md) 与 [批次任务卡](docs/development-backlog.md)。本轮已验收并上线：新增六属性/熟练/优势劣势的 NPC 互动；等距 2.5D 高差/遮挡与地图中的像素人物；背包/任务/对话/战斗均在地图浮层中操作。完成状态以 [v0.1.0验收](docs/v0.1.0-validation.md)为准。
 
 ## 生成与探索 Demo
 
@@ -124,3 +124,5 @@ CHROMIUM_PATH=/path/to/chromium npm run characters:render -- --input docs/exampl
 - `npm run maps:generate` 生成并校验示例地图。
 
 下一阶段协议为`demo-contract/2`，本局快照schemaVersion为2；空间版本`story-spatial/2`、地图`bounded-map/2`。本局已生成地图不因选择重抽。[本阶段说明与验收](docs/demo-next-stage-report.md) · [声明式布局目录](content/story/spatial-layouts.json)。
+
+默认主页与 `?view=demo` 已更新为 v0.1.0 地图主场景；167项逻辑、52项浏览器和公网验证通过。自动保存/刷新继续、三主线及动态事件已可用。[完整交付报告](docs/v0.1.0-validation.md)。

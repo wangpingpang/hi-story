@@ -1,0 +1,55 @@
+{
+  "checkedAt": "2026-10-14T12:39:30.224092+00:00",
+  "demoUrl": "https://wangpingpang.github.io/hi-story/?view=demo",
+  "sourceBaseline": "463c908a0a151ca7d0737253600396010810f64c",
+  "changes": "Demo header navigation preserves project path using relative URLs",
+  "publishedCommit": "cac3007996b947effd3420c4764f4046622c62f6",
+  "pagesWorkflow": "https://github.com/wangpingpang/hi-story/actions/runs/38565291574",
+  "pagesConclusion": "success",
+  "resources": [
+    {
+      "path": "assets/characters/character-parts-v1.png",
+      "httpStatus": 200,
+      "bytes": 1234506,
+      "sha256": "8fee8fb90dd7cf28d8b201e26804e73bd1863395f9a32063a84bfbba730b7e9f",
+      "matchesBuild": true
+    },
+    {
+      "path": "assets/characters/female-parts-v1.png",
+      "httpStatus": 200,
+      "bytes": 1889616,
+      "sha256": "a3a1ae3d4c8178a9930802ef84763801622d52de6c45a5f856b49d2bea9e8d1f",
+      "matchesBuild": true
+    },
+    {
+      "path": "assets/characters/manifest.json",
+      "httpStatus": 200,
+      "bytes": 12735,
+      "sha256": "87af97acb3c4697e8ac7d3adaddfc21375e93b2b13f409e05a38c27f14ef2d38",
+      "matchesBuild": true
+    },
+    {
+      "path": "assets/index-3oWrOfUd.css",
+      "httpStatus": 200,
+      "bytes": 12512,
+      "sha256": "0babe3ce2b87e65207d85960258ce455caf8f9909117780d76c691ebdd54541a",
+      "matchesBuild": true
+    },
+    {
+      "path": "assets/index-CvOo8h-q.js",
+      "httpStatus": 200,
+      "bytes": 125866,
+      "sha256": "10d179f30019eaf57f05da19540a38372de11312e936246c1db58913b802c9cc",
+      "matchesBuild": true
+    },
+    {
+      "path": "index.html",
+      "httpStatus": 200,
+      "bytes": 785,
+      "sha256": "bb25cef3bcecc40a1d5e4288e0a5e41e14d271ed876aea4704215fe0305ab0bc",
+      "matchesBuild": true
+    }
+  ],
+  "browserInitialRender": "Cloud browser displayed world map, character and quests; full interaction suite not executed",
+  "status": "passed"
+}

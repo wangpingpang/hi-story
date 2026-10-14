@@ -23,3 +23,14 @@ GitHub 自动建立的 [Pages 构建与部署 #38414021071](https://github.com/w
 最终公网验收：**通过**。任务 [#38414260701](https://github.com/wangpingpang/hi-story/actions/runs/38414260701) completed/success，`2026-10-13T14:33:11Z` 日志报告 PASS。页面 HTML、`/hi-story/assets/index-nZ_enpvH.js`、`/hi-story/assets/index-BYpHuItf.css` 均返回 200。使用 Chrome for Testing 156.0.8078.4 完成真实公网路径 D/solo/anonymous，耗时 4、明早处理；无控制台错误、失败请求或横向溢出。
 
 [公网试玩 JSON 与截图下载](https://github.com/wangpingpang/hi-story/actions/runs/38414260701/artifacts/11823029476)（GitHub 登录后访问，构建产物保留30天）。持久摘要见 evidence/pages-public-verification.json。公网验证脚本提交 `9f9e0c10d29822df9b28eaa0d74eea0f99117ee0`。
+
+
+## 2026-10-14 生成与探索Demo上线
+
+试玩入口：https://wangpingpang.github.io/hi-story/?view=demo 。人物工坊和故事工坊分别使用同站点的?view=character-generator和?view=story-generator，默认入口保留雾桥小样。
+
+构建基于463c908集成代码，并修复Demo页头的相对导航，防止离开/hi-story/项目路径。首个发布提交d9001cb1940f78ed43496eaa8fb336028a6c3bed；修复后最终发布提交cac3007996b947effd3420c4764f4046622c62f6。继续使用原有gh-pages来源，完整替换静态文件并清除过时哈希资产，人物PNG与manifest一并发布；未合并main或改变站点权限。
+
+[Pages构建与部署 #38565291574](https://github.com/wangpingpang/hi-story/actions/runs/38565291574) completed/success。本轮生产构建通过；公网index.html、JS、CSS、两张人物PNG和manifest均HTTP 200，逐字节与本地dist相同。[产物验证记录](evidence/demo-pages-publication.json)。
+
+云端浏览器已打开探索入口，显示中文标题、世界地图、人物资料和任务列表。此次只验证初始渲染与公网产物，完整探索、胜负、键盘和窄屏交互测试仍未执行，不能据此替代完整Demo验收。原2026-10-13的完整公网验收仅适用于旧雾桥小样。

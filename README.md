@@ -5,7 +5,7 @@
 
 最新集成分支：`codex/demo-integration-v1`。执行下方本地运行命令后访问`/?view=demo`：有种子开局、32×20地图与迷雾、真实移动、NPC事件、物资和任务、7×5简化骰子战棋、成功/战败结局与同种子重开。地图是三地区模板，后续继续扩展随机迷宫与内容。
 
-开发按六模块管理：[边界与同步规则](模块边界与开发同步说明.md)。每个决定性改动将代码、受影响说明与[决定记录](docs/decisions.md)放入同一次提交，作为各窗口同步依据。[本轮验收](docs/demo-integration-report.md) · [后续任务](docs/development-backlog.md)。当前无持久存档，刷新重新开局；集成分支尚未发布到下方旧线上小样。
+开发按六模块管理：[边界与同步规则](模块边界与开发同步说明.md)。每个决定性改动将代码、受影响说明与[决定记录](docs/decisions.md)放入同一次提交，作为各窗口同步依据。[本轮验收](docs/demo-integration-report.md) · [后续任务](docs/development-backlog.md)。当前无持久存档，刷新重新开局；集成 Demo 已发布：[开始生成与探索](https://wangpingpang.github.io/hi-story/?view=demo)。
 
 ## 雾桥递信 · 可玩小样
 
@@ -70,7 +70,7 @@ CHROMIUM_PATH=/path/to/chromium npm run test:e2e
 - 沈青和陆砚每局生成外观，同局内保持稳定；人物资料及场景使用同一模型。
 - 使用已归档的本地 PNG 部件装配人物；可切换男性/女性身体，选择交叠式上衣、及膝裙和长裙，衣物按身材调整。
 
-[模型结构、公开接口与扩展说明](docs/character-generator.md)。这是静态二维外观模型，动作动画尚未实现。开发分支的工坊尚未发布到上述在线 demo。
+[模型结构、公开接口与扩展说明](docs/character-generator.md)。这是静态二维外观模型，动作动画尚未实现。工坊已随本次集成发布：[在线人物工坊](https://wangpingpang.github.io/hi-story/?view=character-generator)。
 
 ### 人物图片素材（首版源图）
 
@@ -86,7 +86,7 @@ CHROMIUM_PATH=/path/to/chromium npm run test:e2e
 
 ### 随机故事工坊
 
-访问 `/?view=story-generator`，体验中世纪剑与魔法背景的规则故事原型：种子生成、18个初始行动、NPC死亡联动、时间期限、地图通行变化与主支线结局。无AI API。战斗结算按钮用于模拟外部结果，地图输出需求而非地图本身。详见[接口与本版边界](docs/story-generator.md)。开发版尚未发布线上。
+访问 `/?view=story-generator`，体验中世纪剑与魔法背景的规则故事原型：种子生成、18个初始行动、NPC死亡联动、时间期限、地图通行变化与主支线结局。无AI API。战斗结算按钮用于模拟外部结果，地图输出需求而非地图本身。详见[接口与本版边界](docs/story-generator.md)。已随本次集成发布：[在线故事工坊](https://wangpingpang.github.io/hi-story/?view=story-generator)。
 
 支持运行时加载、使用和卸载「营地故事」，或导入 JSON 故事规则包；已发生的事实和资源变化保留。规则包可通过应用层替换版本，基础包负责闭环。[热插拔规则设计与接口](docs/story-rule-packs.md)。
 

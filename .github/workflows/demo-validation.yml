@@ -37,5 +37,6 @@ jobs:
           path: |
             docs/evidence/
             test-results/
+            !test-results/**/trace.zip
           retention-days: 14
           if-no-files-found: warn

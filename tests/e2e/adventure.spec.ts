@@ -1,6 +1,8 @@
 import {test,expect,type Page} from '@playwright/test';
 import {createServer} from 'vite';
 import type {AdventureSnapshot} from '../../src/application';
+// Full gameplay regression also covers reduced-motion accessibility. HD-2D specs retain animations.
+test.use({reducedMotion:'reduce'});
 let server:Awaited<ReturnType<typeof createServer>>;
 let factory:typeof import('../../src/application');
 test.beforeAll(async()=>{server=await createServer({configFile:false,logLevel:'error',server:{middlewareMode:true},appType:'custom'});factory=await server.ssrLoadModule('/src/application/index.ts') as typeof import('../../src/application');});

@@ -34,3 +34,12 @@ GitHub 自动建立的 [Pages 构建与部署 #38414021071](https://github.com/w
 [Pages构建与部署 #38565291574](https://github.com/wangpingpang/hi-story/actions/runs/38565291574) completed/success。本轮生产构建通过；公网index.html、JS、CSS、两张人物PNG和manifest均HTTP 200，逐字节与本地dist相同。[产物验证记录](evidence/demo-pages-publication.json)。
 
 云端浏览器已打开探索入口，显示中文标题、世界地图、人物资料和任务列表。此次只验证初始渲染与公网产物，完整探索、胜负、键盘和窄屏交互测试仍未执行，不能据此替代完整Demo验收。原2026-10-13的完整公网验收仅适用于旧雾桥小样。
+
+
+## 2026-10-14 空间v2与完整Demo验收
+
+原地址https://wangpingpang.github.io/hi-story/?view=demo已更新。产品代码验收提交176de8745a734e8fc6be37a280f9e8b9396cd5da，151项逻辑、30项桌面/375px浏览器用例通过；详见[下一阶段报告](demo-next-stage-report.md)。
+
+发布提交462e44752afb6332685eff7e410317527381617b；[Pages #38575627985](https://github.com/wangpingpang/hi-story/actions/runs/38575627985) completed/success。仍使用gh-pages静态来源，未更改访问权限或合并main。6个公网文件均HTTP 200且与生产构建字节相同，[公开产物比对](evidence/demo-next-stage-publication.json)。
+
+完整浏览器验收在GitHub Actions的生产预览中执行；公网验证覆盖部署与静态资源，不表示对公网重新执行了全部30个浏览器用例。原雾桥与人物/故事工坊保持入口。

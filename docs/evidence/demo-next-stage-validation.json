@@ -1,0 +1,42 @@
+{
+  "checkedAt": "2026-10-14",
+  "sourceCommit": "176de8745a734e8fc6be37a280f9e8b9396cd5da",
+  "workflow": "https://github.com/wangpingpang/hi-story/actions/runs/38574797741",
+  "jobId": 115888959398,
+  "conclusion": "success",
+  "logic": {
+    "files": 10,
+    "passed": 151
+  },
+  "browser": {
+    "files": 5,
+    "passed": 30,
+    "projects": [
+      "desktop 1440x1000",
+      "narrow 375x812"
+    ],
+    "elapsedSeconds": 49.3,
+    "includes": [
+      "real exploration and objective completion",
+      "dice victory and NPC death",
+      "defeat and restart",
+      "flee",
+      "keyboard and seed editing",
+      "original fog bridge and character/story studios"
+    ]
+  },
+  "spatialSeeds": 240,
+  "versions": {
+    "contracts": "demo-contract/2",
+    "snapshot": 2,
+    "spatial": "story-spatial/2",
+    "catalog": "spatial-catalog/1",
+    "map": "bounded-map/2"
+  },
+  "artifact": {
+    "id": 11898504175,
+    "url": "https://github.com/wangpingpang/hi-story/actions/runs/38574797741/artifacts/11898504175",
+    "retentionDays": 14
+  },
+  "scope": "Browser checks ran against a production preview in GitHub Actions; public publication is recorded separately."
+}

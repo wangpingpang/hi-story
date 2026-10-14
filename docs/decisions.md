@@ -68,3 +68,10 @@
 决定：RunSnapshot.schemaVersion=2，demo-contract/2，新增spatial版本/目录/布局元数据。生命周期在发布新局前完成真实通路验证，并经npc-move公开事实同步NPC叙事地点；任务和事物继续绑定稳定ID。没有持久存档，暂不提供旧快照迁移。
 影响：生命周期快照、故事公开空间接口、运行器验证、六组说明与交接入口；人物资料/HP/坐标/物品/任务的唯一权威模块不变。
 验证：同种子初始化与重开一致、选择不重抽地图、叙事区域绑定、装配失败完整保留旧局，见tests/story-spatial.test.ts与docs/demo-next-stage-report.md。
+
+
+## D011 下一阶段验收与集成交付
+
+决定：完成151项逻辑和30项生产预览浏览器验收后，发布空间v2到既有gh-pages来源，并快进同步codex/demo-integration-v1。六模块说明和跨窗口入口记录schemaVersion=2与实际通过范围，保存验收与公网产物摘要。
+原因：正式基线必须包含稳定ID、真实通路和整局玩法证据；原网页回归不能替代新流程。只读CI完成测试，发布仍由已授权GitHub连接完成，不扩大CI权限。
+验证：代码176de87，Actions #38574797741成功；发布462e447，Pages #38575627985成功，6文件HTTP 200/字节一致。完整证据见docs/demo-next-stage-report.md。

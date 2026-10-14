@@ -1,0 +1,53 @@
+{
+  "checkedOn": "2026-10-14",
+  "demoUrl": "https://wangpingpang.github.io/hi-story/?view=demo",
+  "validatedSourceCommit": "176de8745a734e8fc6be37a280f9e8b9396cd5da",
+  "publishedCommit": "462e44752afb6332685eff7e410317527381617b",
+  "pagesWorkflow": "https://github.com/wangpingpang/hi-story/actions/runs/38575627985",
+  "pagesConclusion": "success",
+  "resources": [
+    {
+      "path": "assets/characters/character-parts-v1.png",
+      "httpStatus": 200,
+      "bytes": 1234506,
+      "sha256": "8fee8fb90dd7cf28d8b201e26804e73bd1863395f9a32063a84bfbba730b7e9f",
+      "matchesBuild": true
+    },
+    {
+      "path": "assets/characters/female-parts-v1.png",
+      "httpStatus": 200,
+      "bytes": 1889616,
+      "sha256": "a3a1ae3d4c8178a9930802ef84763801622d52de6c45a5f856b49d2bea9e8d1f",
+      "matchesBuild": true
+    },
+    {
+      "path": "assets/characters/manifest.json",
+      "httpStatus": 200,
+      "bytes": 12735,
+      "sha256": "87af97acb3c4697e8ac7d3adaddfc21375e93b2b13f409e05a38c27f14ef2d38",
+      "matchesBuild": true
+    },
+    {
+      "path": "assets/index-3oWrOfUd.css",
+      "httpStatus": 200,
+      "bytes": 12512,
+      "sha256": "0babe3ce2b87e65207d85960258ce455caf8f9909117780d76c691ebdd54541a",
+      "matchesBuild": true
+    },
+    {
+      "path": "assets/index-Dig_SRVa.js",
+      "httpStatus": 200,
+      "bytes": 135843,
+      "sha256": "dde721005606b6794dab7dde2112a1c3d1b69037b02601a94abcbbee0d34ca89",
+      "matchesBuild": true
+    },
+    {
+      "path": "index.html",
+      "httpStatus": 200,
+      "bytes": 785,
+      "sha256": "b08e509c8fd4e6de14fade774936a5eab70b37adce217eac3ae3c7944031c641",
+      "matchesBuild": true
+    }
+  ],
+  "status": "passed"
+}

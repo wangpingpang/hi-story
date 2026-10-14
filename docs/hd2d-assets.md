@@ -13,3 +13,9 @@
 天气使用代码原生粒子/渐变，地表使用代码原生可重复纹理；角色继续使用人物生成器的真实PNG装配，不用新通用人物替换身份。现有地图碰撞、迷雾、任务锚点不因美术改变。
 
 素材不足时先登记缺口、补图集和源矩形，再接入可见场景并做浏览器检查，不能只把未使用的图片放进素材目录。本轮未公开装备包的internal-only目录及其制作规格。
+
+## 生成提示词原文（内置 imagegen，transparent_background=true）
+
+```text
+Use case: stylized-concept. Asset type: production isometric game scenery atlas for a simplified HD-2D medieval fantasy adventure. Generate one transparent PNG atlas, exactly 4 columns by 2 rows, eight equally sized square cells, each isolated object centered with 12% empty transparent margin; objects never cross cell boundaries. Camera consistent three-quarter isometric 2:1, visible top and two sides. Painterly pixel-art with crisp pixel texture, richly textured but readable small, warm amber highlights from upper left, cool dark olive shadows, muted natural palette. Row 1 left to right: 1 dense tall leafy oak tree with gnarled trunk; 2 rustic timber-and-stone cottage, mossy slate roof, warm lit windows; 3 ruined tall stone watchtower, ivy, broken battlements; 4 ancient moon shrine, stone pedestal and small glowing cyan crystal. Row 2 left to right: 5 merchant canvas tent with crates and lantern; 6 rugged mossy boulder cluster; 7 wooden covered wagon with barrels and warm lamp; 8 tall dark fir tree. All fully visible, grounds minimal small contact shadows only; genuinely transparent outside silhouettes. No characters, no lettering, no labels, no borders, no grid lines, no UI. Output is ONLY a reusable eight-object sprite atlas, not a scene or mockup. Each object's base is centered near 85% of its cell height. No imitation of specific copyrighted game locations.
+```

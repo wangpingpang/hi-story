@@ -1,0 +1,91 @@
+{
+  "status": "passed",
+  "testedSource": "f0feb7cc3ed8eebc61dbe3c6b3337a99313ec1b7",
+  "url": "https://wangpingpang.github.io/hi-story/?view=demo&seed=public-v020",
+  "checkedAt": "2026-10-14T20:37:03.345Z",
+  "files": [
+    {
+      "path": "assets/characters/character-parts-v1.png",
+      "status": 200,
+      "sha256": "8fee8fb90dd7cf28d8b201e26804e73bd1863395f9a32063a84bfbba730b7e9f",
+      "size": 1234506
+    },
+    {
+      "path": "assets/characters/female-parts-v1.png",
+      "status": 200,
+      "sha256": "a3a1ae3d4c8178a9930802ef84763801622d52de6c45a5f856b49d2bea9e8d1f",
+      "size": 1889616
+    },
+    {
+      "path": "assets/characters/manifest.json",
+      "status": 200,
+      "sha256": "87af97acb3c4697e8ac7d3adaddfc21375e93b2b13f409e05a38c27f14ef2d38",
+      "size": 12735
+    },
+    {
+      "path": "assets/equipment/armor-01.webp",
+      "status": 200,
+      "sha256": "a5981dbff56ccd50bc6802adcb416b993c7c24cdeed10e702c1e2bc9faed52f5",
+      "size": 489858
+    },
+    {
+      "path": "assets/equipment/armor-02.webp",
+      "status": 200,
+      "sha256": "df484f717f604b5cc099798c22341dc2885a82cbdf2421c8c61aae6bfe89f104",
+      "size": 480882
+    },
+    {
+      "path": "assets/equipment/armor-03.webp",
+      "status": 200,
+      "sha256": "e47bbbbc2f0f88cd1e8bce5437087cebb481c08b204b998d3090e8a4a90025f2",
+      "size": 473130
+    },
+    {
+      "path": "assets/equipment/shared-01.webp",
+      "status": 200,
+      "sha256": "ba65e073151b7ffc62a9bfd025e2e8cbd19b5c3a5e5fd679b75647a137152fce",
+      "size": 455402
+    },
+    {
+      "path": "assets/equipment/weapons-01.webp",
+      "status": 200,
+      "sha256": "a711ffd8a8f3bbbfdf48d245c17b8a9f063468fed003384e143f74c1db34b479",
+      "size": 351376
+    },
+    {
+      "path": "assets/index-BWCU91_y.css",
+      "status": 200,
+      "sha256": "57cae9825f2c937d56802031103f6db34f00be8a238ab156e67a7e16e13d78d4",
+      "size": 27801
+    },
+    {
+      "path": "assets/index-CG9tv6WE.js",
+      "status": 200,
+      "sha256": "8d92cd4a08a80283ce883ed6110a5a387240a661a0e8fbb980bacc691d173f85",
+      "size": 442877
+    },
+    {
+      "path": "assets/scenery/hd2d-scenery-v1.webp",
+      "status": 200,
+      "sha256": "b0ac1488bd9145e2ca8971a41d6d8f16f7d901bc9e5d9875d623d36159b4d0d3",
+      "size": 421444
+    },
+    {
+      "path": "index.html",
+      "status": 200,
+      "sha256": "28f72308a4c8ac39e5272f33a08ec754e8128fe3374b3c62ef96999bbcd364f6",
+      "size": 785
+    }
+  ],
+  "desktop": "1440x1000",
+  "narrow": "375x812",
+  "checks": [
+    "exact published assets",
+    "2.5D sprite scene",
+    "real movement",
+    "refresh restore",
+    "scene inventory",
+    "narrow overflow"
+  ],
+  "errors": []
+}

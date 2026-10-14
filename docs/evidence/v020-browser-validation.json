@@ -1,0 +1,372 @@
+{
+  "version": "0.2.0",
+  "status": "passed",
+  "productSource": "f0feb7cc3ed8eebc61dbe3c6b3337a99313ec1b7",
+  "validationHead": "50090741eeada49f2a079a0b5f2ebb266fca63f0",
+  "workflowRun": 38632088879,
+  "artifactId": 11927455647,
+  "logicTests": 213,
+  "stats": {
+    "startTime": "2026-10-14T20:27:24.527Z",
+    "duration": 246372.083,
+    "expected": 58,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "projects": {
+    "desktop": "1440x1000",
+    "narrow": "375x812"
+  },
+  "motion": "Adventure full-playthrough regression uses reduced motion; HD-2D cases retain normal animation.",
+  "cases": [
+    {
+      "title": "地图占据画面、像素人物落位、浮层和缩放无溢出",
+      "project": "desktop",
+      "status": "passed",
+      "duration": 2023
+    },
+    {
+      "title": "社交检定、消耗草药与态度后果显示在同一场景",
+      "project": "desktop",
+      "status": "passed",
+      "duration": 1753
+    },
+    {
+      "title": "实际探索完成 letter 主线",
+      "project": "desktop",
+      "status": "passed",
+      "duration": 9658
+    },
+    {
+      "title": "实际探索完成 seal 主线",
+      "project": "desktop",
+      "status": "passed",
+      "duration": 11566
+    },
+    {
+      "title": "实际探索完成 relic 主线",
+      "project": "desktop",
+      "status": "passed",
+      "duration": 8528
+    },
+    {
+      "title": "连续事件追加NPC、任务，背包与通路状态可恢复",
+      "project": "desktop",
+      "status": "passed",
+      "duration": 13787
+    },
+    {
+      "title": "战斗在地图场景中、行动资源与刷新恢复真实运行",
+      "project": "desktop",
+      "status": "passed",
+      "duration": 7107
+    },
+    {
+      "title": "键盘和输入隔离，损坏存档导入保留有效状态",
+      "project": "desktop",
+      "status": "passed",
+      "duration": 1388
+    },
+    {
+      "title": "承诺连续链与六类支线真实推进，交易和一次奖励",
+      "project": "desktop",
+      "status": "passed",
+      "duration": 22602
+    },
+    {
+      "title": "检定失败开启补救事件，保持主线可行",
+      "project": "desktop",
+      "status": "passed",
+      "duration": 8731
+    },
+    {
+      "title": "战斗胜利、战败与逃离都回传人物和目标",
+      "project": "desktop",
+      "status": "passed",
+      "duration": 7310
+    },
+    {
+      "title": "地图占据画面、像素人物落位、浮层和缩放无溢出",
+      "project": "narrow",
+      "status": "passed",
+      "duration": 1623
+    },
+    {
+      "title": "社交检定、消耗草药与态度后果显示在同一场景",
+      "project": "narrow",
+      "status": "passed",
+      "duration": 1481
+    },
+    {
+      "title": "实际探索完成 letter 主线",
+      "project": "narrow",
+      "status": "passed",
+      "duration": 8417
+    },
+    {
+      "title": "实际探索完成 seal 主线",
+      "project": "narrow",
+      "status": "passed",
+      "duration": 11709
+    },
+    {
+      "title": "实际探索完成 relic 主线",
+      "project": "narrow",
+      "status": "passed",
+      "duration": 8080
+    },
+    {
+      "title": "连续事件追加NPC、任务，背包与通路状态可恢复",
+      "project": "narrow",
+      "status": "passed",
+      "duration": 13242
+    },
+    {
+      "title": "战斗在地图场景中、行动资源与刷新恢复真实运行",
+      "project": "narrow",
+      "status": "passed",
+      "duration": 6685
+    },
+    {
+      "title": "键盘和输入隔离，损坏存档导入保留有效状态",
+      "project": "narrow",
+      "status": "passed",
+      "duration": 1254
+    },
+    {
+      "title": "承诺连续链与六类支线真实推进，交易和一次奖励",
+      "project": "narrow",
+      "status": "passed",
+      "duration": 23149
+    },
+    {
+      "title": "检定失败开启补救事件，保持主线可行",
+      "project": "narrow",
+      "status": "passed",
+      "duration": 9137
+    },
+    {
+      "title": "战斗胜利、战败与逃离都回传人物和目标",
+      "project": "narrow",
+      "status": "passed",
+      "duration": 7108
+    },
+    {
+      "title": "PNG parts, female rig, new garments and transparent export",
+      "project": "desktop",
+      "status": "passed",
+      "duration": 573
+    },
+    {
+      "title": "PNG parts, female rig, new garments and transparent export",
+      "project": "narrow",
+      "status": "passed",
+      "duration": 541
+    },
+    {
+      "title": "seven-part studio: seed, locks, editing, export and responsive preview",
+      "project": "desktop",
+      "status": "passed",
+      "duration": 1354
+    },
+    {
+      "title": "seven-part studio: seed, locks, editing, export and responsive preview",
+      "project": "narrow",
+      "status": "passed",
+      "duration": 1235
+    },
+    {
+      "title": "探索入口、移动、阅读、重开和窄屏布局",
+      "project": "desktop",
+      "status": "passed",
+      "duration": 739
+    },
+    {
+      "title": "NPC交互、真实战斗和逃离",
+      "project": "desktop",
+      "status": "passed",
+      "duration": 929
+    },
+    {
+      "title": "实际探索、购买、抵达与完成目标的整局闭环",
+      "project": "desktop",
+      "status": "passed",
+      "duration": 3446
+    },
+    {
+      "title": "真实骰子战斗胜利更新NPC与后续选项",
+      "project": "desktop",
+      "status": "passed",
+      "duration": 1344
+    },
+    {
+      "title": "战败结束主线，重开恢复人物与初始迷雾",
+      "project": "desktop",
+      "status": "passed",
+      "duration": 1632
+    },
+    {
+      "title": "方向键移动和输入框编辑互不干扰",
+      "project": "desktop",
+      "status": "passed",
+      "duration": 684
+    },
+    {
+      "title": "探索入口、移动、阅读、重开和窄屏布局",
+      "project": "narrow",
+      "status": "passed",
+      "duration": 707
+    },
+    {
+      "title": "NPC交互、真实战斗和逃离",
+      "project": "narrow",
+      "status": "passed",
+      "duration": 856
+    },
+    {
+      "title": "实际探索、购买、抵达与完成目标的整局闭环",
+      "project": "narrow",
+      "status": "passed",
+      "duration": 3399
+    },
+    {
+      "title": "真实骰子战斗胜利更新NPC与后续选项",
+      "project": "narrow",
+      "status": "passed",
+      "duration": 1322
+    },
+    {
+      "title": "战败结束主线，重开恢复人物与初始迷雾",
+      "project": "narrow",
+      "status": "passed",
+      "duration": 1619
+    },
+    {
+      "title": "方向键移动和输入框编辑互不干扰",
+      "project": "narrow",
+      "status": "passed",
+      "duration": 632
+    },
+    {
+      "title": "tonight, cooperation, visible feedback, accessible keyboard and restart",
+      "project": "desktop",
+      "status": "passed",
+      "duration": 1538
+    },
+    {
+      "title": "morning, solo has no penalty, anonymous and layout",
+      "project": "desktop",
+      "status": "passed",
+      "duration": 1449
+    },
+    {
+      "title": "disabled rope includes reason; restart in every phase",
+      "project": "desktop",
+      "status": "passed",
+      "duration": 1660
+    },
+    {
+      "title": "rapid distinct clicks and stale restart timeout cannot affect next run",
+      "project": "desktop",
+      "status": "passed",
+      "duration": 1536
+    },
+    {
+      "title": "tonight, cooperation, visible feedback, accessible keyboard and restart",
+      "project": "narrow",
+      "status": "passed",
+      "duration": 1534
+    },
+    {
+      "title": "morning, solo has no penalty, anonymous and layout",
+      "project": "narrow",
+      "status": "passed",
+      "duration": 1405
+    },
+    {
+      "title": "disabled rope includes reason; restart in every phase",
+      "project": "narrow",
+      "status": "passed",
+      "duration": 1650
+    },
+    {
+      "title": "rapid distinct clicks and stale restart timeout cannot affect next run",
+      "project": "narrow",
+      "status": "passed",
+      "duration": 1595
+    },
+    {
+      "title": "新建筑可从画面点击，沿真实路线步行抵达并打开互动",
+      "project": "desktop",
+      "status": "passed",
+      "duration": 6042
+    },
+    {
+      "title": "HD-2D 场景素材与天气浮层可用，天气不改存档",
+      "project": "desktop",
+      "status": "passed",
+      "duration": 2366
+    },
+    {
+      "title": "职业选择、技能入口、真实休息与刷新恢复",
+      "project": "desktop",
+      "status": "passed",
+      "duration": 2535
+    },
+    {
+      "title": "新建筑可从画面点击，沿真实路线步行抵达并打开互动",
+      "project": "narrow",
+      "status": "passed",
+      "duration": 5514
+    },
+    {
+      "title": "HD-2D 场景素材与天气浮层可用，天气不改存档",
+      "project": "narrow",
+      "status": "passed",
+      "duration": 1563
+    },
+    {
+      "title": "职业选择、技能入口、真实休息与刷新恢复",
+      "project": "narrow",
+      "status": "passed",
+      "duration": 1909
+    },
+    {
+      "title": "故事工坊：死亡联动、主线闭环和移动布局",
+      "project": "desktop",
+      "status": "passed",
+      "duration": 541
+    },
+    {
+      "title": "故事规则包：加载、使用、导入和卸载保留事实",
+      "project": "desktop",
+      "status": "passed",
+      "duration": 518
+    },
+    {
+      "title": "阶段路线随道路变化更新，恢复后完成四阶段",
+      "project": "desktop",
+      "status": "passed",
+      "duration": 626
+    },
+    {
+      "title": "故事工坊：死亡联动、主线闭环和移动布局",
+      "project": "narrow",
+      "status": "passed",
+      "duration": 527
+    },
+    {
+      "title": "故事规则包：加载、使用、导入和卸载保留事实",
+      "project": "narrow",
+      "status": "passed",
+      "duration": 524
+    },
+    {
+      "title": "阶段路线随道路变化更新，恢复后完成四阶段",
+      "project": "narrow",
+      "status": "passed",
+      "duration": 575
+    }
+  ]
+}

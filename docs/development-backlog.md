@@ -4,7 +4,7 @@
 
 分支codex/v020-hd2d，范围为原创HD-2D场景/天气/移动插值、职业模块已实现能力界面和公开装备素材图鉴。类型/213逻辑/边界/构建、58浏览器、公网12文件及恢复通过，已发布d6de277。自由连续移动、五倍地图、8方向装备动作与其余职业执行器未完成。交接入口docs/v0.2.0-validation.md。
 
-当前集成基线：`codex/demo-integration-v1`；v0.2.0产品源码 `f0feb7c`，整体验收 `5009074`，发布 `d6de277`。协议 `demo-contract/3`、快照 `schemaVersion=3`；新窗口先读 AGENTS.md、模块说明和 docs/v0.2.0-validation.md，并核对远端当前提交。
+已验证交付分支：`codex/v020-hd2d`；产品源码 `f0feb7c`，整体验收 `5009074`，发布 `d6de277`。共享`codex/demo-integration-v1`仍为`3caaeb4`，合并被安全审查拦截，待用户确认。协议`demo-contract/3`、schema3；新窗口先读AGENTS.md、模块说明和docs/v0.2.0-validation.md。
 
 **当前阶段目标为 [v0.1.0阶段说明](../v0.1.0阶段说明.md)。** V01—V03 是同一版本内部批次，统一验收发布；本文件不代表已创建会话、向外派发任务或已实现新版本。
 

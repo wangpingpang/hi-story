@@ -1,0 +1,35 @@
+{
+  "testedSource": "bcd3d2d802733dd17df085d1fd808c5656b2ee85",
+  "files": [
+    {
+      "path": "assets/characters/character-parts-v1.png",
+      "sha256": "8fee8fb90dd7cf28d8b201e26804e73bd1863395f9a32063a84bfbba730b7e9f",
+      "size": 1234506
+    },
+    {
+      "path": "assets/characters/female-parts-v1.png",
+      "sha256": "a3a1ae3d4c8178a9930802ef84763801622d52de6c45a5f856b49d2bea9e8d1f",
+      "size": 1889616
+    },
+    {
+      "path": "assets/characters/manifest.json",
+      "sha256": "87af97acb3c4697e8ac7d3adaddfc21375e93b2b13f409e05a38c27f14ef2d38",
+      "size": 12735
+    },
+    {
+      "path": "assets/index-B7lRwY1b.css",
+      "sha256": "d86110b297b07956d975198c7375cd41389b69067d4cbd46a782225174a73408",
+      "size": 24203
+    },
+    {
+      "path": "assets/index-DTrkbw5I.js",
+      "sha256": "355fb8ecbbcb45ad05384a56f42044f10760a4af2aca73d033a5b8e3b16460ee",
+      "size": 215005
+    },
+    {
+      "path": "index.html",
+      "sha256": "59b9eb4d12523f9a076e4ed0b7606618f8fd9500a34233febf7b03c548893594",
+      "size": 785
+    }
+  ]
+}

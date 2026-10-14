@@ -54,3 +54,4 @@ export function exert(roster:Roster,id:CharacterId,sourceEventId:string):Roster 
  validate(next);return next;
 }
 export function snapshot(roster:Roster):DeepReadonly<Roster>{validate(roster);return freeze(structuredClone(roster));}
+export * from './runtime';

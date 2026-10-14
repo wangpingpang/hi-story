@@ -4,3 +4,4 @@ export interface Command { commandId:string; runId:string; actorId:string; event
 export interface Fact { eventId:string; runId:string; sequence:number; sourceCommandId:string; schemaVersion:1; stage:Stage; choiceId:ChoiceId; text:string }
 export type DeepReadonly<T> = T extends object ? {readonly [K in keyof T]:DeepReadonly<T[K]>}:T;
 export function freeze<T>(value:T):DeepReadonly<T> { if(value && typeof value==='object'){Object.freeze(value); for(const v of Object.values(value)) freeze(v);} return value as DeepReadonly<T>; }
+export * from './runtime';

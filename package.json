@@ -10,6 +10,7 @@
     "test:e2e": "playwright test",
     "characters:generate": "node tooling/generate-characters.mjs",
     "characters:render": "node tooling/render-characters.mjs",
+    "runtime:demo": "node tooling/runtime-demo.mjs",
     "check:boundaries": "node tooling/boundaries.mjs",
     "build": "vite build",
     "preview": "vite preview --host 0.0.0.0"

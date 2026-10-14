@@ -60,6 +60,8 @@ export interface World {
   ending: string;
 }
 export type Change =
+  | { kind: "player-location"; location: string; atTarget: boolean }
+  | { kind: "player-defeat" }
   | { kind: "npc-death"; npcId: string }
   | { kind: "npc-move"; npcId: string; location: string }
   | { kind: "time"; hours: number }

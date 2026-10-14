@@ -1,3 +1,5 @@
+import { createGameApplication } from './application';
+import { mountDemo } from './presentation/demo';
 import { StoryStudio } from './application/story-studio';
 import { renderStoryStudio } from './presentation/story-studio';
 import { Game } from './application/game';
@@ -23,7 +25,13 @@ function draw(focus=false,message=''){
  },()=>{busy=false;game.restart();draw(true);},message);
  if(focus)root.querySelector<HTMLElement>('h2')?.focus();
 }
-if (new URLSearchParams(location.search).get('view') === 'character-generator') {
+if (new URLSearchParams(location.search).get('view') === 'demo') {
+ const app = createGameApplication();
+ const result = await app.initialize({seed:new URLSearchParams(location.search).get('seed') || 'hi-story-demo'});
+ if(!result.ok) throw Error(result.error.message);
+ document.title='生成与探索 Demo · hi-story';
+ mountDemo(root,app);
+} else if (new URLSearchParams(location.search).get('view') === 'character-generator') {
  document.title = '人物工坊 · hi-story';
  const studio = new CharacterStudio('hi-story:traveler:001');
  const update = (action:()=>void, message:string) => { try { action(); drawStudio(message); } catch(error) { drawStudio(error instanceof Error ? error.message : '生成失败'); } };
@@ -49,4 +57,4 @@ if (new URLSearchParams(location.search).get('view') === 'character-generator') 
  drawStory();
 } else draw();
 }
-boot().catch(()=>{const root=document.querySelector<HTMLElement>('#app')!;root.innerHTML='<main><p role="alert">人物素材加载失败，请重新加载页面。</p><button type="button">重新加载</button></main>';root.querySelector('button')!.onclick=()=>location.reload();});
+boot().catch(error=>{const root=document.querySelector<HTMLElement>('#app')!;root.innerHTML='<main><p role="alert"></p><button type="button">重新加载</button></main>';root.querySelector('p')!.textContent=error instanceof Error?`旅程加载失败：${error.message}`:'旅程加载失败，请重新加载页面。';root.querySelector('button')!.onclick=()=>location.reload();});

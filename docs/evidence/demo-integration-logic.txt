@@ -1,0 +1,9 @@
+2026-10-14 / codex/demo-integration-v1
+Command: npm test
+Vitest v5.0.4
+Test Files  9 passed (9)
+Tests       145 passed (145)
+Duration    2.13s
+
+Includes existing regression, map generator and demo-integration.test.ts.
+Browser E2E: not executed in this environment.

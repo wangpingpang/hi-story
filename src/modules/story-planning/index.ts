@@ -27,3 +27,5 @@ export type {
   RouteProgress,
   UpdateTrace,
 } from "./model";
+
+export { createStoryMapRequest } from './spatial';

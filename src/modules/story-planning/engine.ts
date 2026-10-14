@@ -197,6 +197,16 @@ export function processPlayerAction(
 const changeHandlers: {
   [K in Change["kind"]]: (w: World, c: Extract<Change, { kind: K }>) => string;
 } = {
+  "player-location": (w, c) => {
+    if (typeof c.location !== 'string' || !c.location.trim() || c.location.length > 128 || typeof c.atTarget !== 'boolean') throw Error('玩家位置事实无效');
+    w.location = c.location; w.targetReached = c.atTarget;
+    return c.atTarget ? '你通过实际探索抵达目标地点。' : '玩家所在地点已更新。';
+  },
+  "player-defeat": (w) => {
+    const main = w.quests.find(q => q.id === 'main');
+    if (main?.status === 'active') { main.status = 'failed'; main.reason = '玩家在战斗中倒下'; }
+    return '玩家在战斗中倒下，旅程结束。';
+  },
   "npc-death": (w, c) => {
     const n = w.npcs.find((n) => n.id === c.npcId);
     if (!n) throw Error("人物不存在");

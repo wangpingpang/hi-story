@@ -7,3 +7,5 @@
 能力、字段契约及限制见 docs/story-rule-packs.md；故事原型范围见 docs/story-generator.md。
 
 阶段图规划、候选路线计算与字段依赖调度见 docs/story-stage-planning.md。
+
+新Demo集成新增createStoryMapRequest、player-location和player-defeat事实；真实空间和HP归运行器，资源/任务经事物模块兼容投影。六组边界入口见根目录《随机故事生成器说明.md》；旧工坊仍独立保留。

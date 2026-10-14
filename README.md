@@ -1,6 +1,12 @@
 # hi-story
 你的故事写到了哪
 
+## 生成与探索 Demo
+
+最新集成分支：`codex/demo-integration-v1`。执行下方本地运行命令后访问`/?view=demo`：有种子开局、32×20地图与迷雾、真实移动、NPC事件、物资和任务、7×5简化骰子战棋、成功/战败结局与同种子重开。地图是三地区模板，后续继续扩展随机迷宫与内容。
+
+开发按六模块管理：[边界与同步规则](模块边界与开发同步说明.md)。每个决定性改动将代码、受影响说明与[决定记录](docs/decisions.md)放入同一次提交，作为各窗口同步依据。[本轮验收](docs/demo-integration-report.md) · [后续任务](docs/development-backlog.md)。当前无持久存档，刷新重新开局；集成分支尚未发布到下方旧线上小样。
+
 ## 雾桥递信 · 可玩小样
 
 你是递信人沈青。过桥、经过旧渡口、递交信件；铜钱、绳索、时间、信任与公开姓名，都由你的选择决定。共 22 条合法路径，17 条今晚处理、5 条明早处理，两种结局都完成任务。
@@ -39,7 +45,7 @@ CHROMIUM_PATH=/path/to/chromium npm run test:e2e
 
 ### 结构与报告
 
-- `src/modules`：17 领域边界，8 个必要领域有最小实现，其余明确未实现。
+- `src/modules`：保留原雾桥领域，新增runtime、things、quest-generation并接入story-planning与world；六组管理边界见根目录说明。
 - `src/application`：命令验证、幂等、工作副本与原子提交。
 - `src/input` / `src/presentation`：快照绑定输入、可访问 HTML、场景 SVG 与 PNG 人物装配。
 - `src/infrastructure`：内存快照存储；`content`：版本化场景配置。
@@ -47,7 +53,7 @@ CHROMIUM_PATH=/path/to/chromium npm run test:e2e
 - [最终验收报告](docs/test-report.md)
 - [测试证据](docs/evidence/)
 
-没有服务器、数据库、战棋、随机地图或多人；帮助不等于组队。性格记录只描述本局角色取舍，不推断真实用户。
+原雾桥小样使用固定场景选择；新生成与探索Demo新增地图、迷雾与简化战棋。两者均没有服务器、数据库或多人；帮助不等于组队。性格记录只描述本局角色取舍，不推断真实用户。
 
 ### 在线试玩
 
@@ -105,3 +111,10 @@ CHROMIUM_PATH=/path/to/chromium npm run characters:render -- --input docs/exampl
 ```
 
 [人物生成器说明](人物生成器说明.md) 包含公开接口、参数、枚举、素材装配和故事模块边界；[带参输入](docs/examples/story-npc-params.json) 与 [实际返回结果](docs/examples/story-npc-result.json) 可直接参考。根目录 `AGENTS.md` 已约定需要人物生成时调用本生成器。
+
+### 有界地图生成器
+
+地图生成代码已接入集成分支，通过 `src/modules/world/index.ts` 调用。空间需求由故事侧公开适配器提供，生命周期协调调用。
+
+- [地图生成器说明](地图生成器说明.md)
+- `npm run maps:generate` 生成并校验示例地图。

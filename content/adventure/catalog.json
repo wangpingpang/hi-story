@@ -638,8 +638,8 @@
       "title": "营地的承诺",
       "anchorId": "market",
       "when": {
-        "kind": "all",
-        "conditions": []
+        "kind": "alive",
+        "npcId": "npc-0"
       },
       "choices": [
         {
@@ -887,8 +887,8 @@
       "title": "祭坛旁的重逢",
       "anchorId": "shrine",
       "when": {
-        "kind": "all",
-        "conditions": []
+        "kind": "alive",
+        "npcId": "npc-0"
       },
       "choices": [
         {

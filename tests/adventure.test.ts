@@ -36,3 +36,22 @@ it('同种子三处选择产生实际不同后果，失败或死亡关闭承诺�
 it('同一实例并发初始化最多一次，坏地图存档保留现局',async()=>{
  const a=createAdventureApplication();const results=await Promise.all([a.initialize({seed:'parallel'}),a.initialize({seed:'parallel'})]);expect(results.filter(r=>r.ok)).toHaveLength(1);const before=snap(a),parsed=JSON.parse(a.exportSave());delete parsed.payload.runtime.visual['3,3'];const {canonical,seedHash}=await import('../src/contracts/demo');parsed.checksum=seedHash(canonical(parsed.payload)).toString(16);expect(await a.restore(JSON.stringify(parsed))).toMatchObject({ok:false});expect(snap(a)).toEqual(before);
 });
+
+it('委托人死亡后取消承诺链；治疗消耗品与行动一次结算',async()=>{
+ const rules=await import('../src/modules/runtime');let app:AdventureApplication|undefined;
+ for(let i=0;i<30;i++){const a=await open(`pact-death-${i}`),s=snap(a);if(rollSkill(s.runtime,s.playerActorId,'persuasion',12,'probe').result.success){app=a;break;}a.dispose();}expect(app).toBeDefined();const a=app!;
+ await near(a,'npc-0');await choose(a,'social-persuade','persuade','npc-0');await go(a,'supply');await choose(a,'supply','gather');await go(a,'market');await choose(a,'camp-pact','honor');await near(a,'npc-0');await act(a,'npc.attack',{npcId:'npc-0'});
+ for(let i=0;i<40&&snap(a).runtime.encounter!.status==='active';i++){
+  let s=snap(a),b=s.runtime.encounter!,enemy=b.participants[1];
+  if(b.action&&s.runtime.actors[s.playerActorId].hp<14&&s.things.inventory.potion>0){const hp=s.runtime.actors[s.playerActorId].hp,count=s.things.inventory.potion;await act(a,'inventory.use',{itemId:'potion'});expect(snap(a).things.inventory.potion).toBe(count-1);expect(snap(a).runtime.actors[s.playerActorId].hp).toBe(Math.min(hp+10,s.runtime.actors[s.playerActorId].maxHp));}
+  else if(b.action){
+   if(rules.manhattan(b.participants[0].position,enemy.position)>s.runtime.actors[s.playerActorId].range){const candidates=Array.from({length:63},(_,i)=>({x:i%9,y:Math.floor(i/9)})).map(p=>({p,cost:rules.combatReachable(s.runtime,p)})).filter(x=>x.cost!==null&&x.cost>0).sort((x,y)=>rules.manhattan(x.p,enemy.position)-rules.manhattan(y.p,enemy.position));if(candidates[0])await act(a,'combat.action',{action:'move',...candidates[0].p});}
+   s=snap(a);b=s.runtime.encounter!;if(rules.manhattan(b.participants[0].position,b.participants[1].position)<=s.runtime.actors[s.playerActorId].range)await act(a,'combat.action',{action:'attack',targetId:enemy.actorId});
+  }
+  if(snap(a).runtime.encounter!.status==='active')await act(a,'combat.action',{action:'end'});
+ }
+ expect(snap(a).runtime.encounter!.status).toBe('victory');expect(snap(a).things.tasks.find(t=>t.blueprint.id==='pact')?.status).toBe('failed');const reward=snap(a).things.events.find(e=>e.templateId==='pact-reward')!;expect(a.query().choices.some(c=>c.eventId===reward.id)).toBe(false);
+});
+it('探索受伤后药剂恢复生命并去重，满生命时拒绝扣物品',async()=>{
+ let app:AdventureApplication|undefined;for(let i=0;i<30;i++){const a=await open(`potion-${i}`),s=snap(a);if(!rollSkill(s.runtime,s.playerActorId,'perception',12,'probe').result.success){app=a;break;}a.dispose();}const a=app!;expect(a).toBeDefined();await go(a,'supply');await choose(a,'supply','scout');const before=snap(a);expect(before.runtime.actors[before.playerActorId].hp).toBeLessThan(before.runtime.actors[before.playerActorId].maxHp);const c=cmd(a,'inventory.use',{itemId:'potion'});expect(await a.dispatch(c)).toMatchObject({ok:true});const after=snap(a);expect(after.runtime.actors[after.playerActorId].hp).toBe(after.runtime.actors[after.playerActorId].maxHp);expect(after.things.inventory.potion).toBe(before.things.inventory.potion-1);expect(await a.dispatch(c)).toMatchObject({ok:true,duplicate:true});expect(snap(a)).toEqual(after);expect(await a.dispatch(cmd(a,'inventory.use',{itemId:'potion'}))).toMatchObject({ok:false,error:{code:'INVALID_TARGET'}});expect(snap(a)).toEqual(after);
+});

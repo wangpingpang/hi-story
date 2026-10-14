@@ -1,4 +1,13 @@
 import {test,expect} from '@playwright/test';
+test('新建筑可从画面点击，沿真实路线步行抵达并打开互动',async({page})=>{
+ await page.goto('/?view=demo&seed=hd2d-building');await expect(page.locator('.adventure-shell')).toBeVisible();
+ const s=await page.evaluate(()=>JSON.parse(localStorage.getItem('hi-story:adventure:v010')!).payload),target=s.runtime.map.anchors.find((a:any)=>a.id==='market').position,start=s.runtime.actors[s.playerActorId].position;
+ const occupied=new Set(Object.values(s.runtime.actors).filter((a:any)=>a.actorId!==s.playerActorId&&a.hp>0).map((a:any)=>`${a.position.x},${a.position.y}`));
+ const queue=[{p:start,path:[] as {x:number;y:number}[]}],seen=new Set([`${start.x},${start.y}`]);let path:{x:number;y:number}[]=[];
+ for(let i=0;i<queue.length;i++){const {p,path:route}=queue[i];if(Math.abs(p.x-target.x)+Math.abs(p.y-target.y)===1){path=route;break;}for(const q of [{x:p.x-1,y:p.y},{x:p.x+1,y:p.y},{x:p.x,y:p.y-1},{x:p.x,y:p.y+1}]){const k=`${q.x},${q.y}`;if(!seen.has(k)&&!occupied.has(k)&&s.runtime.map.cells[q.y]?.[q.x]?.walkable){seen.add(k);queue.push({p:q,path:[...route,q]});}}}
+ expect(path.length).toBeGreaterThan(0);let p=start;for(const q of path){await page.getByRole('button',{name:q.x>p.x?'向右':q.x<p.x?'向左':q.y>p.y?'向下':'向上',exact:true}).click();await expect(page.locator('.position-label')).toContainText(`坐标 ${q.x}, ${q.y}`);p=q;}
+ await page.getByRole('button',{name:'关闭浮层',exact:true}).click();await page.locator('[data-anchor="market"]').click();await expect(page.locator('.position-label')).toContainText(`坐标 ${target.x}, ${target.y}`);await expect(page.getByRole('heading',{name:'附近的相遇',exact:true})).toBeVisible();
+});
 test('HD-2D 场景素材与天气浮层可用，天气不改存档',async({page},info)=>{
  const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));page.on('requestfailed',r=>errors.push(r.url()));
  await page.goto('/?view=demo&seed=hd2d-scene');await expect(page.locator('.adventure-shell')).toHaveAttribute('data-version','0.2.0');

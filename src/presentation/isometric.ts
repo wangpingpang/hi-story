@@ -38,7 +38,7 @@ export function renderIsometricWorld(s:DeepReadonly<AdventureSnapshot>):string {
   else if(a.id==='cache')structure=`<path d="M${p.x-16},${p.y-9}l16,-8 16,8v16l-16,8 -16,-8z" fill="#a37c4d"/><path d="M${p.x},${p.y-17}v32l16,-8v-16z" fill="#745a3d"/>`;
   else structure=`<ellipse cx="${p.x}" cy="${p.y}" rx="15" ry="7" fill="#d8c99a"/><path d="M${p.x},${p.y-13}v10" stroke="#384e44" stroke-width="3"/>`;
   const asset:Partial<Record<string,ScenerySprite>>={goal:'tower',market:'tent',shrine:'shrine',supply:'wagon',watch:'tower'};
-  if(asset[a.id])structure=scenerySprite(asset[a.id]!,p.x,p.y,a.id==='goal'?165:a.id==='watch'?112:125,a.id==='goal'?205:a.id==='watch'?150:120);
+  if(asset[a.id])structure=scenerySprite(asset[a.id]!,p.x,p.y,a.id==='goal'?165:a.id==='watch'?112:125,a.id==='goal'?205:a.id==='watch'?150:120,true);
   if(['spawn','market','shrine','goal'].includes(a.id))structure=`<ellipse class="world-lantern" cx="${p.x}" cy="${p.y-12}" rx="95" ry="60" fill="url(#lantern-light)" pointer-events="none"/>`+structure;
   entries.push({depth:a.position.x+a.position.y,order:2,markup:`<g data-anchor="${html(a.id)}" class="iso-landmark">${structure}<text x="${p.x}" y="${p.y+30}" text-anchor="middle" class="iso-label">${symbols[a.id]}</text></g>`});
  }

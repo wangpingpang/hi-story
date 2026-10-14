@@ -13,6 +13,7 @@ it('八种场景切片在实际图集内且只读装配',()=>{
  expect(Object.keys(sceneryRects)).toHaveLength(8);
  for(const [kind,[x,y,w,h]] of Object.entries(sceneryRects)){expect(x+w).toBeLessThanOrEqual(1774);expect(y+h).toBeLessThanOrEqual(887);expect(w*h).toBeGreaterThan(0);expect(scenerySprite(kind as keyof typeof sceneryRects,20,30,100)).toContain('pointer-events="none"');}
  expect(sceneryDefs()).toContain('ground-water');
+ expect(scenerySprite('tower',0,0,100,120,true)).not.toContain('pointer-events="none"');
 });
 it('12职业可从应用公共接口开局，已实现能力可查询，兼容模式可恢复',async()=>{
  const app=createAdventureApplication();await app.initialize({seed:'class-ui'});const original=app.exportSave();

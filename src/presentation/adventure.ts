@@ -13,6 +13,7 @@ export function mountAdventure(root:HTMLElement,app:AdventureApplication):()=>vo
  let panel:Panel='interaction',npcId='',message='',busy=false,removeKeys=()=>{},unsubscribe=()=>{},destroyed=false;
  let camera={x:0,y:0,zoom:1.15,follow:true};let dragging=false,dragMoved=false,last={x:0,y:0};
  let weather:Weather|undefined,shownRoll='',newRoll=false,rollUntil=0;
+ const professions=app.queryProfessions();
  const reducedMotion=()=>window.matchMedia('(prefers-reduced-motion: reduce)').matches;
  async function animateMove(before:DeepReadonly<AdventureSnapshot>,oldBox:string|null){
   if(reducedMotion()||destroyed)return;const after=app.query().snapshot!;if(after.runId!==before.runId)return;
@@ -20,7 +21,7 @@ export function mountAdventure(root:HTMLElement,app:AdventureApplication):()=>vo
   const from=projectIso(previous.x,previous.y,before.runtime.visual[`${previous.x},${previous.y}`].height),to=projectIso(next.x,next.y,after.runtime.visual[`${next.x},${next.y}`].height);
   const actor=root.querySelector<SVGGElement>('.iso-player'),svg=root.querySelector<SVGSVGElement>('#adventure-map');if(!actor||!svg)return;
   const box=svg.getAttribute('viewBox')!.split(' ').map(Number),start=(oldBox??svg.getAttribute('viewBox')!).split(' ').map(Number);
-  await new Promise<void>(resolve=>{const began=performance.now();function frame(now:number){if(destroyed||app.query().snapshot?.runId!==before.runId){resolve();return;}const t=Math.min(1,(now-began)/180);actor!.setAttribute('transform',`translate(${(from.x-to.x)*(1-t)} ${(from.y-to.y)*(1-t)})`);svg!.setAttribute('viewBox',box.map((v,i)=>start[i]+(v-start[i])*t).join(' '));if(t<1)requestAnimationFrame(frame);else{actor!.removeAttribute('transform');resolve();}}requestAnimationFrame(frame);});
+  await new Promise<void>(resolve=>{const began=performance.now();function frame(now:number){if(destroyed||!actor!.isConnected){resolve();return;}const t=Math.min(1,(now-began)/180);actor!.setAttribute('transform',`translate(${(from.x-to.x)*(1-t)} ${(from.y-to.y)*(1-t)})`);svg!.setAttribute('viewBox',box.map((v,i)=>start[i]+(v-start[i])*t).join(' '));if(t<1)requestAnimationFrame(frame);else{actor!.removeAttribute('transform');resolve();}}requestAnimationFrame(frame);});
  }
  const command=(type:string,payload:Record<string,unknown>):DemoCommand=>{const s=app.query().snapshot!;return {commandId:crypto.randomUUID(),runId:s.runId,actorId:s.playerActorId,expectedRevision:s.revision,type,payload};};
  async function submit(type:string,payload:Record<string,unknown>):Promise<boolean>{if(busy)return false;const before=app.query().snapshot!,oldBox=root.querySelector('#adventure-map')?.getAttribute('viewBox')??null;busy=true;draw();const result=await app.dispatch(command(type,payload));message=result.ok?'操作已完成。':result.error.message;if(result.ok&&type==='world.move')npcId='';draw();if(result.ok&&type==='world.move')await animateMove(before,oldBox);busy=false;draw();return result.ok;}
@@ -32,7 +33,7 @@ export function mountAdventure(root:HTMLElement,app:AdventureApplication):()=>vo
  function draw():void {
   if(destroyed)return;removeKeys();const view=app.query(),s=view.snapshot;if(!s){root.innerHTML='<main class="adventure-shell"><p role="status">冒险正在准备。</p></main>';return;}
   const a=s.runtime.actors[s.playerActorId],b=s.runtime.encounter,isBattle=b?.status==='active',lastRoll=s.runtime.checks.at(-1),small=window.innerWidth<700;
-  const environment=environmentFor(s.seed,s.story.time,weather),professions=app.queryProfessions(),classId=a.profession?.build.classes[0]?.classId??({warden:'paladin',ranger:'ranger',scholar:'wizard',envoy:'bard'} as const)[a.archetype],professionName=a.profession?professions.classes.find(c=>c.id===classId)?.name:undefined;
+  const environment=environmentFor(s.seed,s.story.time,weather),classId=a.profession?.build.classes[0]?.classId??({warden:'paladin',ranger:'ranger',scholar:'wizard',envoy:'bard'} as const)[a.archetype],professionName=a.profession?professions.classes.find(c=>c.id===classId)?.name:undefined;
   if(lastRoll&&lastRoll.id!==shownRoll){shownRoll=lastRoll.id;rollUntil=performance.now()+750;}newRoll=performance.now()<rollUntil;
   const focus=isBattle?projectIso(b.participants[0].position.x,b.participants[0].position.y):projectIso(a.position.x,a.position.y,s.runtime.visual[`${a.position.x},${a.position.y}`].height);
   const width=window.innerWidth,height=window.innerHeight;if(camera.follow){camera.x=focus.x+(small?0:130);camera.y=focus.y+(small?75:-20);}

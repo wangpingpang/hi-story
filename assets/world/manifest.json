@@ -1,0 +1,607 @@
+{
+  "version": "world-art/1",
+  "atlases": {
+    "nature": {
+      "file": "nature-v1.webp",
+      "width": 1448,
+      "height": 1086,
+      "rows": [
+        0,
+        500,
+        798,
+        1086
+      ],
+      "provenance": "original image generation, recovered unchanged from 2026-10-14 task"
+    },
+    "settlement": {
+      "file": "settlement-v1.webp",
+      "width": 1448,
+      "height": 1086,
+      "rows": [
+        0,
+        445,
+        789,
+        1086
+      ],
+      "provenance": "original image generation, recovered unchanged from 2026-10-14 task"
+    },
+    "ruins": {
+      "file": "ruins-v1.webp",
+      "width": 1448,
+      "height": 1086,
+      "rows": [
+        0,
+        416,
+        735,
+        1086
+      ],
+      "provenance": "original image generation, recovered unchanged from 2026-10-14 task"
+    },
+    "terrain": {
+      "file": "terrain-v1.webp",
+      "width": 1254,
+      "height": 1254,
+      "rows": [
+        0,
+        313,
+        627,
+        940,
+        1254
+      ],
+      "provenance": "original image generation, recovered unchanged from 2026-10-14 task"
+    },
+    "weather": {
+      "file": "weather-v1.webp",
+      "width": 1774,
+      "height": 887,
+      "rows": [
+        0,
+        444,
+        887
+      ],
+      "provenance": "original image generation, recovered unchanged from 2026-10-14 task"
+    }
+  },
+  "assets": {
+    "fir": {
+      "atlas": "nature",
+      "rect": [
+        22,
+        8,
+        340,
+        480
+      ]
+    },
+    "oak": {
+      "atlas": "nature",
+      "rect": [
+        362,
+        34,
+        362,
+        457
+      ]
+    },
+    "willow": {
+      "atlas": "nature",
+      "rect": [
+        724,
+        60,
+        362,
+        427
+      ]
+    },
+    "dead-tree": {
+      "atlas": "nature",
+      "rect": [
+        1086,
+        67,
+        345,
+        424
+      ]
+    },
+    "bush": {
+      "atlas": "nature",
+      "rect": [
+        36,
+        537,
+        296,
+        236
+      ]
+    },
+    "flower-bush": {
+      "atlas": "nature",
+      "rect": [
+        381,
+        528,
+        317,
+        246
+      ]
+    },
+    "fern": {
+      "atlas": "nature",
+      "rect": [
+        746,
+        532,
+        336,
+        239
+      ]
+    },
+    "reeds": {
+      "atlas": "nature",
+      "rect": [
+        1129,
+        512,
+        284,
+        263
+      ]
+    },
+    "moss-rock": {
+      "atlas": "nature",
+      "rect": [
+        27,
+        798,
+        334,
+        246
+      ]
+    },
+    "rock-cluster": {
+      "atlas": "nature",
+      "rect": [
+        391,
+        824,
+        323,
+        217
+      ]
+    },
+    "stump": {
+      "atlas": "nature",
+      "rect": [
+        750,
+        802,
+        336,
+        245
+      ]
+    },
+    "wildflowers": {
+      "atlas": "nature",
+      "rect": [
+        1121,
+        798,
+        305,
+        250
+      ]
+    },
+    "cottage": {
+      "atlas": "settlement",
+      "rect": [
+        34,
+        75,
+        325,
+        370
+      ]
+    },
+    "apothecary": {
+      "atlas": "settlement",
+      "rect": [
+        364,
+        14,
+        340,
+        417
+      ]
+    },
+    "inn": {
+      "atlas": "settlement",
+      "rect": [
+        725,
+        19,
+        361,
+        414
+      ]
+    },
+    "tower": {
+      "atlas": "settlement",
+      "rect": [
+        1086,
+        6,
+        325,
+        435
+      ]
+    },
+    "smithy": {
+      "atlas": "settlement",
+      "rect": [
+        24,
+        445,
+        338,
+        344
+      ]
+    },
+    "market-stall": {
+      "atlas": "settlement",
+      "rect": [
+        362,
+        451,
+        362,
+        322
+      ]
+    },
+    "well": {
+      "atlas": "settlement",
+      "rect": [
+        724,
+        458,
+        362,
+        318
+      ]
+    },
+    "wagon": {
+      "atlas": "settlement",
+      "rect": [
+        1086,
+        484,
+        349,
+        305
+      ]
+    },
+    "lamp": {
+      "atlas": "settlement",
+      "rect": [
+        105,
+        789,
+        148,
+        271
+      ]
+    },
+    "barrels": {
+      "atlas": "settlement",
+      "rect": [
+        387,
+        823,
+        295,
+        230
+      ]
+    },
+    "crates": {
+      "atlas": "settlement",
+      "rect": [
+        763,
+        829,
+        317,
+        216
+      ]
+    },
+    "sign": {
+      "atlas": "settlement",
+      "rect": [
+        1176,
+        789,
+        225,
+        267
+      ]
+    },
+    "arch": {
+      "atlas": "ruins",
+      "rect": [
+        25,
+        17,
+        337,
+        399
+      ]
+    },
+    "column": {
+      "atlas": "ruins",
+      "rect": [
+        362,
+        18,
+        361,
+        397
+      ]
+    },
+    "altar": {
+      "atlas": "ruins",
+      "rect": [
+        744,
+        100,
+        342,
+        307
+      ]
+    },
+    "runestone": {
+      "atlas": "ruins",
+      "rect": [
+        1086,
+        17,
+        346,
+        394
+      ]
+    },
+    "red-cliff": {
+      "atlas": "ruins",
+      "rect": [
+        16,
+        416,
+        346,
+        319
+      ]
+    },
+    "moss-cliff": {
+      "atlas": "ruins",
+      "rect": [
+        362,
+        433,
+        362,
+        302
+      ]
+    },
+    "stairs": {
+      "atlas": "ruins",
+      "rect": [
+        724,
+        429,
+        362,
+        306
+      ]
+    },
+    "wood-bridge": {
+      "atlas": "ruins",
+      "rect": [
+        1086,
+        452,
+        348,
+        283
+      ]
+    },
+    "rope-bridge": {
+      "atlas": "ruins",
+      "rect": [
+        22,
+        735,
+        340,
+        334
+      ]
+    },
+    "stone-bridge": {
+      "atlas": "ruins",
+      "rect": [
+        362,
+        736,
+        362,
+        322
+      ]
+    },
+    "chest": {
+      "atlas": "ruins",
+      "rect": [
+        724,
+        735,
+        362,
+        284
+      ]
+    },
+    "campfire": {
+      "atlas": "ruins",
+      "rect": [
+        1086,
+        735,
+        351,
+        283
+      ]
+    },
+    "meadow": {
+      "atlas": "terrain",
+      "rect": [
+        0,
+        0,
+        314,
+        313
+      ]
+    },
+    "dry-grass": {
+      "atlas": "terrain",
+      "rect": [
+        314,
+        0,
+        313,
+        313
+      ]
+    },
+    "forest-floor": {
+      "atlas": "terrain",
+      "rect": [
+        627,
+        0,
+        313,
+        313
+      ]
+    },
+    "sand": {
+      "atlas": "terrain",
+      "rect": [
+        940,
+        0,
+        314,
+        313
+      ]
+    },
+    "cobble": {
+      "atlas": "terrain",
+      "rect": [
+        0,
+        313,
+        314,
+        314
+      ]
+    },
+    "paving": {
+      "atlas": "terrain",
+      "rect": [
+        314,
+        313,
+        313,
+        314
+      ]
+    },
+    "red-earth": {
+      "atlas": "terrain",
+      "rect": [
+        627,
+        313,
+        313,
+        314
+      ]
+    },
+    "wet-earth": {
+      "atlas": "terrain",
+      "rect": [
+        940,
+        313,
+        314,
+        314
+      ]
+    },
+    "shallow-water": {
+      "atlas": "terrain",
+      "rect": [
+        0,
+        627,
+        314,
+        313
+      ]
+    },
+    "deep-water": {
+      "atlas": "terrain",
+      "rect": [
+        314,
+        627,
+        313,
+        313
+      ]
+    },
+    "snow": {
+      "atlas": "terrain",
+      "rect": [
+        627,
+        627,
+        313,
+        313
+      ]
+    },
+    "frost": {
+      "atlas": "terrain",
+      "rect": [
+        940,
+        627,
+        314,
+        313
+      ]
+    },
+    "moss-stone": {
+      "atlas": "terrain",
+      "rect": [
+        0,
+        940,
+        314,
+        314
+      ]
+    },
+    "gravel": {
+      "atlas": "terrain",
+      "rect": [
+        314,
+        940,
+        313,
+        314
+      ]
+    },
+    "leaves": {
+      "atlas": "terrain",
+      "rect": [
+        627,
+        940,
+        313,
+        314
+      ]
+    },
+    "brick": {
+      "atlas": "terrain",
+      "rect": [
+        940,
+        940,
+        314,
+        314
+      ]
+    },
+    "rain-streaks": {
+      "atlas": "weather",
+      "rect": [
+        49,
+        67,
+        362,
+        341
+      ]
+    },
+    "rain-splashes": {
+      "atlas": "weather",
+      "rect": [
+        466,
+        114,
+        385,
+        289
+      ]
+    },
+    "snowflakes": {
+      "atlas": "weather",
+      "rect": [
+        951,
+        60,
+        315,
+        358
+      ]
+    },
+    "mist": {
+      "atlas": "weather",
+      "rect": [
+        1334,
+        147,
+        409,
+        259
+      ]
+    },
+    "cloud-shadow": {
+      "atlas": "weather",
+      "rect": [
+        46,
+        495,
+        373,
+        294
+      ]
+    },
+    "wind-leaves": {
+      "atlas": "weather",
+      "rect": [
+        490,
+        487,
+        351,
+        343
+      ]
+    },
+    "sun-rays": {
+      "atlas": "weather",
+      "rect": [
+        917,
+        473,
+        406,
+        379
+      ]
+    },
+    "fireflies": {
+      "atlas": "weather",
+      "rect": [
+        1392,
+        508,
+        322,
+        277
+      ]
+    }
+  }
+}

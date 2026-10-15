@@ -1,0 +1,281 @@
+{
+  "version": "character-walk-materials/1",
+  "frame": {
+    "width": 192,
+    "height": 192,
+    "anchor": {
+      "x": 96,
+      "y": 164.5
+    }
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "framesPerDirection": 8,
+  "durationMs": 800,
+  "materials": [
+    {
+      "file": "top-tunic.png",
+      "bytes": 198613,
+      "sha256": "e39c80e3061799bec02306688951395cee2a1a1de35845b98abae880005d00e3",
+      "slot": "top",
+      "styleId": "tunic",
+      "frames": 64
+    },
+    {
+      "file": "top-shirt.png",
+      "bytes": 137770,
+      "sha256": "b3f63433cba52fdb419d4468dfc276dfa321ef03b4fba8b2de1f00f45b748556",
+      "slot": "top",
+      "styleId": "shirt",
+      "frames": 64
+    },
+    {
+      "file": "top-vest.png",
+      "bytes": 176174,
+      "sha256": "44950ae10bfc9174461deafce3157ef2348c1185b895d8a72a61c8bf29f012f2",
+      "slot": "top",
+      "styleId": "vest",
+      "frames": 64
+    },
+    {
+      "file": "top-coat.png",
+      "bytes": 221910,
+      "sha256": "af937cb1b7daf4dea80685cc80dd97217d5906b7e2ff6df163a0e7864c85ddad",
+      "slot": "top",
+      "styleId": "coat",
+      "frames": 64
+    },
+    {
+      "file": "top-armor.png",
+      "bytes": 218613,
+      "sha256": "ce41a73baa345ba58fdf5e6f6d58defab7954f7f881e95081f164ebd8040be70",
+      "slot": "top",
+      "styleId": "armor",
+      "frames": 64
+    },
+    {
+      "file": "top-wrap.png",
+      "bytes": 153279,
+      "sha256": "d5b3e0c779dd15737ccfb6b0640492f242a6c5dc761d960345a5eb312e4b7fe0",
+      "slot": "top",
+      "styleId": "wrap",
+      "frames": 64
+    },
+    {
+      "file": "top-robe.png",
+      "bytes": 220364,
+      "sha256": "fe26d7ebcb3297f3f3feb88a263830a4d829acc1373be1d7827f782540d49c11",
+      "slot": "top",
+      "styleId": "robe",
+      "frames": 64
+    },
+    {
+      "file": "top-gambeson.png",
+      "bytes": 207602,
+      "sha256": "d2c401604bd83b6a94189810037441bec7de352d722bffa8361d69f2499ec022",
+      "slot": "top",
+      "styleId": "gambeson",
+      "frames": 64
+    },
+    {
+      "file": "top-tank.png",
+      "bytes": 175052,
+      "sha256": "f13c563540d4b9027e2175eecdbddc80cffba25d9233d5b4a46a1e7d6655ed58",
+      "slot": "top",
+      "styleId": "tank",
+      "frames": 64
+    },
+    {
+      "file": "top-sweater.png",
+      "bytes": 231244,
+      "sha256": "042631481b185a94fdfdd80dea6b84c4485e79e2f11c76518d81cdf1d3589bf9",
+      "slot": "top",
+      "styleId": "sweater",
+      "frames": 64
+    },
+    {
+      "file": "top-doublet.png",
+      "bytes": 221637,
+      "sha256": "9236d1d0e7366f3506b03cb44ec71da00ff91c49143e357617b60f56b612be05",
+      "slot": "top",
+      "styleId": "doublet",
+      "frames": 64
+    },
+    {
+      "file": "top-winter.png",
+      "bytes": 213171,
+      "sha256": "492a953e0cd2b627281705e34a4182a35aebed1de54048c1a33423b82c6506df",
+      "slot": "top",
+      "styleId": "winter",
+      "frames": 64
+    },
+    {
+      "file": "pants-straight.png",
+      "bytes": 163877,
+      "sha256": "0381ccb8a6dba12e0b2d363009e0f6868404b9ed6f6c889e0c26702c989ab26b",
+      "slot": "pants",
+      "styleId": "straight",
+      "frames": 64
+    },
+    {
+      "file": "pants-loose.png",
+      "bytes": 163467,
+      "sha256": "c9ddb67237a783a010f381e17fbe11caa9066bcdd138f12c3a0c8905b66d588c",
+      "slot": "pants",
+      "styleId": "loose",
+      "frames": 64
+    },
+    {
+      "file": "pants-shorts.png",
+      "bytes": 117343,
+      "sha256": "53276e9d8133e9b076371debf1c9be408c1d1d775d19c3c1232d058b8f747f22",
+      "slot": "pants",
+      "styleId": "shorts",
+      "frames": 64
+    },
+    {
+      "file": "pants-patched.png",
+      "bytes": 165467,
+      "sha256": "14d41e079e725c12a1b1c99cc448f270712c19a55fa0d100c94fc7e39dda01f7",
+      "slot": "pants",
+      "styleId": "patched",
+      "frames": 64
+    },
+    {
+      "file": "pants-skirt.png",
+      "bytes": 162441,
+      "sha256": "4347a8ebe6c773c61a21258fb5d4538c716312e05eaf0803dbd7affcfefc2552",
+      "slot": "pants",
+      "styleId": "skirt",
+      "frames": 64
+    },
+    {
+      "file": "pants-long-skirt.png",
+      "bytes": 203221,
+      "sha256": "85f0178f86099c573f028976494dbbf25a98d933a7445ad9b89fd60ea72781c7",
+      "slot": "pants",
+      "styleId": "long-skirt",
+      "frames": 64
+    },
+    {
+      "file": "pants-leggings.png",
+      "bytes": 155000,
+      "sha256": "59d8c6386d623ed9bc32919442c508f4f189904519d83f4086999920477c58f4",
+      "slot": "pants",
+      "styleId": "leggings",
+      "frames": 64
+    },
+    {
+      "file": "pants-cargo.png",
+      "bytes": 167744,
+      "sha256": "5a6147a754e29a5f7e0b3528f9218aa65a81744882a0a96794ad7fc2f9a313e7",
+      "slot": "pants",
+      "styleId": "cargo",
+      "frames": 64
+    },
+    {
+      "file": "pants-culottes.png",
+      "bytes": 175838,
+      "sha256": "632da4e443ff6a3330e85b635132b1da0a603460d10421ac1d1a6537695b298e",
+      "slot": "pants",
+      "styleId": "culottes",
+      "frames": 64
+    },
+    {
+      "file": "pants-pleated.png",
+      "bytes": 169511,
+      "sha256": "f5a165d8cc9078ba01683dba9646eef2355c4e5cc1583f63e5fb327c1baab5a9",
+      "slot": "pants",
+      "styleId": "pleated",
+      "frames": 64
+    },
+    {
+      "file": "pants-breeches.png",
+      "bytes": 145585,
+      "sha256": "2a9883b5f07559f0876f98cf57f32900f1b642b1187555022027bbab881bab9c",
+      "slot": "pants",
+      "styleId": "breeches",
+      "frames": 64
+    },
+    {
+      "file": "pants-draped.png",
+      "bytes": 166845,
+      "sha256": "551bef1acf01b5fc847f49723de4e1868c65f842aff18fac02ed81ab99b2399e",
+      "slot": "pants",
+      "styleId": "draped",
+      "frames": 64
+    },
+    {
+      "file": "shoes-boots.png",
+      "bytes": 107596,
+      "sha256": "f96d48aa45ce1d55693c03cff7e444714ad67f681105a35dffdac9c10b0d56bb",
+      "slot": "shoes",
+      "styleId": "boots",
+      "frames": 64
+    },
+    {
+      "file": "shoes-ankle.png",
+      "bytes": 106693,
+      "sha256": "80e3fc514d8f6c5ee469c5f78c0b202a939841519589f7eec2e9a79c0c34c1a7",
+      "slot": "shoes",
+      "styleId": "ankle",
+      "frames": 64
+    },
+    {
+      "file": "shoes-cloth.png",
+      "bytes": 106986,
+      "sha256": "604bf114a711f68c74dd8d0f3d29e5ba81f4674d25101c97276739de27dde2b0",
+      "slot": "shoes",
+      "styleId": "cloth",
+      "frames": 64
+    },
+    {
+      "file": "shoes-sandals.png",
+      "bytes": 107495,
+      "sha256": "07ffd07189f3056c567714001cf02d4deb46afae25551c26ec8291a7aba3ac2c",
+      "slot": "shoes",
+      "styleId": "sandals",
+      "frames": 64
+    },
+    {
+      "file": "shoes-riding.png",
+      "bytes": 106224,
+      "sha256": "f0fe1cdf8740ae0a905188e62adc8a770a71152d6c61f195f3373e438601201c",
+      "slot": "shoes",
+      "styleId": "riding",
+      "frames": 64
+    },
+    {
+      "file": "shoes-wrapped.png",
+      "bytes": 107111,
+      "sha256": "6deeb9a4dc4d6817c31d0169cb692d41cd3278ace0f21a9552f831172e333140",
+      "slot": "shoes",
+      "styleId": "wrapped",
+      "frames": 64
+    },
+    {
+      "file": "shoes-sabatons.png",
+      "bytes": 108562,
+      "sha256": "b11ad3811fab820f68fa83ccc430b4874795feef583142972d272c2517be6f99",
+      "slot": "shoes",
+      "styleId": "sabatons",
+      "frames": 64
+    },
+    {
+      "file": "shoes-fur-boots.png",
+      "bytes": 109289,
+      "sha256": "9383b004901ce4025509ace3439fd096c4aa2ebc5a61a780ce787b19c2a0e0d3",
+      "slot": "shoes",
+      "styleId": "fur-boots",
+      "frames": 64
+    }
+  ]
+}

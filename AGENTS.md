@@ -1,5 +1,9 @@
 # 项目约定
 
+## v0.4.0 体验自测迭代
+
+分支codex/v040-world-polish继承99f1bc8。依据《v0.4.0阶段说明.md》，重构场景地表/密林/高差/软迷雾与遮挡，步行保留DOM，NPC实际靠近后交谈；战斗保留所在地背景，queryCombatMovement委托运行器。产品0.4.0，schema4与存档槽不变。实际状态见docs/v0.4.0-validation.md。
+
 ## v0.3.0 跨会话集成
 
 本轮已发布：产品源码d2cec6b，部署7db836b，Pages38785236384与公网38785358454成功。315项逻辑、104项浏览器用例分批验收通过，80文件公网哈希一致；不是一次全量全绿。整合入口codex/v030-convergence，证据与限制见docs/v0.3.0-validation.md。main和先前被拦截的共享分支仍不改动。

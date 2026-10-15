@@ -8,6 +8,7 @@ export class AdventureMotionArt {
  ready=false;
  private frames=new Map<string,HTMLCanvasElement>();
  private urls=new WeakMap<HTMLCanvasElement,string>();
+ private portraits=new Map<string,string>();
  constructor(){void loadDirectionalMaterials().then(()=>{this.ready=true;}).catch(()=>{/* Standing portrait remains available. */});}
  observe(s:DeepReadonly<AdventureSnapshot>){this.motion.observe(s,performance.now());}
  frame(id:string,now:number,weather='sun'){
@@ -17,5 +18,11 @@ export class AdventureMotionArt {
   return {image,action:f.action,direction:f.direction,expression:f.expression};
  }
  url(image:HTMLCanvasElement){let url=this.urls.get(image);if(!url){url=image.toDataURL('image/png');this.urls.set(image,url);}return url;}
- reset(){this.frames.clear();this.urls=new WeakMap();}
+ portrait(id:string){
+  if(!this.ready)return;const f=this.motion.frame(id,performance.now());if(!f)return;
+  const key=JSON.stringify([id,f.appearance,f.gender]);let url=this.portraits.get(key);
+  if(!url){const image=renderCharacterMotionFrame(f.appearance,f.gender,{action:'stand',direction:'S',progress:0,effects:false}),c=document.createElement('canvas');c.width=144;c.height=288;c.getContext('2d')!.drawImage(image,120,50,144,288,0,0,144,288);url=c.toDataURL('image/png');this.portraits.set(key,url);}
+  return url;
+ }
+ reset(){this.frames.clear();this.portraits.clear();this.urls=new WeakMap();}
 }

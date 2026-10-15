@@ -5,14 +5,14 @@ test.beforeEach(async({page})=>{await page.clock.install();await page.clock.paus
 test('新建筑可从画面点击，沿真实路线步行抵达并打开互动',async({page})=>{
  await page.goto('/?view=demo&seed=hd2d-building');await expect(page.locator('.adventure-shell')).toBeVisible();
  await go(page,'market');await walk(page,{x:27,y:9});
- await page.getByRole('button',{name:'关闭浮层',exact:true}).click();
+ if(await page.getByRole('button',{name:'关闭浮层',exact:true}).count())await page.getByRole('button',{name:'关闭浮层',exact:true}).click();
  const building=page.locator('[data-anchor="market"] [data-landmark-hit]');await expect(building).toBeVisible();await building.click();
  for(let i=0;i<10;i++)await page.clock.runFor(100);
  const after=await state(page);expect(after.runtime.actors[after.playerActorId].position).toEqual({x:27,y:8});await expect(page.getByRole('heading',{name:'附近的相遇',exact:true})).toBeVisible();
 });
 test('HD-2D 场景素材与天气浮层可用，天气不改存档',async({page},info)=>{
  const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));page.on('requestfailed',r=>errors.push(r.url()));
- await page.goto('/?view=demo&seed=hd2d-scene');await expect(page.locator('.adventure-shell')).toHaveAttribute('data-version','0.3.0');
+ await page.goto('/?view=demo&seed=hd2d-scene');await expect(page.locator('.adventure-shell')).toHaveAttribute('data-version','0.4.0');
  await expect(page.locator('.world-canvas')).toBeVisible();
  await page.locator('[data-panel="settings"]').click();const before=await page.evaluate(()=>localStorage.getItem('hi-story:adventure:world-v2'));
  for(const weather of ['rain','snow','mist','sun','wind']){await page.locator(`[data-weather="${weather}"]`).click();await expect(page.locator('.adventure-shell')).toHaveClass(new RegExp(`weather-${weather}`));expect(await page.evaluate(()=>localStorage.getItem('hi-story:adventure:world-v2'))).toBe(before);}

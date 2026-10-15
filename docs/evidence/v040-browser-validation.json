@@ -1,0 +1,532 @@
+{
+  "version": "0.4.0",
+  "browser": "Chromium 153.0.8010.0, local multi-process",
+  "method": "latest applicable result across 34-case affected suite, 8-case adventure suite and 10-case final polish suite; no full 110-case run claimed",
+  "passed": 44,
+  "failed": 0,
+  "runs": [
+    {
+      "name": "v040-affected",
+      "sha256": "4a7c51be9bcb531eb253f9543b766b3e7a16a59586d7e95f13ea29ad60c630d7",
+      "stats": {
+        "startTime": "2026-10-15T20:16:38.886Z",
+        "duration": 235875.967,
+        "expected": 30,
+        "skipped": 0,
+        "unexpected": 4,
+        "flaky": 0
+      }
+    },
+    {
+      "name": "v040-final-browser",
+      "sha256": "adde1f6c74d3361af85403f8d746541ce12297b81adbd66f0d81bb1544e93c0e",
+      "stats": {
+        "startTime": "2026-10-15T20:21:44.516Z",
+        "duration": 204830.452,
+        "expected": 34,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    {
+      "name": "v040-adventure-browser",
+      "sha256": "97e39ad181d81c5af89041a4d996c5d2615b3c286c85ce70436adff124d5967b",
+      "stats": {
+        "startTime": "2026-10-15T20:23:48.104Z",
+        "duration": 299612.36100000003,
+        "expected": 8,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    {
+      "name": "v040-polish-browser",
+      "sha256": "68e5c6307de0ad61106c0e7bac2eb2f76c31ab971fc30662e5b74f4438486d52",
+      "stats": {
+        "startTime": "2026-10-15T20:27:37.994Z",
+        "duration": 81625.27,
+        "expected": 10,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    }
+  ],
+  "cases": [
+    {
+      "project": "desktop",
+      "file": "free-world.spec.ts",
+      "title": "五倍世界和五套60项图集完整加载，主场景与窄屏无溢出",
+      "status": "passed",
+      "run": "v040-final-browser",
+      "duration": 5055
+    },
+    {
+      "project": "desktop",
+      "file": "free-world.spec.ts",
+      "title": "按住键盘连续小数移动，松开停止，输入框和失焦隔离",
+      "status": "passed",
+      "run": "v040-final-browser",
+      "duration": 18215
+    },
+    {
+      "project": "desktop",
+      "file": "free-world.spec.ts",
+      "title": "点击路线逐步行进且Esc取消，每份保存的位移都受限",
+      "status": "passed",
+      "run": "v040-final-browser",
+      "duration": 10649
+    },
+    {
+      "project": "desktop",
+      "file": "free-world.spec.ts",
+      "title": "地形阻挡连续行走，人物不会越过建筑底座",
+      "status": "passed",
+      "run": "v040-final-browser",
+      "duration": 15343
+    },
+    {
+      "project": "desktop",
+      "file": "free-world.spec.ts",
+      "title": "五天气预览和减弱动态不改存档，雨景可见",
+      "status": "passed",
+      "run": "v040-final-browser",
+      "duration": 10240
+    },
+    {
+      "project": "desktop",
+      "file": "free-world.spec.ts",
+      "title": "小数坐标刷新精确恢复，旧存档槽保留，损坏导入不覆盖",
+      "status": "passed",
+      "run": "v040-final-browser",
+      "duration": 6657
+    },
+    {
+      "project": "desktop",
+      "file": "free-world.spec.ts",
+      "title": "真实步行接近NPC后医药检定消耗草药，战斗锁住世界移动",
+      "status": "passed",
+      "run": "v040-final-browser",
+      "duration": 18285
+    },
+    {
+      "project": "desktop",
+      "file": "free-world.spec.ts",
+      "title": "方向按钮短按立即前进，按住持续行走，松开停止",
+      "status": "passed",
+      "run": "v040-final-browser",
+      "duration": 7619
+    },
+    {
+      "project": "narrow",
+      "file": "free-world.spec.ts",
+      "title": "五倍世界和五套60项图集完整加载，主场景与窄屏无溢出",
+      "status": "passed",
+      "run": "v040-final-browser",
+      "duration": 3259
+    },
+    {
+      "project": "narrow",
+      "file": "free-world.spec.ts",
+      "title": "按住键盘连续小数移动，松开停止，输入框和失焦隔离",
+      "status": "passed",
+      "run": "v040-final-browser",
+      "duration": 12928
+    },
+    {
+      "project": "narrow",
+      "file": "free-world.spec.ts",
+      "title": "点击路线逐步行进且Esc取消，每份保存的位移都受限",
+      "status": "passed",
+      "run": "v040-final-browser",
+      "duration": 8879
+    },
+    {
+      "project": "narrow",
+      "file": "free-world.spec.ts",
+      "title": "地形阻挡连续行走，人物不会越过建筑底座",
+      "status": "passed",
+      "run": "v040-final-browser",
+      "duration": 13858
+    },
+    {
+      "project": "narrow",
+      "file": "free-world.spec.ts",
+      "title": "五天气预览和减弱动态不改存档，雨景可见",
+      "status": "passed",
+      "run": "v040-final-browser",
+      "duration": 5141
+    },
+    {
+      "project": "narrow",
+      "file": "free-world.spec.ts",
+      "title": "小数坐标刷新精确恢复，旧存档槽保留，损坏导入不覆盖",
+      "status": "passed",
+      "run": "v040-final-browser",
+      "duration": 6526
+    },
+    {
+      "project": "narrow",
+      "file": "free-world.spec.ts",
+      "title": "真实步行接近NPC后医药检定消耗草药，战斗锁住世界移动",
+      "status": "passed",
+      "run": "v040-final-browser",
+      "duration": 11828
+    },
+    {
+      "project": "narrow",
+      "file": "free-world.spec.ts",
+      "title": "方向按钮短按立即前进，按住持续行走，松开停止",
+      "status": "passed",
+      "run": "v040-final-browser",
+      "duration": 5915
+    },
+    {
+      "project": "desktop",
+      "file": "hd2d.spec.ts",
+      "title": "新建筑可从画面点击，沿真实路线步行抵达并打开互动",
+      "status": "passed",
+      "run": "v040-final-browser",
+      "duration": 69360
+    },
+    {
+      "project": "desktop",
+      "file": "hd2d.spec.ts",
+      "title": "HD-2D 场景素材与天气浮层可用，天气不改存档",
+      "status": "passed",
+      "run": "v040-final-browser",
+      "duration": 7415
+    },
+    {
+      "project": "desktop",
+      "file": "hd2d.spec.ts",
+      "title": "职业选择、技能入口、真实休息与刷新恢复",
+      "status": "passed",
+      "run": "v040-final-browser",
+      "duration": 4906
+    },
+    {
+      "project": "narrow",
+      "file": "hd2d.spec.ts",
+      "title": "新建筑可从画面点击，沿真实路线步行抵达并打开互动",
+      "status": "passed",
+      "run": "v040-final-browser",
+      "duration": 40672
+    },
+    {
+      "project": "narrow",
+      "file": "hd2d.spec.ts",
+      "title": "HD-2D 场景素材与天气浮层可用，天气不改存档",
+      "status": "passed",
+      "run": "v040-final-browser",
+      "duration": 3604
+    },
+    {
+      "project": "narrow",
+      "file": "hd2d.spec.ts",
+      "title": "职业选择、技能入口、真实休息与刷新恢复",
+      "status": "passed",
+      "run": "v040-final-browser",
+      "duration": 4931
+    },
+    {
+      "project": "desktop",
+      "file": "v030.spec.ts",
+      "title": "冒险连续移动使用新人物帧，停止后站立，八方向素材成功加载",
+      "status": "passed",
+      "run": "v040-final-browser",
+      "duration": 6363
+    },
+    {
+      "project": "desktop",
+      "file": "v030.spec.ts",
+      "title": "职业衣橱36套可试穿，体型和性别切换，返回冒险保留进度",
+      "status": "passed",
+      "run": "v040-final-browser",
+      "duration": 10685
+    },
+    {
+      "project": "desktop",
+      "file": "v030.spec.ts",
+      "title": "离开实际战斗后继续探索，人物重新播放行走而不使用战场坐标",
+      "status": "passed",
+      "run": "v040-polish-browser",
+      "duration": 17912
+    },
+    {
+      "project": "narrow",
+      "file": "v030.spec.ts",
+      "title": "冒险连续移动使用新人物帧，停止后站立，八方向素材成功加载",
+      "status": "passed",
+      "run": "v040-final-browser",
+      "duration": 4241
+    },
+    {
+      "project": "narrow",
+      "file": "v030.spec.ts",
+      "title": "职业衣橱36套可试穿，体型和性别切换，返回冒险保留进度",
+      "status": "passed",
+      "run": "v040-final-browser",
+      "duration": 9500
+    },
+    {
+      "project": "narrow",
+      "file": "v030.spec.ts",
+      "title": "离开实际战斗后继续探索，人物重新播放行走而不使用战场坐标",
+      "status": "passed",
+      "run": "v040-polish-browser",
+      "duration": 29485
+    },
+    {
+      "project": "desktop",
+      "file": "v040.spec.ts",
+      "title": "连续行走保留地图和 HUD 节点，停止输入后不继续移动",
+      "status": "passed",
+      "run": "v040-polish-browser",
+      "duration": 9272
+    },
+    {
+      "project": "desktop",
+      "file": "v040.spec.ts",
+      "title": "点击 NPC 实际步行至相邻处，交谈与检定只结算一次，刷新保留结果",
+      "status": "passed",
+      "run": "v040-polish-browser",
+      "duration": 8901
+    },
+    {
+      "project": "desktop",
+      "file": "v040.spec.ts",
+      "title": "Esc 取消靠近人物；触摸方向键持续行走并在松开后停止",
+      "status": "passed",
+      "run": "v040-polish-browser",
+      "duration": 18475
+    },
+    {
+      "project": "narrow",
+      "file": "v040.spec.ts",
+      "title": "连续行走保留地图和 HUD 节点，停止输入后不继续移动",
+      "status": "passed",
+      "run": "v040-polish-browser",
+      "duration": 11502
+    },
+    {
+      "project": "narrow",
+      "file": "v040.spec.ts",
+      "title": "点击 NPC 实际步行至相邻处，交谈与检定只结算一次，刷新保留结果",
+      "status": "passed",
+      "run": "v040-polish-browser",
+      "duration": 7002
+    },
+    {
+      "project": "narrow",
+      "file": "v040.spec.ts",
+      "title": "Esc 取消靠近人物；触摸方向键持续行走并在松开后停止",
+      "status": "passed",
+      "run": "v040-polish-browser",
+      "duration": 5421
+    },
+    {
+      "project": "desktop",
+      "file": "adventure.spec.ts",
+      "title": "地图占据画面、像素人物落位、浮层和缩放无溢出",
+      "status": "passed",
+      "run": "v040-adventure-browser",
+      "duration": 19079
+    },
+    {
+      "project": "desktop",
+      "file": "adventure.spec.ts",
+      "title": "实际探索完成 letter 主线",
+      "status": "passed",
+      "run": "v040-adventure-browser",
+      "duration": 103050
+    },
+    {
+      "project": "desktop",
+      "file": "adventure.spec.ts",
+      "title": "战斗在地图场景中、行动资源与刷新恢复真实运行",
+      "status": "passed",
+      "run": "v040-adventure-browser",
+      "duration": 102451
+    },
+    {
+      "project": "desktop",
+      "file": "adventure.spec.ts",
+      "title": "战斗胜利、战败与逃离都回传人物和目标",
+      "status": "passed",
+      "run": "v040-adventure-browser",
+      "duration": 70592
+    },
+    {
+      "project": "narrow",
+      "file": "adventure.spec.ts",
+      "title": "地图占据画面、像素人物落位、浮层和缩放无溢出",
+      "status": "passed",
+      "run": "v040-adventure-browser",
+      "duration": 15615
+    },
+    {
+      "project": "narrow",
+      "file": "adventure.spec.ts",
+      "title": "实际探索完成 letter 主线",
+      "status": "passed",
+      "run": "v040-adventure-browser",
+      "duration": 87942
+    },
+    {
+      "project": "narrow",
+      "file": "adventure.spec.ts",
+      "title": "战斗在地图场景中、行动资源与刷新恢复真实运行",
+      "status": "passed",
+      "run": "v040-adventure-browser",
+      "duration": 78678
+    },
+    {
+      "project": "narrow",
+      "file": "adventure.spec.ts",
+      "title": "战斗胜利、战败与逃离都回传人物和目标",
+      "status": "passed",
+      "run": "v040-adventure-browser",
+      "duration": 54398
+    },
+    {
+      "project": "desktop",
+      "file": "adventure.spec.ts",
+      "title": "键盘和输入隔离，损坏存档导入保留有效状态",
+      "status": "passed",
+      "run": "v040-polish-browser",
+      "duration": 7390
+    },
+    {
+      "project": "narrow",
+      "file": "adventure.spec.ts",
+      "title": "键盘和输入隔离，损坏存档导入保留有效状态",
+      "status": "passed",
+      "run": "v040-polish-browser",
+      "duration": 6015
+    }
+  ],
+  "finalSourceFiles": {
+    "src/application/adventure-application.ts": "b64f561a0bfe43ec6dde351a22812b08ae90fa60a238e688a2240a0e033cd64d",
+    "src/application/adventure-motion.ts": "7ff6ebd79fa772fbdc8b6fe1445f52854b6b740281523e34c7d43339361d291a",
+    "src/application/character-motion.ts": "3fe23d820a5391e0598eab435f35e315847f7a73b9701d2dca441ed01829b4c5",
+    "src/application/character-studio.ts": "72d0ab41cf7b5fd1fc27b8a4279671071c070d91328a442893a6ab03a4f3957b",
+    "src/application/dice-feedback.ts": "ee23421f2ee60f6abd6dc6866e77ef1cf5b60530cb15542392c271c00bbb918f",
+    "src/application/equipment-preview.ts": "0adc9fdaa1a23dbe99757edf25704f1d86d968d5498d5455536af472680a7bc8",
+    "src/application/equipment.ts": "43db8be8867c0a6673c291f203220ee17c16f770108f11af3adb77bfc39e3b0d",
+    "src/application/game-application.ts": "f9393703676e6e82d00905684f9cdf83b2c954d037d6619d255ef2c4333ef060",
+    "src/application/game.ts": "5bb02e1c1157e75ba84b497bf476d46ab7a3ca67caa04d94329724b047ca20cf",
+    "src/application/index.ts": "3277296293a059c9164eb48e03371905384daafaccf6d51cbc7bcb35ee25f2f3",
+    "src/application/story-studio.ts": "2282e0ec20e1e80ee3e84c4b685790a8a22bd6e7155173bb37d3ee9a895cfc8f",
+    "src/contracts/adventure.ts": "ea1289175762c09ab2faacd1074f404e452702d0ff883002a3f9db74c382c303",
+    "src/contracts/demo.ts": "8637d3d871b3b09d74802b75157624e64de6fcf1925371d22e3a5a941214a7ab",
+    "src/contracts/index.ts": "69a7d528f39fd1f72f46e57350d2be07c1ef8a33a80a4461e9ee84dd9823abd9",
+    "src/infrastructure/adventure-save.ts": "7e452feac1e82f1340a5f9b4f9c3315bd2c6883845188ec822d013da79a81cd2",
+    "src/infrastructure/memory-store.ts": "97338ebc7384094fadb600a9fa250dbe9e34430ca5b761f1fe3697e521c8eccf",
+    "src/input/index.ts": "289e558dfbd079cfe85fc04ef2bc4a9467eca6353326fab88d4990a190b42b40",
+    "src/main.ts": "9a0d28382544003a847290be071117b3c7a9837a3ae521ebe8919bc84249d0f6",
+    "src/modules/adventure/index.ts": "322a7be088a235d8ef48b93cc49061a89e434c56e62bd7da93172ce9e8a624d6",
+    "src/modules/characters/animation.ts": "63a48418b8f21494e5b7a9708a0276f32ee13860a3ec5a75181fec79e737a2bf",
+    "src/modules/characters/appearance.ts": "ccc28ff06b1c9dca48dcdd18f423cbb08561560b5442a7d9413db4dc2e8b4ecc",
+    "src/modules/characters/expression.ts": "8667b177e326fd3c76abf90bf3ecbfa43d6c639f397aab2030b52a27a5e32fe1",
+    "src/modules/characters/generator.ts": "92ed5f78fb403b9d12bc27e2daf21c9dfddaa0837cf1e8fc3641cb30513a1697",
+    "src/modules/characters/index.ts": "1c96ea54fde99aaebcd396a25c5e79fdeb2e3a0109e82cb1d6760e2d870958c7",
+    "src/modules/characters/profile-catalog.ts": "11a4a06d34e85726a503635f07b7866adb3327c93414e9207d9950e34f6c2ec5",
+    "src/modules/characters/random.ts": "2363d1bd6280b30cafe1cea120b57af507be23b9794de98d34b1f6087d0f486a",
+    "src/modules/characters/wardrobes-v3.ts": "e0fb16f0dc8ff03b160db7b944fcb0e36a4cb9a7a7f220b686abe265e16e8299",
+    "src/modules/combat/README.md": "369d1ef34987d0580995c409cee776491b16d8860fffb867b60cdd0d7ad06e59",
+    "src/modules/economy/README.md": "eb4d0dc38bb6c52329bf66ef8701e1108560ca691a5bfc0ad6a776c59612f59e",
+    "src/modules/encounters/README.md": "0e8070cdab44da3e3f972768aaaf791c827c933bcc94eb511b4c65183daffe0c",
+    "src/modules/equipment/catalog.ts": "21bcc74dbc6e2a2fa0804a526124c0c5d91ab8a311da22daaf11370d2989c937",
+    "src/modules/equipment/form.ts": "113b4c814040ba269e9e99d0fa6abdc85cee555bc257d0d6ee6c0ec0059173f3",
+    "src/modules/equipment/index.ts": "7d1e540ec2c25e2acfb3f834ab6ff3916019278fde5f3ef52c7867de18874cd6",
+    "src/modules/equipment/loadout.ts": "c7f7f7ba24dce0c433a1bf74a8f2002eaa30d40e50506c2f8028ca705c26140a",
+    "src/modules/equipment/motion-port.ts": "19a248998c50dd729f4d05215822195dde841187964c37fe5df86e93a15b34f5",
+    "src/modules/equipment/types.ts": "0a7024e381147f4f94b9a101484aad57da075578bb987268ade99686fb696489",
+    "src/modules/equipment/visual.ts": "a413db82247ac5a9fb212ede822c6bfc8537ffd735840e34537589d24a8fc7a6",
+    "src/modules/exploration/README.md": "699c132dbd98b36844b21c847bf20602c2f49679dced42eaa11ee103afee5e5c",
+    "src/modules/inventory/index.ts": "7936816191e8e22ca08b0f0f27b2854f953c23a5349783c6c2f563aad532c17b",
+    "src/modules/npc/index.ts": "29e1528f29e50af181834b0b0ebde61e3413578cbaf20b787c38870879c860f5",
+    "src/modules/objectives/index.ts": "bbc262d45fd32f7f454ebed658ea66e5885a17fb0aaa9908048e55dd29b1b068",
+    "src/modules/party/README.md": "3c956935e980d1d306e4c06a9ba548f0ee1c8de4aa1e8b9c5892e4b93c40996f",
+    "src/modules/personality/index.ts": "013ce16231e17932aadc2bb6d1e9c3d266d182eac8048cff24406874406828c8",
+    "src/modules/professions/catalog.ts": "1d376f254e867d2e070ad10ac5073b32801b92480f32caed27fb147a8dc8b949",
+    "src/modules/professions/index.ts": "d80de68dcfa06e836d222142adf81f4cd21fd02985a077d8d425d6066c839347",
+    "src/modules/professions/progression.ts": "87bb74072ee348c850f35d14d94dd1fafc94100482375fd681ed01e235c17689",
+    "src/modules/professions/resources.ts": "0213ac95ae7e7e2690dc00a550270e606d501d98888069c29aa2a9e0415db953",
+    "src/modules/professions/types.ts": "d30149cebb7751b9892c0049e1fd5aa463b0ff03a84eaeff42d2793113efc1ab",
+    "src/modules/quest-generation/adventure.ts": "b55d19cede4ff70af131217d87adfa5c2a92580df98b7cebbed87d56ad2ff772",
+    "src/modules/quest-generation/index.ts": "10ffc448b3b1cd660ece3b33b662c85acf794dff8001d8feb901cee28b02b759",
+    "src/modules/relations/index.ts": "0e6cc496f14c3886e31ace374ca04026b76bb4a9165051874960df1b6b5bd396",
+    "src/modules/rules/README.md": "6df57d229a17203aaea6362a925359216bf18482197d130231ff0e2714ab6038",
+    "src/modules/runtime/adventure.ts": "c691dc190325bad6583818bb7484189c0047d938e9b6e4ba34a74051a1c95415",
+    "src/modules/runtime/dice-record.ts": "2629bee73956747c960eb4ada22f0624ab7507012be816b51eab2faaba67bd83",
+    "src/modules/runtime/free-space.ts": "eb6e7f587d375dc078d220e1950855f584571a5525dec799dc8487d91a48e60c",
+    "src/modules/runtime/index.ts": "6373e1f27dd5d62d9e5aaef902ef44900fceb7be265689c31520795b645d903d",
+    "src/modules/runtime/profession.ts": "ffc9b3f63f9af10b672df73a2536a1c2d055a93a668be19cbdcc6a00b2416127",
+    "src/modules/sessions/README.md": "f174739a1289e0f53c3d4984427402e011f7ec7ee56b551fbcd240210a606d35",
+    "src/modules/story-planning/README.md": "82bb9ad8405b287dca2a30b8d6e0301c1f3f63ed118e31cfc3d842abcb31f03f",
+    "src/modules/story-planning/adventure.ts": "f87e94f316970c400e1fe3463330fa8f45b3d504e913c35cba031430a1c90a4b",
+    "src/modules/story-planning/dependencies.ts": "646317a975ef838687495b3795381be827f314ff7e1db87c66dcb207b97c230f",
+    "src/modules/story-planning/dependency-keys.ts": "077b6c9f19eae9740cd40b166061a775e15ec37a53db814bbd214d0dda16d728",
+    "src/modules/story-planning/engine.ts": "8989a098b40868d59e208bfbb0201e1e06cc65288e7ff522dc54810cb122fa96",
+    "src/modules/story-planning/fields.ts": "5de544f455d8e925a016be185b750d6a667559d1fcfded82ccac5e4f841beadb",
+    "src/modules/story-planning/index.ts": "db1e1d1ee9e22675f76109b9072a952860f66a1a55d8c824ff831f1b827c1c5b",
+    "src/modules/story-planning/initialize.ts": "bdb239311f117a214346ae66571e3fbc121b5b36d8c04c88289ba120d343cef2",
+    "src/modules/story-planning/interpreter.ts": "b707ab0a21bcae97f87354bc7e5dfb15913362fecb3ac1171fdb43988fb08e4d",
+    "src/modules/story-planning/model.ts": "2c020ca584006549bc4404b46634f44cf539a27d0a61720b53eecc3e093cadba",
+    "src/modules/story-planning/planner.ts": "c4bfaaa9071b3bcb870008378ff902d194047c4c9dd9b5ab1e1e0481902f3ee9",
+    "src/modules/story-planning/random.ts": "37e456b0125618e45c3033d00a71ad2423d5caa1d291cb53ed847108608d8741",
+    "src/modules/story-planning/registry.ts": "31a323f4fcee3ea97022686697ce00643e40eef56d6be0d2542c736cb2477988",
+    "src/modules/story-planning/rule-types.ts": "57164135bbee5eab9f38e3834071d84fe2ea437c057f30fbef1891ea27615772",
+    "src/modules/story-planning/scheduler.ts": "2507225890c7a3c618fb1f67b39c959ca0f3086e2ad76fe5326e9bca09bdf907",
+    "src/modules/story-planning/schema.ts": "0643fb60d851e0d6065b3c2ff440c8197cd01f1243e92613952de8b592cabdf9",
+    "src/modules/story-planning/spatial.ts": "34670629aedcde5ca848b1eec81d0faef028555f22c02f735a60caeff4e5b329",
+    "src/modules/story-runtime/index.ts": "3999e9e322190fec394788cedd69aa8e82a24e4956510adca077d9e0d986ac21",
+    "src/modules/things/adventure.ts": "a94c32f103eabbb77fdeaa96defc3be5b7ce483e4554fe5e40e011c9cfa37df3",
+    "src/modules/things/index.ts": "34aead69740f1ddab0b2b25d13cfbef845bc57beac76acdaa303d2e8454513f4",
+    "src/modules/world/README.md": "5e2047a36a24ccbeadd527dd9b98cd89417db466e73af8e6bbe73b966e7c48db",
+    "src/modules/world/errors.ts": "ff0f379b771f833ae3f94b0a03c60d390e13c756ecc8aa7e438d2311c16bd337",
+    "src/modules/world/generator.ts": "ce08ab285aab812feab35b7574255ed70b9f13ee45f4dce899dc628a15076f93",
+    "src/modules/world/geometry.ts": "f9bba344e3e7e2d06269f39c578c49cf538ad15f19a0f224df48325e7d91b0fc",
+    "src/modules/world/index.ts": "273c0f52a9847434ae8f93523aa766ba60c18e90f3d0c45b5447b7bee4c9ec16",
+    "src/modules/world/pathfinding.ts": "960831b191a41bcef2d0a79421b3206c9b0897416693cdb823dc8604338163de",
+    "src/modules/world/registry.ts": "1a62f620a09c41c1deba36d64792a6b5b40311f72540efa870d96588336acc70",
+    "src/modules/world/types.ts": "b2a5be1d33e5f282af243801d0074fe8cf127c360071a4c89cdae896e87a1ede",
+    "src/modules/world/validation.ts": "cbcfd7ab3e18fd4219abbe281a0a68ad998b1442a1db9980d2351431f956f33e",
+    "src/presentation/adventure-motion-art.ts": "825f5ec9f65b7b6db0d8e72f5d5126347ca912636300999b91b543febd8ac358",
+    "src/presentation/adventure.css": "fe8f722e190c46c51d48e7e84eadd78808662a23fb22da73ca3a4ef5aa949c6c",
+    "src/presentation/adventure.ts": "6481c23921c54d1a36e38cbaeb54447a2adc248feab472640eb3c54d838cc41c",
+    "src/presentation/character-art-layout.ts": "a56790be2a757c93ed64823891e401657dd7c3c5043380815ba83f2acc9d4702",
+    "src/presentation/character-art.ts": "94c4bf69c8c6bed0d697f2090349d98a3214bb36f83808405ecb6e5958159157",
+    "src/presentation/character-materials-v3.json": "6069ff0d2b14c248e1caef693fca380666ce6f875ed1e5c13637946c1e98184c",
+    "src/presentation/character-motion-art.ts": "cf91f32f864853783e9a45699d715a1b69a598db0a99657dd89dc8aa4b0fd3de",
+    "src/presentation/character-motion-studio.ts": "84eecfbdaf68c0a85e705699dbdcab73fa5346a123ab960f90628e4c9d793848",
+    "src/presentation/character-sprite.ts": "856527ef2db2193f5e0a4da4310b053f592288c015426f82a2be15e2669399aa",
+    "src/presentation/character-studio.ts": "6348effe10e39ee99898786f9f052ea908c816b5b31ec512f073d354b240eb67",
+    "src/presentation/demo-style.css": "e32484692c715e4e54441ea53e93bc7ddabe17973a77cc9e2bb5d0c99d0d1abe",
+    "src/presentation/demo.ts": "99a444d6cd5300ef3a54c642253447e9c5b98d67f59f70bad4a53bde09749b6a",
+    "src/presentation/dice-feedback.css": "349a12a23db21ea8629cb52afb7b9e0c33e3246993492e2f57fc85e8aa5de42f",
+    "src/presentation/dice-feedback.ts": "1eac80282f8994d768d406c30475dcdd96523d36807173a3bd4341a8c073f56f",
+    "src/presentation/directional-materials.ts": "a69f19a322a37a54d4c6505db4b0899a24f22faf8bd628ccf5154c87638d6021",
+    "src/presentation/environment.ts": "0ad6f5f17bfb689447b918d3e69485432c164f138a52413d87c0667e5dde1b00",
+    "src/presentation/equipment-art.ts": "b84e920ec6ab36c8ef5375f4e380dfbb038a842650bfbf8840827fc2d18ad6e7",
+    "src/presentation/equipment-book.css": "50a4aa13fa5e7196809f85dc86f80584f67bb7b6ca59826e07bd00550715e6d4",
+    "src/presentation/equipment-book.ts": "d88a145a36fa1bcd71d36e4197e80492c442bd676b96495f87f732e8c3beac1d",
+    "src/presentation/hd2d.css": "67e780c5c4bc5e6996c4fb7914daaea21b7d345c973aef24866b87806522273c",
+    "src/presentation/html.ts": "e7066144a94cf125253128e937946338c59ce706337eae8abd3fc89d684330c7",
+    "src/presentation/index.ts": "2d9a6b8238797b2e3cc57de5e71bee03f6f9a581e805dba50cc0359ed8d03f56",
+    "src/presentation/isometric.ts": "de4415a04ccc004312f9c06b11915d94357a0401c1ca835544fe9a369c67ea41",
+    "src/presentation/motion-clips.ts": "afa0457e6d6d1f0436b02e2e5d4536ed39534d25d7a26349c7d6762a4ad3d3ca",
+    "src/presentation/scene.ts": "1a80bafdd3cf77f469d4e78e1e3e96037cd0410322b4326f4b14d906efb82a8c",
+    "src/presentation/scenery.ts": "4c26e561da136407e2637c6c9d6ad4b096c7bc514d3b7d40f3c3142b13c37ffd",
+    "src/presentation/story-studio.ts": "89d398cabdd6d375016d16c71e30a1495147b14c708cc9ec44d378db081750b2",
+    "src/presentation/style.css": "c5898f3386e945e76a73b930c22a014b5f226e2ebd85e8dc8483d1d7ae3f68b5",
+    "src/presentation/world-assets.ts": "13100803591cd94c549e5ba486809e7c6b6cd1524c0b292db3a799e3dcaf3c5f",
+    "src/presentation/world-composition.ts": "585dad864581d582a812501ff9078bfd07db5ec1e95c7c2b73fa390202e7e212",
+    "src/presentation/world-scene.ts": "c132ca51b23bf511d1b11465df6ea4949e63575f19755a66c1ec3461f13ac3e8",
+    "src/vite-env.d.ts": "65996936fbb042915f7b74a200fcdde7e410f32a669b1ab9597cfaa4b0faddb5"
+  }
+}

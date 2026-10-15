@@ -16,7 +16,7 @@
 | shoes 鞋 | 4 | 4 | 长靴、短靴、布鞋、凉鞋 |
 | accessory 饰品 | 6 | 5 | 无、围巾、眼镜、耳饰、挎包、吊坠 |
 
-`Appearance = { version: 'appearance/1' | 'appearance/2', seed, parts }`，`parts` 中七个字段均为 `{ styleId, color }`。上表为版本 2 的目录；版本 1 保留五种上衣和四种裤子。`appearanceCatalogFor(version)` 返回对应的深冻结目录，模型通过 `validateAppearance` 校验，生成和修改操作不改变输入模型。工坊默认版本 2，旧数据生成接口默认版本 1，以保留历史种子结果。
+`Appearance = { version: 'appearance/1' | 'appearance/2' | 'appearance/3', seed, parts }`，`parts` 中七个字段均为 `{ styleId, color }`。上表为版本 2 的目录；版本 1 保留五种上衣和四种裤子。`appearanceCatalogFor(version)` 返回对应的深冻结目录，模型通过 `validateAppearance` 校验，生成和修改操作不改变输入模型。工坊默认版本 3，旧数据生成接口默认版本 1，以保留历史种子结果。
 
 种子必须为 1–128 字符，不能全为空白。算法使用 FNV-1a 初始化 Mulberry32，每个部件使用 `版本:种子:部件名` 的独立随机序列。相同版本、目录与种子保证一致输出；重抽一个部件不会改变其他部件。随机可能再次抽中原样式，不保证每次不同；不用于密码或安全随机。
 
@@ -49,7 +49,7 @@ validateAppearance(edited);
 
 绘制顺序为背部头发、身体、下装、鞋、上衣、脸、前部头发及饰品。男女身体和衣物使用各自原型图中的部件，按身材调整衣宽；脸型不随身体横向拉伸。肤色由 body 控制，锁定脸型只锁定面部轮廓与眼睛颜色。生成 PNG 使用真实透明背景和最近邻放大。
 
-新部件样式需要添加版本化目录 ID 和 `character-art-layout.ts` 中的源图切片及装配坐标，再检查透明边缘与装配位置。改变目录顺序、随机算法或既有 ID 会影响种子复现，须提升外观版本。`character-art.ts` 加载素材、清理透明边缘、着色并装配；`character-sprite.ts` 负责页面图片容器。移动、动作、战斗动画仍需单独实现。
+新部件样式需要添加版本化目录 ID 和 `character-art-layout.ts` 中的源图切片及装配坐标，再检查透明边缘与装配位置。改变目录顺序、随机算法或既有 ID 会影响种子复现，须提升外观版本。`character-art.ts` 加载素材、清理透明边缘、着色并装配；`character-sprite.ts` 负责页面图片容器。新版移动、日常和战斗动画使用独立方向素材与骨骼装配，详见文末版本 3 说明。
 
 ## 验证
 
@@ -89,3 +89,7 @@ npm run characters:generate -- --seed hi-story-20261014 --count 5
 命令逐次调用生成接口，使用 `hi-story-20261014:1` 至 `:5` 五个子种子，输出一个包含五份完整人物资料的 JSON。不指定种子时使用新 UUID；调用次数范围为 1–100。原始五次返回结果在 [random-characters-v1.json](examples/random-characters-v1.json)。
 
 当前网页工坊为外观编辑器，完整资料接口尚未替换固定故事中的沈青与陆砚。数据生成不依赖素材文件；图片装配已使用本地 PNG 源素材和实际人物资料完成，[五个人物图片](examples/assembled/gallery.png) 对应此前五次返回数据。新带参接口 `generateCharacterWithParams` 支持自定义职业、专长、背景、NPC 性格与数值参数、喜好/厌恶、动机及外观覆盖；用法和字段限制见 [人物生成器说明](../人物生成器说明.md)。
+
+## 动作与版本 3
+
+版本 3 在版本 2 基础上将每一部件目录翻倍，共 72 种选项。采用方向素材与共享骨骼实现八向移动、日常/休息/战斗动作，状态表情由独立解析器消费外部状态。旧版本种子不变，已有外观可原样导入后明确升级；详见根目录《人物动作与表情说明.md》。

@@ -9,7 +9,7 @@ async function main(){
   const args=process.argv.slice(2),options={seed:'hi-story-20261014',count:'5',out:'docs/examples/assembled',input:undefined,url:undefined};
   for(let i=0;i<args.length;i+=2){const key=args[i].slice(2);if(!args[i].startsWith('--')||!Object.hasOwn(options,key)||!args[i+1])throw Error('参数：--seed、--count、--input、--out、--url');options[key]=args[i+1];}
   const count=Number(options.count);if(!Number.isInteger(count)||count<1||count>100)throw Error('次数须为 1–100 的整数');
-  const server=await createServer({root,configFile:false,logLevel:'error',server:{middlewareMode:!!options.url,host:'127.0.0.1',port:0},appType:'spa'});
+  const server=await createServer({root,configFile:false,logLevel:'error',server:{middlewareMode:!!options.url,host:'127.0.0.1',port:0,hmr:false,watch:null},appType:'spa'});
   let browser;
   try{
     const api=await server.ssrLoadModule('/src/modules/characters/index.ts');
@@ -23,7 +23,7 @@ async function main(){
     browser=await chromium.launch({headless:true,...(process.env.CHROMIUM_PATH?{executablePath:process.env.CHROMIUM_PATH}:{}),args:['--no-sandbox']});
     const page=await browser.newPage();page.on('pageerror',e=>process.stderr.write('Browser: '+e.message+'\n'));page.on('requestfailed',r=>process.stderr.write('Request: '+r.url()+' '+r.failure()?.errorText+'\n'));await page.goto(url+'/?view=story-generator');
     const output=await page.evaluate(async records=>{
-      const art=await import('/src/presentation/character-art.ts');await art.loadCharacterArt();
+      const art=await import('/src/presentation/character-art.ts');await art.loadCharacterArt(records.some(r=>r.appearance.version==='appearance/3')?'appearance/3':'appearance/1');
       const images=records.map(record=>art.assembleCharacterCanvas(record.appearance,record.gender,4).toDataURL('image/png'));
       const c=document.createElement('canvas');c.width=Math.max(600,records.length*294+36);c.height=780;
       const ctx=c.getContext('2d');ctx.imageSmoothingEnabled=false;ctx.fillStyle='#ece6dc';ctx.fillRect(0,0,c.width,c.height);
@@ -36,14 +36,14 @@ async function main(){
         ctx.font='15px "Noto Sans CJK SC", sans-serif';ctx.fillText(`${record.gender==='female'?'女':'男'} · ${record.age} 岁 · ${record.identity.occupation}`,x+139,687);
         ctx.fillStyle='#69736a';ctx.font='14px "Noto Sans CJK SC", sans-serif';ctx.fillText(record.personality.traits.join(' · '),x+139,717);ctx.textAlign='left';
       });
-      return {artVersion:art.ART_VERSION,images,gallery:c.toDataURL('image/png')};
+      return {artVersion:records.every(r=>r.appearance.version===records[0].appearance.version)?art.artVersionFor(records[0].appearance):'mixed',images,gallery:c.toDataURL('image/png')};
     },models);
     const directory=resolve(root,options.out);await mkdir(directory,{recursive:true});
     const characters=[];
     for(let i=0;i<models.length;i++){
       const filename=`character-${String(i+1).padStart(2,'0')}.png`;
       await writeFile(resolve(directory,filename),Buffer.from(output.images[i].split(',')[1],'base64'));
-      characters.push({...models[i],render:{file:filename,artVersion:output.artVersion,width:576,height:1152}});
+      characters.push({...models[i],render:{file:filename,artVersion:models[i].appearance.version==='appearance/3'?'character-motion-art/1':output.artVersion,width:576,height:1152}});
     }
     await writeFile(resolve(directory,'gallery.png'),Buffer.from(output.gallery.split(',')[1],'base64'));
     await writeFile(resolve(directory,'characters.json'),JSON.stringify({artVersion:output.artVersion,callCount:characters.length,characters},null,2)+'\n');

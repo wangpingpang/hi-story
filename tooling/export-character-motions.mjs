@@ -18,8 +18,16 @@ try{
  browser=await chromium.launch({headless:true,...(process.env.CHROMIUM_PATH?{executablePath:process.env.CHROMIUM_PATH}:{}),args:['--no-sandbox']});
  const page=await browser.newPage({viewport:{width:1440,height:1100}});const errors=[];page.on('pageerror',e=>errors.push(e.message));await page.goto(`http://127.0.0.1:${port}/?view=story-generator`);
  const api=await server.ssrLoadModule('/src/modules/characters/index.ts');
- const character=api.generateCharacterWithParams({seed:opts.seed,gender:'female',appearanceVersion:'appearance/3',appearanceParts:{hair:{styleId:'bob'},body:{styleId:'balanced'},face:{styleId:'oval'},top:{styleId:'shirt'},pants:{styleId:'straight'},shoes:{styleId:'riding'},accessory:{styleId:'none'}}});
+ const character=api.generateCharacterWithParams({seed:opts.seed,gender:'female',appearanceVersion:'appearance/3',appearanceParts:{hair:{styleId:'crop',color:'#614436'},body:{styleId:'balanced',color:'#dfb18c'},face:{styleId:'oval'},top:{styleId:'shirt',color:'#587b72'},pants:{styleId:'straight'},shoes:{styleId:'riding'},accessory:{styleId:'none'}}});
  await page.evaluate(async record=>{const art=await import('/src/presentation/character-motion-art.ts');await art.loadDirectionalMaterials();window.__motionArt=art;window.__motionCharacter=record;},character);
+ const coverage=await page.evaluate(async catalog=>{
+  const materials=await import('/src/presentation/directional-materials.ts');let count=0;
+  for(const gender of ['male','female'])for(const [slot,definition] of Object.entries(catalog))for(const style of definition.styles)for(const direction of ['S','SE','E','NE','N','NW','W','SW']){
+   if(slot==='accessory'&&style.id==='none')continue;
+   const texture=materials.materialTexture(slot,style.id,definition.colors[0],gender,direction),data=texture.getContext('2d').getImageData(0,0,texture.width,texture.height).data;
+   if(!data.some((value,index)=>index%4===3&&value>0))throw Error(`Empty material ${gender}/${slot}/${style.id}/${direction}`);count++;
+  }return count;
+ },api.appearanceCatalogFor('appearance/3'));
  const assets=[];await mkdir(directory,{recursive:true});await mkdir(resolve(directory,'clips'),{recursive:true});
  async function writeImage(name,kind,configuration,path=resolve(directory,name)){
   const data=await page.evaluate(({kind,configuration})=>{
@@ -47,7 +55,7 @@ try{
  for(const action of ['attack','heavy-attack'])for(const weapon of api.WEAPONS)clips.push({action,weapon,label:`${action==='attack'?'普攻':'重击'} / ${weapon}`});
  for(const spell of api.SPELLS)clips.push({action:'cast',spell,label:`施法 / ${spell}`});
  assets.push(await writeImage('walk-8-directions.png','walk',{}));
- if(opts.quick!=='yes')for(const clip of clips){const name=`clips/${clip.action}${clip.weapon?'-'+clip.weapon:clip.spell?'-'+clip.spell:''}.png`;assets.push({...await writeImage(name,'strip',{...clip,direction:'SE',expression:clip.action==='sleep'?'asleep':'focused'}),clip});}
+ if(opts.quick!=='yes')for(const clip of clips){const name=`clips/${clip.action}${clip.weapon?'-'+clip.weapon:clip.spell?'-'+clip.spell:''}.png`;const config={...clip,direction:'SE',expression:['sleep','dead'].includes(clip.action)?'asleep':['fall','downed'].includes(clip.action)||clip.action.startsWith('hit-')?'pain':['stand','stand-relaxed','stand-alert','talk','wave','point','nod','shake-head','sit','lean','lie'].includes(clip.action)?'neutral':'focused'};assets.push({...await writeImage(name,'strip',config),clip:config});}
  const partAssets=[];
  if(opts.quick!=='yes'){
   await mkdir(partsDir,{recursive:true});for(const slot of ['top','pants','shoes'])for(const style of api.appearanceCatalogFor('appearance/3')[slot].styles){const name=`${slot}-${style.id}.png`;partAssets.push({...await writeImage(name,'part',{slot,style:style.id},resolve(partsDir,name)),slot,styleId:style.id,frames:64});}
@@ -57,7 +65,7 @@ try{
  const gallerySets=[
   {name:'walk-preview',columns:4,title:'八向移动 · 服装与鞋同步',clips:api.DIRECTIONS.map(direction=>({action:'walk',direction,label:direction}))},
   {name:'combat-preview',columns:4,title:'战斗动作 · 武器与法术',clips:[{action:'attack',weapon:'unarmed',label:'空手'},{action:'attack',weapon:'sword',label:'单手剑'},{action:'heavy-attack',weapon:'axe',label:'斧重击'},{action:'attack',weapon:'spear',label:'长矛'},{action:'attack',weapon:'bow',label:'弓'},{action:'cast',spell:'fire',label:'火焰'},{action:'cast',spell:'frost',label:'冰霜'},{action:'cast',spell:'healing',label:'治疗'},{action:'hit-weapon',label:'武器受击'},{action:'hit-spell',label:'法术受击'},{action:'block',weapon:'sword',label:'格挡'},{action:'dodge',label:'闪避'}].map(clip=>({...clip,direction:'SE',expression:'focused'}))},
-  {name:'rest-preview',columns:3,title:'日常与休息 · 站姿、手势、坐卧',clips:['stand-relaxed','talk','wave','nod','sit','lean','lie','sleep','downed'].map(action=>({action,label:api.ACTIONS[action].label,expression:action==='sleep'?'asleep':'neutral'}))},
+  {name:'rest-preview',columns:3,title:'日常与休息 · 站姿、手势、坐卧',clips:['stand-relaxed','talk','wave','nod','sit','lean','lie','sleep','downed'].map(action=>({action,label:api.ACTIONS[action].label,expression:action==='sleep'?'asleep':action==='downed'?'pain':'neutral'}))},
  ];
  for(const set of gallerySets){assets.push(await writeImage(set.name+'.png','gallery',{...set,progress:.4}));if(opts.gifs==='yes'){
   const files=[];for(let f=0;f<12;f++){const path=resolve(temporary,`${set.name}-${f}.png`);await writeImage('temp.png','gallery',{...set,progress:f/12},path);files.push(path);}
@@ -65,6 +73,6 @@ try{
  }}
  await page.goto(`http://127.0.0.1:${port}/?view=character-motion`);await page.getByRole('heading',{name:'每一步，都有神情。'}).waitFor();await page.getByRole('button',{name:'暂停',exact:true}).click();await page.screenshot({path:resolve(directory,'studio-desktop.png'),fullPage:true});await page.setViewportSize({width:375,height:812});await page.screenshot({path:resolve(directory,'studio-narrow.png'),fullPage:true});
  if(errors.length)throw Error(errors.join('\n'));
- const manifest={version:'character-motion-examples/1',artVersion:'character-motion-art/1',frame:{width:192,height:192,anchor:{x:96,y:164.5}},character,nonwalkVariants:clips.length,walkingPartFrames:partAssets.length*64,assets};await writeFile(resolve(directory,'manifest.json'),JSON.stringify(manifest,null,2)+'\n');
+ const manifest={version:'character-motion-examples/1',artVersion:'character-motion-art/1',frame:{width:192,height:192,anchor:{x:96,y:164.5}},character,verifiedMaterials:coverage,nonwalkVariants:clips.length,walkingPartFrames:partAssets.length*64,assets};await writeFile(resolve(directory,'manifest.json'),JSON.stringify(manifest,null,2)+'\n');
  console.log(JSON.stringify({directory,nonwalkVariants:clips.length,walkingMaterials:partAssets.length,walkingFrames:partAssets.length*64,files:assets.length},null,2));
 }finally{await browser?.close();await server.close();await rm(temporary,{recursive:true,force:true});}

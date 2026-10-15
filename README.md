@@ -74,7 +74,7 @@ CHROMIUM_PATH=/path/to/chromium npm run test:e2e
 - `female-parts-v1.png`：女性纤细、匀称、运动型宽肩、敦实四种身材，六种上衣与六种下装（含及膝裙、长裙）。
 - `manifest.json`：各行部件清单、源图尺寸、完整生成和清理提示词。
 
-源图已经通过版本化切片坐标、透明边缘清理、锚点校准和材质着色接入工坊与原故事人物展示；原图保持原样。规范画布为 144 × 288，工坊导出 576 × 1152 透明 PNG。女性身体、衣物与裙装已接入 `appearance/2`，`appearance/1` 的旧种子结果保持兼容。当前为固定正面站姿，尚无动作动画。
+源图已经通过版本化切片坐标、透明边缘清理、锚点校准和材质着色接入工坊与原故事人物展示；原图保持原样。规范画布为 144 × 288，工坊导出 576 × 1152 透明 PNG。女性身体、衣物与裙装已接入 `appearance/2`，`appearance/1` 的旧种子结果保持兼容。以上旧版素材用于固定正面站姿；新版八方向动作与表情见下方工坊说明。
 
 五次人物资料的装配结果：[总览](docs/examples/assembled/gallery.png) · [图片与数据](docs/examples/assembled/) · [下载包](artifacts/assembled-characters-v1.zip)。
 
@@ -105,3 +105,17 @@ CHROMIUM_PATH=/path/to/chromium npm run characters:render -- --input docs/exampl
 ```
 
 [人物生成器说明](人物生成器说明.md) 包含公开接口、参数、枚举、素材装配和故事模块边界；[带参输入](docs/examples/story-npc-params.json) 与 [实际返回结果](docs/examples/story-npc-result.json) 可直接参考。根目录 `AGENTS.md` 已约定需要人物生成时调用本生成器。
+
+## 人物动作与表情工坊
+
+开发入口 `/?view=character-motion`，或在人物工坊点击“动作与表情工坊”。支持八向连续预览移动，站立、对话手势、坐靠躺睡、普通/重击、七类施法、三类受击、格挡、闪避和倒地表现。服装、鞋和身体共享骨骼；hp=0 保持倒地，死亡由独立状态输入。
+
+`appearance/3` 将七部件各自扩充一倍，共 72 种样式选项；保留旧生成接口默认版本与种子。新增 12 种表情随环境、检定、战斗和人物状态变化。代码分为动作状态、表情规则、共享姿态、方向素材及展示装配。
+
+已附 32 张服装/鞋行走图集（2048 帧）、48 组非行走动作条、八向人物图集、表情对照与 GIF。此版本是分层骨骼原型，真实移动、碰撞及战斗结算仍由对应运行器负责。详见[人物动作与表情说明](人物动作与表情说明.md)。
+
+```sh
+CHROMIUM_PATH=/path/to/chromium npm run characters:motions
+```
+
+![八向移动预览](docs/examples/motion-v1/walk-preview.gif)

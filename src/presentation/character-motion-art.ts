@@ -1,4 +1,4 @@
-import { ACTIONS, APPEARANCE_SLOTS, appearanceCatalogFor, type Action, type Direction, type Weapon, type Spell, type Expression, type Appearance, type AppearanceSlot, type Gender } from '../application/character-motion';
+import { ACTIONS, WEAPONS, SPELLS, EXPRESSIONS, APPEARANCE_SLOTS, appearanceCatalogFor, type Action, type Direction, type Weapon, type Spell, type Expression, type Appearance, type AppearanceSlot, type Gender } from '../application/character-motion';
 import type { DeepReadonly } from '../contracts';
 import { materialTexture, materialView, loadDirectionalMaterials } from './directional-materials';
 import { sampleRigPose } from './motion-clips';
@@ -15,13 +15,15 @@ function ctxOf(c:HTMLCanvasElement){const ctx=c.getContext('2d',{willReadFrequen
 function alphaBounds(c:HTMLCanvasElement){const d=ctxOf(c).getImageData(0,0,384,384).data;let left=384,top=384,right=-1,bottom=-1;for(let y=0;y<384;y++)for(let x=0;x<384;x++)if(d[(y*384+x)*4+3]>128){left=Math.min(left,x);right=Math.max(right,x);top=Math.min(top,y);bottom=Math.max(bottom,y);}return {left,top,right,bottom};}
 function expression(ctx:CanvasRenderingContext2D,emotion:Expression,direction:Direction,color:string){
  if(['N','NE','NW'].includes(direction))return;
+ ctx.save();ctx.translate(0,12);
  const profile=direction==='E'||direction==='W',eyeX=profile?[19]:[-12,12];
  ctx.fillStyle=color;ctx.strokeStyle='#26312d';ctx.lineWidth=2;ctx.lineCap='square';
  const line=(x1:number,y1:number,x2:number,y2:number)=>{ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();};
  for(const x of eyeX){
-  if(['asleep','sleepy','pain','elated'].includes(emotion))line(x-3,-42,x+3,-42+(emotion==='elated'?-2:1));
+  if(emotion==='sleepy'){ctx.fillRect(x-3,-42,6,2);line(x-4,-43,x+4,-43);}
+  else if(['asleep','pain','elated'].includes(emotion))line(x-3,-42,x+3,-42+(emotion==='elated'?-2:1));
   else if(['surprised','fear'].includes(emotion)){ctx.strokeRect(x-3,-46,6,7);ctx.fillRect(x,-43,2,3);}
-  else {ctx.fillStyle='#f0dfbd';ctx.fillRect(x-3,-44,6,emotion==='sick'?2:4);ctx.fillStyle=color;ctx.fillRect(x-1,-44,3,emotion==='sick'?2:4);}
+  else {const height=emotion==='sick'||emotion==='focused'?2:4;ctx.fillStyle='#f0dfbd';ctx.fillRect(x-3,-44,6,height);ctx.fillStyle=color;ctx.fillRect(x-1,-44,3,height);}
   if(emotion==='angry'||emotion==='focused')line(x-4,-50+(x<0?-2:2),x+4,-50+(x<0?2:-2));
   else if(['sad','pain','fear'].includes(emotion))line(x-4,-50+(x<0?2:-2),x+4,-50+(x<0?-2:2));
  }
@@ -30,6 +32,7 @@ function expression(ctx:CanvasRenderingContext2D,emotion:Expression,direction:Di
  else if(['surprised','fear'].includes(emotion))ctx.strokeRect(mouthX-2,-26,4,6);
  else if(['sad','pain','sick'].includes(emotion)){line(mouthX-5,-23,mouthX,-26);line(mouthX,-26,mouthX+5,-23);}
  else line(mouthX-4,-24,mouthX+4,-24);
+ ctx.restore();
 }
 // Constrain the source rectangle about its grip; never slide a weapon out of the hand.
 function held(ctx:CanvasRenderingContext2D,im:HTMLCanvasElement,w:number,h:number):void {
@@ -66,7 +69,7 @@ function drawRaw(model:DeepReadonly<Appearance>,gender:Gender,options:MotionRend
   if(!leg&&has('accessory')&&['gloves','bracers'].includes(model.parts.accessory.styleId)){const im=texture('accessory');patch(im,side==='left'?0:.5,0,.5,1,-10,model.parts.accessory.styleId==='gloves'?-12:-25,20,28);}
   const holdingSide=side==='right';
   if(!leg&&holdingSide&&options.effects!==false&&weapon!=='unarmed'&&['attack','heavy-attack','combat-ready','block'].includes(action)){
-   const im=materialTexture('weapon',weapon,'#ffffff',gender,direction)!;const size=({dagger:45,sword:83,greatsword:104,axe:80,mace:70,spear:115,bow:92,crossbow:70,staff:109} as Record<string,number>)[weapon];held(ctx,im,weapon==='bow'||weapon==='crossbow'?42:weapon==='axe'?34:23,size);
+   const im=materialTexture('weapon',weapon,'#ffffff',gender,direction)!;const size=({dagger:45,sword:83,greatsword:104,axe:80,mace:70,spear:115,bow:92,crossbow:70,staff:109} as Record<string,number>)[weapon];if(weapon!=='bow'&&weapon!=='crossbow')ctx.rotate(Math.PI);held(ctx,im,weapon==='bow'||weapon==='crossbow'?42:weapon==='axe'?34:23,size);
   }
   if(!leg&&side==='left'&&options.effects!==false&&action==='block'){const im=materialTexture('weapon','shield','#ffffff',gender,direction)!;held(ctx,im,51,51);}
   ctx.restore();
@@ -106,6 +109,8 @@ export function renderCharacterMotionFrame(model:DeepReadonly<Appearance>,gender
  const catalog=appearanceCatalogFor(model.version);if(!['male','female'].includes(gender))throw Error('身体类型无效');
  for(const slot of APPEARANCE_SLOTS)if(!catalog[slot].styles.some(s=>s.id===model.parts[slot]?.styleId)||!catalog[slot].colors.some(c=>c===model.parts[slot]?.color))throw Error('外观数据无效');
  if(options.action!==undefined&&!Object.hasOwn(ACTIONS,options.action))throw Error('动作无效');
+ if(options.weapon!==undefined&&!WEAPONS.includes(options.weapon)||options.spell!==undefined&&!SPELLS.includes(options.spell)||options.expression!==undefined&&!Object.hasOwn(EXPRESSIONS,options.expression))throw Error('武器、法术或表情无效');
+ if(options.layers!==undefined&&(!Array.isArray(options.layers)||options.layers.some(slot=>!APPEARANCE_SLOTS.includes(slot))))throw Error('导出图层无效');
  const ground=drawRaw(model,gender,{...options,layers:APPEARANCE_SLOTS,effects:false});const b=alphaBounds(ground);const offset=329-b.bottom;
  const c=drawRaw(model,gender,options,offset),ctx=ctxOf(c),pixels=ctx.getImageData(0,0,384,384),data=pixels.data;
  for(let i=0;i<data.length;i+=4){if(data[i+3]<128)data.fill(0,i,i+4);else data[i+3]=255;}ctx.putImageData(pixels,0,0);return c;

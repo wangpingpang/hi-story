@@ -12,7 +12,8 @@
     "characters:render": "node tooling/render-characters.mjs",
     "check:boundaries": "node tooling/boundaries.mjs",
     "build": "vite build",
-    "preview": "vite preview --host 0.0.0.0"
+    "preview": "vite preview --host 0.0.0.0",
+    "characters:motions": "node tooling/export-character-motions.mjs"
   },
   "engines": {
     "node": "^22.12.0 || ^24.0.0 || >=26.0.0"

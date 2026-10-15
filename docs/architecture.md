@@ -31,7 +31,7 @@ Vite 8.3.4 + TypeScript 7.0.2，原生 DOM 与 SVG。三幕确定性选择不需
 | adventure | 已实现 start / advance | runId、stage、revision、elapsed；只推进三幕，不计算任务具体条件 |
 | world | 未实现，README 边界 | 后续拥有地图、地形、对象位置；本次 SVG 仅装饰，不伪造可探索地图 |
 | exploration | 未实现，README 边界 | 后续视野、可达交互；本次选择不模拟移动 |
-| characters | 最小 create | 唯一角色身份「沈青」及 courier ID；无成长、生命系统 |
+| characters | 人物资料、版本化外观、动作/表情纯计算 | 七部件/带参 NPC；生命显示消费外部状态，不结算真实伤害；详见《人物动作与表情说明.md》 |
 | inventory | 已实现 create / consume | 铜钱、绳索、草图唯一写入；余额不得负数；草图不重复发放 |
 | rules | 未实现，README 边界 | 后续纯计算骰子/属性规则；本次没有随机检定 |
 | combat | 未实现，README 边界 | 无战棋、战斗回合、伤害 |

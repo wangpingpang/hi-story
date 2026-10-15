@@ -1,6 +1,7 @@
 import type { DeepReadonly } from '../contracts';
 import { appearanceCatalogFor, appearanceSlots, type Appearance, type Gender, type AppearanceSlot } from '../application/character-studio';
 import { artRegion, ART_SIZE, ART_VERSION, type ArtRegion } from './character-art-layout';
+import { loadDirectionalMaterials, renderCharacterMotionFrame } from './character-motion-art';
 export { ART_SIZE, ART_VERSION } from './character-art-layout';
 
 let sheets:Record<'common'|'female',HTMLImageElement>|undefined;
@@ -9,7 +10,11 @@ const textures=new Map<string,HTMLCanvasElement>();
 const assembled=new Map<string,string>();
 function canvas(width:number,height:number) { const c=document.createElement('canvas');c.width=width;c.height=height;return c; }
 function context(c:HTMLCanvasElement) { const ctx=c.getContext('2d',{willReadFrequently:true});if(!ctx)throw Error('浏览器无法创建人物画布');ctx.imageSmoothingEnabled=false;return ctx; }
-export function loadCharacterArt():Promise<void> {
+export function loadCharacterArt(version:string='appearance/1'):Promise<void> {
+  if(version==='appearance/3')return Promise.all([loadLegacyArt(),loadDirectionalMaterials()]).then(()=>{});
+  return loadLegacyArt();
+}
+function loadLegacyArt():Promise<void> {
   if(sheets)return Promise.resolve();
   if(loading)return loading;
   const load=(file:string)=>new Promise<HTMLImageElement>((resolve,reject)=>{const image=new Image();image.onload=()=>resolve(image);image.onerror=()=>reject(Error('人物图片素材加载失败'));image.src=new URL(`${import.meta.env.BASE_URL}assets/characters/${file}`,document.baseURI).href;});
@@ -70,13 +75,19 @@ function texture(slot:AppearanceSlot,style:string,color:string,gender:Gender,reg
   ctx.putImageData(pixels,0,0);
   if(textures.size>=192)textures.delete(textures.keys().next().value!);textures.set(key,c);return c;
 }
-export function assembleCharacterCanvas(model:DeepReadonly<Appearance>,gender:Gender='male',scale=1):HTMLCanvasElement {
+export function assembleCharacterCanvas(model:DeepReadonly<Appearance>,gender:Gender='male',scale=1,hiddenSlots:readonly AppearanceSlot[]=[]):HTMLCanvasElement {
   if(!['male','female'].includes(gender)||!Number.isInteger(scale)||scale<1||scale>8)throw Error('人物装配参数无效');
+  if(!Array.isArray(hiddenSlots)||hiddenSlots.some(slot=>!appearanceSlots.includes(slot)))throw Error('人物隐藏部件无效');
   const catalogs=appearanceCatalogFor(model.version);
   for(const slot of appearanceSlots){const part=model.parts[slot];if(!part||!catalogs[slot].styles.some(s=>s.id===part.styleId)||!catalogs[slot].colors.some(c=>c===part.color))throw Error('人物外观数据无效');}
+  if(model.version==='appearance/3'){
+    const frame=renderCharacterMotionFrame(model,gender,{layers:appearanceSlots.filter(slot=>!hiddenSlots.includes(slot)),effects:false}),result=canvas(ART_SIZE.width*scale,ART_SIZE.height*scale);
+    context(result).drawImage(frame,120,50,144,288,0,0,result.width,result.height);return result;
+  }
   const c=canvas(ART_SIZE.width,ART_SIZE.height),ctx=context(c);
   const fit={slim:.94,balanced:1,broad:1.06,stocky:1.10}[model.parts.body.styleId]??1;
   const draw=(slot:AppearanceSlot)=>{
+    if(hiddenSlots.includes(slot))return;
     const part=model.parts[slot],region=artRegion(slot,part.styleId,gender);if(!region)return;
     const color=slot==='face'?model.parts.body.color:part.color;
     let [x,y,w,h]=region.target;
@@ -95,3 +106,4 @@ export function assembledCharacterUrl(model:DeepReadonly<Appearance>,gender:Gend
   const url=assembleCharacterCanvas(model,gender).toDataURL('image/png');
   if(assembled.size>=64)assembled.delete(assembled.keys().next().value!);assembled.set(key,url);return url;
 }
+export function artVersionFor(model:DeepReadonly<Appearance>):string {return model.version==='appearance/3'?'character-motion-art/1':ART_VERSION;}

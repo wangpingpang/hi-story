@@ -1,0 +1,38 @@
+{
+  "unitTests": {
+    "passed": 128,
+    "files": 8
+  },
+  "browserTests": {
+    "passed": 26,
+    "failed": 0,
+    "projects": [
+      "desktop",
+      "narrow"
+    ]
+  },
+  "typecheck": "passed",
+  "boundaries": "passed",
+  "build": "passed",
+  "node": "24.19.0",
+  "chromium": "153.0.8010.0",
+  "assets": {
+    "sourceSheets": 10,
+    "sourceCells": 445,
+    "verifiedMaterials": 1136,
+    "walkingMaterials": 32,
+    "walkingPartFrames": 2048,
+    "nonwalkVariants": 48,
+    "atlasFiles": 81,
+    "frames": 2496,
+    "alpha": "binary",
+    "emptyFrames": 0,
+    "edgeContacts": 0,
+    "distinctExpressions": 12,
+    "gifs": [
+      "walk-preview.gif",
+      "rest-preview.gif",
+      "combat-preview.gif"
+    ]
+  }
+}

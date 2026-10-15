@@ -8,11 +8,15 @@ import { Game } from './application/game';
 import { choiceCommand } from './input';
 import { render } from './presentation';
 import './presentation/style.css';
-import { loadCharacterArt, assembleCharacterCanvas } from './presentation/character-art';
+import { loadCharacterArt, assembleCharacterCanvas, artVersionFor } from './presentation/character-art';
 import { CharacterStudio } from './application/character-studio';
 import { renderCharacterStudio } from './presentation/character-studio';
+import { mountCharacterMotionStudio } from './presentation/character-motion-studio';
 async function boot() {
- if(new URLSearchParams(location.search).get('view')!=='story-generator')await loadCharacterArt();
+ const route=new URLSearchParams(location.search).get('view');
+ if(route==='equipment-book'){const {mountEquipmentBook}=await import('./presentation/equipment-book');await mountEquipmentBook(document.querySelector<HTMLElement>('#app')!);document.title='旅人的衣橱 · hi-story';return;}
+ if(route==='character-motion'){await mountCharacterMotionStudio(document.querySelector<HTMLElement>('#app')!);return;}
+ if(route!=='story-generator')await loadCharacterArt(route==='character-generator'?'appearance/3':'appearance/1');
 const game=new Game();const root=document.querySelector<HTMLElement>('#app')!;
 let busy=false;
 function draw(focus=false,message=''){
@@ -34,7 +38,7 @@ if (!new URLSearchParams(location.search).get('view') || new URLSearchParams(loc
  const continued=await app.continueSaved();
  if(continued.ok&&seed&&app.query().snapshot?.seed!==seed){const result=await app.restart({seed});if(!result.ok)throw Error(result.error.message);}
  else if(!continued.ok){const result=await app.initialize({seed:seed||'hi-story-v010'});if(!result.ok)throw Error(result.error.message);}
- document.title='暮光山谷 · hi-story v0.2.0';mountAdventure(root,app);
+ document.title='暮光山谷 · hi-story v0.3.0';mountAdventure(root,app);
 } else if (new URLSearchParams(location.search).get('view') === 'demo-legacy') {
  const app = createGameApplication();
  const result = await app.initialize({seed:new URLSearchParams(location.search).get('seed') || 'hi-story-demo'});
@@ -54,7 +58,7 @@ if (!new URLSearchParams(location.search).get('view') || new URLSearchParams(loc
    lock: (slot,locked)=>update(()=>studio.lock(slot,locked),locked?'部件已锁定。':'部件已解锁。'),
    select: (slot,part)=>update(()=>studio.setPart(slot,part),'样式已更新。'),
    export: ()=>{
-    const url=URL.createObjectURL(new Blob([JSON.stringify({...studio.query().model,gender:studio.query().gender,artVersion:'character-art/2'},null,2)],{type:'application/json'}));
+    const url=URL.createObjectURL(new Blob([JSON.stringify({...studio.query().model,gender:studio.query().gender,artVersion:artVersionFor(studio.query().model)},null,2)],{type:'application/json'}));
     const link=document.createElement('a');link.href=url;link.download='hi-story-character.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
     drawStudio('人物 JSON 已导出。');
    },

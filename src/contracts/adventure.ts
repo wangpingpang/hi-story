@@ -17,3 +17,10 @@ export type AdventureEffect=
  | {kind:'quest';questId:string}
  | {kind:'event';templateId:string}
  | {kind:'ending';outcome:'success'|'failed'};
+
+/** Committed battle evidence; presentation must never roll again. */
+export interface DiceRollRecord {
+ id:string;sequence:number;kind:'initiative'|'movement'|'attack'|'damage'|'escape'|'save'|'healing';
+ actorId:string;targetId?:string;sides:4|6|8|10|12|20;dice:number[];bonus:number;total:number;minimum?:0|1;
+ threshold?:number;success?:boolean;critical?:boolean;visual?:'spell'|'unarmed';
+}

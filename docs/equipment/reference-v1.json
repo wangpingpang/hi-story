@@ -1,0 +1,2597 @@
+{
+  "source": "Original tested equipment book engine, 261-test baseline before workspace cleanup",
+  "cases": [
+    {
+      "setId": "fighter-guardian",
+      "height": "short",
+      "body": "slim",
+      "sha256": "99f1c11bdd8631767b646a79541e32daebe5ff3fcbbe95b1aa226ff0479519fb"
+    },
+    {
+      "setId": "fighter-guardian",
+      "height": "short",
+      "body": "balanced",
+      "sha256": "b03447e5c06358c1e63b8a7d843c3f396e1c7c964e814fa1a735e69b81caf13e"
+    },
+    {
+      "setId": "fighter-guardian",
+      "height": "short",
+      "body": "broad",
+      "sha256": "e882f6bf8d233e34e5c8b11cc636648b2dc5ae4868e3d48e2c604665da689a4c"
+    },
+    {
+      "setId": "fighter-guardian",
+      "height": "short",
+      "body": "stocky",
+      "sha256": "2beabe4ff645f019d343acedaee5ff5d7b70c805f4b1adb83cf543f5f9d43344"
+    },
+    {
+      "setId": "fighter-guardian",
+      "height": "regular",
+      "body": "slim",
+      "sha256": "59b57cb51cfd0727c602ea31f3d8e8ec2e3c5602d2ff62a18065952b947b7b89"
+    },
+    {
+      "setId": "fighter-guardian",
+      "height": "regular",
+      "body": "balanced",
+      "sha256": "2172c2b0274e3cff4b7bd83ac605c58ddfc26646ab8a6ff5a7ae510b7e89d1ca"
+    },
+    {
+      "setId": "fighter-guardian",
+      "height": "regular",
+      "body": "broad",
+      "sha256": "379339b7e1cb0510331f15c4412fa80afdc95b338e08677f4d9c787800ab8411"
+    },
+    {
+      "setId": "fighter-guardian",
+      "height": "regular",
+      "body": "stocky",
+      "sha256": "c2254ba6f1dc2b3cd0ef40d81554443fc9ff6eb84017c27e89eb91065db10a6b"
+    },
+    {
+      "setId": "fighter-guardian",
+      "height": "tall",
+      "body": "slim",
+      "sha256": "57e0f974bb8ed801f132ad75cc1eb550ea9ece68eb2bde230545b28e6b1182a2"
+    },
+    {
+      "setId": "fighter-guardian",
+      "height": "tall",
+      "body": "balanced",
+      "sha256": "d21e4a00483f20d7cad54ef92e3085d2ca1bf3cdde47020fb1a746c7db48e3e1"
+    },
+    {
+      "setId": "fighter-guardian",
+      "height": "tall",
+      "body": "broad",
+      "sha256": "881f42a82373968e3eac2546139d6010224c930e1a77f848b2b4b9a8ddd26f69"
+    },
+    {
+      "setId": "fighter-guardian",
+      "height": "tall",
+      "body": "stocky",
+      "sha256": "5116cfdda3e2f65f8e08d2d7932cd3364527fb10b105b39a7804b4b86ac3c9e5"
+    },
+    {
+      "setId": "fighter-duelist",
+      "height": "short",
+      "body": "slim",
+      "sha256": "d1c9b239daf8a7c08dfe6d6662d60c7754bff3085ec6e7e18cf31d7e955a5f12"
+    },
+    {
+      "setId": "fighter-duelist",
+      "height": "short",
+      "body": "balanced",
+      "sha256": "c9e3fa2a9415a7c6dff427d615fd30ce5872dd94dcb23b2072dbb59e0174956e"
+    },
+    {
+      "setId": "fighter-duelist",
+      "height": "short",
+      "body": "broad",
+      "sha256": "b64abeb58b8a66c97848305f3727bd9863dcbd27375dea89be73d41355fffa7c"
+    },
+    {
+      "setId": "fighter-duelist",
+      "height": "short",
+      "body": "stocky",
+      "sha256": "d58d5bffb00e8e028bfff31354ea92082abad1e7142c9a3a2c1cca353749331f"
+    },
+    {
+      "setId": "fighter-duelist",
+      "height": "regular",
+      "body": "slim",
+      "sha256": "16158b4fbe1a17a47c6139ddf7aa5a8a750fab138fb2ada29c988f9fb7867cd0"
+    },
+    {
+      "setId": "fighter-duelist",
+      "height": "regular",
+      "body": "balanced",
+      "sha256": "e4b905a7e2b2735971c07206aae5fa9a835544b9b8febe0b0e8c6c2d9895589a"
+    },
+    {
+      "setId": "fighter-duelist",
+      "height": "regular",
+      "body": "broad",
+      "sha256": "4e05a50a7c2000e1fdec3f3372bb2d65ff4ffcca73c4e79bbafd472de185dca9"
+    },
+    {
+      "setId": "fighter-duelist",
+      "height": "regular",
+      "body": "stocky",
+      "sha256": "fbb5842ba9f8356bf85c09e2ae633f12f2472fce53b21c2e73c25293978d0394"
+    },
+    {
+      "setId": "fighter-duelist",
+      "height": "tall",
+      "body": "slim",
+      "sha256": "0935af1d5fa3cc0db6b2f21daf4c32591c195fd814a7912924c967a0e32ac4f3"
+    },
+    {
+      "setId": "fighter-duelist",
+      "height": "tall",
+      "body": "balanced",
+      "sha256": "8c1ac50ff8ec8b547321c190864c7e3571133f076a21f3890ee0c3de6ca77c3a"
+    },
+    {
+      "setId": "fighter-duelist",
+      "height": "tall",
+      "body": "broad",
+      "sha256": "d0fae1f190e74f9bab3be14d1ece9e25bd4aa024a525cf4da6a256ffe2a32df1"
+    },
+    {
+      "setId": "fighter-duelist",
+      "height": "tall",
+      "body": "stocky",
+      "sha256": "8526986557f62b1e1bd136f2c4d1862292b6c0c03d4d76c281cfd035769cc079"
+    },
+    {
+      "setId": "fighter-commander",
+      "height": "short",
+      "body": "slim",
+      "sha256": "27110109f7b452d18051fbb9d8ecec1312b6f91ec4c22112f5d8155aa18c11b2"
+    },
+    {
+      "setId": "fighter-commander",
+      "height": "short",
+      "body": "balanced",
+      "sha256": "60d94e48d1e71ebfb6f0e7fb51935e43948501382b12b3eb2d7276995d29a0d0"
+    },
+    {
+      "setId": "fighter-commander",
+      "height": "short",
+      "body": "broad",
+      "sha256": "d958b02f1f8d8680a30e9ca59bc719d1d8fd4fc0a75854cc86a55131bef58a22"
+    },
+    {
+      "setId": "fighter-commander",
+      "height": "short",
+      "body": "stocky",
+      "sha256": "ce031dcba8975e73a8e25eb3b4aed0b96e17f16525b3ecec39d3f13b3f8711c4"
+    },
+    {
+      "setId": "fighter-commander",
+      "height": "regular",
+      "body": "slim",
+      "sha256": "0da001d2075574c0ad17dabd57b63b7a813c98899344114715b64943ee77b0ec"
+    },
+    {
+      "setId": "fighter-commander",
+      "height": "regular",
+      "body": "balanced",
+      "sha256": "2285e6426b5cbdde86688b9a536cd551ff8bf18edf43189db25ff2b80d8e969f"
+    },
+    {
+      "setId": "fighter-commander",
+      "height": "regular",
+      "body": "broad",
+      "sha256": "bfb217ef724e9ea48ff1a73700482b443626274c7830483c7ab151a8321e1458"
+    },
+    {
+      "setId": "fighter-commander",
+      "height": "regular",
+      "body": "stocky",
+      "sha256": "8e62a3f151c749fadc5b96fa143fe55d0777db3645b1b87798cf249b00222b37"
+    },
+    {
+      "setId": "fighter-commander",
+      "height": "tall",
+      "body": "slim",
+      "sha256": "55e3c74d763d78d33c38606582661cfc23e345d9f26672291b8dda03c40e1eac"
+    },
+    {
+      "setId": "fighter-commander",
+      "height": "tall",
+      "body": "balanced",
+      "sha256": "c08e7cc77f1868834acf714715a15b3052798b33fb6434df8dada0783f819738"
+    },
+    {
+      "setId": "fighter-commander",
+      "height": "tall",
+      "body": "broad",
+      "sha256": "3fcc28ba4ab4a3a404437372eb7281162e1d5490a7e6b28b298175738b397266"
+    },
+    {
+      "setId": "fighter-commander",
+      "height": "tall",
+      "body": "stocky",
+      "sha256": "c7970a28473b82741515d990ce0dc67643d55d322789c08a5e8af24e004e306f"
+    },
+    {
+      "setId": "barbarian-berserker",
+      "height": "short",
+      "body": "slim",
+      "sha256": "037dcf222b9e94f335bf646404ab1e830fe69ce1adacdd3e9f2c6aac1f091cac"
+    },
+    {
+      "setId": "barbarian-berserker",
+      "height": "short",
+      "body": "balanced",
+      "sha256": "1f490db4afb78b988083ab31c686f7a52993c60160f452f89a90e8c537528b9f"
+    },
+    {
+      "setId": "barbarian-berserker",
+      "height": "short",
+      "body": "broad",
+      "sha256": "494dd8e188d2627d338093b43cbce497ea649835d8764d4cdf0b607d869d4666"
+    },
+    {
+      "setId": "barbarian-berserker",
+      "height": "short",
+      "body": "stocky",
+      "sha256": "a53df8f7dfebf0e4f9d493e50306b15c63277a2f61b869bdbbab92384aafc686"
+    },
+    {
+      "setId": "barbarian-berserker",
+      "height": "regular",
+      "body": "slim",
+      "sha256": "789d24770b601df06a703ce09c866160c72549d3fbeae06c066d88946ad0b10e"
+    },
+    {
+      "setId": "barbarian-berserker",
+      "height": "regular",
+      "body": "balanced",
+      "sha256": "6560e278fff084c9966df2c43f46c8c6eb93ae793029d7dfe5c50094d8e46d4e"
+    },
+    {
+      "setId": "barbarian-berserker",
+      "height": "regular",
+      "body": "broad",
+      "sha256": "647ea4ca27dda009d4d97e029d7ae1d581e0912be92467712145ab939500d130"
+    },
+    {
+      "setId": "barbarian-berserker",
+      "height": "regular",
+      "body": "stocky",
+      "sha256": "ffb0c89da2f4f39ac9c62c768db8ca7ee12bbb7bf9c828fcf38a6730194795cc"
+    },
+    {
+      "setId": "barbarian-berserker",
+      "height": "tall",
+      "body": "slim",
+      "sha256": "0c11ac4c1ccdc7cee723c1c8275ebf3c457439cfd3f24f0c3368ab14c4cb38ba"
+    },
+    {
+      "setId": "barbarian-berserker",
+      "height": "tall",
+      "body": "balanced",
+      "sha256": "35cabcb8ee654169ecc5270c6eb65bebf3a62db6b078b8eb91e5a40124bdf77d"
+    },
+    {
+      "setId": "barbarian-berserker",
+      "height": "tall",
+      "body": "broad",
+      "sha256": "439a56e4bd777c9804649f0207bc44021945f94b05cfd7e5f3bcd0d15e9d9042"
+    },
+    {
+      "setId": "barbarian-berserker",
+      "height": "tall",
+      "body": "stocky",
+      "sha256": "7597060733d0ea2941dfa2756a09cc1ac2c6f9efbe17fe5055ef0cd6a89a47fe"
+    },
+    {
+      "setId": "barbarian-ancestor",
+      "height": "short",
+      "body": "slim",
+      "sha256": "06dee088022bcad7d9c344b1d5bb35741a5297e1f6937b22daab85de515ed466"
+    },
+    {
+      "setId": "barbarian-ancestor",
+      "height": "short",
+      "body": "balanced",
+      "sha256": "3e768370f33225a667af470237f9262748620061f0e0de3b0cfd18c7f1635d93"
+    },
+    {
+      "setId": "barbarian-ancestor",
+      "height": "short",
+      "body": "broad",
+      "sha256": "e47dfd2fd72539740d3b3a076c0d8841d31b2170acf95e1cf463771121fa1a0a"
+    },
+    {
+      "setId": "barbarian-ancestor",
+      "height": "short",
+      "body": "stocky",
+      "sha256": "d7dfa4db827c344b1dd8708249a1292df768ce5cb7b77cb17e71c3d2877df443"
+    },
+    {
+      "setId": "barbarian-ancestor",
+      "height": "regular",
+      "body": "slim",
+      "sha256": "d0133b8963fa4a5f9386ce924073aa8f2dce73dc24a55a42f03b5a212857ebe9"
+    },
+    {
+      "setId": "barbarian-ancestor",
+      "height": "regular",
+      "body": "balanced",
+      "sha256": "1cb7837afe55ef349a045aa29adf0540486c363c3ac00ea14df837a828c5baa6"
+    },
+    {
+      "setId": "barbarian-ancestor",
+      "height": "regular",
+      "body": "broad",
+      "sha256": "6c5e9b9dd7fa63ced1da16e1610cb8ebe96c039dae6b8accca648ef839364053"
+    },
+    {
+      "setId": "barbarian-ancestor",
+      "height": "regular",
+      "body": "stocky",
+      "sha256": "1209adc7d67b1086fdfb0d5cc439ebd5636741d9d88bca7952e67b90beac99ae"
+    },
+    {
+      "setId": "barbarian-ancestor",
+      "height": "tall",
+      "body": "slim",
+      "sha256": "4ae5ca8f3f894fccc872c2e2b8a125699cedaecaa7651ca7cc37b62c38b90ef4"
+    },
+    {
+      "setId": "barbarian-ancestor",
+      "height": "tall",
+      "body": "balanced",
+      "sha256": "46ad2d86d860e615f3cc6a85baf237752f08b6be335065d10e284dd9154b978f"
+    },
+    {
+      "setId": "barbarian-ancestor",
+      "height": "tall",
+      "body": "broad",
+      "sha256": "bf3feae25a27f941d964fc2d4d62bea900a74115b31f8f4156e0767f56a24e2b"
+    },
+    {
+      "setId": "barbarian-ancestor",
+      "height": "tall",
+      "body": "stocky",
+      "sha256": "d9c412569005a0a535bcafe07adbfce91613f3c7dbd5a3bfd207728325f73c3e"
+    },
+    {
+      "setId": "barbarian-storm",
+      "height": "short",
+      "body": "slim",
+      "sha256": "8bc7dbb4f293bedb1e472b8d01f6a42ccbe40e1c822436f22d03081eb7c33405"
+    },
+    {
+      "setId": "barbarian-storm",
+      "height": "short",
+      "body": "balanced",
+      "sha256": "0d195f2a9843831a7d3857f6dbeccbe422e9d9f22b769943ab4a89826b6ceca3"
+    },
+    {
+      "setId": "barbarian-storm",
+      "height": "short",
+      "body": "broad",
+      "sha256": "345254d4324bdfd4362c9fb5cc29c85845ddb94e95dea28f51d814a0763d2b23"
+    },
+    {
+      "setId": "barbarian-storm",
+      "height": "short",
+      "body": "stocky",
+      "sha256": "9c4465a44ed4f6cd3ec5bfa5293783cfb3c530024a4d1a2c275502d1bbb8711a"
+    },
+    {
+      "setId": "barbarian-storm",
+      "height": "regular",
+      "body": "slim",
+      "sha256": "2e63462e8abb640becca0bd9165fc4043324fcdb9694604fb81ea883ce9a2dd2"
+    },
+    {
+      "setId": "barbarian-storm",
+      "height": "regular",
+      "body": "balanced",
+      "sha256": "6164f9bc26d6e1b1b295e586980400f5adeb54e3cd9f19eaf44da237291b133d"
+    },
+    {
+      "setId": "barbarian-storm",
+      "height": "regular",
+      "body": "broad",
+      "sha256": "ba2d672565bd6f4ba216023ef2e372795277a42c2e124559164d3f8193869297"
+    },
+    {
+      "setId": "barbarian-storm",
+      "height": "regular",
+      "body": "stocky",
+      "sha256": "b6a9b31e6d6909da6c7a968d7351e1eef3e717b55e6234dcb4f881d67a57fa36"
+    },
+    {
+      "setId": "barbarian-storm",
+      "height": "tall",
+      "body": "slim",
+      "sha256": "682102665d7cc7cb21eb465b1d6f7e4a30e3532e9e3e52eabca9009841a5f586"
+    },
+    {
+      "setId": "barbarian-storm",
+      "height": "tall",
+      "body": "balanced",
+      "sha256": "0421a07d21395da74e9bd7f8e5fecd9a539dd34da3b30d6fab7fba3ea2b6ca92"
+    },
+    {
+      "setId": "barbarian-storm",
+      "height": "tall",
+      "body": "broad",
+      "sha256": "97057e4e3700f62dec1e2d5a27725779e25369c8d693f4576dd2698d15dd6eaa"
+    },
+    {
+      "setId": "barbarian-storm",
+      "height": "tall",
+      "body": "stocky",
+      "sha256": "bc9e23c1a5e1096c6c9054749d46a74d01fe9edc755a3e959cca59a821688b27"
+    },
+    {
+      "setId": "rogue-shadow",
+      "height": "short",
+      "body": "slim",
+      "sha256": "f19fd03eb4f412edafabefaf6142814686423665db02a1341fc0eea0a35904f1"
+    },
+    {
+      "setId": "rogue-shadow",
+      "height": "short",
+      "body": "balanced",
+      "sha256": "472c212bfe29f6da94f5914b54e1c27219435eb21d433b1a10dd5594e77ead18"
+    },
+    {
+      "setId": "rogue-shadow",
+      "height": "short",
+      "body": "broad",
+      "sha256": "6652c529f8edbfd14d102bdc62634677dad44482d593cf8e425443770ff71c8d"
+    },
+    {
+      "setId": "rogue-shadow",
+      "height": "short",
+      "body": "stocky",
+      "sha256": "f7dc80f771146922c9937c9033b41128e3138f4a149036aadd5f40393df07061"
+    },
+    {
+      "setId": "rogue-shadow",
+      "height": "regular",
+      "body": "slim",
+      "sha256": "c5391400a62129c710f1406461b4148f1548b893840f609ad21e09bb96dc7530"
+    },
+    {
+      "setId": "rogue-shadow",
+      "height": "regular",
+      "body": "balanced",
+      "sha256": "23dac307efa53643a7ee29156e47cb758c3ea2aad2fd0cda61c407dc2014b388"
+    },
+    {
+      "setId": "rogue-shadow",
+      "height": "regular",
+      "body": "broad",
+      "sha256": "aa73df3437c7d8d2cc059abf9069517c0f250245ab29a2396f4504ded0a25f87"
+    },
+    {
+      "setId": "rogue-shadow",
+      "height": "regular",
+      "body": "stocky",
+      "sha256": "fe66852e4eb5e4875be068ab225d486f1a06b69bc0092b44413ee783d724cf05"
+    },
+    {
+      "setId": "rogue-shadow",
+      "height": "tall",
+      "body": "slim",
+      "sha256": "3028af5dfdf0973960a1fdf0842abbe0725017524bbc9a754db58c0836213193"
+    },
+    {
+      "setId": "rogue-shadow",
+      "height": "tall",
+      "body": "balanced",
+      "sha256": "fac54d14c197ad120b3834560e1453296adad5237729158766757ff988d8f23d"
+    },
+    {
+      "setId": "rogue-shadow",
+      "height": "tall",
+      "body": "broad",
+      "sha256": "712822c8c8f97d5c9a76255e46c3277f4c5cb86eab3339bdec6c87af60ed951e"
+    },
+    {
+      "setId": "rogue-shadow",
+      "height": "tall",
+      "body": "stocky",
+      "sha256": "5d9b95a1deb2646f13a441e9786440eb326aad3e3bd7ac0ff99ad904ae06fcec"
+    },
+    {
+      "setId": "rogue-investigator",
+      "height": "short",
+      "body": "slim",
+      "sha256": "9dcdd96ec5fee6a28e5bdae185c8663334ef0e77e104b89390f5e779a167a48a"
+    },
+    {
+      "setId": "rogue-investigator",
+      "height": "short",
+      "body": "balanced",
+      "sha256": "ff249aeebe7a9c53afe0cdf45f67a041ae83795df8afdefdc83fe3c0ce030375"
+    },
+    {
+      "setId": "rogue-investigator",
+      "height": "short",
+      "body": "broad",
+      "sha256": "2f9cd64f0f6defce98584160572f811bd5ff012d7578413828f94b2d0007d4da"
+    },
+    {
+      "setId": "rogue-investigator",
+      "height": "short",
+      "body": "stocky",
+      "sha256": "a951657199647269bab41f72f74d53800891eb18f9dad801b76a5eb7e1d21505"
+    },
+    {
+      "setId": "rogue-investigator",
+      "height": "regular",
+      "body": "slim",
+      "sha256": "757ebad400279e43621759ba0a6cc14741f7cb2137dbc42e2c856f009682682e"
+    },
+    {
+      "setId": "rogue-investigator",
+      "height": "regular",
+      "body": "balanced",
+      "sha256": "7dee8e24f8275510dce5607bcd756e2ad02eee053f32c1d08eef4e2118a3df6d"
+    },
+    {
+      "setId": "rogue-investigator",
+      "height": "regular",
+      "body": "broad",
+      "sha256": "97a26e6290470b3938488de9abd536aa6b4620fc7695578b96e7f7ce3349a817"
+    },
+    {
+      "setId": "rogue-investigator",
+      "height": "regular",
+      "body": "stocky",
+      "sha256": "e8a21c8fc24b7116ac047727f68dd92591453a9a462753455902e814bae1808d"
+    },
+    {
+      "setId": "rogue-investigator",
+      "height": "tall",
+      "body": "slim",
+      "sha256": "3cc81026af626f88c73883a5c59f945416e7ebc1cbebf771867d747c74084a0b"
+    },
+    {
+      "setId": "rogue-investigator",
+      "height": "tall",
+      "body": "balanced",
+      "sha256": "e33b7d8692b5e72d8bef4e1dd6d827b8bc9945e2cca5a5a49fab90cdd646be24"
+    },
+    {
+      "setId": "rogue-investigator",
+      "height": "tall",
+      "body": "broad",
+      "sha256": "4c4a4762b63ee57bdd612e16fa41c8024effee18657d7b49ff7262fa74b66145"
+    },
+    {
+      "setId": "rogue-investigator",
+      "height": "tall",
+      "body": "stocky",
+      "sha256": "02dfbc311fd01d1c357caba970940caa9068bb238290bba72d474819a7132c30"
+    },
+    {
+      "setId": "rogue-trickster",
+      "height": "short",
+      "body": "slim",
+      "sha256": "d853ed24fdadb7a38677b9bd294822b6c018e9e0f943907be9ccfdc657516991"
+    },
+    {
+      "setId": "rogue-trickster",
+      "height": "short",
+      "body": "balanced",
+      "sha256": "cbb583dda170f04f2d604949e1522881940da3bc62f9907c5aad01f20bd2a7b0"
+    },
+    {
+      "setId": "rogue-trickster",
+      "height": "short",
+      "body": "broad",
+      "sha256": "8c343c035ffb745fd8c6cc304bc35d1fb1bbbacd75696c7472ede26ef1b30e9a"
+    },
+    {
+      "setId": "rogue-trickster",
+      "height": "short",
+      "body": "stocky",
+      "sha256": "8d4683d0a7730cbb9cce8b02d90ae8dc0c4d9550d99c2397a4b29d6f5c2bf36f"
+    },
+    {
+      "setId": "rogue-trickster",
+      "height": "regular",
+      "body": "slim",
+      "sha256": "0f281b02dcb480ce68d8601f1f30ebebb09534ab2f4557faf3cee8bbf25d622a"
+    },
+    {
+      "setId": "rogue-trickster",
+      "height": "regular",
+      "body": "balanced",
+      "sha256": "7b7d3ca73c335ba10d528eac358929e1533583481ea85f67cc5369aa68881f57"
+    },
+    {
+      "setId": "rogue-trickster",
+      "height": "regular",
+      "body": "broad",
+      "sha256": "b26751e1e780da0a8c109616e379a845f98c60ee6c0a0135fcef8f1df0ee31ee"
+    },
+    {
+      "setId": "rogue-trickster",
+      "height": "regular",
+      "body": "stocky",
+      "sha256": "b1c265604d828a3a38f1813189bacf293a3fe76e4454bc5eb8ff191f25510162"
+    },
+    {
+      "setId": "rogue-trickster",
+      "height": "tall",
+      "body": "slim",
+      "sha256": "d70d32660f9cbb3238c3eb59466dd1f65c9e377de1cfaf0b59799e52d96b67c8"
+    },
+    {
+      "setId": "rogue-trickster",
+      "height": "tall",
+      "body": "balanced",
+      "sha256": "001ff798cc73b2e50f025dd32fda43265630e0013dca3f343c40c35c36fe1e4a"
+    },
+    {
+      "setId": "rogue-trickster",
+      "height": "tall",
+      "body": "broad",
+      "sha256": "e5f8f12ba872d8eadf1880269373db07c70bcb7f69f5f2dec250b0100ef68e3e"
+    },
+    {
+      "setId": "rogue-trickster",
+      "height": "tall",
+      "body": "stocky",
+      "sha256": "bdc2d608601fcaa858f2d8212b2dd5e5a1b4b36b0b75fc052e312bf23af6b61d"
+    },
+    {
+      "setId": "monk-openhand",
+      "height": "short",
+      "body": "slim",
+      "sha256": "e26538e6e45e204ab3055aa578381fbf22471cc60ede60e2d1d668150697852e"
+    },
+    {
+      "setId": "monk-openhand",
+      "height": "short",
+      "body": "balanced",
+      "sha256": "98393302bcbb8f87f602e02366c77a71a5d116d9516c27423957f589bc8b516a"
+    },
+    {
+      "setId": "monk-openhand",
+      "height": "short",
+      "body": "broad",
+      "sha256": "2ff3100d879f809cefd62f30e4c75bd643d1b31cc36eb75b415986e2923e9fd0"
+    },
+    {
+      "setId": "monk-openhand",
+      "height": "short",
+      "body": "stocky",
+      "sha256": "d04dc9d63adf09cf9477de9fa7f4365407a9b9c188582cabb528b9f054809bf5"
+    },
+    {
+      "setId": "monk-openhand",
+      "height": "regular",
+      "body": "slim",
+      "sha256": "4f1a6c890f77a2e3698455b77a7f577accb1763bc6e7e7b638f1eac41f56a870"
+    },
+    {
+      "setId": "monk-openhand",
+      "height": "regular",
+      "body": "balanced",
+      "sha256": "a2a4ce5d42ec8dd915e785788b6e9666be0d70d676ee9da1d5588dea138d307b"
+    },
+    {
+      "setId": "monk-openhand",
+      "height": "regular",
+      "body": "broad",
+      "sha256": "c3fa47a99fc6f6be066f99825638aa85ae90462723f5bbde04acde7beab26a0d"
+    },
+    {
+      "setId": "monk-openhand",
+      "height": "regular",
+      "body": "stocky",
+      "sha256": "469d880828357313a09ba0eaad420e9370a6baa9131c6e21b17c1c3d7d348f38"
+    },
+    {
+      "setId": "monk-openhand",
+      "height": "tall",
+      "body": "slim",
+      "sha256": "b749bba12a0b043941c138688bcf7497743ca5e0806cfef1a136477154b91852"
+    },
+    {
+      "setId": "monk-openhand",
+      "height": "tall",
+      "body": "balanced",
+      "sha256": "ce68a0d90e55c60733bf785aefb41184747cd4e57f3018221d843a2677cd676b"
+    },
+    {
+      "setId": "monk-openhand",
+      "height": "tall",
+      "body": "broad",
+      "sha256": "01eca9b85a62852c95c4355ff3f62d7935901f23bc136d6e963fdb2adf435fbf"
+    },
+    {
+      "setId": "monk-openhand",
+      "height": "tall",
+      "body": "stocky",
+      "sha256": "13b6bad446d994ef609e5146eb90ad336e344612de39a7bf6f2ec108775da280"
+    },
+    {
+      "setId": "monk-shadowmonk",
+      "height": "short",
+      "body": "slim",
+      "sha256": "ee3ba2dc8ce17da61c4d876d47e52fd0fa52c5a6933d8fd47cbd2b51caac9d98"
+    },
+    {
+      "setId": "monk-shadowmonk",
+      "height": "short",
+      "body": "balanced",
+      "sha256": "068896d113e9e417653d20c667dfc01a3fbd4d9194d6e34c76bfa28c096f752e"
+    },
+    {
+      "setId": "monk-shadowmonk",
+      "height": "short",
+      "body": "broad",
+      "sha256": "8b2b2e6ecda2fa7709cd785193c185695972dacb47fbeb222d2abe8ae14c449a"
+    },
+    {
+      "setId": "monk-shadowmonk",
+      "height": "short",
+      "body": "stocky",
+      "sha256": "0908b441173c00175f03f45b1b54d0d5ed30271628b0a3782e9385499ee7219d"
+    },
+    {
+      "setId": "monk-shadowmonk",
+      "height": "regular",
+      "body": "slim",
+      "sha256": "dfdd750e83848c320216f6aafa230078abb54a7de5acb4122dbfeb5362c62642"
+    },
+    {
+      "setId": "monk-shadowmonk",
+      "height": "regular",
+      "body": "balanced",
+      "sha256": "a5173a535321e68f6f1a151cc4c2b5137394cc7f3da954b6313fc2b533fb48b2"
+    },
+    {
+      "setId": "monk-shadowmonk",
+      "height": "regular",
+      "body": "broad",
+      "sha256": "c4548e8938704ca3d47c8c5f7641495bf5d91712bee89adc6ed72f7766e502fc"
+    },
+    {
+      "setId": "monk-shadowmonk",
+      "height": "regular",
+      "body": "stocky",
+      "sha256": "f9e90a470df259c6b28899157f4b79c32032b01609d2302ee1ab0b2873841e9d"
+    },
+    {
+      "setId": "monk-shadowmonk",
+      "height": "tall",
+      "body": "slim",
+      "sha256": "eb19892ba629512dd16096514fa5a6a25fee84aa75613fd08687ed2853fda474"
+    },
+    {
+      "setId": "monk-shadowmonk",
+      "height": "tall",
+      "body": "balanced",
+      "sha256": "4efcadbba7a0f0f927f8fa0e1b0685a5fa16ce20de2dbda3d94ba61c7d817008"
+    },
+    {
+      "setId": "monk-shadowmonk",
+      "height": "tall",
+      "body": "broad",
+      "sha256": "bfea21fcf5a6cd9f2129fd04506dff43291597d79816ca1225164b1e00a556f5"
+    },
+    {
+      "setId": "monk-shadowmonk",
+      "height": "tall",
+      "body": "stocky",
+      "sha256": "57dd59f6c2584ec692819c99eb643137635bec2b2350d9e20122ec1fc42d5d4d"
+    },
+    {
+      "setId": "monk-elements",
+      "height": "short",
+      "body": "slim",
+      "sha256": "097e90c6d0bcfc6d5bc7566198e5e7434d071882f3abf92b681f6d2fa867b405"
+    },
+    {
+      "setId": "monk-elements",
+      "height": "short",
+      "body": "balanced",
+      "sha256": "00877fba3fa6238c301729af8d8abbd7b54a0b3aad76979ca70eac5da02d7c95"
+    },
+    {
+      "setId": "monk-elements",
+      "height": "short",
+      "body": "broad",
+      "sha256": "ba47070b93a477fb87b8b69ac8c2798a78b1545403dc63342a9bf65c906c1b14"
+    },
+    {
+      "setId": "monk-elements",
+      "height": "short",
+      "body": "stocky",
+      "sha256": "6b7ab7154fb88b22b6a6e58a80e6c9c329d70f7fe5f381dd5fa7dd5d455f8397"
+    },
+    {
+      "setId": "monk-elements",
+      "height": "regular",
+      "body": "slim",
+      "sha256": "eb0076d7b6feb0cc482912cee9bdd8f601138856e520c73509b217550f1e71ec"
+    },
+    {
+      "setId": "monk-elements",
+      "height": "regular",
+      "body": "balanced",
+      "sha256": "be38801adaf1ee97663036ec4b212e2b3f6b08eb38c9117c944a63e337cf20eb"
+    },
+    {
+      "setId": "monk-elements",
+      "height": "regular",
+      "body": "broad",
+      "sha256": "8369ae6362cbf4ceb8cb4b2ab58ba869238198bcaa56c6e25c222e15669a89c4"
+    },
+    {
+      "setId": "monk-elements",
+      "height": "regular",
+      "body": "stocky",
+      "sha256": "de7dda8fcea5c9f7c0341c1f1584204f897bb09787f8f4464758b6161c654fa3"
+    },
+    {
+      "setId": "monk-elements",
+      "height": "tall",
+      "body": "slim",
+      "sha256": "5090d45d05fefc291469da1e00c913c58012b85020a80253d792dea6829dcc2a"
+    },
+    {
+      "setId": "monk-elements",
+      "height": "tall",
+      "body": "balanced",
+      "sha256": "7c8277b195b9147b2663846c4190c9407738129b673305944ad69577ad62508c"
+    },
+    {
+      "setId": "monk-elements",
+      "height": "tall",
+      "body": "broad",
+      "sha256": "a812ce074814f07db97674b9e111a6511e70b3144d733b59e6a9296a93b77341"
+    },
+    {
+      "setId": "monk-elements",
+      "height": "tall",
+      "body": "stocky",
+      "sha256": "9507647bf4927b5004b345ee40149b2bac8456f740121f1cb8e26a9354a08372"
+    },
+    {
+      "setId": "ranger-hunter",
+      "height": "short",
+      "body": "slim",
+      "sha256": "7c2a1a9b54b3b0f64456550e6121cb0c3bcb0bb3825d7cf178efcaaf2fb9a5e8"
+    },
+    {
+      "setId": "ranger-hunter",
+      "height": "short",
+      "body": "balanced",
+      "sha256": "87b202b2c7b1ad5273ac8ca1f96360d6ce41f610979afd29b0df0d1dbb05ad90"
+    },
+    {
+      "setId": "ranger-hunter",
+      "height": "short",
+      "body": "broad",
+      "sha256": "970d13db800f70cfffb7e2392c6836b44bc87f2de6d215ba9c22c887e8fdcb1b"
+    },
+    {
+      "setId": "ranger-hunter",
+      "height": "short",
+      "body": "stocky",
+      "sha256": "ab2dba89cbcb78ad552fad6be89f2c3fc994086c3dc57d96fab0c6181096395d"
+    },
+    {
+      "setId": "ranger-hunter",
+      "height": "regular",
+      "body": "slim",
+      "sha256": "8a47dff3423aeee87fb4c1c626294fee9629b19ece2a8e45a727c35034fd383b"
+    },
+    {
+      "setId": "ranger-hunter",
+      "height": "regular",
+      "body": "balanced",
+      "sha256": "ee1ce7e1b5063a4a93f1537d2b7fec7a56e042b16423a14fb35cfa153994e1b3"
+    },
+    {
+      "setId": "ranger-hunter",
+      "height": "regular",
+      "body": "broad",
+      "sha256": "7809ebde4212fb63db15668d71e899e18baeabcb39c0f7b21073d483cdea09db"
+    },
+    {
+      "setId": "ranger-hunter",
+      "height": "regular",
+      "body": "stocky",
+      "sha256": "419e8de6d315bf6d70965e57accec23f879f6100dcbaccac453ee25d2b1e6ec3"
+    },
+    {
+      "setId": "ranger-hunter",
+      "height": "tall",
+      "body": "slim",
+      "sha256": "9d0e96692de578c33ed3a808e134ef9d17391410942af7eb1076a0b7726fe744"
+    },
+    {
+      "setId": "ranger-hunter",
+      "height": "tall",
+      "body": "balanced",
+      "sha256": "93f0e20de7fff3babd13b9310e2a15a8ef19eb63766344950b6dee970754313a"
+    },
+    {
+      "setId": "ranger-hunter",
+      "height": "tall",
+      "body": "broad",
+      "sha256": "5ebc42139e642a332d8a719092547a3f65349a916d38f4fafc388c531a2f68c0"
+    },
+    {
+      "setId": "ranger-hunter",
+      "height": "tall",
+      "body": "stocky",
+      "sha256": "3bc2eac70371d4fb0775301719d6192b4d11505f1e18ef5c2c93a82db139e7a8"
+    },
+    {
+      "setId": "ranger-beast",
+      "height": "short",
+      "body": "slim",
+      "sha256": "c88b4f6df65698ff73f43f742814b9b994601f8881957f8652999c95466ffbfe"
+    },
+    {
+      "setId": "ranger-beast",
+      "height": "short",
+      "body": "balanced",
+      "sha256": "7d013697ae9d5167a6b2e9587228433721054962180945a308994f89bd13ad7a"
+    },
+    {
+      "setId": "ranger-beast",
+      "height": "short",
+      "body": "broad",
+      "sha256": "89ed884bd4bb161e06df0d4415f82e04c154601d95819ffe9cc06daaf693f0a4"
+    },
+    {
+      "setId": "ranger-beast",
+      "height": "short",
+      "body": "stocky",
+      "sha256": "e2f0b9682b796f4de5a8325886aac055fa46b04e4cbdc7804738dfbd5d4d3210"
+    },
+    {
+      "setId": "ranger-beast",
+      "height": "regular",
+      "body": "slim",
+      "sha256": "f1c5738e0913f1bfbf01881d44d78f3de08041d030b58dd8e62584a4a156a268"
+    },
+    {
+      "setId": "ranger-beast",
+      "height": "regular",
+      "body": "balanced",
+      "sha256": "ff2d0e44e5eb3bfb84671930cc7d7b5b992dd1164a005bade43af94b9a9f472c"
+    },
+    {
+      "setId": "ranger-beast",
+      "height": "regular",
+      "body": "broad",
+      "sha256": "84f191ad66179fc4c70ade1dcccbf73754af142b775d1d828de01cf259fae34b"
+    },
+    {
+      "setId": "ranger-beast",
+      "height": "regular",
+      "body": "stocky",
+      "sha256": "6a96503ad1f7156e4730b66ed37e05c460be22fc6e3de7d0b976c28c400e45e9"
+    },
+    {
+      "setId": "ranger-beast",
+      "height": "tall",
+      "body": "slim",
+      "sha256": "69688420199de08566b6209cc66a1d170c0a21079559b5c194fa3150fbb68ba8"
+    },
+    {
+      "setId": "ranger-beast",
+      "height": "tall",
+      "body": "balanced",
+      "sha256": "c7dea65011b09802bcee6b1831113246f28b67c3b326975556f357495de0a93a"
+    },
+    {
+      "setId": "ranger-beast",
+      "height": "tall",
+      "body": "broad",
+      "sha256": "e42b96dcfdbbdcd48631e7f529aa64c0da9346b14a18611dc7706f1afaec2b81"
+    },
+    {
+      "setId": "ranger-beast",
+      "height": "tall",
+      "body": "stocky",
+      "sha256": "e65b6d3a6d142a5c387d57dc081313b1c5381ba55f98a3bde962e35040374ffc"
+    },
+    {
+      "setId": "ranger-warden",
+      "height": "short",
+      "body": "slim",
+      "sha256": "727ae3346e4f2ef25bb1814ef8a469ca7934c6f639f43d320b367b6afb51f0f9"
+    },
+    {
+      "setId": "ranger-warden",
+      "height": "short",
+      "body": "balanced",
+      "sha256": "454dca6d649a1987685e18d7558594a14b79b9ecd362ec3dc82bef1c7c74f2c7"
+    },
+    {
+      "setId": "ranger-warden",
+      "height": "short",
+      "body": "broad",
+      "sha256": "4e45b388d47a66e1ce54dc7ecff5f52eff53dd1bda597cf4bf7c076e5c2d9085"
+    },
+    {
+      "setId": "ranger-warden",
+      "height": "short",
+      "body": "stocky",
+      "sha256": "856c545f549d847e5450e05c5f26c966e9345f30b6ee641f003a102237e63deb"
+    },
+    {
+      "setId": "ranger-warden",
+      "height": "regular",
+      "body": "slim",
+      "sha256": "2b8c3f7a9b90d7798acb475510dd03e70aab998de14aed7fdf785a1d931ba40b"
+    },
+    {
+      "setId": "ranger-warden",
+      "height": "regular",
+      "body": "balanced",
+      "sha256": "2972b8c4bf44337be9ccae515cabfd0459033059d155abfeb73b0b53edbb4f79"
+    },
+    {
+      "setId": "ranger-warden",
+      "height": "regular",
+      "body": "broad",
+      "sha256": "83b35878a37fcef6de6c4841a2546e857cda12660ca23e03fd451d5a850a2d56"
+    },
+    {
+      "setId": "ranger-warden",
+      "height": "regular",
+      "body": "stocky",
+      "sha256": "0b97c2da11c44abc8526a92ec1199587c3919bfec3e974d5db826b445fa5ab7a"
+    },
+    {
+      "setId": "ranger-warden",
+      "height": "tall",
+      "body": "slim",
+      "sha256": "8aaf6dd71f3e1ddd8bb60f63e0b75ebd85e294f53078e984aec75a157af8f12a"
+    },
+    {
+      "setId": "ranger-warden",
+      "height": "tall",
+      "body": "balanced",
+      "sha256": "a84ef87cb7055db6ffcda7db9ae60bbe027f7466d65fa4b9c2d91dc8ca5cd038"
+    },
+    {
+      "setId": "ranger-warden",
+      "height": "tall",
+      "body": "broad",
+      "sha256": "4844292ce75a75d6e5531776117426b332ae60063985861d57caeb9b43b82f6a"
+    },
+    {
+      "setId": "ranger-warden",
+      "height": "tall",
+      "body": "stocky",
+      "sha256": "2983cc13b15dd709c19e0204c7eae17e0581e8d01048b29decbaa9fe10daf08d"
+    },
+    {
+      "setId": "paladin-devotion",
+      "height": "short",
+      "body": "slim",
+      "sha256": "ea4135128fd5622b517102bcfb19f43bc8194a7d89ddb09cd516054a4a03bbdb"
+    },
+    {
+      "setId": "paladin-devotion",
+      "height": "short",
+      "body": "balanced",
+      "sha256": "a810fa0fc18177695d79e41faf4e2dc1624de62f93757097078e79aeb61344f8"
+    },
+    {
+      "setId": "paladin-devotion",
+      "height": "short",
+      "body": "broad",
+      "sha256": "815e5b3e88bcd4e2b1c29159325c34a81c40b02fbf9d837f40d5370c74fda376"
+    },
+    {
+      "setId": "paladin-devotion",
+      "height": "short",
+      "body": "stocky",
+      "sha256": "e01b13262730e5497fb392a3ed2aac46df3c3c5fbef130f34e023200c2d08b59"
+    },
+    {
+      "setId": "paladin-devotion",
+      "height": "regular",
+      "body": "slim",
+      "sha256": "05f8e0e47ef7c961bb6b5544216b2f822c84f9de9d0a8285830583598b0171a4"
+    },
+    {
+      "setId": "paladin-devotion",
+      "height": "regular",
+      "body": "balanced",
+      "sha256": "42672654e8bcb3b55c262eab87d2072c2e4b8c2f4734bc637ffea1405ce93f69"
+    },
+    {
+      "setId": "paladin-devotion",
+      "height": "regular",
+      "body": "broad",
+      "sha256": "6104968e05f923d7cf3162782c457d9fa6b9e755009e6f32fd843bb1493b0dc5"
+    },
+    {
+      "setId": "paladin-devotion",
+      "height": "regular",
+      "body": "stocky",
+      "sha256": "65c79b0dcfef23a23007ad57a4c7133d98893b7c60f3ad471d3368058639b8a6"
+    },
+    {
+      "setId": "paladin-devotion",
+      "height": "tall",
+      "body": "slim",
+      "sha256": "d2311f4f1ad6a2c7c2e783c421e783755301c42188012122b0995442d2fc11a3"
+    },
+    {
+      "setId": "paladin-devotion",
+      "height": "tall",
+      "body": "balanced",
+      "sha256": "f886d607162bf037720272b3ca7e0a7bad9daeb3c0f6de28214916cd037fcb98"
+    },
+    {
+      "setId": "paladin-devotion",
+      "height": "tall",
+      "body": "broad",
+      "sha256": "4148695ca9fabdf13b4af53a7f2801836f219db2fc90fcecc2cf8ad960845647"
+    },
+    {
+      "setId": "paladin-devotion",
+      "height": "tall",
+      "body": "stocky",
+      "sha256": "cede2260817671c0ce56d39066faf4e9845c5bb4b59b0016bfabf12997c08eb3"
+    },
+    {
+      "setId": "paladin-vengeance",
+      "height": "short",
+      "body": "slim",
+      "sha256": "f8941ca0298905d80880546e68c9cdff5377b0838a9c347fa57088dd374d06c6"
+    },
+    {
+      "setId": "paladin-vengeance",
+      "height": "short",
+      "body": "balanced",
+      "sha256": "cfee5fccaadb5cd3baa9089c2e1d19f9336ce64639c09f29202b5eda81b977b4"
+    },
+    {
+      "setId": "paladin-vengeance",
+      "height": "short",
+      "body": "broad",
+      "sha256": "4496d669a1ab8cb53b95de4923657b470305e3d9cf6f57b39e0faac8e196ed71"
+    },
+    {
+      "setId": "paladin-vengeance",
+      "height": "short",
+      "body": "stocky",
+      "sha256": "1ce4e72e5bbad42a64a8a9a5befbecde15c393090dc54d56c00079034dd98462"
+    },
+    {
+      "setId": "paladin-vengeance",
+      "height": "regular",
+      "body": "slim",
+      "sha256": "9b94d0b31430b4bfe4497c26814c307ca04a7f5d9d36a75150f0bc35f5854b08"
+    },
+    {
+      "setId": "paladin-vengeance",
+      "height": "regular",
+      "body": "balanced",
+      "sha256": "ba1e92018547924527db79e5ea7543b90901e4dd30172a27892e8889cd9e0001"
+    },
+    {
+      "setId": "paladin-vengeance",
+      "height": "regular",
+      "body": "broad",
+      "sha256": "602c556f99459e775c4d1655c5fa8f76d2a57457ed66e5f23b87a8b354e9136d"
+    },
+    {
+      "setId": "paladin-vengeance",
+      "height": "regular",
+      "body": "stocky",
+      "sha256": "2b8f06d522ff4a5a8197d83001d785cfa6e3e0ce62da9739b7f4b092946214a9"
+    },
+    {
+      "setId": "paladin-vengeance",
+      "height": "tall",
+      "body": "slim",
+      "sha256": "2910923841bd620345b9c006fb1012a825166f4d9ffeafd297fc0d8c134691e9"
+    },
+    {
+      "setId": "paladin-vengeance",
+      "height": "tall",
+      "body": "balanced",
+      "sha256": "b2019f4585b38d5b71af692391df66d6c7887bc6431423c306be7f2b33c01333"
+    },
+    {
+      "setId": "paladin-vengeance",
+      "height": "tall",
+      "body": "broad",
+      "sha256": "97e156ebd9427a43d28ab140f82f9adf2a3562c04fa20c13629d12395a63fa46"
+    },
+    {
+      "setId": "paladin-vengeance",
+      "height": "tall",
+      "body": "stocky",
+      "sha256": "5b2c5fc6e5a0705aacca7776388819a7cf24bf5175227cf49be41a09273005a5"
+    },
+    {
+      "setId": "paladin-shelter",
+      "height": "short",
+      "body": "slim",
+      "sha256": "5dd9023702ce506ad6bc373936330294e58f432d6aae169345879759334b0273"
+    },
+    {
+      "setId": "paladin-shelter",
+      "height": "short",
+      "body": "balanced",
+      "sha256": "ddfa1cec1766ed21a99dd08483c3f97204d12015a929d7b7af0c395d4c61a0ea"
+    },
+    {
+      "setId": "paladin-shelter",
+      "height": "short",
+      "body": "broad",
+      "sha256": "7cc7a930e6927f2db7ee0be0d44ec57d3be6c7a908935e854a2d75f9a3405148"
+    },
+    {
+      "setId": "paladin-shelter",
+      "height": "short",
+      "body": "stocky",
+      "sha256": "5e22f2324c27c7bff677ba044da40abf6bcf3b588e14a4a145e518b20c2a2bb1"
+    },
+    {
+      "setId": "paladin-shelter",
+      "height": "regular",
+      "body": "slim",
+      "sha256": "bfc6399b67c30a438906a19e02a0dc18a8cc979ac6154ab123b3e7a7955c4db5"
+    },
+    {
+      "setId": "paladin-shelter",
+      "height": "regular",
+      "body": "balanced",
+      "sha256": "d245d0194b916d3bc03deba7d196a6909999e56b9e43e97b4f36bdcdc8d80978"
+    },
+    {
+      "setId": "paladin-shelter",
+      "height": "regular",
+      "body": "broad",
+      "sha256": "4f0fcdb83c7d062becb6c644328405d674efe15941f5f8168f30ded2e7b5fa54"
+    },
+    {
+      "setId": "paladin-shelter",
+      "height": "regular",
+      "body": "stocky",
+      "sha256": "24ff8582ff2cbaabbd96d4a024abc0472799a1849b28bbf0f412f55b37add481"
+    },
+    {
+      "setId": "paladin-shelter",
+      "height": "tall",
+      "body": "slim",
+      "sha256": "69baae0c4d9860224cb7a67001dfdd5c550e40be7c87b7cb4ae75e7e3284f893"
+    },
+    {
+      "setId": "paladin-shelter",
+      "height": "tall",
+      "body": "balanced",
+      "sha256": "b0390cc08cf24f152065c66c6c076ed081bee61b8649db7fd3c79835b2e87e9c"
+    },
+    {
+      "setId": "paladin-shelter",
+      "height": "tall",
+      "body": "broad",
+      "sha256": "a9e17ff1ddcc9535ca2c3936bd8b2e3c6930b3e1d4e939d0a6b8bb169adcc6a2"
+    },
+    {
+      "setId": "paladin-shelter",
+      "height": "tall",
+      "body": "stocky",
+      "sha256": "fca4c3e4e5a19d17f23111751091bdfe77d830a4699765a5f56109c2b36c0562"
+    },
+    {
+      "setId": "cleric-life",
+      "height": "short",
+      "body": "slim",
+      "sha256": "379107d1cb0b96e8f51d255d138776dea4705900d8141d79a935973e909747fa"
+    },
+    {
+      "setId": "cleric-life",
+      "height": "short",
+      "body": "balanced",
+      "sha256": "899c7b325a8be8bc66bd0a76cdff1978fe35ea5dda081763e39697317ad00807"
+    },
+    {
+      "setId": "cleric-life",
+      "height": "short",
+      "body": "broad",
+      "sha256": "e16df924da37968a9a00335c91e2f0fca76049359cd0d3e7319381a7e9ebd5ea"
+    },
+    {
+      "setId": "cleric-life",
+      "height": "short",
+      "body": "stocky",
+      "sha256": "95c9932fe88b773af362506c37ba69a3953a79560c262c07bed95412a7a3fa7e"
+    },
+    {
+      "setId": "cleric-life",
+      "height": "regular",
+      "body": "slim",
+      "sha256": "881e70a0ded8cd54610683f93f4dd11d28a9250171bac34ce127a736fb634a6a"
+    },
+    {
+      "setId": "cleric-life",
+      "height": "regular",
+      "body": "balanced",
+      "sha256": "141866b23efeaae4acb33a151aeb06bc23084f17f254dc00b80126146b0cd2b7"
+    },
+    {
+      "setId": "cleric-life",
+      "height": "regular",
+      "body": "broad",
+      "sha256": "db332fd0ac759967844d1481d8ac3ce1f7894a958b9f4faea8a8eebf99d8fc0e"
+    },
+    {
+      "setId": "cleric-life",
+      "height": "regular",
+      "body": "stocky",
+      "sha256": "6a30d4715f09f7082b815982195d0ec3e080ef0a8ba87299c4705206dae98b57"
+    },
+    {
+      "setId": "cleric-life",
+      "height": "tall",
+      "body": "slim",
+      "sha256": "90b88a076bdcfff48ccc656519bfae7d6d142897eaa068b5af746a22e055fec5"
+    },
+    {
+      "setId": "cleric-life",
+      "height": "tall",
+      "body": "balanced",
+      "sha256": "154f84970cf674ecc25e12c9fdadb764f7bf37f83a9f6ab1afbf7c7c76ac3275"
+    },
+    {
+      "setId": "cleric-life",
+      "height": "tall",
+      "body": "broad",
+      "sha256": "3f370a7f8db806259b004994f70b0edbcd99f909fb266bceec928a7b3e911049"
+    },
+    {
+      "setId": "cleric-life",
+      "height": "tall",
+      "body": "stocky",
+      "sha256": "ad74d38a2d822d25cd8586d4e280fba675c8938124ff8e1e6560830779cbeb1c"
+    },
+    {
+      "setId": "cleric-war",
+      "height": "short",
+      "body": "slim",
+      "sha256": "947941650b2907d174ae0bcc7cb5d5022fdaed540e301e9237d147ead56d87f9"
+    },
+    {
+      "setId": "cleric-war",
+      "height": "short",
+      "body": "balanced",
+      "sha256": "29b3101d73eb434b4c89913df3250483933fb867422211655ffdc008eb5ac07c"
+    },
+    {
+      "setId": "cleric-war",
+      "height": "short",
+      "body": "broad",
+      "sha256": "4682e03891ad7868b2ebd70175d3ccdb303b648049213f87dab2e07534e819b9"
+    },
+    {
+      "setId": "cleric-war",
+      "height": "short",
+      "body": "stocky",
+      "sha256": "5b6ededf3803251babad191e1a677f3cb0ee9c12d66bd1db3470f7535282ca6e"
+    },
+    {
+      "setId": "cleric-war",
+      "height": "regular",
+      "body": "slim",
+      "sha256": "76578f43eb0d1ea0add50474422d5ccc7470a52ef9a51d8a4de411b92958fc48"
+    },
+    {
+      "setId": "cleric-war",
+      "height": "regular",
+      "body": "balanced",
+      "sha256": "8dabfe205ba6bf676d1a9f552032d7cf5ea697f11c7afe544611790870193898"
+    },
+    {
+      "setId": "cleric-war",
+      "height": "regular",
+      "body": "broad",
+      "sha256": "c0c2839976c23e325ffffed6cbb069bd369bc9ce119be16c7ec843528697c9e7"
+    },
+    {
+      "setId": "cleric-war",
+      "height": "regular",
+      "body": "stocky",
+      "sha256": "b1b70d8e6d124ed1f1984b91182dfc1c98f79f28ab943a4ab18497f5e4c14174"
+    },
+    {
+      "setId": "cleric-war",
+      "height": "tall",
+      "body": "slim",
+      "sha256": "d2bae482083a4ab132e2868a923e27e6dc2214181f6694c36257bc88d7a65b0e"
+    },
+    {
+      "setId": "cleric-war",
+      "height": "tall",
+      "body": "balanced",
+      "sha256": "4853a2a43d6b98f75f36c9b47abd73c998a1aa14e857b1b8b2e78dadd4408883"
+    },
+    {
+      "setId": "cleric-war",
+      "height": "tall",
+      "body": "broad",
+      "sha256": "65d822959108a33ca8516cf3b70906bd8f8eb5760ac74b90378ee5e13fef30e2"
+    },
+    {
+      "setId": "cleric-war",
+      "height": "tall",
+      "body": "stocky",
+      "sha256": "437954f60be5f89321eae1cea15329e528352262b8a50342c3e3079d834479ee"
+    },
+    {
+      "setId": "cleric-lore",
+      "height": "short",
+      "body": "slim",
+      "sha256": "40c65b5e51990b89c9045c57b636f6902779f4e0b8e8409d5a423c08f3d4cd7e"
+    },
+    {
+      "setId": "cleric-lore",
+      "height": "short",
+      "body": "balanced",
+      "sha256": "e1e3ca3fdbd4d4ea37f466dc7e7a6029c886c7cc3b50f096bf7b480fa851bda1"
+    },
+    {
+      "setId": "cleric-lore",
+      "height": "short",
+      "body": "broad",
+      "sha256": "0a3984a4e7cc5970dfbdbefb590932977f2eef8fda76caa8686a0a0cdad6491d"
+    },
+    {
+      "setId": "cleric-lore",
+      "height": "short",
+      "body": "stocky",
+      "sha256": "8a5dc4bbd7bdd8b182bff8e64800ab96dded450ad45c2e49226ca38b35f87c57"
+    },
+    {
+      "setId": "cleric-lore",
+      "height": "regular",
+      "body": "slim",
+      "sha256": "ba489fd2bf15f49e884694e8cd96fda47700bc2d19073504f1d5295211465b1b"
+    },
+    {
+      "setId": "cleric-lore",
+      "height": "regular",
+      "body": "balanced",
+      "sha256": "f2468b12e675bed1d455019c72254ba46d04020c36dff07296ff9443c035a2d9"
+    },
+    {
+      "setId": "cleric-lore",
+      "height": "regular",
+      "body": "broad",
+      "sha256": "ec38e86dd7841c03acddde562616243ca900dbf29a4ff50a6c30e077b346e07b"
+    },
+    {
+      "setId": "cleric-lore",
+      "height": "regular",
+      "body": "stocky",
+      "sha256": "74e5edd49328c112a17a9efad2cc3985482bcd21401dec33ee77963bcb2ed8cd"
+    },
+    {
+      "setId": "cleric-lore",
+      "height": "tall",
+      "body": "slim",
+      "sha256": "3bef8f090265717425ba6749239d42e3e519bc48a2d5368289be4efa7a467815"
+    },
+    {
+      "setId": "cleric-lore",
+      "height": "tall",
+      "body": "balanced",
+      "sha256": "47563e719dd417f01335c0b3a22fbf32fb091f74459791af0ac4552e73e721b8"
+    },
+    {
+      "setId": "cleric-lore",
+      "height": "tall",
+      "body": "broad",
+      "sha256": "686d884bf7fdee9efcbdbac43c8eb49ac6d855388c22c120279ec74e89b44b85"
+    },
+    {
+      "setId": "cleric-lore",
+      "height": "tall",
+      "body": "stocky",
+      "sha256": "4cda522949f46d029d6d5b5ccd9978aa5650b02037537adfcacba7acd83f423b"
+    },
+    {
+      "setId": "druid-moon",
+      "height": "short",
+      "body": "slim",
+      "sha256": "3d349cef8ff3866e50406319f58af4893f4581f58062088e7acea38d805ae3ad"
+    },
+    {
+      "setId": "druid-moon",
+      "height": "short",
+      "body": "balanced",
+      "sha256": "df23282acc00f4c3824acb8e6edae3f77b49b3e106d10cd1627c62e5f76ffdd5"
+    },
+    {
+      "setId": "druid-moon",
+      "height": "short",
+      "body": "broad",
+      "sha256": "23254ba52bc056fdbf2fa1cce4f165c31ae0d0992ee5d2e473767be95688a178"
+    },
+    {
+      "setId": "druid-moon",
+      "height": "short",
+      "body": "stocky",
+      "sha256": "99b6c1dde61d776bcd43d55ef8247ce41707113c614810bf635965abe1903b31"
+    },
+    {
+      "setId": "druid-moon",
+      "height": "regular",
+      "body": "slim",
+      "sha256": "c171bd905a4c932faa0abb2e71cb3b110bb6f2910b9000492e6447a6eb11d313"
+    },
+    {
+      "setId": "druid-moon",
+      "height": "regular",
+      "body": "balanced",
+      "sha256": "353ee1606cb24b87e768d1899cc5cbd7f653e508724f3a56f92c47ada76476e5"
+    },
+    {
+      "setId": "druid-moon",
+      "height": "regular",
+      "body": "broad",
+      "sha256": "eccd73f1969915e7077d86d82cd844c2348e3465db2cd16fbb4321666ada2bd1"
+    },
+    {
+      "setId": "druid-moon",
+      "height": "regular",
+      "body": "stocky",
+      "sha256": "3b7f48b016fa2d1141acd3c7dcc66bc6aea7bd2022f4d2a745eb1422b1cf4d8b"
+    },
+    {
+      "setId": "druid-moon",
+      "height": "tall",
+      "body": "slim",
+      "sha256": "d2e102cd104587c765d29a2c0776d4cabfcaa40e58c0183eab7c93abeab70b37"
+    },
+    {
+      "setId": "druid-moon",
+      "height": "tall",
+      "body": "balanced",
+      "sha256": "1200a1206ec23bafa13ee72bd27b4dfae9d2d2de820e8b4096d2f0c7df9c2fe7"
+    },
+    {
+      "setId": "druid-moon",
+      "height": "tall",
+      "body": "broad",
+      "sha256": "15c61fe51b4c69f5d5c35d739d2758952f19f0b15a91c6614b9642be211cb4c9"
+    },
+    {
+      "setId": "druid-moon",
+      "height": "tall",
+      "body": "stocky",
+      "sha256": "2205c7f076aaf31ebc954e516b510e3e63192ecaadc24a815234feaa22835ae8"
+    },
+    {
+      "setId": "druid-land",
+      "height": "short",
+      "body": "slim",
+      "sha256": "7741658897ba1b47838356c0c889c33fdeedd9b3b1748643cc43adf9d98b3a84"
+    },
+    {
+      "setId": "druid-land",
+      "height": "short",
+      "body": "balanced",
+      "sha256": "5c57e37423de4d2773da2698a95bcc29d7c5265892f6b42aff1e54b365093125"
+    },
+    {
+      "setId": "druid-land",
+      "height": "short",
+      "body": "broad",
+      "sha256": "c9e048c3594a74d12dcd373bc60553dd8fc042b72fd8dc9b7312be56e3b72518"
+    },
+    {
+      "setId": "druid-land",
+      "height": "short",
+      "body": "stocky",
+      "sha256": "6b0ec1e7d2de3adc19ea353f1e35c03ba8f98d7de98072444576273221d8b182"
+    },
+    {
+      "setId": "druid-land",
+      "height": "regular",
+      "body": "slim",
+      "sha256": "47f7a6de346730740c8ca2763d94dcd9ff95671001f3ce45b22b412d31b24e14"
+    },
+    {
+      "setId": "druid-land",
+      "height": "regular",
+      "body": "balanced",
+      "sha256": "ed386fa7c1c9e423ad84c6313ae42db3153f95bbdeda41362f1dd44605424c8d"
+    },
+    {
+      "setId": "druid-land",
+      "height": "regular",
+      "body": "broad",
+      "sha256": "0e8e75559dced6601be3f30a8e4d2f01b315908d5db991ab094386cdaae0119f"
+    },
+    {
+      "setId": "druid-land",
+      "height": "regular",
+      "body": "stocky",
+      "sha256": "a07f77021433e7275eb44df20b75cc3b00ace2fecabea46d1034daa822de8166"
+    },
+    {
+      "setId": "druid-land",
+      "height": "tall",
+      "body": "slim",
+      "sha256": "cc5d11b331391595f161e60f5534f47fe05dacf7dec2523a9f0b3d76989380ab"
+    },
+    {
+      "setId": "druid-land",
+      "height": "tall",
+      "body": "balanced",
+      "sha256": "44909459a71afbc6360c57b9ebcc0782cf8397612effb59ab69529f65d6d81c1"
+    },
+    {
+      "setId": "druid-land",
+      "height": "tall",
+      "body": "broad",
+      "sha256": "c30c36f041df228f097424a99990f6dbc6e885062a0c1d7216366950f2ba877b"
+    },
+    {
+      "setId": "druid-land",
+      "height": "tall",
+      "body": "stocky",
+      "sha256": "9e9d5d103b1231e1041eb8e95b72cbf6803b61acd7ed97eab3ef8fc70355a3a8"
+    },
+    {
+      "setId": "druid-spore",
+      "height": "short",
+      "body": "slim",
+      "sha256": "67f50192e2d90f2682ff9f50011446159479e73dc0ecae9d8922676dd57e6301"
+    },
+    {
+      "setId": "druid-spore",
+      "height": "short",
+      "body": "balanced",
+      "sha256": "9105f5266c469f7c5f3ed2baac6ff3a6fdcdd60912f7db58f3e5eaa2485a69c0"
+    },
+    {
+      "setId": "druid-spore",
+      "height": "short",
+      "body": "broad",
+      "sha256": "6c81f45eb961f302caa564e74cadfe307a95fc6303045c271e88105b813856a1"
+    },
+    {
+      "setId": "druid-spore",
+      "height": "short",
+      "body": "stocky",
+      "sha256": "3fb598e06f556b76b737d8fca8c3a860946160e7c65f2b1368a1eddbe45d61cd"
+    },
+    {
+      "setId": "druid-spore",
+      "height": "regular",
+      "body": "slim",
+      "sha256": "cf73698e1a4027f324d438e6decdfd3b2ceee78f7f09431be5da1eb2523693df"
+    },
+    {
+      "setId": "druid-spore",
+      "height": "regular",
+      "body": "balanced",
+      "sha256": "4ecdccf043ba519810b40bec9df9c064354df6d0285c8b1a5bc5f29d2bff5b23"
+    },
+    {
+      "setId": "druid-spore",
+      "height": "regular",
+      "body": "broad",
+      "sha256": "adeb89f8df66bc0225a6e782901ec27e94a3ba7261bde66b759ffc97d6f1dd3f"
+    },
+    {
+      "setId": "druid-spore",
+      "height": "regular",
+      "body": "stocky",
+      "sha256": "61793eb2792353cd44287a153748fb6548b1986c8770d4402511f1318ce398d4"
+    },
+    {
+      "setId": "druid-spore",
+      "height": "tall",
+      "body": "slim",
+      "sha256": "e17252e6fcdbc11bcc460eb9eb08f751397ebf75165ad61d44c5c324138e2a0a"
+    },
+    {
+      "setId": "druid-spore",
+      "height": "tall",
+      "body": "balanced",
+      "sha256": "32269abbbb74c8ae318a00139ffe73e1054c3ebe652b9ed859fbf278f7f1fb91"
+    },
+    {
+      "setId": "druid-spore",
+      "height": "tall",
+      "body": "broad",
+      "sha256": "fd0e0f95fbb0072693c9f057bb10b47fa3798bf90923a4b82da40d7bd0d4ecb1"
+    },
+    {
+      "setId": "druid-spore",
+      "height": "tall",
+      "body": "stocky",
+      "sha256": "87ff02872191a51298e80c1d7100be0830c5a4dba67d1621804db815c1964d4e"
+    },
+    {
+      "setId": "bard-lorebard",
+      "height": "short",
+      "body": "slim",
+      "sha256": "696740a10c969167e2c37da8bc48aabee4632a18216c90c6d11e70f4e604b363"
+    },
+    {
+      "setId": "bard-lorebard",
+      "height": "short",
+      "body": "balanced",
+      "sha256": "5867da9b6340a1bd221c528d826ae1ab3cc6caedb7cf6a126bfe1998aa2d4b36"
+    },
+    {
+      "setId": "bard-lorebard",
+      "height": "short",
+      "body": "broad",
+      "sha256": "bf9abb34016e11fc45fc447cd4ece2137e6cf3469ae4a4cfb92cbf02b9bbbee9"
+    },
+    {
+      "setId": "bard-lorebard",
+      "height": "short",
+      "body": "stocky",
+      "sha256": "7c44276ad29a34e88f031ee5d172da3e4c300973c30c4c05afa63ee10c11d945"
+    },
+    {
+      "setId": "bard-lorebard",
+      "height": "regular",
+      "body": "slim",
+      "sha256": "df66d7e12a4492aebb6cdf5ab6ddde509a76d9fc774ed98d00550a514f6734cf"
+    },
+    {
+      "setId": "bard-lorebard",
+      "height": "regular",
+      "body": "balanced",
+      "sha256": "56e5b174183c96e58638594d4b49df0c69a41bee076da9787eace5943695539d"
+    },
+    {
+      "setId": "bard-lorebard",
+      "height": "regular",
+      "body": "broad",
+      "sha256": "c2f56d63e8d86459065188a20674e71bc162329cd3e7332d1f326d9da6845fea"
+    },
+    {
+      "setId": "bard-lorebard",
+      "height": "regular",
+      "body": "stocky",
+      "sha256": "ed4c40be13b176c903f360bfa2453e3a27e990665f1ef6a512799f8ad4e0eda4"
+    },
+    {
+      "setId": "bard-lorebard",
+      "height": "tall",
+      "body": "slim",
+      "sha256": "db648f9f50ca27ec01322ec78a3cca06a35ddc2e70c3c9d9884f7064056bc902"
+    },
+    {
+      "setId": "bard-lorebard",
+      "height": "tall",
+      "body": "balanced",
+      "sha256": "1a614179919af6ef4e7f45d76e86e3e458aac5e70b5ed13db3df435d82a2647c"
+    },
+    {
+      "setId": "bard-lorebard",
+      "height": "tall",
+      "body": "broad",
+      "sha256": "ebbfd8c74c5e4a03a028f1214a484bc9a43f7fe09b461f60cdb5e9ffa6b9319b"
+    },
+    {
+      "setId": "bard-lorebard",
+      "height": "tall",
+      "body": "stocky",
+      "sha256": "f14d48609c6d7e94221aeb84f5f8f170a87987ea4942dfcd6775fc6b3e614802"
+    },
+    {
+      "setId": "bard-bladebard",
+      "height": "short",
+      "body": "slim",
+      "sha256": "fb87544813cf2d8482277f8fbaa1d8f73aa620b0eb41241ed3c884cd3acdff75"
+    },
+    {
+      "setId": "bard-bladebard",
+      "height": "short",
+      "body": "balanced",
+      "sha256": "4a7446a12446745a56d4c1a72fed01d66c0d766c533a5e29aaeaf7087d805771"
+    },
+    {
+      "setId": "bard-bladebard",
+      "height": "short",
+      "body": "broad",
+      "sha256": "2ba1d54ca872562d1652f7ef264ff15e4247936ec024ea11d682aa345a10b55d"
+    },
+    {
+      "setId": "bard-bladebard",
+      "height": "short",
+      "body": "stocky",
+      "sha256": "32f2ef9e2ca56aeb38d3029cd7ace69088eb4cdf1a2d4272bcc3e343f613db80"
+    },
+    {
+      "setId": "bard-bladebard",
+      "height": "regular",
+      "body": "slim",
+      "sha256": "7ea2de6bb9cbe77ea4f5bb3c3a9fe9d4facc10a3beda80aa87898fc8ab398723"
+    },
+    {
+      "setId": "bard-bladebard",
+      "height": "regular",
+      "body": "balanced",
+      "sha256": "c2a567b1c0b5edc4acd97643bde411aa0d554364d8c8b409f551e7ce43e4d070"
+    },
+    {
+      "setId": "bard-bladebard",
+      "height": "regular",
+      "body": "broad",
+      "sha256": "ef666ac3d3952d6d8cca8d36e074ae89ed9a6ada95240e30c24d1208721a781b"
+    },
+    {
+      "setId": "bard-bladebard",
+      "height": "regular",
+      "body": "stocky",
+      "sha256": "b8c61890e239afe7318272e3a56a6714323ddfc2a03f777a7e01ff338c7a891b"
+    },
+    {
+      "setId": "bard-bladebard",
+      "height": "tall",
+      "body": "slim",
+      "sha256": "524cb9a8c23227244ff00d2f3f2bb94d2dfb58fb324a87d30d84b51cd85bd42f"
+    },
+    {
+      "setId": "bard-bladebard",
+      "height": "tall",
+      "body": "balanced",
+      "sha256": "2f437b5fc9b8daee707ef6f6b9373f6ff1b69414c345342fb77b7aaa210ac89a"
+    },
+    {
+      "setId": "bard-bladebard",
+      "height": "tall",
+      "body": "broad",
+      "sha256": "534f0c76320761c73c58225e735da94c71d1de1a32bf9ab6c602f4aa8d6ae03a"
+    },
+    {
+      "setId": "bard-bladebard",
+      "height": "tall",
+      "body": "stocky",
+      "sha256": "7b9df9b121e930fee3629f9baf4b7c02675c7eed1950b4510aae56fe11090003"
+    },
+    {
+      "setId": "bard-envoy",
+      "height": "short",
+      "body": "slim",
+      "sha256": "e2f7e568b7d602dd73353cea73a2becfacc04764ca4499101516c5d200d0699a"
+    },
+    {
+      "setId": "bard-envoy",
+      "height": "short",
+      "body": "balanced",
+      "sha256": "e5119f45b550b5a1c3274937376d5874a37fe129410f7706f0dcead332024c0b"
+    },
+    {
+      "setId": "bard-envoy",
+      "height": "short",
+      "body": "broad",
+      "sha256": "ea2dc67e91205c24342b8932ebada39b210bf9f3aa34d40c60a7a1d55311c976"
+    },
+    {
+      "setId": "bard-envoy",
+      "height": "short",
+      "body": "stocky",
+      "sha256": "18fa88f71e8ae36dec2189e6dc256a8bc28b2460a22749a839817a7b192bfd07"
+    },
+    {
+      "setId": "bard-envoy",
+      "height": "regular",
+      "body": "slim",
+      "sha256": "e14d28ca10527af77c012c12fc4861362780938ac391d081b5554ddd3a56c48d"
+    },
+    {
+      "setId": "bard-envoy",
+      "height": "regular",
+      "body": "balanced",
+      "sha256": "2b7e6e70e26ab393f4b824abbc356eb0c9bcfb944fb48d1178acb3fc455b1768"
+    },
+    {
+      "setId": "bard-envoy",
+      "height": "regular",
+      "body": "broad",
+      "sha256": "6d1aae98c2964aa080cc78aaf86a66ffe6c65d21edd73b54dc23b807085b6802"
+    },
+    {
+      "setId": "bard-envoy",
+      "height": "regular",
+      "body": "stocky",
+      "sha256": "792589e21e0b57aba29158c740e2b8ef2b295b8110235c6821739be7d9d406a6"
+    },
+    {
+      "setId": "bard-envoy",
+      "height": "tall",
+      "body": "slim",
+      "sha256": "a34a08c45ca15285344029139499dba57fe1985fb46e0c850860e42a0cf37ab6"
+    },
+    {
+      "setId": "bard-envoy",
+      "height": "tall",
+      "body": "balanced",
+      "sha256": "d891f530ca140e2da7bf863a8c7596a4db92e5fffe617cdae4d4e4c4e7ce854c"
+    },
+    {
+      "setId": "bard-envoy",
+      "height": "tall",
+      "body": "broad",
+      "sha256": "8430f56c9c9460e3358a489563d18ae9c113ff8d08e245ba16a6bbf3f67285ad"
+    },
+    {
+      "setId": "bard-envoy",
+      "height": "tall",
+      "body": "stocky",
+      "sha256": "790f33fd8676e012446807ef6081b51f9085682ca5a51604f081f9369a5431c7"
+    },
+    {
+      "setId": "wizard-evoker",
+      "height": "short",
+      "body": "slim",
+      "sha256": "7088e67eb364fb4cd3240835abf48da5e0605c1155bed7cbe78417f0b7f12a2d"
+    },
+    {
+      "setId": "wizard-evoker",
+      "height": "short",
+      "body": "balanced",
+      "sha256": "f9ae3f24937c9d46032e11d7773c9d76896adb4fab3e067137bb61131f06bbcf"
+    },
+    {
+      "setId": "wizard-evoker",
+      "height": "short",
+      "body": "broad",
+      "sha256": "467f1e75462e3ab9aeefbfdcc7a89d7b1af19e4e0a97363035fd0fb110fc26b0"
+    },
+    {
+      "setId": "wizard-evoker",
+      "height": "short",
+      "body": "stocky",
+      "sha256": "4f4c292e926c155c7364c06ff6e5d872c2e6f1a9a3f442a2c5c3800c807a6992"
+    },
+    {
+      "setId": "wizard-evoker",
+      "height": "regular",
+      "body": "slim",
+      "sha256": "72b28f633209824893614c07da05a643450acdaccad770089f799de08b7dd0d6"
+    },
+    {
+      "setId": "wizard-evoker",
+      "height": "regular",
+      "body": "balanced",
+      "sha256": "482d44d93667d69cc8ba7994b373d1798581921e7e2c4a707fd49d2176273e41"
+    },
+    {
+      "setId": "wizard-evoker",
+      "height": "regular",
+      "body": "broad",
+      "sha256": "10dd3ac427c7aecf033de02a6c920440e506927b307ec81df97187a40cc682ad"
+    },
+    {
+      "setId": "wizard-evoker",
+      "height": "regular",
+      "body": "stocky",
+      "sha256": "15546cf0009f45fab00d8119c2033b5a15ecf5d51b44ca0ba5434f260d90c77d"
+    },
+    {
+      "setId": "wizard-evoker",
+      "height": "tall",
+      "body": "slim",
+      "sha256": "5b0523038c16dd2a94b5759379db92b0478a2095d7b99674c4fd29f4657c5e46"
+    },
+    {
+      "setId": "wizard-evoker",
+      "height": "tall",
+      "body": "balanced",
+      "sha256": "9e13354b41406396db62411c5ecac6e7dea02629bdf4c830ff475ae45e38562e"
+    },
+    {
+      "setId": "wizard-evoker",
+      "height": "tall",
+      "body": "broad",
+      "sha256": "d31c792103487488d5ac334d30486ce003e920af20edfbe3f1ca29db6ba7f535"
+    },
+    {
+      "setId": "wizard-evoker",
+      "height": "tall",
+      "body": "stocky",
+      "sha256": "cea8e5e03966d4a9ef619141583757ae096fde593abae59a4095c77f0ac0db3e"
+    },
+    {
+      "setId": "wizard-abjurer",
+      "height": "short",
+      "body": "slim",
+      "sha256": "9feadf6cfe2765bbc12d671481eeea076503db1a86271655a6b772a0b127d1b5"
+    },
+    {
+      "setId": "wizard-abjurer",
+      "height": "short",
+      "body": "balanced",
+      "sha256": "08ed289e894a005adcb2c86cb159d2e41488bfbb2005cc4005b353c0c06ddbea"
+    },
+    {
+      "setId": "wizard-abjurer",
+      "height": "short",
+      "body": "broad",
+      "sha256": "5a2487398748d131b40bdf1751c43a31e30ce128f55212bbb6ecc297ccfb91e8"
+    },
+    {
+      "setId": "wizard-abjurer",
+      "height": "short",
+      "body": "stocky",
+      "sha256": "de8937d6ba13db57030f33b706cb0704e72852654e64e0b2c82fbc1eb58ad5af"
+    },
+    {
+      "setId": "wizard-abjurer",
+      "height": "regular",
+      "body": "slim",
+      "sha256": "823050cd03ba34269102dddcbbf824dad1941c4cc0edd3c86c7c4e3f64bc2544"
+    },
+    {
+      "setId": "wizard-abjurer",
+      "height": "regular",
+      "body": "balanced",
+      "sha256": "c9d9457f4781d08f63c4e0b55d4d7857137551cbeb060b66efb6d45a73d25e8a"
+    },
+    {
+      "setId": "wizard-abjurer",
+      "height": "regular",
+      "body": "broad",
+      "sha256": "8a481f0bbd1b7ae8b0d64304dd203d6540bb1f6d7f542fdab82660c2abeb8089"
+    },
+    {
+      "setId": "wizard-abjurer",
+      "height": "regular",
+      "body": "stocky",
+      "sha256": "8aa1105cf37ddb7a27cb86c65610cbf06097b2d0e8c6dff8717526609d42551f"
+    },
+    {
+      "setId": "wizard-abjurer",
+      "height": "tall",
+      "body": "slim",
+      "sha256": "f997cc76b1392883ade850fbb6f76fce6e39d29040ca1179e09bfc6e6e06fe7b"
+    },
+    {
+      "setId": "wizard-abjurer",
+      "height": "tall",
+      "body": "balanced",
+      "sha256": "1c40fb55c4fd1a12772d86b12ca6c0a4ec6a9bc6fcd1953dd665923d9eaf1ef3"
+    },
+    {
+      "setId": "wizard-abjurer",
+      "height": "tall",
+      "body": "broad",
+      "sha256": "604bd1dcf303d0ae47a8e2b3d502285b8d7a51a51075195ddf9ed40590374f45"
+    },
+    {
+      "setId": "wizard-abjurer",
+      "height": "tall",
+      "body": "stocky",
+      "sha256": "71190ff2adb725a8396127d1e24d91212353899321715559a9a0fb773cb84f15"
+    },
+    {
+      "setId": "wizard-illusionist",
+      "height": "short",
+      "body": "slim",
+      "sha256": "429da8ac14626c75f4775dc9aa22bc1f37cfad557fa9e78bb415dcbd26a756f5"
+    },
+    {
+      "setId": "wizard-illusionist",
+      "height": "short",
+      "body": "balanced",
+      "sha256": "4c762c62b1ede3a60178bb81ba786c2d332c96f0f9be247c743169a78296773f"
+    },
+    {
+      "setId": "wizard-illusionist",
+      "height": "short",
+      "body": "broad",
+      "sha256": "7e1e232a812b227119f34047036b6d086cd35defa023acb3946910eac5ca2023"
+    },
+    {
+      "setId": "wizard-illusionist",
+      "height": "short",
+      "body": "stocky",
+      "sha256": "e89d656e80a3808cb55a62ea6b71a6b0d1855af73cc2ba95f1ea4d0af5986424"
+    },
+    {
+      "setId": "wizard-illusionist",
+      "height": "regular",
+      "body": "slim",
+      "sha256": "9b6290878949db69388f275a2b650c1bb3ca560c635923b440e12e6901c75060"
+    },
+    {
+      "setId": "wizard-illusionist",
+      "height": "regular",
+      "body": "balanced",
+      "sha256": "9a7aa75d66c8c9c50d1e52eb6d365f2a93cb268d74928a5a7209155acb948a70"
+    },
+    {
+      "setId": "wizard-illusionist",
+      "height": "regular",
+      "body": "broad",
+      "sha256": "a0f2e95aefa47a9a0eb963fa4bb848396627da9232b9a2daf511123729660489"
+    },
+    {
+      "setId": "wizard-illusionist",
+      "height": "regular",
+      "body": "stocky",
+      "sha256": "7c3ae7513de4d6eae8acd6e5285855e8a98f4478502c59fb8d4c6361ca0575e1"
+    },
+    {
+      "setId": "wizard-illusionist",
+      "height": "tall",
+      "body": "slim",
+      "sha256": "fbaf82421dbb8049cfee9fa9b29872d89cac7eb87eceed9d5f21aac1a6ba8897"
+    },
+    {
+      "setId": "wizard-illusionist",
+      "height": "tall",
+      "body": "balanced",
+      "sha256": "7c12550e24f87ce5712c52892ad412bed7f40cb4b4964bf49d98bb031bd237cd"
+    },
+    {
+      "setId": "wizard-illusionist",
+      "height": "tall",
+      "body": "broad",
+      "sha256": "08a294a492bb6397c9337182ebaa97880ec3e60025105416b991ea360cc980e8"
+    },
+    {
+      "setId": "wizard-illusionist",
+      "height": "tall",
+      "body": "stocky",
+      "sha256": "92fb142ec2584ce0a793c1dcb3f4ae5c327fc9c00fd1d42547e8f95083821d7e"
+    },
+    {
+      "setId": "sorcerer-dragon",
+      "height": "short",
+      "body": "slim",
+      "sha256": "a223630b16eec40ebe9e779f8ec61042d8cc3863b97ca0f02626e61e1a4ada14"
+    },
+    {
+      "setId": "sorcerer-dragon",
+      "height": "short",
+      "body": "balanced",
+      "sha256": "f5da95c489ac82d93950c911e1b72495bf14290ab2a1d76ee5de84165b32a7de"
+    },
+    {
+      "setId": "sorcerer-dragon",
+      "height": "short",
+      "body": "broad",
+      "sha256": "1743fddb51e744f9d9555d0782e15b47cca7f726127ae8d8ab1d80e463b02d02"
+    },
+    {
+      "setId": "sorcerer-dragon",
+      "height": "short",
+      "body": "stocky",
+      "sha256": "dfc4f56b90d4590b50fd44144b1d998b97d29261c4aeac56e5d7c1ca73a465d1"
+    },
+    {
+      "setId": "sorcerer-dragon",
+      "height": "regular",
+      "body": "slim",
+      "sha256": "506a1351f51893b5ce738cf05fdc8ea86911f21230c2e4c47f2e51a43befba4a"
+    },
+    {
+      "setId": "sorcerer-dragon",
+      "height": "regular",
+      "body": "balanced",
+      "sha256": "df17a4e3b739178f65116faf819006a0e2cf8b7c201c6c85cdfec62e16100f6c"
+    },
+    {
+      "setId": "sorcerer-dragon",
+      "height": "regular",
+      "body": "broad",
+      "sha256": "1cd64165903a14707a6f8c32132e6a03cc71f34860a735ff273940d7451c7312"
+    },
+    {
+      "setId": "sorcerer-dragon",
+      "height": "regular",
+      "body": "stocky",
+      "sha256": "657c4163b5fe23bcdf6126f2f2c5cad048277725d89482904ac9396b7c7852ac"
+    },
+    {
+      "setId": "sorcerer-dragon",
+      "height": "tall",
+      "body": "slim",
+      "sha256": "5268577175c8c817917e91c5b5ff095f2f597afea2549c192cb6579ee09600c3"
+    },
+    {
+      "setId": "sorcerer-dragon",
+      "height": "tall",
+      "body": "balanced",
+      "sha256": "75d27fda6a5ab549b9e1b2b29d9b670ba081994aaba55ac6c6b91a5ef5673f84"
+    },
+    {
+      "setId": "sorcerer-dragon",
+      "height": "tall",
+      "body": "broad",
+      "sha256": "dcc40ada2f764534370d16dd08229e480d4bfcdacf62fd3a5aa4ef40e4b67c0d"
+    },
+    {
+      "setId": "sorcerer-dragon",
+      "height": "tall",
+      "body": "stocky",
+      "sha256": "de1f5abb9e296580b1a37468d2d60ef3497bb97a4e2fc486683ee89d51632f6f"
+    },
+    {
+      "setId": "sorcerer-wild",
+      "height": "short",
+      "body": "slim",
+      "sha256": "f85f89daa7f777a5469d11ac1a9e6c52c23c10eb1e5322bf63657fe8df5a55c0"
+    },
+    {
+      "setId": "sorcerer-wild",
+      "height": "short",
+      "body": "balanced",
+      "sha256": "3fa5dc7b50d55a71e7003cc8e81b3d4abb12d48d4ea4c4f979fda86c32d31f76"
+    },
+    {
+      "setId": "sorcerer-wild",
+      "height": "short",
+      "body": "broad",
+      "sha256": "b8af8a2b105c14aa7ca340061b1b077368217a1daa0d772608c3ad610070230a"
+    },
+    {
+      "setId": "sorcerer-wild",
+      "height": "short",
+      "body": "stocky",
+      "sha256": "7c3a3f71237e55e955d15d6641bbc81151873a8030b306eaa5b19e08a558f9b3"
+    },
+    {
+      "setId": "sorcerer-wild",
+      "height": "regular",
+      "body": "slim",
+      "sha256": "26a12852941a1e182456d9b8ac4efc31897c03ef90ad906f8a2d294db37804db"
+    },
+    {
+      "setId": "sorcerer-wild",
+      "height": "regular",
+      "body": "balanced",
+      "sha256": "87eea68a27268bda865268d118fb8eac69547b25e0bb367496647cb3bd037b03"
+    },
+    {
+      "setId": "sorcerer-wild",
+      "height": "regular",
+      "body": "broad",
+      "sha256": "82fbbd6a1d1976ff43e25adf4420046db63a9faf91264d99fb8ffc2f3efb1286"
+    },
+    {
+      "setId": "sorcerer-wild",
+      "height": "regular",
+      "body": "stocky",
+      "sha256": "b8871466373eb69ea69a89d3bfb8428377b7dec00d8e87e7471d42d4a7cf4cdb"
+    },
+    {
+      "setId": "sorcerer-wild",
+      "height": "tall",
+      "body": "slim",
+      "sha256": "bc348dce28988178a5864a651c62e36feb04b4cf290090babf3c7905b8bd8d8a"
+    },
+    {
+      "setId": "sorcerer-wild",
+      "height": "tall",
+      "body": "balanced",
+      "sha256": "e33ddc8c27bd2520a40dba4379ae169effaf64ba9c21399750f1d9b488934724"
+    },
+    {
+      "setId": "sorcerer-wild",
+      "height": "tall",
+      "body": "broad",
+      "sha256": "da69451c5aaecb322039e4251e60ed84b1e0e5072b90d72cb94048845e62b169"
+    },
+    {
+      "setId": "sorcerer-wild",
+      "height": "tall",
+      "body": "stocky",
+      "sha256": "8445b416e524388294d2e743defe418274e7b919ec549b34a2d3d17d7da4fc9c"
+    },
+    {
+      "setId": "sorcerer-stormborn",
+      "height": "short",
+      "body": "slim",
+      "sha256": "fbc1b1a62bcd81fc610383da917730e8e0b893c29f09d4aece0cc714fe09e63f"
+    },
+    {
+      "setId": "sorcerer-stormborn",
+      "height": "short",
+      "body": "balanced",
+      "sha256": "2302859bec265f5745cae7ac45b749b613a98b1a3ac6865f4af9099bd5c168ae"
+    },
+    {
+      "setId": "sorcerer-stormborn",
+      "height": "short",
+      "body": "broad",
+      "sha256": "716421515c2e6d2022c9652629a5550a15f5703b7e95291c23d3af6e909ddc9e"
+    },
+    {
+      "setId": "sorcerer-stormborn",
+      "height": "short",
+      "body": "stocky",
+      "sha256": "50d5f236e95885822e54f3a4a862b578f3f8dd33eb563da5ef8afd5601575e23"
+    },
+    {
+      "setId": "sorcerer-stormborn",
+      "height": "regular",
+      "body": "slim",
+      "sha256": "109478000faf5618aefccee2653f879ee06ddf738010384d4a908313b8048080"
+    },
+    {
+      "setId": "sorcerer-stormborn",
+      "height": "regular",
+      "body": "balanced",
+      "sha256": "1416dc03d3c7a625ac0fc01d2856f84e40363b1c38fd335293aeaff242fbbf4b"
+    },
+    {
+      "setId": "sorcerer-stormborn",
+      "height": "regular",
+      "body": "broad",
+      "sha256": "b87a337bb306f6296b66b5b1e2edd15fa17e40ad7401553f48565f9ecbefc1bc"
+    },
+    {
+      "setId": "sorcerer-stormborn",
+      "height": "regular",
+      "body": "stocky",
+      "sha256": "f7c01e10d8ca0c1df8954973b628a128ca7f04874a396e2cb34aa66c2f18d75d"
+    },
+    {
+      "setId": "sorcerer-stormborn",
+      "height": "tall",
+      "body": "slim",
+      "sha256": "cf29c96ec1e2f8dd6963fc2ca9df8b93611c43e049ad6ef237d5d052bffbca08"
+    },
+    {
+      "setId": "sorcerer-stormborn",
+      "height": "tall",
+      "body": "balanced",
+      "sha256": "8213a678ee49b51a8b7102a7fde7446831c2b46258c0064108b95965cca7d6fc"
+    },
+    {
+      "setId": "sorcerer-stormborn",
+      "height": "tall",
+      "body": "broad",
+      "sha256": "9b5937f6e26b3fb040413208dc6ce18cf56d072c03a0c41318ca799ab8cac3cf"
+    },
+    {
+      "setId": "sorcerer-stormborn",
+      "height": "tall",
+      "body": "stocky",
+      "sha256": "ceb3a7a93f9255b39bd56abc21672ef1b4aad8c8246562e00c9ee5f4b4ce6106"
+    },
+    {
+      "setId": "warlock-bladepact",
+      "height": "short",
+      "body": "slim",
+      "sha256": "fee53d9c2eeecde5dbb9bc5c6c54e5d0ce236bcb88363f2ad57f076f8db6f094"
+    },
+    {
+      "setId": "warlock-bladepact",
+      "height": "short",
+      "body": "balanced",
+      "sha256": "8a8f246461a5013b4cce67ffcf89c1c9016d3c1d9b013defc6072d35146df31b"
+    },
+    {
+      "setId": "warlock-bladepact",
+      "height": "short",
+      "body": "broad",
+      "sha256": "3275ef40bcbd202a34985efccf1e000e14d16b289454ba41751a2654da23ea0d"
+    },
+    {
+      "setId": "warlock-bladepact",
+      "height": "short",
+      "body": "stocky",
+      "sha256": "45ba89e9a3bcd2d7f14a11e8dd216fcea5ac7f1d07a9b3aa707a0e4d86317b2e"
+    },
+    {
+      "setId": "warlock-bladepact",
+      "height": "regular",
+      "body": "slim",
+      "sha256": "1edeaff48248bc43726b8a266364362d1845f0fbfe000a09478928d55605b5e9"
+    },
+    {
+      "setId": "warlock-bladepact",
+      "height": "regular",
+      "body": "balanced",
+      "sha256": "56634886369554d4039ef978b31cda904021bafa0b802f94e2b342d3597ea613"
+    },
+    {
+      "setId": "warlock-bladepact",
+      "height": "regular",
+      "body": "broad",
+      "sha256": "e5af1e2aa7956b0a95d0d29e46723d1e1c73814f5b3176016ce15633b8be46fc"
+    },
+    {
+      "setId": "warlock-bladepact",
+      "height": "regular",
+      "body": "stocky",
+      "sha256": "b6cc226e044471c10bdb5172d2be658701c38188de2c5ddac2bdb96e87e1929e"
+    },
+    {
+      "setId": "warlock-bladepact",
+      "height": "tall",
+      "body": "slim",
+      "sha256": "b511c7f6a37f68a2be9a588c75c8f265974fe61081be99a7c778a61ebd334a3c"
+    },
+    {
+      "setId": "warlock-bladepact",
+      "height": "tall",
+      "body": "balanced",
+      "sha256": "24a3a61fe488e2cfe21057e34d8f5229e55e6e2b10a6aa6e9cbbadd494b73244"
+    },
+    {
+      "setId": "warlock-bladepact",
+      "height": "tall",
+      "body": "broad",
+      "sha256": "d8e721cd177f886af46013653bb2bf8d2547fcfaa437adb3b6ccdfe751fd990b"
+    },
+    {
+      "setId": "warlock-bladepact",
+      "height": "tall",
+      "body": "stocky",
+      "sha256": "20ad78564c45a7a4589f34b6937554c68fa5938d90802a9e32a57f28c6f181d3"
+    },
+    {
+      "setId": "warlock-tomepact",
+      "height": "short",
+      "body": "slim",
+      "sha256": "389d6c2b5b566108217c80366b77037828c03d7a926b6f4d1808835aac3fb2e9"
+    },
+    {
+      "setId": "warlock-tomepact",
+      "height": "short",
+      "body": "balanced",
+      "sha256": "da6626ef1120f49d9442f81a66ad8c15c3bc14848f129960632fd2a183935a12"
+    },
+    {
+      "setId": "warlock-tomepact",
+      "height": "short",
+      "body": "broad",
+      "sha256": "253dbef26237c06bc37596c99252dc81b6e01ad7bbabd68e9417585f63525af3"
+    },
+    {
+      "setId": "warlock-tomepact",
+      "height": "short",
+      "body": "stocky",
+      "sha256": "80d305726ab8cb5ed1cd33ee6edf244872f8049fab526179824191219c068a38"
+    },
+    {
+      "setId": "warlock-tomepact",
+      "height": "regular",
+      "body": "slim",
+      "sha256": "52f6bb2ebe355a308805c0f09fd2a49e87dea982c55aecacab70a61c805d95af"
+    },
+    {
+      "setId": "warlock-tomepact",
+      "height": "regular",
+      "body": "balanced",
+      "sha256": "5ff8563756333cad47320cd832e8314891b0bb40c96100e23c8dc8e44d92a27e"
+    },
+    {
+      "setId": "warlock-tomepact",
+      "height": "regular",
+      "body": "broad",
+      "sha256": "bf1f7c65e8f44433964f7b333820c0e533921d718978f2ff14823bc8e5108366"
+    },
+    {
+      "setId": "warlock-tomepact",
+      "height": "regular",
+      "body": "stocky",
+      "sha256": "e6c4bf4722f0c0b391d78b8bfdfc2c29df24aaa4e809dd81cbdb4947f809a9f2"
+    },
+    {
+      "setId": "warlock-tomepact",
+      "height": "tall",
+      "body": "slim",
+      "sha256": "ca3950a7bfabbd81ef2a5e2470f1adcb05f461022e8423a9a603a4d968dfa757"
+    },
+    {
+      "setId": "warlock-tomepact",
+      "height": "tall",
+      "body": "balanced",
+      "sha256": "5386a3abff35012c1579a8d56f02d026370d4a069464dcc231608dc0c05c4ede"
+    },
+    {
+      "setId": "warlock-tomepact",
+      "height": "tall",
+      "body": "broad",
+      "sha256": "e0778971091cf169455e88641cb26f57f2a7f50b5fe5b4e83d9c1f6f9904ab28"
+    },
+    {
+      "setId": "warlock-tomepact",
+      "height": "tall",
+      "body": "stocky",
+      "sha256": "435f0430f472592f810c378faad56598f2509edeea5974528733c4c187166127"
+    },
+    {
+      "setId": "warlock-chainpact",
+      "height": "short",
+      "body": "slim",
+      "sha256": "ccbe814a7152d8d20aee4d6e4cab138fd61500bcdfeed8c37119e3ad26570831"
+    },
+    {
+      "setId": "warlock-chainpact",
+      "height": "short",
+      "body": "balanced",
+      "sha256": "3c2fa3dbb031ca8d31c97eca0a719f9ff871e78ac2f153ab30f9b9a9ceb03d11"
+    },
+    {
+      "setId": "warlock-chainpact",
+      "height": "short",
+      "body": "broad",
+      "sha256": "5ffbd8562bf9a1ae5aa274a7480addc9b53b2a84b7917b58aec81dc15c83592d"
+    },
+    {
+      "setId": "warlock-chainpact",
+      "height": "short",
+      "body": "stocky",
+      "sha256": "7893f773503a4504e6910d535cdf26c3fd63a1e3437e52b76cf169948e831d7f"
+    },
+    {
+      "setId": "warlock-chainpact",
+      "height": "regular",
+      "body": "slim",
+      "sha256": "772106e5bfa1a212af9ddf70cc1c42a1a9e2b52cb201290281e8c81ac1a8dfdd"
+    },
+    {
+      "setId": "warlock-chainpact",
+      "height": "regular",
+      "body": "balanced",
+      "sha256": "70c50bd8dfcb9fbdebbd240961f9da308e0954239bcf2434e0d845569ebee99a"
+    },
+    {
+      "setId": "warlock-chainpact",
+      "height": "regular",
+      "body": "broad",
+      "sha256": "dba49698f2c323a0fd4a24e598d1239a06e14a050f7b3b1f38cd5e65aad7e5f3"
+    },
+    {
+      "setId": "warlock-chainpact",
+      "height": "regular",
+      "body": "stocky",
+      "sha256": "0aef92534e7d8d24a73386d15474248dc4fef0474a09a43c7f9e9c6b57f3f2e6"
+    },
+    {
+      "setId": "warlock-chainpact",
+      "height": "tall",
+      "body": "slim",
+      "sha256": "5ee09e6484e845ba191650bc649a53502b55b5dab84c99f3668b8cc106fa610a"
+    },
+    {
+      "setId": "warlock-chainpact",
+      "height": "tall",
+      "body": "balanced",
+      "sha256": "1586781675d34a481e91fc3b9bd75093f768c68bd1c381f24ce2334841afcde5"
+    },
+    {
+      "setId": "warlock-chainpact",
+      "height": "tall",
+      "body": "broad",
+      "sha256": "8c50097b14fe5899c999ce29b0619cac3cd28cc13931c76573f0947dce92cb67"
+    },
+    {
+      "setId": "warlock-chainpact",
+      "height": "tall",
+      "body": "stocky",
+      "sha256": "a9df4524bfabe60d45f63a665a67dbd2bffbd37f5078277e22c7380f24b099d7"
+    }
+  ]
+}

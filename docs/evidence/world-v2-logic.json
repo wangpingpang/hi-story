@@ -1,0 +1,1044 @@
+{
+  "baseline": "bbc22a0572345ae191e3cd1ba13d50b784d5699a",
+  "logic": {
+    "passed": 227,
+    "failed": 0,
+    "files": 16,
+    "seconds": 296.73,
+    "cases": [
+      {
+        "name": "v0.1.0 动态冒险 500种子可装配、固定起终点、三主线及全部地点可达，地形有高差",
+        "status": "passed"
+      },
+      {
+        "name": "v0.1.0 动态冒险 同种子与职业保持人物、地图、内容一致；状态查询不可改写",
+        "status": "passed"
+      },
+      {
+        "name": "v0.1.0 动态冒险 DND 检定优势/劣势与属性熟练真实计算，失败不改变输入",
+        "status": "passed"
+      },
+      {
+        "name": "v0.1.0 动态冒险 社交有距离、骰子记录与关系后果，重复请求不重抽、不重付",
+        "status": "passed"
+      },
+      {
+        "name": "v0.1.0 动态冒险 选择装配后续 NPC/任务和两条连续链，地图与已有身份稳定",
+        "status": "passed"
+      },
+      {
+        "name": "v0.1.0 动态冒险 恢复保留冒险/人物/事件/随机状态，更换会话并拒绝旧输入",
+        "status": "passed"
+      },
+      {
+        "name": "v0.1.0 动态冒险 提交失败回滚社交骰子/耗材/关系/账本，保存失败不回滚已提交游戏",
+        "status": "passed"
+      },
+      {
+        "name": "v0.1.0 动态冒险 30种子真实探索完成三主线，成本只扣一次、失败有恢复路线",
+        "status": "passed"
+      },
+      {
+        "name": "v0.1.0 动态冒险 绳索开启实际捷径，交易和任务奖励不能双重结算",
+        "status": "passed"
+      },
+      {
+        "name": "v0.1.0 动态冒险 战斗中恢复保持回合/先攻/行动/HP/骰子序列，输入一致结果一致",
+        "status": "passed"
+      },
+      {
+        "name": "v0.1.0 动态冒险 限制递归条件，拒绝伪造/损坏/不兼容存档而保留现局",
+        "status": "passed"
+      },
+      {
+        "name": "同种子三处选择产生实际不同后果，失败或死亡关闭承诺任务",
+        "status": "passed"
+      },
+      {
+        "name": "同一实例并发初始化最多一次，坏地图存档保留现局",
+        "status": "passed"
+      },
+      {
+        "name": "委托人死亡后取消承诺链；治疗消耗品与行动一次结算",
+        "status": "passed"
+      },
+      {
+        "name": "探索受伤后药剂恢复生命并去重，满生命时拒绝扣物品",
+        "status": "passed"
+      },
+      {
+        "name": "random character appearance reproduces a full seven-part model from the same seed",
+        "status": "passed"
+      },
+      {
+        "name": "random character appearance covers every style and color with valid outputs over 1000 deterministic seeds",
+        "status": "passed"
+      },
+      {
+        "name": "random character appearance rerolls only hair, using the same stream as full generation",
+        "status": "passed"
+      },
+      {
+        "name": "random character appearance rerolls only face, using the same stream as full generation",
+        "status": "passed"
+      },
+      {
+        "name": "random character appearance rerolls only body, using the same stream as full generation",
+        "status": "passed"
+      },
+      {
+        "name": "random character appearance rerolls only top, using the same stream as full generation",
+        "status": "passed"
+      },
+      {
+        "name": "random character appearance rerolls only pants, using the same stream as full generation",
+        "status": "passed"
+      },
+      {
+        "name": "random character appearance rerolls only shoes, using the same stream as full generation",
+        "status": "passed"
+      },
+      {
+        "name": "random character appearance rerolls only accessory, using the same stream as full generation",
+        "status": "passed"
+      },
+      {
+        "name": "random character appearance preserves locked styles and colors and copies all parts",
+        "status": "passed"
+      },
+      {
+        "name": "random character appearance rejects blank or oversized seeds and malformed/unsupported models",
+        "status": "passed"
+      },
+      {
+        "name": "random character appearance round-trips a manually edited model via JSON without losing any part",
+        "status": "passed"
+      },
+      {
+        "name": "random character appearance publishes a frozen catalog and a separately frozen roster snapshot",
+        "status": "passed"
+      },
+      {
+        "name": "studio and adventure integration honors locks for random, manual and single-part operations; failures are atomic",
+        "status": "passed"
+      },
+      {
+        "name": "studio and adventure integration keeps authority separate from mutable exports and immutable query snapshots",
+        "status": "passed"
+      },
+      {
+        "name": "studio and adventure integration appearance persists through story choices and is regenerated per new run",
+        "status": "passed"
+      },
+      {
+        "name": "story-supplied character parameters retains identity, traits, numeric personality, preferences and visual overrides",
+        "status": "passed"
+      },
+      {
+        "name": "story-supplied character parameters fills unspecified fields and preserves explicit empty preferences without inventing history",
+        "status": "passed"
+      },
+      {
+        "name": "story-supplied character parameters rejects contradictory preferences, duplicate traits, unsupported fields and invalid weights",
+        "status": "passed"
+      },
+      {
+        "name": "story-supplied character parameters keeps player personality pending evidence and honors explicit player preferences",
+        "status": "passed"
+      },
+      {
+        "name": "story-supplied character parameters continues to validate old serialized records without preferences",
+        "status": "passed"
+      },
+      {
+        "name": "versioned appearance and material registration appearance/2 covers wrap and both skirt styles without changing version 1",
+        "status": "passed"
+      },
+      {
+        "name": "versioned appearance and material registration every gender and part has a bounded source region and a valid target",
+        "status": "passed"
+      },
+      {
+        "name": "versioned appearance and material registration studio switches gender without changing a locked appearance or accepting invalid rig values",
+        "status": "passed"
+      },
+      {
+        "name": "六模块 Demo 集成与事务 40个种子都有固定起终点、完整人物绑定和可达路径；同种子生成一致",
+        "status": "passed"
+      },
+      {
+        "name": "六模块 Demo 集成与事务 阅读、购买、实际抵达、完成目标形成可游玩的闭环",
+        "status": "passed"
+      },
+      {
+        "name": "六模块 Demo 集成与事务 探索任务只发放一次奖励，离开终点撤销当前抵达条件",
+        "status": "passed"
+      },
+      {
+        "name": "六模块 Demo 集成与事务 查询深冻结且独立；订阅收到初始化完成时 busy=false",
+        "status": "passed"
+      },
+      {
+        "name": "六模块 Demo 集成与事务 命令去重先于版本判断；冲突、旧版本和旧局命令拒绝",
+        "status": "passed"
+      },
+      {
+        "name": "六模块 Demo 集成与事务 排队前复制载荷；并发同版本最多提交一次",
+        "status": "passed"
+      },
+      {
+        "name": "六模块 Demo 集成与事务 提交故障回滚移动、故事、奖励、回执和随机状态；同命令可重试",
+        "status": "passed"
+      },
+      {
+        "name": "六模块 Demo 集成与事务 重开取消等待中的旧事务，重开失败保留旧局",
+        "status": "passed"
+      },
+      {
+        "name": "六模块 Demo 集成与事务 校验未知参数、伪造身份、未知处理器、非法移动与事件绑定",
+        "status": "passed"
+      },
+      {
+        "name": "六模块 Demo 集成与事务 战斗锁住探索；逃离不改变NPC存活，重复命令不重复结算",
+        "status": "passed"
+      },
+      {
+        "name": "六模块 Demo 集成与事务 骰子战斗胜利同步生命、故事依赖和事件结算，战斗中故障不消耗随机数",
+        "status": "passed"
+      },
+      {
+        "name": "六模块 Demo 集成与事务 角色战败关闭主线并结束本局；dispose阻止后续操作",
+        "status": "passed"
+      },
+      {
+        "name": "运行器与任务参与者边界 人物占位阻止穿越，迷雾按视线遮挡；运行操作不改输入",
+        "status": "passed"
+      },
+      {
+        "name": "运行器与任务参与者边界 战斗随机流取决于种子和战斗序号，随机请求ID不影响骰子",
+        "status": "passed"
+      },
+      {
+        "name": "运行器与任务参与者边界 任务生成只返回蓝图；隔离参与者输入，拒绝重复与不存在引用",
+        "status": "passed"
+      },
+      {
+        "name": "世界面积严格五倍，故事声明23处碰撞场景，六区域十锚点稳定",
+        "status": "passed"
+      },
+      {
+        "name": "斜向速度归一，短时步长固定上限，坏参数被拒绝",
+        "status": "passed"
+      },
+      {
+        "name": "连续扫掠不能穿墙，碰撞不修改输入",
+        "status": "passed"
+      },
+      {
+        "name": "圆形碰撞不穿过对角封闭拐角",
+        "status": "passed"
+      },
+      {
+        "name": "人物碰撞和地图边缘保留实体半径，倒下人物不阻路",
+        "status": "passed"
+      },
+      {
+        "name": "运行器提交小数位置，远程坐标命令不瞬移并完整回滚",
+        "status": "passed"
+      },
+      {
+        "name": "路线查询不改变事实，每个导航节点都可站立",
+        "status": "passed"
+      },
+      {
+        "name": "紧贴NPC的小数起点从可达中心开始寻路，不走入人物中心",
+        "status": "passed"
+      },
+      {
+        "name": "短时方向命令被校验，无穷值和过大时间不落账",
+        "status": "passed"
+      },
+      {
+        "name": "小数存档精确恢复，旧schema被拒绝并保留当前局",
+        "status": "passed"
+      },
+      {
+        "name": "伪造穿墙小数存档不能覆盖有效进度",
+        "status": "passed"
+      },
+      {
+        "name": "连续互动校验真实距离和中间视线阻挡",
+        "status": "passed"
+      },
+      {
+        "name": "战斗保持9乘7格子，活动战斗中拒绝连续行走",
+        "status": "passed"
+      },
+      {
+        "name": "五套图集60切片范围和文件有效；五种天气可复现且预览不改事实",
+        "status": "passed"
+      },
+      {
+        "name": "22 legal routes: independent expected resources and consequences A/solo/public",
+        "status": "passed"
+      },
+      {
+        "name": "22 legal routes: independent expected resources and consequences A/solo/anonymous",
+        "status": "passed"
+      },
+      {
+        "name": "22 legal routes: independent expected resources and consequences A/rope/public",
+        "status": "passed"
+      },
+      {
+        "name": "22 legal routes: independent expected resources and consequences A/rope/anonymous",
+        "status": "passed"
+      },
+      {
+        "name": "22 legal routes: independent expected resources and consequences A/carry/public",
+        "status": "passed"
+      },
+      {
+        "name": "22 legal routes: independent expected resources and consequences A/carry/anonymous",
+        "status": "passed"
+      },
+      {
+        "name": "22 legal routes: independent expected resources and consequences B/solo/public",
+        "status": "passed"
+      },
+      {
+        "name": "22 legal routes: independent expected resources and consequences B/solo/anonymous",
+        "status": "passed"
+      },
+      {
+        "name": "22 legal routes: independent expected resources and consequences B/rope/public",
+        "status": "passed"
+      },
+      {
+        "name": "22 legal routes: independent expected resources and consequences B/rope/anonymous",
+        "status": "passed"
+      },
+      {
+        "name": "22 legal routes: independent expected resources and consequences B/carry/public",
+        "status": "passed"
+      },
+      {
+        "name": "22 legal routes: independent expected resources and consequences B/carry/anonymous",
+        "status": "passed"
+      },
+      {
+        "name": "22 legal routes: independent expected resources and consequences C/solo/public",
+        "status": "passed"
+      },
+      {
+        "name": "22 legal routes: independent expected resources and consequences C/solo/anonymous",
+        "status": "passed"
+      },
+      {
+        "name": "22 legal routes: independent expected resources and consequences C/carry/public",
+        "status": "passed"
+      },
+      {
+        "name": "22 legal routes: independent expected resources and consequences C/carry/anonymous",
+        "status": "passed"
+      },
+      {
+        "name": "22 legal routes: independent expected resources and consequences D/solo/public",
+        "status": "passed"
+      },
+      {
+        "name": "22 legal routes: independent expected resources and consequences D/solo/anonymous",
+        "status": "passed"
+      },
+      {
+        "name": "22 legal routes: independent expected resources and consequences D/rope/public",
+        "status": "passed"
+      },
+      {
+        "name": "22 legal routes: independent expected resources and consequences D/rope/anonymous",
+        "status": "passed"
+      },
+      {
+        "name": "22 legal routes: independent expected resources and consequences D/carry/public",
+        "status": "passed"
+      },
+      {
+        "name": "22 legal routes: independent expected resources and consequences D/carry/anonymous",
+        "status": "passed"
+      },
+      {
+        "name": "22 legal routes: independent expected resources and consequences 17 tonight / 5 morning, exact morning paths and 3/4 boundary",
+        "status": "passed"
+      },
+      {
+        "name": "command and transaction boundaries same ID and payload is idempotent even after progression, different payload rejected",
+        "status": "passed"
+      },
+      {
+        "name": "command and transaction boundaries distinct rapidly repeated commands from one rendered revision commit exactly once",
+        "status": "passed"
+      },
+      {
+        "name": "command and transaction boundaries reject stale/invalid runId unchanged",
+        "status": "passed"
+      },
+      {
+        "name": "command and transaction boundaries reject stale/invalid eventInstanceId unchanged",
+        "status": "passed"
+      },
+      {
+        "name": "command and transaction boundaries reject stale/invalid revision unchanged",
+        "status": "passed"
+      },
+      {
+        "name": "command and transaction boundaries reject stale/invalid actorId unchanged",
+        "status": "passed"
+      },
+      {
+        "name": "command and transaction boundaries reject unavailable rope without any partial mutation",
+        "status": "passed"
+      },
+      {
+        "name": "command and transaction boundaries failure after all changes prepared atomically rolls back; retry can succeed",
+        "status": "passed"
+      },
+      {
+        "name": "command and transaction boundaries reward cannot be duplicated by same or different IDs",
+        "status": "passed"
+      },
+      {
+        "name": "command and transaction boundaries restart at phase 0 resets everything and rejects old callbacks",
+        "status": "passed"
+      },
+      {
+        "name": "command and transaction boundaries restart at phase 1 resets everything and rejects old callbacks",
+        "status": "passed"
+      },
+      {
+        "name": "command and transaction boundaries restart at phase 2 resets everything and rejects old callbacks",
+        "status": "passed"
+      },
+      {
+        "name": "command and transaction boundaries restart at phase 3 resets everything and rejects old callbacks",
+        "status": "passed"
+      },
+      {
+        "name": "command and transaction boundaries all nested query data and content are frozen and cannot mutate authority",
+        "status": "passed"
+      },
+      {
+        "name": "command and transaction boundaries prototype-shaped IDs are handled as data",
+        "status": "passed"
+      },
+      {
+        "name": "content, facts, NPC and personality boundaries versioned content has unique IDs, valid costs and exactly 4/3/2 choices",
+        "status": "passed"
+      },
+      {
+        "name": "content, facts, NPC and personality boundaries NPC does not know bridge choices or delivery privacy, history never rewritten",
+        "status": "passed"
+      },
+      {
+        "name": "content, facts, NPC and personality boundaries one choice or repeated same-scene observations never imply a stable trait",
+        "status": "passed"
+      },
+      {
+        "name": "content, facts, NPC and personality boundaries cross-scene repetition is low confidence with retained counterevidence",
+        "status": "passed"
+      },
+      {
+        "name": "天气可复现，覆盖昼夜与四种预览，不改动领域状态",
+        "status": "passed"
+      },
+      {
+        "name": "八种场景切片在实际图集内且只读装配",
+        "status": "passed"
+      },
+      {
+        "name": "12职业可从应用公共接口开局，已实现能力可查询，兼容模式可恢复",
+        "status": "passed"
+      },
+      {
+        "name": "只使用公开装备目录，不打包内部动作制作规格",
+        "status": "passed"
+      },
+      {
+        "name": "2.5D投影和点击逆变换保留格子及不同高度",
+        "status": "passed"
+      },
+      {
+        "name": "参数驱动的有界地图 复现完整结果，不改变故事输入，保留故事引用和固定位置",
+        "status": "passed"
+      },
+      {
+        "name": "参数驱动的有界地图 所有格子、区域、通道、地貌、对象均在边界内；关键路线四方向可达",
+        "status": "passed"
+      },
+      {
+        "name": "参数驱动的有界地图 不自行增加故事未指定的对象、地貌或连接",
+        "status": "passed"
+      },
+      {
+        "name": "参数驱动的有界地图 放置距离、占地和碰撞属性来自故事参数",
+        "status": "passed"
+      },
+      {
+        "name": "参数驱动的有界地图 封闭连接按输入保留，无法满足必达要求时返回失败，不擅自开放",
+        "status": "passed"
+      },
+      {
+        "name": "参数驱动的有界地图 拒绝会切断必达路径的固定对象与地貌，且不修改输入",
+        "status": "passed"
+      },
+      {
+        "name": "参数驱动的有界地图 对象重叠策略明确，重叠阻挡不会被后续候选检查清除",
+        "status": "passed"
+      },
+      {
+        "name": "参数驱动的有界地图 失败重试有上限，并报告无法放入区域的对象",
+        "status": "passed"
+      },
+      {
+        "name": "参数驱动的有界地图 非法边界 在生成前返回 INVALID_REQUEST",
+        "status": "passed"
+      },
+      {
+        "name": "参数驱动的有界地图 重复编号 在生成前返回 INVALID_REQUEST",
+        "status": "passed"
+      },
+      {
+        "name": "参数驱动的有界地图 错误区域引用 在生成前返回 INVALID_REQUEST",
+        "status": "passed"
+      },
+      {
+        "name": "参数驱动的有界地图 错误关键点引用 在生成前返回 INVALID_REQUEST",
+        "status": "passed"
+      },
+      {
+        "name": "参数驱动的有界地图 非法距离 在生成前返回 INVALID_REQUEST",
+        "status": "passed"
+      },
+      {
+        "name": "参数驱动的有界地图 越界固定位置 在生成前返回 INVALID_REQUEST",
+        "status": "passed"
+      },
+      {
+        "name": "参数驱动的有界地图 不支持形状 在生成前返回 INVALID_REQUEST",
+        "status": "passed"
+      },
+      {
+        "name": "参数驱动的有界地图 未知策略、故障策略和违反固定位置的策略返回不同错误",
+        "status": "passed"
+      },
+      {
+        "name": "参数驱动的有界地图 热插拔布局策略通过公共接口使用，策略不能修改故事原始请求",
+        "status": "passed"
+      },
+      {
+        "name": "参数驱动的有界地图 120个种子产生不同空间布局，全部满足边界与可达性",
+        "status": "passed"
+      },
+      {
+        "name": "参数驱动的有界地图 空请求等 JSON 输入返回结构化错误",
+        "status": "passed"
+      },
+      {
+        "name": "职业运行器接入 所有角色注册同一体系，玩家与NPC同配置派生结果一致，居民允许无冒险职业",
+        "status": "passed"
+      },
+      {
+        "name": "职业运行器接入 12职业可初始化并以职业版本往返存档；普通模式仍兼容旧schema3",
+        "status": "passed"
+      },
+      {
+        "name": "职业运行器接入 检查18技能及专长2P，初始豁免不会从兼职重复取得",
+        "status": "passed"
+      },
+      {
+        "name": "职业运行器接入 9个已登记主动技能实际结算，消耗、主行动、输入不变与确定性一致",
+        "status": "passed"
+      },
+      {
+        "name": "职业运行器接入 未实现、越界、无视线或无行动技能均拒绝，不消耗任何随机和资源",
+        "status": "passed"
+      },
+      {
+        "name": "职业运行器接入 自然20重击双倍伤害骰；自然1未命中仍消耗行动",
+        "status": "passed"
+      },
+      {
+        "name": "职业运行器接入 NPC基础施法复用相同执行器，额外攻击不复制两次法术",
+        "status": "passed"
+      },
+      {
+        "name": "职业运行器接入 非战斗治疗和休息恢复真实HP，升级保留伤势且4级分配属性",
+        "status": "passed"
+      },
+      {
+        "name": "职业运行器接入 后续注册人物同样获得职业字段，身份与外观不会重抽",
+        "status": "passed"
+      },
+      {
+        "name": "生命周期事务、保存与去重 技能与休息参与事务，失败回滚HP/资源/骰子/时间，重复命令只生效一次",
+        "status": "passed"
+      },
+      {
+        "name": "生命周期事务、保存与去重 治疗命令的骰子、资源、HP和日志在提交失败时一起回滚，重试只扣一次",
+        "status": "passed"
+      },
+      {
+        "name": "生命周期事务、保存与去重 职业技能击败敌人沿用一次性战利品与人物死亡回传",
+        "status": "passed"
+      },
+      {
+        "name": "生命周期事务、保存与去重 进行中的职业战斗恢复保留资源、回合和随机流，同输入得同结果",
+        "status": "passed"
+      },
+      {
+        "name": "生命周期事务、保存与去重 篡改职业资源、派生数值或目录版本的重校验存档被拒绝，保留当前局",
+        "status": "passed"
+      },
+      {
+        "name": "生命周期事务、保存与去重 重开保留职业配置但重置运行资源；用户背景和性格不由职业重写",
+        "status": "passed"
+      },
+      {
+        "name": "职业目录与规则包 12职业、36专精、252完整定义，执行能力单独登记",
+        "status": "passed"
+      },
+      {
+        "name": "职业目录与规则包 目录深冻结且输入隔离，未知编号与污染键被拒绝",
+        "status": "passed"
+      },
+      {
+        "name": "职业目录与规则包 拒绝重复职业、技能、错属分支和非法执行脚本",
+        "status": "passed"
+      },
+      {
+        "name": "职业目录与规则包 显式新目录可增加职业，不修改全局注册表",
+        "status": "passed"
+      },
+      {
+        "name": "全角色共用成长 战士各专精按本职业等级解锁，单职业最多15项",
+        "status": "passed"
+      },
+      {
+        "name": "全角色共用成长 野蛮人各专精按本职业等级解锁，单职业最多15项",
+        "status": "passed"
+      },
+      {
+        "name": "全角色共用成长 游荡者各专精按本职业等级解锁，单职业最多15项",
+        "status": "passed"
+      },
+      {
+        "name": "全角色共用成长 武僧各专精按本职业等级解锁，单职业最多15项",
+        "status": "passed"
+      },
+      {
+        "name": "全角色共用成长 游侠各专精按本职业等级解锁，单职业最多15项",
+        "status": "passed"
+      },
+      {
+        "name": "全角色共用成长 圣武士各专精按本职业等级解锁，单职业最多15项",
+        "status": "passed"
+      },
+      {
+        "name": "全角色共用成长 牧师各专精按本职业等级解锁，单职业最多15项",
+        "status": "passed"
+      },
+      {
+        "name": "全角色共用成长 德鲁伊各专精按本职业等级解锁，单职业最多15项",
+        "status": "passed"
+      },
+      {
+        "name": "全角色共用成长 吟游诗人各专精按本职业等级解锁，单职业最多15项",
+        "status": "passed"
+      },
+      {
+        "name": "全角色共用成长 法师各专精按本职业等级解锁，单职业最多15项",
+        "status": "passed"
+      },
+      {
+        "name": "全角色共用成长 术士各专精按本职业等级解锁，单职业最多15项",
+        "status": "passed"
+      },
+      {
+        "name": "全角色共用成长 邪术师各专精按本职业等级解锁，单职业最多15项",
+        "status": "passed"
+      },
+      {
+        "name": "全角色共用成长 无冒险职业的居民仍有基础生命与通用熟练，没有职业技能或资源",
+        "status": "passed"
+      },
+      {
+        "name": "全角色共用成长 固定生命成长按首职业最大值、兼职固定增量计算，不再发放初始生命",
+        "status": "passed"
+      },
+      {
+        "name": "全角色共用成长 兼职不叠加额外攻击、AC公式或起始豁免，专长按2P计算",
+        "status": "passed"
+      },
+      {
+        "name": "全角色共用成长 拒绝越级、无专精、重复职业、第三职业和属性不达标",
+        "status": "passed"
+      },
+      {
+        "name": "全角色共用成长 技能等级看本职业，错误专精不能借总等级绕过，目录未实现技能明确返回原因",
+        "status": "passed"
+      },
+      {
+        "name": "全角色共用成长 成长到3级必须选择专精，不能变更已经选择的专精",
+        "status": "passed"
+      },
+      {
+        "name": "全角色共用成长 低体质每级生命最少1点，负数与缺失属性不可绕过校验",
+        "status": "passed"
+      },
+      {
+        "name": "资源、休息与成长不重复赠送 消耗仅扣所属职业池，输入保持不变，未实现技能不扣款",
+        "status": "passed"
+      },
+      {
+        "name": "资源、休息与成长不重复赠送 拒绝负资源、越上限、额外池、版本不符与资源不足",
+        "status": "passed"
+      },
+      {
+        "name": "资源、休息与成长不重复赠送 短休每长休至多2次，资源向上取整恢复，长休重置且不复活",
+        "status": "passed"
+      },
+      {
+        "name": "资源、休息与成长不重复赠送 升级仅补资源上限增量，保留已耗资源与休息计数",
+        "status": "passed"
+      },
+      {
+        "name": "random-character/1 reproduces a complete profile and separates independent characters by seed",
+        "status": "passed"
+      },
+      {
+        "name": "random-character/1 1000 fixed seeds cover both sexes and all careers with coherent outfits",
+        "status": "passed"
+      },
+      {
+        "name": "random-character/1 gender override changes the name pool without perturbing age, history or appearance",
+        "status": "passed"
+      },
+      {
+        "name": "random-character/1 honors custom identity while keeping player personality pending evidence",
+        "status": "passed"
+      },
+      {
+        "name": "random-character/1 rejects invalid seeds, options, ages, missing values and prototype-shaped careers",
+        "status": "passed"
+      },
+      {
+        "name": "random-character/1 rejects corrupted profile identity, demographics, traits and appearance",
+        "status": "passed"
+      },
+      {
+        "name": "random-character/1 JSON round-trip and frozen snapshots preserve authority",
+        "status": "passed"
+      },
+      {
+        "name": "random-character/1 keeps the established appearance/1 seed fixture unchanged after sharing the RNG",
+        "status": "passed"
+      },
+      {
+        "name": "随机故事闭环 种子复现，背景保存，初始选项丰富",
+        "status": "passed"
+      },
+      {
+        "name": "随机故事闭环 死亡移除互动并终止委托，但既存笔记和其他线索保留",
+        "status": "passed"
+      },
+      {
+        "name": "随机故事闭环 所有线索消失才结束主线",
+        "status": "passed"
+      },
+      {
+        "name": "随机故事闭环 时间到期且重复结果幂等",
+        "status": "passed"
+      },
+      {
+        "name": "随机故事闭环 地点变化撤销依赖行动并可恢复",
+        "status": "passed"
+      },
+      {
+        "name": "随机故事闭环 拒绝支线仍可完成主线",
+        "status": "passed"
+      },
+      {
+        "name": "随机故事闭环 离开闭环，过期选项拒绝且不修改原状态",
+        "status": "passed"
+      },
+      {
+        "name": "随机故事闭环 战斗请求不能被当成已经杀死目标",
+        "status": "passed"
+      },
+      {
+        "name": "随机故事闭环 100个种子都存在可完成的路径且内容变化",
+        "status": "passed"
+      },
+      {
+        "name": "阶段规划与依赖索引 四阶段逐步推进，最终操作必须先抵达，目标保持不变",
+        "status": "passed"
+      },
+      {
+        "name": "阶段规划与依赖索引 提前取得物资可以保留，自由行动不会被推荐阶段强制限制",
+        "status": "passed"
+      },
+      {
+        "name": "阶段规划与依赖索引 关键人物死亡关闭对应路线，笔记和剩余知情者继续有效",
+        "status": "passed"
+      },
+      {
+        "name": "阶段规划与依赖索引 知情者离开现场，未知情人物不能被当成主线线索来源",
+        "status": "passed"
+      },
+      {
+        "name": "阶段规划与依赖索引 物资丢失回到准备阶段，首次完成时间和日志不抹除",
+        "status": "passed"
+      },
+      {
+        "name": "阶段规划与依赖索引 道路封闭阻止抵达，恢复后可继续；已抵达记录仍保留",
+        "status": "passed"
+      },
+      {
+        "name": "阶段规划与依赖索引 全部线索消失形成失败终局，未完成阶段关闭",
+        "status": "passed"
+      },
+      {
+        "name": "阶段规划与依赖索引 人物信任变化只调度本人的扩展反应，跳过不相关人物和计划",
+        "status": "passed"
+      },
+      {
+        "name": "阶段规划与依赖索引 集合条件监听人物变化，反应产生的新字段继续向下传播",
+        "status": "passed"
+      },
+      {
+        "name": "阶段规划与依赖索引 带计划的扩展可装卸，卸载归档阶段记录，再装入保留首次完成时间",
+        "status": "passed"
+      },
+      {
+        "name": "阶段规划与依赖索引 阶段循环、缺失前置、重复阶段和未知行动均拒绝安装",
+        "status": "passed"
+      },
+      {
+        "name": "阶段规划与依赖索引 任务数组换序仍按任务ID结算，已经结束的计划不会重新打开",
+        "status": "passed"
+      },
+      {
+        "name": "阶段规划与依赖索引 故事NPC通过带参人物接口补齐资料，运行状态变化不重抽身份",
+        "status": "passed"
+      },
+      {
+        "name": "可装卸故事规则包 运行时装卸，已产生资源和人物变化保留",
+        "status": "passed"
+      },
+      {
+        "name": "可装卸故事规则包 替换同编号规则立即生效，原世界身份不重抽",
+        "status": "passed"
+      },
+      {
+        "name": "可装卸故事规则包 重复包、行动编号冲突和未知指令在注册时拒绝，不影响现状",
+        "status": "passed"
+      },
+      {
+        "name": "可装卸故事规则包 缺失依赖、依赖卸载、循环依赖和核心包卸载都拒绝",
+        "status": "passed"
+      },
+      {
+        "name": "可装卸故事规则包 规则包由注册表快照保存，调用者修改源对象不会改变运行结果",
+        "status": "passed"
+      },
+      {
+        "name": "可装卸故事规则包 加载反应失败时，注册表和世界一起回滚",
+        "status": "passed"
+      },
+      {
+        "name": "可装卸故事规则包 写入历史、任意字段、错作用域、未知条件及过深结构均拒绝",
+        "status": "passed"
+      },
+      {
+        "name": "可装卸故事规则包 旧规则版本行动被拒绝，动作失败不会扣款或写日志",
+        "status": "passed"
+      },
+      {
+        "name": "可装卸故事规则包 同一结果不重复应用可选包效果，卸载后旧反应不再运行",
+        "status": "passed"
+      },
+      {
+        "name": "可装卸故事规则包 反应可启用下一条反应，同一实体每次事务只执行一次",
+        "status": "passed"
+      },
+      {
+        "name": "可装卸故事规则包 已结束任务不能被规则包重新打开，失败的安装回滚",
+        "status": "passed"
+      },
+      {
+        "name": "可装卸故事规则包 等待战斗结果期间禁止卸载，结算与时间消耗完整提交",
+        "status": "passed"
+      },
+      {
+        "name": "可装卸故事规则包 扩展字段中的运行时错误让整次行动回滚",
+        "status": "passed"
+      },
+      {
+        "name": "可装卸故事规则包 过量嵌套执行被预算中止，加载事务不产生部分结果",
+        "status": "passed"
+      },
+      {
+        "name": "可装卸故事规则包 重新开局保留规则配置，并对新世界应用已加载反应",
+        "status": "passed"
+      },
+      {
+        "name": "声明式随机空间与实例边界 240个种子覆盖四种布局，改变地点与NPC落点，保留固定起终点与实际通路",
+        "status": "passed"
+      },
+      {
+        "name": "声明式随机空间与实例边界 目录可注入并独立复制；非法版本、编号、区域引用和坐标范围被拒绝",
+        "status": "passed"
+      },
+      {
+        "name": "声明式随机空间与实例边界 空间随机流不读取或消耗故事rng；封闭通路不会被空间生成擅自打开",
+        "status": "passed"
+      },
+      {
+        "name": "声明式随机空间与实例边界 NPC语义地点与实际区域一致；选择后地图和人物身份稳定，同种子重开可复现",
+        "status": "passed"
+      },
+      {
+        "name": "声明式随机空间与实例边界 非静态阻挡对象也不能截断受保护路径，旧请求保持原来的静态碰撞语义",
+        "status": "passed"
+      },
+      {
+        "name": "声明式随机空间与实例边界 装配后的落点冲突使重开失败，旧局地图、人物、事实与回执全部保留",
+        "status": "passed"
+      }
+    ]
+  },
+  "checks": {
+    "typecheck": "passed",
+    "boundaries": "passed",
+    "build": "passed",
+    "diffCheck": "passed"
+  },
+  "browser": "74 unique browser cases passed; initial 72 passed and 2 timeouts passed after a test-budget-only follow-up. See world-v2-browser.json.",
+  "sha256": {
+    "src/application/adventure-application.ts": "f4dfb12a681da6b60eeaf966154a1b7ccc2f3aaa70c67cfe4011afc6b7caf67f",
+    "src/application/character-studio.ts": "495d3abbffed02bc02eb11a0cafcaecbe14bfafb7833a8e97d4cdb2cc77397f8",
+    "src/application/game-application.ts": "f9393703676e6e82d00905684f9cdf83b2c954d037d6619d255ef2c4333ef060",
+    "src/application/game.ts": "5bb02e1c1157e75ba84b497bf476d46ab7a3ca67caa04d94329724b047ca20cf",
+    "src/application/index.ts": "3781be8121b83349876878591a7916404499b5452022482628ad407cc2c5502a",
+    "src/application/story-studio.ts": "2282e0ec20e1e80ee3e84c4b685790a8a22bd6e7155173bb37d3ee9a895cfc8f",
+    "src/contracts/adventure.ts": "b9f8dbe668938a2f124b5aa41e30503f41077b5c4bd909e6d01124b82f931a78",
+    "src/contracts/demo.ts": "8637d3d871b3b09d74802b75157624e64de6fcf1925371d22e3a5a941214a7ab",
+    "src/contracts/index.ts": "69a7d528f39fd1f72f46e57350d2be07c1ef8a33a80a4461e9ee84dd9823abd9",
+    "src/infrastructure/adventure-save.ts": "7e452feac1e82f1340a5f9b4f9c3315bd2c6883845188ec822d013da79a81cd2",
+    "src/infrastructure/memory-store.ts": "97338ebc7384094fadb600a9fa250dbe9e34430ca5b761f1fe3697e521c8eccf",
+    "src/input/index.ts": "289e558dfbd079cfe85fc04ef2bc4a9467eca6353326fab88d4990a190b42b40",
+    "src/main.ts": "d4b28678382116fe05af12adc29556b41b1745f47d735379b09c08b9e5b64b32",
+    "src/modules/adventure/index.ts": "322a7be088a235d8ef48b93cc49061a89e434c56e62bd7da93172ce9e8a624d6",
+    "src/modules/characters/appearance.ts": "8e9e891f8479aa07c3578ef84be88a3555fbd4944d686a62dd1d4813d16f9229",
+    "src/modules/characters/generator.ts": "62083159e172af4928d291e77ffdbd0b4f40d6aa6a8e17b289917c1f3467fdcd",
+    "src/modules/characters/index.ts": "f4099b066dc204bf4f52fdc3e77f811004fa740800a63bdcfa1530a0a381df4f",
+    "src/modules/characters/profile-catalog.ts": "11a4a06d34e85726a503635f07b7866adb3327c93414e9207d9950e34f6c2ec5",
+    "src/modules/characters/random.ts": "2363d1bd6280b30cafe1cea120b57af507be23b9794de98d34b1f6087d0f486a",
+    "src/modules/combat/README.md": "369d1ef34987d0580995c409cee776491b16d8860fffb867b60cdd0d7ad06e59",
+    "src/modules/economy/README.md": "eb4d0dc38bb6c52329bf66ef8701e1108560ca691a5bfc0ad6a776c59612f59e",
+    "src/modules/encounters/README.md": "0e8070cdab44da3e3f972768aaaf791c827c933bcc94eb511b4c65183daffe0c",
+    "src/modules/exploration/README.md": "699c132dbd98b36844b21c847bf20602c2f49679dced42eaa11ee103afee5e5c",
+    "src/modules/inventory/index.ts": "7936816191e8e22ca08b0f0f27b2854f953c23a5349783c6c2f563aad532c17b",
+    "src/modules/npc/index.ts": "29e1528f29e50af181834b0b0ebde61e3413578cbaf20b787c38870879c860f5",
+    "src/modules/objectives/index.ts": "bbc262d45fd32f7f454ebed658ea66e5885a17fb0aaa9908048e55dd29b1b068",
+    "src/modules/party/README.md": "3c956935e980d1d306e4c06a9ba548f0ee1c8de4aa1e8b9c5892e4b93c40996f",
+    "src/modules/personality/index.ts": "013ce16231e17932aadc2bb6d1e9c3d266d182eac8048cff24406874406828c8",
+    "src/modules/professions/catalog.ts": "654823d9c12f63c4f7486c517c9e80ba6e71e2bf0616e64230c3d3974b9eb089",
+    "src/modules/professions/index.ts": "d80de68dcfa06e836d222142adf81f4cd21fd02985a077d8d425d6066c839347",
+    "src/modules/professions/progression.ts": "87bb74072ee348c850f35d14d94dd1fafc94100482375fd681ed01e235c17689",
+    "src/modules/professions/resources.ts": "0213ac95ae7e7e2690dc00a550270e606d501d98888069c29aa2a9e0415db953",
+    "src/modules/professions/types.ts": "2d77e8b0c44cacc893d6951f6c7e1e5c1cb3d7e1430ae9d7cecb6f722ba09ece",
+    "src/modules/quest-generation/adventure.ts": "b55d19cede4ff70af131217d87adfa5c2a92580df98b7cebbed87d56ad2ff772",
+    "src/modules/quest-generation/index.ts": "10ffc448b3b1cd660ece3b33b662c85acf794dff8001d8feb901cee28b02b759",
+    "src/modules/relations/index.ts": "0e6cc496f14c3886e31ace374ca04026b76bb4a9165051874960df1b6b5bd396",
+    "src/modules/rules/README.md": "6df57d229a17203aaea6362a925359216bf18482197d130231ff0e2714ab6038",
+    "src/modules/runtime/adventure.ts": "7dfdad5040490fc4a5a3e9103cdeaa20f592d0a9c7c9fca3a180806090f9ca94",
+    "src/modules/runtime/free-space.ts": "eb6e7f587d375dc078d220e1950855f584571a5525dec799dc8487d91a48e60c",
+    "src/modules/runtime/index.ts": "6373e1f27dd5d62d9e5aaef902ef44900fceb7be265689c31520795b645d903d",
+    "src/modules/runtime/profession.ts": "d51716c185ecb68bedac5bf6c0165047cf5fb272de0c4dc6bcb84330bb611ae6",
+    "src/modules/sessions/README.md": "f174739a1289e0f53c3d4984427402e011f7ec7ee56b551fbcd240210a606d35",
+    "src/modules/story-planning/README.md": "82bb9ad8405b287dca2a30b8d6e0301c1f3f63ed118e31cfc3d842abcb31f03f",
+    "src/modules/story-planning/adventure.ts": "f87e94f316970c400e1fe3463330fa8f45b3d504e913c35cba031430a1c90a4b",
+    "src/modules/story-planning/dependencies.ts": "646317a975ef838687495b3795381be827f314ff7e1db87c66dcb207b97c230f",
+    "src/modules/story-planning/dependency-keys.ts": "077b6c9f19eae9740cd40b166061a775e15ec37a53db814bbd214d0dda16d728",
+    "src/modules/story-planning/engine.ts": "8989a098b40868d59e208bfbb0201e1e06cc65288e7ff522dc54810cb122fa96",
+    "src/modules/story-planning/fields.ts": "5de544f455d8e925a016be185b750d6a667559d1fcfded82ccac5e4f841beadb",
+    "src/modules/story-planning/index.ts": "db1e1d1ee9e22675f76109b9072a952860f66a1a55d8c824ff831f1b827c1c5b",
+    "src/modules/story-planning/initialize.ts": "bdb239311f117a214346ae66571e3fbc121b5b36d8c04c88289ba120d343cef2",
+    "src/modules/story-planning/interpreter.ts": "b707ab0a21bcae97f87354bc7e5dfb15913362fecb3ac1171fdb43988fb08e4d",
+    "src/modules/story-planning/model.ts": "2c020ca584006549bc4404b46634f44cf539a27d0a61720b53eecc3e093cadba",
+    "src/modules/story-planning/planner.ts": "c4bfaaa9071b3bcb870008378ff902d194047c4c9dd9b5ab1e1e0481902f3ee9",
+    "src/modules/story-planning/random.ts": "37e456b0125618e45c3033d00a71ad2423d5caa1d291cb53ed847108608d8741",
+    "src/modules/story-planning/registry.ts": "31a323f4fcee3ea97022686697ce00643e40eef56d6be0d2542c736cb2477988",
+    "src/modules/story-planning/rule-types.ts": "57164135bbee5eab9f38e3834071d84fe2ea437c057f30fbef1891ea27615772",
+    "src/modules/story-planning/scheduler.ts": "2507225890c7a3c618fb1f67b39c959ca0f3086e2ad76fe5326e9bca09bdf907",
+    "src/modules/story-planning/schema.ts": "0643fb60d851e0d6065b3c2ff440c8197cd01f1243e92613952de8b592cabdf9",
+    "src/modules/story-planning/spatial.ts": "34670629aedcde5ca848b1eec81d0faef028555f22c02f735a60caeff4e5b329",
+    "src/modules/story-runtime/index.ts": "3999e9e322190fec394788cedd69aa8e82a24e4956510adca077d9e0d986ac21",
+    "src/modules/things/adventure.ts": "a94c32f103eabbb77fdeaa96defc3be5b7ce483e4554fe5e40e011c9cfa37df3",
+    "src/modules/things/index.ts": "34aead69740f1ddab0b2b25d13cfbef845bc57beac76acdaa303d2e8454513f4",
+    "src/modules/world/README.md": "5e2047a36a24ccbeadd527dd9b98cd89417db466e73af8e6bbe73b966e7c48db",
+    "src/modules/world/errors.ts": "ff0f379b771f833ae3f94b0a03c60d390e13c756ecc8aa7e438d2311c16bd337",
+    "src/modules/world/generator.ts": "ce08ab285aab812feab35b7574255ed70b9f13ee45f4dce899dc628a15076f93",
+    "src/modules/world/geometry.ts": "f9bba344e3e7e2d06269f39c578c49cf538ad15f19a0f224df48325e7d91b0fc",
+    "src/modules/world/index.ts": "273c0f52a9847434ae8f93523aa766ba60c18e90f3d0c45b5447b7bee4c9ec16",
+    "src/modules/world/pathfinding.ts": "960831b191a41bcef2d0a79421b3206c9b0897416693cdb823dc8604338163de",
+    "src/modules/world/registry.ts": "1a62f620a09c41c1deba36d64792a6b5b40311f72540efa870d96588336acc70",
+    "src/modules/world/types.ts": "b2a5be1d33e5f282af243801d0074fe8cf127c360071a4c89cdae896e87a1ede",
+    "src/modules/world/validation.ts": "cbcfd7ab3e18fd4219abbe281a0a68ad998b1442a1db9980d2351431f956f33e",
+    "src/presentation/adventure.css": "fe8f722e190c46c51d48e7e84eadd78808662a23fb22da73ca3a4ef5aa949c6c",
+    "src/presentation/adventure.ts": "e3c4b8debedac154c40ebc00045b564b1f1c22499edb265fe93c7cf1aba58c56",
+    "src/presentation/character-art-layout.ts": "a56790be2a757c93ed64823891e401657dd7c3c5043380815ba83f2acc9d4702",
+    "src/presentation/character-art.ts": "3ff7db8125868d4a216269105540e6ce1f0511f8b2e863ad76d507497d454f17",
+    "src/presentation/character-sprite.ts": "856527ef2db2193f5e0a4da4310b053f592288c015426f82a2be15e2669399aa",
+    "src/presentation/character-studio.ts": "1e6c8299f161d70909e1116a5efbb7df3dbfc72a0cf8292907e789084bb669bd",
+    "src/presentation/demo-style.css": "e32484692c715e4e54441ea53e93bc7ddabe17973a77cc9e2bb5d0c99d0d1abe",
+    "src/presentation/demo.ts": "99a444d6cd5300ef3a54c642253447e9c5b98d67f59f70bad4a53bde09749b6a",
+    "src/presentation/environment.ts": "0ad6f5f17bfb689447b918d3e69485432c164f138a52413d87c0667e5dde1b00",
+    "src/presentation/equipment-art.ts": "7f8b6275d117104e6ff731eb75151d84d614fbb51140af4709fc6f1379caba05",
+    "src/presentation/hd2d.css": "7aa1ee81e9a072853b76451a16e90273602a8c7e3978cfb033f02494399ec553",
+    "src/presentation/html.ts": "e7066144a94cf125253128e937946338c59ce706337eae8abd3fc89d684330c7",
+    "src/presentation/index.ts": "2d9a6b8238797b2e3cc57de5e71bee03f6f9a581e805dba50cc0359ed8d03f56",
+    "src/presentation/isometric.ts": "074d2fff7e33e287b17c9878be519e0ce91f85f25a86000bec5ddcdd65c0b76d",
+    "src/presentation/scene.ts": "1a80bafdd3cf77f469d4e78e1e3e96037cd0410322b4326f4b14d906efb82a8c",
+    "src/presentation/scenery.ts": "4c26e561da136407e2637c6c9d6ad4b096c7bc514d3b7d40f3c3142b13c37ffd",
+    "src/presentation/story-studio.ts": "89d398cabdd6d375016d16c71e30a1495147b14c708cc9ec44d378db081750b2",
+    "src/presentation/style.css": "4ff0df6da9df3eff191846bbddb16e4b5031cfc9d48af141303dd5402220fbe9",
+    "src/presentation/world-assets.ts": "13100803591cd94c549e5ba486809e7c6b6cd1524c0b292db3a799e3dcaf3c5f",
+    "src/presentation/world-scene.ts": "8a35053ba37e894cfca2030a20888af015e2b159ad0774a4fe0185dc1198d3f8",
+    "src/vite-env.d.ts": "65996936fbb042915f7b74a200fcdde7e410f32a669b1ab9597cfaa4b0faddb5",
+    "public/assets/world/manifest.json": "0f06d6e6d85faf9a902553d6250727123533079627fd04c660d71d52f60c6b84",
+    "public/assets/world/nature-v1.webp": "92fe1be81c571e8b2ccea69fde13442c7df8dfa9be3c5742544c0361db9b9d7c",
+    "public/assets/world/ruins-v1.webp": "24cfaca321042b7db14c36cabe39127e0b0b646d4cd1ebff3a3275a34edd851f",
+    "public/assets/world/settlement-v1.webp": "a9a9a0f17c2f2561fd45b837b16688829346cfea2637d83cf84589ad9e1b2442",
+    "public/assets/world/terrain-v1.webp": "23c12b78d01bf293e16892d71a2946be81cda53ef4a22f9bfe042c3824015226",
+    "public/assets/world/weather-v1.webp": "6d08d226f81f05e3f6d0e278edd26609f58a716ccd0b0b8e795dfde42a350785",
+    "dist/assets/characters/character-parts-v1.png": "8fee8fb90dd7cf28d8b201e26804e73bd1863395f9a32063a84bfbba730b7e9f",
+    "dist/assets/characters/female-parts-v1.png": "a3a1ae3d4c8178a9930802ef84763801622d52de6c45a5f856b49d2bea9e8d1f",
+    "dist/assets/characters/manifest.json": "87af97acb3c4697e8ac7d3adaddfc21375e93b2b13f409e05a38c27f14ef2d38",
+    "dist/assets/equipment/armor-01.webp": "a5981dbff56ccd50bc6802adcb416b993c7c24cdeed10e702c1e2bc9faed52f5",
+    "dist/assets/equipment/armor-02.webp": "df484f717f604b5cc099798c22341dc2885a82cbdf2421c8c61aae6bfe89f104",
+    "dist/assets/equipment/armor-03.webp": "e47bbbbc2f0f88cd1e8bce5437087cebb481c08b204b998d3090e8a4a90025f2",
+    "dist/assets/equipment/shared-01.webp": "ba65e073151b7ffc62a9bfd025e2e8cbd19b5c3a5e5fd679b75647a137152fce",
+    "dist/assets/equipment/weapons-01.webp": "a711ffd8a8f3bbbfdf48d245c17b8a9f063468fed003384e143f74c1db34b479",
+    "dist/assets/index-BIzhlC6a.css": "6b650876f09e0e64d121a29e712af509e0778ee3bf28848e3cf9c86e5aa9ed5e",
+    "dist/assets/index-mPwtboRB.js": "0b577f5030f2b12662538dc45c7445b5ffde5f3f228b49b255972921ca1346e5",
+    "dist/assets/scenery/hd2d-scenery-v1.webp": "b0ac1488bd9145e2ca8971a41d6d8f16f7d901bc9e5d9875d623d36159b4d0d3",
+    "dist/assets/world/manifest.json": "0f06d6e6d85faf9a902553d6250727123533079627fd04c660d71d52f60c6b84",
+    "dist/assets/world/nature-v1.webp": "92fe1be81c571e8b2ccea69fde13442c7df8dfa9be3c5742544c0361db9b9d7c",
+    "dist/assets/world/ruins-v1.webp": "24cfaca321042b7db14c36cabe39127e0b0b646d4cd1ebff3a3275a34edd851f",
+    "dist/assets/world/settlement-v1.webp": "a9a9a0f17c2f2561fd45b837b16688829346cfea2637d83cf84589ad9e1b2442",
+    "dist/assets/world/terrain-v1.webp": "23c12b78d01bf293e16892d71a2946be81cda53ef4a22f9bfe042c3824015226",
+    "dist/assets/world/weather-v1.webp": "6d08d226f81f05e3f6d0e278edd26609f58a716ccd0b0b8e795dfde42a350785",
+    "dist/index.html": "d23ef6e8bddd2f8d5ad58935e55acedcde087ba443d2e771934ffdb08a148fed"
+  }
+}

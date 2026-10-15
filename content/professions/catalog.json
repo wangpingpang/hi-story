@@ -972,7 +972,8 @@
             "dex",
             "con"
           ],
-          "level": 1
+          "level": 1,
+          "allowShield": true
         }
       ],
       "damageDieProgression": [
@@ -1956,7 +1957,8 @@
             "dex",
             "wis"
           ],
-          "level": 1
+          "level": 1,
+          "allowShield": false
         }
       ],
       "damageDieProgression": [
@@ -5410,7 +5412,8 @@
             "dex"
           ],
           "level": 3,
-          "specializationId": "dragon"
+          "specializationId": "dragon",
+          "allowShield": false
         }
       ],
       "damageDieProgression": [

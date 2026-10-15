@@ -1,0 +1,348 @@
+{
+  "generatorVersion": "random-character/1",
+  "seed": "restored-motion-v3",
+  "source": "random",
+  "callCount": 5,
+  "characters": [
+    {
+      "version": "random-character/1",
+      "seed": "restored-motion-v3:1",
+      "actorId": "character:restored-motion-v3:1",
+      "control": "npc",
+      "name": "莱恩·杉木",
+      "gender": "male",
+      "age": 39,
+      "identity": {
+        "occupationId": "ranger",
+        "occupation": "巡林人",
+        "expertise": "追踪足迹、辨认地形与林地巡查",
+        "background": "出身于杉木林地。曾跟随老巡林人学习追踪，后来独自完成了一个季节的林地巡查。",
+        "backgroundSource": "generated"
+      },
+      "personality": {
+        "source": "npc-initial",
+        "traits": [
+          "务实",
+          "健谈",
+          "守信"
+        ]
+      },
+      "preferences": {
+        "source": "generated",
+        "likes": [
+          "旅行见闻"
+        ],
+        "dislikes": [
+          "粗暴待人"
+        ]
+      },
+      "motivation": "想查清林间动物异常迁移的原因。",
+      "appearance": {
+        "version": "appearance/3",
+        "seed": "restored-motion-v3:1",
+        "parts": {
+          "hair": {
+            "styleId": "braids",
+            "color": "#252a35"
+          },
+          "face": {
+            "styleId": "round",
+            "color": "#574439"
+          },
+          "body": {
+            "styleId": "slim",
+            "color": "#9c664b"
+          },
+          "top": {
+            "styleId": "winter",
+            "color": "#59738c"
+          },
+          "pants": {
+            "styleId": "breeches",
+            "color": "#60594e"
+          },
+          "shoes": {
+            "styleId": "fur-boots",
+            "color": "#575c65"
+          },
+          "accessory": {
+            "styleId": "satchel",
+            "color": "#b7bacb"
+          }
+        }
+      }
+    },
+    {
+      "version": "random-character/1",
+      "seed": "restored-motion-v3:2",
+      "actorId": "character:restored-motion-v3:2",
+      "control": "npc",
+      "name": "阿黛尔·石桥",
+      "gender": "female",
+      "age": 68,
+      "identity": {
+        "occupationId": "blacksmith",
+        "occupation": "铁匠",
+        "expertise": "锻造工具、修补护具与鉴别金属",
+        "background": "出身于雾桥镇。曾接手一间停业的工坊，通过修补农具重新赢得了邻里的信任。",
+        "backgroundSource": "generated"
+      },
+      "personality": {
+        "source": "npc-initial",
+        "traits": [
+          "果断",
+          "直率",
+          "独立"
+        ]
+      },
+      "preferences": {
+        "source": "generated",
+        "likes": [
+          "安静的营地"
+        ],
+        "dislikes": [
+          "浪费食物"
+        ]
+      },
+      "motivation": "想取得一批适合打造耐用工具的矿石。",
+      "appearance": {
+        "version": "appearance/3",
+        "seed": "restored-motion-v3:2",
+        "parts": {
+          "hair": {
+            "styleId": "undercut",
+            "color": "#755779"
+          },
+          "face": {
+            "styleId": "long-face",
+            "color": "#263343"
+          },
+          "body": {
+            "styleId": "stocky",
+            "color": "#c58b65"
+          },
+          "top": {
+            "styleId": "tank",
+            "color": "#587b72"
+          },
+          "pants": {
+            "styleId": "patched",
+            "color": "#927861"
+          },
+          "shoes": {
+            "styleId": "boots",
+            "color": "#302d31"
+          },
+          "accessory": {
+            "styleId": "belt",
+            "color": "#699895"
+          }
+        }
+      }
+    },
+    {
+      "version": "random-character/1",
+      "seed": "restored-motion-v3:3",
+      "actorId": "character:restored-motion-v3:3",
+      "control": "npc",
+      "name": "凯尔·灰溪",
+      "gender": "male",
+      "age": 58,
+      "identity": {
+        "occupationId": "innkeeper",
+        "occupation": "旅店掌柜",
+        "expertise": "接待旅人、管理物资与辨认地方消息",
+        "background": "出身于河湾小镇。曾经营河岸旅店，在旧桥修复后恢复了来往旅人的住宿生意。",
+        "backgroundSource": "generated"
+      },
+      "personality": {
+        "source": "npc-initial",
+        "traits": [
+          "果断",
+          "寡言",
+          "守信"
+        ]
+      },
+      "preferences": {
+        "source": "generated",
+        "likes": [
+          "安静的营地"
+        ],
+        "dislikes": [
+          "浪费食物"
+        ]
+      },
+      "motivation": "想请一位可靠的工匠修好旅店的屋顶。",
+      "appearance": {
+        "version": "appearance/3",
+        "seed": "restored-motion-v3:3",
+        "parts": {
+          "hair": {
+            "styleId": "curly",
+            "color": "#b3bec8"
+          },
+          "face": {
+            "styleId": "diamond",
+            "color": "#574439"
+          },
+          "body": {
+            "styleId": "broad",
+            "color": "#9c664b"
+          },
+          "top": {
+            "styleId": "wrap",
+            "color": "#ad6650"
+          },
+          "pants": {
+            "styleId": "pleated",
+            "color": "#60594e"
+          },
+          "shoes": {
+            "styleId": "cloth",
+            "color": "#302d31"
+          },
+          "accessory": {
+            "styleId": "none",
+            "color": "#d4b071"
+          }
+        }
+      }
+    },
+    {
+      "version": "random-character/1",
+      "seed": "restored-motion-v3:4",
+      "actorId": "character:restored-motion-v3:4",
+      "control": "npc",
+      "name": "阿黛尔·风铃",
+      "gender": "female",
+      "age": 22,
+      "identity": {
+        "occupationId": "apprentice-mage",
+        "occupation": "法师学徒",
+        "expertise": "基础符文、文献阅读与魔法现象记录",
+        "background": "出身于杉木林地。曾协助导师整理旧书库，将散落的基础符文笔记编成了索引。",
+        "backgroundSource": "generated"
+      },
+      "personality": {
+        "source": "npc-initial",
+        "traits": [
+          "好奇",
+          "直率",
+          "守信"
+        ]
+      },
+      "preferences": {
+        "source": "generated",
+        "likes": [
+          "旧书"
+        ],
+        "dislikes": [
+          "打扰休息"
+        ]
+      },
+      "motivation": "想核对一处遗迹碑文上的陌生符号。",
+      "appearance": {
+        "version": "appearance/3",
+        "seed": "restored-motion-v3:4",
+        "parts": {
+          "hair": {
+            "styleId": "swept",
+            "color": "#ad693d"
+          },
+          "face": {
+            "styleId": "diamond",
+            "color": "#5d6842"
+          },
+          "body": {
+            "styleId": "slim",
+            "color": "#dfb18c"
+          },
+          "top": {
+            "styleId": "wrap",
+            "color": "#59738c"
+          },
+          "pants": {
+            "styleId": "loose",
+            "color": "#324553"
+          },
+          "shoes": {
+            "styleId": "ankle",
+            "color": "#654432"
+          },
+          "accessory": {
+            "styleId": "pendant",
+            "color": "#a8584f"
+          }
+        }
+      }
+    },
+    {
+      "version": "random-character/1",
+      "seed": "restored-motion-v3:5",
+      "actorId": "character:restored-motion-v3:5",
+      "control": "npc",
+      "name": "伊芙·灰溪",
+      "gender": "female",
+      "age": 65,
+      "identity": {
+        "occupationId": "scribe",
+        "occupation": "抄写员",
+        "expertise": "抄录契约、整理账簿与辨认笔迹",
+        "background": "出身于旧港城区。曾替商会抄录货物契约，发现并纠正了一份账簿中的重复登记。",
+        "backgroundSource": "generated"
+      },
+      "personality": {
+        "source": "npc-initial",
+        "traits": [
+          "果断",
+          "健谈",
+          "独立"
+        ]
+      },
+      "preferences": {
+        "source": "generated",
+        "likes": [
+          "热汤"
+        ],
+        "dislikes": [
+          "无故失约"
+        ]
+      },
+      "motivation": "想查明一份残缺契约中遗漏的条款。",
+      "appearance": {
+        "version": "appearance/3",
+        "seed": "restored-motion-v3:5",
+        "parts": {
+          "hair": {
+            "styleId": "wavy",
+            "color": "#ad693d"
+          },
+          "face": {
+            "styleId": "long-face",
+            "color": "#457176"
+          },
+          "body": {
+            "styleId": "heavy",
+            "color": "#c58b65"
+          },
+          "top": {
+            "styleId": "doublet",
+            "color": "#587b72"
+          },
+          "pants": {
+            "styleId": "straight",
+            "color": "#324553"
+          },
+          "shoes": {
+            "styleId": "riding",
+            "color": "#8b694e"
+          },
+          "accessory": {
+            "styleId": "headband",
+            "color": "#795e45"
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "version": "equipment-assets/1",
+  "atlases": [
+    {
+      "id": "armor-01",
+      "file": "armor-01.png",
+      "width": 1086,
+      "height": 1448,
+      "sha256": "94b63a382a84532b8301be4e210836788a8574afac366221695545c7991f16cc",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "source": "image_gen builtin",
+      "usage": "正面装备概念 / 静态试穿层；非8方向动画帧",
+      "promptReference": "docs/equipment/image-prompts.json#armor-01"
+    },
+    {
+      "id": "armor-02",
+      "file": "armor-02.png",
+      "width": 1086,
+      "height": 1448,
+      "sha256": "40e69a9c328c97d6c92eb5084602f35faf7e66b763fd706a4a66f3d00a701f21",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "source": "image_gen builtin",
+      "usage": "正面装备概念 / 静态试穿层；非8方向动画帧",
+      "promptReference": "docs/equipment/image-prompts.json#armor-02"
+    },
+    {
+      "id": "armor-03",
+      "file": "armor-03.png",
+      "width": 1086,
+      "height": 1448,
+      "sha256": "a7eeef264bc3140c8ec23ec93a53a4272abbcc9b73eb2a736396b83e1aef6803",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "source": "image_gen builtin",
+      "usage": "正面装备概念 / 静态试穿层；非8方向动画帧",
+      "promptReference": "docs/equipment/image-prompts.json#armor-03"
+    },
+    {
+      "id": "weapons-01",
+      "file": "weapons-01.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "82bc768db9568e6e55864b12fe88ba361597bd3fec54f6988344d70661974692",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "source": "image_gen builtin",
+      "usage": "正面装备概念 / 静态试穿层；非8方向动画帧",
+      "promptReference": "docs/equipment/image-prompts.json#weapons-01"
+    },
+    {
+      "id": "shared-01",
+      "file": "shared-01.png",
+      "width": 1448,
+      "height": 1086,
+      "sha256": "2109275b72678834e1358fc9491acefa0dbac1dbcb314d33864ca4c420161113",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "source": "image_gen builtin",
+      "usage": "正面装备概念 / 静态试穿层；非8方向动画帧",
+      "promptReference": "docs/equipment/image-prompts.json#shared-01"
+    }
+  ],
+  "calibration": "按透明通道测量源矩形；不修改生成的原始像素。"
+}

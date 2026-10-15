@@ -1,4 +1,4 @@
-import {test,expect,type Page} from '@playwright/test';
+import {test,expect,type Page} from './fixtures';
 const select=async(page:Page,id:string)=>{await page.locator(`[data-choice="${id}"]`).click();await expect(page.locator(`[data-choice="${id}"]`)).toHaveCount(0);};
 test.beforeEach(async({page})=>{
  const failures:string[]=[];

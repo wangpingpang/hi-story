@@ -23,7 +23,7 @@ export interface ProfessionDefinition {
   savingThrows:ProfessionAbility[];skillProficiencies:ProfessionCheckSkill[];expertise:ProfessionCheckSkill[];
   weaponDie:number;attackRange:number;armorTraining:ArmorTraining[];extraAttack:boolean;
   defaultScores:ProfessionAbilities;skillAbilityChoices:ProfessionAbility[];
-  defenseFormulas:{base:number;abilities:ProfessionAbility[];level:number;specializationId?:string}[];
+  defenseFormulas:{base:number;abilities:ProfessionAbility[];level:number;specializationId?:string;allowShield?:boolean}[];
   damageDieProgression:{level:number;sides:number}[];
 }
 export interface ProfessionPack {version:typeof PROFESSION_VERSION;source:string;classes:ProfessionDefinition[]}

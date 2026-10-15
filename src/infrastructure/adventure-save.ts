@@ -1,5 +1,5 @@
 import type { SavePort } from '../application';
 export function createBrowserSavePort(storage:Storage):SavePort {
- const key='hi-story:adventure:v010';
+ const key='hi-story:adventure:world-v2';
  return {read:()=>storage.getItem(key),write:value=>{storage.setItem(key,value);}};
 }

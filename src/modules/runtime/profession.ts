@@ -1,3 +1,5 @@
+import {recordRoll} from './dice-record';
+import type {DiceRollRecord} from '../../contracts/adventure';
 import { requireValue, record } from '../../contracts/demo';
 import {
   PROFESSION_VERSION, ABILITY_IDS, createProfessionRuntime, validateProfessionRuntime,
@@ -36,7 +38,7 @@ export function professionSkillRank(actor:AdventureActor,skill:AdventureActor['s
 }
 function position(s:AdventureRuntime,id:string){if(s.encounter?.status==='active'){const p=s.encounter.participants.find(p=>p.actorId===id);requireValue(p,'INVALID_TARGET','目标不在当前战场。');return p.position;}return s.actors[id].position;}
 export function professionLineOfSight(s:AdventureRuntime,fromId:string,toId:string):boolean {
-  const a=position(s,fromId),b=position(s,toId);let x=a.x,y=a.y;const dx=Math.abs(b.x-x),dy=Math.abs(b.y-y),sx=x<b.x?1:-1,sy=y<b.y?1:-1;let error=dx-dy;
+  const source=position(s,fromId),target=position(s,toId),a={x:Math.round(source.x),y:Math.round(source.y)},b={x:Math.round(target.x),y:Math.round(target.y)};let x=a.x,y=a.y;const dx=Math.abs(b.x-x),dy=Math.abs(b.y-y),sx=x<b.x?1:-1,sy=y<b.y?1:-1;let error=dx-dy;
   while(x!==b.x||y!==b.y){const e=2*error;if(e>-dy){error-=dy;x+=sx;}if(e<dx){error+=dx;y+=sy;}if(x===b.x&&y===b.y)break;if(s.encounter?.status==='active'?s.encounter.obstacles.some(p=>p.x===x&&p.y===y):s.map.cells[y]?.[x]?.blocksSight!==false)return false;}
   return true;
 }
@@ -51,10 +53,10 @@ function resolve(state:AdventureRuntime,actorId:string,skillId:string,targetId:s
   const die=(sides:number)=>{const r=nextDie(battle?battle.rng:state.checkRng,sides);if(battle)battle.rng=r.rng;else state.checkRng=r.rng;return r.value;};
   const log=(text:string)=>{if(battle)battle.log.push(text);};
   const sides=e.kind==='unarmed'?(level.level>=9?10:level.level>=5?8:6):e.sides,count=e.kind==='unarmed'?e.dice:e.dice+(level.level>=5?1:0)+(level.level>=9?1:0);
-  const amount=(critical=false)=>{let n=0;for(let i=0;i<count*(critical?2:1);i++)n+=die(sides);return Math.max(0,n+(e.addAbility?modifier:0));};
+  const amount=(critical=false)=>{const dice:number[]=[];for(let i=0;i<count*(critical?2:1);i++)dice.push(die(sides));const bonus=e.addAbility?modifier:0,minimum=e.kind==='heal'?1:0,total=Math.max(minimum,dice.reduce((n,v)=>n+v,0)+bonus);if(battle)recordRoll(battle,{kind:e.kind==='heal'?'healing':'damage',actorId,targetId,sides:sides as DiceRollRecord['sides'],dice,bonus,total,minimum,critical});return total;};
   if(e.kind==='heal'){const hp=Math.min(target.maxHp-target.hp,Math.max(1,amount()));target.hp+=hp;log(`${a.profile.name}使用${skill.name}，${target.profile.name}恢复${hp}生命。`);return;}
-  if(e.kind==='save'){const d=die(20),saveModifier=professionAbilityModifier(target.abilities[e.saveAbility!])+(target.profession&&deriveProfession(target.profession.build,target.abilities).savingThrows.includes(e.saveAbility!)?target.proficiency:0),success=d+saveModifier>=dc;const damage=success?0:amount();target.hp=Math.max(0,target.hp-damage);log(`${a.profile.name}使用${skill.name}：${target.profile.name}豁免d20 ${d}+${saveModifier} / DC ${dc}，${success?'成功':'失败'}，${damage}伤害。`);return;}
-  for(let i=0;i<(e.attacks??1)&&target.hp>0;i++){const d=die(20),bonus=a.proficiency+modifier,ac=target.defense+(battle?.guard&&targetId===state.playerActorId?2:0),hit=d!==1&&(d===20||d+bonus>=ac),damage=hit?amount(d===20):0;target.hp=Math.max(0,target.hp-damage);log(`${a.profile.name}使用${skill.name}：d20 ${d}+${bonus} / AC ${ac}，${hit?`${d===20?'重击，':''}${damage}伤害`:'未命中'}。`);}
+  if(e.kind==='save'){const d=die(20),saveModifier=professionAbilityModifier(target.abilities[e.saveAbility!])+(target.profession&&deriveProfession(target.profession.build,target.abilities).savingThrows.includes(e.saveAbility!)?target.proficiency:0),success=d+saveModifier>=dc;if(battle)recordRoll(battle,{kind:'save',actorId:targetId,targetId:actorId,sides:20,dice:[d],bonus:saveModifier,total:d+saveModifier,threshold:dc,success,visual:'spell'});const damage=success?0:amount();target.hp=Math.max(0,target.hp-damage);log(`${a.profile.name}使用${skill.name}：${target.profile.name}豁免d20 ${d}+${saveModifier} / DC ${dc}，${success?'成功':'失败'}，${damage}伤害。`);return;}
+  for(let i=0;i<(e.attacks??1)&&target.hp>0;i++){const d=die(20),bonus=a.proficiency+modifier,ac=target.defense+(battle?.guard&&targetId===state.playerActorId?2:0),hit=d!==1&&(d===20||d+bonus>=ac),damage=(()=>{if(battle)recordRoll(battle,{kind:'attack',actorId,targetId,sides:20,dice:[d],bonus,total:d+bonus,threshold:ac,success:hit,critical:d===20,visual:e.kind==='unarmed'?'unarmed':'spell'});return hit?amount(d===20):0;})();target.hp=Math.max(0,target.hp-damage);log(`${a.profile.name}使用${skill.name}：d20 ${d}+${bonus} / AC ${ac}，${hit?`${d===20?'重击，':''}${damage}伤害`:'未命中'}。`);}
 }
 export function useAdventureProfessionSkill(state:AdventureRuntime,actorId:string,skillId:string,targetId:string):AdventureRuntime {
   requireValue(state.professionVersion===PROFESSION_VERSION,'NO_PROFESSION','当前冒险未启用职业体系。');const b=state.encounter;

@@ -1,11 +1,15 @@
 import { freeze, type DeepReadonly } from '../../contracts';
 import { generateAppearance, validateAppearance, type Appearance } from './appearance';
-export { APPEARANCE_VERSION, APPEARANCE_SLOTS, APPEARANCE_CATALOG, APPEARANCE_CATALOG_V2, appearanceCatalogFor, generateAppearance, validateAppearance, rerollAppearance, rerollAppearancePart, setAppearancePart } from './appearance';
+export { APPEARANCE_VERSION, LATEST_APPEARANCE_VERSION, APPEARANCE_SLOTS, APPEARANCE_CATALOG, APPEARANCE_CATALOG_V2, APPEARANCE_CATALOG_V3, appearanceCatalogFor, generateAppearance, validateAppearance, rerollAppearance, rerollAppearancePart, setAppearancePart } from './appearance';
 export type { Appearance, AppearancePart, AppearanceSlot, AppearanceVersion } from './appearance';
 export { RANDOM_CHARACTER_VERSION, generateCharacter, generateCharacterWithParams, validateGeneratedCharacter, generatedCharacterSnapshot } from './generator';
 export type { GeneratedCharacter, CharacterGenerationOptions, CharacterGenerationParams, Gender } from './generator';
 export { PROFILE_CATALOG, OCCUPATIONS } from './profile-catalog';
 export type { OccupationId } from './profile-catalog';
+export { ANIMATION_VERSION, ACTIONS, DIRECTIONS, DIRECTION_VECTORS, WEAPONS, SPELLS, createAnimation, advanceAnimation, requestAnimation, animationProgress, validateVitals } from './animation';
+export type { Action, Direction, Weapon, Spell, VisualVitals, AnimationState, MotionEvent } from './animation';
+export { EXPRESSIONS, ENVIRONMENTS, ACTOR_STATUSES, DIALOGUE_TONES, resolveExpression, validateExpressionSignals } from './expression';
+export type { Expression, ExpressionSignals, ExpressionResult } from './expression';
 
 export type CharacterId = 'courier' | 'luyan';
 export type Condition = 'ready' | 'exerted';

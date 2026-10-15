@@ -1,6 +1,6 @@
 {
   "name": "hi-story",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -13,7 +13,8 @@
     "check:boundaries": "node tooling/boundaries.mjs",
     "build": "vite build",
     "preview": "vite preview --host 0.0.0.0",
-    "maps:generate": "node tooling/generate-map.mjs"
+    "maps:generate": "node tooling/generate-map.mjs",
+    "characters:motions": "node tooling/export-character-motions.mjs"
   },
   "engines": {
     "node": "^22.12.0 || ^24.0.0 || >=26.0.0"

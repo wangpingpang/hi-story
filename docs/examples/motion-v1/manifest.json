@@ -1,0 +1,683 @@
+{
+  "version": "character-motion-examples/1",
+  "artVersion": "character-motion-art/1",
+  "frame": {
+    "width": 192,
+    "height": 192,
+    "anchor": {
+      "x": 96,
+      "y": 164.5
+    }
+  },
+  "character": {
+    "version": "random-character/1",
+    "seed": "hi-story:motion:001",
+    "actorId": "character:hi-story:motion:001",
+    "control": "npc",
+    "name": "薇拉·风铃",
+    "gender": "female",
+    "age": 37,
+    "identity": {
+      "occupationId": "herbalist",
+      "occupation": "草药师",
+      "expertise": "辨识草药、调配药膏与野外采集",
+      "background": "出身于北境边城。曾跟随采药队穿越杉木林地，整理出一份当地常见草药的记录。",
+      "backgroundSource": "generated"
+    },
+    "personality": {
+      "source": "npc-initial",
+      "traits": [
+        "谨慎",
+        "温和",
+        "求知"
+      ]
+    },
+    "preferences": {
+      "source": "generated",
+      "likes": [
+        "旅行见闻"
+      ],
+      "dislikes": [
+        "浪费食物"
+      ]
+    },
+    "motivation": "想为故乡建立一个稳定的药材来源。",
+    "appearance": {
+      "version": "appearance/3",
+      "seed": "hi-story:motion:001",
+      "parts": {
+        "hair": {
+          "styleId": "crop",
+          "color": "#614436"
+        },
+        "face": {
+          "styleId": "oval",
+          "color": "#574439"
+        },
+        "body": {
+          "styleId": "balanced",
+          "color": "#dfb18c"
+        },
+        "top": {
+          "styleId": "shirt",
+          "color": "#587b72"
+        },
+        "pants": {
+          "styleId": "straight",
+          "color": "#72647d"
+        },
+        "shoes": {
+          "styleId": "riding",
+          "color": "#302d31"
+        },
+        "accessory": {
+          "styleId": "none",
+          "color": "#699895"
+        }
+      }
+    }
+  },
+  "verifiedMaterials": 1136,
+  "nonwalkVariants": 48,
+  "walkingPartFrames": 2048,
+  "assets": [
+    {
+      "file": "walk-8-directions.png",
+      "bytes": 373024,
+      "sha256": "c43a05fbaf843ead3505c6bd7ad022c64ebcb08bddf2c58de366f57f3dad7614"
+    },
+    {
+      "file": "clips/stand.png",
+      "bytes": 42445,
+      "sha256": "ddb50073c6b7258e070e801c276e9dcf9ae0e4b2fb871fa7d6d1b19083ffc63e",
+      "clip": {
+        "action": "stand",
+        "label": "站立",
+        "direction": "SE",
+        "expression": "neutral"
+      }
+    },
+    {
+      "file": "clips/stand-relaxed.png",
+      "bytes": 38052,
+      "sha256": "cd13428c243924ca2a4744be9088a337fcee794f589e16813ee60c60d5b66ae1",
+      "clip": {
+        "action": "stand-relaxed",
+        "label": "放松站姿",
+        "direction": "SE",
+        "expression": "neutral"
+      }
+    },
+    {
+      "file": "clips/stand-alert.png",
+      "bytes": 41846,
+      "sha256": "9eb6dc3f8b2974184ee3db7722541a39366bd62a1c7f8bb66f05143195bec086",
+      "clip": {
+        "action": "stand-alert",
+        "label": "警戒站姿",
+        "direction": "SE",
+        "expression": "neutral"
+      }
+    },
+    {
+      "file": "clips/talk.png",
+      "bytes": 39022,
+      "sha256": "63b429fae38ac798a74f9ae9b878db11dee49a04756fd65ea2be32def15c9aab",
+      "clip": {
+        "action": "talk",
+        "label": "对话手势",
+        "direction": "SE",
+        "expression": "neutral"
+      }
+    },
+    {
+      "file": "clips/wave.png",
+      "bytes": 24151,
+      "sha256": "c460d4d8a336ffd9e0f9b8c02dd01f9137a728846658e93f40189d5bf5018275",
+      "clip": {
+        "action": "wave",
+        "label": "招手",
+        "direction": "SE",
+        "expression": "neutral"
+      }
+    },
+    {
+      "file": "clips/point.png",
+      "bytes": 36614,
+      "sha256": "ea1fc48d823e94c60d37523ddf83de1cf468ca37269b48ed9db668f9d79820fa",
+      "clip": {
+        "action": "point",
+        "label": "指向",
+        "direction": "SE",
+        "expression": "neutral"
+      }
+    },
+    {
+      "file": "clips/nod.png",
+      "bytes": 41617,
+      "sha256": "eb9d55fe2831b1267ed2d738096245aa013dcaf0e0cf550ceaec8d029e80c1ec",
+      "clip": {
+        "action": "nod",
+        "label": "点头",
+        "direction": "SE",
+        "expression": "neutral"
+      }
+    },
+    {
+      "file": "clips/shake-head.png",
+      "bytes": 31745,
+      "sha256": "87dffc59ac0b0443477d0fbe3c523ffe9885f4d0522778ea59e32adbe489ceb7",
+      "clip": {
+        "action": "shake-head",
+        "label": "摇头",
+        "direction": "SE",
+        "expression": "neutral"
+      }
+    },
+    {
+      "file": "clips/sit.png",
+      "bytes": 20797,
+      "sha256": "74f2a2218f3fe474d9825674c1b3ae9bf76a14b44b6eee90e5e876c4ff2b8961",
+      "clip": {
+        "action": "sit",
+        "label": "坐姿",
+        "direction": "SE",
+        "expression": "neutral"
+      }
+    },
+    {
+      "file": "clips/lean.png",
+      "bytes": 20946,
+      "sha256": "e58cbde046776c978e8793568b47b9602a9872192be7587535afbe77b864a1e2",
+      "clip": {
+        "action": "lean",
+        "label": "倚靠",
+        "direction": "SE",
+        "expression": "neutral"
+      }
+    },
+    {
+      "file": "clips/lie.png",
+      "bytes": 20306,
+      "sha256": "5df702f7c8031a8722d6e68d0f500d17643245d8c472bcc619fdb41dd32c2cf8",
+      "clip": {
+        "action": "lie",
+        "label": "躺卧",
+        "direction": "SE",
+        "expression": "neutral"
+      }
+    },
+    {
+      "file": "clips/sleep.png",
+      "bytes": 20320,
+      "sha256": "4d9cd39b3c5f5818bc5338bd5e966492d3e769933ccb1a45014eaf5a47c79b96",
+      "clip": {
+        "action": "sleep",
+        "label": "睡觉",
+        "direction": "SE",
+        "expression": "asleep"
+      }
+    },
+    {
+      "file": "clips/combat-ready.png",
+      "bytes": 38085,
+      "sha256": "4261a234022cc36047be891431073f945bc011a034bed4711f684265f52b49e7",
+      "clip": {
+        "action": "combat-ready",
+        "label": "战斗预备",
+        "direction": "SE",
+        "expression": "focused"
+      }
+    },
+    {
+      "file": "clips/hit-unarmed.png",
+      "bytes": 49439,
+      "sha256": "00527021ea3887f0fc620741f0dbb87eee849bc99da073009cdd856138796465",
+      "clip": {
+        "action": "hit-unarmed",
+        "label": "徒手受击",
+        "direction": "SE",
+        "expression": "pain"
+      }
+    },
+    {
+      "file": "clips/hit-weapon.png",
+      "bytes": 50064,
+      "sha256": "95975b12ec271f2d8fcab587186d63fab601091494c2d08f5786ca2439167a9d",
+      "clip": {
+        "action": "hit-weapon",
+        "label": "武器受击",
+        "direction": "SE",
+        "expression": "pain"
+      }
+    },
+    {
+      "file": "clips/hit-spell.png",
+      "bytes": 74851,
+      "sha256": "015a4aca56f60ac7c4c6bb064e75da43d2ef0e3b64e575d2fcfbd51e387bed9b",
+      "clip": {
+        "action": "hit-spell",
+        "label": "法术受击",
+        "direction": "SE",
+        "expression": "pain"
+      }
+    },
+    {
+      "file": "clips/block.png",
+      "bytes": 55317,
+      "sha256": "93954fe0be269f1a3f30b9ce3547518967deefb898750e1968871f2823808c18",
+      "clip": {
+        "action": "block",
+        "label": "格挡",
+        "direction": "SE",
+        "expression": "focused"
+      }
+    },
+    {
+      "file": "clips/dodge.png",
+      "bytes": 49073,
+      "sha256": "90dd549c717f4e7d8e9385dacc54373f74e8712358d7ac8e00e6c9b1bce0e551",
+      "clip": {
+        "action": "dodge",
+        "label": "闪避",
+        "direction": "SE",
+        "expression": "focused"
+      }
+    },
+    {
+      "file": "clips/fall.png",
+      "bytes": 85376,
+      "sha256": "4d189647830095c60d125e46266a294a258ee963da8f6cac3a0cdcabd5e0b957",
+      "clip": {
+        "action": "fall",
+        "label": "倒下",
+        "direction": "SE",
+        "expression": "pain"
+      }
+    },
+    {
+      "file": "clips/downed.png",
+      "bytes": 20378,
+      "sha256": "b489134f3d5f12eb8ebc9b4f33bf51693e10494e6c420bd3f7890c2adbcda5e2",
+      "clip": {
+        "action": "downed",
+        "label": "倒地未死亡",
+        "direction": "SE",
+        "expression": "pain"
+      }
+    },
+    {
+      "file": "clips/dead.png",
+      "bytes": 20320,
+      "sha256": "4d9cd39b3c5f5818bc5338bd5e966492d3e769933ccb1a45014eaf5a47c79b96",
+      "clip": {
+        "action": "dead",
+        "label": "死亡",
+        "direction": "SE",
+        "expression": "asleep"
+      }
+    },
+    {
+      "file": "clips/attack-unarmed.png",
+      "bytes": 44943,
+      "sha256": "1f98e475a70a8143a4763a1d3267175e07b6b6a57aa375addbf5bd9202adc470",
+      "clip": {
+        "action": "attack",
+        "weapon": "unarmed",
+        "label": "普攻 / unarmed",
+        "direction": "SE",
+        "expression": "focused"
+      }
+    },
+    {
+      "file": "clips/attack-dagger.png",
+      "bytes": 67940,
+      "sha256": "5660808e2b38268cc7aa43cf228fb58381ab8ef7e1c13e60087b05187e241999",
+      "clip": {
+        "action": "attack",
+        "weapon": "dagger",
+        "label": "普攻 / dagger",
+        "direction": "SE",
+        "expression": "focused"
+      }
+    },
+    {
+      "file": "clips/attack-sword.png",
+      "bytes": 72552,
+      "sha256": "d6478b0755687d28d91555bcb9479d43002eb7d10fc3f0bab4d56335695b909e",
+      "clip": {
+        "action": "attack",
+        "weapon": "sword",
+        "label": "普攻 / sword",
+        "direction": "SE",
+        "expression": "focused"
+      }
+    },
+    {
+      "file": "clips/attack-greatsword.png",
+      "bytes": 76801,
+      "sha256": "670dbec408e63e9a4d6164f32918864087dded872ed5d3b45bf1694ad6086193",
+      "clip": {
+        "action": "attack",
+        "weapon": "greatsword",
+        "label": "普攻 / greatsword",
+        "direction": "SE",
+        "expression": "focused"
+      }
+    },
+    {
+      "file": "clips/attack-axe.png",
+      "bytes": 84041,
+      "sha256": "ab32be4f3fd09c50ec1d51f808fb32a0a922e73a71b3911df98f455362689fa8",
+      "clip": {
+        "action": "attack",
+        "weapon": "axe",
+        "label": "普攻 / axe",
+        "direction": "SE",
+        "expression": "focused"
+      }
+    },
+    {
+      "file": "clips/attack-mace.png",
+      "bytes": 71387,
+      "sha256": "d412e672f0404b2a456ab31461e9c297e2c236043102f8aaa9bc619601e9bc8b",
+      "clip": {
+        "action": "attack",
+        "weapon": "mace",
+        "label": "普攻 / mace",
+        "direction": "SE",
+        "expression": "focused"
+      }
+    },
+    {
+      "file": "clips/attack-spear.png",
+      "bytes": 75738,
+      "sha256": "92746b8cf03041d1979610b3c5e44e3ad1033b163c719ad175a579481e4518a2",
+      "clip": {
+        "action": "attack",
+        "weapon": "spear",
+        "label": "普攻 / spear",
+        "direction": "SE",
+        "expression": "focused"
+      }
+    },
+    {
+      "file": "clips/attack-bow.png",
+      "bytes": 42155,
+      "sha256": "a6a05aef26d5cd365d9f6e55ea1438935f7352abdf573f9fc0d0b958ea1a4d19",
+      "clip": {
+        "action": "attack",
+        "weapon": "bow",
+        "label": "普攻 / bow",
+        "direction": "SE",
+        "expression": "focused"
+      }
+    },
+    {
+      "file": "clips/attack-crossbow.png",
+      "bytes": 49758,
+      "sha256": "8b42f34c5c0e745e0a0e2cad386962105cb77c7e6aaa4a6d2b3fc56b4d34717f",
+      "clip": {
+        "action": "attack",
+        "weapon": "crossbow",
+        "label": "普攻 / crossbow",
+        "direction": "SE",
+        "expression": "focused"
+      }
+    },
+    {
+      "file": "clips/attack-staff.png",
+      "bytes": 52908,
+      "sha256": "38d5df4804ccd681ec8803f7e1ecbcbe9b9bb946d4b7a626e2a2418292af18c9",
+      "clip": {
+        "action": "attack",
+        "weapon": "staff",
+        "label": "普攻 / staff",
+        "direction": "SE",
+        "expression": "focused"
+      }
+    },
+    {
+      "file": "clips/heavy-attack-unarmed.png",
+      "bytes": 69301,
+      "sha256": "68c27342f9232c987eb55f8f336839f5cfb48087c43b254235f2d72c21e053b7",
+      "clip": {
+        "action": "heavy-attack",
+        "weapon": "unarmed",
+        "label": "重击 / unarmed",
+        "direction": "SE",
+        "expression": "focused"
+      }
+    },
+    {
+      "file": "clips/heavy-attack-dagger.png",
+      "bytes": 70523,
+      "sha256": "c9c1402595ee3ff88f1ffe9db7284c52d7784e00fbec9af49199aa3594065aef",
+      "clip": {
+        "action": "heavy-attack",
+        "weapon": "dagger",
+        "label": "重击 / dagger",
+        "direction": "SE",
+        "expression": "focused"
+      }
+    },
+    {
+      "file": "clips/heavy-attack-sword.png",
+      "bytes": 73916,
+      "sha256": "3ae435da2dcdbd15d21950425062a47391b399fecfc30e584643169a7459869b",
+      "clip": {
+        "action": "heavy-attack",
+        "weapon": "sword",
+        "label": "重击 / sword",
+        "direction": "SE",
+        "expression": "focused"
+      }
+    },
+    {
+      "file": "clips/heavy-attack-greatsword.png",
+      "bytes": 77643,
+      "sha256": "fa1ab850325773a23ce7bc113be997b62f858f4a4b9eba0437922fd0eb76384a",
+      "clip": {
+        "action": "heavy-attack",
+        "weapon": "greatsword",
+        "label": "重击 / greatsword",
+        "direction": "SE",
+        "expression": "focused"
+      }
+    },
+    {
+      "file": "clips/heavy-attack-axe.png",
+      "bytes": 83964,
+      "sha256": "8008b1c410abd3e0192374aa2ad23af25df98ff89d80adab5f9404bf70eb0db8",
+      "clip": {
+        "action": "heavy-attack",
+        "weapon": "axe",
+        "label": "重击 / axe",
+        "direction": "SE",
+        "expression": "focused"
+      }
+    },
+    {
+      "file": "clips/heavy-attack-mace.png",
+      "bytes": 73512,
+      "sha256": "b1c5aa162837675da5d37e156e75174e1ec73c48efb25cffcde48f4e3f463c7d",
+      "clip": {
+        "action": "heavy-attack",
+        "weapon": "mace",
+        "label": "重击 / mace",
+        "direction": "SE",
+        "expression": "focused"
+      }
+    },
+    {
+      "file": "clips/heavy-attack-spear.png",
+      "bytes": 77127,
+      "sha256": "1f972a05f0d38836454b50caea162f5ce396645b1a09b62db44217ae0f4231a9",
+      "clip": {
+        "action": "heavy-attack",
+        "weapon": "spear",
+        "label": "重击 / spear",
+        "direction": "SE",
+        "expression": "focused"
+      }
+    },
+    {
+      "file": "clips/heavy-attack-bow.png",
+      "bytes": 77429,
+      "sha256": "78e1a9ff49d5c5e27f6fa20e049e1a3a6a1adb3585e36ce2a373b3ea8f9340dc",
+      "clip": {
+        "action": "heavy-attack",
+        "weapon": "bow",
+        "label": "重击 / bow",
+        "direction": "SE",
+        "expression": "focused"
+      }
+    },
+    {
+      "file": "clips/heavy-attack-crossbow.png",
+      "bytes": 74971,
+      "sha256": "90a728569d20071060475eed94d3a602063ee582f1bdccf29d59126bdd22c755",
+      "clip": {
+        "action": "heavy-attack",
+        "weapon": "crossbow",
+        "label": "重击 / crossbow",
+        "direction": "SE",
+        "expression": "focused"
+      }
+    },
+    {
+      "file": "clips/heavy-attack-staff.png",
+      "bytes": 77473,
+      "sha256": "81547a87f13ddab6f3f58a885f030ea15d967d2299c0a13c51493216c3933776",
+      "clip": {
+        "action": "heavy-attack",
+        "weapon": "staff",
+        "label": "重击 / staff",
+        "direction": "SE",
+        "expression": "focused"
+      }
+    },
+    {
+      "file": "clips/cast-fire.png",
+      "bytes": 43496,
+      "sha256": "5ef311a237202a687a9ed78e0ba21267b1ad59b8a36fdbad99d8cc2b9216953c",
+      "clip": {
+        "action": "cast",
+        "spell": "fire",
+        "label": "施法 / fire",
+        "direction": "SE",
+        "expression": "focused"
+      }
+    },
+    {
+      "file": "clips/cast-frost.png",
+      "bytes": 46044,
+      "sha256": "737c3688b4586b8989b00f7050ca8be3999ada0df92bf9a0dbd5922506132c91",
+      "clip": {
+        "action": "cast",
+        "spell": "frost",
+        "label": "施法 / frost",
+        "direction": "SE",
+        "expression": "focused"
+      }
+    },
+    {
+      "file": "clips/cast-lightning.png",
+      "bytes": 56729,
+      "sha256": "7938a11e3ae1e23fb7fa20de7008e78b39040b783a42b9ae3002b066bf6fc2eb",
+      "clip": {
+        "action": "cast",
+        "spell": "lightning",
+        "label": "施法 / lightning",
+        "direction": "SE",
+        "expression": "focused"
+      }
+    },
+    {
+      "file": "clips/cast-healing.png",
+      "bytes": 37360,
+      "sha256": "3298cea4133b803edf419c8d57fa2946fc1b6f8f70cee9c235a4b0abcd616e01",
+      "clip": {
+        "action": "cast",
+        "spell": "healing",
+        "label": "施法 / healing",
+        "direction": "SE",
+        "expression": "focused"
+      }
+    },
+    {
+      "file": "clips/cast-ward.png",
+      "bytes": 36489,
+      "sha256": "d2a8bdb8bcdb98a3ddf93f1d3b41a19977a055d5b70abe99ebecce639d0df1f6",
+      "clip": {
+        "action": "cast",
+        "spell": "ward",
+        "label": "施法 / ward",
+        "direction": "SE",
+        "expression": "focused"
+      }
+    },
+    {
+      "file": "clips/cast-summon.png",
+      "bytes": 58218,
+      "sha256": "05b445c35760295be4c3b3a3c6dc5c95a6fa22ce4efce80f0544df57645e2fec",
+      "clip": {
+        "action": "cast",
+        "spell": "summon",
+        "label": "施法 / summon",
+        "direction": "SE",
+        "expression": "focused"
+      }
+    },
+    {
+      "file": "clips/cast-arcane.png",
+      "bytes": 38139,
+      "sha256": "e86e384df52104932a2f550fe06a6e3df8c4fb87d5090c97bfe03ea51ca0af90",
+      "clip": {
+        "action": "cast",
+        "spell": "arcane",
+        "label": "施法 / arcane",
+        "direction": "SE",
+        "expression": "focused"
+      }
+    },
+    {
+      "file": "expressions.png",
+      "bytes": 115052,
+      "sha256": "8b00d48b1c75bb7656e7e5487d881519dc64e25a03aba1d5cb4a9492bb437381"
+    },
+    {
+      "file": "walk-preview.png",
+      "bytes": 92654,
+      "sha256": "f724da400662ebdfc84fae8f5aebdb718efabf96be85cb29ce29223ef8e198d4"
+    },
+    {
+      "file": "walk-preview.gif",
+      "bytes": 368346,
+      "frames": 12,
+      "sha256": "7b4f00f90a080521a201a0cbd522bf04c61ea348e1a0871376cb439f688bc457"
+    },
+    {
+      "file": "combat-preview.png",
+      "bytes": 165216,
+      "sha256": "bfc6a68b62004d7047f8bbbfa038e67161470ea6657a3654cdeeb034b59e5756"
+    },
+    {
+      "file": "combat-preview.gif",
+      "bytes": 604899,
+      "frames": 12,
+      "sha256": "f800a91665c9193db3915377971d5b86060468dc7537958b059d90f0fa01a9b2"
+    },
+    {
+      "file": "rest-preview.png",
+      "bytes": 105842,
+      "sha256": "fa0f244e12e13335e50199cd23acb3ed8cca90571aa047c8476f09fc6fb4dd88"
+    },
+    {
+      "file": "rest-preview.gif",
+      "bytes": 467279,
+      "frames": 12,
+      "sha256": "aba1ddc6783a8eaae30849a856ba35d9f928a3859d03266bc9747b83fa019eea"
+    }
+  ]
+}

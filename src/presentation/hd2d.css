@@ -19,9 +19,18 @@
 .equipment-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.equipment-gallery figure{margin:0;padding:6px;background:#d4c48c0a;border:1px solid #cbb27833;border-radius:4px}.equipment-gallery svg{width:100%;height:80px}.equipment-gallery figcaption{font-size:9px;color:#cbbd9c;text-align:center}.equipment-gallery p{grid-column:1/-1;font-size:10px;color:#9eb59f}
 .weather-options{display:flex;gap:5px;flex-wrap:wrap;margin:12px 0}.weather-options button{font-size:10px;min-height:30px;padding:4px 9px}.weather-options button[aria-pressed=true]{border-color:#e3c87e;background:#53604a}
 .profession-skill{display:grid;gap:6px;margin-top:14px}.profession-skill button{text-align:left;font-size:11px}.profession-skill small{font-size:10px;color:#c2b690}.profession-resources{font-size:11px;color:#e0c990}
+.world-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;filter:saturate(.84) contrast(1.06)}
+.light-night .world-canvas{filter:saturate(.7) brightness(.72) contrast(1.1)}
+.world-minimap{position:absolute;right:26px;bottom:110px;width:132px;padding:4px;border:1px solid #c5b37d66;border-radius:8px;background:#142e2cdd;pointer-events:none;overflow:hidden}
+.world-minimap canvas{display:block;width:124px;height:104px;opacity:.85}.world-minimap span{display:block;font-size:9px;text-align:center;color:#c9bd99;letter-spacing:1px}
+.weather-wind .scene-weather{background:radial-gradient(ellipse,#ddb962b0 1px,transparent 3px);background-size:107px 149px;animation:wind-leaves 4s linear infinite}
+@keyframes wind-leaves{to{background-position:214px 149px}}
+@media(max-width:700px){.world-minimap{right:12px;top:75px;bottom:auto;width:72px;border-radius:6px;padding:2px;opacity:.85}.world-minimap canvas{width:66px;height:56px}.world-minimap span{font-size:6px;letter-spacing:0}.dice-result{top:212px}.world-minimap~.dice-result{top:212px}}
 .dice-new>b{animation:dice-reveal .7s cubic-bezier(.2,.7,.3,1)}.dice-new.success{animation:check-success .7s ease-out}.dice-new.failed{animation:check-fail .35s ease-in-out}
 @keyframes dice-reveal{0%{transform:rotate(-180deg) scale(.4)}65%{transform:rotate(15deg) scale(1.25)}100%{transform:none}}
 @keyframes check-success{0%{box-shadow:0 0 35px #e9d48daa}100%{box-shadow:none}}
 @keyframes check-fail{25%{translate:-5px}75%{translate:5px}}
 @keyframes mist-drift{to{transform:translate(6%,-3%)}}@keyframes rain-fall{to{background-position:-20px 110px}}@keyframes snow-fall{to{transform:translate(-50px,173px)}}@keyframes lantern-breathe{to{opacity:.65}}
 @media(prefers-reduced-motion:reduce){.adventure-shell *{animation:none!important;scroll-behavior:auto!important}}
+
+.journey-routes{display:grid;grid-template-columns:1fr 1fr;gap:6px}.journey-routes button{font-size:11px}

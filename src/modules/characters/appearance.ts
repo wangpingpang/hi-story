@@ -2,7 +2,8 @@ import { freeze, type DeepReadonly } from '../../contracts';
 import { assertSeed, seededRandom } from './random';
 
 export const APPEARANCE_VERSION = 'appearance/1' as const;
-export type AppearanceVersion = 'appearance/1' | 'appearance/2';
+export const LATEST_APPEARANCE_VERSION = 'appearance/3' as const;
+export type AppearanceVersion = 'appearance/1' | 'appearance/2' | 'appearance/3';
 export const APPEARANCE_SLOTS = ['hair', 'face', 'body', 'top', 'pants', 'shoes', 'accessory'] as const;
 export type AppearanceSlot = typeof APPEARANCE_SLOTS[number];
 export interface AppearancePart { styleId: string; color: string }
@@ -27,9 +28,23 @@ export const APPEARANCE_CATALOG_V2 = freeze({
   top: { ...APPEARANCE_CATALOG.top, styles: [...APPEARANCE_CATALOG.top.styles, {id:'wrap',label:'交叠式上衣'}] },
   pants: { ...APPEARANCE_CATALOG.pants, label:'下装', styles: [...APPEARANCE_CATALOG.pants.styles, {id:'skirt',label:'及膝裙'}, {id:'long-skirt',label:'长裙'}] },
 });
+// Append-only catalogs keep existing models and versioned seeds reproducible.
+export const APPEARANCE_CATALOG_V3 = freeze(Object.fromEntries(APPEARANCE_SLOTS.map(slot => {
+  const additions: Record<AppearanceSlot, string[][]> = {
+    hair: [['curly','卷发'],['braids','双辫'],['swept','后梳发'],['braided-bun','盘辫'],['wavy','波浪发'],['undercut','铲青发']],
+    face: [['heart','心形脸'],['long-face','长脸'],['diamond','菱形脸'],['cheekbones','高颧骨']],
+    body: [['tall','高挑'],['compact','矮小结实'],['muscular','健壮'],['heavy','丰满']],
+    top: [['robe','法袍'],['gambeson','绗缝甲'],['tank','无袖衫'],['sweater','针织衫'],['doublet','紧身上衣'],['winter','冬衣']],
+    pants: [['leggings','紧身裤'],['cargo','多袋裤'],['culottes','裙裤'],['pleated','百褶裙'],['breeches','马裤'],['draped','垂褶裤']],
+    shoes: [['riding','骑靴'],['wrapped','绑带靴'],['sabatons','甲靴'],['fur-boots','毛皮靴']],
+    accessory: [['headband','发带'],['pouch','腰包'],['gloves','手套'],['belt','宽腰带'],['cloak','短披风'],['bracers','护腕']],
+  };
+  return [slot, {...APPEARANCE_CATALOG_V2[slot], styles:[...APPEARANCE_CATALOG_V2[slot].styles,...styles(additions[slot])]}];
+})) as unknown as typeof APPEARANCE_CATALOG_V2);
 export function appearanceCatalogFor(version: AppearanceVersion) {
   if(version==='appearance/1')return APPEARANCE_CATALOG;
   if(version==='appearance/2')return APPEARANCE_CATALOG_V2;
+  if(version==='appearance/3')return APPEARANCE_CATALOG_V3;
   throw Error('外观版本无效');
 }
 

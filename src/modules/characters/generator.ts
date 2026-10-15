@@ -2,6 +2,7 @@ import { freeze, type DeepReadonly } from '../../contracts';
 import { generateAppearance, validateAppearance, appearanceCatalogFor, setAppearancePart, type Appearance, type AppearanceVersion, type AppearancePart, type AppearanceSlot } from './appearance';
 import { PROFILE_CATALOG, OCCUPATIONS, type OccupationId } from './profile-catalog';
 import { assertSeed, seededRandom } from './random';
+import { WARDROBES_V3 } from './wardrobes-v3';
 
 export const RANDOM_CHARACTER_VERSION = 'random-character/1' as const;
 export type Gender = 'male' | 'female';
@@ -91,7 +92,10 @@ export function generateCharacter(seed: string, options: CharacterGenerationOpti
   const occupationId = options.occupation!==undefined?'custom':options.occupationId ?? pick('occupation',Object.keys(OCCUPATIONS) as OccupationId[]);
   const job = occupationId==='custom'?{label:options.occupation!,expertise:'尚无专长记录',histories:[`职业设定为${options.occupation}，过往经历尚待补全。`],motivations:['希望找到适合自己的下一段旅程。'],wardrobe:OCCUPATIONS.courier.wardrobe}:OCCUPATIONS[occupationId];
   let appearance = generateAppearance(seed,options.appearanceVersion??'appearance/1');
-  for(const slot of ['top','pants','shoes','accessory'] as const) appearance.parts[slot].styleId = pick(`wardrobe:${occupationId}:${slot}`,job.wardrobe[slot]);
+  for(const slot of ['top','pants','shoes','accessory'] as const) {
+    const pool=appearance.version==='appearance/3'?(occupationId==='custom'?appearanceCatalogFor(appearance.version)[slot].styles.map(s=>s.id):WARDROBES_V3[occupationId][slot]):job.wardrobe[slot];
+    appearance.parts[slot].styleId=pick(`wardrobe:${occupationId}:${slot}`,pool);
+  }
   for(const [key,override] of Object.entries(options.appearanceParts??{})){
     if(!Object.hasOwn(appearance.parts,key)||!override||typeof override!=='object'||Array.isArray(override)||Object.keys(override).some(field=>!['styleId','color'].includes(field)))throw Error('外观部件参数无效');
     const slot=key as AppearanceSlot;appearance=setAppearancePart(appearance,slot,{...appearance.parts[slot],...override});

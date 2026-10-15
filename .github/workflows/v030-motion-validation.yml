@@ -1,0 +1,41 @@
+name: Validate v0.3.0 motion integration
+on:
+  push:
+    branches: [codex/v030-motion-fix]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: v030-motion-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npx vitest run tests/adventure-motion.test.ts tests/dice-feedback.test.ts tests/profession-integration.test.ts --reporter=dot
+      - run: npm run check:boundaries
+      - run: npm run build
+      - run: npx playwright install --with-deps chromium
+      - name: Verify affected motion, dice, world and wardrobe flows
+        run: |
+          export CHROMIUM_PATH="$(node --input-type=module -e 'import {chromium} from "@playwright/test"; console.log(chromium.executablePath())')"
+          PLAYWRIGHT_REPORT_PATH=docs/evidence/v030-motion-browser-results.json npm run test:e2e -- --workers=2 --trace=off tests/e2e/v030.spec.ts tests/e2e/dice-feedback.spec.ts tests/e2e/hd2d.spec.ts tests/e2e/free-world.spec.ts tests/e2e/character-generator.spec.ts tests/e2e/character-art.spec.ts tests/e2e/character-motion.spec.ts
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: v030-motion-evidence
+          path: |
+            docs/evidence/
+            test-results/
+            !test-results/**/trace.zip
+          retention-days: 14

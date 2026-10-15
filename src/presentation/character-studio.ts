@@ -13,9 +13,10 @@ export interface StudioActions {
 }
 export function renderCharacterStudio(root: HTMLElement, view: StudioView, actions: StudioActions, message = ''): void {
   const { model, locked, gender } = view;
+  const backTo=new URLSearchParams(location.search).get('return')==='demo'?'./?view=demo':'./?view=fog-bridge';
   const appearanceCatalog=appearanceCatalogFor(model.version);
   const focusKey = document.activeElement instanceof HTMLElement ? document.activeElement.dataset.focus : undefined;
-  root.innerHTML = `<header class="masthead"><a href="./" aria-label="返回雾桥递信">hi<span>—</span>story</a><span>CHARACTER ATELIER</span><a class="restart" href="./">返回旅程 ↗</a></header>
+  root.innerHTML = `<header class="masthead"><a href="${backTo}" aria-label="返回旅程">hi<span>—</span>story</a><span>CHARACTER ATELIER</span><a class="restart" href="${backTo}">返回旅程 ↗</a></header>
   <main class="atelier"><div class="intro"><div><p class="eyebrow">SEVEN PARTS · ENDLESS ENCOUNTERS</p><h1>人物工坊</h1><p>拼出一位旅人，为下一段相遇留一张面孔。</p></div><span class="edition">像素外观生成器<br>PNG 部件装配 · v3</span></div>
   <div class="atelier-layout"><section class="card portrait-card" aria-label="人物预览"><p class="eyebrow">YOUR NEXT TRAVELER</p><div class="portrait-stage"><div class="portrait-grid"></div>${characterSprite(model,'随机人物',gender)}<span class="portrait-caption">旅人 / 001</span></div><h2>下一位，擦肩而过的人</h2><p class="muted">发型、脸型、身材与穿搭自由组合。</p><div class="atelier-actions"><button class="again" type="button" data-action="random" data-focus="random">随机一位旅人 ↻</button><a class="restart" href="?view=character-motion#character=${encodeURIComponent(JSON.stringify({appearance:model,gender}))}">动作与表情工坊 ↗</a><button class="restart" type="button" data-action="png" data-focus="png">导出人物 PNG ↓</button><button class="restart" type="button" data-action="export" data-focus="export">导出人物 JSON ↓</button></div><p class="status" role="status" aria-live="polite">${escape(message || '可锁定喜欢的部件，再生成新的组合。')}</p></section>
   <section class="card atelier-controls" aria-label="外观编辑"><div class="controls-heading"><div><p class="eyebrow">BUILD AN APPEARANCE</p><h2>七块拼图，一位旅人</h2></div><span class="badge">已锁定 ${locked.length} / 7</span></div>

@@ -1,7 +1,7 @@
 import {test,expect} from '@playwright/test';
 import {open,state,SAVE_KEY,walk,near} from './world-navigation';
 test.setTimeout(90000);
-test.beforeEach(async({page})=>{await page.clock.install();await page.clock.pauseAt(new Date());});
+test.beforeEach(async({page})=>{await page.clock.install();await page.clock.pauseAt(new Date());await page.addLocatorHandler(page.getByRole('dialog',{name:'骰子检定反馈',exact:true}),async()=>{const skip=page.getByRole('button',{name:'跳过动画',exact:true});if(await skip.isVisible())await skip.click();await page.getByRole('button',{name:'继续冒险',exact:true}).click();});});
 
 test('五倍世界和五套60项图集完整加载，主场景与窄屏无溢出',async({page},info)=>{
  const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));page.on('requestfailed',r=>errors.push(r.url()));const s=await open(page,'world-v2-art');expect(s.runtime.map.bounds).toEqual({width:64,height:50});

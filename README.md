@@ -47,7 +47,7 @@ CHROMIUM_PATH=/path/to/chromium npm run test:e2e
 - [最终验收报告](docs/test-report.md)
 - [测试证据](docs/evidence/)
 
-没有服务器、数据库、战棋、随机地图或多人；帮助不等于组队。性格记录只描述本局角色取舍，不推断真实用户。
+剧情小样没有服务器、数据库、战棋或多人；帮助不等于组队。性格记录只描述本局角色取舍，不推断真实用户。独立地图生成接口见下方说明。
 
 ### 在线试玩
 
@@ -88,3 +88,13 @@ npm run characters:generate -- --seed hi-story-20261014 --count 5
 ```
 
 [接口与范围](docs/character-generator.md#完整随机人物资料-v1) · [五次实际返回结果](docs/examples/random-characters-v1.json)。网页仍展示固定故事人物，此接口可供后续初始化和 NPC 生成调用。
+
+### 参数驱动的有界地图生成器 v1
+
+`generateMap(storyMapParameters)` 接收故事确定的区域、连接、地貌、关键点和对象，生成具体格子、轮廓与坐标，检查边界、碰撞和必达路线。单人、有界、种子可复现；布局算法通过策略注册表扩展。
+
+```sh
+npm run maps:generate -- --request content/maps/example-request.json --output docs/examples/generated-map-v1.json --svg docs/examples/generated-map-v1.svg
+```
+
+[地图生成器说明](地图生成器说明.md) · [完整示例请求](content/maps/example-request.json) · [实际生成结果](docs/examples/generated-map-v1.json) · [空间校验图](docs/examples/generated-map-v1.svg)。地图接口尚未自动接入故事工坊或剧情小样；地貌和对象内容均由调用方指定。

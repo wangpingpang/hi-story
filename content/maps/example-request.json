@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "seed": "hi-story-map-v1",
+  "bounds": { "width": 40, "height": 28 },
+  "layout": { "strategyId": "connected_regions", "params": { "regionGap": 1, "maxAttempts": 16 } },
+  "regions": [
+    { "id": "village", "shape": "rectangle", "sizeRange": { "width": [12, 12], "height": [10, 10] }, "position": { "x": 2, "y": 2 }, "environmentRef": "story:env-village", "walkable": true, "blocksSight": false },
+    { "id": "forest", "shape": "rectangle", "sizeRange": { "width": [12, 12], "height": [10, 10] }, "position": { "x": 24, "y": 2 }, "environmentRef": "story:env-forest", "walkable": true, "blocksSight": false },
+    { "id": "ruins", "shape": "rectangle", "sizeRange": { "width": [12, 12], "height": [8, 8] }, "position": { "x": 24, "y": 18 }, "environmentRef": "story:env-ruins", "walkable": true, "blocksSight": false }
+  ],
+  "connections": [
+    { "id": "village-road", "from": "village", "to": "forest", "width": 2, "passable": true },
+    { "id": "ruins-road", "from": "forest", "to": "ruins", "width": 2, "passable": true }
+  ],
+  "anchors": [
+    { "id": "spawn", "regionId": "village", "position": { "x": 4, "y": 6 } },
+    { "id": "village_gate", "regionId": "village", "position": { "x": 13, "y": 7 } },
+    { "id": "quest_target", "regionId": "ruins", "position": { "x": 32, "y": 22 } }
+  ],
+  "terrain": [
+    { "id": "lake", "regionId": "forest", "terrainRef": "story:terrain-lake", "shapeSpec": { "shape": "ellipse", "size": { "width": 5, "height": 3 } }, "position": { "x": 25, "y": 3 }, "walkable": false, "blocksSight": false }
+  ],
+  "placements": [
+    { "id": "guard", "entityRef": "story:npc-guard-01", "regionId": "village", "footprint": { "width": 1, "height": 1 }, "placementRule": { "nearAnchorId": "village_gate", "minDistance": 1, "maxDistance": 3 }, "blocksMovement": true, "blocksSight": false },
+    { "id": "chest", "entityRef": "story:item-chest-01", "regionId": "ruins", "footprint": { "width": 1, "height": 1 }, "position": { "x": 33, "y": 21 }, "blocksMovement": false, "blocksSight": false }
+  ],
+  "constraints": { "requiredPaths": [{ "fromAnchorId": "spawn", "toAnchorId": "quest_target" }], "minObjectSpacing": 1, "allowObjectOverlap": false }
+}

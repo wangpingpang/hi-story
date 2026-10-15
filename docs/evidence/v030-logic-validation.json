@@ -1,0 +1,71 @@
+{
+  "status": "passed",
+  "productCommit": "d2cec6b199b887e7f5635be816889f5f03233261",
+  "uniqueCases": 315,
+  "method": "Full 314 before static wardrobe version option; recheck 300 non-adventure cases including one new constructor case, retain 15 unchanged adventure cases. Not one full 315-case run.",
+  "local": [
+    {
+      "source": "6a9901803d5fb6fd7a1faacca52c4ba09eda1309",
+      "files": 20,
+      "passed": 314,
+      "seconds": 259.81,
+      "command": "npm test -- --reporter=dot"
+    },
+    {
+      "source": "d2cec6b199b887e7f5635be816889f5f03233261",
+      "files": 19,
+      "passed": 300,
+      "seconds": 11.11,
+      "command": "npm test -- --exclude tests/adventure.test.ts --reporter=dot"
+    }
+  ],
+  "cloud": [
+    {
+      "run": 38779120344,
+      "passed": 311,
+      "scope": "full baseline"
+    },
+    {
+      "run": 38782672596,
+      "passed": 33,
+      "scope": "motion/dice/profession recheck"
+    },
+    {
+      "run": 38784128317,
+      "passed": 58,
+      "scope": "motion/dice/profession/character recheck"
+    }
+  ],
+  "requiredChecks": {
+    "typecheck": "passed",
+    "boundaries": "passed",
+    "build": "passed"
+  },
+  "visualArtifact": 11997880415,
+  "previewImages": [
+    {
+      "path": "docs/evidence/desktop-v030-world.webp",
+      "bytes": 66228,
+      "sha256": "5c76f331f7a7f342621c1878b38f2cc934006cdab00c3ac4f4e8fcfb83e4ef50",
+      "encoding": "quality92 WebP preview"
+    },
+    {
+      "path": "docs/evidence/narrow-v030-wardrobe.png",
+      "bytes": 141974,
+      "sha256": "264947a7ca9aed58ed803cfab5e318eccaaac520510ec6d80e4835c9342e3654",
+      "encoding": "original PNG"
+    },
+    {
+      "path": "docs/evidence/desktop-v030-wardrobe.webp",
+      "bytes": 34852,
+      "sha256": "a536e01a4212bb36e63ea1c869747df5143509c382ff33e0d55010353e16c565",
+      "encoding": "quality92 WebP preview"
+    },
+    {
+      "path": "docs/evidence/narrow-v030-world.png",
+      "bytes": 437880,
+      "sha256": "4f661ba6fa76216a19a94a07b5c3f1a1b37eed25b232eca7a41463de6060a9d7",
+      "encoding": "original PNG"
+    }
+  ]
+}

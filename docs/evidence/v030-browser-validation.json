@@ -1,0 +1,998 @@
+{
+  "status": "passed",
+  "productCommit": "d2cec6b199b887e7f5635be816889f5f03233261",
+  "uniqueCases": 104,
+  "passed": 104,
+  "failed": 0,
+  "skipped": 0,
+  "method": "Latest applicable result per project/file/title; complete baseline then affected rechecks. Not a single all-green full run.",
+  "runs": [
+    {
+      "id": 38779120344,
+      "source": "c1ff75e0d6e44e200fc9021d383fc1371b7834b2",
+      "stats": {
+        "startTime": "2026-10-15T17:43:12.739Z",
+        "duration": 1347067.089,
+        "expected": 94,
+        "skipped": 0,
+        "unexpected": 8,
+        "flaky": 0
+      },
+      "rawReportSha256": "a9f0fa5c127173f910492d2f3468099f5d518e92928ab4f11250b0102220bf5b"
+    },
+    {
+      "id": 38782672596,
+      "source": "6a9901803d5fb6fd7a1faacca52c4ba09eda1309",
+      "stats": {
+        "startTime": "2026-10-15T18:05:50.743Z",
+        "duration": 391903.022,
+        "expected": 50,
+        "skipped": 0,
+        "unexpected": 6,
+        "flaky": 0
+      },
+      "rawReportSha256": "d08e9a42061ee07e12b62e584c717e368b8c09a9309cb6841fb9620c46de8b68"
+    },
+    {
+      "id": 38784128317,
+      "source": "d2cec6b199b887e7f5635be816889f5f03233261",
+      "stats": {
+        "startTime": "2026-10-15T18:16:21.949Z",
+        "duration": 75147.444,
+        "expected": 12,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "rawReportSha256": "e4f66988c99cafbb8dec7d6eac9106a6e1aaaeb17c7466f86d04de363abe8aae"
+    }
+  ],
+  "viewports": {
+    "desktop": [
+      1440,
+      1000
+    ],
+    "narrow": [
+      375,
+      812
+    ]
+  },
+  "cases": [
+    {
+      "file": "adventure.spec.ts",
+      "title": "地图占据画面、像素人物落位、浮层和缩放无溢出",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 11629,
+      "source": "c1ff75e0d6e44e200fc9021d383fc1371b7834b2",
+      "run": 38779120344
+    },
+    {
+      "file": "adventure.spec.ts",
+      "title": "社交检定、消耗草药与态度后果显示在同一场景",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 9398,
+      "source": "c1ff75e0d6e44e200fc9021d383fc1371b7834b2",
+      "run": 38779120344
+    },
+    {
+      "file": "adventure.spec.ts",
+      "title": "实际探索完成 letter 主线",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 106373,
+      "source": "c1ff75e0d6e44e200fc9021d383fc1371b7834b2",
+      "run": 38779120344
+    },
+    {
+      "file": "adventure.spec.ts",
+      "title": "实际探索完成 seal 主线",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 150609,
+      "source": "c1ff75e0d6e44e200fc9021d383fc1371b7834b2",
+      "run": 38779120344
+    },
+    {
+      "file": "adventure.spec.ts",
+      "title": "实际探索完成 relic 主线",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 81416,
+      "source": "c1ff75e0d6e44e200fc9021d383fc1371b7834b2",
+      "run": 38779120344
+    },
+    {
+      "file": "adventure.spec.ts",
+      "title": "连续事件追加NPC、任务，背包与通路状态可恢复",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 153447,
+      "source": "c1ff75e0d6e44e200fc9021d383fc1371b7834b2",
+      "run": 38779120344
+    },
+    {
+      "file": "adventure.spec.ts",
+      "title": "战斗在地图场景中、行动资源与刷新恢复真实运行",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 76498,
+      "source": "c1ff75e0d6e44e200fc9021d383fc1371b7834b2",
+      "run": 38779120344
+    },
+    {
+      "file": "adventure.spec.ts",
+      "title": "键盘和输入隔离，损坏存档导入保留有效状态",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 4019,
+      "source": "c1ff75e0d6e44e200fc9021d383fc1371b7834b2",
+      "run": 38779120344
+    },
+    {
+      "file": "adventure.spec.ts",
+      "title": "承诺连续链与六类支线真实推进，交易和一次奖励",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 251048,
+      "source": "c1ff75e0d6e44e200fc9021d383fc1371b7834b2",
+      "run": 38779120344
+    },
+    {
+      "file": "adventure.spec.ts",
+      "title": "检定失败开启补救事件，保持主线可行",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 94112,
+      "source": "c1ff75e0d6e44e200fc9021d383fc1371b7834b2",
+      "run": 38779120344
+    },
+    {
+      "file": "adventure.spec.ts",
+      "title": "战斗胜利、战败与逃离都回传人物和目标",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 45148,
+      "source": "c1ff75e0d6e44e200fc9021d383fc1371b7834b2",
+      "run": 38779120344
+    },
+    {
+      "file": "adventure.spec.ts",
+      "title": "地图占据画面、像素人物落位、浮层和缩放无溢出",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 9208,
+      "source": "c1ff75e0d6e44e200fc9021d383fc1371b7834b2",
+      "run": 38779120344
+    },
+    {
+      "file": "adventure.spec.ts",
+      "title": "社交检定、消耗草药与态度后果显示在同一场景",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 8088,
+      "source": "c1ff75e0d6e44e200fc9021d383fc1371b7834b2",
+      "run": 38779120344
+    },
+    {
+      "file": "adventure.spec.ts",
+      "title": "实际探索完成 letter 主线",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 74830,
+      "source": "c1ff75e0d6e44e200fc9021d383fc1371b7834b2",
+      "run": 38779120344
+    },
+    {
+      "file": "adventure.spec.ts",
+      "title": "实际探索完成 seal 主线",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 113697,
+      "source": "c1ff75e0d6e44e200fc9021d383fc1371b7834b2",
+      "run": 38779120344
+    },
+    {
+      "file": "adventure.spec.ts",
+      "title": "实际探索完成 relic 主线",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 74109,
+      "source": "c1ff75e0d6e44e200fc9021d383fc1371b7834b2",
+      "run": 38779120344
+    },
+    {
+      "file": "adventure.spec.ts",
+      "title": "连续事件追加NPC、任务，背包与通路状态可恢复",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 124284,
+      "source": "c1ff75e0d6e44e200fc9021d383fc1371b7834b2",
+      "run": 38779120344
+    },
+    {
+      "file": "adventure.spec.ts",
+      "title": "战斗在地图场景中、行动资源与刷新恢复真实运行",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 73401,
+      "source": "c1ff75e0d6e44e200fc9021d383fc1371b7834b2",
+      "run": 38779120344
+    },
+    {
+      "file": "adventure.spec.ts",
+      "title": "键盘和输入隔离，损坏存档导入保留有效状态",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 4198,
+      "source": "c1ff75e0d6e44e200fc9021d383fc1371b7834b2",
+      "run": 38779120344
+    },
+    {
+      "file": "adventure.spec.ts",
+      "title": "承诺连续链与六类支线真实推进，交易和一次奖励",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 247496,
+      "source": "c1ff75e0d6e44e200fc9021d383fc1371b7834b2",
+      "run": 38779120344
+    },
+    {
+      "file": "adventure.spec.ts",
+      "title": "检定失败开启补救事件，保持主线可行",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 76192,
+      "source": "c1ff75e0d6e44e200fc9021d383fc1371b7834b2",
+      "run": 38779120344
+    },
+    {
+      "file": "adventure.spec.ts",
+      "title": "战斗胜利、战败与逃离都回传人物和目标",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 46817,
+      "source": "c1ff75e0d6e44e200fc9021d383fc1371b7834b2",
+      "run": 38779120344
+    },
+    {
+      "file": "character-art.spec.ts",
+      "title": "PNG parts, female rig, new garments and transparent export",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 1406,
+      "source": "6a9901803d5fb6fd7a1faacca52c4ba09eda1309",
+      "run": 38782672596
+    },
+    {
+      "file": "character-art.spec.ts",
+      "title": "PNG parts, female rig, new garments and transparent export",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 1586,
+      "source": "6a9901803d5fb6fd7a1faacca52c4ba09eda1309",
+      "run": 38782672596
+    },
+    {
+      "file": "character-generator.spec.ts",
+      "title": "seven-part studio: seed, locks, editing, export and responsive preview",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 2857,
+      "source": "6a9901803d5fb6fd7a1faacca52c4ba09eda1309",
+      "run": 38782672596
+    },
+    {
+      "file": "character-generator.spec.ts",
+      "title": "seven-part studio: seed, locks, editing, export and responsive preview",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 2494,
+      "source": "6a9901803d5fb6fd7a1faacca52c4ba09eda1309",
+      "run": 38782672596
+    },
+    {
+      "file": "character-motion.spec.ts",
+      "title": "eight directions, keyboard, environment, dice and explicit downed/death lifecycle",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 5782,
+      "source": "6a9901803d5fb6fd7a1faacca52c4ba09eda1309",
+      "run": 38782672596
+    },
+    {
+      "file": "character-motion.spec.ts",
+      "title": "daily, combat, weapon and spell actions render and export transparent sequences",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 6137,
+      "source": "6a9901803d5fb6fd7a1faacca52c4ba09eda1309",
+      "run": 38782672596
+    },
+    {
+      "file": "character-motion.spec.ts",
+      "title": "appearance workbench transfers exact manually edited character and gender",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 2059,
+      "source": "6a9901803d5fb6fd7a1faacca52c4ba09eda1309",
+      "run": 38782672596
+    },
+    {
+      "file": "character-motion.spec.ts",
+      "title": "legacy appearance upgrade keeps styles and reactive expression overrides remain reversible",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 2063,
+      "source": "6a9901803d5fb6fd7a1faacca52c4ba09eda1309",
+      "run": 38782672596
+    },
+    {
+      "file": "character-motion.spec.ts",
+      "title": "eight directions, keyboard, environment, dice and explicit downed/death lifecycle",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 5805,
+      "source": "6a9901803d5fb6fd7a1faacca52c4ba09eda1309",
+      "run": 38782672596
+    },
+    {
+      "file": "character-motion.spec.ts",
+      "title": "daily, combat, weapon and spell actions render and export transparent sequences",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 4010,
+      "source": "6a9901803d5fb6fd7a1faacca52c4ba09eda1309",
+      "run": 38782672596
+    },
+    {
+      "file": "character-motion.spec.ts",
+      "title": "appearance workbench transfers exact manually edited character and gender",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 1901,
+      "source": "6a9901803d5fb6fd7a1faacca52c4ba09eda1309",
+      "run": 38782672596
+    },
+    {
+      "file": "character-motion.spec.ts",
+      "title": "legacy appearance upgrade keeps styles and reactive expression overrides remain reversible",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 1298,
+      "source": "6a9901803d5fb6fd7a1faacca52c4ba09eda1309",
+      "run": 38782672596
+    },
+    {
+      "file": "demo-integration.spec.ts",
+      "title": "探索入口、移动、阅读、重开和窄屏布局",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 1023,
+      "source": "c1ff75e0d6e44e200fc9021d383fc1371b7834b2",
+      "run": 38779120344
+    },
+    {
+      "file": "demo-integration.spec.ts",
+      "title": "NPC交互、真实战斗和逃离",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 1746,
+      "source": "c1ff75e0d6e44e200fc9021d383fc1371b7834b2",
+      "run": 38779120344
+    },
+    {
+      "file": "demo-integration.spec.ts",
+      "title": "实际探索、购买、抵达与完成目标的整局闭环",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 4357,
+      "source": "c1ff75e0d6e44e200fc9021d383fc1371b7834b2",
+      "run": 38779120344
+    },
+    {
+      "file": "demo-integration.spec.ts",
+      "title": "真实骰子战斗胜利更新NPC与后续选项",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 2099,
+      "source": "c1ff75e0d6e44e200fc9021d383fc1371b7834b2",
+      "run": 38779120344
+    },
+    {
+      "file": "demo-integration.spec.ts",
+      "title": "战败结束主线，重开恢复人物与初始迷雾",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 2237,
+      "source": "c1ff75e0d6e44e200fc9021d383fc1371b7834b2",
+      "run": 38779120344
+    },
+    {
+      "file": "demo-integration.spec.ts",
+      "title": "方向键移动和输入框编辑互不干扰",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 1227,
+      "source": "c1ff75e0d6e44e200fc9021d383fc1371b7834b2",
+      "run": 38779120344
+    },
+    {
+      "file": "demo-integration.spec.ts",
+      "title": "探索入口、移动、阅读、重开和窄屏布局",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 960,
+      "source": "c1ff75e0d6e44e200fc9021d383fc1371b7834b2",
+      "run": 38779120344
+    },
+    {
+      "file": "demo-integration.spec.ts",
+      "title": "NPC交互、真实战斗和逃离",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 1527,
+      "source": "c1ff75e0d6e44e200fc9021d383fc1371b7834b2",
+      "run": 38779120344
+    },
+    {
+      "file": "demo-integration.spec.ts",
+      "title": "实际探索、购买、抵达与完成目标的整局闭环",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 4048,
+      "source": "c1ff75e0d6e44e200fc9021d383fc1371b7834b2",
+      "run": 38779120344
+    },
+    {
+      "file": "demo-integration.spec.ts",
+      "title": "真实骰子战斗胜利更新NPC与后续选项",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 1785,
+      "source": "c1ff75e0d6e44e200fc9021d383fc1371b7834b2",
+      "run": 38779120344
+    },
+    {
+      "file": "demo-integration.spec.ts",
+      "title": "战败结束主线，重开恢复人物与初始迷雾",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 2042,
+      "source": "c1ff75e0d6e44e200fc9021d383fc1371b7834b2",
+      "run": 38779120344
+    },
+    {
+      "file": "demo-integration.spec.ts",
+      "title": "方向键移动和输入框编辑互不干扰",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 1044,
+      "source": "c1ff75e0d6e44e200fc9021d383fc1371b7834b2",
+      "run": 38779120344
+    },
+    {
+      "file": "dice-feedback.spec.ts",
+      "title": "真实成功检定分阶段揭晓、公式与结果一致",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 16412,
+      "source": "6a9901803d5fb6fd7a1faacca52c4ba09eda1309",
+      "run": 38782672596
+    },
+    {
+      "file": "dice-feedback.spec.ts",
+      "title": "真实失败检定分阶段揭晓、公式与结果一致",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 16704,
+      "source": "6a9901803d5fb6fd7a1faacca52c4ba09eda1309",
+      "run": 38782672596
+    },
+    {
+      "file": "dice-feedback.spec.ts",
+      "title": "优势两骰、采用与舍弃、物品后果均来自真实结果",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 70507,
+      "source": "6a9901803d5fb6fd7a1faacca52c4ba09eda1309",
+      "run": 38782672596
+    },
+    {
+      "file": "dice-feedback.spec.ts",
+      "title": "跳过保留结果，回看不重掷、无再次结算、焦点可返回",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 23199,
+      "source": "6a9901803d5fb6fd7a1faacca52c4ba09eda1309",
+      "run": 38782672596
+    },
+    {
+      "file": "dice-feedback.spec.ts",
+      "title": "动画期间刷新保留已提交结果且不重播",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 14574,
+      "source": "6a9901803d5fb6fd7a1faacca52c4ba09eda1309",
+      "run": 38782672596
+    },
+    {
+      "file": "dice-feedback.spec.ts",
+      "title": "三种样式与音效偏好保存，设置不改变冒险随机状态",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 25958,
+      "source": "6a9901803d5fb6fd7a1faacca52c4ba09eda1309",
+      "run": 38782672596
+    },
+    {
+      "file": "dice-feedback.spec.ts",
+      "title": "减少动态效果直接显示结果，Escape可关闭",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 9824,
+      "source": "6a9901803d5fb6fd7a1faacca52c4ba09eda1309",
+      "run": 38782672596
+    },
+    {
+      "file": "dice-feedback.spec.ts",
+      "title": "战斗先攻、移动及后续攻击都使用结构化真实骰子",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 16420,
+      "source": "6a9901803d5fb6fd7a1faacca52c4ba09eda1309",
+      "run": 38782672596
+    },
+    {
+      "file": "dice-feedback.spec.ts",
+      "title": "真实成功检定分阶段揭晓、公式与结果一致",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 13350,
+      "source": "6a9901803d5fb6fd7a1faacca52c4ba09eda1309",
+      "run": 38782672596
+    },
+    {
+      "file": "dice-feedback.spec.ts",
+      "title": "真实失败检定分阶段揭晓、公式与结果一致",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 9474,
+      "source": "6a9901803d5fb6fd7a1faacca52c4ba09eda1309",
+      "run": 38782672596
+    },
+    {
+      "file": "dice-feedback.spec.ts",
+      "title": "优势两骰、采用与舍弃、物品后果均来自真实结果",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 49831,
+      "source": "6a9901803d5fb6fd7a1faacca52c4ba09eda1309",
+      "run": 38782672596
+    },
+    {
+      "file": "dice-feedback.spec.ts",
+      "title": "跳过保留结果，回看不重掷、无再次结算、焦点可返回",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 16587,
+      "source": "6a9901803d5fb6fd7a1faacca52c4ba09eda1309",
+      "run": 38782672596
+    },
+    {
+      "file": "dice-feedback.spec.ts",
+      "title": "动画期间刷新保留已提交结果且不重播",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 10483,
+      "source": "6a9901803d5fb6fd7a1faacca52c4ba09eda1309",
+      "run": 38782672596
+    },
+    {
+      "file": "dice-feedback.spec.ts",
+      "title": "三种样式与音效偏好保存，设置不改变冒险随机状态",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 16587,
+      "source": "6a9901803d5fb6fd7a1faacca52c4ba09eda1309",
+      "run": 38782672596
+    },
+    {
+      "file": "dice-feedback.spec.ts",
+      "title": "减少动态效果直接显示结果，Escape可关闭",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 9683,
+      "source": "6a9901803d5fb6fd7a1faacca52c4ba09eda1309",
+      "run": 38782672596
+    },
+    {
+      "file": "dice-feedback.spec.ts",
+      "title": "战斗先攻、移动及后续攻击都使用结构化真实骰子",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 10550,
+      "source": "6a9901803d5fb6fd7a1faacca52c4ba09eda1309",
+      "run": 38782672596
+    },
+    {
+      "file": "free-world.spec.ts",
+      "title": "五倍世界和五套60项图集完整加载，主场景与窄屏无溢出",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 5898,
+      "source": "6a9901803d5fb6fd7a1faacca52c4ba09eda1309",
+      "run": 38782672596
+    },
+    {
+      "file": "free-world.spec.ts",
+      "title": "按住键盘连续小数移动，松开停止，输入框和失焦隔离",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 14491,
+      "source": "6a9901803d5fb6fd7a1faacca52c4ba09eda1309",
+      "run": 38782672596
+    },
+    {
+      "file": "free-world.spec.ts",
+      "title": "点击路线逐步行进且Esc取消，每份保存的位移都受限",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 13003,
+      "source": "6a9901803d5fb6fd7a1faacca52c4ba09eda1309",
+      "run": 38782672596
+    },
+    {
+      "file": "free-world.spec.ts",
+      "title": "地形阻挡连续行走，人物不会越过建筑底座",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 20979,
+      "source": "6a9901803d5fb6fd7a1faacca52c4ba09eda1309",
+      "run": 38782672596
+    },
+    {
+      "file": "free-world.spec.ts",
+      "title": "五天气预览和减弱动态不改存档，雨景可见",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 8985,
+      "source": "6a9901803d5fb6fd7a1faacca52c4ba09eda1309",
+      "run": 38782672596
+    },
+    {
+      "file": "free-world.spec.ts",
+      "title": "小数坐标刷新精确恢复，旧存档槽保留，损坏导入不覆盖",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 8003,
+      "source": "6a9901803d5fb6fd7a1faacca52c4ba09eda1309",
+      "run": 38782672596
+    },
+    {
+      "file": "free-world.spec.ts",
+      "title": "真实步行接近NPC后医药检定消耗草药，战斗锁住世界移动",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 17116,
+      "source": "6a9901803d5fb6fd7a1faacca52c4ba09eda1309",
+      "run": 38782672596
+    },
+    {
+      "file": "free-world.spec.ts",
+      "title": "方向按钮短按立即前进，按住持续行走，松开停止",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 8809,
+      "source": "6a9901803d5fb6fd7a1faacca52c4ba09eda1309",
+      "run": 38782672596
+    },
+    {
+      "file": "free-world.spec.ts",
+      "title": "五倍世界和五套60项图集完整加载，主场景与窄屏无溢出",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 3867,
+      "source": "6a9901803d5fb6fd7a1faacca52c4ba09eda1309",
+      "run": 38782672596
+    },
+    {
+      "file": "free-world.spec.ts",
+      "title": "按住键盘连续小数移动，松开停止，输入框和失焦隔离",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 10260,
+      "source": "6a9901803d5fb6fd7a1faacca52c4ba09eda1309",
+      "run": 38782672596
+    },
+    {
+      "file": "free-world.spec.ts",
+      "title": "点击路线逐步行进且Esc取消，每份保存的位移都受限",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 8927,
+      "source": "6a9901803d5fb6fd7a1faacca52c4ba09eda1309",
+      "run": 38782672596
+    },
+    {
+      "file": "free-world.spec.ts",
+      "title": "地形阻挡连续行走，人物不会越过建筑底座",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 13488,
+      "source": "6a9901803d5fb6fd7a1faacca52c4ba09eda1309",
+      "run": 38782672596
+    },
+    {
+      "file": "free-world.spec.ts",
+      "title": "五天气预览和减弱动态不改存档，雨景可见",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 4880,
+      "source": "6a9901803d5fb6fd7a1faacca52c4ba09eda1309",
+      "run": 38782672596
+    },
+    {
+      "file": "free-world.spec.ts",
+      "title": "小数坐标刷新精确恢复，旧存档槽保留，损坏导入不覆盖",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 6236,
+      "source": "6a9901803d5fb6fd7a1faacca52c4ba09eda1309",
+      "run": 38782672596
+    },
+    {
+      "file": "free-world.spec.ts",
+      "title": "真实步行接近NPC后医药检定消耗草药，战斗锁住世界移动",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 12331,
+      "source": "6a9901803d5fb6fd7a1faacca52c4ba09eda1309",
+      "run": 38782672596
+    },
+    {
+      "file": "free-world.spec.ts",
+      "title": "方向按钮短按立即前进，按住持续行走，松开停止",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 6101,
+      "source": "6a9901803d5fb6fd7a1faacca52c4ba09eda1309",
+      "run": 38782672596
+    },
+    {
+      "file": "game.spec.ts",
+      "title": "tonight, cooperation, visible feedback, accessible keyboard and restart",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 1983,
+      "source": "c1ff75e0d6e44e200fc9021d383fc1371b7834b2",
+      "run": 38779120344
+    },
+    {
+      "file": "game.spec.ts",
+      "title": "morning, solo has no penalty, anonymous and layout",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 1855,
+      "source": "c1ff75e0d6e44e200fc9021d383fc1371b7834b2",
+      "run": 38779120344
+    },
+    {
+      "file": "game.spec.ts",
+      "title": "disabled rope includes reason; restart in every phase",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 2058,
+      "source": "c1ff75e0d6e44e200fc9021d383fc1371b7834b2",
+      "run": 38779120344
+    },
+    {
+      "file": "game.spec.ts",
+      "title": "rapid distinct clicks and stale restart timeout cannot affect next run",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 1786,
+      "source": "c1ff75e0d6e44e200fc9021d383fc1371b7834b2",
+      "run": 38779120344
+    },
+    {
+      "file": "game.spec.ts",
+      "title": "tonight, cooperation, visible feedback, accessible keyboard and restart",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 1836,
+      "source": "c1ff75e0d6e44e200fc9021d383fc1371b7834b2",
+      "run": 38779120344
+    },
+    {
+      "file": "game.spec.ts",
+      "title": "morning, solo has no penalty, anonymous and layout",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 1642,
+      "source": "c1ff75e0d6e44e200fc9021d383fc1371b7834b2",
+      "run": 38779120344
+    },
+    {
+      "file": "game.spec.ts",
+      "title": "disabled rope includes reason; restart in every phase",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 1964,
+      "source": "c1ff75e0d6e44e200fc9021d383fc1371b7834b2",
+      "run": 38779120344
+    },
+    {
+      "file": "game.spec.ts",
+      "title": "rapid distinct clicks and stale restart timeout cannot affect next run",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 1807,
+      "source": "c1ff75e0d6e44e200fc9021d383fc1371b7834b2",
+      "run": 38779120344
+    },
+    {
+      "file": "hd2d.spec.ts",
+      "title": "新建筑可从画面点击，沿真实路线步行抵达并打开互动",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 47678,
+      "source": "d2cec6b199b887e7f5635be816889f5f03233261",
+      "run": 38784128317
+    },
+    {
+      "file": "hd2d.spec.ts",
+      "title": "HD-2D 场景素材与天气浮层可用，天气不改存档",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 4491,
+      "source": "d2cec6b199b887e7f5635be816889f5f03233261",
+      "run": 38784128317
+    },
+    {
+      "file": "hd2d.spec.ts",
+      "title": "职业选择、技能入口、真实休息与刷新恢复",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 3127,
+      "source": "d2cec6b199b887e7f5635be816889f5f03233261",
+      "run": 38784128317
+    },
+    {
+      "file": "hd2d.spec.ts",
+      "title": "新建筑可从画面点击，沿真实路线步行抵达并打开互动",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 31874,
+      "source": "d2cec6b199b887e7f5635be816889f5f03233261",
+      "run": 38784128317
+    },
+    {
+      "file": "hd2d.spec.ts",
+      "title": "HD-2D 场景素材与天气浮层可用，天气不改存档",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 2620,
+      "source": "d2cec6b199b887e7f5635be816889f5f03233261",
+      "run": 38784128317
+    },
+    {
+      "file": "hd2d.spec.ts",
+      "title": "职业选择、技能入口、真实休息与刷新恢复",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 2753,
+      "source": "d2cec6b199b887e7f5635be816889f5f03233261",
+      "run": 38784128317
+    },
+    {
+      "file": "story-generator.spec.ts",
+      "title": "故事工坊：死亡联动、主线闭环和移动布局",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 829,
+      "source": "c1ff75e0d6e44e200fc9021d383fc1371b7834b2",
+      "run": 38779120344
+    },
+    {
+      "file": "story-generator.spec.ts",
+      "title": "故事规则包：加载、使用、导入和卸载保留事实",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 738,
+      "source": "c1ff75e0d6e44e200fc9021d383fc1371b7834b2",
+      "run": 38779120344
+    },
+    {
+      "file": "story-generator.spec.ts",
+      "title": "阶段路线随道路变化更新，恢复后完成四阶段",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 942,
+      "source": "c1ff75e0d6e44e200fc9021d383fc1371b7834b2",
+      "run": 38779120344
+    },
+    {
+      "file": "story-generator.spec.ts",
+      "title": "故事工坊：死亡联动、主线闭环和移动布局",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 682,
+      "source": "c1ff75e0d6e44e200fc9021d383fc1371b7834b2",
+      "run": 38779120344
+    },
+    {
+      "file": "story-generator.spec.ts",
+      "title": "故事规则包：加载、使用、导入和卸载保留事实",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 676,
+      "source": "c1ff75e0d6e44e200fc9021d383fc1371b7834b2",
+      "run": 38779120344
+    },
+    {
+      "file": "story-generator.spec.ts",
+      "title": "阶段路线随道路变化更新，恢复后完成四阶段",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 731,
+      "source": "c1ff75e0d6e44e200fc9021d383fc1371b7834b2",
+      "run": 38779120344
+    },
+    {
+      "file": "v030.spec.ts",
+      "title": "冒险连续移动使用新人物帧，停止后站立，八方向素材成功加载",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 6202,
+      "source": "d2cec6b199b887e7f5635be816889f5f03233261",
+      "run": 38784128317
+    },
+    {
+      "file": "v030.spec.ts",
+      "title": "职业衣橱36套可试穿，体型和性别切换，返回冒险保留进度",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 10699,
+      "source": "d2cec6b199b887e7f5635be816889f5f03233261",
+      "run": 38784128317
+    },
+    {
+      "file": "v030.spec.ts",
+      "title": "冒险连续移动使用新人物帧，停止后站立，八方向素材成功加载",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 4032,
+      "source": "d2cec6b199b887e7f5635be816889f5f03233261",
+      "run": 38784128317
+    },
+    {
+      "file": "v030.spec.ts",
+      "title": "职业衣橱36套可试穿，体型和性别切换，返回冒险保留进度",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 7021,
+      "source": "d2cec6b199b887e7f5635be816889f5f03233261",
+      "run": 38784128317
+    },
+    {
+      "file": "v030.spec.ts",
+      "title": "离开实际战斗后继续探索，人物重新播放行走而不使用战场坐标",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 11619,
+      "source": "d2cec6b199b887e7f5635be816889f5f03233261",
+      "run": 38784128317
+    },
+    {
+      "file": "v030.spec.ts",
+      "title": "离开实际战斗后继续探索，人物重新播放行走而不使用战场坐标",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 6470,
+      "source": "d2cec6b199b887e7f5635be816889f5f03233261",
+      "run": 38784128317
+    }
+  ]
+}

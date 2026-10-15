@@ -1,0 +1,38 @@
+name: Verify v0.3.0 public adventure
+on:
+  push:
+    branches: [codex/v030-public-verification]
+    paths:
+      - .github/workflows/adventure-v030-publication.yml
+      - tooling/verify-v030-publication.mjs
+      - docs/evidence/v030-release-manifest.json
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: v030-public-verification
+  cancel-in-progress: true
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Verify published assets and gameplay
+        run: |
+          export CHROMIUM_PATH="$(node --input-type=module -e 'import {chromium} from "@playwright/test"; console.log(chromium.executablePath())')"
+          node tooling/verify-v030-publication.mjs
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: v030-public-evidence
+          path: docs/evidence/v030-public-*
+          retention-days: 30

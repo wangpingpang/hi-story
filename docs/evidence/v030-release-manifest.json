@@ -1,0 +1,407 @@
+{
+  "version": "0.3.0",
+  "testedSource": "d2cec6b199b887e7f5635be816889f5f03233261",
+  "sourceTree": "9a0b1fb56e763a5b1d92fe6f8c5284db95cd9df7",
+  "files": [
+    {
+      "path": "assets/characters/character-parts-v1.png",
+      "size": 1234506,
+      "sha256": "8fee8fb90dd7cf28d8b201e26804e73bd1863395f9a32063a84bfbba730b7e9f"
+    },
+    {
+      "path": "assets/characters/female-parts-v1.png",
+      "size": 1889616,
+      "sha256": "a3a1ae3d4c8178a9930802ef84763801622d52de6c45a5f856b49d2bea9e8d1f"
+    },
+    {
+      "path": "assets/characters/manifest.json",
+      "size": 12735,
+      "sha256": "87af97acb3c4697e8ac7d3adaddfc21375e93b2b13f409e05a38c27f14ef2d38"
+    },
+    {
+      "path": "assets/characters/v3/accessory.png",
+      "size": 1501430,
+      "sha256": "2ed16acb460e237fe5403d01e63a04865bc1e74b78e736e532072e8d024a3416"
+    },
+    {
+      "path": "assets/characters/v3/accessory.webp",
+      "size": 388116,
+      "sha256": "38ed859e66aa597e38f79b6fca7c0e20177bf4b013ba7fc6dd6e0ae2cdfeb757"
+    },
+    {
+      "path": "assets/characters/v3/body-female-stocky.png",
+      "size": 1167212,
+      "sha256": "a77e0c5b63e0389c5761211003c25cb5489c297fa242a008664053850faa8368"
+    },
+    {
+      "path": "assets/characters/v3/body-female-stocky.webp",
+      "size": 223846,
+      "sha256": "d4ed3467d2f407a710d1958e3f17921fd038f353db612e78c650533d7f69130c"
+    },
+    {
+      "path": "assets/characters/v3/body-female.png",
+      "size": 1279447,
+      "sha256": "c43506bce4c5a08ad12216fd00699cf53ddd5a88c9d5dcb2dba107e431eaa86c"
+    },
+    {
+      "path": "assets/characters/v3/body-female.webp",
+      "size": 353992,
+      "sha256": "1d61c444dc199f2718c2cca50945fa20a37556d055697e50c4e2f8c9766785bf"
+    },
+    {
+      "path": "assets/characters/v3/body-male.png",
+      "size": 1265074,
+      "sha256": "a6516090b860bee7177c855616ce7c67c1e14480b7aff2279863a35931933f1f"
+    },
+    {
+      "path": "assets/characters/v3/body-male.webp",
+      "size": 336110,
+      "sha256": "75ccdd1bff7f2d904a8311258d5381efb8e5e91ad1cf0a4e6a92ea525aecccb5"
+    },
+    {
+      "path": "assets/characters/v3/face.png",
+      "size": 1239516,
+      "sha256": "e216bf927078bf94c5592ce37065744d1708d254d1220e9607d512e016b7c31c"
+    },
+    {
+      "path": "assets/characters/v3/face.webp",
+      "size": 295054,
+      "sha256": "89b9b136037c9b72bde610f66a08cdc7a88428092163e7f6e058c2a2d856bc60"
+    },
+    {
+      "path": "assets/characters/v3/hair.png",
+      "size": 2336676,
+      "sha256": "cce9c3cad6778e3295605c7e4374931cca68e418f34c1aea1f1a4ffb3c4bb8b3"
+    },
+    {
+      "path": "assets/characters/v3/hair.webp",
+      "size": 398058,
+      "sha256": "3f2fbca5ba0f8edf0fdd783e4025f52e4a5ef423ab11c23f1cafa89f2e038f62"
+    },
+    {
+      "path": "assets/characters/v3/manifest.json",
+      "size": 45657,
+      "sha256": "6069ff0d2b14c248e1caef693fca380666ce6f875ed1e5c13637946c1e98184c"
+    },
+    {
+      "path": "assets/characters/v3/pants.png",
+      "size": 2131272,
+      "sha256": "f6653b14bf7b680ce640ae83540eb71ce727492e06947f06726b63cd0468afd7"
+    },
+    {
+      "path": "assets/characters/v3/pants.webp",
+      "size": 279316,
+      "sha256": "53626b1d9442b6b69128b2499bbee262f4eb7e070ff798ea1b09f184f28492b8"
+    },
+    {
+      "path": "assets/characters/v3/prompts.json",
+      "size": 15535,
+      "sha256": "7f93810d3834bdc410344bc2355c17754f2fb71fc553485ac2f032b34521f283"
+    },
+    {
+      "path": "assets/characters/v3/shoes.png",
+      "size": 1642847,
+      "sha256": "b78fbcf5d1c2a88b12b060195ada983d4e3a008a1f84def9a0fc0dfc5909ff17"
+    },
+    {
+      "path": "assets/characters/v3/shoes.webp",
+      "size": 360914,
+      "sha256": "c52e43882f49a58d8634629e58f6165d98bfe2993a4127b4b3fd0ca9f997f1cb"
+    },
+    {
+      "path": "assets/characters/v3/top.png",
+      "size": 2622214,
+      "sha256": "fd5399c13b92c7281f552e269ea36b6452109fceeaffdce31347226d359839eb"
+    },
+    {
+      "path": "assets/characters/v3/top.webp",
+      "size": 371248,
+      "sha256": "401cc49f242038efc52ac40889ee531031d04fae5a52be18f341a68c27678517"
+    },
+    {
+      "path": "assets/characters/v3/walk/manifest.json",
+      "size": 7422,
+      "sha256": "bd54dcb6687a7d6c07656637809c5b2b09f2855a28e941ba680322389152b6d1"
+    },
+    {
+      "path": "assets/characters/v3/walk/pants-breeches.png",
+      "size": 145585,
+      "sha256": "2a9883b5f07559f0876f98cf57f32900f1b642b1187555022027bbab881bab9c"
+    },
+    {
+      "path": "assets/characters/v3/walk/pants-cargo.png",
+      "size": 167744,
+      "sha256": "5a6147a754e29a5f7e0b3528f9218aa65a81744882a0a96794ad7fc2f9a313e7"
+    },
+    {
+      "path": "assets/characters/v3/walk/pants-culottes.png",
+      "size": 175838,
+      "sha256": "632da4e443ff6a3330e85b635132b1da0a603460d10421ac1d1a6537695b298e"
+    },
+    {
+      "path": "assets/characters/v3/walk/pants-draped.png",
+      "size": 166845,
+      "sha256": "551bef1acf01b5fc847f49723de4e1868c65f842aff18fac02ed81ab99b2399e"
+    },
+    {
+      "path": "assets/characters/v3/walk/pants-leggings.png",
+      "size": 155000,
+      "sha256": "59d8c6386d623ed9bc32919442c508f4f189904519d83f4086999920477c58f4"
+    },
+    {
+      "path": "assets/characters/v3/walk/pants-long-skirt.png",
+      "size": 203221,
+      "sha256": "85f0178f86099c573f028976494dbbf25a98d933a7445ad9b89fd60ea72781c7"
+    },
+    {
+      "path": "assets/characters/v3/walk/pants-loose.png",
+      "size": 163467,
+      "sha256": "c9ddb67237a783a010f381e17fbe11caa9066bcdd138f12c3a0c8905b66d588c"
+    },
+    {
+      "path": "assets/characters/v3/walk/pants-patched.png",
+      "size": 165467,
+      "sha256": "14d41e079e725c12a1b1c99cc448f270712c19a55fa0d100c94fc7e39dda01f7"
+    },
+    {
+      "path": "assets/characters/v3/walk/pants-pleated.png",
+      "size": 169511,
+      "sha256": "f5a165d8cc9078ba01683dba9646eef2355c4e5cc1583f63e5fb327c1baab5a9"
+    },
+    {
+      "path": "assets/characters/v3/walk/pants-shorts.png",
+      "size": 117343,
+      "sha256": "53276e9d8133e9b076371debf1c9be408c1d1d775d19c3c1232d058b8f747f22"
+    },
+    {
+      "path": "assets/characters/v3/walk/pants-skirt.png",
+      "size": 162441,
+      "sha256": "4347a8ebe6c773c61a21258fb5d4538c716312e05eaf0803dbd7affcfefc2552"
+    },
+    {
+      "path": "assets/characters/v3/walk/pants-straight.png",
+      "size": 163877,
+      "sha256": "0381ccb8a6dba12e0b2d363009e0f6868404b9ed6f6c889e0c26702c989ab26b"
+    },
+    {
+      "path": "assets/characters/v3/walk/shoes-ankle.png",
+      "size": 106693,
+      "sha256": "80e3fc514d8f6c5ee469c5f78c0b202a939841519589f7eec2e9a79c0c34c1a7"
+    },
+    {
+      "path": "assets/characters/v3/walk/shoes-boots.png",
+      "size": 107596,
+      "sha256": "f96d48aa45ce1d55693c03cff7e444714ad67f681105a35dffdac9c10b0d56bb"
+    },
+    {
+      "path": "assets/characters/v3/walk/shoes-cloth.png",
+      "size": 106986,
+      "sha256": "604bf114a711f68c74dd8d0f3d29e5ba81f4674d25101c97276739de27dde2b0"
+    },
+    {
+      "path": "assets/characters/v3/walk/shoes-fur-boots.png",
+      "size": 109289,
+      "sha256": "9383b004901ce4025509ace3439fd096c4aa2ebc5a61a780ce787b19c2a0e0d3"
+    },
+    {
+      "path": "assets/characters/v3/walk/shoes-riding.png",
+      "size": 106224,
+      "sha256": "f0fe1cdf8740ae0a905188e62adc8a770a71152d6c61f195f3373e438601201c"
+    },
+    {
+      "path": "assets/characters/v3/walk/shoes-sabatons.png",
+      "size": 108562,
+      "sha256": "b11ad3811fab820f68fa83ccc430b4874795feef583142972d272c2517be6f99"
+    },
+    {
+      "path": "assets/characters/v3/walk/shoes-sandals.png",
+      "size": 107495,
+      "sha256": "07ffd07189f3056c567714001cf02d4deb46afae25551c26ec8291a7aba3ac2c"
+    },
+    {
+      "path": "assets/characters/v3/walk/shoes-wrapped.png",
+      "size": 107111,
+      "sha256": "6deeb9a4dc4d6817c31d0169cb692d41cd3278ace0f21a9552f831172e333140"
+    },
+    {
+      "path": "assets/characters/v3/walk/top-armor.png",
+      "size": 218613,
+      "sha256": "ce41a73baa345ba58fdf5e6f6d58defab7954f7f881e95081f164ebd8040be70"
+    },
+    {
+      "path": "assets/characters/v3/walk/top-coat.png",
+      "size": 221910,
+      "sha256": "af937cb1b7daf4dea80685cc80dd97217d5906b7e2ff6df163a0e7864c85ddad"
+    },
+    {
+      "path": "assets/characters/v3/walk/top-doublet.png",
+      "size": 221637,
+      "sha256": "9236d1d0e7366f3506b03cb44ec71da00ff91c49143e357617b60f56b612be05"
+    },
+    {
+      "path": "assets/characters/v3/walk/top-gambeson.png",
+      "size": 207602,
+      "sha256": "d2c401604bd83b6a94189810037441bec7de352d722bffa8361d69f2499ec022"
+    },
+    {
+      "path": "assets/characters/v3/walk/top-robe.png",
+      "size": 220364,
+      "sha256": "fe26d7ebcb3297f3f3feb88a263830a4d829acc1373be1d7827f782540d49c11"
+    },
+    {
+      "path": "assets/characters/v3/walk/top-shirt.png",
+      "size": 137770,
+      "sha256": "b3f63433cba52fdb419d4468dfc276dfa321ef03b4fba8b2de1f00f45b748556"
+    },
+    {
+      "path": "assets/characters/v3/walk/top-sweater.png",
+      "size": 231244,
+      "sha256": "042631481b185a94fdfdd80dea6b84c4485e79e2f11c76518d81cdf1d3589bf9"
+    },
+    {
+      "path": "assets/characters/v3/walk/top-tank.png",
+      "size": 175052,
+      "sha256": "f13c563540d4b9027e2175eecdbddc80cffba25d9233d5b4a46a1e7d6655ed58"
+    },
+    {
+      "path": "assets/characters/v3/walk/top-tunic.png",
+      "size": 198613,
+      "sha256": "e39c80e3061799bec02306688951395cee2a1a1de35845b98abae880005d00e3"
+    },
+    {
+      "path": "assets/characters/v3/walk/top-vest.png",
+      "size": 176174,
+      "sha256": "44950ae10bfc9174461deafce3157ef2348c1185b895d8a72a61c8bf29f012f2"
+    },
+    {
+      "path": "assets/characters/v3/walk/top-winter.png",
+      "size": 213171,
+      "sha256": "492a953e0cd2b627281705e34a4182a35aebed1de54048c1a33423b82c6506df"
+    },
+    {
+      "path": "assets/characters/v3/walk/top-wrap.png",
+      "size": 153279,
+      "sha256": "d5b3e0c779dd15737ccfb6b0640492f242a6c5dc761d960345a5eb312e4b7fe0"
+    },
+    {
+      "path": "assets/characters/v3/weapons.png",
+      "size": 733740,
+      "sha256": "1481a61c845c5e7c52de8a7e7d84afc99293df707c8a46f569c7f0fb9efcb0a3"
+    },
+    {
+      "path": "assets/characters/v3/weapons.webp",
+      "size": 204632,
+      "sha256": "26907a501d0f8fcb6240098bf9deff6eea1e501c06d109f483b1271258ea3b05"
+    },
+    {
+      "path": "assets/equipment-book-CwkjhfHf.js",
+      "size": 11024,
+      "sha256": "22fbe50d70ed933108bcf40184c872a1d85a4a9d7068445e9c5dccff17dff94b"
+    },
+    {
+      "path": "assets/equipment-book-Dwx_YMGd.css",
+      "size": 1600,
+      "sha256": "e12fb2da5376024515212cf19343c96b18336e88fbd15a061065de7d72bd1b3e"
+    },
+    {
+      "path": "assets/equipment/armor-01.png",
+      "size": 2725334,
+      "sha256": "94b63a382a84532b8301be4e210836788a8574afac366221695545c7991f16cc"
+    },
+    {
+      "path": "assets/equipment/armor-01.webp",
+      "size": 489858,
+      "sha256": "a5981dbff56ccd50bc6802adcb416b993c7c24cdeed10e702c1e2bc9faed52f5"
+    },
+    {
+      "path": "assets/equipment/armor-02.png",
+      "size": 2671772,
+      "sha256": "40e69a9c328c97d6c92eb5084602f35faf7e66b763fd706a4a66f3d00a701f21"
+    },
+    {
+      "path": "assets/equipment/armor-02.webp",
+      "size": 480882,
+      "sha256": "df484f717f604b5cc099798c22341dc2885a82cbdf2421c8c61aae6bfe89f104"
+    },
+    {
+      "path": "assets/equipment/armor-03.png",
+      "size": 2573667,
+      "sha256": "a7eeef264bc3140c8ec23ec93a53a4272abbcc9b73eb2a736396b83e1aef6803"
+    },
+    {
+      "path": "assets/equipment/armor-03.webp",
+      "size": 473130,
+      "sha256": "e47bbbbc2f0f88cd1e8bce5437087cebb481c08b204b998d3090e8a4a90025f2"
+    },
+    {
+      "path": "assets/equipment/shared-01.png",
+      "size": 2183135,
+      "sha256": "2109275b72678834e1358fc9491acefa0dbac1dbcb314d33864ca4c420161113"
+    },
+    {
+      "path": "assets/equipment/shared-01.webp",
+      "size": 455402,
+      "sha256": "ba65e073151b7ffc62a9bfd025e2e8cbd19b5c3a5e5fd679b75647a137152fce"
+    },
+    {
+      "path": "assets/equipment/weapons-01.png",
+      "size": 1357203,
+      "sha256": "82bc768db9568e6e55864b12fe88ba361597bd3fec54f6988344d70661974692"
+    },
+    {
+      "path": "assets/equipment/weapons-01.webp",
+      "size": 351376,
+      "sha256": "a711ffd8a8f3bbbfdf48d245c17b8a9f063468fed003384e143f74c1db34b479"
+    },
+    {
+      "path": "assets/index-CVkNEDLo.css",
+      "size": 38503,
+      "sha256": "4934fe8ea3ff17b190cad9f1cb757c01e8003873b05b2357cdcdd80d8a14d53e"
+    },
+    {
+      "path": "assets/index-D0g_uK2Z.js",
+      "size": 530217,
+      "sha256": "83297a9d9e2a80f2d4b79f74ab0513b8724a68528d3e734553616dba76c0de24"
+    },
+    {
+      "path": "assets/scenery/hd2d-scenery-v1.webp",
+      "size": 421444,
+      "sha256": "b0ac1488bd9145e2ca8971a41d6d8f16f7d901bc9e5d9875d623d36159b4d0d3"
+    },
+    {
+      "path": "assets/world/manifest.json",
+      "size": 8891,
+      "sha256": "0f06d6e6d85faf9a902553d6250727123533079627fd04c660d71d52f60c6b84"
+    },
+    {
+      "path": "assets/world/nature-v1.webp",
+      "size": 873066,
+      "sha256": "92fe1be81c571e8b2ccea69fde13442c7df8dfa9be3c5742544c0361db9b9d7c"
+    },
+    {
+      "path": "assets/world/ruins-v1.webp",
+      "size": 648276,
+      "sha256": "24cfaca321042b7db14c36cabe39127e0b0b646d4cd1ebff3a3275a34edd851f"
+    },
+    {
+      "path": "assets/world/settlement-v1.webp",
+      "size": 614508,
+      "sha256": "a9a9a0f17c2f2561fd45b837b16688829346cfea2637d83cf84589ad9e1b2442"
+    },
+    {
+      "path": "assets/world/terrain-v1.webp",
+      "size": 768906,
+      "sha256": "23c12b78d01bf293e16892d71a2946be81cda53ef4a22f9bfe042c3824015226"
+    },
+    {
+      "path": "assets/world/weather-v1.webp",
+      "size": 548910,
+      "sha256": "6d08d226f81f05e3f6d0e278edd26609f58a716ccd0b0b8e795dfde42a350785"
+    },
+    {
+      "path": "index.html",
+      "size": 785,
+      "sha256": "29080068b34b8c03cf3e03e2b64ce2425de46062af78bf9e22c32dfc95b36817"
+    }
+  ]
+}

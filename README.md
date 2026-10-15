@@ -126,3 +126,5 @@ CHROMIUM_PATH=/path/to/chromium npm run characters:render -- --input docs/exampl
 下一阶段协议为`demo-contract/2`，本局快照schemaVersion为2；空间版本`story-spatial/2`、地图`bounded-map/2`。本局已生成地图不因选择重抽。[本阶段说明与验收](docs/demo-next-stage-report.md) · [声明式布局目录](content/story/spatial-layouts.json)。
 
 默认主页与 `?view=demo` 已更新为 v0.1.0 地图主场景；167项逻辑、52项浏览器和公网验证通过。自动保存/刷新继续、三主线及动态事件已可用。[完整交付报告](docs/v0.1.0-validation.md)。
+
+骰子反馈开发：D4／D6／D20、三种骰子样式、成功／失败／重击动画、真实后果、跳过／回看及减少动态效果支持；接口与集成状态见[骰子动画与反馈说明](骰子动画与反馈说明.md)及[恢复验证记录](docs/dice-feedback-validation.md)。此开发分支不代表线上已更新。

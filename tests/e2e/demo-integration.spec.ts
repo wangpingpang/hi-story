@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from './fixtures';
 import { openDemo, walk, encounter } from './demo-route';
 
 const failures=new WeakMap<object,string[]>();

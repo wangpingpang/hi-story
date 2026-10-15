@@ -1,0 +1,670 @@
+{
+  "date": "2026-10-15",
+  "base": "3caaeb4589c8ad17ca6849b8b621840d2560d0e6",
+  "branch": "codex/dice-feedback",
+  "recovery": "Reimplemented from development record; unpublished original commits unavailable.",
+  "environment": {
+    "node": "24.19.0",
+    "npm": "11.9.0",
+    "chromium": "153.0.8010.0",
+    "singleProcessFixture": true
+  },
+  "unit": {
+    "passed": 178,
+    "files": 13,
+    "command": "npm test -- --maxWorkers=2 --testTimeout=20000",
+    "durationSeconds": 66.46
+  },
+  "typecheck": "passed",
+  "boundaries": "passed",
+  "build": "passed",
+  "fullBrowser": {
+    "stats": {
+      "startTime": "2026-10-15T15:09:52.516Z",
+      "duration": 315767.146,
+      "expected": 68,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "assets": [
+      {
+        "path": "index.html",
+        "bytes": 785,
+        "sha256": "8fddb1e1caf197bd9c31229bf5defb4398f89c9e30e6c848a180463c1d8db888"
+      },
+      {
+        "path": "assets/index-DypuS23c.js",
+        "bytes": 229519,
+        "sha256": "8163ddacd8a2085b4705e3d1da90f460ee80e45aa54d943f304db0971ee11ec1"
+      },
+      {
+        "path": "assets/index-DsGw3XkY.css",
+        "bytes": 30109,
+        "sha256": "5908f393c18f8c69f47d8a4b31fca85838158270ce25fc92c2d9c8147f35d334"
+      }
+    ],
+    "cases": [
+      {
+        "file": "adventure.spec.ts",
+        "title": "地图占据画面、像素人物落位、浮层和缩放无溢出",
+        "project": "desktop",
+        "status": "expected",
+        "durationMs": 3106
+      },
+      {
+        "file": "adventure.spec.ts",
+        "title": "社交检定、消耗草药与态度后果显示在同一场景",
+        "project": "desktop",
+        "status": "expected",
+        "durationMs": 3983
+      },
+      {
+        "file": "adventure.spec.ts",
+        "title": "实际探索完成 letter 主线",
+        "project": "desktop",
+        "status": "expected",
+        "durationMs": 14533
+      },
+      {
+        "file": "adventure.spec.ts",
+        "title": "实际探索完成 seal 主线",
+        "project": "desktop",
+        "status": "expected",
+        "durationMs": 17435
+      },
+      {
+        "file": "adventure.spec.ts",
+        "title": "实际探索完成 relic 主线",
+        "project": "desktop",
+        "status": "expected",
+        "durationMs": 13796
+      },
+      {
+        "file": "adventure.spec.ts",
+        "title": "连续事件追加NPC、任务，背包与通路状态可恢复",
+        "project": "desktop",
+        "status": "expected",
+        "durationMs": 22261
+      },
+      {
+        "file": "adventure.spec.ts",
+        "title": "战斗在地图场景中、行动资源与刷新恢复真实运行",
+        "project": "desktop",
+        "status": "expected",
+        "durationMs": 18784
+      },
+      {
+        "file": "adventure.spec.ts",
+        "title": "键盘和输入隔离，损坏存档导入保留有效状态",
+        "project": "desktop",
+        "status": "expected",
+        "durationMs": 3027
+      },
+      {
+        "file": "adventure.spec.ts",
+        "title": "承诺连续链与六类支线真实推进，交易和一次奖励",
+        "project": "desktop",
+        "status": "expected",
+        "durationMs": 65069
+      },
+      {
+        "file": "adventure.spec.ts",
+        "title": "检定失败开启补救事件，保持主线可行",
+        "project": "desktop",
+        "status": "expected",
+        "durationMs": 23377
+      },
+      {
+        "file": "adventure.spec.ts",
+        "title": "战斗胜利、战败与逃离都回传人物和目标",
+        "project": "desktop",
+        "status": "expected",
+        "durationMs": 49235
+      },
+      {
+        "file": "adventure.spec.ts",
+        "title": "地图占据画面、像素人物落位、浮层和缩放无溢出",
+        "project": "narrow",
+        "status": "expected",
+        "durationMs": 3434
+      },
+      {
+        "file": "adventure.spec.ts",
+        "title": "社交检定、消耗草药与态度后果显示在同一场景",
+        "project": "narrow",
+        "status": "expected",
+        "durationMs": 10556
+      },
+      {
+        "file": "adventure.spec.ts",
+        "title": "实际探索完成 letter 主线",
+        "project": "narrow",
+        "status": "expected",
+        "durationMs": 31543
+      },
+      {
+        "file": "adventure.spec.ts",
+        "title": "实际探索完成 seal 主线",
+        "project": "narrow",
+        "status": "expected",
+        "durationMs": 20439
+      },
+      {
+        "file": "adventure.spec.ts",
+        "title": "实际探索完成 relic 主线",
+        "project": "narrow",
+        "status": "expected",
+        "durationMs": 12898
+      },
+      {
+        "file": "adventure.spec.ts",
+        "title": "连续事件追加NPC、任务，背包与通路状态可恢复",
+        "project": "narrow",
+        "status": "expected",
+        "durationMs": 47355
+      },
+      {
+        "file": "adventure.spec.ts",
+        "title": "战斗在地图场景中、行动资源与刷新恢复真实运行",
+        "project": "narrow",
+        "status": "expected",
+        "durationMs": 12255
+      },
+      {
+        "file": "adventure.spec.ts",
+        "title": "键盘和输入隔离，损坏存档导入保留有效状态",
+        "project": "narrow",
+        "status": "expected",
+        "durationMs": 2620
+      },
+      {
+        "file": "adventure.spec.ts",
+        "title": "承诺连续链与六类支线真实推进，交易和一次奖励",
+        "project": "narrow",
+        "status": "expected",
+        "durationMs": 36069
+      },
+      {
+        "file": "adventure.spec.ts",
+        "title": "检定失败开启补救事件，保持主线可行",
+        "project": "narrow",
+        "status": "expected",
+        "durationMs": 15641
+      },
+      {
+        "file": "adventure.spec.ts",
+        "title": "战斗胜利、战败与逃离都回传人物和目标",
+        "project": "narrow",
+        "status": "expected",
+        "durationMs": 25657
+      },
+      {
+        "file": "character-art.spec.ts",
+        "title": "PNG parts, female rig, new garments and transparent export",
+        "project": "desktop",
+        "status": "expected",
+        "durationMs": 1147
+      },
+      {
+        "file": "character-art.spec.ts",
+        "title": "PNG parts, female rig, new garments and transparent export",
+        "project": "narrow",
+        "status": "expected",
+        "durationMs": 1115
+      },
+      {
+        "file": "character-generator.spec.ts",
+        "title": "seven-part studio: seed, locks, editing, export and responsive preview",
+        "project": "desktop",
+        "status": "expected",
+        "durationMs": 3777
+      },
+      {
+        "file": "character-generator.spec.ts",
+        "title": "seven-part studio: seed, locks, editing, export and responsive preview",
+        "project": "narrow",
+        "status": "expected",
+        "durationMs": 2534
+      },
+      {
+        "file": "demo-integration.spec.ts",
+        "title": "探索入口、移动、阅读、重开和窄屏布局",
+        "project": "desktop",
+        "status": "expected",
+        "durationMs": 1247
+      },
+      {
+        "file": "demo-integration.spec.ts",
+        "title": "NPC交互、真实战斗和逃离",
+        "project": "desktop",
+        "status": "expected",
+        "durationMs": 2205
+      },
+      {
+        "file": "demo-integration.spec.ts",
+        "title": "实际探索、购买、抵达与完成目标的整局闭环",
+        "project": "desktop",
+        "status": "expected",
+        "durationMs": 7347
+      },
+      {
+        "file": "demo-integration.spec.ts",
+        "title": "真实骰子战斗胜利更新NPC与后续选项",
+        "project": "desktop",
+        "status": "expected",
+        "durationMs": 2785
+      },
+      {
+        "file": "demo-integration.spec.ts",
+        "title": "战败结束主线，重开恢复人物与初始迷雾",
+        "project": "desktop",
+        "status": "expected",
+        "durationMs": 3460
+      },
+      {
+        "file": "demo-integration.spec.ts",
+        "title": "方向键移动和输入框编辑互不干扰",
+        "project": "desktop",
+        "status": "expected",
+        "durationMs": 1445
+      },
+      {
+        "file": "demo-integration.spec.ts",
+        "title": "探索入口、移动、阅读、重开和窄屏布局",
+        "project": "narrow",
+        "status": "expected",
+        "durationMs": 1092
+      },
+      {
+        "file": "demo-integration.spec.ts",
+        "title": "NPC交互、真实战斗和逃离",
+        "project": "narrow",
+        "status": "expected",
+        "durationMs": 1676
+      },
+      {
+        "file": "demo-integration.spec.ts",
+        "title": "实际探索、购买、抵达与完成目标的整局闭环",
+        "project": "narrow",
+        "status": "expected",
+        "durationMs": 6483
+      },
+      {
+        "file": "demo-integration.spec.ts",
+        "title": "真实骰子战斗胜利更新NPC与后续选项",
+        "project": "narrow",
+        "status": "expected",
+        "durationMs": 2808
+      },
+      {
+        "file": "demo-integration.spec.ts",
+        "title": "战败结束主线，重开恢复人物与初始迷雾",
+        "project": "narrow",
+        "status": "expected",
+        "durationMs": 3263
+      },
+      {
+        "file": "demo-integration.spec.ts",
+        "title": "方向键移动和输入框编辑互不干扰",
+        "project": "narrow",
+        "status": "expected",
+        "durationMs": 1120
+      },
+      {
+        "file": "dice-feedback.spec.ts",
+        "title": "真实成功检定分阶段揭晓、公式与结果一致",
+        "project": "desktop",
+        "status": "expected",
+        "durationMs": 6142
+      },
+      {
+        "file": "dice-feedback.spec.ts",
+        "title": "真实失败检定分阶段揭晓、公式与结果一致",
+        "project": "desktop",
+        "status": "expected",
+        "durationMs": 6302
+      },
+      {
+        "file": "dice-feedback.spec.ts",
+        "title": "优势两骰、采用与舍弃、物品后果均来自真实结果",
+        "project": "desktop",
+        "status": "expected",
+        "durationMs": 8772
+      },
+      {
+        "file": "dice-feedback.spec.ts",
+        "title": "跳过保留结果，回看不重掷、无再次结算、焦点可返回",
+        "project": "desktop",
+        "status": "expected",
+        "durationMs": 8731
+      },
+      {
+        "file": "dice-feedback.spec.ts",
+        "title": "动画期间刷新保留已提交结果且不重播",
+        "project": "desktop",
+        "status": "expected",
+        "durationMs": 4141
+      },
+      {
+        "file": "dice-feedback.spec.ts",
+        "title": "三种样式与音效偏好保存，设置不改变冒险随机状态",
+        "project": "desktop",
+        "status": "expected",
+        "durationMs": 6823
+      },
+      {
+        "file": "dice-feedback.spec.ts",
+        "title": "减少动态效果直接显示结果，Escape可关闭",
+        "project": "desktop",
+        "status": "expected",
+        "durationMs": 3106
+      },
+      {
+        "file": "dice-feedback.spec.ts",
+        "title": "战斗先攻、移动及后续攻击都使用结构化真实骰子",
+        "project": "desktop",
+        "status": "expected",
+        "durationMs": 5244
+      },
+      {
+        "file": "dice-feedback.spec.ts",
+        "title": "真实成功检定分阶段揭晓、公式与结果一致",
+        "project": "narrow",
+        "status": "expected",
+        "durationMs": 6207
+      },
+      {
+        "file": "dice-feedback.spec.ts",
+        "title": "真实失败检定分阶段揭晓、公式与结果一致",
+        "project": "narrow",
+        "status": "expected",
+        "durationMs": 6090
+      },
+      {
+        "file": "dice-feedback.spec.ts",
+        "title": "优势两骰、采用与舍弃、物品后果均来自真实结果",
+        "project": "narrow",
+        "status": "expected",
+        "durationMs": 7839
+      },
+      {
+        "file": "dice-feedback.spec.ts",
+        "title": "跳过保留结果，回看不重掷、无再次结算、焦点可返回",
+        "project": "narrow",
+        "status": "expected",
+        "durationMs": 8321
+      },
+      {
+        "file": "dice-feedback.spec.ts",
+        "title": "动画期间刷新保留已提交结果且不重播",
+        "project": "narrow",
+        "status": "expected",
+        "durationMs": 3211
+      },
+      {
+        "file": "dice-feedback.spec.ts",
+        "title": "三种样式与音效偏好保存，设置不改变冒险随机状态",
+        "project": "narrow",
+        "status": "expected",
+        "durationMs": 5421
+      },
+      {
+        "file": "dice-feedback.spec.ts",
+        "title": "减少动态效果直接显示结果，Escape可关闭",
+        "project": "narrow",
+        "status": "expected",
+        "durationMs": 3360
+      },
+      {
+        "file": "dice-feedback.spec.ts",
+        "title": "战斗先攻、移动及后续攻击都使用结构化真实骰子",
+        "project": "narrow",
+        "status": "expected",
+        "durationMs": 5058
+      },
+      {
+        "file": "game.spec.ts",
+        "title": "tonight, cooperation, visible feedback, accessible keyboard and restart",
+        "project": "desktop",
+        "status": "expected",
+        "durationMs": 2376
+      },
+      {
+        "file": "game.spec.ts",
+        "title": "morning, solo has no penalty, anonymous and layout",
+        "project": "desktop",
+        "status": "expected",
+        "durationMs": 2191
+      },
+      {
+        "file": "game.spec.ts",
+        "title": "disabled rope includes reason; restart in every phase",
+        "project": "desktop",
+        "status": "expected",
+        "durationMs": 3194
+      },
+      {
+        "file": "game.spec.ts",
+        "title": "rapid distinct clicks and stale restart timeout cannot affect next run",
+        "project": "desktop",
+        "status": "expected",
+        "durationMs": 2787
+      },
+      {
+        "file": "game.spec.ts",
+        "title": "tonight, cooperation, visible feedback, accessible keyboard and restart",
+        "project": "narrow",
+        "status": "expected",
+        "durationMs": 2763
+      },
+      {
+        "file": "game.spec.ts",
+        "title": "morning, solo has no penalty, anonymous and layout",
+        "project": "narrow",
+        "status": "expected",
+        "durationMs": 1978
+      },
+      {
+        "file": "game.spec.ts",
+        "title": "disabled rope includes reason; restart in every phase",
+        "project": "narrow",
+        "status": "expected",
+        "durationMs": 2308
+      },
+      {
+        "file": "game.spec.ts",
+        "title": "rapid distinct clicks and stale restart timeout cannot affect next run",
+        "project": "narrow",
+        "status": "expected",
+        "durationMs": 2312
+      },
+      {
+        "file": "story-generator.spec.ts",
+        "title": "故事工坊：死亡联动、主线闭环和移动布局",
+        "project": "desktop",
+        "status": "expected",
+        "durationMs": 1177
+      },
+      {
+        "file": "story-generator.spec.ts",
+        "title": "故事规则包：加载、使用、导入和卸载保留事实",
+        "project": "desktop",
+        "status": "expected",
+        "durationMs": 2323
+      },
+      {
+        "file": "story-generator.spec.ts",
+        "title": "阶段路线随道路变化更新，恢复后完成四阶段",
+        "project": "desktop",
+        "status": "expected",
+        "durationMs": 2808
+      },
+      {
+        "file": "story-generator.spec.ts",
+        "title": "故事工坊：死亡联动、主线闭环和移动布局",
+        "project": "narrow",
+        "status": "expected",
+        "durationMs": 647
+      },
+      {
+        "file": "story-generator.spec.ts",
+        "title": "故事规则包：加载、使用、导入和卸载保留事实",
+        "project": "narrow",
+        "status": "expected",
+        "durationMs": 630
+      },
+      {
+        "file": "story-generator.spec.ts",
+        "title": "阶段路线随道路变化更新，恢复后完成四阶段",
+        "project": "narrow",
+        "status": "expected",
+        "durationMs": 688
+      }
+    ]
+  },
+  "finalFocusedBrowser": {
+    "reason": "Resolve story NPC target names; suppress animation in static review. Then repeat 178 unit tests and 16 focused browser cases.",
+    "stats": {
+      "startTime": "2026-10-15T15:15:50.573Z",
+      "duration": 72728.601,
+      "expected": 16,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "assets": [
+      {
+        "path": "index.html",
+        "bytes": 785,
+        "sha256": "2d5ebbf803c525b564d764be2a1f4b03d42241d9db4044d21049edfac1642e2a"
+      },
+      {
+        "path": "assets/index-BCnJ8NCV.js",
+        "bytes": 229557,
+        "sha256": "887e7e54b72434080c60254b7b0213b842a1d5d26ec37a9f5e9dac02f96dccdb"
+      },
+      {
+        "path": "assets/index-c7eOOnya.css",
+        "bytes": 30150,
+        "sha256": "22f9af15c9f0d3aead14ed510eb73ab6ecbd5cb6dec67d9a7c846ffdf51688d6"
+      }
+    ],
+    "cases": [
+      {
+        "file": "dice-feedback.spec.ts",
+        "title": "真实成功检定分阶段揭晓、公式与结果一致",
+        "project": "desktop",
+        "status": "expected",
+        "durationMs": 10046
+      },
+      {
+        "file": "dice-feedback.spec.ts",
+        "title": "真实失败检定分阶段揭晓、公式与结果一致",
+        "project": "desktop",
+        "status": "expected",
+        "durationMs": 9118
+      },
+      {
+        "file": "dice-feedback.spec.ts",
+        "title": "优势两骰、采用与舍弃、物品后果均来自真实结果",
+        "project": "desktop",
+        "status": "expected",
+        "durationMs": 17280
+      },
+      {
+        "file": "dice-feedback.spec.ts",
+        "title": "跳过保留结果，回看不重掷、无再次结算、焦点可返回",
+        "project": "desktop",
+        "status": "expected",
+        "durationMs": 9971
+      },
+      {
+        "file": "dice-feedback.spec.ts",
+        "title": "动画期间刷新保留已提交结果且不重播",
+        "project": "desktop",
+        "status": "expected",
+        "durationMs": 5621
+      },
+      {
+        "file": "dice-feedback.spec.ts",
+        "title": "三种样式与音效偏好保存，设置不改变冒险随机状态",
+        "project": "desktop",
+        "status": "expected",
+        "durationMs": 6154
+      },
+      {
+        "file": "dice-feedback.spec.ts",
+        "title": "减少动态效果直接显示结果，Escape可关闭",
+        "project": "desktop",
+        "status": "expected",
+        "durationMs": 3172
+      },
+      {
+        "file": "dice-feedback.spec.ts",
+        "title": "战斗先攻、移动及后续攻击都使用结构化真实骰子",
+        "project": "desktop",
+        "status": "expected",
+        "durationMs": 5120
+      },
+      {
+        "file": "dice-feedback.spec.ts",
+        "title": "真实成功检定分阶段揭晓、公式与结果一致",
+        "project": "narrow",
+        "status": "expected",
+        "durationMs": 11757
+      },
+      {
+        "file": "dice-feedback.spec.ts",
+        "title": "真实失败检定分阶段揭晓、公式与结果一致",
+        "project": "narrow",
+        "status": "expected",
+        "durationMs": 8519
+      },
+      {
+        "file": "dice-feedback.spec.ts",
+        "title": "优势两骰、采用与舍弃、物品后果均来自真实结果",
+        "project": "narrow",
+        "status": "expected",
+        "durationMs": 12677
+      },
+      {
+        "file": "dice-feedback.spec.ts",
+        "title": "跳过保留结果，回看不重掷、无再次结算、焦点可返回",
+        "project": "narrow",
+        "status": "expected",
+        "durationMs": 9648
+      },
+      {
+        "file": "dice-feedback.spec.ts",
+        "title": "动画期间刷新保留已提交结果且不重播",
+        "project": "narrow",
+        "status": "expected",
+        "durationMs": 5197
+      },
+      {
+        "file": "dice-feedback.spec.ts",
+        "title": "三种样式与音效偏好保存，设置不改变冒险随机状态",
+        "project": "narrow",
+        "status": "expected",
+        "durationMs": 5708
+      },
+      {
+        "file": "dice-feedback.spec.ts",
+        "title": "减少动态效果直接显示结果，Escape可关闭",
+        "project": "narrow",
+        "status": "expected",
+        "durationMs": 3135
+      },
+      {
+        "file": "dice-feedback.spec.ts",
+        "title": "战斗先攻、移动及后续攻击都使用结构化真实骰子",
+        "project": "narrow",
+        "status": "expected",
+        "durationMs": 4537
+      }
+    ]
+  },
+  "published": false,
+  "integratedWithLaterMapBranches": false
+}

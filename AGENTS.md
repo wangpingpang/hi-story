@@ -6,7 +6,7 @@
 
 ## 开发与同步
 
-- 在 `codex/<task>` 开发分支工作，正常提交与推送属于已授权开发流程；不强制推送、不覆盖其他窗口修改。
+- 在 `codex/<task>` 开发分支工作，本公开仓库的正常开发提交与上传已获用户明确授权（2026-10-16再次确认），无需逐次重复请求；不强制推送、不覆盖其他窗口修改。
 - 每个决定性改动必须同时更新所有受影响的模块说明、接口版本与集成记录。说明和代码放在同一个提交中。
 - 开发前读取《模块边界与开发同步说明.md》及所属模块说明；跨模块只调用公开入口。
 - 报告实际测试结果、分支和提交；说明已完成不代表功能已实现或集成验收通过。
@@ -33,3 +33,7 @@
 ## v0.1.0 冒险执行基线
 
 开发分支 codex/v010-adventure。新冒险公开入口为 application.createAdventureApplication，协议 demo-contract/3 / schemaVersion=3；原 GameApplication/schema2 保留回归。新界面默认入口与 ?view=demo，原 Demo 为 ?view=demo-legacy，原雾桥为 ?view=fog-bridge。本轮167项逻辑/52项浏览器及公网验证通过并发布，最终状态见 docs/v0.1.0-validation.md。集成窗口从更新后的 codex/demo-integration-v1 读取；旧段落为历史基线。
+
+## 骰子反馈开发入口
+
+codex/dice-feedback 的 dice-feedback/1 增量见《骰子动画与反馈说明.md》及 docs/dice-feedback-validation.md。骰子结果由已提交快照提供；表现层禁止额外掷骰、重放命令或结算。基于3caaeb4，后续场景分支应按公开入口集成，不能直接覆盖新版地图界面。

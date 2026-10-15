@@ -1,4 +1,4 @@
-import { test,expect } from '@playwright/test';
+import { test,expect } from './fixtures';
 test('PNG parts, female rig, new garments and transparent export',async({page})=>{
   const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));await page.goto('/?view=character-generator');
   const image=page.locator('.portrait-stage svg image');await expect(image).toHaveAttribute('href',/^data:image\/png;base64,/);

@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from './fixtures';
 
 test('seven-part studio: seed, locks, editing, export and responsive preview', async ({page},info) => {
   const failures: string[]=[]; page.on('pageerror',error=>failures.push(error.message));

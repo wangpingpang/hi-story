@@ -1,12 +1,12 @@
-import {test,expect,type Page} from '@playwright/test';
+import {test,expect,type Page} from './fixtures';
 import {createServer} from 'vite';
 import type {AdventureSnapshot} from '../../src/application';
 let server:Awaited<ReturnType<typeof createServer>>;
 let factory:typeof import('../../src/application');
-test.beforeAll(async()=>{server=await createServer({configFile:false,logLevel:'error',server:{middlewareMode:true},appType:'custom'});factory=await server.ssrLoadModule('/src/application/index.ts') as typeof import('../../src/application');});
+test.beforeAll(async()=>{server=await createServer({configFile:false,logLevel:'error',server:{middlewareMode:true,hmr:false,ws:false},appType:'custom'});factory=await server.ssrLoadModule('/src/application/index.ts') as typeof import('../../src/application');});
 test.afterAll(async()=>{await server.close();});
 const errors=new WeakMap<Page,string[]>();
-test.beforeEach(({page})=>{const found:string[]=[];errors.set(page,found);page.on('pageerror',e=>found.push(e.message));page.on('console',e=>{if(e.type()==='error')found.push(e.text());});page.on('requestfailed',r=>found.push(r.url()));});
+test.beforeEach(async({page})=>{await page.addLocatorHandler(page.getByRole('button',{name:'跳过动画',exact:true}),async()=>{await page.getByRole('button',{name:'跳过动画',exact:true}).click();await page.getByRole('button',{name:'继续冒险',exact:true}).click();});const found:string[]=[];errors.set(page,found);page.on('pageerror',e=>found.push(e.message));page.on('console',e=>{if(e.type()==='error')found.push(e.text());});page.on('requestfailed',r=>found.push(r.url()));});
 test.afterEach(({page})=>expect(errors.get(page)).toEqual([]));
 async function state(page:Page):Promise<AdventureSnapshot> {return page.evaluate(()=>JSON.parse(localStorage.getItem('hi-story:adventure:v010')!).payload);}
 async function open(page:Page,seed:string){await page.goto(`/?view=demo&seed=${seed}`);await expect(page.locator('.adventure-shell')).toBeVisible();return state(page);}
@@ -55,8 +55,9 @@ test('战斗胜利、战败与逃离都回传人物和目标',async({page})=>{
  for(const outcome of ['victory','defeat','fled']){
   await open(page,`battle-outcome-${outcome}`);await near(page,'npc-0');await panel(page,'interaction');await page.locator('[data-npc="npc-0"]').click();await page.locator('[data-fight="npc-0"]').click();
   for(let i=0;i<40&&(await state(page)).runtime.encounter?.status==='active';i++){
+   await expect(page.locator('.adventure-shell')).toHaveAttribute('aria-busy','false');
    if(outcome==='victory'){
-    const attack=page.locator('[data-attack]').first();if(await attack.isEnabled())await attack.click();else if((await state(page)).runtime.encounter!.action){const live=await state(page),battle=live.runtime.encounter!,from=battle.participants[0].position,target=battle.participants[1].position;const dx=Math.sign(target.x-from.x),dy=Math.sign(target.y-from.y);await page.locator(`[data-battle-point="${from.x+dx},${from.y+(dx?0:dy)}"]`).click();if(await attack.isEnabled())await attack.click();}
+    await expect(page.locator('.adventure-shell')).toHaveAttribute('aria-busy','false');const attack=page.locator('[data-attack]').first();if(await attack.isEnabled())await attack.click();else if((await state(page)).runtime.encounter!.action){const live=await state(page),battle=live.runtime.encounter!,from=battle.participants[0].position,target=battle.participants[1].position;const dx=Math.sign(target.x-from.x),dy=Math.sign(target.y-from.y);await page.locator(`[data-battle-point="${from.x+dx},${from.y+(dx?0:dy)}"]`).click();if(await attack.isEnabled())await attack.click();}
    }else if(outcome==='fled'&&await page.locator('[data-combat="flee"]').isEnabled())await page.locator('[data-combat="flee"]').click();
    if((await state(page)).runtime.encounter?.status==='active')await page.locator('[data-combat="end"]').click();
   }

@@ -1,6 +1,8 @@
 import { describe, it, expect } from 'vitest';
 import { APPEARANCE_CATALOG, APPEARANCE_SLOTS, generateAppearance, validateAppearance, rerollAppearance, rerollAppearancePart, setAppearancePart, create, snapshot } from '../src/modules/characters';
 import { CharacterStudio } from '../src/application/character-studio';
+
+it('静态衣橱可显式选择旧外观骨架，默认工坊仍使用新版且重抽保持版本',()=>{const legacy=new CharacterStudio('wardrobe','appearance/2'),modern=new CharacterStudio('wardrobe');expect(legacy.query().model.version).toBe('appearance/2');expect(modern.query().model.version).toBe('appearance/3');legacy.generate('wardrobe-next');expect(legacy.query().model.version).toBe('appearance/2');});
 import { Game } from '../src/application/game';
 import { choiceCommand } from '../src/input';
 

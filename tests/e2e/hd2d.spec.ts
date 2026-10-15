@@ -12,7 +12,7 @@ test('新建筑可从画面点击，沿真实路线步行抵达并打开互动',
 });
 test('HD-2D 场景素材与天气浮层可用，天气不改存档',async({page},info)=>{
  const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));page.on('requestfailed',r=>errors.push(r.url()));
- await page.goto('/?view=demo&seed=hd2d-scene');await expect(page.locator('.adventure-shell')).toHaveAttribute('data-version','0.2.1');
+ await page.goto('/?view=demo&seed=hd2d-scene');await expect(page.locator('.adventure-shell')).toHaveAttribute('data-version','0.3.0');
  await expect(page.locator('.world-canvas')).toBeVisible();
  await page.locator('[data-panel="settings"]').click();const before=await page.evaluate(()=>localStorage.getItem('hi-story:adventure:world-v2'));
  for(const weather of ['rain','snow','mist','sun','wind']){await page.locator(`[data-weather="${weather}"]`).click();await expect(page.locator('.adventure-shell')).toHaveClass(new RegExp(`weather-${weather}`));expect(await page.evaluate(()=>localStorage.getItem('hi-story:adventure:world-v2'))).toBe(before);}

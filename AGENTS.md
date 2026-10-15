@@ -2,7 +2,7 @@
 
 ## v0.4.0 体验自测迭代
 
-分支codex/v040-world-polish继承99f1bc8。依据《v0.4.0阶段说明.md》，重构场景地表/密林/高差/软迷雾与遮挡，步行保留DOM，NPC实际靠近后交谈；战斗保留所在地背景，queryCombatMovement委托运行器。产品0.4.0，schema4与存档槽不变。实际状态见docs/v0.4.0-validation.md。
+已发布源码eaa7c78，部署3d1b154；Pages38803285718成功。320项逻辑、44个浏览器用例分批通过，公网80文件/10交互检查通过。分支codex/v040-world-polish继承99f1bc8。依据《v0.4.0阶段说明.md》，重构场景地表/密林/高差/软迷雾与遮挡，步行保留DOM，NPC实际靠近后交谈；战斗保留所在地背景，queryCombatMovement委托运行器。产品0.4.0，schema4与存档槽不变。实际状态见docs/v0.4.0-validation.md。
 
 ## v0.3.0 跨会话集成
 

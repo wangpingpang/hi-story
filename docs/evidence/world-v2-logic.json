@@ -922,7 +922,7 @@
     "build": "passed",
     "diffCheck": "passed"
   },
-  "browser": "74 cases running; final browser result recorded separately",
+  "browser": "74 unique browser cases passed; initial 72 passed and 2 timeouts passed after a test-budget-only follow-up. See world-v2-browser.json.",
   "sha256": {
     "src/application/adventure-application.ts": "f4dfb12a681da6b60eeaf966154a1b7ccc2f3aaa70c67cfe4011afc6b7caf67f",
     "src/application/character-studio.ts": "495d3abbffed02bc02eb11a0cafcaecbe14bfafb7833a8e97d4cdb2cc77397f8",

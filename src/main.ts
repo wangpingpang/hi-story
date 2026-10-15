@@ -4,11 +4,14 @@ import { Game } from './application/game';
 import { choiceCommand } from './input';
 import { render } from './presentation';
 import './presentation/style.css';
-import { loadCharacterArt, assembleCharacterCanvas } from './presentation/character-art';
+import { loadCharacterArt, assembleCharacterCanvas, artVersionFor } from './presentation/character-art';
 import { CharacterStudio } from './application/character-studio';
 import { renderCharacterStudio } from './presentation/character-studio';
+import { mountCharacterMotionStudio } from './presentation/character-motion-studio';
 async function boot() {
- if(new URLSearchParams(location.search).get('view')!=='story-generator')await loadCharacterArt();
+ const route=new URLSearchParams(location.search).get('view');
+ if(route==='character-motion'){await mountCharacterMotionStudio(document.querySelector<HTMLElement>('#app')!);return;}
+ if(route!=='story-generator')await loadCharacterArt(route==='character-generator'?'appearance/3':'appearance/1');
 const game=new Game();const root=document.querySelector<HTMLElement>('#app')!;
 let busy=false;
 function draw(focus=false,message=''){
@@ -36,7 +39,7 @@ if (new URLSearchParams(location.search).get('view') === 'character-generator') 
    lock: (slot,locked)=>update(()=>studio.lock(slot,locked),locked?'部件已锁定。':'部件已解锁。'),
    select: (slot,part)=>update(()=>studio.setPart(slot,part),'样式已更新。'),
    export: ()=>{
-    const url=URL.createObjectURL(new Blob([JSON.stringify({...studio.query().model,gender:studio.query().gender,artVersion:'character-art/2'},null,2)],{type:'application/json'}));
+    const url=URL.createObjectURL(new Blob([JSON.stringify({...studio.query().model,gender:studio.query().gender,artVersion:artVersionFor(studio.query().model)},null,2)],{type:'application/json'}));
     const link=document.createElement('a');link.href=url;link.download='hi-story-character.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
     drawStudio('人物 JSON 已导出。');
    },

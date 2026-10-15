@@ -7,7 +7,7 @@ export class CharacterStudio {
   #model: characters.Appearance;
   #locked = new Set<characters.AppearanceSlot>();
   #gender: characters.Gender = 'male';
-  constructor(seed: string) { this.#model = characters.generateAppearance(seed,'appearance/2'); }
+  constructor(seed: string) { this.#model = characters.generateAppearance(seed,'appearance/3'); }
   query() { return freeze({ model: structuredClone(this.#model), locked: [...this.#locked], gender:this.#gender }); }
   setGender(gender: characters.Gender) { if(!['male','female'].includes(gender))throw Error('身体类型无效');this.#gender=gender; }
   generate(seed: string) { this.#model = characters.rerollAppearance(this.#model, seed, [...this.#locked]); }

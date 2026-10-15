@@ -1,5 +1,5 @@
 import { requireValue, seedHash } from '../../contracts/demo';
-import { createRuntime, moveRuntime, validateRuntime, validateRuntimeAccess, canInteract, type RuntimeState, type RuntimeActor } from './index';
+import { createRuntime, moveRuntime, revealRuntime, walkDelta, sweepWalk, findAdventureRoute, FREE_MOVEMENT_VERSION, validateRuntime, validateRuntimeAccess, canInteract, type RuntimeState, type RuntimeActor } from './index';
 import type { GeneratedCharacter } from '../characters/index';
 import type { GeneratedMap, Point } from '../world/index';
 import { PROFESSION_VERSION, type ProfessionRuntimeState, type ProfessionSetup } from '../professions/index';
@@ -36,12 +36,12 @@ export function createAdventureRuntime(map:GeneratedMap,player:GeneratedCharacte
   else if(actor.actorId!==base.playerActorId){actors[actor.actorId].hp=actors[actor.actorId].maxHp=12+seedHash(actor.actorId)%5;if(actor.storyNpcId==='npc-0')actors[actor.actorId].hp-=4;}
   if(actor.hp===0)actors[actor.actorId].hp=0;
  }
- const state:AdventureRuntime={...base,actors,checkRng:seedHash(seed+':checks'),checks:[],visual:structuredClone(visual),doors:{},...(professions?{professionVersion:PROFESSION_VERSION}:{})};validateAdventureRuntime(state);return state;
+ const state:AdventureRuntime={...base,movement:FREE_MOVEMENT_VERSION,actors,checkRng:seedHash(seed+':checks'),checks:[],visual:structuredClone(visual),doors:{},...(professions?{professionVersion:PROFESSION_VERSION}:{})};revealRuntime(state);validateAdventureRuntime(state);return state;
 }
 export function validateAdventureRuntime(s:AdventureRuntime):void {
  requireValue(Number.isInteger(s.map.bounds.width)&&s.map.bounds.width>0&&s.map.bounds.width<=256&&Number.isInteger(s.map.bounds.height)&&s.map.bounds.height>0&&s.map.bounds.height<=256&&s.map.cells.every(row=>row.length===s.map.bounds.width&&row.every(c=>typeof c.walkable==='boolean'&&typeof c.blocksSight==='boolean')),'INVALID_RUNTIME','地图格子结构无效。');
  requireValue(s.map.cells.every((row,y)=>row.every((_,x)=>Boolean(s.visual[`${x},${y}`]))),'INVALID_RUNTIME','地图高差数据缺失。');
- validateRuntime(s);requireValue(Number.isSafeInteger(s.checkRng)&&s.checkRng>=0&&s.checkRng<=0xffffffff&&Array.isArray(s.checks)&&s.checks.length<=1000,'INVALID_RUNTIME','检定状态无效。');
+ requireValue(s.movement===FREE_MOVEMENT_VERSION,'INVALID_RUNTIME','连续移动协议缺失。');validateRuntime(s);requireValue(Number.isSafeInteger(s.checkRng)&&s.checkRng>=0&&s.checkRng<=0xffffffff&&Array.isArray(s.checks)&&s.checks.length<=1000,'INVALID_RUNTIME','检定状态无效。');
  for(const a of Object.values(s.actors))requireValue(ABILITIES.every(k=>Number.isInteger(a.abilities[k])&&a.abilities[k]>=3&&a.abilities[k]<=20)&&a.skills.every(k=>Object.hasOwn(SKILLS,k))&&a.maxHp>0&&a.maxHp<=(a.profession?1000:100)&&a.range>=1&&a.range<=(a.profession?12:6),'INVALID_RUNTIME','人物属性无效。');
  requireValue(s.professionVersion===undefined||s.professionVersion===PROFESSION_VERSION,'INCOMPATIBLE_PROFESSION','职业目录版本不兼容。');
  for(const actor of Object.values(s.actors)){requireValue(s.professionVersion?Boolean(actor.profession):actor.profession===undefined&&actor.professionCombat===undefined,'INVALID_PROFESSION_ACTOR','职业模式与人物字段不一致。');validateActorProfession(actor);}
@@ -50,6 +50,7 @@ export function validateAdventureRuntime(s:AdventureRuntime):void {
  if(s.encounter){const b=s.encounter;requireValue(['active','victory','defeat','fled'].includes(b.status)&&Number.isInteger(b.round)&&b.round>0&&b.participants.length>=2&&b.participants.length<=3&&b.participants[0].actorId===s.playerActorId&&b.movement>=0&&b.movement<=6&&typeof b.action==='boolean','INVALID_BATTLE','战斗状态无效。');const positions=new Set<string>();for(const p of b.participants){requireValue(Boolean(s.actors[p.actorId])&&Number.isInteger(p.position.x)&&Number.isInteger(p.position.y)&&p.position.x>=0&&p.position.x<9&&p.position.y>=0&&p.position.y<7&&(s.actors[p.actorId].hp===0||!positions.has(positionKey(p.position))),'INVALID_BATTLE','战斗位置/身份无效。');if(s.actors[p.actorId].hp>0)positions.add(positionKey(p.position));}requireValue(Number.isSafeInteger(b.rng)&&b.rng>=0&&b.rng<=0xffffffff&&Array.isArray(b.log),'INVALID_BATTLE','战斗随机状态无效。');}
 }
 export function moveAdventureRuntime(s:AdventureRuntime,to:Point):AdventureRuntime {requireValue(s.encounter?.status!=='active','WAITING_RESULT','请先完成战斗。');return moveRuntime(s,to) as AdventureRuntime;}
+export function walkAdventureRuntime(s:AdventureRuntime,dx:number,dy:number,seconds:number):AdventureRuntime {requireValue(s.encounter?.status!=='active','WAITING_RESULT','请先完成战斗。');requireValue(s.actors[s.playerActorId].hp>0,'RUN_ENDED','角色已经倒下。');const delta=walkDelta(dx,dy,seconds),next=structuredClone(s);next.actors[s.playerActorId].position=sweepWalk(s,delta);revealRuntime(next);validateAdventureRuntime(next);return next;}
 export function rollSkill(state:AdventureRuntime,actorId:string,skill:Skill,dc:number,id:string,mode:CheckResult['mode']='normal',targetId?:string):{runtime:AdventureRuntime;result:CheckResult} {
  const next=structuredClone(state),a=next.actors[actorId];requireValue(a&&Object.hasOwn(SKILLS,skill)&&Number.isInteger(dc)&&dc>=1&&dc<=30,'INVALID_CHECK','检定参数无效。');
  requireValue(['normal','advantage','disadvantage'].includes(mode)&&!next.checks.some(c=>c.id===id),'INVALID_CHECK','检定模式/编号无效。');
@@ -60,14 +61,14 @@ export function rollSkill(state:AdventureRuntime,actorId:string,skill:Skill,dc:n
 }
 export function changeHP(state:AdventureRuntime,actorId:string,amount:number):AdventureRuntime {const next=structuredClone(state),a=next.actors[actorId];requireValue(a&&Number.isSafeInteger(amount)&&Math.abs(amount)<=100,'INVALID_EFFECT','生命效果无效。');a.hp=Math.min(a.maxHp,Math.max(0,a.hp+amount));return next;}
 export function setDoor(state:AdventureRuntime,id:string,point:Point,open:boolean):AdventureRuntime {
- const next=structuredClone(state);requireValue(next.map.cells[point.y]?.[point.x]&&typeof open==='boolean','INVALID_EFFECT','通路参数无效。');requireValue(open||!Object.values(next.actors).some(a=>a.hp>0&&manhattan(a.position,point)===0),'BLOCKED','不能在人物脚下关闭道路。');next.map.cells[point.y][point.x].walkable=open;next.map.cells[point.y][point.x].blocksSight=!open;next.doors[id]={point:{...point},open};validateRuntimeAccess(next,next.map.anchors.map(a=>a.id));return next;
+ const next=structuredClone(state);requireValue(next.map.cells[point.y]?.[point.x]&&typeof open==='boolean','INVALID_EFFECT','通路参数无效。');requireValue(open||!Object.values(next.actors).some(a=>a.hp>0&&manhattan(a.position,point)===0),'BLOCKED','不能在人物脚下关闭道路。');next.map.cells[point.y][point.x].walkable=open;next.map.cells[point.y][point.x].blocksSight=!open;next.doors[id]={point:{...point},open};validateRuntime(next);validateRuntimeAccess(next,next.map.anchors.map(a=>a.id));return next;
 }
 export function registerAdventureActor(state:AdventureRuntime,npc:{id:string;profile:GeneratedCharacter},nearAnchorId:string,professionSetup?:ProfessionSetup):AdventureRuntime {
  requireValue(!professionSetup||state.professionVersion===PROFESSION_VERSION,'NO_PROFESSION','旧模式不能追加职业配置。');
  const next=structuredClone(state),anchor=next.map.anchors.find(a=>a.id===nearAnchorId);requireValue(anchor&&!next.actors[npc.profile.actorId],'INVALID_BINDING','新增人物锚点或身份无效。');
  const region=next.map.cells[anchor.position.y][anchor.position.x].regionId;
  const points=next.map.cells.flatMap((row,y)=>row.flatMap((cell,x)=>cell.walkable&&cell.regionId===region&&!next.map.anchors.some(a=>a.position.x===x&&a.position.y===y)&&!Object.values(next.actors).some(a=>a.hp>0&&a.position.x===x&&a.position.y===y)?[{x,y}]:[])).sort((a,b)=>manhattan(a,anchor.position)-manhattan(b,anchor.position));
- for(const position of points){const actor=configure({actorId:npc.profile.actorId,storyNpcId:npc.id,profile:structuredClone(npc.profile),hp:12,maxHp:12,attackBonus:2,defense:12,damageDie:6,position},'scholar');next.actors[actor.actorId]=next.professionVersion?configureProfessionActor(actor,professionSetup??defaultAdventureProfession('wizard')):actor;try{validateRuntimeAccess(next,next.map.anchors.map(a=>a.id));return next;}catch{delete next.actors[actor.actorId];}}
+ for(const position of points){const actor=configure({actorId:npc.profile.actorId,storyNpcId:npc.id,profile:structuredClone(npc.profile),hp:12,maxHp:12,attackBonus:2,defense:12,damageDie:6,position},'scholar');next.actors[actor.actorId]=next.professionVersion?configureProfessionActor(actor,professionSetup??defaultAdventureProfession('wizard')):actor;try{validateRuntime(next);validateRuntimeAccess(next,next.map.anchors.map(a=>a.id));return next;}catch{delete next.actors[actor.actorId];}}
  throw Error('备用地点没有安全可交互的人物落点。');
 }
 function battleDie(b:TacticalBattle,sides:number):number {const r=nextDie(b.rng,sides);b.rng=r.rng;return r.value;}

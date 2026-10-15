@@ -34,7 +34,7 @@ if (!new URLSearchParams(location.search).get('view') || new URLSearchParams(loc
  const continued=await app.continueSaved();
  if(continued.ok&&seed&&app.query().snapshot?.seed!==seed){const result=await app.restart({seed});if(!result.ok)throw Error(result.error.message);}
  else if(!continued.ok){const result=await app.initialize({seed:seed||'hi-story-v010'});if(!result.ok)throw Error(result.error.message);}
- document.title='暮光山谷 · hi-story v0.2.0';mountAdventure(root,app);
+ document.title='暮光山谷 · hi-story v0.2.1';mountAdventure(root,app);
 } else if (new URLSearchParams(location.search).get('view') === 'demo-legacy') {
  const app = createGameApplication();
  const result = await app.initialize({seed:new URLSearchParams(location.search).get('seed') || 'hi-story-demo'});

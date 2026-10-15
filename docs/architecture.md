@@ -1,5 +1,9 @@
 # hi-story 架构与范围
 
+## v0.2.1 连续探索
+
+新冒险通过AdventureApplication planRoute/world.walk统一读取路线和提交短时方向，运行器维护小数坐标、实体扫掠与到访；地图bounded-map/2保留整数导航几何。新schema4和独立存档槽避免32×20旧档误读64×50。WorldScene只读快照，以缓存Canvas地表与深度排序绘制五套图集，SVG仅命中辅助和战斗；六模块归属不变。详见world-art.md、map-world-v2-validation.md。
+
 ## 当前生成与探索Demo
 
 2026-10-14在codex/demo-integration-v1基于d0d4346接入地图与六组模块的首个增量。入口`/?view=demo`；原雾桥、人物工坊、故事工坊继续保留。沿用项目现有Vite、TypeScript、DOM/SVG与像素人物素材。

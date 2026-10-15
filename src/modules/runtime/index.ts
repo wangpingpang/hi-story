@@ -1,3 +1,4 @@
+import { canStand, gridKey, gridPoint, euclidean, sweepWalk } from './free-space';
 import type { GeneratedMap, Point } from '../world/index';
 import type { GeneratedCharacter } from '../characters/index';
 import { requireValue, seedHash } from '../../contracts/demo';
@@ -12,6 +13,7 @@ export interface BattleState {
   rng:number; log:string[];
 }
 export interface RuntimeState {
+  movement?:'free-movement/1';
   map:GeneratedMap; playerActorId:string; actors:Record<string,RuntimeActor>;
   visible:string[]; explored:string[]; visitedAnchorIds:string[];
   battle?:BattleState; combatSequence:number;
@@ -23,7 +25,8 @@ function anchor(map:GeneratedMap,id:string):Point {
 }
 export function getAnchorPosition(state:RuntimeState,id:string):Point { return {...anchor(state.map,id)}; }
 export function canInteract(state:RuntimeState,point:Point,radius=1):boolean {
-  return state.visible.includes(key(point)) && distance(state.actors[state.playerActorId].position,point)<=radius;
+  const p=state.actors[state.playerActorId].position;
+  return state.movement?state.visible.includes(gridKey(point))&&euclidean(p,point)<=radius+.12&&sight(state.map,gridPoint(p),gridPoint(point)):state.visible.includes(key(point))&&distance(p,point)<=radius;
 }
 function sight(map:GeneratedMap,a:Point,b:Point):boolean {
   let x=a.x,y=a.y;const dx=Math.abs(b.x-x),dy=Math.abs(b.y-y),sx=x<b.x?1:-1,sy=y<b.y?1:-1;let err=dx-dy;
@@ -33,13 +36,13 @@ function sight(map:GeneratedMap,a:Point,b:Point):boolean {
     if(map.cells[y]?.[x]?.blocksSight)return false;
   }return true;
 }
-function reveal(state:RuntimeState):void {
-  const p=state.actors[state.playerActorId].position,visible:string[]=[];
-  for(let y=Math.max(0,p.y-5);y<=Math.min(state.map.bounds.height-1,p.y+5);y++)
-    for(let x=Math.max(0,p.x-5);x<=Math.min(state.map.bounds.width-1,p.x+5);x++)
-      if(distance(p,{x,y})<=5&&sight(state.map,p,{x,y}))visible.push(key({x,y}));
+export function revealRuntime(state:RuntimeState):void {
+  const actual=state.actors[state.playerActorId].position,p=gridPoint(actual),radius=state.movement?10:5,visible:string[]=[];
+  for(let y=Math.max(0,p.y-radius);y<=Math.min(state.map.bounds.height-1,p.y+radius);y++)
+    for(let x=Math.max(0,p.x-radius);x<=Math.min(state.map.bounds.width-1,p.x+radius);x++)
+      if(distance(p,{x,y})<=radius&&sight(state.map,p,{x,y}))visible.push(key({x,y}));
   state.visible=visible;state.explored=[...new Set([...state.explored,...visible])].sort();
-  for(const a of state.map.anchors)if(distance(a.position,p)===0&&!state.visitedAnchorIds.includes(a.id))state.visitedAnchorIds.push(a.id);
+  for(const a of state.map.anchors)if((state.movement?euclidean(a.position,actual)<=.38:distance(a.position,p)===0)&&!state.visitedAnchorIds.includes(a.id))state.visitedAnchorIds.push(a.id);
 }
 export function createRuntime(map:GeneratedMap,player:GeneratedCharacter,npcs:{id:string;profile:GeneratedCharacter;alive:boolean}[]):RuntimeState {
   const actors:Record<string,RuntimeActor>={};
@@ -50,7 +53,7 @@ export function createRuntime(map:GeneratedMap,player:GeneratedCharacter,npcs:{i
   register(player,anchor(map,'spawn'));
   for(const npc of npcs){const place=map.placements.find(p=>p.entityRef===npc.id);requireValue(place,'INVALID_BINDING','人物缺少地图落点。');register(npc.profile,place.position,npc.id,npc.alive);}
   const state:RuntimeState={map:structuredClone(map),playerActorId:player.actorId,actors,visible:[],explored:[],visitedAnchorIds:[],combatSequence:0};
-  reveal(state);validateRuntime(state);return state;
+  revealRuntime(state);validateRuntime(state);return state;
 }
 export function validateRuntime(state:RuntimeState):void {
   requireValue(state.map.bounds.width===state.map.cells[0]?.length&&state.map.bounds.height===state.map.cells.length,'INVARIANT_VIOLATION','地图尺寸与格子不一致。');
@@ -58,7 +61,7 @@ export function validateRuntime(state:RuntimeState):void {
   const occupied=new Set<string>();
   for(const [id,a]of Object.entries(state.actors)){
     requireValue(id===a.actorId&&a.profile.actorId===id&&Number.isInteger(a.hp)&&a.hp>=0&&a.hp<=a.maxHp,'INVARIANT_VIOLATION','人物状态无效。');
-    requireValue(Number.isInteger(a.position.x)&&Number.isInteger(a.position.y)&&state.map.cells[a.position.y]?.[a.position.x]?.walkable,'INVARIANT_VIOLATION','人物位置无效。');
+    requireValue(state.movement?canStand(state,a.position,id,a.hp>0):Number.isInteger(a.position.x)&&Number.isInteger(a.position.y)&&state.map.cells[a.position.y]?.[a.position.x]?.walkable,'INVARIANT_VIOLATION','人物位置无效。');
     if(a.hp>0){requireValue(!occupied.has(key(a.position)),'INVALID_BINDING','存活人物不能占据同一格。');occupied.add(key(a.position));}
   }
 }
@@ -66,7 +69,7 @@ export function validateRuntime(state:RuntimeState):void {
 export function validateRuntimeAccess(state:RuntimeState,anchorIds:string[]):void {
   const player=state.actors[state.playerActorId];
   const blocked=new Set(Object.values(state.actors).filter(a=>a.actorId!==player.actorId&&a.hp>0).map(a=>key(a.position)));
-  const queue:Point[]=[player.position],seen=new Set([key(player.position)]);
+  const start=gridPoint(player.position),queue:Point[]=[start],seen=new Set([key(start)]);
   for(let i=0;i<queue.length;i++){
     const p=queue[i];
     for(const q of [{x:p.x-1,y:p.y},{x:p.x+1,y:p.y},{x:p.x,y:p.y-1},{x:p.x,y:p.y+1}]){
@@ -81,11 +84,12 @@ export function validateRuntimeAccess(state:RuntimeState,anchorIds:string[]):voi
 export function moveRuntime(state:RuntimeState,to:Point):RuntimeState {
   requireValue(!state.battle||state.battle.status!=='active','WAITING_RESULT','请先完成战斗。');
   const player=state.actors[state.playerActorId];
+  if(state.movement){requireValue(Number.isInteger(to.x)&&Number.isInteger(to.y)&&distance(player.position,to)===1,'INVALID_TARGET','兼容移动只能到相邻导航点。');requireValue(canStand(state,to),'BLOCKED','该位置不可通行。');const next=structuredClone(state),p=sweepWalk(state,{x:to.x-player.position.x,y:to.y-player.position.y});requireValue(euclidean(p,to)<1e-6,'BLOCKED','路线被阻挡。');next.actors[player.actorId].position=p;revealRuntime(next);validateRuntime(next);return next;}
   requireValue(player.hp>0,'RUN_ENDED','角色已经倒下。');
   requireValue(Number.isInteger(to.x)&&Number.isInteger(to.y)&&distance(player.position,to)===1,'INVALID_TARGET','每次只能向相邻格移动。');
   requireValue(state.map.cells[to.y]?.[to.x]?.walkable,'BLOCKED','该位置不可通行。');
   requireValue(!Object.values(state.actors).some(a=>a.actorId!==player.actorId&&a.hp>0&&distance(a.position,to)===0),'BLOCKED','人物占据该位置，请从旁边交互。');
-  const next=structuredClone(state);next.actors[player.actorId].position={...to};reveal(next);validateRuntime(next);return next;
+  const next=structuredClone(state);next.actors[player.actorId].position={...to};revealRuntime(next);validateRuntime(next);return next;
 }
 export function startBattle(state:RuntimeState,enemyActorId:string,requestId:string,seed:string):RuntimeState {
   requireValue(!state.battle||state.battle.status!=='active','WAITING_RESULT','已经存在进行中的战斗。');
@@ -122,6 +126,7 @@ export function battleAction(state:RuntimeState,action:'attack'|'defend'|'flee'|
 }
 
 export * from './adventure';
+export * from './free-space';
 
 export { PROFESSION_ADVENTURE_RULES_VERSION, restAdventureProfession, advanceAdventureProfession, useAdventureProfessionSkill, defaultAdventureProfession } from './profession';
 export type { AdventureProfessionInitialization } from './profession';

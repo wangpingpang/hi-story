@@ -1,5 +1,11 @@
 # 项目约定
 
+## v0.2.1 连续探索地图
+
+当前开发分支 `codex/map-world-v2`，基于已推送整合版 `bbc22a0`。产品与新冒险 snapshot.version 为 `0.2.1`，新协议 `demo-contract/4 / schemaVersion=4 / adventure-content/2`；地图生成接口继续 `bounded-map/2`。下方 v0.2.0 与 schema3 为历史版本。验证状态见 `docs/map-world-v2-validation.md`。
+
+新冒险64×50、free-movement/1，战斗9×7不变。新档使用 `hi-story:adventure:world-v2`，旧v010槽保留，不静默迁移。不得将此前已丢失的本地 `a81826b` 当作本轮提交；本轮重新实现并独立验证后正常推送，未合并共享分支或切换线上版本。公开素材使用恢复的五套原创图集，内部装备/动作制作规范仍不公开。
+
 ## v0.2.0 当前集成迭代
 
 本轮完整交付在codex/v020-hd2d。共享codex/demo-integration-v1仍为3caaeb4：更新被安全审查拦截，未绕过；需用户确认保留历史的合并后再同步，不能宣称共享集成已完成。

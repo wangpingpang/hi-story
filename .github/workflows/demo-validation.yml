@@ -1,7 +1,7 @@
 name: Validate integrated demo
 on:
   push:
-    branches: [codex/demo-next-stage, codex/v010-adventure, codex/v020-hd2d]
+    branches: [codex/demo-next-stage, codex/v010-adventure, codex/v020-hd2d, codex/map-world-v2]
   workflow_dispatch:
 permissions:
   contents: read
@@ -11,7 +11,7 @@ concurrency:
 jobs:
   verify:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:

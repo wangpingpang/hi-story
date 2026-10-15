@@ -1,0 +1,3 @@
+import {record,requireValue} from '../../contracts/demo';
+import {EQUIPMENT_SLOTS,type FormVisibility} from './types';
+export function validateFormVisibility(form:FormVisibility){record(form,['id','mode','hiddenSlots','equipmentLocked']);requireValue(typeof form.id==='string'&&form.id.length>=1&&form.id.length<=80&&['humanoid','meld','partial','retain'].includes(form.mode)&&(form.equipmentLocked===undefined||typeof form.equipmentLocked==='boolean')&&(form.hiddenSlots===undefined||Array.isArray(form.hiddenSlots)&&new Set(form.hiddenSlots).size===form.hiddenSlots.length&&form.hiddenSlots.every(s=>EQUIPMENT_SLOTS.includes(s))),'INVALID_FORM_VISIBILITY','形态显示策略无效。');}

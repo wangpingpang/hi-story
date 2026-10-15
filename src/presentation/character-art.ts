@@ -70,13 +70,15 @@ function texture(slot:AppearanceSlot,style:string,color:string,gender:Gender,reg
   ctx.putImageData(pixels,0,0);
   if(textures.size>=192)textures.delete(textures.keys().next().value!);textures.set(key,c);return c;
 }
-export function assembleCharacterCanvas(model:DeepReadonly<Appearance>,gender:Gender='male',scale=1):HTMLCanvasElement {
+export function assembleCharacterCanvas(model:DeepReadonly<Appearance>,gender:Gender='male',scale=1,hiddenSlots:readonly AppearanceSlot[]=[]):HTMLCanvasElement {
   if(!['male','female'].includes(gender)||!Number.isInteger(scale)||scale<1||scale>8)throw Error('人物装配参数无效');
+  if(!Array.isArray(hiddenSlots)||hiddenSlots.some(slot=>!appearanceSlots.includes(slot)))throw Error('人物隐藏部件无效');
   const catalogs=appearanceCatalogFor(model.version);
   for(const slot of appearanceSlots){const part=model.parts[slot];if(!part||!catalogs[slot].styles.some(s=>s.id===part.styleId)||!catalogs[slot].colors.some(c=>c===part.color))throw Error('人物外观数据无效');}
   const c=canvas(ART_SIZE.width,ART_SIZE.height),ctx=context(c);
   const fit={slim:.94,balanced:1,broad:1.06,stocky:1.10}[model.parts.body.styleId]??1;
   const draw=(slot:AppearanceSlot)=>{
+    if(hiddenSlots.includes(slot))return;
     const part=model.parts[slot],region=artRegion(slot,part.styleId,gender);if(!region)return;
     const color=slot==='face'?model.parts.body.color:part.color;
     let [x,y,w,h]=region.target;

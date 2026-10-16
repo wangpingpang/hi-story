@@ -4,6 +4,7 @@ export const MATERIAL_VERSION=manifest.version;
 interface SheetSpec {file:string;width:number;height:number;regions:Record<string,number[][]>}
 const specs=manifest.sheets as unknown as Record<string,SheetSpec>;
 const sheets=new Map<string,HTMLImageElement>(),textures=new Map<string,HTMLCanvasElement>();
+const pieces=new WeakMap<HTMLCanvasElement,Map<string,HTMLCanvasElement>>();
 let loading:Promise<void>|undefined;
 export function materialView(direction:Direction):{column:number;mirror:boolean} {
  const view={S:0,SE:1,E:2,NE:3,N:4,NW:3,W:2,SW:1}[direction];if(view===undefined)throw Error('方向无效');return {column:view,mirror:['NW','W','SW'].includes(direction)};
@@ -46,4 +47,20 @@ export function materialTexture(slot:AppearanceSlot|'weapon',style:string,color:
  }
  removeFragments(d,w,h);ctx.putImageData(pixels,0,0);
  if(textures.size>=256)textures.delete(textures.keys().next().value!);textures.set(key,c);return c;
+}
+// Paired footwear can overlap in a source view. A cropped half must not carry a
+// detached strip from its neighbour into the other ankle's animation track.
+export function footwearPiece(image:HTMLCanvasElement,side:'left'|'right'):HTMLCanvasElement {
+ let cached=pieces.get(image);if(!cached){cached=new Map();pieces.set(image,cached);}const old=cached.get(side);if(old)return old;
+ const c=document.createElement('canvas');c.width=Math.ceil(image.width/2);c.height=image.height;const ctx=c.getContext('2d',{willReadFrequently:true})!;
+ ctx.drawImage(image,side==='left'?0:Math.floor(image.width/2),0,c.width,c.height,0,0,c.width,c.height);
+ const pixels=ctx.getImageData(0,0,c.width,c.height),d=pixels.data,w=c.width,h=c.height,seen=new Uint8Array(w*h),queue=new Int32Array(w*h);let largest:number[]=[];
+ for(let start=0;start<w*h;start++){
+  if(seen[start]||!d[start*4+3])continue;let head=0,tail=1;queue[0]=start;seen[start]=1;const part:number[]=[];
+  while(head<tail){const p=queue[head++];part.push(p);const x=p%w,y=Math.floor(p/w);for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++){const nx=x+dx,ny=y+dy;if(nx<0||ny<0||nx>=w||ny>=h)continue;const q=ny*w+nx;if(!seen[q]&&d[q*4+3]){seen[q]=1;queue[tail++]=q;}}}
+  if(part.length>largest.length)largest=part;
+ }
+ if(!largest.length)throw Error('鞋的单脚切片为空');const keep=new Set(largest);let left=w,right=0,top=h,bottom=0;
+ for(let p=0;p<w*h;p++){if(!keep.has(p)){d.fill(0,p*4,p*4+4);continue;}left=Math.min(left,p%w);right=Math.max(right,p%w);top=Math.min(top,Math.floor(p/w));bottom=Math.max(bottom,Math.floor(p/w));}
+ ctx.putImageData(pixels,0,0);const result=document.createElement('canvas');result.width=right-left+1;result.height=bottom-top+1;result.getContext('2d')!.drawImage(c,left,top,result.width,result.height,0,0,result.width,result.height);cached.set(side,result);return result;
 }

@@ -1,0 +1,75 @@
+{
+  "baselineCommit": "8d0a007d8dd02b8a917acca2d5d621338580e629",
+  "artVersionBefore": "character-motion-art/1",
+  "artVersionAfter": "character-motion-art/2",
+  "minimumComponentPixels": 20,
+  "before": {
+    "renderer": "baseline",
+    "frames": 5120,
+    "motionFrames": 3584,
+    "hairFrames": 1536,
+    "majorDisconnectedFrames": 706,
+    "edgeContactFrames": 0,
+    "staticEdgeContactFrames": 38,
+    "largestDetachedPixels": 961,
+    "coverage": {
+      "genders": 2,
+      "bodies": 8,
+      "directions": 8,
+      "actions": 25,
+      "hairStyles": 12,
+      "staticFrames": 192,
+      "walkPhases": 4
+    },
+    "visualSheets": [
+      "body-male.png",
+      "body-female.png",
+      "outfits.png",
+      "hair-face.png",
+      "hair-directions.png",
+      "accessories.png",
+      "joint-cases.png"
+    ]
+  },
+  "after": {
+    "mode": "full",
+    "renderer": "current",
+    "frames": 5120,
+    "motionFrames": 3584,
+    "hairFrames": 1536,
+    "majorDisconnectedFrames": 0,
+    "edgeContactFrames": 0,
+    "staticEdgeContactFrames": 0,
+    "largestDetachedPixels": 0,
+    "coverage": {
+      "genders": 2,
+      "bodies": 8,
+      "directions": 8,
+      "actions": 25,
+      "hairStyles": 12,
+      "staticFrames": 192,
+      "walkPhases": 4
+    },
+    "visualSheets": [
+      "body-male.png",
+      "body-female.png",
+      "outfits.png",
+      "hair-face.png",
+      "hair-directions.png",
+      "accessories.png",
+      "pants-shoes-S.png",
+      "pants-shoes-E.png",
+      "pants-shoes-N.png",
+      "joint-cases.png",
+      "comparison.png"
+    ]
+  },
+  "disconnectedBySuiteBefore": {
+    "motion": 642,
+    "hair": 64
+  },
+  "disconnectedBySuiteAfter": {},
+  "visualCases": 592,
+  "unitTestsPassed": 128,
+  "browserTestsPassed": 28
+}

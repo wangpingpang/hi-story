@@ -119,3 +119,5 @@ CHROMIUM_PATH=/path/to/chromium npm run characters:motions
 ```
 
 ![八向移动预览](docs/examples/motion-v1/walk-preview.gif)
+
+人物部件贴合已单独复验：5120 帧、192 个静态导出和 592 个视觉对照单元；肩颈/腰腿连接、发型层级、鞋帮高度与配件锚点已修复。详见[人物组件贴合自测报告](docs/evidence/character-fit/report.md)，可运行 `npm run characters:audit` 复查。

@@ -13,7 +13,8 @@
     "check:boundaries": "node tooling/boundaries.mjs",
     "build": "vite build",
     "preview": "vite preview --host 0.0.0.0",
-    "characters:motions": "node tooling/export-character-motions.mjs"
+    "characters:motions": "node tooling/export-character-motions.mjs",
+    "characters:audit": "node tooling/audit-character-fit.mjs"
   },
   "engines": {
     "node": "^22.12.0 || ^24.0.0 || >=26.0.0"

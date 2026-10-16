@@ -56,7 +56,7 @@ export async function mountCharacterMotionStudio(root:HTMLElement):Promise<()=>v
  function blur(){heldKeys.clear();if(studio.query().animation.action==='walk')studio.act('stand');last=performance.now();}
  document.addEventListener('keydown',keyboard);document.addEventListener('keyup',keyboard);window.addEventListener('blur',blur);
  const onVisibility=()=>{if(document.hidden)blur();last=performance.now();};document.addEventListener('visibilitychange',onVisibility);
- function loop(now:number){if(disposed)return;if(!paused&&!document.hidden){time+=Math.min(100,now-last);studio.tick(time);if(now-lastPaint>=80){paint();lastPaint=now;}}last=now;frame=requestAnimationFrame(loop);}
+ function loop(now:number){if(disposed)return;if(!paused&&!document.hidden){time+=Math.max(0,now-last);studio.tick(time);if(now-lastPaint>=80){paint();lastPaint=now;}}last=now;frame=requestAnimationFrame(loop);}
  parts();paint();frame=requestAnimationFrame(loop);
  return ()=>{disposed=true;cancelAnimationFrame(frame);document.removeEventListener('keydown',keyboard);document.removeEventListener('keyup',keyboard);window.removeEventListener('blur',blur);document.removeEventListener('visibilitychange',onVisibility);};
 }

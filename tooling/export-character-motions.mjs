@@ -28,6 +28,7 @@ try{
    if(!data.some((value,index)=>index%4===3&&value>0))throw Error(`Empty material ${gender}/${slot}/${style.id}/${direction}`);count++;
   }return count;
  },api.appearanceCatalogFor('appearance/3'));
+ const artVersion=await page.evaluate(()=>window.__motionArt.MOTION_ART_VERSION);
  const assets=[];await mkdir(directory,{recursive:true});await mkdir(resolve(directory,'clips'),{recursive:true});
  async function writeImage(name,kind,configuration,path=resolve(directory,name)){
   const data=await page.evaluate(({kind,configuration})=>{
@@ -41,7 +42,7 @@ try{
    }else if(kind==='strip'){const strip=art.renderCharacterMotionStrip(record.appearance,record.gender,configuration);c.width=1536;c.height=192;ctx.imageSmoothingEnabled=false;ctx.drawImage(strip,0,0,1536,192);}
    else if(kind==='expressions'){
     const entries=Object.entries(configuration);c.width=1200;c.height=400;ctx.fillStyle='#e9e5da';ctx.fillRect(0,0,c.width,c.height);ctx.textAlign='center';
-    entries.forEach(([expression,label],i)=>{const x=i%6*200,y=Math.floor(i/6)*200;ctx.fillStyle='#f7f3e9';ctx.fillRect(x+6,y+6,188,188);const frame=render({expression,action:'stand',progress:0});ctx.drawImage(frame,145,78,94,94,x+25,y+18,150,150);ctx.fillStyle='#304c42';ctx.font='15px "Noto Sans CJK SC",sans-serif';ctx.fillText(label,x+100,y+188);});
+    entries.forEach(([expression,label],i)=>{const x=i%6*200,y=Math.floor(i/6)*200;ctx.fillStyle='#f7f3e9';ctx.fillRect(x+6,y+6,188,188);const frame=render({expression,action:'stand',progress:0});ctx.drawImage(frame,142,63,100,112,x+25,y+12,150,168);ctx.fillStyle='#304c42';ctx.font='15px "Noto Sans CJK SC",sans-serif';ctx.fillText(label,x+100,y+188);});
    }else if(kind==='gallery'){
     const {clips,progress,title,columns}=configuration,rows=Math.ceil(clips.length/columns);c.width=columns*192;c.height=rows*221+58;ctx.fillStyle='#e8e4da';ctx.fillRect(0,0,c.width,c.height);ctx.fillStyle='#244a3e';ctx.font='bold 20px "Noto Sans CJK SC",sans-serif';ctx.fillText(title,18,35);
     clips.forEach((clip,i)=>{const x=i%columns*192,y=58+Math.floor(i/columns)*221;ctx.fillStyle='#f8f5ed';ctx.fillRect(x+4,y+4,184,213);ctx.drawImage(render({...clip,progress}),x,y+1,192,192);ctx.fillStyle='#314d40';ctx.font='13px "Noto Sans CJK SC",sans-serif';ctx.textAlign='center';ctx.fillText(clip.label,x+96,y+207);ctx.textAlign='left';});
@@ -73,6 +74,6 @@ try{
  }}
  await page.goto(`http://127.0.0.1:${port}/?view=character-motion`);await page.getByRole('heading',{name:'每一步，都有神情。'}).waitFor();await page.getByRole('button',{name:'暂停',exact:true}).click();await page.screenshot({path:resolve(directory,'studio-desktop.png'),fullPage:true});await page.setViewportSize({width:375,height:812});await page.screenshot({path:resolve(directory,'studio-narrow.png'),fullPage:true});
  if(errors.length)throw Error(errors.join('\n'));
- const manifest={version:'character-motion-examples/1',artVersion:'character-motion-art/1',frame:{width:192,height:192,anchor:{x:96,y:164.5}},character,verifiedMaterials:coverage,nonwalkVariants:clips.length,walkingPartFrames:partAssets.length*64,assets};await writeFile(resolve(directory,'manifest.json'),JSON.stringify(manifest,null,2)+'\n');
+ const manifest={version:'character-motion-examples/1',artVersion,frame:{width:192,height:192,anchor:{x:96,y:164.5}},character,verifiedMaterials:coverage,nonwalkVariants:clips.length,walkingPartFrames:partAssets.length*64,assets};await writeFile(resolve(directory,'manifest.json'),JSON.stringify(manifest,null,2)+'\n');
  console.log(JSON.stringify({directory,nonwalkVariants:clips.length,walkingMaterials:partAssets.length,walkingFrames:partAssets.length*64,files:assets.length},null,2));
 }finally{await browser?.close();await server.close();await rm(temporary,{recursive:true,force:true});}

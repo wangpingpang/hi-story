@@ -36,14 +36,14 @@ async function main(){
         ctx.font='15px "Noto Sans CJK SC", sans-serif';ctx.fillText(`${record.gender==='female'?'女':'男'} · ${record.age} 岁 · ${record.identity.occupation}`,x+139,687);
         ctx.fillStyle='#69736a';ctx.font='14px "Noto Sans CJK SC", sans-serif';ctx.fillText(record.personality.traits.join(' · '),x+139,717);ctx.textAlign='left';
       });
-      return {artVersion:records.every(r=>r.appearance.version===records[0].appearance.version)?art.artVersionFor(records[0].appearance):'mixed',images,gallery:c.toDataURL('image/png')};
+      return {artVersion:records.every(r=>r.appearance.version===records[0].appearance.version)?art.artVersionFor(records[0].appearance):'mixed',versions:records.map(record=>art.artVersionFor(record.appearance)),images,gallery:c.toDataURL('image/png')};
     },models);
     const directory=resolve(root,options.out);await mkdir(directory,{recursive:true});
     const characters=[];
     for(let i=0;i<models.length;i++){
       const filename=`character-${String(i+1).padStart(2,'0')}.png`;
       await writeFile(resolve(directory,filename),Buffer.from(output.images[i].split(',')[1],'base64'));
-      characters.push({...models[i],render:{file:filename,artVersion:models[i].appearance.version==='appearance/3'?'character-motion-art/1':output.artVersion,width:576,height:1152}});
+      characters.push({...models[i],render:{file:filename,artVersion:output.versions[i],width:576,height:1152}});
     }
     await writeFile(resolve(directory,'gallery.png'),Buffer.from(output.gallery.split(',')[1],'base64'));
     await writeFile(resolve(directory,'characters.json'),JSON.stringify({artVersion:output.artVersion,callCount:characters.length,characters},null,2)+'\n');

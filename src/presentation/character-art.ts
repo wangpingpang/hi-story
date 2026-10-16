@@ -1,7 +1,7 @@
 import type { DeepReadonly } from '../contracts';
 import { appearanceCatalogFor, appearanceSlots, type Appearance, type Gender, type AppearanceSlot } from '../application/character-studio';
 import { artRegion, ART_SIZE, ART_VERSION, type ArtRegion } from './character-art-layout';
-import { loadDirectionalMaterials, renderCharacterMotionFrame } from './character-motion-art';
+import { loadDirectionalMaterials, renderCharacterMotionFrame, MOTION_ART_VERSION } from './character-motion-art';
 export { ART_SIZE, ART_VERSION } from './character-art-layout';
 
 let sheets:Record<'common'|'female',HTMLImageElement>|undefined;
@@ -81,7 +81,10 @@ export function assembleCharacterCanvas(model:DeepReadonly<Appearance>,gender:Ge
   for(const slot of appearanceSlots){const part=model.parts[slot];if(!part||!catalogs[slot].styles.some(s=>s.id===part.styleId)||!catalogs[slot].colors.some(c=>c===part.color))throw Error('人物外观数据无效');}
   if(model.version==='appearance/3'){
     const frame=renderCharacterMotionFrame(model,gender),result=canvas(ART_SIZE.width*scale,ART_SIZE.height*scale);
-    context(result).drawImage(frame,120,50,144,288,0,0,result.width,result.height);return result;
+    const pixels=context(frame).getImageData(0,0,384,384).data;let left=384,top=384,right=0,bottom=0;
+    for(let y=0;y<384;y++)for(let x=0;x<384;x++)if(pixels[(y*384+x)*4+3]){left=Math.min(left,x);right=Math.max(right,x);top=Math.min(top,y);bottom=Math.max(bottom,y);}
+    const width=right-left+1,height=bottom-top+1,fit=Math.min(1,136/width,272/height),w=Math.round(width*fit),h=Math.round(height*fit);
+    context(result).drawImage(frame,left,top,width,height,Math.round(72-w/2)*scale,(280-h)*scale,w*scale,h*scale);return result;
   }
   const c=canvas(ART_SIZE.width,ART_SIZE.height),ctx=context(c);
   const fit={slim:.94,balanced:1,broad:1.06,stocky:1.10}[model.parts.body.styleId]??1;
@@ -100,8 +103,8 @@ export function assembleCharacterCanvas(model:DeepReadonly<Appearance>,gender:Ge
   const enlarged=canvas(c.width*scale,c.height*scale);context(enlarged).drawImage(c,0,0,enlarged.width,enlarged.height);return enlarged;
 }
 export function assembledCharacterUrl(model:DeepReadonly<Appearance>,gender:Gender='male'):string {
-  const key=JSON.stringify([ART_VERSION,gender,model.version,model.parts]);const cached=assembled.get(key);if(cached)return cached;
+  const key=JSON.stringify([artVersionFor(model),gender,model.version,model.parts]);const cached=assembled.get(key);if(cached)return cached;
   const url=assembleCharacterCanvas(model,gender).toDataURL('image/png');
   if(assembled.size>=64)assembled.delete(assembled.keys().next().value!);assembled.set(key,url);return url;
 }
-export function artVersionFor(model:DeepReadonly<Appearance>):string {return model.version==='appearance/3'?'character-motion-art/1':ART_VERSION;}
+export function artVersionFor(model:DeepReadonly<Appearance>):string {return model.version==='appearance/3'?MOTION_ART_VERSION:ART_VERSION;}

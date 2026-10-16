@@ -20,4 +20,14 @@
 
 测试机器、软件绘制和CPU减速影响数值；这些结果不等于所有用户设备的帧率保证，也不包含完整冒险整局重测。冷启动人物素材仍需一次合成；本轮解决持续重复绘制造成的主线程占满。
 
-机器记录：evidence/scene-freeze-browser-validation.json。发布和公网复验状态待补充。
+机器记录：evidence/scene-freeze-browser-validation.json。
+
+## 发布与公网复验
+
+源码1517e824137596769a1c6d2a6988650ce1484dae，源码树1cd80064d2bf72dd86ea7663430b7d97bf1d305d；部署7feee2c41b9d90045c3cefa161f87354ccb8a6f7，部署树d0ee8b9444baa0df48b261d49e09236d9be3c5a1。GitHub Pages任务38933988725成功，main和共享集成分支保持原引用。
+
+公网5活动HTML/JS/CSS均HTTP200且SHA256与本地测试构建一致，既有75项公开素材沿用前一部署。桌面/375px分别执行同一真实计时、4倍CPU减速测试，各1项通过：每帧24次图像调用，50ms定时器最大间隔分别155.2ms/68.2ms，菜单点击到显示438ms/189ms；实际移动、停止、保存与刷新恢复通过，pageerror为空。这是另一个2项公网批次，不能与12项本地检查冒充一次全量验收。
+
+首次在Pages任务尚未完成时探测新资源得到404，完成部署后5文件复验通过。浏览器经环境HTTPS代理，当前Chromium不信任该代理证书，因此仅在测试上下文忽略证书错误；Node资源请求保持证书验证。本轮不是TLS测试。
+
+清单见evidence/scene-freeze-release-manifest.json，公网记录见evidence/scene-freeze-public-validation.json。

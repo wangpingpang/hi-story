@@ -1,0 +1,112 @@
+{
+  "status": "passed",
+  "source": "1517e824137596769a1c6d2a6988650ce1484dae",
+  "deployment": "7feee2c41b9d90045c3cefa161f87354ccb8a6f7",
+  "checkedAt": "2026-10-16T16:43:12.629Z",
+  "nodeResourceCertificateValidation": true,
+  "files": [
+    {
+      "path": "assets/equipment-book-DK4PrvaY.js",
+      "bytes": 11024,
+      "sha256": "a380c0d92eeb04bd82d24249da576af03f9febbae8567619bd25a3a760d48f50",
+      "status": 200
+    },
+    {
+      "path": "assets/equipment-book-Dwx_YMGd.css",
+      "bytes": 1600,
+      "sha256": "e12fb2da5376024515212cf19343c96b18336e88fbd15a061065de7d72bd1b3e",
+      "status": 200
+    },
+    {
+      "path": "assets/index-BT8VlKA_.js",
+      "bytes": 542922,
+      "sha256": "d169c098eacf96f05f415e08b870fb23466bd45a6ffe9b7e00caceefe6b2927c",
+      "status": 200
+    },
+    {
+      "path": "assets/index-DeKYQRue.css",
+      "bytes": 39677,
+      "sha256": "0a42ca45b149ae12bfab4adb45600845650cb1210892804a0d58b03f26ad209a",
+      "status": 200
+    },
+    {
+      "path": "index.html",
+      "bytes": 785,
+      "sha256": "b6e48837406f80892c836b3fd31f21c324ae4fa0ab2628b93ffc090d1bbe4322",
+      "status": 200
+    }
+  ],
+  "pagesRun": {
+    "id": 38933988725,
+    "conclusion": "success"
+  },
+  "browserThroughEnvironmentProxy": true,
+  "browserCertificateValidationSkippedForProxy": true,
+  "browserCertificateNote": "Provisioned HTTPS proxy is not trusted by this Chromium. Only the browser context skips certificate validation; Node resource validation remains enabled. This does not verify site TLS.",
+  "browser": {
+    "stats": {
+      "startTime": "2026-10-16T16:43:13.503Z",
+      "duration": 56237.721,
+      "expected": 2,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "cases": [
+      {
+        "title": "慢速设备仍可响应：静态场景复用、真实移动停止、菜单和刷新恢复",
+        "project": "desktop",
+        "status": "passed",
+        "duration": 28741,
+        "retry": 0,
+        "measurement": {
+          "cpuSlowdown": 4,
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "idle": {
+            "frames": 19,
+            "imageCalls": 456,
+            "meanImageCalls": 24,
+            "maxHeartbeatGap": 155.19999999925494,
+            "liveProps": 20
+          },
+          "menuLatency": 438,
+          "moveRevisions": 4,
+          "errors": []
+        }
+      },
+      {
+        "title": "慢速设备仍可响应：静态场景复用、真实移动停止、菜单和刷新恢复",
+        "project": "narrow",
+        "status": "passed",
+        "duration": 26348,
+        "retry": 0,
+        "measurement": {
+          "cpuSlowdown": 4,
+          "viewport": {
+            "width": 375,
+            "height": 812
+          },
+          "idle": {
+            "frames": 19,
+            "imageCalls": 456,
+            "meanImageCalls": 24,
+            "maxHeartbeatGap": 68.19999999925494,
+            "liveProps": 20
+          },
+          "menuLatency": 189,
+          "moveRevisions": 4,
+          "errors": []
+        }
+      }
+    ]
+  },
+  "preDeploymentProbe": {
+    "whilePagesRunInProgress": true,
+    "path": "assets/equipment-book-DK4PrvaY.js",
+    "httpStatus": 404,
+    "laterAfterDeployment": "all five resources HTTP 200 and SHA256 matched"
+  }
+}

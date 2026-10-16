@@ -1,0 +1,67 @@
+{
+  "status": "passed",
+  "checkedAt": "2026-10-16T02:53:44.870Z",
+  "source": "250d83785482e3839f8c468b1f6f25a74de5b8f6",
+  "files": [
+    {
+      "path": "assets/equipment-book-DpDYdBqv.js",
+      "sha256": "7865504ef74365b90b947e440dca456e1e62137676fd72809f59d8d247538088",
+      "size": 11024
+    },
+    {
+      "path": "assets/equipment-book-Dwx_YMGd.css",
+      "sha256": "e12fb2da5376024515212cf19343c96b18336e88fbd15a061065de7d72bd1b3e",
+      "size": 1600
+    },
+    {
+      "path": "assets/index-CJv5jlWN.js",
+      "sha256": "6b205e13cdfe174fb9de677f46a8b239c10da686f246a2456b12256a9e050527",
+      "size": 539481
+    },
+    {
+      "path": "assets/index-DeKYQRue.css",
+      "sha256": "0a42ca45b149ae12bfab4adb45600845650cb1210892804a0d58b03f26ad209a",
+      "size": 39677
+    },
+    {
+      "path": "index.html",
+      "sha256": "96eb02a49cf3d25f09c56ec9f1270bbe3bbd90bad4428c8b869a266d1d273343",
+      "size": 785
+    }
+  ],
+  "browserThroughEnvironmentProxy": true,
+  "browserCertificateValidationSkippedForProxy": true,
+  "nodeResourceCertificateValidation": true,
+  "results": [
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "samples": 52,
+      "maxError": 0.000033439383610761554,
+      "checks": [
+        "actual continuous movement",
+        "centered through movement and zoom",
+        "drag does not detach or move player",
+        "refresh preserves runtime"
+      ],
+      "errors": []
+    },
+    {
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "samples": 96,
+      "maxError": 0.000023329784771302623,
+      "checks": [
+        "actual continuous movement",
+        "centered through movement and zoom",
+        "drag does not detach or move player",
+        "refresh preserves runtime"
+      ],
+      "errors": []
+    }
+  ]
+}

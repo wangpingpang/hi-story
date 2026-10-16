@@ -1,0 +1,32 @@
+{
+  "testedSource": "250d83785482e3839f8c468b1f6f25a74de5b8f6",
+  "sourceTree": "12eef4824a21e39a588adb2db454e3c7018c8db0",
+  "scope": "active HTML/JS/CSS closure; original public assets unchanged from verified v0.4.0",
+  "files": [
+    {
+      "path": "assets/equipment-book-DpDYdBqv.js",
+      "sha256": "7865504ef74365b90b947e440dca456e1e62137676fd72809f59d8d247538088",
+      "size": 11024
+    },
+    {
+      "path": "assets/equipment-book-Dwx_YMGd.css",
+      "sha256": "e12fb2da5376024515212cf19343c96b18336e88fbd15a061065de7d72bd1b3e",
+      "size": 1600
+    },
+    {
+      "path": "assets/index-CJv5jlWN.js",
+      "sha256": "6b205e13cdfe174fb9de677f46a8b239c10da686f246a2456b12256a9e050527",
+      "size": 539481
+    },
+    {
+      "path": "assets/index-DeKYQRue.css",
+      "sha256": "0a42ca45b149ae12bfab4adb45600845650cb1210892804a0d58b03f26ad209a",
+      "size": 39677
+    },
+    {
+      "path": "index.html",
+      "sha256": "96eb02a49cf3d25f09c56ec9f1270bbe3bbd90bad4428c8b869a266d1d273343",
+      "size": 785
+    }
+  ]
+}

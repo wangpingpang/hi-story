@@ -2,7 +2,7 @@
 
 ## 人物中心镜头修复
 
-分支codex/player-centered-camera，基于30ba3ae。按用户要求移除构图偏移和拖图脱离，Canvas与SVG按同一显示人物中心同步；探索、战术移动、缩放和屏幕变化均保持人物居中。产品0.4.0及存档不变。12项桌面/375px浏览器复验通过，发布状态见docs/player-camera-validation.md。
+已发布源码250d837、部署9788c58，Pages38842648227成功，公网桌面/375px中心跟随复验通过。分支codex/player-centered-camera，基于30ba3ae。按用户要求移除构图偏移和拖图脱离，Canvas与SVG按同一显示人物中心同步；探索、战术移动、缩放和屏幕变化均保持人物居中。产品0.4.0及存档不变。12项桌面/375px浏览器复验通过，发布状态见docs/player-camera-validation.md。
 
 ## v0.4.0 体验自测迭代
 

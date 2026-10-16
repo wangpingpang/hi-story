@@ -6,4 +6,4 @@
 
 首轮10/12通过，发现提交位置后SVG点击区域比Canvas绘制帧提前更新，瞬时偏移约13px；已在setState和绘制帧统一同步viewBox与人物点击区域。复验12/12通过，无跳过或重试，覆盖1440×1000与375×812、连续/斜向/触摸/自动移动、拖动、缩放、屏幕变化、战术移动及逃离返回，还复验NPC检定和保存。类型、边界、构建、diff检查通过；未重跑与本次表现修改无关的320项逻辑。
 
-记录见evidence/player-camera-browser-validation.json。已检查手机实际截图；人物躯干保持屏幕中心。修改只在表现层，不改变位置、碰撞、规则、随机流或存档格式。发布及公网检查在完成后补充。
+记录见evidence/player-camera-browser-validation.json。已检查手机实际截图；人物躯干保持屏幕中心。修改只在表现层，不改变位置、碰撞、规则、随机流或存档格式。已发布源码250d837、部署9788c58；Pages38842648227成功。公网5个活动HTML/JS/CSS文件HTTP200及SHA-256核对通过，原75个公开素材文件未变。桌面与375px实际连续移动、拖动、缩放和刷新恢复通过，148次中心采样最大误差3.34e-05px，errors=[]；详见evidence/player-camera-public-validation.json和evidence/player-camera-release-manifest.json。浏览器沿用环境HTTPS代理并仅为代理证书跳过浏览器校验；Node文件检查使用默认TLS验证，不声明TLS安全验收。

@@ -1,6 +1,6 @@
 import type {AdventureSnapshot} from '../application';
 import type {DeepReadonly} from '../contracts';
-import {projectIso} from './isometric';
+import {projectIso,battleSceneOrigin} from './isometric';
 import {drawWorldAsset,drawGroundTexture,loadWorldArt,type WorldAsset} from './world-assets';
 import {assembledCharacterUrl} from './character-art';
 import {escapeHtml as html} from './html';
@@ -10,6 +10,12 @@ import {composeWorld,groundMaterial,landmarkStyle,occludesPlayer,type ScenicProp
 export const worldGridKey=(p:{x:number;y:number}):string=>`${Math.round(p.x)},${Math.round(p.y)}`;
 const gridKey=worldGridKey;
 export function worldHeight(s:DeepReadonly<AdventureSnapshot>,p:{x:number;y:number}):number{return s.runtime.visual[gridKey(p)]?.height??0;}
+/** Follow the rendered body, so sprite interpolation never creates camera drift. */
+export function playerCameraFocus(s:DeepReadonly<AdventureSnapshot>,rendered=s.runtime.actors[s.playerActorId].position){
+ const battle=s.runtime.encounter;
+ if(battle?.status==='active'){const origin=battleSceneOrigin(s),p=battle.participants[0].position,screen=projectIso(p.x,p.y);return {x:origin.x+screen.x,y:origin.y+screen.y-38};}
+ const p=projectIso(rendered.x,rendered.y,worldHeight(s,s.runtime.actors[s.playerActorId].position));return {x:p.x,y:p.y-32};
+}
 const labels:Record<string,string>={spawn:'旅人村落',notes:'旅行笔记',market:'商道营地',supply:'林间补给',shrine:'银月祭坛',cache:'遗迹锁箱',watch:'风蚀哨塔',gate:'坍塌捷径',goal:'暮光塔'};
 const landmarks:Record<string,WorldAsset>={spawn:'campfire',notes:'sign',market:'market-stall',supply:'wagon',shrine:'altar',cache:'chest',watch:'runestone',gate:'stairs',goal:'tower'};
 export function renderWorldHits(s:DeepReadonly<AdventureSnapshot>):string{
@@ -37,8 +43,13 @@ export class WorldScene{
  setRoute(route:readonly {x:number;y:number}[]){this.route=route;this.dirty=true;}
  setState(s:DeepReadonly<AdventureSnapshot>,camera:{x:number;y:number;zoom:number},svg:SVGSVGElement,weather:Weather){
   if(this.s?.runId!==s.runId){this.cache='';this.fogKey='';this.camera={...camera};this.actor={...s.runtime.actors[s.playerActorId].position};}
-  this.s=s;this.target=camera;this.svg=svg;this.weather=weather;this.dirty=true;this.motionArt.observe(s);
+  this.s=s;this.target=camera;this.svg=svg;this.weather=weather;this.dirty=true;this.motionArt.observe(s);this.syncView(s);
   for(const a of Object.values(s.runtime.actors)){const url=assembledCharacterUrl(a.profile.appearance,a.profile.gender);if(!this.portraits.has(url)){const image=new Image();image.src=url;this.portraits.set(url,image);}}
+ }
+ private syncView(s:DeepReadonly<AdventureSnapshot>){
+  const a=s.runtime.actors[s.playerActorId],focus=playerCameraFocus(s,this.actor);this.camera.x=focus.x;this.camera.y=focus.y;
+  const svg=this.svg!;svg.setAttribute('viewBox',`${this.camera.x-innerWidth/this.camera.zoom/2} ${this.camera.y-innerHeight/this.camera.zoom/2} ${innerWidth/this.camera.zoom} ${innerHeight/this.camera.zoom}`);
+  const hit=svg.querySelector<SVGGElement>('[data-actor="player"]');if(hit){const displayed=projectIso(this.actor.x,this.actor.y,worldHeight(s,a.position)),actual=projectIso(a.position.x,a.position.y,worldHeight(s,a.position));hit.setAttribute('transform',`translate(${displayed.x-actual.x} ${displayed.y-actual.y})`);}
  }
  private diamond(ctx:CanvasRenderingContext2D,x:number,y:number){ctx.beginPath();ctx.moveTo(x,y-16.3);ctx.lineTo(x+32.4,y);ctx.lineTo(x,y+16.3);ctx.lineTo(x-32.4,y);ctx.closePath();}
  private buildGround(s:DeepReadonly<AdventureSnapshot>){
@@ -78,10 +89,10 @@ export class WorldScene{
   if(this.stopped)return;this.frame=requestAnimationFrame(t=>this.paint(t));const s=this.s;if(!s||!this.svg||!this.canvas.isConnected||this.canvas.hidden)return;
   const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;if(!this.dirty&&now-this.lastTime<(reduced?150:30))return;
   const dt=Math.min(.05,(now-(this.lastTime||now))/1000);this.lastTime=now;this.dirty=false;const factor=reduced?1:1-Math.exp(-24*dt),a=s.runtime.actors[s.playerActorId];
-  for(const k of ['x','y','zoom'] as const)this.camera[k]+=(this.target[k]-this.camera[k])*factor;
+  this.camera.zoom+=(this.target.zoom-this.camera.zoom)*factor;
   this.actor.x+=(a.position.x-this.actor.x)*factor;this.actor.y+=(a.position.y-this.actor.y)*factor;
+  this.syncView(s);
   const width=innerWidth,height=innerHeight,dpr=Math.min(2,devicePixelRatio||1);if(this.canvas.width!==width*dpr||this.canvas.height!==height*dpr){this.canvas.width=width*dpr;this.canvas.height=height*dpr;}
-  const box=`${this.camera.x-width/this.camera.zoom/2} ${this.camera.y-height/this.camera.zoom/2} ${width/this.camera.zoom} ${height/this.camera.zoom}`;if(this.svg.getAttribute('viewBox')!==box)this.svg.setAttribute('viewBox',box);
   const ctx=this.canvas.getContext('2d')!;ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,width,height);ctx.translate(width/2,height/2);ctx.scale(this.camera.zoom,this.camera.zoom);ctx.translate(-this.camera.x,-this.camera.y);
   const cache=s.runId+':'+this.loaded;if(this.cache!==cache){this.buildGround(s);this.cache=cache;}
   ctx.drawImage(this.ground,-this.offset.x,-this.offset.y);this.buildFog(s);

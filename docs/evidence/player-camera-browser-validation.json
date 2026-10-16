@@ -1,0 +1,99 @@
+{
+  "scope": "player-centered camera",
+  "browser": "Chromium153, desktop1440x1000 and mobile375x812",
+  "first": {
+    "startTime": "2026-10-16T02:44:04.128Z",
+    "duration": 81208.172,
+    "expected": 10,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  },
+  "final": {
+    "startTime": "2026-10-16T02:45:21.610Z",
+    "duration": 99129.34700000001,
+    "expected": 12,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "cases": [
+    {
+      "file": "player-camera.spec.ts",
+      "title": "人物在移动的每帧保持居中，拖动不脱离，缩放和屏幕变化仍居中",
+      "project": "desktop",
+      "status": "passed"
+    },
+    {
+      "file": "player-camera.spec.ts",
+      "title": "自动步行和战术移动同样跟随人物，退出战斗后恢复世界人物中心",
+      "project": "desktop",
+      "status": "passed"
+    },
+    {
+      "file": "player-camera.spec.ts",
+      "title": "人物在移动的每帧保持居中，拖动不脱离，缩放和屏幕变化仍居中",
+      "project": "narrow",
+      "status": "passed"
+    },
+    {
+      "file": "player-camera.spec.ts",
+      "title": "自动步行和战术移动同样跟随人物，退出战斗后恢复世界人物中心",
+      "project": "narrow",
+      "status": "passed"
+    },
+    {
+      "file": "v030.spec.ts",
+      "title": "离开实际战斗后继续探索，人物重新播放行走而不使用战场坐标",
+      "project": "desktop",
+      "status": "passed"
+    },
+    {
+      "file": "v030.spec.ts",
+      "title": "离开实际战斗后继续探索，人物重新播放行走而不使用战场坐标",
+      "project": "narrow",
+      "status": "passed"
+    },
+    {
+      "file": "v040.spec.ts",
+      "title": "连续行走保留地图和 HUD 节点，停止输入后不继续移动",
+      "project": "desktop",
+      "status": "passed"
+    },
+    {
+      "file": "v040.spec.ts",
+      "title": "点击 NPC 实际步行至相邻处，交谈与检定只结算一次，刷新保留结果",
+      "project": "desktop",
+      "status": "passed"
+    },
+    {
+      "file": "v040.spec.ts",
+      "title": "Esc 取消靠近人物；触摸方向键持续行走并在松开后停止",
+      "project": "desktop",
+      "status": "passed"
+    },
+    {
+      "file": "v040.spec.ts",
+      "title": "连续行走保留地图和 HUD 节点，停止输入后不继续移动",
+      "project": "narrow",
+      "status": "passed"
+    },
+    {
+      "file": "v040.spec.ts",
+      "title": "点击 NPC 实际步行至相邻处，交谈与检定只结算一次，刷新保留结果",
+      "project": "narrow",
+      "status": "passed"
+    },
+    {
+      "file": "v040.spec.ts",
+      "title": "Esc 取消靠近人物；触摸方向键持续行走并在松开后停止",
+      "project": "narrow",
+      "status": "passed"
+    }
+  ],
+  "sourceHashes": {
+    "src/presentation/adventure.ts": "c47f1e813bc25ff511cec0179f87a86053a7592f3916a044a68532796c823d0d",
+    "src/presentation/world-scene.ts": "3c0f6f48d367b24331b0a81ea89e4e7bd1ac86d6edc2f32e9cf6f06c7dc17956",
+    "src/presentation/hd2d.css": "eb2de0055b25efd1be8c91ecd77792c9a16a3e0a9c3d63a78775bee1a943a750"
+  }
+}

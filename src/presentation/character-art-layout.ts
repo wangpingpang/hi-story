@@ -1,5 +1,5 @@
 import type { AppearanceSlot, Gender } from '../application/character-studio';
-export const ART_VERSION = 'character-art/2';
+export const ART_VERSION = 'character-art/3';
 export const ART_SIZE = { width:144, height:288 };
 export interface ArtRegion { sheet:'common'|'female'; crop:[number,number,number,number]; target:[number,number,number,number]; material:'skin'|'hair'|'cloth'|'metal'; }
 const commonCenters=[111,298,484,671,859,1058];

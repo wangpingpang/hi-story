@@ -1,10 +1,13 @@
 import { ACTIONS, WEAPONS, SPELLS, EXPRESSIONS, APPEARANCE_SLOTS, appearanceCatalogFor, type Action, type Direction, type Weapon, type Spell, type Expression, type Appearance, type AppearanceSlot, type Gender } from '../application/character-motion';
 import type { DeepReadonly } from '../contracts';
-import { materialTexture, materialView, loadDirectionalMaterials, footwearPiece } from './directional-materials';
+import { materialTexture, materialView, loadDirectionalMaterials as loadMaterials, footwearPiece } from './directional-materials';
 import { sampleRigPose } from './motion-clips';
+import { loadLegacyArt } from './legacy-character-materials';
+import { renderOriginalCharacter } from './legacy-character-rig';
+import { registeredDirectionalFace } from './registered-head';
 import { BODY_FITS, TOP_SLEEVES, HAIR_BOXES, SHOE_HEIGHTS } from './character-fit';
-export { loadDirectionalMaterials };
-export const MOTION_ART_VERSION='character-motion-art/2';
+export function loadDirectionalMaterials():Promise<void> { return Promise.all([loadMaterials(),loadLegacyArt()]).then(()=>{}); }
+export const MOTION_ART_VERSION='character-motion-art/3';
 export const MOTION_FRAME={width:384,height:384,anchor:{x:192,y:329}} as const;
 export interface MotionRenderOptions { action?:Action;direction?:Direction;progress?:number;weapon?:Weapon;spell?:Spell;expression?:Expression;layers?:readonly AppearanceSlot[];effects?:boolean }
 const radians=(a:number)=>a*Math.PI/180;
@@ -121,7 +124,7 @@ function drawRaw(model:DeepReadonly<Appearance>,gender:Gender,options:MotionRend
   }else {const sizes:Record<string,[number,number,number,number]>={scarf:[-fit.shoulder-4,-91,2*(fit.shoulder+4),60],pendant:[-17,-82,34,40],pouch:[fit.waist-18,-18,35,35],belt:[-fit.waist-5,-16,2*(fit.waist+5),24]};ctx.drawImage(texture('accessory'),...sizes[style]);}
  }
  ctx.save();headTransform();
- if(has('face')){ctx.drawImage(texture('face'),-30,-67,60,73);expression(ctx,options.expression??'neutral',direction,model.parts.face.color);}
+ if(has('face')){ctx.drawImage(registeredDirectionalFace(texture('face'),hair,[hairW,hairH,hairY]),-96,-96);expression(ctx,options.expression??'neutral',direction,model.parts.face.color);}
  if(has('hair')){
   ctx.save();if(view.column<3){ctx.beginPath();ctx.rect(-90,-180,180,142);if(profile)ctx.rect(-90,-38,90,130);ctx.clip();}drawHair();ctx.restore();
  }
@@ -146,9 +149,12 @@ function drawRaw(model:DeepReadonly<Appearance>,gender:Gender,options:MotionRend
 export function renderCharacterMotionFrame(model:DeepReadonly<Appearance>,gender:Gender='female',options:MotionRenderOptions={}):HTMLCanvasElement {
  const catalog=appearanceCatalogFor(model.version);if(!['male','female'].includes(gender))throw Error('身体类型无效');
  for(const slot of APPEARANCE_SLOTS)if(!catalog[slot].styles.some(s=>s.id===model.parts[slot]?.styleId)||!catalog[slot].colors.some(c=>c===model.parts[slot]?.color))throw Error('外观数据无效');
+ if(options.direction!==undefined)materialView(options.direction);
+ if(options.progress!==undefined&&(!Number.isFinite(options.progress)||options.progress<0||options.progress>1))throw Error('动作进度无效');
  if(options.action!==undefined&&!Object.hasOwn(ACTIONS,options.action))throw Error('动作无效');
  if(options.weapon!==undefined&&!WEAPONS.includes(options.weapon)||options.spell!==undefined&&!SPELLS.includes(options.spell)||options.expression!==undefined&&!Object.hasOwn(EXPRESSIONS,options.expression))throw Error('武器、法术或表情无效');
  if(options.layers!==undefined&&(!Array.isArray(options.layers)||options.layers.some(slot=>!APPEARANCE_SLOTS.includes(slot))))throw Error('导出图层无效');
+ if(model.version!=='appearance/3'&&(options.direction??'S')==='S')return renderOriginalCharacter(model,gender,options);
  const ground=drawRaw(model,gender,{...options,layers:APPEARANCE_SLOTS,effects:false});const b=alphaBounds(ground);const offset=329-b.bottom;ground.width=0;
  const c=drawRaw(model,gender,options,offset),ctx=ctxOf(c),pixels=ctx.getImageData(0,0,384,384),data=pixels.data;
  for(let i=0;i<data.length;i+=4){if(data[i+3]<128)data.fill(0,i,i+4);else data[i+3]=255;}ctx.putImageData(pixels,0,0);return c;

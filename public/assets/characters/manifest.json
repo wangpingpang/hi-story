@@ -1,8 +1,8 @@
 {
-  "version": "character-art/2",
+  "version": "character-art/3",
   "status": "runtime-integrated",
   "runtimeIntegrated": true,
-  "note": "Source PNG sheets remain unchanged. Runtime uses explicit per-part source rectangles, calibrated anchors, opaque cutout cleanup, material tinting and male/female clothing registration. appearance/1 remains supported; appearance/2 adds wrap, skirt and long-skirt.",
+  "note": "Original PNG sheets remain unchanged. Runtime registers alpha bounds and head/neck/shoulder/waist attachments. appearance/1 and appearance/2 share the original atlas rig for front portraits and front motion; other directions use the existing directional materials.",
   "engine": "built-in image generation",
   "assets": [
     {
@@ -123,6 +123,9 @@
       "appearance/1",
       "appearance/2"
     ],
-    "preview": "docs/examples/assembled/gallery.png"
+    "preview": "docs/examples/character-fit-v3/gallery.png",
+    "originalRig": "src/presentation/legacy-character-rig.ts",
+    "headRegistration": "src/presentation/registered-head.ts",
+    "artVersion": "character-art/3"
   }
 }

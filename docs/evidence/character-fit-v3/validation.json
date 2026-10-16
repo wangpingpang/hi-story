@@ -1,0 +1,76 @@
+{
+  "typecheck": "passed",
+  "unitTests": 135,
+  "moduleBoundaries": "passed",
+  "mainBuild": "passed",
+  "pixelSampleBuild": "passed",
+  "browser": {
+    "browser-results.json": {
+      "passed": 6,
+      "failed": 0
+    },
+    "legacy-browser-results.json": {
+      "passed": 28,
+      "failed": 0
+    },
+    "pilot-browser-results.json": {
+      "passed": 8,
+      "failed": 0
+    }
+  },
+  "browserTotalPassed": 42,
+  "originalFit": {
+    "mode": "full",
+    "frames": 10752,
+    "staticFrames": 1152,
+    "motionFrames": 9600,
+    "direction": "S",
+    "genders": 2,
+    "bodies": 4,
+    "hairStyles": 6,
+    "faceStyles": 4,
+    "tops": 6,
+    "actions": 25,
+    "phases": 8,
+    "minimumDetachedPixels": 20,
+    "disconnected": 0,
+    "edgeFrames": 0
+  },
+  "directionalFit": {
+    "mode": "full",
+    "renderer": "current",
+    "frames": 5120,
+    "motionFrames": 3584,
+    "hairFrames": 1536,
+    "majorDisconnectedFrames": 0,
+    "edgeContactFrames": 0,
+    "staticEdgeContactFrames": 0,
+    "largestDetachedPixels": 0,
+    "coverage": {
+      "genders": 2,
+      "bodies": 8,
+      "directions": 8,
+      "actions": 25,
+      "hairStyles": 12,
+      "staticFrames": 192,
+      "walkPhases": 4
+    },
+    "visualSheets": [
+      "body-male.png",
+      "body-female.png",
+      "outfits.png",
+      "hair-face.png",
+      "hair-directions.png",
+      "accessories.png",
+      "pants-shoes-S.png",
+      "pants-shoes-E.png",
+      "pants-shoes-N.png",
+      "joint-cases.png"
+    ]
+  },
+  "sourcePngUnmodified": true,
+  "actorDataUnmodified": true,
+  "protocol": "character-visual/1",
+  "defaultRenderer": "rig-v2",
+  "scope": "Original appearance/1 and appearance/2 front refinement; directional art remains a separate existing family. Connectivity does not imply finished art quality."
+}

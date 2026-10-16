@@ -1,0 +1,20 @@
+{
+  "summary": {
+    "mode": "full",
+    "frames": 10752,
+    "staticFrames": 1152,
+    "motionFrames": 9600,
+    "direction": "S",
+    "genders": 2,
+    "bodies": 4,
+    "hairStyles": 6,
+    "faceStyles": 4,
+    "tops": 6,
+    "actions": 25,
+    "phases": 8,
+    "minimumDetachedPixels": 20,
+    "disconnected": 0,
+    "edgeFrames": 0
+  },
+  "failures": []
+}

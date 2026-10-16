@@ -33,7 +33,7 @@ test('unsupported appearance explicitly falls back, strict mode rejects, and lay
     let outside = 0, occupied = 0; for (let p = 3; p < shirt.length; p += 4) if (shirt[p]) { occupied++; if (!all[p]) outside++; }
     full.canvas.width = top.canvas.width = 0; const unchanged = before === JSON.stringify(actor);
     actor.appearance.parts.hair.styleId = 'long'; const unsupported = api.createCharacterVisualFrame(actor as never);
-    const fallback = art.renderCharacterVisualFrame(unsupported); fallback.canvas.width = 0;
+    const fallback = art.renderCharacterVisualFrame(unsupported, { renderer: 'pixel-auto' }); fallback.canvas.width = 0;
     let error = ''; try { art.renderCharacterVisualFrame(unsupported, { renderer: 'pixel-v1' }); } catch (e) { error = String(e); }
     return { occupied, outside, unchanged, backend: fallback.renderer, reason: fallback.fallbackReason, error };
   }, structuredClone(sample));
@@ -58,7 +58,7 @@ test('twelve expressions and seven spell effects remain visibly distinct in the 
   const result = await page.evaluate(async actor => {
     const apiPath = '/src/application/character-visuals.ts', artPath = '/src/presentation/character-visuals.ts', domainPath = '/src/application/character-motion.ts';
     const api = await import(apiPath), art = await import(artPath), domain = await import(domainPath);
-    const signatures = (poses: unknown[]) => poses.map(pose => { const result = art.renderCharacterVisualFrame(api.createCharacterVisualFrame(actor, pose)); const value = result.canvas.toDataURL(); result.canvas.width = 0; return value; });
+    const signatures = (poses: unknown[]) => poses.map(pose => { const result = art.renderCharacterVisualFrame(api.createCharacterVisualFrame(actor, pose), { renderer: 'pixel-v1' }); const value = result.canvas.toDataURL(); result.canvas.width = 0; return value; });
     return { expressions: new Set(signatures(Object.keys(domain.EXPRESSIONS).map(expression => ({ action: 'stand', direction: 'S', expression })))).size, spells: new Set(signatures(domain.SPELLS.map((spell: string) => ({ action: 'cast', direction: 'SE', spell, progress: .5, expression: 'focused' })))).size };
   }, structuredClone(sample));
   expect(result.expressions).toBe(12); expect(result.spells).toBe(7);

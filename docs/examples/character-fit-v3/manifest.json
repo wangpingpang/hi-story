@@ -1,0 +1,114 @@
+{
+  "version": "character-original-examples/3",
+  "artVersion": "character-art/3",
+  "motionArtVersion": "character-motion-art/3",
+  "materialFamily": "original-atlas",
+  "direction": "S",
+  "actorIds": [
+    "character:hi-story-20261014:1",
+    "character:hi-story-20261014:2",
+    "character:hi-story-20261014:3",
+    "character:hi-story-20261014:4",
+    "character:hi-story-20261014:5"
+  ],
+  "sourceArtwork": "existing-atlases",
+  "sources": [
+    {
+      "file": "character-parts-v1.png",
+      "sha256": "8fee8fb90dd7cf28d8b201e26804e73bd1863395f9a32063a84bfbba730b7e9f"
+    },
+    {
+      "file": "female-parts-v1.png",
+      "sha256": "a3a1ae3d4c8178a9930802ef84763801622d52de6c45a5f856b49d2bea9e8d1f"
+    }
+  ],
+  "animations": [
+    {
+      "file": "walk.gif",
+      "frames": 8,
+      "durationMs": 800
+    },
+    {
+      "file": "wave.gif",
+      "frames": 10,
+      "durationMs": 1000
+    },
+    {
+      "file": "attack.gif",
+      "frames": 10,
+      "durationMs": 700
+    }
+  ],
+  "assets": [
+    {
+      "file": "before.png",
+      "bytes": 325608,
+      "sha256": "9bdabf24791a4c44a69a6bc060a0d617df521de6fc02d49b2c50dae6d7278938"
+    },
+    {
+      "file": "gallery.png",
+      "bytes": 328119,
+      "sha256": "1eaae71820f8aed6b2540110a2e7725c0211ec3ff760920cfc5edbcac34e668b"
+    },
+    {
+      "file": "comparison.png",
+      "bytes": 565419,
+      "sha256": "774e0db9e1e37a3567b8b6a1243ab156bcddffb1294c3ced3b0f2b08bb4cb6ce"
+    },
+    {
+      "file": "heads.png",
+      "bytes": 124618,
+      "sha256": "794babfbe7efe4ab5de71a872e4d0ca93f6de9504ccb0b0f459a4e62fc0a8fb0"
+    },
+    {
+      "file": "contact.png",
+      "bytes": 729048,
+      "sha256": "008e2cf8ccf4089108d849e3811cc5463d5d1bf2f49f21b4008f15c053f55747"
+    },
+    {
+      "file": "walk.gif",
+      "bytes": 592264,
+      "sha256": "0ca5dc983bc7168768c6f15ba82079a8628b0f240dbf02e2809918e5f2d71824"
+    },
+    {
+      "file": "wave.gif",
+      "bytes": 775500,
+      "sha256": "17a5e4549d69c638cf446726645500193408790c3b897679d5958b722aa3f583"
+    },
+    {
+      "file": "attack.gif",
+      "bytes": 795233,
+      "sha256": "5fe75e86d9f8e6391664dfd5ac644818b5662273ffeff0ef4af8228b0377af49"
+    },
+    {
+      "file": "characters.json",
+      "bytes": 8908,
+      "sha256": "54af8b24c21376de96b2d355a9e485815f12e6c15c9996d629d36b05c0108c41"
+    },
+    {
+      "file": "character-01.png",
+      "bytes": 85534,
+      "sha256": "c7f94ebdd5b2add231efca0d280879692dc715a74cd610caedac83af59ef0f04"
+    },
+    {
+      "file": "character-02.png",
+      "bytes": 82961,
+      "sha256": "25d921b0b5730c3bd74dbe9d582d5b4782ca7774572ea0ae21044e716cabe438"
+    },
+    {
+      "file": "character-03.png",
+      "bytes": 89605,
+      "sha256": "e76689731f6379185e6683161d316a931290c3c83a4ffef73788efb0a9202000"
+    },
+    {
+      "file": "character-04.png",
+      "bytes": 87568,
+      "sha256": "8436989df4efb9d0cff6ff60e9a194bb11dabb3124f4695c89e81365212a6805"
+    },
+    {
+      "file": "character-05.png",
+      "bytes": 79152,
+      "sha256": "b2fb69123da8279d18896bc1f53a7c07e02a93220521c32dd463a2ce6a65997f"
+    }
+  ]
+}

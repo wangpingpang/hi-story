@@ -5,7 +5,7 @@ import { loadDirectionalMaterials, renderCharacterMotionFrame, MOTION_ART_VERSIO
 import { loadPixelMaterials, pixelSupport } from './pixel-character/materials';
 import { renderPixelCharacter, PIXEL_ART_VERSION, PIXEL_FRAME } from './pixel-character/renderer';
 
-export type CharacterRenderer = 'auto' | 'pixel-v1' | 'rig-v2';
+export type CharacterRenderer = 'auto' | 'pixel-auto' | 'pixel-v1' | 'rig-v2';
 export interface CharacterVisualOptions { renderer?: CharacterRenderer; layers?: MotionRenderOptions['layers']; effects?: boolean }
 let pixelLoadError: string | undefined;
 export async function loadCharacterVisuals(): Promise<void> {
@@ -14,11 +14,13 @@ export async function loadCharacterVisuals(): Promise<void> {
 }
 export function characterVisualCapability(frame: DeepReadonly<CharacterVisualFrame>, renderer: CharacterRenderer = 'auto') {
   validateCharacterVisualFrame(frame);
-  if (!['auto', 'pixel-v1', 'rig-v2'].includes(renderer)) throw Error('未知人物渲染器');
-  const reason = renderer === 'rig-v2' ? undefined : pixelLoadError ?? pixelSupport(frame);
-  const selected = renderer !== 'rig-v2' && !reason ? 'pixel-v1' as const : 'rig-v2' as const;
+  if (!['auto', 'pixel-auto', 'pixel-v1', 'rig-v2'].includes(renderer)) throw Error('未知人物渲染器');
+  const experimental = renderer === 'pixel-auto' || renderer === 'pixel-v1';
+  const reason = experimental ? pixelLoadError ?? pixelSupport(frame) : undefined;
+  const selected = experimental && !reason ? 'pixel-v1' as const : 'rig-v2' as const;
   if (renderer === 'pixel-v1' && reason) throw Error(`像素样板不支持：${reason}`);
-  return { renderer: selected, artVersion: selected === 'pixel-v1' ? PIXEL_ART_VERSION : MOTION_ART_VERSION, fallbackReason: renderer === 'auto' ? reason : undefined };
+  const materialFamily = selected === 'pixel-v1' ? 'pixel-pilot' : frame.actor.appearance.version !== 'appearance/3' && frame.pose.direction === 'S' ? 'original-atlas' : 'directional-atlas';
+  return { renderer: selected, materialFamily, artVersion: selected === 'pixel-v1' ? PIXEL_ART_VERSION : MOTION_ART_VERSION, fallbackReason: renderer === 'pixel-auto' ? reason : undefined };
 }
 export function renderCharacterVisualFrame(frame: DeepReadonly<CharacterVisualFrame>, options: CharacterVisualOptions = {}) {
   const capability = characterVisualCapability(frame, options.renderer);

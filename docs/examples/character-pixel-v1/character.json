@@ -1,0 +1,68 @@
+{
+  "version": "random-character/1",
+  "seed": "pixel-v1:ailin",
+  "actorId": "character:pixel-v1:ailin",
+  "control": "npc",
+  "name": "艾琳·河湾",
+  "gender": "female",
+  "age": 32,
+  "identity": {
+    "occupationId": "custom",
+    "occupation": "游商",
+    "expertise": "尚无专长记录",
+    "background": "出身于白榆村。职业设定为游商，过往经历尚待补全。",
+    "backgroundSource": "generated"
+  },
+  "personality": {
+    "source": "npc-initial",
+    "traits": [
+      "果断",
+      "温和",
+      "重义"
+    ]
+  },
+  "preferences": {
+    "source": "generated",
+    "likes": [
+      "热汤"
+    ],
+    "dislikes": [
+      "粗暴待人"
+    ]
+  },
+  "motivation": "希望找到适合自己的下一段旅程。",
+  "appearance": {
+    "version": "appearance/3",
+    "seed": "pixel-v1:ailin",
+    "parts": {
+      "hair": {
+        "styleId": "crop",
+        "color": "#614436"
+      },
+      "face": {
+        "styleId": "oval",
+        "color": "#574439"
+      },
+      "body": {
+        "styleId": "balanced",
+        "color": "#dfb18c"
+      },
+      "top": {
+        "styleId": "shirt",
+        "color": "#587b72"
+      },
+      "pants": {
+        "styleId": "straight",
+        "color": "#324553"
+      },
+      "shoes": {
+        "styleId": "ankle",
+        "color": "#654432"
+      },
+      "accessory": {
+        "styleId": "satchel",
+        "color": "#795e45"
+      }
+    }
+  }
+}

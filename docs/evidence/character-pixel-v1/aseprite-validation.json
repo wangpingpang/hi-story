@@ -1,0 +1,9 @@
+{
+  "parser": "ase-parser/0.0.19",
+  "frames": 80,
+  "layers": 29,
+  "tags": 11,
+  "pixelIdenticalFrames": 80,
+  "frameTiming": "passed",
+  "linkedCels": 1151
+}

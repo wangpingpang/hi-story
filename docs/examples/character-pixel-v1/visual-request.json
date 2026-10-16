@@ -1,0 +1,49 @@
+{
+  "version": "character-visual/1",
+  "actor": {
+    "actorId": "character:pixel-v1:ailin",
+    "gender": "female",
+    "appearance": {
+      "version": "appearance/3",
+      "seed": "pixel-v1:ailin",
+      "parts": {
+        "hair": {
+          "styleId": "crop",
+          "color": "#614436"
+        },
+        "face": {
+          "styleId": "oval",
+          "color": "#574439"
+        },
+        "body": {
+          "styleId": "balanced",
+          "color": "#dfb18c"
+        },
+        "top": {
+          "styleId": "shirt",
+          "color": "#587b72"
+        },
+        "pants": {
+          "styleId": "straight",
+          "color": "#324553"
+        },
+        "shoes": {
+          "styleId": "ankle",
+          "color": "#654432"
+        },
+        "accessory": {
+          "styleId": "satchel",
+          "color": "#795e45"
+        }
+      }
+    }
+  },
+  "pose": {
+    "action": "walk",
+    "direction": "SE",
+    "progress": 0.25,
+    "weapon": "unarmed",
+    "spell": "arcane",
+    "expression": "neutral"
+  }
+}

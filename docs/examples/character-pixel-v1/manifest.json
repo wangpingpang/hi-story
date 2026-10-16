@@ -1,0 +1,168 @@
+{
+  "version": "character-pixel-examples/1",
+  "artVersion": "character-pixel-art/1",
+  "protocol": "character-visual/1",
+  "frame": {
+    "width": 96,
+    "height": 96,
+    "anchor": {
+      "x": 48,
+      "y": 82
+    }
+  },
+  "outputFrame": {
+    "width": 384,
+    "height": 384,
+    "anchor": {
+      "x": 192,
+      "y": 329
+    }
+  },
+  "tags": [
+    {
+      "name": "stand-SE",
+      "from": 0,
+      "to": 3,
+      "loop": true,
+      "durationMs": 1600
+    },
+    {
+      "name": "walk-S",
+      "from": 4,
+      "to": 11,
+      "loop": true,
+      "durationMs": 800
+    },
+    {
+      "name": "walk-SE",
+      "from": 12,
+      "to": 19,
+      "loop": true,
+      "durationMs": 800
+    },
+    {
+      "name": "walk-E",
+      "from": 20,
+      "to": 27,
+      "loop": true,
+      "durationMs": 800
+    },
+    {
+      "name": "walk-NE",
+      "from": 28,
+      "to": 35,
+      "loop": true,
+      "durationMs": 800
+    },
+    {
+      "name": "walk-N",
+      "from": 36,
+      "to": 43,
+      "loop": true,
+      "durationMs": 800
+    },
+    {
+      "name": "walk-NW",
+      "from": 44,
+      "to": 51,
+      "loop": true,
+      "durationMs": 800
+    },
+    {
+      "name": "walk-W",
+      "from": 52,
+      "to": 59,
+      "loop": true,
+      "durationMs": 800
+    },
+    {
+      "name": "walk-SW",
+      "from": 60,
+      "to": 67,
+      "loop": true,
+      "durationMs": 800
+    },
+    {
+      "name": "talk-SE",
+      "from": 68,
+      "to": 73,
+      "loop": true,
+      "durationMs": 1600
+    },
+    {
+      "name": "attack-SE",
+      "from": 74,
+      "to": 79,
+      "loop": false,
+      "durationMs": 700
+    }
+  ],
+  "aseprite": {
+    "frames": 80,
+    "layers": 29,
+    "tags": 11,
+    "linkedCels": 1151
+  },
+  "audit": {
+    "frames": 5120,
+    "bodyStyles": 8,
+    "directions": 8,
+    "actions": 25,
+    "minimumComponentPixels": 3,
+    "disconnectedFrames": 0,
+    "edgeFrames": 0,
+    "failures": []
+  },
+  "assets": [
+    {
+      "file": "preview.png",
+      "bytes": 52538,
+      "sha256": "f306df56350a373f2427efa8655c791bfaa369ec8e5ebc624c83ba85e425e748"
+    },
+    {
+      "file": "directions.png",
+      "bytes": 57711,
+      "sha256": "d882817c37b4911b433401222a1e34e32d1dc58c06d696f068345c64bddbe978"
+    },
+    {
+      "file": "body-fits.png",
+      "bytes": 64094,
+      "sha256": "70042a4da5751ed97f456c83c56b47533028349dbb0401bb23f62e2997f22d50"
+    },
+    {
+      "file": "comparison.png",
+      "bytes": 100878,
+      "sha256": "091a6ba154a2d2ef680531da4ef484ce4f0c22a4d5dc66a645d8185060a33a39"
+    },
+    {
+      "file": "walk.png",
+      "bytes": 94595,
+      "sha256": "5a82663776356b9ec733cdaa1eab9a2cda65f2b7dc91bad6c371c55a5c5cfb2f"
+    },
+    {
+      "file": "stand.gif",
+      "bytes": 28537,
+      "sha256": "b767948f34d13b3bc45d9cc807a327252453c2cb41c31734f62b247b9f60771a"
+    },
+    {
+      "file": "walk.gif",
+      "bytes": 55809,
+      "sha256": "1108ccafe90bceabe42b9698d5655997dbe87428133ff62178659373c082c68e"
+    },
+    {
+      "file": "talk.gif",
+      "bytes": 43909,
+      "sha256": "978fac3a014b44d15cdc3577a8211d5a02a8e3c489e6c96f9abcb4653f1c1cd9"
+    },
+    {
+      "file": "attack.gif",
+      "bytes": 44156,
+      "sha256": "d3c36d165b0423e256a5cd39c7cef929038645fa4138e2545bcfbdef1765407f"
+    },
+    {
+      "file": "traveler.aseprite",
+      "bytes": 255520,
+      "sha256": "eaead20b7a72f4f805122f16ea4290d188a07e90bdf8d56857af468896d75b55"
+    }
+  ]
+}

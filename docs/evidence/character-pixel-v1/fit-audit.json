@@ -1,0 +1,10 @@
+{
+  "frames": 5120,
+  "bodyStyles": 8,
+  "directions": 8,
+  "actions": 25,
+  "minimumComponentPixels": 3,
+  "disconnectedFrames": 0,
+  "edgeFrames": 0,
+  "failures": []
+}

@@ -8,8 +8,10 @@ import { loadCharacterArt, assembleCharacterCanvas, artVersionFor } from './pres
 import { CharacterStudio } from './application/character-studio';
 import { renderCharacterStudio } from './presentation/character-studio';
 import { mountCharacterMotionStudio } from './presentation/character-motion-studio';
+import { mountCharacterDemo } from './presentation/character-demo';
 async function boot() {
- const route=new URLSearchParams(location.search).get('view');
+ const route=new URLSearchParams(location.search).get('view')??document.querySelector<HTMLMetaElement>('meta[name="hi-story-default-view"]')?.content;
+ if(route==='character-demo'){await mountCharacterDemo(document.querySelector<HTMLElement>('#app')!);return;}
  if(route==='character-motion'){await mountCharacterMotionStudio(document.querySelector<HTMLElement>('#app')!);return;}
  if(route!=='story-generator')await loadCharacterArt(route==='character-generator'?'appearance/3':'appearance/1');
 const game=new Game();const root=document.querySelector<HTMLElement>('#app')!;

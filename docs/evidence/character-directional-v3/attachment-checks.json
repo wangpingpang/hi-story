@@ -1,0 +1,2340 @@
+{
+  "checks": [
+    {
+      "gender": "male",
+      "direction": "S",
+      "action": "stand",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 481,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "S",
+      "action": "stand",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 613,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "S",
+      "action": "stand",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 476,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "S",
+      "action": "stand",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 619,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "S",
+      "action": "walk",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 472,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "S",
+      "action": "walk",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 628,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "S",
+      "action": "walk",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 472,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "S",
+      "action": "walk",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 628,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "S",
+      "action": "wave",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 480,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "S",
+      "action": "wave",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 624,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "S",
+      "action": "wave",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 480,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "S",
+      "action": "wave",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 624,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "S",
+      "action": "cast",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 481,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "S",
+      "action": "cast",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 619,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "S",
+      "action": "cast",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 481,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "S",
+      "action": "cast",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 619,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "SE",
+      "action": "stand",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 370,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "SE",
+      "action": "stand",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 349,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "SE",
+      "action": "stand",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 369,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "SE",
+      "action": "stand",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 362,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "SE",
+      "action": "walk",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 374,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "SE",
+      "action": "walk",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 362,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "SE",
+      "action": "walk",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 374,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "SE",
+      "action": "walk",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 362,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "SE",
+      "action": "wave",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 371,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "SE",
+      "action": "wave",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 369,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "SE",
+      "action": "wave",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 371,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "SE",
+      "action": "wave",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 369,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "SE",
+      "action": "cast",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 370,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "SE",
+      "action": "cast",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 353,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "SE",
+      "action": "cast",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 370,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "SE",
+      "action": "cast",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 353,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "E",
+      "action": "stand",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 308,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "E",
+      "action": "stand",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 240,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "E",
+      "action": "stand",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 308,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "E",
+      "action": "stand",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 247,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "E",
+      "action": "walk",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 316,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "E",
+      "action": "walk",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 243,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "E",
+      "action": "walk",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 316,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "E",
+      "action": "walk",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 243,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "E",
+      "action": "wave",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 308,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "E",
+      "action": "wave",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 245,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "E",
+      "action": "wave",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 308,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "E",
+      "action": "wave",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 245,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "E",
+      "action": "cast",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 311,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "E",
+      "action": "cast",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 238,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "E",
+      "action": "cast",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 311,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "E",
+      "action": "cast",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 238,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "NE",
+      "action": "stand",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "NE",
+      "action": "stand",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "NE",
+      "action": "stand",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "NE",
+      "action": "stand",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "NE",
+      "action": "walk",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "NE",
+      "action": "walk",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "NE",
+      "action": "walk",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "NE",
+      "action": "walk",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "NE",
+      "action": "wave",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "NE",
+      "action": "wave",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "NE",
+      "action": "wave",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "NE",
+      "action": "wave",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "NE",
+      "action": "cast",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "NE",
+      "action": "cast",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "NE",
+      "action": "cast",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "NE",
+      "action": "cast",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "N",
+      "action": "stand",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "N",
+      "action": "stand",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "N",
+      "action": "stand",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "N",
+      "action": "stand",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "N",
+      "action": "walk",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "N",
+      "action": "walk",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "N",
+      "action": "walk",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "N",
+      "action": "walk",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "N",
+      "action": "wave",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "N",
+      "action": "wave",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "N",
+      "action": "wave",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "N",
+      "action": "wave",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "N",
+      "action": "cast",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "N",
+      "action": "cast",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "N",
+      "action": "cast",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "N",
+      "action": "cast",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "NW",
+      "action": "stand",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "NW",
+      "action": "stand",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "NW",
+      "action": "stand",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "NW",
+      "action": "stand",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "NW",
+      "action": "walk",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "NW",
+      "action": "walk",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "NW",
+      "action": "walk",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "NW",
+      "action": "walk",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "NW",
+      "action": "wave",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "NW",
+      "action": "wave",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "NW",
+      "action": "wave",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "NW",
+      "action": "wave",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "NW",
+      "action": "cast",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "NW",
+      "action": "cast",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "NW",
+      "action": "cast",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "NW",
+      "action": "cast",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "W",
+      "action": "stand",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 308,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "W",
+      "action": "stand",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 240,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "W",
+      "action": "stand",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 308,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "W",
+      "action": "stand",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 247,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "W",
+      "action": "walk",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 316,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "W",
+      "action": "walk",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 243,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "W",
+      "action": "walk",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 316,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "W",
+      "action": "walk",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 243,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "W",
+      "action": "wave",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 308,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "W",
+      "action": "wave",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 245,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "W",
+      "action": "wave",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 308,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "W",
+      "action": "wave",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 245,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "W",
+      "action": "cast",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 311,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "W",
+      "action": "cast",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 238,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "W",
+      "action": "cast",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 311,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "W",
+      "action": "cast",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 238,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "SW",
+      "action": "stand",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 370,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "SW",
+      "action": "stand",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 348,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "SW",
+      "action": "stand",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 369,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "SW",
+      "action": "stand",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 363,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "SW",
+      "action": "walk",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 374,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "SW",
+      "action": "walk",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 362,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "SW",
+      "action": "walk",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 374,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "SW",
+      "action": "walk",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 362,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "SW",
+      "action": "wave",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 371,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "SW",
+      "action": "wave",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 369,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "SW",
+      "action": "wave",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 371,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "SW",
+      "action": "wave",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 369,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "SW",
+      "action": "cast",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 370,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "SW",
+      "action": "cast",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 353,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "SW",
+      "action": "cast",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 370,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "SW",
+      "action": "cast",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 353,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "S",
+      "action": "stand",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 481,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "S",
+      "action": "stand",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 613,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "S",
+      "action": "stand",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 476,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "S",
+      "action": "stand",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 619,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "S",
+      "action": "walk",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 472,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "S",
+      "action": "walk",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 628,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "S",
+      "action": "walk",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 472,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "S",
+      "action": "walk",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 628,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "S",
+      "action": "wave",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 480,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "S",
+      "action": "wave",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 624,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "S",
+      "action": "wave",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 480,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "S",
+      "action": "wave",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 624,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "S",
+      "action": "cast",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 481,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "S",
+      "action": "cast",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 619,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "S",
+      "action": "cast",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 481,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "S",
+      "action": "cast",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 619,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "SE",
+      "action": "stand",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 370,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "SE",
+      "action": "stand",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 349,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "SE",
+      "action": "stand",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 369,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "SE",
+      "action": "stand",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 362,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "SE",
+      "action": "walk",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 374,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "SE",
+      "action": "walk",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 362,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "SE",
+      "action": "walk",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 374,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "SE",
+      "action": "walk",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 362,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "SE",
+      "action": "wave",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 371,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "SE",
+      "action": "wave",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 369,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "SE",
+      "action": "wave",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 371,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "SE",
+      "action": "wave",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 369,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "SE",
+      "action": "cast",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 370,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "SE",
+      "action": "cast",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 353,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "SE",
+      "action": "cast",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 370,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "SE",
+      "action": "cast",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 353,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "E",
+      "action": "stand",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 308,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "E",
+      "action": "stand",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 240,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "E",
+      "action": "stand",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 308,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "E",
+      "action": "stand",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 247,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "E",
+      "action": "walk",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 316,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "E",
+      "action": "walk",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 243,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "E",
+      "action": "walk",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 316,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "E",
+      "action": "walk",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 243,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "E",
+      "action": "wave",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 308,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "E",
+      "action": "wave",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 245,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "E",
+      "action": "wave",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 308,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "E",
+      "action": "wave",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 245,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "E",
+      "action": "cast",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 311,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "E",
+      "action": "cast",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 238,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "E",
+      "action": "cast",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 311,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "E",
+      "action": "cast",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 238,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "NE",
+      "action": "stand",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "NE",
+      "action": "stand",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "NE",
+      "action": "stand",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "NE",
+      "action": "stand",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "NE",
+      "action": "walk",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "NE",
+      "action": "walk",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "NE",
+      "action": "walk",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "NE",
+      "action": "walk",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "NE",
+      "action": "wave",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "NE",
+      "action": "wave",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "NE",
+      "action": "wave",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "NE",
+      "action": "wave",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "NE",
+      "action": "cast",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "NE",
+      "action": "cast",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "NE",
+      "action": "cast",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "NE",
+      "action": "cast",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "N",
+      "action": "stand",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "N",
+      "action": "stand",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "N",
+      "action": "stand",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "N",
+      "action": "stand",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "N",
+      "action": "walk",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "N",
+      "action": "walk",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "N",
+      "action": "walk",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "N",
+      "action": "walk",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "N",
+      "action": "wave",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "N",
+      "action": "wave",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "N",
+      "action": "wave",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "N",
+      "action": "wave",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "N",
+      "action": "cast",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "N",
+      "action": "cast",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "N",
+      "action": "cast",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "N",
+      "action": "cast",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "NW",
+      "action": "stand",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "NW",
+      "action": "stand",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "NW",
+      "action": "stand",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "NW",
+      "action": "stand",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "NW",
+      "action": "walk",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "NW",
+      "action": "walk",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "NW",
+      "action": "walk",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "NW",
+      "action": "walk",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "NW",
+      "action": "wave",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "NW",
+      "action": "wave",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "NW",
+      "action": "wave",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "NW",
+      "action": "wave",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "NW",
+      "action": "cast",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "NW",
+      "action": "cast",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "NW",
+      "action": "cast",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "NW",
+      "action": "cast",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 0,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "W",
+      "action": "stand",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 308,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "W",
+      "action": "stand",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 240,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "W",
+      "action": "stand",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 308,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "W",
+      "action": "stand",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 247,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "W",
+      "action": "walk",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 316,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "W",
+      "action": "walk",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 243,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "W",
+      "action": "walk",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 316,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "W",
+      "action": "walk",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 243,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "W",
+      "action": "wave",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 308,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "W",
+      "action": "wave",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 245,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "W",
+      "action": "wave",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 308,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "W",
+      "action": "wave",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 245,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "W",
+      "action": "cast",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 311,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "W",
+      "action": "cast",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 238,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "W",
+      "action": "cast",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 311,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "W",
+      "action": "cast",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 238,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "SW",
+      "action": "stand",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 370,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "SW",
+      "action": "stand",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 348,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "SW",
+      "action": "stand",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 369,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "SW",
+      "action": "stand",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 363,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "SW",
+      "action": "walk",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 374,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "SW",
+      "action": "walk",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 362,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "SW",
+      "action": "walk",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 374,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "SW",
+      "action": "walk",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 362,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "SW",
+      "action": "wave",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 371,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "SW",
+      "action": "wave",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 369,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "SW",
+      "action": "wave",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 371,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "SW",
+      "action": "wave",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 369,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "SW",
+      "action": "cast",
+      "progress": 0.25,
+      "accessory": "pendant",
+      "changed": 370,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "SW",
+      "action": "cast",
+      "progress": 0.25,
+      "accessory": "glasses",
+      "changed": 353,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "SW",
+      "action": "cast",
+      "progress": 0.75,
+      "accessory": "pendant",
+      "changed": 370,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "SW",
+      "action": "cast",
+      "progress": 0.75,
+      "accessory": "glasses",
+      "changed": 353,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "S",
+      "accessory": "cloak",
+      "changed": 393,
+      "coveredTop": 0,
+      "pass": true
+    },
+    {
+      "gender": "male",
+      "direction": "N",
+      "accessory": "cloak",
+      "changed": 4761,
+      "coveredTop": 4323,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "S",
+      "accessory": "cloak",
+      "changed": 389,
+      "coveredTop": 0,
+      "pass": true
+    },
+    {
+      "gender": "female",
+      "direction": "N",
+      "accessory": "cloak",
+      "changed": 4761,
+      "coveredTop": 4323,
+      "pass": true
+    }
+  ]
+}

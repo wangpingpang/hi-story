@@ -4,10 +4,10 @@ import { escapeHtml as escape } from './html';
 const labels:Record<string,string>={unarmed:'空手',dagger:'匕首',sword:'单手剑',greatsword:'双手剑',axe:'斧',mace:'钉锤',spear:'长矛',bow:'弓',crossbow:'弩',staff:'法杖',fire:'火焰',frost:'冰霜',lightning:'雷电',healing:'治疗',ward:'护盾',summon:'召唤',arcane:'奥术',normal:'正常',safe:'安全',dark:'黑暗',cold:'寒冷',hot:'炎热',danger:'危险',tired:'疲惫',poisoned:'中毒',frightened:'恐惧',angry:'愤怒',neutral:'中性',friendly:'友善',hostile:'敌意',surprising:'意外'};
 const options=(values:readonly string[])=>values.map(v=>`<option value="${v}">${escape(labels[v]??v)}</option>`).join('');
 function save(blob:Blob,name:string){const url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download=name;link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
-export async function mountCharacterMotionStudio(root:HTMLElement):Promise<()=>void>{
+export async function mountCharacterMotionStudio(root:HTMLElement,initial?:{appearance:Appearance;gender:Gender}):Promise<()=>void>{
  await loadDirectionalMaterials();
- let imported:{appearance?:Appearance;gender?:Gender}|undefined;
- if(location.hash.startsWith('#character=')){const value=JSON.parse(decodeURIComponent(location.hash.slice(11)));imported={appearance:value.appearance,gender:value.gender};}
+ let imported:{appearance?:Appearance;gender?:Gender}|undefined=initial;
+ if(!initial&&location.hash.startsWith('#character=')){const value=JSON.parse(decodeURIComponent(location.hash.slice(11)));imported={appearance:value.appearance,gender:value.gender};}
  const studio=new CharacterMotionStudio('hi-story:motion:001',imported);document.title='动作与表情工坊 · hi-story';
  root.innerHTML=`<header class="masthead"><a href="./">hi<span>—</span>story</a><span>MOTION ATELIER</span><a href="?view=character-generator">外观工坊 ↗</a></header>
  <main class="motion-workshop"><div class="motion-heading"><div><p class="eyebrow">A TRAVELER, BROUGHT TO LIFE</p><h1>每一步，都有神情。</h1><p>八向移动、日常姿态与战斗动作。让同一位旅人动起来。</p></div><span class="edition">人物动作与表情<br>骨骼装配原型 · v1</span></div>

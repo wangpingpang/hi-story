@@ -53,3 +53,5 @@ export class CharacterMotionStudio {
   restore():void {this.#vitals={hp:100,maxHp:100,dead:false,inCombat:false};this.#signals={environment:'normal',status:'normal',dialogue:'neutral'};this.#position={x:0,y:0};this.#animation=characters.createAnimation(this.#now);}
 }
 export type MotionView=ReturnType<CharacterMotionStudio['query']>;
+// The demo consumes the same public generator as story and runtime callers.
+export { generateCharacterWithParams } from '../modules/characters';

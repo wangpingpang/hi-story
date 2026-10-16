@@ -4,7 +4,7 @@ import { materialTexture, materialView, loadDirectionalMaterials, footwearPiece 
 import { sampleRigPose } from './motion-clips';
 import { BODY_FITS, TOP_SLEEVES, HAIR_BOXES, SHOE_HEIGHTS } from './character-fit';
 export { loadDirectionalMaterials };
-export const MOTION_ART_VERSION='character-motion-art/2';
+export const MOTION_ART_VERSION='character-motion-art/3';
 export const MOTION_FRAME={width:384,height:384,anchor:{x:192,y:329}} as const;
 export interface MotionRenderOptions { action?:Action;direction?:Direction;progress?:number;weapon?:Weapon;spell?:Spell;expression?:Expression;layers?:readonly AppearanceSlot[];effects?:boolean }
 const radians=(a:number)=>a*Math.PI/180;
@@ -62,6 +62,11 @@ function drawRaw(model:DeepReadonly<Appearance>,gender:Gender,options:MotionRend
  function headTransform(){ctx.translate(pose.turn,-83);ctx.rotate(radians(pose.head));ctx.scale(1/fitX,1/fitY);}
  const hair=texture('hair'),[hairW,hairH,hairY]=HAIR_BOXES[model.parts.hair.styleId];
  function drawHair(){ctx.drawImage(hair,-hairW/2,hairY,hairW,hairH);}
+ // A cape is attached to the back: the torso hides it from the front,
+ // while it covers the torso when the actor turns away. Both passes use
+ // the same body transform, so leaning and falling preserve the attachment.
+ function drawCloak(){if(has('accessory')&&model.parts.accessory.styleId==='cloak'){const frontView=view.column<=2,w=2*(fit.shoulder+(frontView?20:12));ctx.drawImage(texture('accessory'),-w/2,-84,w,frontView?120:104);}}
+ if(view.column<=2)drawCloak();
  if(has('hair')){ctx.save();headTransform();if(profile){ctx.beginPath();ctx.rect(-100,-180,110,400);ctx.clip();}drawHair();ctx.restore();}
  // The neck is a rig joint, not the accidental transparent padding of a source crop.
  if(has('body'))capsule(-9,-94,18,26,model.parts.body.color);
@@ -111,14 +116,14 @@ function drawRaw(model:DeepReadonly<Appearance>,gender:Gender,options:MotionRend
   else {const w=2*(fit.waist+2);ctx.fillStyle=model.parts.pants.color;ctx.fillRect(-w/2,-7,w,24);patch(pants,0,0,1,.24,-w/2,-8,w,27);}
  }
  if(has('top'))torso(top,true);
- if(has('accessory')&&model.parts.accessory.styleId==='cloak'){const im=texture('accessory'),w=2*(fit.shoulder+12);ctx.drawImage(im,-w/2,-84,w,104);}
+ if(view.column>=3)drawCloak();
  drawLimb(front,false,true);
  if(has('accessory')&&['scarf','satchel','pendant','pouch','belt'].includes(model.parts.accessory.styleId)){
   const style=model.parts.accessory.styleId;
   if(style==='satchel'){
    ctx.strokeStyle='#3b3026';ctx.lineWidth=6;ctx.beginPath();ctx.moveTo(-fit.shoulder+7,-76);ctx.lineTo(fit.waist-5,8);ctx.stroke();ctx.strokeStyle=model.parts.accessory.color;ctx.lineWidth=3;ctx.stroke();
    ctx.drawImage(texture('accessory'),fit.waist-18,-16,33,42);
-  }else {const sizes:Record<string,[number,number,number,number]>={scarf:[-fit.shoulder-4,-91,2*(fit.shoulder+4),60],pendant:[-17,-82,34,40],pouch:[fit.waist-18,-18,35,35],belt:[-fit.waist-5,-16,2*(fit.waist+5),24]};ctx.drawImage(texture('accessory'),...sizes[style]);}
+  }else if(style!=='pendant'||view.column<=2){const sizes:Record<string,[number,number,number,number]>={scarf:[-fit.shoulder-4,-91,2*(fit.shoulder+4),60],pendant:[-17,-82,34,40],pouch:[fit.waist-18,-18,35,35],belt:[-fit.waist-5,-16,2*(fit.waist+5),24]};ctx.drawImage(texture('accessory'),...sizes[style]);}
  }
  ctx.save();headTransform();
  if(has('face')){ctx.drawImage(texture('face'),-30,-67,60,73);expression(ctx,options.expression??'neutral',direction,model.parts.face.color);}
@@ -126,7 +131,7 @@ function drawRaw(model:DeepReadonly<Appearance>,gender:Gender,options:MotionRend
   ctx.save();if(view.column<3){ctx.beginPath();ctx.rect(-90,-180,180,142);if(profile)ctx.rect(-90,-38,90,130);ctx.clip();}drawHair();ctx.restore();
  }
  if(has('accessory')&&['glasses','earring','headband'].includes(model.parts.accessory.styleId)){
-  const boxes:Record<string,[number,number,number,number]>={glasses:[-25,-42,50,20],earring:[[26,-22,-8,18,26][view.column],-32,8,17],headband:[-33,-68,66,30]};if(view.column<4||model.parts.accessory.styleId!=='glasses')ctx.drawImage(texture('accessory'),...boxes[model.parts.accessory.styleId]);
+  const boxes:Record<string,[number,number,number,number]>={glasses:[-25,-42,50,20],earring:[[26,-22,-8,18,26][view.column],-32,8,17],headband:[-33,-68,66,30]};if(view.column<=2||model.parts.accessory.styleId!=='glasses')ctx.drawImage(texture('accessory'),...boxes[model.parts.accessory.styleId]);
  }
  ctx.restore();ctx.restore();
  if(options.effects!==false){

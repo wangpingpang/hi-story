@@ -37,12 +37,41 @@ try{
   return cases.map(test=>{const model=structuredClone(base);for(const [slot,id] of Object.entries(test.parts))model.parts[slot].styleId=id;const frame=window.__fitArt.renderCharacterMotionFrame(model,test.gender,{...test,effects:false}),result=components(frame);frame.width=0;let staticEdge=0;if(test.suite==='hair'&&test.direction==='S'){const still=window.__staticArt.assembleCharacterCanvas(model,test.gender);staticEdge=components(still).edge;still.width=0;}return {...test,...result,staticEdge};});
  },{cases:cases.slice(i,i+64),base});metrics.push(...batch);}
  const pages=[];
+ // Pixel regressions for directional attachment visibility. Connectivity alone
+ // cannot detect a pendant painted on the back or a cape covering the chest.
+ const attachmentChecks=await page.evaluate(({base})=>{
+  const checks=[];
+  const pixels=(model,gender,options)=>window.__fitArt.renderCharacterMotionFrame(model,gender,options).getContext('2d').getImageData(0,0,384,384).data;
+  for(const gender of ['male','female'])for(const direction of ['S','SE','E','NE','N','NW','W','SW'])for(const action of ['stand','walk','wave','cast'])for(const progress of [.25,.75]){
+   const model=structuredClone(base),options={action,direction,progress,effects:false};model.parts.accessory.styleId='none';const bare=pixels(model,gender,options);
+   for(const accessory of ['pendant','glasses']){
+    model.parts.accessory.styleId=accessory;const worn=pixels(model,gender,options);let changed=0;
+    for(let i=0;i<bare.length;i+=4)if(bare[i]!==worn[i]||bare[i+1]!==worn[i+1]||bare[i+2]!==worn[i+2]||bare[i+3]!==worn[i+3])changed++;
+    const rear=['NE','N','NW'].includes(direction);
+    checks.push({gender,direction,action,progress,accessory,changed,pass:rear?changed===0:changed>0});
+   }
+  }
+  for(const gender of ['male','female'])for(const direction of ['S','N']){
+   const model=structuredClone(base),options={action:'stand',direction,effects:false};model.parts.accessory.styleId='none';const bare=pixels(model,gender,options),top=pixels(model,gender,{...options,layers:['top']});
+   model.parts.accessory.styleId='cloak';const worn=pixels(model,gender,options);let changed=0,coveredTop=0;
+   for(let y=1;y<383;y++)for(let x=1;x<383;x++){
+    const i=(y*384+x)*4,delta=bare[i]!==worn[i]||bare[i+1]!==worn[i+1]||bare[i+2]!==worn[i+2]||bare[i+3]!==worn[i+3];if(!delta)continue;changed++;
+    // Erode the mask to exclude antialiasing at texture boundaries.
+    if(top[i+3]===255&&top[i-4+3]===255&&top[i+4+3]===255&&top[i-384*4+3]===255&&top[i+384*4+3]===255)coveredTop++;
+   }
+   checks.push({gender,direction,accessory:'cloak',changed,coveredTop,pass:changed>50&&(direction==='S'?coveredTop===0:coveredTop>50)});
+  }
+  return checks;
+ },{base});
+ await writeFile(resolve(output,'attachment-checks.json'),JSON.stringify({checks:attachmentChecks},null,2)+'\n');
+ if(opts.renderer==='current'&&attachmentChecks.some(c=>!c.pass))throw Error('方向饰品遮挡检查未通过，查看 attachment-checks.json');
  function modelFor(parts){const m=structuredClone(base);for(const [slot,id] of Object.entries(parts))m.parts[slot].styleId=id;return m;}
  for(const gender of ['male','female'])pages.push({name:`body-${gender}.png`,columns:8,tiles:['S','SE','E','N'].flatMap(direction=>catalog.body.styles.map(s=>({model:modelFor({body:s.id}),gender,direction,action:'stand',progress:0,label:`${s.label} / ${direction}`})))});
  pages.push({name:'outfits.png',columns:6,tiles:catalog.top.styles.flatMap((s,i)=>['S','E','wave','sit'].map(view=>({model:modelFor({top:s.id,pants:catalog.pants.styles[i].id,body:catalog.body.styles[i%8].id}),gender:i%2?'female':'male',action:view==='S'||view==='E'?'stand':view,direction:view==='E'?'E':'S',progress:.4,label:`${s.label} / ${view}`})))});
  pages.push({name:'hair-face.png',columns:12,head:true,tiles:catalog.face.styles.flatMap(face=>catalog.hair.styles.map(hair=>({model:modelFor({hair:hair.id,face:face.id}),gender:'female',direction:'S',action:'stand',progress:0,label:`${hair.label} / ${face.label}`})))});
  pages.push({name:'hair-directions.png',columns:12,head:true,tiles:['S','SE','E','NE','N'].flatMap(direction=>catalog.hair.styles.map(hair=>({model:modelFor({hair:hair.id}),gender:'female',direction,action:'stand',progress:0,label:`${hair.label} / ${direction}`})))});
  pages.push({name:'accessories.png',columns:6,tiles:catalog.accessory.styles.flatMap(s=>['S','E','N'].map(direction=>({model:modelFor({accessory:s.id}),gender:'female',direction,action:'stand',progress:0,label:`${s.label} / ${direction}`})))});
+ pages.push({name:'attachment-motion.png',columns:8,tiles:['cloak','pendant','glasses'].flatMap(accessory=>['stand','walk','wave','cast'].flatMap(action=>api.DIRECTIONS.map(direction=>({model:modelFor({accessory}),gender:'female',direction,action,progress:.4,spell:'summon',label:`${accessory}/${action}/${direction}`}))))});
  for(const direction of ['S','E','N'])pages.push({name:`pants-shoes-${direction}.png`,columns:8,lower:true,tiles:catalog.pants.styles.flatMap(pants=>catalog.shoes.styles.map((shoe,i)=>({model:modelFor({pants:pants.id,shoes:shoe.id,body:i%2?'slim':'heavy'}),gender:i%2?'female':'male',direction,action:'stand',progress:0,label:`${pants.label} / ${shoe.label}`})))});
  const ranked=metrics.filter(m=>m.components.length>1).sort((a,b)=>(b.components[1]?.pixels??0)-(a.components[1]?.pixels??0));
  pages.push({name:'joint-cases.png',columns:6,tiles:ranked.slice(0,24).map(m=>({...m,model:modelFor(m.parts),label:`${m.gender}/${m.parts.body}/${m.action}/${m.direction}`}))});
@@ -52,7 +81,7 @@ try{
  }
  for(const spec of pages){const data=await page.evaluate(spec=>{const tileW=spec.comparison?256:spec.head?160:192,tileH=spec.comparison?292:spec.head||spec.lower?200:218,c=document.createElement('canvas');c.width=tileW*spec.columns;c.height=tileH*Math.ceil(spec.tiles.length/spec.columns)+40;const ctx=c.getContext('2d');ctx.imageSmoothingEnabled=false;ctx.fillStyle='#eee9df';ctx.fillRect(0,0,c.width,c.height);ctx.fillStyle='#315346';ctx.font='18px "Noto Sans CJK SC",sans-serif';ctx.fillText(spec.comparison?'人物组件贴合 · 修复前后对比':'人物装配检查 · '+spec.name,16,27);
   spec.tiles.forEach((t,i)=>{const x=i%spec.columns*tileW,y=40+Math.floor(i/spec.columns)*tileH;ctx.fillStyle='#faf7ef';ctx.fillRect(x+3,y+3,tileW-6,tileH-6);const renderer=t.phase==='before'?window.__fitBefore:window.__fitArt,frame=renderer.renderCharacterMotionFrame(t.model,t.gender,{...t,effects:false});if(spec.comparison&&t.head)ctx.drawImage(frame,135,45,114,154,x+20,y+5,216,255);else if(spec.head)ctx.drawImage(frame,135,45,114,154,x+10,y+5,140,180);else if(spec.lower)ctx.drawImage(frame,120,210,144,134,x+4,y+5,184,171);else ctx.drawImage(frame,x,y,tileW,tileW);frame.width=0;ctx.fillStyle=t.phase==='before'?'#986754':'#315346';ctx.textAlign='center';ctx.font=(spec.comparison?'14':'11')+'px "Noto Sans CJK SC",sans-serif';ctx.fillText(t.label,x+tileW/2,y+tileH-10,tileW-8);ctx.textAlign='left';});return c.toDataURL('image/png');},spec);await writeFile(resolve(output,spec.name),Buffer.from(data.split(',')[1],'base64'));}
- const summary={mode:opts.visualOnly==='yes'?'visual-only':'full',renderer:opts.renderer,frames:metrics.length,motionFrames:metrics.filter(m=>m.suite==='motion').length,hairFrames:metrics.filter(m=>m.suite==='hair').length,majorDisconnectedFrames:ranked.length,edgeContactFrames:metrics.filter(m=>m.edge>0).length,staticEdgeContactFrames:metrics.filter(m=>m.staticEdge>0).length,largestDetachedPixels:ranked[0]?.components[1]?.pixels??0,coverage:{genders:2,bodies:8,directions:8,actions:Object.keys(api.ACTIONS).length,hairStyles:12,staticFrames:192,walkPhases:4},visualSheets:pages.map(p=>p.name)};
+ const summary={attachmentChecks:attachmentChecks.length,attachmentFailures:attachmentChecks.filter(c=>!c.pass).length,mode:opts.visualOnly==='yes'?'visual-only':'full',renderer:opts.renderer,frames:metrics.length,motionFrames:metrics.filter(m=>m.suite==='motion').length,hairFrames:metrics.filter(m=>m.suite==='hair').length,majorDisconnectedFrames:ranked.length,edgeContactFrames:metrics.filter(m=>m.edge>0).length,staticEdgeContactFrames:metrics.filter(m=>m.staticEdge>0).length,largestDetachedPixels:ranked[0]?.components[1]?.pixels??0,coverage:{genders:2,bodies:8,directions:8,actions:Object.keys(api.ACTIONS).length,hairStyles:12,staticFrames:192,walkPhases:4},visualSheets:pages.map(p=>p.name)};
  await writeFile(resolve(output,'results.json'),JSON.stringify({summary,cases:metrics},null,2)+'\n');console.log(JSON.stringify(summary,null,2));
  if(opts.visualOnly==='no'&&opts.renderer==='current'&&(summary.majorDisconnectedFrames||summary.edgeContactFrames||summary.staticEdgeContactFrames))throw Error('人物贴合检查未通过，查看 results.json 中的具体帧');
 }finally{if(needsBaseline){await rm(baselineFile,{force:true});await rm(baselineStatic,{force:true});}await browser?.close();await server.close();}

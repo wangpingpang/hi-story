@@ -1,0 +1,163 @@
+{
+  "status": "passed",
+  "sourceBase": "0357269887241b0dcf76b61ff058df87d8043f37",
+  "checkedAt": "2026-10-16T16:35:55.720Z",
+  "uniqueBrowserCases": 12,
+  "fullDomainSuiteRerun": false,
+  "checks": [
+    "typecheck",
+    "boundaries",
+    "build",
+    "diff"
+  ],
+  "sourceSHA256": {
+    "src/presentation/world-scene.ts": "a53bc11613d35cc31aa421386faaa987ee2183db6b7903b381c88f32c63db89f",
+    "tests/e2e/scene-responsiveness.spec.ts": "97baf02bf44bbddff37c6ef3ea5ba5d77c71e67faa55f650e613f04dbe407e2c"
+  },
+  "batches": [
+    {
+      "name": "freeze-camera-browser.json",
+      "stats": {
+        "startTime": "2026-10-16T16:34:38.695Z",
+        "duration": 49488.655999999995,
+        "expected": 10,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "人物在移动的每帧保持居中，拖动不脱离，缩放和屏幕变化仍居中",
+          "project": "desktop",
+          "status": "passed",
+          "duration": 25352,
+          "retry": 0
+        },
+        {
+          "title": "自动步行和战术移动同样跟随人物，退出战斗后恢复世界人物中心",
+          "project": "desktop",
+          "status": "passed",
+          "duration": 9406,
+          "retry": 0
+        },
+        {
+          "title": "人物在移动的每帧保持居中，拖动不脱离，缩放和屏幕变化仍居中",
+          "project": "narrow",
+          "status": "passed",
+          "duration": 21970,
+          "retry": 0
+        },
+        {
+          "title": "自动步行和战术移动同样跟随人物，退出战斗后恢复世界人物中心",
+          "project": "narrow",
+          "status": "passed",
+          "duration": 8485,
+          "retry": 0
+        },
+        {
+          "title": "连续行走保留地图和 HUD 节点，停止输入后不继续移动",
+          "project": "desktop",
+          "status": "passed",
+          "duration": 5237,
+          "retry": 0
+        },
+        {
+          "title": "点击 NPC 实际步行至相邻处，交谈与检定只结算一次，刷新保留结果",
+          "project": "desktop",
+          "status": "passed",
+          "duration": 5723,
+          "retry": 0
+        },
+        {
+          "title": "Esc 取消靠近人物；触摸方向键持续行走并在松开后停止",
+          "project": "desktop",
+          "status": "passed",
+          "duration": 5543,
+          "retry": 0
+        },
+        {
+          "title": "连续行走保留地图和 HUD 节点，停止输入后不继续移动",
+          "project": "narrow",
+          "status": "passed",
+          "duration": 3974,
+          "retry": 0
+        },
+        {
+          "title": "点击 NPC 实际步行至相邻处，交谈与检定只结算一次，刷新保留结果",
+          "project": "narrow",
+          "status": "passed",
+          "duration": 4679,
+          "retry": 0
+        },
+        {
+          "title": "Esc 取消靠近人物；触摸方向键持续行走并在松开后停止",
+          "project": "narrow",
+          "status": "passed",
+          "duration": 4434,
+          "retry": 0
+        }
+      ]
+    },
+    {
+      "name": "freeze-real-browser.json",
+      "stats": {
+        "startTime": "2026-10-16T16:35:55.720Z",
+        "duration": 44592.313,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "慢速设备仍可响应：静态场景复用、真实移动停止、菜单和刷新恢复",
+          "project": "desktop",
+          "status": "passed",
+          "duration": 22658,
+          "retry": 0,
+          "measurement": {
+            "cpuSlowdown": 4,
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "idle": {
+              "frames": 19,
+              "imageCalls": 456,
+              "meanImageCalls": 24,
+              "maxHeartbeatGap": 141.20000000298023,
+              "liveProps": 20
+            },
+            "menuLatency": 753,
+            "moveRevisions": 4,
+            "errors": []
+          }
+        },
+        {
+          "title": "慢速设备仍可响应：静态场景复用、真实移动停止、菜单和刷新恢复",
+          "project": "narrow",
+          "status": "passed",
+          "duration": 20243,
+          "retry": 0,
+          "measurement": {
+            "cpuSlowdown": 4,
+            "viewport": {
+              "width": 375,
+              "height": 812
+            },
+            "idle": {
+              "frames": 19,
+              "imageCalls": 456,
+              "meanImageCalls": 24,
+              "maxHeartbeatGap": 82.60000000149012,
+              "liveProps": 20
+            },
+            "menuLatency": 234,
+            "moveRevisions": 5,
+            "errors": []
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,5 +1,9 @@
 # 六模块开发任务与交接
 
+## 2026-10-18 人物附加阴影
+
+`codex/fix-character-shadow` 接续7a67f8a。探索与战斗移除我们额外绘制的实心角色阴影/CSS投影，保留原素材阴影及金/红描边标记圈。只改显示，不修改原图集或规则；检查见 [验证记录](character-shadow-validation.md)，线上仍v0.5.0。
+
 ## 2026-10-18 双侧成员与手动骰子
 
 分支 `codex/battle-side-dice` 从725d78e继续。队友在左/红色敌人在右，dice-feedback/3按实际掷骰者actorId与side在状态栏内侧显示小面板；没有全屏遮罩，结果和回看均手动关闭。技能目标豁免、同名人物和战后结果归属有检查，busy仍防重复操作。仅改投影/表现，不新增伙伴或改运行器数值，产品0.6.0/schema5/save1保持。验证见 [本轮记录](battle-side-dice-validation.md)，线上仍v0.5.0。

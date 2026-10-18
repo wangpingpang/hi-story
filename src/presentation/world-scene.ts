@@ -153,7 +153,8 @@ export class WorldScene{
    if(s.runtime.encounter?.status==='active'&&s.runtime.encounter.participants.some(p=>p.actorId===actor.actorId))continue;
    if(!visible.has(gridKey(actor.position)))continue;const actual=actor.actorId===s.playerActorId?this.actor:actor.position,p=projectIso(actual.x,actual.y,worldHeight(s,actor.position));
    entries.push({depth:actual.x+actual.y+.2,draw:()=>{
-    ctx.fillStyle='#0a201b80';ctx.beginPath();ctx.ellipse(p.x,p.y+2,11,5,0,0,7);ctx.fill();if(actor.actorId===s.playerActorId){ctx.strokeStyle='#e8c77ba0';ctx.lineWidth=1.2;ctx.beginPath();ctx.ellipse(p.x,p.y+3,14,6,0,0,7);ctx.stroke();}
+    // Imported frames already contain their ground shadow; only add the player marker.
+    if(actor.actorId===s.playerActorId){ctx.strokeStyle='#e8c77ba0';ctx.lineWidth=1.2;ctx.beginPath();ctx.ellipse(p.x,p.y+3,14,6,0,0,7);ctx.stroke();}
     ctx.imageSmoothingEnabled=false;ctx.globalAlpha=actor.hp===0?.35:1;const motion=actorFrames.get(actor.actorId);
     if(motion){ctx.drawImage(motion.image,p.x-motion.pivot[0]/4,p.y-motion.pivot[1]/4,motion.image.width/4,motion.image.height/4);if(actor.actorId===s.playerActorId){this.canvas.dataset.motion=motion.action;this.canvas.dataset.direction=motion.direction;this.canvas.dataset.characterModel=motion.modelId;this.canvas.dataset.characterStatus=motion.status;this.canvas.dataset.sourceAction=String(motion.sourceAction);}if(motion.status==='error'){ctx.fillStyle='#f0ce9e';ctx.font='9px system-ui';ctx.textAlign='center';ctx.fillText('素材暂缺 · 自动重试',p.x,p.y+15);}}
     ctx.globalAlpha=1;ctx.imageSmoothingEnabled=true;ctx.font='10px system-ui';ctx.textAlign='center';ctx.lineWidth=3;ctx.strokeStyle='#14281f';const name=actor.actorId===s.playerActorId?'旅人':actor.profile.name;ctx.strokeText(name,p.x,p.y-69);ctx.fillStyle='#f0dfb4';ctx.fillText(name,p.x,p.y-69);

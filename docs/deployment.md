@@ -6,7 +6,7 @@
 
 [Pages 构建与部署 #39115009820](https://github.com/wangpingpang/hi-story/actions/runs/39115009820) completed/success。695 个公网文件逐一与验收清单比对 SHA-256 一致；1440×1000 和 375×812 实际选人、北向攻击、返回冒险、连续移动、人物居中和刷新恢复通过，无页面错误、HTTP 失败或请求失败。详细验证见 `external-character-validation.md` 最新发布记录，本机证据在 `_handoff/audit/public-20261018/`。
 
-本轮只发布公开 `dist` 产物；源码维护分支 `codex/publish-character-library` 仍在本地，原始交接源码/归档分支未补推。下文为较早版本的历史发布记录。
+上述网站发布使用公开 `dist` 产物。后续源码同步入口为 [codex/publish-character-library](https://github.com/wangpingpang/hi-story/tree/codex/publish-character-library)，包含原始交接提交、Windows 修复与发布记录；原始交接/归档分支未单独补推。下文为较早版本的历史发布记录。
 
 公开地址：https://wangpingpang.github.io/hi-story/
 

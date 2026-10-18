@@ -62,4 +62,4 @@
 
 发布提交为 [`ce39953dd5b221c0550c5be73347b9b60bcbd1f1`](https://github.com/wangpingpang/hi-story/commit/ce39953dd5b221c0550c5be73347b9b60bcbd1f1)，位于 `gh-pages`；[Pages #39115009820](https://github.com/wangpingpang/hi-story/actions/runs/39115009820) completed/success。公开入口为 <https://wangpingpang.github.io/hi-story/?view=character-library>，线上 28 人/19 动作/8 方向与默认风格一/空手已核实。
 
-最终公网验证：695 个文件 SHA-256 一致；1440×1000 与 375×812 的名册、北向攻击、外形选择、返回冒险、实际连续移动、人物居中、刷新恢复和无横向溢出均通过，页面错误、HTTP 失败和请求失败均为 0。证据位于本机 `_handoff/audit/public-20261018/external-character-public-validation.json` 及同目录截图。原交接时“未发布/未运行 Windows”是历史状态；源码维护分支 `codex/publish-character-library` 及原交接/归档源码仍未推送，不能把本次静态网站发布当作全部源码同步。
+最终公网验证：695 个文件 SHA-256 一致；1440×1000 与 375×812 的名册、北向攻击、外形选择、返回冒险、实际连续移动、人物居中、刷新恢复和无横向溢出均通过，页面错误、HTTP 失败和请求失败均为 0。证据位于本机 `_handoff/audit/public-20261018/external-character-public-validation.json` 及同目录截图。原交接时“未发布/未运行 Windows”是历史状态。后续源码同步入口为 [codex/publish-character-library](https://github.com/wangpingpang/hi-story/tree/codex/publish-character-library)，保留原始交接提交及 Windows 修复；原交接/归档分支未单独补推，不能把主源码分支同步当作所有独立工坊均已同步。

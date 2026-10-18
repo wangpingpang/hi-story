@@ -2,7 +2,7 @@
 
 ## 2026-10-18 人物素材馆线上发布
 
-用户要求更新线上人物素材馆，本轮从交接包恢复并在本机 Windows/Node 24.16.0/Chrome 复验：336 项逻辑、22 项桌面/375px 浏览器检查、类型/边界/构建通过，695 文件与既有验收清单一致。`gh-pages@ce39953` 已发布 v0.5.0，Pages 39115009820 成功；695 个公网文件 SHA-256 及两种尺寸选人、动作、移动、居中、刷新恢复检查通过。源码维护分支为本地 `codex/publish-character-library`；原交接源码分支仍未推送。详细状态以 `docs/external-character-validation.md` 最新发布段落为准。内部交接资料仍保存在 Git 忽略的 `_handoff/`。
+用户要求更新线上人物素材馆，本轮从交接包恢复并在本机 Windows/Node 24.16.0/Chrome 复验：336 项逻辑、22 项桌面/375px 浏览器检查、类型/边界/构建通过，695 文件与既有验收清单一致。`gh-pages@ce39953` 已发布 v0.5.0，Pages 39115009820 成功；695 个公网文件 SHA-256 及两种尺寸选人、动作、移动、居中、刷新恢复检查通过。完整源码与发布记录使用 `codex/publish-character-library` 分支，保留原交接提交及 Windows 修复；原交接/归档分支未单独补推。详细状态以 `docs/external-character-validation.md` 最新记录为准。内部交接资料仍保存在 Git 忽略的 `_handoff/`。
 
 ## 2026-10-18 本地开发交接
 

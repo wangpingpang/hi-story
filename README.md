@@ -1,5 +1,7 @@
 # hi-story
 
+完整开发源码与发布记录：[codex/publish-character-library](https://github.com/wangpingpang/hi-story/tree/codex/publish-character-library)。该分支保留本地交接的原始提交历史，并包含 Windows 修复；`main` 仍仅有项目介绍。独立工坊的归档分支仍单独保留。
+
 2026-10-18 新版[人物素材馆](https://wangpingpang.github.io/hi-story/?view=character-library)已上线：28 人、19 类动作、8 个方向，默认风格一/空手；原人物工坊与动作工坊入口已转入新馆。发布提交 `ce39953`，695 个公网文件及桌面/375px 真实交互复验通过，详见 [v0.5.0 验收与发布](docs/external-character-validation.md)。
 
 本地继续开发入口：[Windows / macOS / Linux 本地开发](docs/local-development.md) · [GitHub 与跨会话材料核对](docs/local-handoff-audit.md)。2026-10-18 本地交接分支 `codex/local-development-handoff`（尚未推送）包含当前 v0.5.0 人物接入；`main` 仍是项目介绍，不能作为完整代码下载入口。内部动作/形态制作规范随私有交接材料保留，不上传公开仓库。

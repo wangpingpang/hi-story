@@ -10,9 +10,9 @@ export const worldGridKey=(p:{x:number;y:number}):string=>`${Math.round(p.x)},${
 const gridKey=worldGridKey;
 export function worldHeight(s:DeepReadonly<AdventureSnapshot>,p:{x:number;y:number}):number{return s.runtime.visual[gridKey(p)]?.height??0;}
 /** Follow the rendered body, so sprite interpolation never creates camera drift. */
-export function playerCameraFocus(s:DeepReadonly<AdventureSnapshot>,rendered=s.runtime.actors[s.playerActorId].position){
+export function playerCameraFocus(s:DeepReadonly<AdventureSnapshot>,rendered=s.runtime.actors[s.playerActorId].position,battleRendered?:{x:number;y:number}){
  const battle=s.runtime.encounter;
- if(battle?.status==='active'){const origin=battleSceneOrigin(s),p=battle.participants[0].position,screen=projectIso(p.x,p.y);return {x:origin.x+screen.x,y:origin.y+screen.y-38};}
+ if(battle?.status==='active'){const origin=battleSceneOrigin(s),p=battleRendered??battle.participants[0].position,screen=projectIso(p.x,p.y);return {x:origin.x+screen.x,y:origin.y+screen.y-38};}
  const p=projectIso(rendered.x,rendered.y,worldHeight(s,s.runtime.actors[s.playerActorId].position));return {x:p.x,y:p.y-32};
 }
 const labels:Record<string,string>={spawn:'旅人村落',notes:'旅行笔记',market:'商道营地',supply:'林间补给',shrine:'银月祭坛',cache:'遗迹锁箱',watch:'风蚀哨塔',gate:'坍塌捷径',goal:'暮光塔'};
@@ -39,6 +39,7 @@ export class WorldScene{
  readonly motionArt=new AdventureMotionArt();readonly canvas=document.createElement('canvas');
  private s?:DeepReadonly<AdventureSnapshot>;private svg?:SVGSVGElement;
  private camera={x:0,y:0,zoom:1};private target=this.camera;private actor={x:0,y:0};
+ private battleFocus?:{x:number;y:number};
  private frame=0;private stopped=false;private loaded=false;private artPending=true;private ground=document.createElement('canvas');private fog=document.createElement('canvas');private softFog=document.createElement('canvas');private cache='';private fogKey='';
  private propImages=new Map<string,HTMLCanvasElement>();
  private props:SceneProp[]=[];private sceneryLayer=document.createElement('canvas');
@@ -46,12 +47,13 @@ export class WorldScene{
  private offset={x:0,y:100};private lastTime=0;private paintCost=0;private dirty=true;
  constructor(){this.canvas.className='world-canvas';this.canvas.setAttribute('aria-hidden','true');this.canvas.dataset.art='loading';void loadWorldArt().then(()=>{this.loaded=true;this.cache='';this.propImages.clear();}).catch(()=>{this.canvas.dataset.error='art-load';}).finally(()=>{this.artPending=false;this.dirty=true;});this.frame=requestAnimationFrame(t=>this.paint(t));}
  setRoute(route:readonly {x:number;y:number}[]){this.route=route;this.dirty=true;}
+ setBattleFocus(point:{x:number;y:number}|undefined){if(this.battleFocus?.x===point?.x&&this.battleFocus?.y===point?.y)return;this.battleFocus=point;this.dirty=true;if(this.s&&this.svg?.isConnected)this.syncView(this.s);}
  setState(s:DeepReadonly<AdventureSnapshot>,camera:{x:number;y:number;zoom:number},svg:SVGSVGElement,weather:Weather){
   if(this.s?.runId!==s.runId){this.cache='';this.fogKey='';this.camera={...camera};this.actor={...s.runtime.actors[s.playerActorId].position};}
   this.s=s;this.target=camera;this.svg=svg;this.weather=weather;this.dirty=true;this.motionArt.observe(s);this.syncView(s);
  }
  private syncView(s:DeepReadonly<AdventureSnapshot>){
-  const a=s.runtime.actors[s.playerActorId],focus=playerCameraFocus(s,this.actor);this.camera.x=focus.x;this.camera.y=focus.y;
+  const a=s.runtime.actors[s.playerActorId],focus=playerCameraFocus(s,this.actor,this.battleFocus);this.camera.x=focus.x;this.camera.y=focus.y;
   const svg=this.svg!,box=`${this.camera.x-innerWidth/this.camera.zoom/2} ${this.camera.y-innerHeight/this.camera.zoom/2} ${innerWidth/this.camera.zoom} ${innerHeight/this.camera.zoom}`;if(svg.getAttribute('viewBox')!==box)svg.setAttribute('viewBox',box);
   const hit=svg.querySelector<SVGGElement>('[data-actor="player"]');if(hit){const displayed=projectIso(this.actor.x,this.actor.y,worldHeight(s,a.position)),actual=projectIso(a.position.x,a.position.y,worldHeight(s,a.position)),transform=`translate(${displayed.x-actual.x} ${displayed.y-actual.y})`;if(hit.getAttribute('transform')!==transform)hit.setAttribute('transform',transform);}
  }

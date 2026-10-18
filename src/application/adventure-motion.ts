@@ -10,6 +10,8 @@ export class AdventureMotion {
  private now=0;
  private dialogueId='';
  dialogue(npcId:string){this.dialogueId=npcId;}
+ /** Restart reactions after route playback, using the same already-committed evidence. */
+ replayCommittedChanges(before:Snapshot,after:Snapshot,now:number){if(before.runId!==after.runId||this.previous?.runId!==after.runId)return;this.now=Math.max(this.now,now);for(const entry of this.actors.values())entry.animation=createAnimation(this.now);this.previous=before;this.observe(after,this.now);}
  observe(s:Snapshot,now:number){
   this.now=Math.max(this.now,now);if(this.previous?.runId!==s.runId){this.actors.clear();this.previous=undefined;}
   for(const a of Object.values(s.runtime.actors)){

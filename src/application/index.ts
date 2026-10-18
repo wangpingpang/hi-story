@@ -7,3 +7,7 @@ export type {DiceFeedback} from './dice-feedback';
 export type {AdventureEquipmentView,EquipmentItemView,EquipmentSlot,EquipmentCombatProfile} from './adventure-equipment';
 export {PROFESSION_COMBAT_OPTIONS_VERSION} from '../modules/runtime';
 export type {ProfessionSkillOption} from '../modules/runtime';
+
+export {COMBAT_MOVEMENT_VERSION} from '../modules/runtime';
+export type {CombatMovementFeedback} from '../modules/runtime';
+export {BattleMovementPlayback} from './battle-movement';

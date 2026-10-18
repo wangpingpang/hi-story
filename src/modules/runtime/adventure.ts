@@ -21,6 +21,9 @@ export const ARCHETYPES:Record<Archetype,{label:string;scores:number[];skills:Sk
 };
 export interface AdventureActor extends RuntimeActor {abilities:Record<Ability,number>;skills:Skill[];proficiency:number;archetype:Archetype;range:number;profession?:ProfessionRuntimeState;professionCombat?:ProfessionCombatProfile;equipmentCombat?:EquipmentCombatProfile}
 export interface CheckResult {id:string;skill:Skill;label:string;dc:number;dice:number[];mode:'normal'|'advantage'|'disadvantage';modifier:number;proficiency:number;total:number;success:boolean;targetId?:string}
+export const COMBAT_MOVEMENT_VERSION='combat-movement/1' as const;
+export interface CombatMovementRecord {actorId:string;path:Point[]}
+export interface CombatMovementFeedback {version:typeof COMBAT_MOVEMENT_VERSION;encounterId:string;moves:CombatMovementRecord[]}
 export interface Combatant {actorId:string;position:Point;initiative:number}
 export interface TacticalBattle {id:string;status:'active'|'victory'|'defeat'|'fled';round:number;participants:Combatant[];rng:number;movement:number;action:boolean;guard:boolean;log:string[];rewarded:boolean;obstacles:Point[];rollSequence?:number;rolls?:DiceRollRecord[]}
 export interface VisualCell {height:number;material:'grass'|'stone'|'earth'|'water';prop?:'tree'|'rock'|'wall'}
@@ -77,13 +80,15 @@ export function registerAdventureActor(state:AdventureRuntime,npc:{id:string;pro
 }
 function battleDie(b:TacticalBattle,sides:number):number {const r=nextDie(b.rng,sides);b.rng=r.rng;return r.value;}
 function playerTurn(b:TacticalBattle,professionMode=false){if(professionMode){b.movement=4;b.action=true;b.guard=false;b.log.push(`第 ${b.round} 回合：移动固定4格，行动 1。`);return;}const die=battleDie(b,4);b.movement=die+2;recordRoll(b,{kind:'movement',actorId:b.participants[0].actorId,sides:4,dice:[die],bonus:2,total:b.movement});b.action=true;b.guard=false;b.log.push(`第 ${b.round} 回合：移动 d4+2 = ${b.movement}，行动 1。`);}
-function enemyTurn(s:AdventureRuntime,phase: 'all'|'before'|'after'='all'):void {
+function enemyTurn(s:AdventureRuntime,phase: 'all'|'before'|'after'='all',moves:CombatMovementRecord[]=[]):void {
  const b=s.encounter!,player=s.actors[s.playerActorId],pc=b.participants[0];
  for(const enemy of [...b.participants.slice(1)].sort((a,c)=>c.initiative-a.initiative)){
   const actor=s.actors[enemy.actorId];if(actor.hp===0||(phase==='before'&&enemy.initiative<=pc.initiative)||(phase==='after'&&enemy.initiative>pc.initiative))continue;
+  const path=[{...enemy.position}];
   for(let i=0;i<(actor.profession?4:3)&&manhattan(enemy.position,pc.position)>adventureCombatStats(actor).range;i++){
-   const p=enemy.position;const candidates=[{x:p.x-1,y:p.y},{x:p.x+1,y:p.y},{x:p.x,y:p.y-1},{x:p.x,y:p.y+1}].filter(q=>q.x>=0&&q.x<9&&q.y>=0&&q.y<7&&!b.obstacles.some(o=>manhattan(o,q)===0)&&!b.participants.some(c=>s.actors[c.actorId].hp>0&&manhattan(c.position,q)===0)).sort((a,c)=>manhattan(a,pc.position)-manhattan(c,pc.position));if(candidates[0]&&manhattan(candidates[0],pc.position)<manhattan(p,pc.position))enemy.position=candidates[0];else break;
+   const p=enemy.position;const candidates=[{x:p.x-1,y:p.y},{x:p.x+1,y:p.y},{x:p.x,y:p.y-1},{x:p.x,y:p.y+1}].filter(q=>q.x>=0&&q.x<9&&q.y>=0&&q.y<7&&!b.obstacles.some(o=>manhattan(o,q)===0)&&!b.participants.some(c=>s.actors[c.actorId].hp>0&&manhattan(c.position,q)===0)).sort((a,c)=>manhattan(a,pc.position)-manhattan(c,pc.position));if(candidates[0]&&manhattan(candidates[0],pc.position)<manhattan(p,pc.position)){enemy.position=candidates[0];path.push({...enemy.position});}else break;
   }
+  if(path.length>1){moves.push({actorId:actor.actorId,path});b.log.push(`${actor.profile.name}移动${path.length-1}格。`);}
   if(manhattan(enemy.position,pc.position)<=adventureCombatStats(actor).range){for(let hit=0;hit<professionBasicAttackCount(actor)&&player.hp>0;hit++)strike(s,actor,player,b.guard?2:0);}else b.log.push(`${actor.profile.name}调整站位。`);
   if(player.hp===0){b.status='defeat';b.log.push('你倒下了，冒险结束。');break;}
  }
@@ -104,15 +109,27 @@ export function beginEncounter(state:AdventureRuntime,enemyIds:string[],id:strin
  if(b.participants.slice(1).some(e=>e.initiative>b.participants[0].initiative))enemyTurn(next,'before');
  if(b.status==='active')playerTurn(b,Boolean(next.professionVersion));return next;
 }
-export function combatReachable(s:AdventureRuntime,to:Point):number|null {
- const b=s.encounter!;const from=b.participants[0].position,queue:[Point,number][]=[[from,0]],seen=new Set([positionKey(from)]);
- for(let i=0;i<queue.length;i++){const [p,n]=queue[i];if(manhattan(p,to)===0)return n;if(n>=b.movement)continue;for(const q of [{x:p.x-1,y:p.y},{x:p.x+1,y:p.y},{x:p.x,y:p.y-1},{x:p.x,y:p.y+1}])if(q.x>=0&&q.x<9&&q.y>=0&&q.y<7&&!seen.has(positionKey(q))&&!b.obstacles.some(o=>manhattan(o,q)===0)&&!b.participants.slice(1).some(c=>s.actors[c.actorId].hp>0&&manhattan(c.position,q)===0)){seen.add(positionKey(q));queue.push([q,n+1]);}}
+/** One BFS supplies both legality/cost and the exact player movement path. */
+export function combatRoute(s:AdventureRuntime,to:Point):Point[]|null {
+ const b=s.encounter;if(b?.status!=='active')return null;
+ const from=b.participants[0].position,queue=[from],parents=new Map<string,Point|null>([[positionKey(from),null]]),costs=new Map([[positionKey(from),0]]);
+ for(let i=0;i<queue.length;i++){
+  const p=queue[i],n=costs.get(positionKey(p))!;
+  if(manhattan(p,to)===0){const path:Point[]=[];let cursor:Point|null=p;while(cursor){path.unshift({...cursor});cursor=parents.get(positionKey(cursor))!;}return path;}
+  if(n>=b.movement)continue;
+  for(const q of [{x:p.x-1,y:p.y},{x:p.x+1,y:p.y},{x:p.x,y:p.y-1},{x:p.x,y:p.y+1}])if(q.x>=0&&q.x<9&&q.y>=0&&q.y<7&&!parents.has(positionKey(q))&&!b.obstacles.some(o=>manhattan(o,q)===0)&&!b.participants.slice(1).some(c=>s.actors[c.actorId].hp>0&&manhattan(c.position,q)===0)){parents.set(positionKey(q),p);costs.set(positionKey(q),n+1);queue.push(q);}
+ }
  return null;
 }
-export function tacticalAction(state:AdventureRuntime,action:'move'|'attack'|'defend'|'end'|'flee'|'use',target?:string|Point):AdventureRuntime {
+export function combatReachable(s:AdventureRuntime,to:Point):number|null {const path=combatRoute(s,to);return path?path.length-1:null;}
+export function tacticalAction(state:AdventureRuntime,action:'move'|'attack'|'defend'|'end'|'flee'|'use',target?:string|Point):AdventureRuntime {return tacticalActionWithMovement(state,action,target).runtime;}
+export function tacticalActionWithMovement(state:AdventureRuntime,action:'move'|'attack'|'defend'|'end'|'flee'|'use',target?:string|Point):{runtime:AdventureRuntime;movement:CombatMovementFeedback}{
+ const moves:CombatMovementRecord[]=[],runtime=applyTacticalAction(state,action,target,moves);return {runtime,movement:{version:COMBAT_MOVEMENT_VERSION,encounterId:runtime.encounter!.id,moves}};
+}
+function applyTacticalAction(state:AdventureRuntime,action:'move'|'attack'|'defend'|'end'|'flee'|'use',target:string|Point|undefined,moves:CombatMovementRecord[]):AdventureRuntime {
  const next=structuredClone(state),b=next.encounter;requireValue(b?.status==='active','NO_BATTLE','当前没有战斗。');
- if(action==='move'){requireValue(target&&typeof target==='object'&&Number.isInteger(target.x)&&Number.isInteger(target.y),'INVALID_TARGET','移动坐标无效。');const cost=combatReachable(next,target);requireValue(cost!==null&&cost>0&&cost<=b.movement,'INVALID_TARGET','超出本回合可移动范围。');b.participants[0].position={...target};b.movement-=cost;return next;}
- if(action==='end'){enemyTurn(next,'after');if(b.status==='active'){b.round++;enemyTurn(next,'before');if(b.status==='active')playerTurn(b,Boolean(next.professionVersion));}return next;}
+ if(action==='move'){requireValue(target&&typeof target==='object'&&Number.isInteger(target.x)&&Number.isInteger(target.y),'INVALID_TARGET','移动坐标无效。');const path=combatRoute(next,target),cost=path?path.length-1:0;requireValue(path&&cost>0&&cost<=b.movement,'INVALID_TARGET','超出本回合可移动范围。');moves.push({actorId:next.playerActorId,path});b.participants[0].position={...target};b.movement-=cost;b.log.push(`${next.actors[next.playerActorId].profile.name}移动${cost}格。`);return next;}
+ if(action==='end'){enemyTurn(next,'after',moves);if(b.status==='active'){b.round++;enemyTurn(next,'before',moves);if(b.status==='active')playerTurn(b,Boolean(next.professionVersion));}return next;}
  if(action==='flee'){requireValue(b.action,'NO_ACTION','本回合行动已用完。');const die=battleDie(b,20),bonus=abilityModifier(next.actors[next.playerActorId].abilities.dex)+(next.professionVersion?next.actors[next.playerActorId].proficiency:2);recordRoll(b,{kind:'escape',actorId:next.playerActorId,sides:20,dice:[die],bonus,total:die+bonus,threshold:10,success:die+bonus>=10});b.action=false;if(die+bonus>=10){b.status='fled';b.log.push(`逃离 d20 ${die} + ${bonus} ≥ 10，成功。`);}else b.log.push(`逃离 d20 ${die} + ${bonus} < 10，失败，可结束回合再尝试。`);return next;}
  requireValue(b.action,'NO_ACTION','本回合行动已用完。');
  if(action==='defend'){b.guard=true;b.log.push('防御姿态：本轮敌方攻击 AC +2。');}

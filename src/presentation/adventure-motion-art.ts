@@ -35,12 +35,12 @@ export class AdventureMotionArt {
   c.drawImage(atlas,x,y,w,h,...geometry.target);const value={image,pivot:geometry.pivot};this.frames.set(key,value);while(this.frames.size>48)this.frames.delete(this.frames.keys().next().value!);
   return {...value,resolved};
  }
- frame(actorId:string,now:number,weather='sun'){
+ frame(actorId:string,now:number,weather='sun',running?:{direction:typeof SPRITE_DIRECTIONS[number];elapsedMs:number}){
   const f=this.motion.frame(actorId,now,weather==='snow'?'cold':weather==='mist'?'dark':'normal');if(!f)return;
-  const modelId=this.modelId(actorId),mapped=mapGameAction(f.action),manifest=peekCharacterModel(modelId),directionId=SPRITE_DIRECTIONS.indexOf(f.direction),duration=manifest?.clips[`${mapped.id}:${directionId}`]?.durationMs??1000;
-  const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches,time=mapped.holdLast?duration:reduced?0:mapped.loop?now:f.progress*duration;
+  const direction=running?.direction??f.direction,modelId=this.modelId(actorId),mapped=running?{id:3,loop:true,substitute:false,holdLast:false}:mapGameAction(f.action),manifest=peekCharacterModel(modelId),directionId=SPRITE_DIRECTIONS.indexOf(direction),duration=manifest?.clips[`${mapped.id}:${directionId}`]?.durationMs??1000;
+  const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches,time=mapped.holdLast?duration:reduced?0:running?running.elapsedMs:mapped.loop?now:f.progress*duration;
   const sprite=this.sprite(modelId,mapped.id,directionId,time,mapped.loop),failed=[`model:${modelId}`,'catalog',manifest?.clips[`${mapped.id}:${directionId}`]?.atlasUrl??''].some(key=>this.failures.has(key));
-  return {image:sprite?.image??this.missing(),pivot:sprite?.pivot??[192,329] as [number,number],action:f.action,direction:f.direction,expression:f.expression,modelId,sourceAction:sprite?.resolved.actionId??mapped.id,substitute:mapped.substitute||sprite?.resolved.fallback===true,status:sprite?'ready':failed?'error':'loading'};
+  return {image:sprite?.image??this.missing(),pivot:sprite?.pivot??[192,329] as [number,number],action:running?'run':f.action,direction,expression:f.expression,modelId,sourceAction:sprite?.resolved.actionId??mapped.id,substitute:mapped.substitute||sprite?.resolved.fallback===true,status:sprite?'ready':failed?'error':'loading'};
  }
  url(image:HTMLCanvasElement){let url=this.urls.get(image);if(!url){url=image.toDataURL('image/png');this.urls.set(image,url);}return url;}
  portrait(actorId:string){

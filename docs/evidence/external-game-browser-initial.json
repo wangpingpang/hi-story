@@ -1,0 +1,1057 @@
+{
+  "config": {
+    "argv": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+      "/workspace/scratch/6124a4d32ae4/hi-story/node_modules/.bin/playwright",
+      "test",
+      "tests/e2e/character-library.spec.ts",
+      "tests/e2e/external-character-game.spec.ts",
+      "tests/e2e/player-camera.spec.ts",
+      "tests/e2e/scene-responsiveness.spec.ts",
+      "tests/e2e/v030.spec.ts",
+      "--grep",
+      "人物名册|快速换人物|图集读取|旧入口|选择旅人|新冒险只加载|人物在移动|自动步行和战术|慢速设备|离开实际战斗",
+      "--output=/tmp/external-browser-results"
+    ],
+    "configFile": "/workspace/scratch/6124a4d32ae4/hi-story/playwright.config.ts",
+    "rootDir": "/workspace/scratch/6124a4d32ae4/hi-story/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/tmp/external-browser-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "/workspace/scratch/6124a4d32ae4/hi-story/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/tmp/external-browser-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "narrow",
+        "name": "narrow",
+        "testDir": "/workspace/scratch/6124a4d32ae4/hi-story/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 90000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/tmp/external-browser-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "desktop",
+        "testDir": "/workspace/scratch/6124a4d32ae4/hi-story/tests/e2e",
+        "snapshotDir": "/workspace/scratch/6124a4d32ae4/hi-story/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 90000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4173",
+          "launchOptions": {
+            "executablePath": "/tmp/chromium",
+            "args": [
+              "--no-sandbox"
+            ]
+          },
+          "trace": "retain-on-failure",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/tmp/external-browser-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "narrow",
+        "testDir": "/workspace/scratch/6124a4d32ae4/hi-story/tests/e2e",
+        "snapshotDir": "/workspace/scratch/6124a4d32ae4/hi-story/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 90000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4173",
+          "launchOptions": {
+            "executablePath": "/tmp/chromium",
+            "args": [
+              "--no-sandbox"
+            ]
+          },
+          "trace": "retain-on-failure",
+          "viewport": {
+            "width": 375,
+            "height": 812
+          },
+          "isMobile": true,
+          "hasTouch": true
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "narrow"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "/tmp/external-browser-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.0",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run preview -- --host 127.0.0.1 --port 4173 --strictPort",
+      "url": "http://127.0.0.1:4173",
+      "reuseExistingServer": false
+    }
+  },
+  "suites": [
+    {
+      "title": "character-library.spec.ts",
+      "file": "character-library.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "人物名册、真实动画、八向预览和暂停在桌面与窄屏可用",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2028,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-17T18:52:42.213Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fed06240f694adb6daf1-c967101a2aba04460701",
+          "file": "character-library.spec.ts",
+          "line": 6,
+          "column": 1
+        },
+        {
+          "title": "快速换人物时，较早的加载结果不能覆盖最后选择",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 799,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-17T18:52:44.356Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fed06240f694adb6daf1-9dbb2d7d6b9848ccb069",
+          "file": "character-library.spec.ts",
+          "line": 29,
+          "column": 1
+        },
+        {
+          "title": "图集读取失败能重试，且不会显示上一个人物残帧",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 322,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-17T18:52:45.166Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fed06240f694adb6daf1-dc4caa140eda9ae3abe7",
+          "file": "character-library.spec.ts",
+          "line": 39,
+          "column": 1
+        },
+        {
+          "title": "旧入口 character-generator 已切换人物素材馆",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 246,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-17T18:52:45.515Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fed06240f694adb6daf1-1f3262637697660dd224",
+          "file": "character-library.spec.ts",
+          "line": 46,
+          "column": 63
+        },
+        {
+          "title": "旧入口 character-motion 已切换人物素材馆",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 256,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-17T18:52:45.770Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fed06240f694adb6daf1-b4f118938b118a267ba3",
+          "file": "character-library.spec.ts",
+          "line": 46,
+          "column": 63
+        },
+        {
+          "title": "选择旅人仅改变外观，返回后冒险位置和人物资料保留",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3227,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-17T18:52:46.037Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fed06240f694adb6daf1-f45a2d1fc327ca4ed5b7",
+          "file": "character-library.spec.ts",
+          "line": 51,
+          "column": 1
+        },
+        {
+          "title": "人物名册、真实动画、八向预览和暂停在桌面与窄屏可用",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1632,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-17T18:54:02.785Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fed06240f694adb6daf1-08ab75a0b9cda91fb42c",
+          "file": "character-library.spec.ts",
+          "line": 6,
+          "column": 1
+        },
+        {
+          "title": "快速换人物时，较早的加载结果不能覆盖最后选择",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 758,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-17T18:54:04.498Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fed06240f694adb6daf1-7f628e94b735d68ad7c8",
+          "file": "character-library.spec.ts",
+          "line": 29,
+          "column": 1
+        },
+        {
+          "title": "图集读取失败能重试，且不会显示上一个人物残帧",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 672,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-17T18:54:05.268Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fed06240f694adb6daf1-bd45e7f7c65539447efe",
+          "file": "character-library.spec.ts",
+          "line": 39,
+          "column": 1
+        },
+        {
+          "title": "旧入口 character-generator 已切换人物素材馆",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 274,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-17T18:54:05.953Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fed06240f694adb6daf1-8741ffec5b3b7e1a1260",
+          "file": "character-library.spec.ts",
+          "line": 46,
+          "column": 63
+        },
+        {
+          "title": "旧入口 character-motion 已切换人物素材馆",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 271,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-17T18:54:06.236Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fed06240f694adb6daf1-e1d22dbb2ed676cb0ff7",
+          "file": "character-library.spec.ts",
+          "line": 46,
+          "column": 63
+        },
+        {
+          "title": "选择旅人仅改变外观，返回后冒险位置和人物资料保留",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2775,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-17T18:54:06.516Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fed06240f694adb6daf1-db2178f5e9bb8c41f2aa",
+          "file": "character-library.spec.ts",
+          "line": 51,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "external-character-game.spec.ts",
+      "file": "external-character-game.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "新冒险只加载外部人物；切换外形保持规则进度与人物中心",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4889,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-17T18:52:49.294Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "model-requests",
+                      "contentType": "application/json",
+                      "body": "eyJtb2RlbHMiOlsicm9sZS0xMDI0Iiwicm9sZS0xMjE2Il0sInJlcXVlc3RzIjpbImh0dHA6Ly8xMjcuMC4wLjE6NDE3My9hc3NldHMvY2hhcmFjdGVycy9tb2xpYmFpa2Uvc291cmNlLWNhdGFsb2cuanNvbiIsImh0dHA6Ly8xMjcuMC4wLjE6NDE3My9hc3NldHMvY2hhcmFjdGVycy9tb2xpYmFpa2Uvcm9sZS0xMDI0L21hbmlmZXN0Lmpzb24iLCJodHRwOi8vMTI3LjAuMC4xOjQxNzMvYXNzZXRzL2NoYXJhY3RlcnMvbW9saWJhaWtlL3JvbGUtMTI0MC9tYW5pZmVzdC5qc29uIiwiaHR0cDovLzEyNy4wLjAuMTo0MTczL2Fzc2V0cy9jaGFyYWN0ZXJzL21vbGliYWlrZS9yb2xlLTEwMjQvYWN0aW9uLTAud2VicCIsImh0dHA6Ly8xMjcuMC4wLjE6NDE3My9hc3NldHMvY2hhcmFjdGVycy9tb2xpYmFpa2Uvcm9sZS0xMjQwL2FjdGlvbi0wLndlYnAiLCJodHRwOi8vMTI3LjAuMC4xOjQxNzMvYXNzZXRzL2NoYXJhY3RlcnMvbW9saWJhaWtlL3JvbGUtMTAyNC9hY3Rpb24tMS53ZWJwIiwiaHR0cDovLzEyNy4wLjAuMTo0MTczL2Fzc2V0cy9jaGFyYWN0ZXJzL21vbGliYWlrZS9zb3VyY2UtY2F0YWxvZy5qc29uIiwiaHR0cDovLzEyNy4wLjAuMTo0MTczL2Fzc2V0cy9jaGFyYWN0ZXJzL21vbGliYWlrZS9yb2xlLTEwMjQvbWFuaWZlc3QuanNvbiIsImh0dHA6Ly8xMjcuMC4wLjE6NDE3My9hc3NldHMvY2hhcmFjdGVycy9tb2xpYmFpa2Uvcm9sZS0xMjE2L21hbmlmZXN0Lmpzb24iLCJodHRwOi8vMTI3LjAuMC4xOjQxNzMvYXNzZXRzL2NoYXJhY3RlcnMvbW9saWJhaWtlL3JvbGUtMTI0MC9tYW5pZmVzdC5qc29uIiwiaHR0cDovLzEyNy4wLjAuMTo0MTczL2Fzc2V0cy9jaGFyYWN0ZXJzL21vbGliYWlrZS9yb2xlLTEyNDAvYWN0aW9uLTAud2VicCIsImh0dHA6Ly8xMjcuMC4wLjE6NDE3My9hc3NldHMvY2hhcmFjdGVycy9tb2xpYmFpa2Uvcm9sZS0xMjE2L2FjdGlvbi0wLndlYnAiXSwiZXJyb3JzIjpbXX0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a1015412f32b0a081748-5f30f7cf2e6261adcef6",
+          "file": "external-character-game.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "新冒险只加载外部人物；切换外形保持规则进度与人物中心",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4562,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-17T18:54:09.308Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "model-requests",
+                      "contentType": "application/json",
+                      "body": "eyJtb2RlbHMiOlsicm9sZS0xMDI0Iiwicm9sZS0xMjE2Il0sInJlcXVlc3RzIjpbImh0dHA6Ly8xMjcuMC4wLjE6NDE3My9hc3NldHMvY2hhcmFjdGVycy9tb2xpYmFpa2Uvc291cmNlLWNhdGFsb2cuanNvbiIsImh0dHA6Ly8xMjcuMC4wLjE6NDE3My9hc3NldHMvY2hhcmFjdGVycy9tb2xpYmFpa2Uvcm9sZS0xMDI0L21hbmlmZXN0Lmpzb24iLCJodHRwOi8vMTI3LjAuMC4xOjQxNzMvYXNzZXRzL2NoYXJhY3RlcnMvbW9saWJhaWtlL3JvbGUtMTI0MC9tYW5pZmVzdC5qc29uIiwiaHR0cDovLzEyNy4wLjAuMTo0MTczL2Fzc2V0cy9jaGFyYWN0ZXJzL21vbGliYWlrZS9yb2xlLTEwMjQvYWN0aW9uLTAud2VicCIsImh0dHA6Ly8xMjcuMC4wLjE6NDE3My9hc3NldHMvY2hhcmFjdGVycy9tb2xpYmFpa2Uvcm9sZS0xMjQwL2FjdGlvbi0wLndlYnAiLCJodHRwOi8vMTI3LjAuMC4xOjQxNzMvYXNzZXRzL2NoYXJhY3RlcnMvbW9saWJhaWtlL3JvbGUtMTAyNC9hY3Rpb24tMS53ZWJwIiwiaHR0cDovLzEyNy4wLjAuMTo0MTczL2Fzc2V0cy9jaGFyYWN0ZXJzL21vbGliYWlrZS9zb3VyY2UtY2F0YWxvZy5qc29uIiwiaHR0cDovLzEyNy4wLjAuMTo0MTczL2Fzc2V0cy9jaGFyYWN0ZXJzL21vbGliYWlrZS9yb2xlLTEwMjQvbWFuaWZlc3QuanNvbiIsImh0dHA6Ly8xMjcuMC4wLjE6NDE3My9hc3NldHMvY2hhcmFjdGVycy9tb2xpYmFpa2Uvcm9sZS0xMjE2L21hbmlmZXN0Lmpzb24iLCJodHRwOi8vMTI3LjAuMC4xOjQxNzMvYXNzZXRzL2NoYXJhY3RlcnMvbW9saWJhaWtlL3JvbGUtMTI0MC9tYW5pZmVzdC5qc29uIiwiaHR0cDovLzEyNy4wLjAuMTo0MTczL2Fzc2V0cy9jaGFyYWN0ZXJzL21vbGliYWlrZS9yb2xlLTEyNDAvYWN0aW9uLTAud2VicCIsImh0dHA6Ly8xMjcuMC4wLjE6NDE3My9hc3NldHMvY2hhcmFjdGVycy9tb2xpYmFpa2Uvcm9sZS0xMjE2L2FjdGlvbi0wLndlYnAiXSwiZXJyb3JzIjpbXX0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a1015412f32b0a081748-9b8670f0b202176bc6ff",
+          "file": "external-character-game.spec.ts",
+          "line": 4,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "player-camera.spec.ts",
+      "file": "player-camera.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "人物在移动的每帧保持居中，拖动不脱离，缩放和屏幕变化仍居中",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 20871,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-17T18:52:54.197Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9424899abda3420493cc-a6d14a8894ae496dcc1b",
+          "file": "player-camera.spec.ts",
+          "line": 17,
+          "column": 1
+        },
+        {
+          "title": "自动步行和战术移动同样跟随人物，退出战斗后恢复世界人物中心",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8209,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-17T18:53:15.080Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9424899abda3420493cc-4ef8de8ca8c45f0c4a13",
+          "file": "player-camera.spec.ts",
+          "line": 27,
+          "column": 1
+        },
+        {
+          "title": "人物在移动的每帧保持居中，拖动不脱离，缩放和屏幕变化仍居中",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 19150,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-17T18:54:13.899Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9424899abda3420493cc-fd12b2d4a2474758b20f",
+          "file": "player-camera.spec.ts",
+          "line": 17,
+          "column": 1
+        },
+        {
+          "title": "自动步行和战术移动同样跟随人物，退出战斗后恢复世界人物中心",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7855,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-17T18:54:33.059Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9424899abda3420493cc-93b781084ed335123694",
+          "file": "player-camera.spec.ts",
+          "line": 27,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "scene-responsiveness.spec.ts",
+      "file": "scene-responsiveness.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "慢速设备仍可响应：静态场景复用、真实移动停止、菜单和刷新恢复",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 20847,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-17T18:53:23.308Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "responsiveness",
+                      "contentType": "application/json",
+                      "body": "eyJjcHVTbG93ZG93biI6NCwidmlld3BvcnQiOnsid2lkdGgiOjE0NDAsImhlaWdodCI6MTAwMH0sImlkbGUiOnsiZnJhbWVzIjoxOCwiaW1hZ2VDYWxscyI6NDMyLCJtZWFuSW1hZ2VDYWxscyI6MjQsIm1heEhlYXJ0YmVhdEdhcCI6MTMzLjUsImxpdmVQcm9wcyI6MjB9LCJtZW51TGF0ZW5jeSI6NDI3LCJtb3ZlUmV2aXNpb25zIjo3LCJlcnJvcnMiOltdfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "975340d47b35a2d9e7e7-cb2d4ab4485041e91973",
+          "file": "scene-responsiveness.spec.ts",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "慢速设备仍可响应：静态场景复用、真实移动停止、菜单和刷新恢复",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 19891,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-17T18:54:40.934Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "responsiveness",
+                      "contentType": "application/json",
+                      "body": "eyJjcHVTbG93ZG93biI6NCwidmlld3BvcnQiOnsid2lkdGgiOjM3NSwiaGVpZ2h0Ijo4MTJ9LCJpZGxlIjp7ImZyYW1lcyI6MjAsImltYWdlQ2FsbHMiOjQ4MCwibWVhbkltYWdlQ2FsbHMiOjI0LCJtYXhIZWFydGJlYXRHYXAiOjg5LjU5OTk5OTk5OTYyNzQ3LCJsaXZlUHJvcHMiOjIwfSwibWVudUxhdGVuY3kiOjMyMCwibW92ZVJldmlzaW9ucyI6OCwiZXJyb3JzIjpbXX0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "975340d47b35a2d9e7e7-2823c7634eb5f35a4253",
+          "file": "scene-responsiveness.spec.ts",
+          "line": 5,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "v030.spec.ts",
+      "file": "v030.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "离开实际战斗后继续探索，人物重新播放行走而不使用战场坐标",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 17733,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.world-canvas')\nExpected: \u001b[32m\"walk\"\u001b[39m\nReceived: \u001b[31m\"stand\"\u001b[39m\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('.world-canvas') with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('.world-canvas')\u001b[22m\n\u001b[2m    24 × locator resolved to <canvas width=\"1440\" height=\"1000\" data-faded=\"0\" data-fog=\"soft\" data-art=\"ready\" aria-hidden=\"true\" data-scenery=\"826\" data-motion=\"stand\" data-direction=\"SW\" class=\"world-canvas\" data-rendered=\"true\" data-live-props=\"15\" data-source-action=\"0\" data-character-status=\"ready\" data-character-model=\"role-1024\" data-scenery-cache=\"static-layer\"></canvas>\u001b[22m\n\u001b[2m       - unexpected value \"stand\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.world-canvas')\nExpected: \u001b[32m\"walk\"\u001b[39m\nReceived: \u001b[31m\"stand\"\u001b[39m\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('.world-canvas') with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('.world-canvas')\u001b[22m\n\u001b[2m    24 × locator resolved to <canvas width=\"1440\" height=\"1000\" data-faded=\"0\" data-fog=\"soft\" data-art=\"ready\" aria-hidden=\"true\" data-scenery=\"826\" data-motion=\"stand\" data-direction=\"SW\" class=\"world-canvas\" data-rendered=\"true\" data-live-props=\"15\" data-source-action=\"0\" data-character-status=\"ready\" data-character-model=\"role-1024\" data-scenery-cache=\"static-layer\"></canvas>\u001b[22m\n\u001b[2m       - unexpected value \"stand\"\u001b[22m\n\n    at /workspace/scratch/6124a4d32ae4/hi-story/tests/e2e/v030.spec.ts:15:1244",
+                    "location": {
+                      "file": "/workspace/scratch/6124a4d32ae4/hi-story/tests/e2e/v030.spec.ts",
+                      "column": 1244,
+                      "line": 15
+                    },
+                    "snippet": "  13 |\n  14 | test('离开实际战斗后继续探索，人物重新播放行走而不使用战场坐标',async({page},info)=>{\n> 15 |  test.setTimeout(90000);await page.clock.install();await page.clock.pauseAt(new Date());await page.emulateMedia({reducedMotion:'reduce'});await open(page,'v030-after-battle-0');await near(page,'npc-0');await page.locator('[data-panel=\"interaction\"]').click();await page.locator('[data-npc=\"npc-0\"]').click();await page.locator('[data-fight=\"npc-0\"]').click();await page.getByRole('button',{name:'继续冒险',exact:true}).click();await expect(page.locator('.world-canvas')).toBeVisible();await expect(page.locator('[data-battle-scene]')).toBeVisible();await expect(page.getByRole('button',{name:/战场.*移动消耗/})).not.toHaveCount(0);await page.clock.runFor(200);await page.screenshot({path:`docs/evidence/${info.project.name}-v040-battle.png`});await page.locator('[data-combat=\"flee\"]').click();await page.getByRole('button',{name:'继续冒险',exact:true}).click();expect((await state(page)).runtime.encounter!.status).toBe('fled');await page.getByRole('button',{name:'关闭浮层',exact:true}).click();await page.clock.runFor(300);const before=await state(page);await page.locator('#adventure-map').focus();await page.keyboard.down('d');await page.clock.runFor(100);await page.keyboard.up('d');await page.clock.runFor(50);await expect(page.locator('.world-canvas')).toHaveAttribute('data-motion','walk');const after=await state(page);expect(after.runtime.actors[after.playerActorId].position.x-before.runtime.actors[before.playerActorId].position.x).toBeCloseTo(.32);await page.clock.runFor(300);await expect(page.locator('.world-canvas')).toHaveAttribute('data-motion','stand');\n     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ^\n  16 | });\n  17 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/workspace/scratch/6124a4d32ae4/hi-story/tests/e2e/v030.spec.ts",
+                        "column": 1244,
+                        "line": 15
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.world-canvas')\nExpected: \u001b[32m\"walk\"\u001b[39m\nReceived: \u001b[31m\"stand\"\u001b[39m\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('.world-canvas') with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('.world-canvas')\u001b[22m\n\u001b[2m    24 × locator resolved to <canvas width=\"1440\" height=\"1000\" data-faded=\"0\" data-fog=\"soft\" data-art=\"ready\" aria-hidden=\"true\" data-scenery=\"826\" data-motion=\"stand\" data-direction=\"SW\" class=\"world-canvas\" data-rendered=\"true\" data-live-props=\"15\" data-source-action=\"0\" data-character-status=\"ready\" data-character-model=\"role-1024\" data-scenery-cache=\"static-layer\"></canvas>\u001b[22m\n\u001b[2m       - unexpected value \"stand\"\u001b[22m\n\n\n  13 |\n  14 | test('离开实际战斗后继续探索，人物重新播放行走而不使用战场坐标',async({page},info)=>{\n> 15 |  test.setTimeout(90000);await page.clock.install();await page.clock.pauseAt(new Date());await page.emulateMedia({reducedMotion:'reduce'});await open(page,'v030-after-battle-0');await near(page,'npc-0');await page.locator('[data-panel=\"interaction\"]').click();await page.locator('[data-npc=\"npc-0\"]').click();await page.locator('[data-fight=\"npc-0\"]').click();await page.getByRole('button',{name:'继续冒险',exact:true}).click();await expect(page.locator('.world-canvas')).toBeVisible();await expect(page.locator('[data-battle-scene]')).toBeVisible();await expect(page.getByRole('button',{name:/战场.*移动消耗/})).not.toHaveCount(0);await page.clock.runFor(200);await page.screenshot({path:`docs/evidence/${info.project.name}-v040-battle.png`});await page.locator('[data-combat=\"flee\"]').click();await page.getByRole('button',{name:'继续冒险',exact:true}).click();expect((await state(page)).runtime.encounter!.status).toBe('fled');await page.getByRole('button',{name:'关闭浮层',exact:true}).click();await page.clock.runFor(300);const before=await state(page);await page.locator('#adventure-map').focus();await page.keyboard.down('d');await page.clock.runFor(100);await page.keyboard.up('d');await page.clock.runFor(50);await expect(page.locator('.world-canvas')).toHaveAttribute('data-motion','walk');const after=await state(page);expect(after.runtime.actors[after.playerActorId].position.x-before.runtime.actors[before.playerActorId].position.x).toBeCloseTo(.32);await page.clock.runFor(300);await expect(page.locator('.world-canvas')).toHaveAttribute('data-motion','stand');\n     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ^\n  16 | });\n  17 |\n    at /workspace/scratch/6124a4d32ae4/hi-story/tests/e2e/v030.spec.ts:15:1244"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-17T18:53:44.171Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/tmp/external-browser-results/v030-离开实际战斗后继续探索，人物重新播放行走而不使用战场坐标-desktop/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/tmp/external-browser-results/v030-离开实际战斗后继续探索，人物重新播放行走而不使用战场坐标-desktop/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/workspace/scratch/6124a4d32ae4/hi-story/tests/e2e/v030.spec.ts",
+                    "column": 1244,
+                    "line": 15
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "4426ae2d525d408f1c05-caf95d492392f5ca25b7",
+          "file": "v030.spec.ts",
+          "line": 14,
+          "column": 1
+        },
+        {
+          "title": "离开实际战斗后继续探索，人物重新播放行走而不使用战场坐标",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 18074,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.world-canvas')\nExpected: \u001b[32m\"walk\"\u001b[39m\nReceived: \u001b[31m\"stand\"\u001b[39m\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('.world-canvas') with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('.world-canvas')\u001b[22m\n\u001b[2m    24 × locator resolved to <canvas width=\"375\" height=\"812\" data-faded=\"0\" data-fog=\"soft\" data-art=\"ready\" aria-hidden=\"true\" data-scenery=\"826\" data-motion=\"stand\" data-direction=\"SW\" class=\"world-canvas\" data-rendered=\"true\" data-live-props=\"15\" data-source-action=\"0\" data-character-status=\"ready\" data-character-model=\"role-1024\" data-scenery-cache=\"static-layer\"></canvas>\u001b[22m\n\u001b[2m       - unexpected value \"stand\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.world-canvas')\nExpected: \u001b[32m\"walk\"\u001b[39m\nReceived: \u001b[31m\"stand\"\u001b[39m\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('.world-canvas') with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('.world-canvas')\u001b[22m\n\u001b[2m    24 × locator resolved to <canvas width=\"375\" height=\"812\" data-faded=\"0\" data-fog=\"soft\" data-art=\"ready\" aria-hidden=\"true\" data-scenery=\"826\" data-motion=\"stand\" data-direction=\"SW\" class=\"world-canvas\" data-rendered=\"true\" data-live-props=\"15\" data-source-action=\"0\" data-character-status=\"ready\" data-character-model=\"role-1024\" data-scenery-cache=\"static-layer\"></canvas>\u001b[22m\n\u001b[2m       - unexpected value \"stand\"\u001b[22m\n\n    at /workspace/scratch/6124a4d32ae4/hi-story/tests/e2e/v030.spec.ts:15:1244",
+                    "location": {
+                      "file": "/workspace/scratch/6124a4d32ae4/hi-story/tests/e2e/v030.spec.ts",
+                      "column": 1244,
+                      "line": 15
+                    },
+                    "snippet": "  13 |\n  14 | test('离开实际战斗后继续探索，人物重新播放行走而不使用战场坐标',async({page},info)=>{\n> 15 |  test.setTimeout(90000);await page.clock.install();await page.clock.pauseAt(new Date());await page.emulateMedia({reducedMotion:'reduce'});await open(page,'v030-after-battle-0');await near(page,'npc-0');await page.locator('[data-panel=\"interaction\"]').click();await page.locator('[data-npc=\"npc-0\"]').click();await page.locator('[data-fight=\"npc-0\"]').click();await page.getByRole('button',{name:'继续冒险',exact:true}).click();await expect(page.locator('.world-canvas')).toBeVisible();await expect(page.locator('[data-battle-scene]')).toBeVisible();await expect(page.getByRole('button',{name:/战场.*移动消耗/})).not.toHaveCount(0);await page.clock.runFor(200);await page.screenshot({path:`docs/evidence/${info.project.name}-v040-battle.png`});await page.locator('[data-combat=\"flee\"]').click();await page.getByRole('button',{name:'继续冒险',exact:true}).click();expect((await state(page)).runtime.encounter!.status).toBe('fled');await page.getByRole('button',{name:'关闭浮层',exact:true}).click();await page.clock.runFor(300);const before=await state(page);await page.locator('#adventure-map').focus();await page.keyboard.down('d');await page.clock.runFor(100);await page.keyboard.up('d');await page.clock.runFor(50);\n     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ^\n  16 |  // Reduced motion paints at 150 ms intervals; advance the paused clock until\n  17 |  // the committed movement is drawn instead of polling an unadvanced frame.\n  18 |  await expect.poll(async()=>{await page.clock.runFor(25);return page.locator('.world-canvas').getAttribute('data-motion');}).toBe('walk');const after=await state(page);expect(after.runtime.actors[after.playerActorId].position.x-before.runtime.actors[before.playerActorId].position.x).toBeCloseTo(.32);await page.clock.runFor(300);await expect(page.locator('.world-canvas')).toHaveAttribute('data-motion','stand');"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/workspace/scratch/6124a4d32ae4/hi-story/tests/e2e/v030.spec.ts",
+                        "column": 1244,
+                        "line": 15
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.world-canvas')\nExpected: \u001b[32m\"walk\"\u001b[39m\nReceived: \u001b[31m\"stand\"\u001b[39m\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('.world-canvas') with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('.world-canvas')\u001b[22m\n\u001b[2m    24 × locator resolved to <canvas width=\"375\" height=\"812\" data-faded=\"0\" data-fog=\"soft\" data-art=\"ready\" aria-hidden=\"true\" data-scenery=\"826\" data-motion=\"stand\" data-direction=\"SW\" class=\"world-canvas\" data-rendered=\"true\" data-live-props=\"15\" data-source-action=\"0\" data-character-status=\"ready\" data-character-model=\"role-1024\" data-scenery-cache=\"static-layer\"></canvas>\u001b[22m\n\u001b[2m       - unexpected value \"stand\"\u001b[22m\n\n\n  13 |\n  14 | test('离开实际战斗后继续探索，人物重新播放行走而不使用战场坐标',async({page},info)=>{\n> 15 |  test.setTimeout(90000);await page.clock.install();await page.clock.pauseAt(new Date());await page.emulateMedia({reducedMotion:'reduce'});await open(page,'v030-after-battle-0');await near(page,'npc-0');await page.locator('[data-panel=\"interaction\"]').click();await page.locator('[data-npc=\"npc-0\"]').click();await page.locator('[data-fight=\"npc-0\"]').click();await page.getByRole('button',{name:'继续冒险',exact:true}).click();await expect(page.locator('.world-canvas')).toBeVisible();await expect(page.locator('[data-battle-scene]')).toBeVisible();await expect(page.getByRole('button',{name:/战场.*移动消耗/})).not.toHaveCount(0);await page.clock.runFor(200);await page.screenshot({path:`docs/evidence/${info.project.name}-v040-battle.png`});await page.locator('[data-combat=\"flee\"]').click();await page.getByRole('button',{name:'继续冒险',exact:true}).click();expect((await state(page)).runtime.encounter!.status).toBe('fled');await page.getByRole('button',{name:'关闭浮层',exact:true}).click();await page.clock.runFor(300);const before=await state(page);await page.locator('#adventure-map').focus();await page.keyboard.down('d');await page.clock.runFor(100);await page.keyboard.up('d');await page.clock.runFor(50);\n     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ^\n  16 |  // Reduced motion paints at 150 ms intervals; advance the paused clock until\n  17 |  // the committed movement is drawn instead of polling an unadvanced frame.\n  18 |  await expect.poll(async()=>{await page.clock.runFor(25);return page.locator('.world-canvas').getAttribute('data-motion');}).toBe('walk');const after=await state(page);expect(after.runtime.actors[after.playerActorId].position.x-before.runtime.actors[before.playerActorId].position.x).toBeCloseTo(.32);await page.clock.runFor(300);await expect(page.locator('.world-canvas')).toHaveAttribute('data-motion','stand');\n    at /workspace/scratch/6124a4d32ae4/hi-story/tests/e2e/v030.spec.ts:15:1244"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-17T18:55:00.836Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/tmp/external-browser-results/v030-离开实际战斗后继续探索，人物重新播放行走而不使用战场坐标-narrow/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/tmp/external-browser-results/v030-离开实际战斗后继续探索，人物重新播放行走而不使用战场坐标-narrow/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/workspace/scratch/6124a4d32ae4/hi-story/tests/e2e/v030.spec.ts",
+                    "column": 1244,
+                    "line": 15
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "4426ae2d525d408f1c05-44bc956a283c41ecf3ec",
+          "file": "v030.spec.ts",
+          "line": 14,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-17T18:52:41.221Z",
+    "duration": 158322.08899999998,
+    "expected": 20,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

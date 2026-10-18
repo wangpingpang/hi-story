@@ -2,7 +2,6 @@ import type {AdventureSnapshot} from '../application';
 import type {DeepReadonly} from '../contracts';
 import {projectIso,battleSceneOrigin} from './isometric';
 import {drawWorldAsset,drawGroundTexture,loadWorldArt,type WorldAsset} from './world-assets';
-import {assembledCharacterUrl} from './character-art';
 import {escapeHtml as html} from './html';
 import type {Weather} from './environment';
 import {AdventureMotionArt} from './adventure-motion-art';
@@ -44,13 +43,12 @@ export class WorldScene{
  private propImages=new Map<string,HTMLCanvasElement>();
  private props:SceneProp[]=[];private sceneryLayer=document.createElement('canvas');
  private weather:Weather='sun';private scenery:ScenicProp[]=[];private route:readonly {x:number;y:number}[]=[];
- private offset={x:0,y:100};private portraits=new Map<string,HTMLImageElement>();private lastTime=0;private paintCost=0;private dirty=true;
+ private offset={x:0,y:100};private lastTime=0;private paintCost=0;private dirty=true;
  constructor(){this.canvas.className='world-canvas';this.canvas.setAttribute('aria-hidden','true');this.canvas.dataset.art='loading';void loadWorldArt().then(()=>{this.loaded=true;this.cache='';this.propImages.clear();}).catch(()=>{this.canvas.dataset.error='art-load';}).finally(()=>{this.artPending=false;this.dirty=true;});this.frame=requestAnimationFrame(t=>this.paint(t));}
  setRoute(route:readonly {x:number;y:number}[]){this.route=route;this.dirty=true;}
  setState(s:DeepReadonly<AdventureSnapshot>,camera:{x:number;y:number;zoom:number},svg:SVGSVGElement,weather:Weather){
   if(this.s?.runId!==s.runId){this.cache='';this.fogKey='';this.camera={...camera};this.actor={...s.runtime.actors[s.playerActorId].position};}
   this.s=s;this.target=camera;this.svg=svg;this.weather=weather;this.dirty=true;this.motionArt.observe(s);this.syncView(s);
-  for(const a of Object.values(s.runtime.actors)){const url=assembledCharacterUrl(a.profile.appearance,a.profile.gender);if(!this.portraits.has(url)){const image=new Image();image.src=url;this.portraits.set(url,image);}}
  }
  private syncView(s:DeepReadonly<AdventureSnapshot>){
   const a=s.runtime.actors[s.playerActorId],focus=playerCameraFocus(s,this.actor);this.camera.x=focus.x;this.camera.y=focus.y;
@@ -129,15 +127,15 @@ export class WorldScene{
   const visible=new Set(s.runtime.visible),entries:{depth:number;draw:()=>void}[]=[];
   const onScreen=(p:{x:number;y:number},margin=260)=>Math.abs(p.x-this.camera.x)<width/this.camera.zoom/2+margin&&Math.abs(p.y-this.camera.y)<height/this.camera.zoom/2+margin;
   const player=projectIso(this.actor.x,this.actor.y,worldHeight(s,a.position));let faded=0;
-  const hud=document.querySelector<HTMLImageElement>('.actor-hud img');if(hud){const portrait=this.motionArt.portrait(s.playerActorId);if(portrait&&hud.src!==portrait)hud.src=portrait;}
+  for(const image of document.querySelectorAll<HTMLImageElement>('[data-actor-portrait]')){const id=image.dataset.actorPortrait!,portrait=this.motionArt.portrait(id);if(image.src!==portrait)image.src=portrait;image.dataset.characterModel=this.motionArt.modelId(id);image.dataset.characterStatus=this.motionArt.portraitStatus(id);image.title=image.dataset.characterStatus==='error'?'人物素材暂缺，正在自动重试':'';}
   const prop=(asset:WorldAsset,p:{x:number;y:number},w:number,h:number,solid=true,c=ctx)=>{
    const occluded=solid&&occludesPlayer({...p,width:w,height:h},player);if(occluded)faded++;
    const image=this.propImage(asset,w,h);c.globalAlpha=occluded?.28:1;c.drawImage(image,p.x-image.width/2,p.y-h-2);c.globalAlpha=1;
   };
-  const regions:SceneRect[]=[];
+  const regions:SceneRect[]=[],actorFrames=new Map<string,ReturnType<AdventureMotionArt['frame']>>();
   for(const actor of Object.values(s.runtime.actors)){
    if(!visible.has(gridKey(actor.position))||s.runtime.encounter?.status==='active'&&s.runtime.encounter.participants.some(t=>t.actorId===actor.actorId))continue;
-   const actual=actor.actorId===s.playerActorId?this.actor:actor.position,p=projectIso(actual.x,actual.y,worldHeight(s,actor.position));regions.push({x:p.x-54,y:p.y-100,width:108,height:120});
+   const actual=actor.actorId===s.playerActorId?this.actor:actor.position,p=projectIso(actual.x,actual.y,worldHeight(s,actor.position)),frame=this.motionArt.frame(actor.actorId,now,this.weather);actorFrames.set(actor.actorId,frame);regions.push({x:p.x-54,y:p.y-100,width:108,height:120});if(frame)regions.push({x:p.x-frame.pivot[0]/4-2,y:p.y-frame.pivot[1]/4-2,width:frame.image.width/4+4,height:frame.image.height/4+4});
   }
   for(const anchor of s.runtime.map.anchors){if(!visible.has(gridKey(anchor.position))||!landmarks[anchor.id])continue;const p=projectIso(anchor.position.x,anchor.position.y,worldHeight(s,anchor.position)),v=landmarkStyle(anchor.id);regions.push({x:p.x+v.dx-Math.max(v.width/2+12,70),y:p.y+v.dy-Math.max(v.height+2,70),width:Math.max(v.width+24,140),height:Math.max(v.height+34,140)});}
   for(const door of Object.values(s.runtime.doors)){if(!door.open&&visible.has(gridKey(door.point))){const p=projectIso(door.point.x,door.point.y,worldHeight(s,door.point));regions.push({x:p.x-52,y:p.y-77,width:104,height:109});}}
@@ -151,12 +149,11 @@ export class WorldScene{
   const drawRoute=()=>{if(this.route.length){ctx.strokeStyle='#f2d59899';ctx.lineWidth=1.5;ctx.setLineDash([3,7]);ctx.beginPath();ctx.moveTo(player.x,player.y);for(const node of this.route){const p=projectIso(node.x,node.y,worldHeight(s,node));ctx.lineTo(p.x,p.y);}ctx.stroke();ctx.setLineDash([]);const end=this.route.at(-1)!,p=projectIso(end.x,end.y,worldHeight(s,end));ctx.strokeStyle='#f4d494';ctx.beginPath();ctx.ellipse(p.x,p.y,15,7,0,0,7);ctx.stroke();}};
   for(const actor of Object.values(s.runtime.actors)){
    if(s.runtime.encounter?.status==='active'&&s.runtime.encounter.participants.some(p=>p.actorId===actor.actorId))continue;
-   if(!visible.has(gridKey(actor.position)))continue;const actual=actor.actorId===s.playerActorId?this.actor:actor.position,p=projectIso(actual.x,actual.y,worldHeight(s,actor.position)),url=assembledCharacterUrl(actor.profile.appearance,actor.profile.gender),image=this.portraits.get(url);
+   if(!visible.has(gridKey(actor.position)))continue;const actual=actor.actorId===s.playerActorId?this.actor:actor.position,p=projectIso(actual.x,actual.y,worldHeight(s,actor.position));
    entries.push({depth:actual.x+actual.y+.2,draw:()=>{
     ctx.fillStyle='#0a201b80';ctx.beginPath();ctx.ellipse(p.x,p.y+2,11,5,0,0,7);ctx.fill();if(actor.actorId===s.playerActorId){ctx.strokeStyle='#e8c77ba0';ctx.lineWidth=1.2;ctx.beginPath();ctx.ellipse(p.x,p.y+3,14,6,0,0,7);ctx.stroke();}
-    ctx.imageSmoothingEnabled=false;ctx.globalAlpha=actor.hp===0?.35:1;const motion=this.motionArt.frame(actor.actorId,now,this.weather);
-    if(motion){ctx.drawImage(motion.image,p.x-48,p.y-82.25,96,96);if(actor.actorId===s.playerActorId){this.canvas.dataset.motion=motion.action;this.canvas.dataset.direction=motion.direction;}}
-    else if(image?.complete&&image.naturalWidth)ctx.drawImage(image,p.x-16,p.y-61,32,64);
+    ctx.imageSmoothingEnabled=false;ctx.globalAlpha=actor.hp===0?.35:1;const motion=actorFrames.get(actor.actorId);
+    if(motion){ctx.drawImage(motion.image,p.x-motion.pivot[0]/4,p.y-motion.pivot[1]/4,motion.image.width/4,motion.image.height/4);if(actor.actorId===s.playerActorId){this.canvas.dataset.motion=motion.action;this.canvas.dataset.direction=motion.direction;this.canvas.dataset.characterModel=motion.modelId;this.canvas.dataset.characterStatus=motion.status;this.canvas.dataset.sourceAction=String(motion.sourceAction);}if(motion.status==='error'){ctx.fillStyle='#f0ce9e';ctx.font='9px system-ui';ctx.textAlign='center';ctx.fillText('素材暂缺 · 自动重试',p.x,p.y+15);}}
     ctx.globalAlpha=1;ctx.imageSmoothingEnabled=true;ctx.font='10px system-ui';ctx.textAlign='center';ctx.lineWidth=3;ctx.strokeStyle='#14281f';const name=actor.actorId===s.playerActorId?'旅人':actor.profile.name;ctx.strokeText(name,p.x,p.y-69);ctx.fillStyle='#f0dfb4';ctx.fillText(name,p.x,p.y-69);
     if(actor.storyNpcId&&actor.hp>0){const near=Math.hypot(actual.x-a.position.x,actual.y-a.position.y)<=1.12;ctx.fillStyle=near?'#eed29a':'#d5d9bc';ctx.font='9px system-ui';ctx.strokeText(near?'[ E ] 交谈':'◇ 交谈',p.x,p.y-83);ctx.fillText(near?'[ E ] 交谈':'◇ 交谈',p.x,p.y-83);}
    }});

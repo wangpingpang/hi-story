@@ -2,11 +2,12 @@
   "config": {
     "argv": [
       "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
-      "/workspace/hi-story/node_modules/.bin/playwright",
-      "test"
+      "/workspace/scratch/10e02965426c/hi-story/node_modules/.bin/playwright",
+      "test",
+      "--list"
     ],
-    "configFile": "/workspace/hi-story/playwright.config.ts",
-    "rootDir": "/workspace/hi-story/tests/e2e",
+    "configFile": "/workspace/scratch/10e02965426c/hi-story/playwright.config.ts",
+    "rootDir": "/workspace/scratch/10e02965426c/hi-story/tests/e2e",
     "failOnFlakyTests": false,
     "forbidOnly": false,
     "fullyParallel": false,
@@ -16,21 +17,17 @@
     "grep": {},
     "grepInvert": null,
     "maxFailures": 0,
-    "metadata": {
-      "actualWorkers": 1
-    },
+    "metadata": {},
     "preserveOutput": "always",
     "projects": [
       {
-        "outputDir": "/workspace/hi-story/test-results",
+        "outputDir": "/workspace/scratch/10e02965426c/hi-story/test-results",
         "repeatEach": 1,
         "retries": 0,
-        "metadata": {
-          "actualWorkers": 1
-        },
+        "metadata": {},
         "id": "desktop",
         "name": "desktop",
-        "testDir": "/workspace/hi-story/tests/e2e",
+        "testDir": "/workspace/scratch/10e02965426c/hi-story/tests/e2e",
         "testIgnore": [],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
@@ -38,15 +35,13 @@
         "timeout": 90000
       },
       {
-        "outputDir": "/workspace/hi-story/test-results",
+        "outputDir": "/workspace/scratch/10e02965426c/hi-story/test-results",
         "repeatEach": 1,
         "retries": 0,
-        "metadata": {
-          "actualWorkers": 1
-        },
+        "metadata": {},
         "id": "narrow",
         "name": "narrow",
-        "testDir": "/workspace/hi-story/tests/e2e",
+        "testDir": "/workspace/scratch/10e02965426c/hi-story/tests/e2e",
         "testIgnore": [],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
@@ -58,22 +53,19 @@
       {
         "grep": {},
         "grepInvert": null,
-        "outputDir": "/workspace/hi-story/test-results",
+        "outputDir": "/workspace/scratch/10e02965426c/hi-story/test-results",
         "repeatEach": 1,
         "retries": 0,
-        "metadata": {
-          "actualWorkers": 1
-        },
+        "metadata": {},
         "name": "desktop",
-        "testDir": "/workspace/hi-story/tests/e2e",
-        "snapshotDir": "/workspace/hi-story/tests/e2e",
+        "testDir": "/workspace/scratch/10e02965426c/hi-story/tests/e2e",
+        "snapshotDir": "/workspace/scratch/10e02965426c/hi-story/tests/e2e",
         "testIgnore": [],
         "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
         "timeout": 90000,
         "use": {
           "baseURL": "http://127.0.0.1:4173",
           "launchOptions": {
-            "executablePath": "/usr/bin/chromium",
             "args": [
               "--no-sandbox"
             ]
@@ -91,22 +83,19 @@
       {
         "grep": {},
         "grepInvert": null,
-        "outputDir": "/workspace/hi-story/test-results",
+        "outputDir": "/workspace/scratch/10e02965426c/hi-story/test-results",
         "repeatEach": 1,
         "retries": 0,
-        "metadata": {
-          "actualWorkers": 1
-        },
+        "metadata": {},
         "name": "narrow",
-        "testDir": "/workspace/hi-story/tests/e2e",
-        "snapshotDir": "/workspace/hi-story/tests/e2e",
+        "testDir": "/workspace/scratch/10e02965426c/hi-story/tests/e2e",
+        "snapshotDir": "/workspace/scratch/10e02965426c/hi-story/tests/e2e",
         "testIgnore": [],
         "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
         "timeout": 90000,
         "use": {
           "baseURL": "http://127.0.0.1:4173",
           "launchOptions": {
-            "executablePath": "/usr/bin/chromium",
             "args": [
               "--no-sandbox"
             ]
@@ -148,12 +137,1660 @@
     "version": "1.64.0",
     "workers": 1,
     "webServer": {
-      "command": "npm run preview -- --port 4173 --strictPort",
+      "command": "npm run preview -- --host 127.0.0.1 --port 4173 --strictPort",
       "url": "http://127.0.0.1:4173",
       "reuseExistingServer": false
     }
   },
   "suites": [
+    {
+      "title": "adventure.spec.ts",
+      "file": "adventure.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "地图占据画面、像素人物落位、浮层和缩放无溢出",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0e432c2735e1cb75ffbd-23e3c634201124ff9b13",
+          "file": "adventure.spec.ts",
+          "line": 19,
+          "column": 1
+        },
+        {
+          "title": "社交检定、消耗草药与态度后果显示在同一场景",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0e432c2735e1cb75ffbd-e3075386c4c8512e4799",
+          "file": "adventure.spec.ts",
+          "line": 23,
+          "column": 1
+        },
+        {
+          "title": "实际探索完成 letter 主线",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0e432c2735e1cb75ffbd-7abe17575fc243400467",
+          "file": "adventure.spec.ts",
+          "line": 26,
+          "column": 45
+        },
+        {
+          "title": "实际探索完成 seal 主线",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0e432c2735e1cb75ffbd-dfc5f5ed8f65a5549458",
+          "file": "adventure.spec.ts",
+          "line": 26,
+          "column": 45
+        },
+        {
+          "title": "实际探索完成 relic 主线",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0e432c2735e1cb75ffbd-d16fb1603447544de664",
+          "file": "adventure.spec.ts",
+          "line": 26,
+          "column": 45
+        },
+        {
+          "title": "连续事件追加NPC、任务，背包与通路状态可恢复",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0e432c2735e1cb75ffbd-8ef2bbb636660ceb9253",
+          "file": "adventure.spec.ts",
+          "line": 29,
+          "column": 1
+        },
+        {
+          "title": "战斗在地图场景中、行动资源与刷新恢复真实运行",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0e432c2735e1cb75ffbd-ac43b1981ec47dfb555e",
+          "file": "adventure.spec.ts",
+          "line": 32,
+          "column": 1
+        },
+        {
+          "title": "键盘和输入隔离，损坏存档导入保留有效状态",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0e432c2735e1cb75ffbd-331434fa83942a94a1aa",
+          "file": "adventure.spec.ts",
+          "line": 35,
+          "column": 1
+        },
+        {
+          "title": "承诺连续链与六类支线真实推进，交易和一次奖励",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0e432c2735e1cb75ffbd-c9718c15cec075439c6d",
+          "file": "adventure.spec.ts",
+          "line": 42,
+          "column": 1
+        },
+        {
+          "title": "检定失败开启补救事件，保持主线可行",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0e432c2735e1cb75ffbd-6de420aaaadf7b4911fe",
+          "file": "adventure.spec.ts",
+          "line": 46,
+          "column": 1
+        },
+        {
+          "title": "战斗胜利、战败与逃离都回传人物和目标",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0e432c2735e1cb75ffbd-6200a3ac42065959b148",
+          "file": "adventure.spec.ts",
+          "line": 50,
+          "column": 1
+        },
+        {
+          "title": "地图占据画面、像素人物落位、浮层和缩放无溢出",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0e432c2735e1cb75ffbd-ba179812f8ad95d3964e",
+          "file": "adventure.spec.ts",
+          "line": 19,
+          "column": 1
+        },
+        {
+          "title": "社交检定、消耗草药与态度后果显示在同一场景",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0e432c2735e1cb75ffbd-7a11e004f32108f50a4b",
+          "file": "adventure.spec.ts",
+          "line": 23,
+          "column": 1
+        },
+        {
+          "title": "实际探索完成 letter 主线",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0e432c2735e1cb75ffbd-16783cb8c875a513ff35",
+          "file": "adventure.spec.ts",
+          "line": 26,
+          "column": 45
+        },
+        {
+          "title": "实际探索完成 seal 主线",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0e432c2735e1cb75ffbd-c522d31b98048cad359d",
+          "file": "adventure.spec.ts",
+          "line": 26,
+          "column": 45
+        },
+        {
+          "title": "实际探索完成 relic 主线",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0e432c2735e1cb75ffbd-45e800ac835c4b2beaf5",
+          "file": "adventure.spec.ts",
+          "line": 26,
+          "column": 45
+        },
+        {
+          "title": "连续事件追加NPC、任务，背包与通路状态可恢复",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0e432c2735e1cb75ffbd-2248e32ad5bc662dacb3",
+          "file": "adventure.spec.ts",
+          "line": 29,
+          "column": 1
+        },
+        {
+          "title": "战斗在地图场景中、行动资源与刷新恢复真实运行",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0e432c2735e1cb75ffbd-e1f88f90edf13a5b7ef0",
+          "file": "adventure.spec.ts",
+          "line": 32,
+          "column": 1
+        },
+        {
+          "title": "键盘和输入隔离，损坏存档导入保留有效状态",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0e432c2735e1cb75ffbd-ded3c17a625dfa0f301d",
+          "file": "adventure.spec.ts",
+          "line": 35,
+          "column": 1
+        },
+        {
+          "title": "承诺连续链与六类支线真实推进，交易和一次奖励",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0e432c2735e1cb75ffbd-e9f4ba99abd712207d0d",
+          "file": "adventure.spec.ts",
+          "line": 42,
+          "column": 1
+        },
+        {
+          "title": "检定失败开启补救事件，保持主线可行",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0e432c2735e1cb75ffbd-654b54973781f2f42bb5",
+          "file": "adventure.spec.ts",
+          "line": 46,
+          "column": 1
+        },
+        {
+          "title": "战斗胜利、战败与逃离都回传人物和目标",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0e432c2735e1cb75ffbd-82d9530f64e94feb746c",
+          "file": "adventure.spec.ts",
+          "line": 50,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "character-library.spec.ts",
+      "file": "character-library.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "人物名册、真实动画、八向预览和暂停在桌面与窄屏可用",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "fed06240f694adb6daf1-c967101a2aba04460701",
+          "file": "character-library.spec.ts",
+          "line": 6,
+          "column": 1
+        },
+        {
+          "title": "快速换人物时，较早的加载结果不能覆盖最后选择",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "fed06240f694adb6daf1-9dbb2d7d6b9848ccb069",
+          "file": "character-library.spec.ts",
+          "line": 29,
+          "column": 1
+        },
+        {
+          "title": "图集读取失败能重试，且不会显示上一个人物残帧",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "fed06240f694adb6daf1-dc4caa140eda9ae3abe7",
+          "file": "character-library.spec.ts",
+          "line": 39,
+          "column": 1
+        },
+        {
+          "title": "旧入口 character-generator 已切换人物素材馆",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "fed06240f694adb6daf1-1f3262637697660dd224",
+          "file": "character-library.spec.ts",
+          "line": 46,
+          "column": 63
+        },
+        {
+          "title": "旧入口 character-motion 已切换人物素材馆",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "fed06240f694adb6daf1-b4f118938b118a267ba3",
+          "file": "character-library.spec.ts",
+          "line": 46,
+          "column": 63
+        },
+        {
+          "title": "选择旅人仅改变外观，返回后冒险位置和人物资料保留",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "fed06240f694adb6daf1-f45a2d1fc327ca4ed5b7",
+          "file": "character-library.spec.ts",
+          "line": 51,
+          "column": 1
+        },
+        {
+          "title": "人物名册、真实动画、八向预览和暂停在桌面与窄屏可用",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "fed06240f694adb6daf1-08ab75a0b9cda91fb42c",
+          "file": "character-library.spec.ts",
+          "line": 6,
+          "column": 1
+        },
+        {
+          "title": "快速换人物时，较早的加载结果不能覆盖最后选择",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "fed06240f694adb6daf1-7f628e94b735d68ad7c8",
+          "file": "character-library.spec.ts",
+          "line": 29,
+          "column": 1
+        },
+        {
+          "title": "图集读取失败能重试，且不会显示上一个人物残帧",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "fed06240f694adb6daf1-bd45e7f7c65539447efe",
+          "file": "character-library.spec.ts",
+          "line": 39,
+          "column": 1
+        },
+        {
+          "title": "旧入口 character-generator 已切换人物素材馆",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "fed06240f694adb6daf1-8741ffec5b3b7e1a1260",
+          "file": "character-library.spec.ts",
+          "line": 46,
+          "column": 63
+        },
+        {
+          "title": "旧入口 character-motion 已切换人物素材馆",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "fed06240f694adb6daf1-e1d22dbb2ed676cb0ff7",
+          "file": "character-library.spec.ts",
+          "line": 46,
+          "column": 63
+        },
+        {
+          "title": "选择旅人仅改变外观，返回后冒险位置和人物资料保留",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "fed06240f694adb6daf1-db2178f5e9bb8c41f2aa",
+          "file": "character-library.spec.ts",
+          "line": 51,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "demo-integration.spec.ts",
+      "file": "demo-integration.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "探索入口、移动、阅读、重开和窄屏布局",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "3936352711065b7d27ed-e7e37d9c2679c0318939",
+          "file": "demo-integration.spec.ts",
+          "line": 12,
+          "column": 1
+        },
+        {
+          "title": "NPC交互、真实战斗和逃离",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "3936352711065b7d27ed-8e0e9a08080ae6ba8080",
+          "file": "demo-integration.spec.ts",
+          "line": 29,
+          "column": 1
+        },
+        {
+          "title": "实际探索、购买、抵达与完成目标的整局闭环",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "3936352711065b7d27ed-f49e7d4ec237c53c5e14",
+          "file": "demo-integration.spec.ts",
+          "line": 39,
+          "column": 1
+        },
+        {
+          "title": "真实骰子战斗胜利更新NPC与后续选项",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "3936352711065b7d27ed-cb0bae6ab3788cad17c6",
+          "file": "demo-integration.spec.ts",
+          "line": 53,
+          "column": 1
+        },
+        {
+          "title": "战败结束主线，重开恢复人物与初始迷雾",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "3936352711065b7d27ed-71ca1d1b031d426f32e8",
+          "file": "demo-integration.spec.ts",
+          "line": 65,
+          "column": 1
+        },
+        {
+          "title": "方向键移动和输入框编辑互不干扰",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "3936352711065b7d27ed-71ad0b6a28047ab2b771",
+          "file": "demo-integration.spec.ts",
+          "line": 76,
+          "column": 1
+        },
+        {
+          "title": "探索入口、移动、阅读、重开和窄屏布局",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "3936352711065b7d27ed-75810a881f2d336046ce",
+          "file": "demo-integration.spec.ts",
+          "line": 12,
+          "column": 1
+        },
+        {
+          "title": "NPC交互、真实战斗和逃离",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "3936352711065b7d27ed-46c43f709d7a7ac57c2f",
+          "file": "demo-integration.spec.ts",
+          "line": 29,
+          "column": 1
+        },
+        {
+          "title": "实际探索、购买、抵达与完成目标的整局闭环",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "3936352711065b7d27ed-a0de4d9654eb41c0fedd",
+          "file": "demo-integration.spec.ts",
+          "line": 39,
+          "column": 1
+        },
+        {
+          "title": "真实骰子战斗胜利更新NPC与后续选项",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "3936352711065b7d27ed-f0123a5a7322b08cc8af",
+          "file": "demo-integration.spec.ts",
+          "line": 53,
+          "column": 1
+        },
+        {
+          "title": "战败结束主线，重开恢复人物与初始迷雾",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "3936352711065b7d27ed-9a09bfcfa42346115e1b",
+          "file": "demo-integration.spec.ts",
+          "line": 65,
+          "column": 1
+        },
+        {
+          "title": "方向键移动和输入框编辑互不干扰",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "3936352711065b7d27ed-a0b0dc2bcbfe2f77c67d",
+          "file": "demo-integration.spec.ts",
+          "line": 76,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "dice-feedback.spec.ts",
+      "file": "dice-feedback.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "真实成功检定分阶段揭晓、公式与结果一致",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "bc4a6986aa5ef16be8f1-8246501eb31c02630671",
+          "file": "dice-feedback.spec.ts",
+          "line": 23,
+          "column": 35
+        },
+        {
+          "title": "真实失败检定分阶段揭晓、公式与结果一致",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "bc4a6986aa5ef16be8f1-32c0d05ae7a77f11c520",
+          "file": "dice-feedback.spec.ts",
+          "line": 23,
+          "column": 35
+        },
+        {
+          "title": "优势两骰、采用与舍弃、物品后果均来自真实结果",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "bc4a6986aa5ef16be8f1-ca762accd269c2dbde90",
+          "file": "dice-feedback.spec.ts",
+          "line": 29,
+          "column": 1
+        },
+        {
+          "title": "跳过保留结果，回看不重掷、无再次结算、焦点可返回",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "bc4a6986aa5ef16be8f1-749e3072115eab67fb99",
+          "file": "dice-feedback.spec.ts",
+          "line": 32,
+          "column": 1
+        },
+        {
+          "title": "动画期间刷新保留已提交结果且不重播",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "bc4a6986aa5ef16be8f1-486cfc8bc51beed9af8a",
+          "file": "dice-feedback.spec.ts",
+          "line": 35,
+          "column": 1
+        },
+        {
+          "title": "三种样式与音效偏好保存，设置不改变冒险随机状态",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "bc4a6986aa5ef16be8f1-0468a78535298823cf28",
+          "file": "dice-feedback.spec.ts",
+          "line": 38,
+          "column": 1
+        },
+        {
+          "title": "减少动态效果直接显示结果，Escape可关闭",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "bc4a6986aa5ef16be8f1-7266919a445b12c77627",
+          "file": "dice-feedback.spec.ts",
+          "line": 42,
+          "column": 1
+        },
+        {
+          "title": "战斗先攻、移动及后续攻击都使用结构化真实骰子",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "bc4a6986aa5ef16be8f1-65d46f1a404513ecdbe5",
+          "file": "dice-feedback.spec.ts",
+          "line": 45,
+          "column": 1
+        },
+        {
+          "title": "真实成功检定分阶段揭晓、公式与结果一致",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "bc4a6986aa5ef16be8f1-b9dd5e0a84d70b635d45",
+          "file": "dice-feedback.spec.ts",
+          "line": 23,
+          "column": 35
+        },
+        {
+          "title": "真实失败检定分阶段揭晓、公式与结果一致",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "bc4a6986aa5ef16be8f1-c423db8fb08cc584003f",
+          "file": "dice-feedback.spec.ts",
+          "line": 23,
+          "column": 35
+        },
+        {
+          "title": "优势两骰、采用与舍弃、物品后果均来自真实结果",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "bc4a6986aa5ef16be8f1-0d1842deb1176a212024",
+          "file": "dice-feedback.spec.ts",
+          "line": 29,
+          "column": 1
+        },
+        {
+          "title": "跳过保留结果，回看不重掷、无再次结算、焦点可返回",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "bc4a6986aa5ef16be8f1-5528be31913fe3399ee0",
+          "file": "dice-feedback.spec.ts",
+          "line": 32,
+          "column": 1
+        },
+        {
+          "title": "动画期间刷新保留已提交结果且不重播",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "bc4a6986aa5ef16be8f1-b5a771b14ded9a79ad1f",
+          "file": "dice-feedback.spec.ts",
+          "line": 35,
+          "column": 1
+        },
+        {
+          "title": "三种样式与音效偏好保存，设置不改变冒险随机状态",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "bc4a6986aa5ef16be8f1-9367efdd4114ae71c29d",
+          "file": "dice-feedback.spec.ts",
+          "line": 38,
+          "column": 1
+        },
+        {
+          "title": "减少动态效果直接显示结果，Escape可关闭",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "bc4a6986aa5ef16be8f1-9b8ef0951625aebc8f6c",
+          "file": "dice-feedback.spec.ts",
+          "line": 42,
+          "column": 1
+        },
+        {
+          "title": "战斗先攻、移动及后续攻击都使用结构化真实骰子",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "bc4a6986aa5ef16be8f1-41c021781fa5f49137f2",
+          "file": "dice-feedback.spec.ts",
+          "line": 45,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "external-character-game.spec.ts",
+      "file": "external-character-game.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "新冒险只加载外部人物；切换外形保持规则进度与人物中心",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "a1015412f32b0a081748-5f30f7cf2e6261adcef6",
+          "file": "external-character-game.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "新冒险只加载外部人物；切换外形保持规则进度与人物中心",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "a1015412f32b0a081748-9b8670f0b202176bc6ff",
+          "file": "external-character-game.spec.ts",
+          "line": 4,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "free-world.spec.ts",
+      "file": "free-world.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "五倍世界和五套60项图集完整加载，主场景与窄屏无溢出",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "5cbb916286c6a720fd3d-02c7cac6cd78663b6c2f",
+          "file": "free-world.spec.ts",
+          "line": 6,
+          "column": 1
+        },
+        {
+          "title": "按住键盘连续小数移动，松开停止，输入框和失焦隔离",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "5cbb916286c6a720fd3d-dfd754dba30a44135017",
+          "file": "free-world.spec.ts",
+          "line": 11,
+          "column": 1
+        },
+        {
+          "title": "点击路线逐步行进且Esc取消，每份保存的位移都受限",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "5cbb916286c6a720fd3d-96ec189582d52090a61f",
+          "file": "free-world.spec.ts",
+          "line": 16,
+          "column": 1
+        },
+        {
+          "title": "地形阻挡连续行走，人物不会越过建筑底座",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "5cbb916286c6a720fd3d-7ab0d694901373f61ee0",
+          "file": "free-world.spec.ts",
+          "line": 20,
+          "column": 1
+        },
+        {
+          "title": "五天气预览和减弱动态不改存档，雨景可见",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "5cbb916286c6a720fd3d-fed19832fe3d99de99f1",
+          "file": "free-world.spec.ts",
+          "line": 23,
+          "column": 1
+        },
+        {
+          "title": "小数坐标刷新精确恢复，旧存档槽保留，损坏导入不覆盖",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "5cbb916286c6a720fd3d-4911e4bf52d364c7dd9b",
+          "file": "free-world.spec.ts",
+          "line": 26,
+          "column": 1
+        },
+        {
+          "title": "真实步行接近NPC后医药检定消耗草药，战斗锁住世界移动",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "5cbb916286c6a720fd3d-cd742d44adb5c34c18bc",
+          "file": "free-world.spec.ts",
+          "line": 29,
+          "column": 1
+        },
+        {
+          "title": "方向按钮短按立即前进，按住持续行走，松开停止",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "5cbb916286c6a720fd3d-f3aff4627d1c639e2fbe",
+          "file": "free-world.spec.ts",
+          "line": 33,
+          "column": 1
+        },
+        {
+          "title": "五倍世界和五套60项图集完整加载，主场景与窄屏无溢出",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "5cbb916286c6a720fd3d-ab047fa2cd233002c691",
+          "file": "free-world.spec.ts",
+          "line": 6,
+          "column": 1
+        },
+        {
+          "title": "按住键盘连续小数移动，松开停止，输入框和失焦隔离",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "5cbb916286c6a720fd3d-1334454a491d7502fb5e",
+          "file": "free-world.spec.ts",
+          "line": 11,
+          "column": 1
+        },
+        {
+          "title": "点击路线逐步行进且Esc取消，每份保存的位移都受限",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "5cbb916286c6a720fd3d-6ad42024f9c9dae0f28d",
+          "file": "free-world.spec.ts",
+          "line": 16,
+          "column": 1
+        },
+        {
+          "title": "地形阻挡连续行走，人物不会越过建筑底座",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "5cbb916286c6a720fd3d-a4f99a39e9b9e7e83c1c",
+          "file": "free-world.spec.ts",
+          "line": 20,
+          "column": 1
+        },
+        {
+          "title": "五天气预览和减弱动态不改存档，雨景可见",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "5cbb916286c6a720fd3d-f284dba030e62bc42bdc",
+          "file": "free-world.spec.ts",
+          "line": 23,
+          "column": 1
+        },
+        {
+          "title": "小数坐标刷新精确恢复，旧存档槽保留，损坏导入不覆盖",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "5cbb916286c6a720fd3d-87bc904c8f6b9fd5aba1",
+          "file": "free-world.spec.ts",
+          "line": 26,
+          "column": 1
+        },
+        {
+          "title": "真实步行接近NPC后医药检定消耗草药，战斗锁住世界移动",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "5cbb916286c6a720fd3d-d999d89bf2cc4ee9b79c",
+          "file": "free-world.spec.ts",
+          "line": 29,
+          "column": 1
+        },
+        {
+          "title": "方向按钮短按立即前进，按住持续行走，松开停止",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "5cbb916286c6a720fd3d-8de01a6b6c3c61b1e146",
+          "file": "free-world.spec.ts",
+          "line": 33,
+          "column": 1
+        }
+      ]
+    },
     {
       "title": "game.spec.ts",
       "file": "game.spec.ts",
@@ -171,22 +1808,8 @@
               "expectedStatus": "passed",
               "projectId": "desktop",
               "projectName": "desktop",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 8906,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-13T13:58:29.387Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
+              "results": [],
+              "status": "skipped"
             }
           ],
           "id": "8b1bb1493a64c9fc3ab6-fa5004f6452c75e1195d",
@@ -205,22 +1828,8 @@
               "expectedStatus": "passed",
               "projectId": "desktop",
               "projectName": "desktop",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 7908,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-13T13:58:40.038Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
+              "results": [],
+              "status": "skipped"
             }
           ],
           "id": "8b1bb1493a64c9fc3ab6-87ed8e0ee218d67b7a16",
@@ -239,22 +1848,8 @@
               "expectedStatus": "passed",
               "projectId": "desktop",
               "projectName": "desktop",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 5785,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-13T13:58:48.017Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
+              "results": [],
+              "status": "skipped"
             }
           ],
           "id": "8b1bb1493a64c9fc3ab6-c7a456f201890b9cd41c",
@@ -273,22 +1868,8 @@
               "expectedStatus": "passed",
               "projectId": "desktop",
               "projectName": "desktop",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 4581,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-13T13:58:53.863Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
+              "results": [],
+              "status": "skipped"
             }
           ],
           "id": "8b1bb1493a64c9fc3ab6-521696df3a04434cd6a9",
@@ -307,22 +1888,8 @@
               "expectedStatus": "passed",
               "projectId": "narrow",
               "projectName": "narrow",
-              "results": [
-                {
-                  "workerIndex": 1,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 7381,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-13T13:59:00.973Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
+              "results": [],
+              "status": "skipped"
             }
           ],
           "id": "8b1bb1493a64c9fc3ab6-c8b9fcc8ea2afa785885",
@@ -341,22 +1908,8 @@
               "expectedStatus": "passed",
               "projectId": "narrow",
               "projectName": "narrow",
-              "results": [
-                {
-                  "workerIndex": 1,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 4910,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-13T13:59:09.320Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
+              "results": [],
+              "status": "skipped"
             }
           ],
           "id": "8b1bb1493a64c9fc3ab6-0734b8315a7aa6a49cc7",
@@ -375,22 +1928,8 @@
               "expectedStatus": "passed",
               "projectId": "narrow",
               "projectName": "narrow",
-              "results": [
-                {
-                  "workerIndex": 1,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 4009,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-13T13:59:14.333Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
+              "results": [],
+              "status": "skipped"
             }
           ],
           "id": "8b1bb1493a64c9fc3ab6-5cad997551c56ead288e",
@@ -409,22 +1948,8 @@
               "expectedStatus": "passed",
               "projectId": "narrow",
               "projectName": "narrow",
-              "results": [
-                {
-                  "workerIndex": 1,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 3660,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-13T13:59:18.404Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
+              "results": [],
+              "status": "skipped"
             }
           ],
           "id": "8b1bb1493a64c9fc3ab6-48ad29f941a0f99b9fee",
@@ -433,14 +1958,662 @@
           "column": 1
         }
       ]
+    },
+    {
+      "title": "hd2d.spec.ts",
+      "file": "hd2d.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "新建筑可从画面点击，沿真实路线步行抵达并打开互动",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "4c010e08ca4cdb1c1647-7a571308cf025703768a",
+          "file": "hd2d.spec.ts",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "HD-2D 场景素材与天气浮层可用，天气不改存档",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "4c010e08ca4cdb1c1647-5f9c73ba941d93775729",
+          "file": "hd2d.spec.ts",
+          "line": 13,
+          "column": 1
+        },
+        {
+          "title": "职业选择、技能入口、真实休息与刷新恢复",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "4c010e08ca4cdb1c1647-19e082b40c01840a1f41",
+          "file": "hd2d.spec.ts",
+          "line": 22,
+          "column": 1
+        },
+        {
+          "title": "新建筑可从画面点击，沿真实路线步行抵达并打开互动",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "4c010e08ca4cdb1c1647-88880af62a6632909b77",
+          "file": "hd2d.spec.ts",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "HD-2D 场景素材与天气浮层可用，天气不改存档",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "4c010e08ca4cdb1c1647-aaafb0766dd23934a0b4",
+          "file": "hd2d.spec.ts",
+          "line": 13,
+          "column": 1
+        },
+        {
+          "title": "职业选择、技能入口、真实休息与刷新恢复",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "4c010e08ca4cdb1c1647-ea58fdaf993cce02aea3",
+          "file": "hd2d.spec.ts",
+          "line": 22,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "player-camera.spec.ts",
+      "file": "player-camera.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "人物在移动的每帧保持居中，拖动不脱离，缩放和屏幕变化仍居中",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "9424899abda3420493cc-a6d14a8894ae496dcc1b",
+          "file": "player-camera.spec.ts",
+          "line": 17,
+          "column": 1
+        },
+        {
+          "title": "自动步行和战术移动同样跟随人物，退出战斗后恢复世界人物中心",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "9424899abda3420493cc-4ef8de8ca8c45f0c4a13",
+          "file": "player-camera.spec.ts",
+          "line": 27,
+          "column": 1
+        },
+        {
+          "title": "人物在移动的每帧保持居中，拖动不脱离，缩放和屏幕变化仍居中",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "9424899abda3420493cc-fd12b2d4a2474758b20f",
+          "file": "player-camera.spec.ts",
+          "line": 17,
+          "column": 1
+        },
+        {
+          "title": "自动步行和战术移动同样跟随人物，退出战斗后恢复世界人物中心",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "9424899abda3420493cc-93b781084ed335123694",
+          "file": "player-camera.spec.ts",
+          "line": 27,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "scene-responsiveness.spec.ts",
+      "file": "scene-responsiveness.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "慢速设备仍可响应：静态场景复用、真实移动停止、菜单和刷新恢复",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "975340d47b35a2d9e7e7-cb2d4ab4485041e91973",
+          "file": "scene-responsiveness.spec.ts",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "慢速设备仍可响应：静态场景复用、真实移动停止、菜单和刷新恢复",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "975340d47b35a2d9e7e7-2823c7634eb5f35a4253",
+          "file": "scene-responsiveness.spec.ts",
+          "line": 5,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "story-generator.spec.ts",
+      "file": "story-generator.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "故事工坊：死亡联动、主线闭环和移动布局",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "dc93fe7f6922f0f87126-84ed0006cbeec4a4d4f3",
+          "file": "story-generator.spec.ts",
+          "line": 2,
+          "column": 1
+        },
+        {
+          "title": "故事规则包：加载、使用、导入和卸载保留事实",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "dc93fe7f6922f0f87126-9f6f3c5748df2e0b9d20",
+          "file": "story-generator.spec.ts",
+          "line": 31,
+          "column": 1
+        },
+        {
+          "title": "阶段路线随道路变化更新，恢复后完成四阶段",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "dc93fe7f6922f0f87126-67e0beda78eb44bd9bfc",
+          "file": "story-generator.spec.ts",
+          "line": 85,
+          "column": 1
+        },
+        {
+          "title": "故事工坊：死亡联动、主线闭环和移动布局",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "dc93fe7f6922f0f87126-47ccc2c31c7ca62a765d",
+          "file": "story-generator.spec.ts",
+          "line": 2,
+          "column": 1
+        },
+        {
+          "title": "故事规则包：加载、使用、导入和卸载保留事实",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "dc93fe7f6922f0f87126-c4b81a1db49310874aa0",
+          "file": "story-generator.spec.ts",
+          "line": 31,
+          "column": 1
+        },
+        {
+          "title": "阶段路线随道路变化更新，恢复后完成四阶段",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "dc93fe7f6922f0f87126-4b947be196fbec3cb5e7",
+          "file": "story-generator.spec.ts",
+          "line": 85,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "v030.spec.ts",
+      "file": "v030.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "冒险连续移动使用新人物帧，停止后站立，八方向素材成功加载",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "4426ae2d525d408f1c05-d486c402f850c055ee43",
+          "file": "v030.spec.ts",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "职业衣橱36套可试穿，体型和性别切换，返回冒险保留进度",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "4426ae2d525d408f1c05-8a300bd1aa17387f8a4f",
+          "file": "v030.spec.ts",
+          "line": 8,
+          "column": 1
+        },
+        {
+          "title": "离开实际战斗后继续探索，人物重新播放行走而不使用战场坐标",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "4426ae2d525d408f1c05-caf95d492392f5ca25b7",
+          "file": "v030.spec.ts",
+          "line": 14,
+          "column": 1
+        },
+        {
+          "title": "冒险连续移动使用新人物帧，停止后站立，八方向素材成功加载",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "4426ae2d525d408f1c05-24c031be9e00b11f3c22",
+          "file": "v030.spec.ts",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "职业衣橱36套可试穿，体型和性别切换，返回冒险保留进度",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "4426ae2d525d408f1c05-aabc06aacb331c92c1c6",
+          "file": "v030.spec.ts",
+          "line": 8,
+          "column": 1
+        },
+        {
+          "title": "离开实际战斗后继续探索，人物重新播放行走而不使用战场坐标",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "4426ae2d525d408f1c05-44bc956a283c41ecf3ec",
+          "file": "v030.spec.ts",
+          "line": 14,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "v040.spec.ts",
+      "file": "v040.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "连续行走保留地图和 HUD 节点，停止输入后不继续移动",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "50df3e5fc7b45607ddaa-0e35b91a67c3005744bd",
+          "file": "v040.spec.ts",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "点击 NPC 实际步行至相邻处，交谈与检定只结算一次，刷新保留结果",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "50df3e5fc7b45607ddaa-6771099ee82f33d0a8cc",
+          "file": "v040.spec.ts",
+          "line": 14,
+          "column": 1
+        },
+        {
+          "title": "Esc 取消靠近人物；触摸方向键持续行走并在松开后停止",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "50df3e5fc7b45607ddaa-c6cb08e814e5f93fd7a7",
+          "file": "v040.spec.ts",
+          "line": 23,
+          "column": 1
+        },
+        {
+          "title": "连续行走保留地图和 HUD 节点，停止输入后不继续移动",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "50df3e5fc7b45607ddaa-7919c560767666555243",
+          "file": "v040.spec.ts",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "点击 NPC 实际步行至相邻处，交谈与检定只结算一次，刷新保留结果",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "50df3e5fc7b45607ddaa-0814e7258903191e0ae5",
+          "file": "v040.spec.ts",
+          "line": 14,
+          "column": 1
+        },
+        {
+          "title": "Esc 取消靠近人物；触摸方向键持续行走并在松开后停止",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "50df3e5fc7b45607ddaa-391533eff2f401b61b01",
+          "file": "v040.spec.ts",
+          "line": 23,
+          "column": 1
+        }
+      ]
     }
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-10-13T13:58:23.065Z",
-    "duration": 59281.27500000001,
-    "expected": 8,
-    "skipped": 0,
+    "startTime": "2026-10-18T07:39:58.739Z",
+    "duration": 403.178,
+    "expected": 0,
+    "skipped": 118,
     "unexpected": 0,
     "flaky": 0
   }

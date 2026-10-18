@@ -1,0 +1,30 @@
+import {test,expect} from '@playwright/test';
+import {state} from './world-navigation';
+
+test('新冒险只加载外部人物；切换外形保持规则进度与人物中心',async({page},info)=>{
+ const requests:string[]=[],errors:string[]=[];
+ page.on('request',request=>requests.push(request.url()));page.on('pageerror',error=>errors.push(error.message));
+ await page.goto('?view=demo&seed=v050-models');
+ const canvas=page.locator('.world-canvas');
+ await expect(canvas).toHaveAttribute('data-character-status','ready');
+ await expect(canvas).toHaveAttribute('data-character-model','role-1024');
+ await expect(page.locator('.actor-hud img')).toHaveAttribute('data-character-model','role-1024');
+ await expect(page.locator('.actor-hud img')).toHaveAttribute('src',/^data:image\/png/);
+ await page.getByRole('button',{name:'关闭浮层',exact:true}).click();
+ await page.locator('#adventure-map').focus();await page.keyboard.down('d');await page.waitForTimeout(350);await page.keyboard.up('d');await page.waitForTimeout(350);
+ const saved=await state(page);
+ await page.evaluate(()=>localStorage.setItem('hi-story:character-model:molibaike-v1','role-1216'));
+ await page.goto('?view=demo');
+ await expect(canvas).toHaveAttribute('data-character-status','ready');
+ await expect(canvas).toHaveAttribute('data-character-model','role-1216');
+ await expect(page.locator('.actor-hud img')).toHaveAttribute('data-character-model','role-1216');
+ expect((await state(page)).runtime).toEqual(saved.runtime);
+ await page.locator('[data-panel="settings"]').click();
+ await expect(page.getByRole('link',{name:'人物素材馆',exact:true})).toBeVisible();
+ await expect(page.getByRole('link',{name:'人物工坊',exact:true})).toHaveCount(0);
+ await expect(page.getByRole('link',{name:'动作工坊',exact:true})).toHaveCount(0);
+ expect(requests.filter(url=>/characters\/(v3\/|character-parts|female-parts)/.test(url))).toEqual([]);
+ expect(requests.filter(url=>/molibaike\.com/.test(url))).toEqual([]);
+ expect(errors).toEqual([]);
+ await info.attach('model-requests',{body:JSON.stringify({models:['role-1024','role-1216'],requests:requests.filter(url=>url.includes('/characters/')),errors}),contentType:'application/json'});
+});

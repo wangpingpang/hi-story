@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "fullSuite": {
+    "files": 23,
+    "tests": 334,
+    "log": "full suite completed successfully before final preview-bounds change"
+  },
+  "finalTargetedSuite": {
+    "tests": 16,
+    "additionalUniqueTests": 2,
+    "covered": [
+      "9 concurrent characters across stand/walk frames",
+      "12000000 resident cache pixel budget",
+      "21368 complete-frame preview bounds",
+      "Betit northern attack crop regression"
+    ]
+  },
+  "uniqueTests": 336,
+  "typecheck": "passed",
+  "moduleBoundaries": "passed",
+  "productionBuild": "passed",
+  "sourcePixelVerification": {
+    "characters": 28,
+    "clips": 4256,
+    "frames": 21368,
+    "result": "passed"
+  }
+}

@@ -1,5 +1,9 @@
 # hi-story
 
+本地继续开发入口：[Windows / macOS / Linux 本地开发](docs/local-development.md) · [GitHub 与跨会话材料核对](docs/local-handoff-audit.md)。2026-10-18 交接分支 `codex/local-development-handoff` 包含当前 v0.5.0 人物接入；`main` 仍是项目介绍，不能作为完整代码下载入口。内部动作/形态制作规范随私有交接材料保留，不上传公开仓库。
+
+当前迭代 **v0.5.0 外部人物模型**：默认冒险撤下旧人物部件生成与骨骼装配接线，改用用户指定的魔力百科动画，新增 `?view=character-library` 人物素材馆。旧人物/动作工坊入口统一转到新馆；姓名、性格、规则和存档继续沿用。[素材协议与来源](外部人物素材接入说明.md) · [实际验证及发布状态](docs/external-character-validation.md)。下方旧版本工坊与骨骼说明是历史记录。
+
 线上已更新人物中心镜头与[场景卡顿修复](docs/scene-freeze-validation.md)：静态景物缓存、人物附近局部重绘与后台暂停。本地12项受影响浏览器检查分批通过，公网5文件哈希及桌面/375px真实慢设备交互复验通过。源码1517e82，部署7feee2c；0.4.0版本与既有进度兼容。
 
 已发布[v0.4.0林间村落](v0.4.0阶段说明.md) · [在线试玩](https://wangpingpang.github.io/hi-story/?view=demo)：连续地表与密林、柔和迷雾、出生遮挡修复、统一人物头像、步行保留界面、点击NPC实际靠近交谈，以及保留周围环境的战术场景。320项逻辑和44个桌面/375px浏览器用例分批通过，公网80文件及10交互检查通过；[验证与限制](docs/v0.4.0-validation.md)。产品0.4.0兼容v0.3.0存档，装备正式穿戴、室内和NPC自主行为仍未完成。
@@ -55,13 +59,14 @@ npm run preview
 浏览器端到端测试在 `vite preview` 的生产构建上运行：
 
 ```sh
-# 先执行 npm run build；默认使用 /usr/bin/chromium
+# 首次先安装 Playwright Chromium，再构建并测试
+npx playwright install chromium
+npm run build
 npm run test:e2e
-# 其他系统：指定已安装 Chromium 的绝对路径
-CHROMIUM_PATH=/path/to/chromium npm run test:e2e
+# 可通过 CHROMIUM_PATH 指定现有浏览器；PowerShell 用 $env:CHROMIUM_PATH
 ```
 
-如果没有 Chromium，可安装 Playwright 对应浏览器后，将 `CHROMIUM_PATH` 指向它；项目不会在运行游戏时联网下载素材。生产文件在 dist，可由任意 HTTP 静态服务器提供；不要直接以 file:// 打开。
+Windows/macOS 默认使用 Playwright 安装的浏览器；Linux 若存在 `/usr/bin/chromium` 则优先使用，`CHROMIUM_PATH` 可覆盖。项目不会在运行游戏时联网下载素材。生产文件在 dist，可由任意 HTTP 静态服务器提供；不要直接以 file:// 打开。
 
 ### 结构与报告
 

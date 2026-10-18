@@ -2,10 +2,13 @@ import {test,expect,type Page} from '@playwright/test';
 import {open,state,near} from './world-navigation';
 async function centered(page:Page,battle=false){
  await page.clock.runFor(50);
- const s=await state(page),selector=battle?`[data-battle-actor="${s.playerActorId}"] image`:'[data-actor="player"] rect';
+ const s=await state(page),selector=battle?`[data-battle-actor="${s.playerActorId}"] ellipse`:'[data-actor="player"] rect';
  const point=await page.locator(selector).evaluate((el,battle)=>{
-  const x=Number(el.getAttribute('x')),y=Number(el.getAttribute('y')),w=Number(el.getAttribute('width'));
-  const p=new DOMPoint(x+w/2,y+(battle?58:34)).matrixTransform((el as SVGGraphicsElement).getScreenCTM()!);
+  // The imported sprite canvas changes dimensions between actions. The ground
+  // marker remains at ground y + 5; the camera follows the body at y - 38.
+  const x=battle?Number(el.getAttribute('cx')):Number(el.getAttribute('x'))+Number(el.getAttribute('width'))/2;
+  const y=battle?Number(el.getAttribute('cy'))-43:Number(el.getAttribute('y'))+34;
+  const p=new DOMPoint(x,y).matrixTransform((el as SVGGraphicsElement).getScreenCTM()!);
   return {x:p.x,y:p.y,cx:innerWidth/2,cy:innerHeight/2};
  },battle);
  expect(Math.abs(point.x-point.cx)).toBeLessThan(.1);expect(Math.abs(point.y-point.cy)).toBeLessThan(.1);

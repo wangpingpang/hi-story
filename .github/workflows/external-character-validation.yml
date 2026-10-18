@@ -1,0 +1,75 @@
+name: Validate external character demo
+on:
+  push:
+    branches: [codex/external-character-models, codex/external-character-public-verification]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: external-character-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  demo:
+    if: github.ref_name == 'codex/external-character-models'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm run check:boundaries
+      - run: npm test
+      - run: npm run build
+      - run: node tooling/verify-external-character-build.mjs
+      - run: npx playwright install --with-deps chromium
+      - name: Characters, gameplay and centered camera
+        run: |
+          export CHROMIUM_PATH="$(node --input-type=module -e 'import {chromium} from "@playwright/test"; console.log(chromium.executablePath())')"
+          PLAYWRIGHT_REPORT_PATH=docs/evidence/external-cloud-browser.json npx playwright test tests/e2e/character-library.spec.ts tests/e2e/external-character-game.spec.ts tests/e2e/player-camera.spec.ts --workers=1 --trace=off
+      - name: Continue exploration after a real battle
+        run: |
+          export CHROMIUM_PATH="$(node --input-type=module -e 'import {chromium} from "@playwright/test"; console.log(chromium.executablePath())')"
+          PLAYWRIGHT_REPORT_PATH=docs/evidence/external-cloud-postbattle.json npx playwright test tests/e2e/v030.spec.ts --grep '离开实际战斗后继续探索' --workers=1 --trace=off
+      - name: Real-time slow-device interaction
+        run: |
+          export CHROMIUM_PATH="$(node --input-type=module -e 'import {chromium} from "@playwright/test"; console.log(chromium.executablePath())')"
+          PLAYWRIGHT_REPORT_PATH=docs/evidence/external-cloud-responsive.json npx playwright test tests/e2e/scene-responsiveness.spec.ts --workers=1 --trace=off
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: external-character-demo-evidence
+          path: |
+            docs/evidence/external-*
+            test-results/
+            !test-results/**/trace.zip
+          retention-days: 30
+  public:
+    if: github.ref_name == 'codex/external-character-public-verification'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Verify published resources and both screen sizes
+        run: |
+          export CHROMIUM_PATH="$(node --input-type=module -e 'import {chromium} from "@playwright/test"; console.log(chromium.executablePath())')"
+          node tooling/verify-external-character-publication.mjs
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: external-character-public-evidence
+          path: docs/evidence/external-*
+          retention-days: 30

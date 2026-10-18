@@ -1,4 +1,5 @@
 import {recordRoll} from './dice-record';
+import {adventureCombatStats} from './equipment';
 import type {DiceRollRecord} from '../../contracts/adventure';
 import { requireValue, record } from '../../contracts/demo';
 import {
@@ -56,7 +57,7 @@ function resolve(state:AdventureRuntime,actorId:string,skillId:string,targetId:s
   const amount=(critical=false)=>{const dice:number[]=[];for(let i=0;i<count*(critical?2:1);i++)dice.push(die(sides));const bonus=e.addAbility?modifier:0,minimum=e.kind==='heal'?1:0,total=Math.max(minimum,dice.reduce((n,v)=>n+v,0)+bonus);if(battle)recordRoll(battle,{kind:e.kind==='heal'?'healing':'damage',actorId,targetId,sides:sides as DiceRollRecord['sides'],dice,bonus,total,minimum,critical});return total;};
   if(e.kind==='heal'){const hp=Math.min(target.maxHp-target.hp,Math.max(1,amount()));target.hp+=hp;log(`${a.profile.name}使用${skill.name}，${target.profile.name}恢复${hp}生命。`);return;}
   if(e.kind==='save'){const d=die(20),saveModifier=professionAbilityModifier(target.abilities[e.saveAbility!])+(target.profession&&deriveProfession(target.profession.build,target.abilities).savingThrows.includes(e.saveAbility!)?target.proficiency:0),success=d+saveModifier>=dc;if(battle)recordRoll(battle,{kind:'save',actorId:targetId,targetId:actorId,sides:20,dice:[d],bonus:saveModifier,total:d+saveModifier,threshold:dc,success,visual:'spell'});const damage=success?0:amount();target.hp=Math.max(0,target.hp-damage);log(`${a.profile.name}使用${skill.name}：${target.profile.name}豁免d20 ${d}+${saveModifier} / DC ${dc}，${success?'成功':'失败'}，${damage}伤害。`);return;}
-  for(let i=0;i<(e.attacks??1)&&target.hp>0;i++){const d=die(20),bonus=a.proficiency+modifier,ac=target.defense+(battle?.guard&&targetId===state.playerActorId?2:0),hit=d!==1&&(d===20||d+bonus>=ac),damage=(()=>{if(battle)recordRoll(battle,{kind:'attack',actorId,targetId,sides:20,dice:[d],bonus,total:d+bonus,threshold:ac,success:hit,critical:d===20,visual:e.kind==='unarmed'?'unarmed':'spell'});return hit?amount(d===20):0;})();target.hp=Math.max(0,target.hp-damage);log(`${a.profile.name}使用${skill.name}：d20 ${d}+${bonus} / AC ${ac}，${hit?`${d===20?'重击，':''}${damage}伤害`:'未命中'}。`);}
+  for(let i=0;i<(e.attacks??1)&&target.hp>0;i++){const d=die(20),bonus=a.proficiency+modifier,ac=adventureCombatStats(target).defense+(battle?.guard&&targetId===state.playerActorId?2:0),hit=d!==1&&(d===20||d+bonus>=ac),damage=(()=>{if(battle)recordRoll(battle,{kind:'attack',actorId,targetId,sides:20,dice:[d],bonus,total:d+bonus,threshold:ac,success:hit,critical:d===20,visual:e.kind==='unarmed'?'unarmed':'spell'});return hit?amount(d===20):0;})();target.hp=Math.max(0,target.hp-damage);log(`${a.profile.name}使用${skill.name}：d20 ${d}+${bonus} / AC ${ac}，${hit?`${d===20?'重击，':''}${damage}伤害`:'未命中'}。`);}
 }
 export function useAdventureProfessionSkill(state:AdventureRuntime,actorId:string,skillId:string,targetId:string):AdventureRuntime {
   requireValue(state.professionVersion===PROFESSION_VERSION,'NO_PROFESSION','当前冒险未启用职业体系。');const b=state.encounter;
@@ -70,6 +71,6 @@ export function tryProfessionBasicAttack(s:AdventureRuntime,actorId:string,targe
   const skill=getProfession(primary.classId).skills.filter(k=>k.level<=primary.level&&k.cost===0&&['attack','save'].includes(k.execution?.kind??''))[0];
   if(!skill)return false;resolve(s,actorId,skill.id,targetId);return true;
 }
-export function professionBasicAttackCount(actor:AdventureActor):number {const primary=actor.profession?.build.classes[0];return primary&&getProfession(primary.classId).skills.some(k=>k.level<=primary.level&&k.cost===0&&['attack','save'].includes(k.execution?.kind??''))?1:actor.professionCombat?.attacks??1;}
+export function professionBasicAttackCount(actor:AdventureActor):number {if(actor.equipmentCombat?.weapon)return actor.professionCombat?.attacks??1;const primary=actor.profession?.build.classes[0];return primary&&getProfession(primary.classId).skills.some(k=>k.level<=primary.level&&k.cost===0&&['attack','save'].includes(k.execution?.kind??''))?1:actor.professionCombat?.attacks??1;}
 export function defaultAdventureProfession(classId:string):ProfessionSetup {getProfession(classId);return {build:{version:PROFESSION_VERSION,classes:[{classId,level:1}]}};}
 export type { ProfessionRuntimeState };

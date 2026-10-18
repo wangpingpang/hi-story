@@ -127,6 +127,7 @@ export function battleAction(state:RuntimeState,action:'attack'|'defend'|'flee'|
 
 export * from './adventure';
 export * from './free-space';
+export * from './equipment';
 
 export { PROFESSION_ADVENTURE_RULES_VERSION, restAdventureProfession, advanceAdventureProfession, useAdventureProfessionSkill, defaultAdventureProfession } from './profession';
 export type { AdventureProfessionInitialization } from './profession';

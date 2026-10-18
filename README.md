@@ -1,5 +1,7 @@
 # hi-story
 
+本地候选 **v0.6.0 装备进入真实冒险**：商店/探索获得实物、背包穿脱、战斗命中/伤害/防御与存档恢复已接通，支持现有 v0.5.0 存档继续。开发入口 `codex/v060-equipment-gameplay`；[迭代目标与范围](v0.6.0阶段说明.md) · [实际验证](docs/v0.6.0-validation.md)。人物造型仍使用现有完整动画，线上仍为下方 v0.5.0。
+
 完整开发源码与发布记录：[codex/publish-character-library](https://github.com/wangpingpang/hi-story/tree/codex/publish-character-library)。该分支保留本地交接的原始提交历史，并包含 Windows 修复；`main` 仍仅有项目介绍。独立工坊的归档分支仍单独保留。
 
 2026-10-18 新版[人物素材馆](https://wangpingpang.github.io/hi-story/?view=character-library)已上线：28 人、19 类动作、8 个方向，默认风格一/空手；原人物工坊与动作工坊入口已转入新馆。发布提交 `ce39953`，695 个公网文件及桌面/375px 真实交互复验通过，详见 [v0.5.0 验收与发布](docs/external-character-validation.md)。

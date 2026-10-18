@@ -54,3 +54,4 @@ export function settleEvent(state:ThingsState,event:BoundEvent):ThingsState {
 }
 
 export * from './adventure';
+export * from './equipment';

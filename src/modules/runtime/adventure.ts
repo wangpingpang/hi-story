@@ -1,4 +1,5 @@
 import {recordRoll} from './dice-record';
+import {adventureCombatStats,validateEquipmentCombat,type EquipmentCombatProfile} from './equipment';
 import type { DiceRollRecord } from '../../contracts/adventure';
 import { requireValue, seedHash } from '../../contracts/demo';
 import { createRuntime, moveRuntime, revealRuntime, walkDelta, sweepWalk, findAdventureRoute, FREE_MOVEMENT_VERSION, validateRuntime, validateRuntimeAccess, canInteract, type RuntimeState, type RuntimeActor } from './index';
@@ -18,7 +19,7 @@ export const ARCHETYPES:Record<Archetype,{label:string;scores:number[];skills:Sk
  scholar:{label:'秘文研究者',scores:[10,12,13,16,14,10],skills:['arcana','insight','sleight'],range:3,hp:22},
  envoy:{label:'行旅使者',scores:[10,14,12,12,13,16],skills:['persuasion','deception','insight'],range:1,hp:24},
 };
-export interface AdventureActor extends RuntimeActor {abilities:Record<Ability,number>;skills:Skill[];proficiency:number;archetype:Archetype;range:number;profession?:ProfessionRuntimeState;professionCombat?:ProfessionCombatProfile}
+export interface AdventureActor extends RuntimeActor {abilities:Record<Ability,number>;skills:Skill[];proficiency:number;archetype:Archetype;range:number;profession?:ProfessionRuntimeState;professionCombat?:ProfessionCombatProfile;equipmentCombat?:EquipmentCombatProfile}
 export interface CheckResult {id:string;skill:Skill;label:string;dc:number;dice:number[];mode:'normal'|'advantage'|'disadvantage';modifier:number;proficiency:number;total:number;success:boolean;targetId?:string}
 export interface Combatant {actorId:string;position:Point;initiative:number}
 export interface TacticalBattle {id:string;status:'active'|'victory'|'defeat'|'fled';round:number;participants:Combatant[];rng:number;movement:number;action:boolean;guard:boolean;log:string[];rewarded:boolean;obstacles:Point[];rollSequence?:number;rolls?:DiceRollRecord[]}
@@ -41,6 +42,7 @@ export function createAdventureRuntime(map:GeneratedMap,player:GeneratedCharacte
  const state:AdventureRuntime={...base,movement:FREE_MOVEMENT_VERSION,actors,checkRng:seedHash(seed+':checks'),checks:[],visual:structuredClone(visual),doors:{},...(professions?{professionVersion:PROFESSION_VERSION}:{})};revealRuntime(state);validateAdventureRuntime(state);return state;
 }
 export function validateAdventureRuntime(s:AdventureRuntime):void {
+ for(const actor of Object.values(s.actors))if(actor.equipmentCombat!==undefined)validateEquipmentCombat(actor.equipmentCombat);
  requireValue(Number.isInteger(s.map.bounds.width)&&s.map.bounds.width>0&&s.map.bounds.width<=256&&Number.isInteger(s.map.bounds.height)&&s.map.bounds.height>0&&s.map.bounds.height<=256&&s.map.cells.every(row=>row.length===s.map.bounds.width&&row.every(c=>typeof c.walkable==='boolean'&&typeof c.blocksSight==='boolean')),'INVALID_RUNTIME','地图格子结构无效。');
  requireValue(s.map.cells.every((row,y)=>row.every((_,x)=>Boolean(s.visual[`${x},${y}`]))),'INVALID_RUNTIME','地图高差数据缺失。');
  requireValue(s.movement===FREE_MOVEMENT_VERSION,'INVALID_RUNTIME','连续移动协议缺失。');validateRuntime(s);requireValue(Number.isSafeInteger(s.checkRng)&&s.checkRng>=0&&s.checkRng<=0xffffffff&&Array.isArray(s.checks)&&s.checks.length<=1000,'INVALID_RUNTIME','检定状态无效。');
@@ -79,19 +81,19 @@ function enemyTurn(s:AdventureRuntime,phase: 'all'|'before'|'after'='all'):void 
  const b=s.encounter!,player=s.actors[s.playerActorId],pc=b.participants[0];
  for(const enemy of [...b.participants.slice(1)].sort((a,c)=>c.initiative-a.initiative)){
   const actor=s.actors[enemy.actorId];if(actor.hp===0||(phase==='before'&&enemy.initiative<=pc.initiative)||(phase==='after'&&enemy.initiative>pc.initiative))continue;
-  for(let i=0;i<(actor.profession?4:3)&&manhattan(enemy.position,pc.position)>actor.range;i++){
+  for(let i=0;i<(actor.profession?4:3)&&manhattan(enemy.position,pc.position)>adventureCombatStats(actor).range;i++){
    const p=enemy.position;const candidates=[{x:p.x-1,y:p.y},{x:p.x+1,y:p.y},{x:p.x,y:p.y-1},{x:p.x,y:p.y+1}].filter(q=>q.x>=0&&q.x<9&&q.y>=0&&q.y<7&&!b.obstacles.some(o=>manhattan(o,q)===0)&&!b.participants.some(c=>s.actors[c.actorId].hp>0&&manhattan(c.position,q)===0)).sort((a,c)=>manhattan(a,pc.position)-manhattan(c,pc.position));if(candidates[0]&&manhattan(candidates[0],pc.position)<manhattan(p,pc.position))enemy.position=candidates[0];else break;
   }
-  if(manhattan(enemy.position,pc.position)<=actor.range){for(let hit=0;hit<professionBasicAttackCount(actor)&&player.hp>0;hit++)strike(s,actor,player,b.guard?2:0);}else b.log.push(`${actor.profile.name}调整站位。`);
+  if(manhattan(enemy.position,pc.position)<=adventureCombatStats(actor).range){for(let hit=0;hit<professionBasicAttackCount(actor)&&player.hp>0;hit++)strike(s,actor,player,b.guard?2:0);}else b.log.push(`${actor.profile.name}调整站位。`);
   if(player.hp===0){b.status='defeat';b.log.push('你倒下了，冒险结束。');break;}
  }
 }
 function strike(s:AdventureRuntime,a:AdventureActor,target:AdventureActor,guard=0):void {
- const b=s.encounter!;if(a.profession){if(!professionLineOfSight(s,a.actorId,target.actorId)){b.log.push(`${a.profile.name}的视线被障碍阻挡。`);return;}if(tryProfessionBasicAttack(s,a.actorId,target.actorId))return;}
- const d=battleDie(b,20),total=d+a.attackBonus,ac=target.defense+guard;
- const success=d!==1&&(d===20||total>=ac);recordRoll(b,{kind:'attack',actorId:a.actorId,targetId:target.actorId,sides:20,dice:[d],bonus:a.attackBonus,total,threshold:ac,success,critical:d===20});
- if(!success){b.log.push(`${a.profile.name}命中检定 d20 ${d} + ${a.attackBonus} = ${total} / AC ${ac}：未命中。`);return;}
- const sides=(a.profession?a.damageDie:6) as DiceRollRecord['sides'],dice=[battleDie(b,sides)];if(d===20)dice.push(battleDie(b,sides));const mod=abilityModifier(a.abilities[a.professionCombat?.attackAbility??(a.range>1?'dex':'str')]),bonus=a.profession?mod:Math.max(1,mod),minimum=a.profession?0:1,damage=Math.max(minimum,dice.reduce((n,v)=>n+v,0)+bonus);recordRoll(b,{kind:'damage',actorId:a.actorId,targetId:target.actorId,sides,dice,bonus,total:damage,critical:d===20,minimum});target.hp=Math.max(0,target.hp-damage);b.log.push(`${a.profile.name} d20 ${d} + ${a.attackBonus} / AC ${ac}：${d===20?'重击，':''}${damage}伤害。`);
+ const b=s.encounter!,profile=adventureCombatStats(a);if(a.profession||profile.weapon){if(!professionLineOfSight(s,a.actorId,target.actorId)){b.log.push(`${a.profile.name}的视线被障碍阻挡。`);return;}if(a.profession&&!profile.weapon&&tryProfessionBasicAttack(s,a.actorId,target.actorId))return;}
+ const d=battleDie(b,20),total=d+profile.attackBonus,ac=adventureCombatStats(target).defense+guard;
+ const success=d!==1&&(d===20||total>=ac);recordRoll(b,{kind:'attack',actorId:a.actorId,targetId:target.actorId,sides:20,dice:[d],bonus:profile.attackBonus,total,threshold:ac,success,critical:d===20});
+ if(!success){b.log.push(`${a.profile.name}命中检定 d20 ${d} + ${profile.attackBonus} = ${total} / AC ${ac}：未命中。`);return;}
+ const sides=profile.damageDie as DiceRollRecord['sides'],dice=[battleDie(b,sides)];if(d===20)dice.push(battleDie(b,sides));const bonus=profile.damageBonus,minimum=profile.minimum,damage=Math.max(minimum,dice.reduce((n,v)=>n+v,0)+bonus);recordRoll(b,{kind:'damage',actorId:a.actorId,targetId:target.actorId,sides,dice,bonus,total:damage,critical:d===20,minimum});target.hp=Math.max(0,target.hp-damage);b.log.push(`${a.profile.name} d20 ${d} + ${profile.attackBonus} / AC ${ac}：${d===20?'重击，':''}d${sides}${bonus>=0?'+':''}${bonus}，${damage}伤害。`);
 }
 export function beginEncounter(state:AdventureRuntime,enemyIds:string[],id:string,seed:string):AdventureRuntime {
  requireValue(state.encounter?.status!=='active'&&enemyIds.length>=1&&enemyIds.length<=2&&new Set(enemyIds).size===enemyIds.length,'INVALID_BATTLE','遭遇参数无效。');
@@ -114,7 +116,7 @@ export function tacticalAction(state:AdventureRuntime,action:'move'|'attack'|'de
  if(action==='flee'){requireValue(b.action,'NO_ACTION','本回合行动已用完。');const die=battleDie(b,20),bonus=abilityModifier(next.actors[next.playerActorId].abilities.dex)+(next.professionVersion?next.actors[next.playerActorId].proficiency:2);recordRoll(b,{kind:'escape',actorId:next.playerActorId,sides:20,dice:[die],bonus,total:die+bonus,threshold:10,success:die+bonus>=10});b.action=false;if(die+bonus>=10){b.status='fled';b.log.push(`逃离 d20 ${die} + ${bonus} ≥ 10，成功。`);}else b.log.push(`逃离 d20 ${die} + ${bonus} < 10，失败，可结束回合再尝试。`);return next;}
  requireValue(b.action,'NO_ACTION','本回合行动已用完。');
  if(action==='defend'){b.guard=true;b.log.push('防御姿态：本轮敌方攻击 AC +2。');}
- else if(action==='attack'){requireValue(typeof target==='string','INVALID_TARGET','请选择攻击目标。');const enemy=b.participants.slice(1).find(p=>p.actorId===target),actor=next.actors[next.playerActorId];requireValue(enemy&&next.actors[target].hp>0&&manhattan(enemy.position,b.participants[0].position)<=actor.range,'OUT_OF_RANGE','目标超出武器范围。');requireValue(!actor.profession||professionLineOfSight(next,actor.actorId,target),'OUT_OF_RANGE','攻击视线被阻挡。');for(let hit=0;hit<professionBasicAttackCount(actor)&&next.actors[target].hp>0;hit++)strike(next,actor,next.actors[target]);if(b.participants.slice(1).every(p=>next.actors[p.actorId].hp===0)){b.status='victory';b.log.push('战斗胜利。');}}
+ else if(action==='attack'){requireValue(typeof target==='string','INVALID_TARGET','请选择攻击目标。');const enemy=b.participants.slice(1).find(p=>p.actorId===target),actor=next.actors[next.playerActorId];requireValue(enemy&&next.actors[target].hp>0&&manhattan(enemy.position,b.participants[0].position)<=adventureCombatStats(actor).range,'OUT_OF_RANGE','目标超出武器范围。');requireValue((!actor.profession&&!actor.equipmentCombat?.weapon)||professionLineOfSight(next,actor.actorId,target),'OUT_OF_RANGE','攻击视线被阻挡。');for(let hit=0;hit<professionBasicAttackCount(actor)&&next.actors[target].hp>0;hit++)strike(next,actor,next.actors[target]);if(b.participants.slice(1).every(p=>next.actors[p.actorId].hp===0)){b.status='victory';b.log.push('战斗胜利。');}}
  else if(action==='use')b.log.push('使用消耗品，消耗本回合行动。');else requireValue(false,'INVALID_COMMAND','未知战斗动作。');b.action=false;return next;
 }
 

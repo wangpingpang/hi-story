@@ -1,0 +1,23 @@
+.live-equipment{margin-bottom:20px;padding-bottom:18px;border-bottom:1px solid #b7c69d35}
+.adventure-shell .adventure-panel{z-index:2}
+.adventure-panel #battle-panel-toggle{width:auto;min-height:36px;padding:4px 8px;font:11px system-ui;border:1px solid #aebd9560;border-radius:4px}
+.live-equipment h3{display:flex;align-items:center;gap:10px;margin:18px 0 10px;color:#e5d5a4}
+.live-equipment h3 small{font:11px system-ui;color:#a6bcad}
+.equipment-summary{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;padding:12px;background:#15332a;border:1px solid #d2bd7b45;border-radius:6px}
+.equipment-summary span{display:flex;justify-content:space-between;gap:5px;color:#b1c5b5;font-size:11px}
+.equipment-summary b{color:#f1d991;font-size:13px}
+.equipment-slots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;margin:9px 0}
+.equipment-slot{min-width:0;padding:7px 6px;border:1px solid #a3b99e28;border-radius:4px;background:#142c28}
+.equipment-slot small,.equipment-slot strong{display:block;overflow-wrap:anywhere}
+.equipment-slot small{font-size:10px;color:#8fae9c}.equipment-slot strong{font-size:11px;font-weight:500;color:#a8b8aa}
+.equipment-slot.is-equipped{border-color:#dcc27b80}.equipment-slot.is-equipped strong{color:#e7d2a0}
+.equipment-note,.equipment-empty{font-size:11px;line-height:1.7;color:#9bb6a5}
+.equipment-card{display:flex;align-items:flex-start;gap:11px;padding:13px 0;border-bottom:1px solid #aac39d24;min-width:0}
+.equipment-icon{flex:none;width:45px;height:65px;overflow:hidden;image-rendering:pixelated;filter:drop-shadow(0 3px 3px #071912)}
+.equipment-detail{min-width:0;flex:1;overflow-wrap:anywhere}.equipment-detail>strong{display:block;font-size:12px;color:#e8d8aa}
+.equipment-detail>small{display:block;font-size:10px;color:#a7bdac;line-height:1.65;margin:3px 0}
+.equipment-detail p{font-size:10px;line-height:1.6;color:#9eb3a3;margin:5px 0}
+.equipment-detail button{min-height:38px;width:100%;margin-top:7px;padding:7px 9px;text-align:center;font-size:11px}
+.equipment-detail .equipment-preview{color:#d0cc9a}.equipment-detail .equipment-reason{color:#d8b294}
+.equipment-badge{letter-spacing:1px}.equipment-shop{margin-top:20px}.equipment-shop summary{color:#e5d5a4;cursor:pointer;padding:10px 0;font-weight:600}
+@media(max-width:700px){.equipment-card{gap:9px}.equipment-detail button{min-height:42px}.equipment-slots{gap:4px}.equipment-slot{padding:6px 5px}.equipment-slot strong{font-size:10px}}

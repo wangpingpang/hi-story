@@ -16,7 +16,7 @@ async function boot() {
   const continued=await app.continueSaved();
   if(continued.ok&&seed&&app.query().snapshot?.seed!==seed){const result=await app.restart({seed});if(!result.ok)throw Error(result.error.message);}
   else if(!continued.ok){const result=await app.initialize({seed:seed||'hi-story-v010'});if(!result.ok)throw Error(result.error.message);}
-  document.title='暮光山谷 · hi-story v0.5.0';mountAdventure(root,app);return;
+  document.title='暮光山谷 · hi-story v0.6.0';mountAdventure(root,app);return;
  }
  // Historical demos are loaded only when explicitly opened.
  if(route==='equipment-book'){

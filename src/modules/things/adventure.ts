@@ -5,11 +5,12 @@ import type { AdventureRuntime, CheckResult } from '../runtime/index';
 import { canInteract, SKILLS, abilityModifier } from '../runtime/index';
 import { adventureCatalog, templateFor, socialTemplate, type AdventureStory, type AdventureEventTemplate, type AdventureChoice } from '../story-planning/index';
 import type { AdventureQuestBlueprint } from '../quest-generation/index';
+import {createAdventureEquipment,validateAdventureEquipment,type AdventureEquipmentInventory} from './equipment';
 export interface ItemDefinition {id:string;name:string;description:string;price:number;sellable:boolean;heal:number}
 export const ADVENTURE_ITEMS=catalog.items as ItemDefinition[];
 export interface AdventureEvent {id:string;templateId:string;npcId?:string;status:'prepared'|'ready'|'waiting'|'settled'|'cancelled';choiceId?:string;check?:CheckResult}
 export interface AdventureTask {blueprint:AdventureQuestBlueprint;status:'active'|'success'|'failed'|'abandoned';rewarded:boolean;reason:string}
-export interface AdventureThings {gold:number;inventory:Record<string,number>;facts:string[];events:AdventureEvent[];tasks:AdventureTask[];settlements:string[];followups:string[]}
+export interface AdventureThings {gold:number;inventory:Record<string,number>;facts:string[];events:AdventureEvent[];tasks:AdventureTask[];settlements:string[];followups:string[];equipment:AdventureEquipmentInventory}
 export interface ConditionContext {things:AdventureThings;runtime:AdventureRuntime;story:AdventureStory}
 export interface BoundAdventureChoice {eventId:string;choiceId:string;title:string;text:string;anchorId?:string;npcId?:string;allowed:boolean;reason:string;time:number;gold:number;items:Record<string,number>;check?:{skill:string;label:string;dc:number;mode:CheckResult['mode'];modifier:number;proficiency:number}}
 export function validateAdventureCondition(c:AdventureCondition,depth=0,budget={left:128}):void {
@@ -23,7 +24,7 @@ export function conditionMet(c:AdventureCondition,ctx:ConditionContext):boolean 
  const handlers:Record<string,()=>boolean>={item:()=>ctx.things.inventory[(c as Extract<AdventureCondition,{kind:'item'}>).itemId]>=(c as Extract<AdventureCondition,{kind:'item'}>).count,fact:()=>ctx.things.facts.includes((c as Extract<AdventureCondition,{kind:'fact'}>).id),visit:()=>ctx.runtime.visitedAnchorIds.includes((c as Extract<AdventureCondition,{kind:'visit'}>).anchorId),alive:()=>Boolean(ctx.story.npcs.find(n=>n.id===(c as Extract<AdventureCondition,{kind:'alive'}>).npcId)?.alive),trust:()=>Boolean(ctx.story.npcs.find(n=>n.id===(c as Extract<AdventureCondition,{kind:'trust'}>).npcId&&n.trust>=(c as Extract<AdventureCondition,{kind:'trust'}>).min)),all:()=>('conditions'in c)&&c.conditions.every(x=>conditionMet(x,ctx)),any:()=>('conditions'in c)&&c.conditions.some(x=>conditionMet(x,ctx)),not:()=>('condition'in c)&&!conditionMet(c.condition,ctx)};return handlers[c.kind]();
 }
 export function createAdventureThings(quests:AdventureQuestBlueprint[],adventureId:string,npcIds:string[]):AdventureThings {
- const state:AdventureThings={gold:16,inventory:Object.fromEntries(ADVENTURE_ITEMS.map(i=>[i.id,0])),facts:[],events:[],tasks:quests.map(blueprint=>({blueprint:structuredClone(blueprint),status:'active',rewarded:false,reason:''})),settlements:[],followups:[]};state.inventory.potion=2;state.inventory.rope=1;state.inventory.herb=2;state.inventory.torch=1;
+ const state:AdventureThings={gold:16,inventory:Object.fromEntries(ADVENTURE_ITEMS.map(i=>[i.id,0])),facts:[],events:[],tasks:quests.map(blueprint=>({blueprint:structuredClone(blueprint),status:'active',rewarded:false,reason:''})),settlements:[],followups:[],equipment:createAdventureEquipment()};state.inventory.potion=2;state.inventory.rope=1;state.inventory.herb=2;state.inventory.torch=1;
  for(const id of ['notes','supply','shrine','cache','gate','watch','herbalist','tower-door'])addAdventureEvent(state,id,adventureId);
  for(const npcId of npcIds)addSocialEvents(state,npcId,adventureId);return state;
 }
@@ -58,6 +59,7 @@ export function changeAdventureGold(s:AdventureThings,amount:number):void {const
 export function addAdventureFact(s:AdventureThings,id:string):void {requireValue(typeof id==='string'&&id.length<=120,'INVALID_FACT','事实编号无效。');if(!s.facts.includes(id)){requireValue(s.facts.length<2000,'CONTENT_LIMIT','事实数量超出限制。');s.facts.push(id);}}
 export function updateAdventureTasks(ctx:ConditionContext):AdventureEffect[] {const effects:AdventureEffect[]=[];for(const task of ctx.things.tasks){if(task.status==='active'&&conditionMet(task.blueprint.condition,ctx)){task.status='success';task.reason='已通过真实行动满足目标条件。';}if(task.status==='success'&&!task.rewarded){task.rewarded=true;effects.push(...structuredClone(task.blueprint.reward));}if(ctx.story.outcome==='failed'&&task.status==='active'){task.status='failed';task.reason='本局已经结束。';}}return effects;}
 export function validateAdventureThings(s:AdventureThings):void {
+ validateAdventureEquipment(s.equipment);
  requireValue(Number.isSafeInteger(s.gold)&&s.gold>=0&&s.gold<=100000&&s.events.length<=128&&s.tasks.length<=32&&s.facts.length<=2000,'INVALID_THINGS','物品/事件状态无效。');
  requireValue(Object.keys(s.inventory).length===ADVENTURE_ITEMS.length&&ADVENTURE_ITEMS.every(i=>Number.isInteger(s.inventory[i.id])&&s.inventory[i.id]>=0&&s.inventory[i.id]<=99),'INVALID_THINGS','背包数据无效。');
  const ids=new Set<string>();for(const e of s.events){requireValue(typeof e.id==='string'&&!ids.has(e.id)&&['prepared','ready','waiting','settled','cancelled'].includes(e.status),'INVALID_EVENT','事件身份/状态无效。');ids.add(e.id);requireValue((e.status==='settled')===s.settlements.includes(e.id),'INVALID_EVENT','事件结算账本不一致。');}

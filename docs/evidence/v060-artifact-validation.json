@@ -1,0 +1,9 @@
+{
+  "bytes": 65712053,
+  "files": 695,
+  "artifact": "hi-story-v0.6.0.zip",
+  "version": "v060-artifact-verification/1",
+  "buildId": "48e161323351d3e74277c0eba6bb8c31170097b255bb8c0c1df9580b3f310da9",
+  "entriesMatchManifest": true,
+  "sha256": "d9817dc6b038e0cb3fcfe83169fb1bfeead595fe9dbbd6caa5f963e748460cbe"
+}

@@ -4,7 +4,7 @@ import {createHash} from 'node:crypto';
 import assert from 'node:assert/strict';
 
 const root=resolve(process.argv[2]||'dist');
-const manifest=JSON.parse(readFileSync('docs/evidence/external-character-release-manifest.json','utf8'));
+const manifest=JSON.parse(readFileSync(process.argv[3]||'docs/evidence/external-character-release-manifest.json','utf8'));
 function walk(directory){return readdirSync(directory,{withFileTypes:true}).flatMap(entry=>{
  const path=join(directory,entry.name);return entry.isDirectory()?walk(path):[relative(root,path).split('\\').join('/')];
 });}

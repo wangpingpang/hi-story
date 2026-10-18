@@ -1,0 +1,282 @@
+{
+  "config": {
+    "argv": [
+      "D:\\work\\node\\node-24-lts\\node.exe",
+      "F:\\codexWorkSpace\\hi-story\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "tests/e2e/dice-feedback.spec.ts",
+      "--grep",
+      "跳过保留结果"
+    ],
+    "configFile": "F:\\codexWorkSpace\\hi-story\\playwright.config.ts",
+    "rootDir": "F:/codexWorkSpace/hi-story/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "F:/codexWorkSpace/hi-story/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "F:/codexWorkSpace/hi-story/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "F:/codexWorkSpace/hi-story/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "narrow",
+        "name": "narrow",
+        "testDir": "F:/codexWorkSpace/hi-story/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 90000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "F:\\codexWorkSpace\\hi-story\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "desktop",
+        "testDir": "F:\\codexWorkSpace\\hi-story\\tests\\e2e",
+        "snapshotDir": "F:\\codexWorkSpace\\hi-story\\tests\\e2e",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 90000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4173",
+          "launchOptions": {
+            "executablePath": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+            "args": []
+          },
+          "trace": "retain-on-failure",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "F:\\codexWorkSpace\\hi-story\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "narrow",
+        "testDir": "F:\\codexWorkSpace\\hi-story\\tests\\e2e",
+        "snapshotDir": "F:\\codexWorkSpace\\hi-story\\tests\\e2e",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 90000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4173",
+          "launchOptions": {
+            "executablePath": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+            "args": []
+          },
+          "trace": "retain-on-failure",
+          "viewport": {
+            "width": 375,
+            "height": 812
+          },
+          "isMobile": true,
+          "hasTouch": true
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "narrow"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "docs/evidence/battle-side-dice-focus-browser.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.0",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run preview -- --host 127.0.0.1 --port 4173 --strictPort",
+      "url": "http://127.0.0.1:4173",
+      "reuseExistingServer": false
+    }
+  },
+  "suites": [
+    {
+      "title": "dice-feedback.spec.ts",
+      "file": "dice-feedback.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "跳过保留结果，回看不重掷、无再次结算、焦点可返回",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10698,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:44:24.490Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bc4a6986aa5ef16be8f1-749e3072115eab67fb99",
+          "file": "dice-feedback.spec.ts",
+          "line": 32,
+          "column": 1
+        },
+        {
+          "title": "跳过保留结果，回看不重掷、无再次结算、焦点可返回",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 18611,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeFocused\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('dialog', { name: '骰子检定反馈', exact: true }).getByRole('button', { name: '继续冒险', exact: true })\nExpected: focused\nReceived: inactive\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeFocused\" getByRole('dialog', { name: '骰子检定反馈', exact: true }).getByRole('button', { name: '继续冒险', exact: true }) with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('dialog', { name: '骰子检定反馈', exact: true }).getByRole('button', { name: '继续冒险', exact: true })\u001b[22m\n\u001b[2m    24 × locator resolved to <button data-dice-action=\"close\">继续冒险</button>\u001b[22m\n\u001b[2m       - unexpected value \"inactive\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeFocused\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('dialog', { name: '骰子检定反馈', exact: true }).getByRole('button', { name: '继续冒险', exact: true })\nExpected: focused\nReceived: inactive\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeFocused\" getByRole('dialog', { name: '骰子检定反馈', exact: true }).getByRole('button', { name: '继续冒险', exact: true }) with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('dialog', { name: '骰子检定反馈', exact: true }).getByRole('button', { name: '继续冒险', exact: true })\u001b[22m\n\u001b[2m    24 × locator resolved to <button data-dice-action=\"close\">继续冒险</button>\u001b[22m\n\u001b[2m       - unexpected value \"inactive\"\u001b[22m\n\n    at F:\\codexWorkSpace\\hi-story\\tests\\e2e\\dice-feedback.spec.ts:33:342",
+                    "location": {
+                      "file": "F:\\codexWorkSpace\\hi-story\\tests\\e2e\\dice-feedback.spec.ts",
+                      "column": 342,
+                      "line": 33
+                    },
+                    "snippet": "  31 | });\n  32 | test('跳过保留结果，回看不重掷、无再次结算、焦点可返回',async({page})=>{\n> 33 |  await social(page,true);const committed=await state(page);await skip(page);await page.waitForTimeout(2400);await expect(modal(page)).toBeVisible();await expect(modal(page).getByRole('button',{name:'关闭本次骰子结果',exact:true})).toBeFocused();await page.keyboard.press('Tab');await expect(modal(page).getByRole('button',{name:'继续冒险',exact:true})).toBeFocused();await close(page);await expect(page.locator('#adventure-map')).toBeFocused();await page.getByRole('button',{name:'回看最近骰子结果'}).click();await expect(modal(page)).toContainText('本次全部结果');expect(await modal(page).locator('.dice-tray').first().evaluate(e=>getComputedStyle(e).animationName)).toBe('none');await page.waitForTimeout(2300);await expect(modal(page)).toBeVisible();await page.keyboard.press('Escape');await expect(modal(page)).toHaveCount(0);expect(await state(page)).toEqual(committed);\n     |                                                                                                                                                                                                                                                                                                                                                      ^\n  34 | });\n  35 | test('动画期间刷新保留已提交结果且不重播',async({page})=>{\n  36 |  await social(page,false);await expect(page.locator('.dice-feedback-host')).toHaveAttribute('data-phase','rolling');const committed=await state(page);await page.reload();await expect(page.locator('.adventure-shell')).toBeVisible();await expect(modal(page)).toHaveCount(0);const restored=await state(page);expect(restored.runtime).toEqual(committed.runtime);expect(restored.things).toEqual(committed.things);expect(restored.runId).not.toBe(committed.runId);await expect(page.locator('.dice-result')).toContainText('失败');"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "F:\\codexWorkSpace\\hi-story\\tests\\e2e\\dice-feedback.spec.ts",
+                        "column": 342,
+                        "line": 33
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeFocused\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('dialog', { name: '骰子检定反馈', exact: true }).getByRole('button', { name: '继续冒险', exact: true })\nExpected: focused\nReceived: inactive\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeFocused\" getByRole('dialog', { name: '骰子检定反馈', exact: true }).getByRole('button', { name: '继续冒险', exact: true }) with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('dialog', { name: '骰子检定反馈', exact: true }).getByRole('button', { name: '继续冒险', exact: true })\u001b[22m\n\u001b[2m    24 × locator resolved to <button data-dice-action=\"close\">继续冒险</button>\u001b[22m\n\u001b[2m       - unexpected value \"inactive\"\u001b[22m\n\n\n  31 | });\n  32 | test('跳过保留结果，回看不重掷、无再次结算、焦点可返回',async({page})=>{\n> 33 |  await social(page,true);const committed=await state(page);await skip(page);await page.waitForTimeout(2400);await expect(modal(page)).toBeVisible();await expect(modal(page).getByRole('button',{name:'关闭本次骰子结果',exact:true})).toBeFocused();await page.keyboard.press('Tab');await expect(modal(page).getByRole('button',{name:'继续冒险',exact:true})).toBeFocused();await close(page);await expect(page.locator('#adventure-map')).toBeFocused();await page.getByRole('button',{name:'回看最近骰子结果'}).click();await expect(modal(page)).toContainText('本次全部结果');expect(await modal(page).locator('.dice-tray').first().evaluate(e=>getComputedStyle(e).animationName)).toBe('none');await page.waitForTimeout(2300);await expect(modal(page)).toBeVisible();await page.keyboard.press('Escape');await expect(modal(page)).toHaveCount(0);expect(await state(page)).toEqual(committed);\n     |                                                                                                                                                                                                                                                                                                                                                      ^\n  34 | });\n  35 | test('动画期间刷新保留已提交结果且不重播',async({page})=>{\n  36 |  await social(page,false);await expect(page.locator('.dice-feedback-host')).toHaveAttribute('data-phase','rolling');const committed=await state(page);await page.reload();await expect(page.locator('.adventure-shell')).toBeVisible();await expect(modal(page)).toHaveCount(0);const restored=await state(page);expect(restored.runtime).toEqual(committed.runtime);expect(restored.things).toEqual(committed.things);expect(restored.runId).not.toBe(committed.runId);await expect(page.locator('.dice-result')).toContainText('失败');\n    at F:\\codexWorkSpace\\hi-story\\tests\\e2e\\dice-feedback.spec.ts:33:342"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:44:38.113Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "F:\\codexWorkSpace\\hi-story\\test-results\\dice-feedback-跳过保留结果，回看不重掷、无再次结算、焦点可返回-narrow\\error-context.md"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "F:\\codexWorkSpace\\hi-story\\test-results\\dice-feedback-跳过保留结果，回看不重掷、无再次结算、焦点可返回-narrow\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "F:\\codexWorkSpace\\hi-story\\test-results\\dice-feedback-跳过保留结果，回看不重掷、无再次结算、焦点可返回-narrow\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "F:\\codexWorkSpace\\hi-story\\tests\\e2e\\dice-feedback.spec.ts",
+                    "column": 342,
+                    "line": 33
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "bc4a6986aa5ef16be8f1-5528be31913fe3399ee0",
+          "file": "dice-feedback.spec.ts",
+          "line": 32,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-18T15:44:22.538Z",
+    "duration": 37662.62,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

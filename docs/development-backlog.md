@@ -1,5 +1,9 @@
 # 六模块开发任务与交接
 
+## 2026-10-18 双侧成员与手动骰子
+
+分支 `codex/battle-side-dice` 从725d78e继续。队友在左/红色敌人在右，dice-feedback/3按实际掷骰者actorId与side在状态栏内侧显示小面板；没有全屏遮罩，结果和回看均手动关闭。技能目标豁免、同名人物和战后结果归属有检查，busy仍防重复操作。仅改投影/表现，不新增伙伴或改运行器数值，产品0.6.0/schema5/save1保持。验证见 [本轮记录](battle-side-dice-validation.md)，线上仍v0.5.0。
+
 ## 2026-10-18 独立魔物与法术特效
 
 分支 `codex/combat-monster-effects` 继承eb6f196。哨塔附近主动唤醒两只独立魔物再靠近挑战；128组752帧含真实施法与冲刺，未复制源站数值。火冰雷风奥术35帧CC0素材与项目治疗SVG进入已提交战斗反馈，未命中/成功豁免有不同显示，特效期间临时收起底部内容。可选monsterId绑定、monster-encounters/1与combat-effects/1均有验证边界，schema5/save1保持。实际检查见 [验证记录](monster-effects-validation.md)。线上仍v0.5.0；范围/持续状态、抗性、伙伴调度、全图鉴与完整逐攻击时间线待后续。

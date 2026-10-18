@@ -1,9 +1,9 @@
 import type {AdventureSnapshot} from './adventure-application';
 import type {DeepReadonly} from '../contracts';
 import {ADVENTURE_ITEMS} from '../modules/things';
-export const DICE_FEEDBACK_VERSION='dice-feedback/2';
+export const DICE_FEEDBACK_VERSION='dice-feedback/3';
 export interface DiceFeedback {
- id:string;kind:'skill'|'initiative'|'movement'|'attack'|'damage'|'escape'|'save'|'healing';label:string;actorName:string;
+ id:string;kind:'skill'|'initiative'|'movement'|'attack'|'damage'|'escape'|'save'|'healing';label:string;actorName:string;actorId:string;side:'ally'|'enemy';targetId?:string;
  sides:4|6|8|10|12|20;dice:number[];mode:'normal'|'advantage'|'disadvantage';bonuses:{label:string;value:number}[];
  total:number;threshold?:{label:'DC'|'AC';value:number};success?:boolean;critical?:boolean;targetName?:string;consequences:string[];
 }
@@ -26,9 +26,9 @@ export function diceConsequences(before:Snapshot,after:Snapshot):string[]{
 export function collectDiceFeedback(before:Snapshot,after:Snapshot):DiceFeedback[]{
  if(before.runId!==after.runId||before.adventureId!==after.adventureId||after.revision<=before.revision)return [];
  const frames:DiceFeedback[]=[],name=(id:string)=>after.runtime.actors[id]?.profile.name??after.story.npcs.find(n=>n.id===id)?.name??'人物';
- for(const c of after.runtime.checks)if(!before.runtime.checks.some(old=>old.id===c.id))frames.push({id:c.id,kind:'skill',label:c.label,actorName:name(after.playerActorId),sides:20,dice:[...c.dice],mode:c.mode,bonuses:[{label:'属性',value:c.modifier},{label:'熟练',value:c.proficiency}],total:c.total,threshold:{label:'DC',value:c.dc},success:c.success,targetName:c.targetId?name(c.targetId):undefined,consequences:[]});
+ for(const c of after.runtime.checks)if(!before.runtime.checks.some(old=>old.id===c.id))frames.push({id:c.id,kind:'skill',label:c.label,actorName:name(after.playerActorId),actorId:after.playerActorId,side:'ally',targetId:c.targetId,sides:20,dice:[...c.dice],mode:c.mode,bonuses:[{label:'属性',value:c.modifier},{label:'熟练',value:c.proficiency}],total:c.total,threshold:{label:'DC',value:c.dc},success:c.success,targetName:c.targetId?name(c.targetId):undefined,consequences:[]});
  const b=after.runtime.encounter,old=before.runtime.encounter,sequence=old?.id===b?.id?old?.rollSequence??0:0;
- for(const r of b?.rolls??[])if(r.sequence>sequence)frames.push({id:r.id,kind:r.kind,label:({initiative:'先攻',movement:'移动',attack:'命中检定',damage:'伤害',escape:'逃离检定',save:'豁免检定',healing:'治疗'} as const)[r.kind],actorName:name(r.actorId),sides:r.sides,dice:[...r.dice],mode:'normal',bonuses:[{label:r.kind==='movement'?'移动加值':r.kind==='damage'?'伤害加值':'加值',value:r.bonus}],total:r.total,threshold:r.threshold===undefined?undefined:{label:r.kind==='attack'?'AC':'DC',value:r.threshold},success:r.success,critical:r.critical,targetName:r.targetId?name(r.targetId):undefined,consequences:[]});
+ for(const r of b?.rolls??[])if(r.sequence>sequence)frames.push({id:r.id,kind:r.kind,label:({initiative:'先攻',movement:'移动',attack:'命中检定',damage:'伤害',escape:'逃离检定',save:'豁免检定',healing:'治疗'} as const)[r.kind],actorName:name(r.actorId),actorId:r.actorId,side:r.actorId===after.playerActorId?'ally':'enemy',targetId:r.targetId,sides:r.sides,dice:[...r.dice],mode:'normal',bonuses:[{label:r.kind==='movement'?'移动加值':r.kind==='damage'?'伤害加值':'加值',value:r.bonus}],total:r.total,threshold:r.threshold===undefined?undefined:{label:r.kind==='attack'?'AC':'DC',value:r.threshold},success:r.success,critical:r.critical,targetName:r.targetId?name(r.targetId):undefined,consequences:[]});
  if(frames.length)frames[frames.length-1].consequences=diceConsequences(before,after);
  return frames;
 }

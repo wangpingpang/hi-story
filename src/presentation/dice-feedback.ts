@@ -22,18 +22,35 @@ type Phase='rolling'|'landed'|'result';
 /** A cancellable view of already committed facts. No commands or random calls. */
 export class DiceFeedbackPresenter {
  private host=document.createElement('div');private generation=0;private active=false;private frames:DiceFeedback[]=[];private index=0;private phase:Phase='rolling';private summary=false;private skipped=false;
- private pending?:{timer?:ReturnType<typeof setTimeout>;resolve:()=>void};private focusBefore?:HTMLElement;private context?:AudioContext;private prefs:DicePreferences;
- constructor(private root:HTMLElement,prefs:DicePreferences){this.prefs={...prefs};this.host.className='dice-feedback-host';this.host.addEventListener('click',e=>{const target=(e.target as Element).closest<HTMLButtonElement>('button');if(target?.dataset.diceAction==='skip'){this.skipped=true;this.release();}if(target?.dataset.diceAction==='close'){this.cancel();}});this.host.addEventListener('keydown',e=>{if(e.key==='Escape'){e.preventDefault();e.stopPropagation();if(this.summary)this.cancel();else{this.skipped=true;this.release();}}if(e.key==='Tab'){const buttons=[...this.host.querySelectorAll<HTMLButtonElement>('button')];const first=buttons[0],last=buttons.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last?.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first?.focus();}}});}
+ private pending?:{timer?:ReturnType<typeof setTimeout>;resolve:()=>void};private focusBefore?:HTMLElement;private context?:AudioContext;private prefs:DicePreferences;private focusOnRender=false;
+ private onScroll=()=>this.position();
+ constructor(private root:HTMLElement,prefs:DicePreferences){this.prefs={...prefs};this.host.className='dice-feedback-host';this.host.setAttribute('role','dialog');this.host.setAttribute('aria-label','骰子检定反馈');this.root.addEventListener('scroll',this.onScroll,true);this.host.addEventListener('click',e=>{const target=(e.target as Element).closest<HTMLButtonElement>('button');if(target?.dataset.diceAction==='skip'){this.focusOnRender=true;this.skipped=true;this.release();}if(target?.dataset.diceAction==='close'){this.cancel();}});this.host.addEventListener('keydown',e=>{if(e.key==='Escape'){e.preventDefault();e.stopPropagation();if(this.summary)this.cancel();else{this.focusOnRender=true;this.skipped=true;this.release();}}});}
  setPreferences(p:DicePreferences){this.prefs={...p};}
  primeAudio():void {if(!this.prefs.sound)return;try{this.context??=new AudioContext();void this.context.resume().catch(()=>{});}catch{/* Silent fallback. */}}
  private sound(result:boolean):void {if(!this.prefs.sound||!this.context||this.context.state!=='running')return;try{const c=this.context,o=c.createOscillator(),gain=c.createGain();o.type='sine';o.frequency.setValueAtTime(result?660:190,c.currentTime);o.frequency.exponentialRampToValueAtTime(result?880:110,c.currentTime+.12);gain.gain.setValueAtTime(.035,c.currentTime);gain.gain.exponentialRampToValueAtTime(.001,c.currentTime+.18);o.connect(gain).connect(c.destination);o.start();o.stop(c.currentTime+.2);}catch{/* Sound cannot block playback. */}}
- attach():void {if(this.active){this.root.append(this.host);this.root.querySelector<HTMLElement>('.adventure-shell')?.setAttribute('inert','');if(!this.host.contains(document.activeElement))this.host.querySelector<HTMLButtonElement>('button')?.focus({preventScroll:true});}}
+ attach():void {if(this.active){this.root.append(this.host);this.position();}}
+ private position():void {
+  const panels=[...this.host.querySelectorAll<HTMLElement>('.dice-actor-panel')],narrow=innerWidth<=700;
+  const left=this.root.querySelector<HTMLElement>('[data-roster-side="ally"]')?.getBoundingClientRect(),right=this.root.querySelector<HTMLElement>('[data-roster-side="enemy"]')?.getBoundingClientRect();
+  const start=Math.min(left?.top??110,right?.top??110)+40;const gap=narrow?6:10,lane=left&&right?right.left-left.right-2*gap:innerWidth-40,width=Math.max(110,Math.min(narrow?176:244,lane)),limit=Math.max(120,Math.min(narrow?224:360,(innerHeight-start-10-8*(panels.length-1))/Math.max(1,panels.length)));
+  const placed:{left:number;right:number;top:number;bottom:number}[]=[];
+  for(const panel of panels){
+   const side=panel.dataset.side,anchor=[...this.root.querySelectorAll<HTMLElement>('[data-roster-actor]')].find(el=>el.dataset.rosterActor===panel.dataset.diceActor)?.getBoundingClientRect(),roster=side==='enemy'?right:left;
+   panel.style.width=`${width}px`;panel.style.maxHeight=`${limit}px`;
+   const x=Math.max(8,Math.min(innerWidth-width-8,side==='enemy'?(roster?.left??innerWidth-20)-gap-width:(roster?.right??20)+gap));
+   let y=Math.max(76,anchor?.top??roster?.top??110),height=Math.min(panel.scrollHeight,limit);
+   for(const old of placed)if(x<old.right+gap&&x+width>old.left-gap&&y<old.bottom+8&&y+height>old.top-8)y=old.bottom+8;
+   y=Math.min(y,innerHeight-height-10);panel.style.left=`${x}px`;panel.style.top=`${Math.max(8,y)}px`;placed.push({left:x,right:x+width,top:y,bottom:y+height});
+  }
+ }
  private release():void {const p=this.pending;this.pending=undefined;if(p){if(p.timer!==undefined)clearTimeout(p.timer);p.resolve();}}
  private wait(ms?:number):Promise<void>{return new Promise(resolve=>{const timer=ms===undefined?undefined:setTimeout(()=>{this.pending=undefined;resolve();},ms);this.pending={resolve,timer};});}
  private render():void {
-  const current=this.frames[this.index],all=this.summary,frames=all?this.frames:[current];this.host.dataset.theme=this.prefs.theme;this.host.dataset.phase=this.phase;
-  this.host.innerHTML=`<section class="dice-modal ${all?'dice-summary':''}" role="dialog" aria-modal="true" aria-label="骰子检定反馈"><header><span class="dice-eyebrow">命运的回响 · ${all?'本次全部结果':`${this.index+1} / ${this.frames.length}`}</span><h2>${all?'骰子结果':html(current.label)}</h2><p>结果已结算</p></header><div class="dice-cards">${frames.map(f=>this.card(f,all?'result':this.phase,all||this.index===this.frames.length-1)).join('')}</div><footer>${all?'<button data-dice-action="close">继续冒险</button>':'<button data-dice-action="skip">跳过动画</button>'}<small>${all?'回看与跳过不会再次掷骰或结算':'Esc 可跳过；动画不影响真实结果'}</small></footer></section>`;
-  this.attach();this.host.querySelector<HTMLButtonElement>('button')?.focus({preventScroll:true});
+  const current=this.frames[this.index],all=this.summary,frames=all?this.frames:[current],focused=this.host.contains(document.activeElement)?(document.activeElement as HTMLElement).dataset.diceAction:undefined;this.host.dataset.theme=this.prefs.theme;this.host.dataset.phase=this.phase;
+  const groups=new Map<string,DiceFeedback[]>();for(const f of frames){const group=groups.get(f.actorId)??[];group.push(f);groups.set(f.actorId,group);}
+  const ordered=[...groups].sort((a,b)=>Number(a[1][0].side==='enemy')-Number(b[1][0].side==='enemy'));
+  this.host.innerHTML=ordered.map(([actorId,rolls],i)=>`<section class="dice-modal dice-actor-panel ${all?'dice-summary':''}" role="group" aria-label="${html(rolls[0].actorName)}的骰子" data-dice-actor="${html(actorId)}" data-side="${rolls[0].side}"><header><div><span class="dice-eyebrow">${rolls[0].side==='enemy'?'敌方':'队友'}掷骰 · ${all?'本次全部结果':`${this.index+1} / ${this.frames.length}`}</span><h2>${html(rolls[0].actorName)}</h2></div><button data-dice-action="close" aria-label="关闭本次骰子结果">×</button></header><div class="dice-cards">${rolls.map(f=>this.card(f,all?'result':this.phase,all||this.index===this.frames.length-1)).join('')}</div><footer>${all?(i===0?'<button data-dice-action="close">继续冒险</button>':''):'<button data-dice-action="skip">跳过动画</button>'}<small>${all?'结果保留，手动关闭':'已结算 · 可随时关闭'}</small></footer></section>`).join('');
+  this.attach();if(this.focusOnRender||focused){const button=this.host.querySelector<HTMLButtonElement>(`[data-dice-action="${focused??'close'}"]`)??this.host.querySelector<HTMLButtonElement>('[data-dice-action="close"]');button?.focus({preventScroll:true});this.focusOnRender=false;}
  }
  private card(f:DiceFeedback,phase:Phase,effects:boolean):string {
   const reveal=phase!=='rolling',result=phase==='result',selected=selectedDice(f),tone=result?(f.success===false?'failure':f.critical?'critical':'success'):'neutral';
@@ -41,19 +58,19 @@ export class DiceFeedbackPresenter {
   return `<article class="dice-card ${tone}" data-roll-id="${html(f.id)}" data-kind="${f.kind}"><p class="dice-actor">${html(f.actorName)} · ${html(f.label)}${f.targetName?` → ${html(f.targetName)}`:''}</p><div class="dice-tray ${phase}">${f.dice.map((v,i)=>`<div class="die-wrap ${reveal&&!selected[i]?'discarded':''}" style="--die-index:${i}">${dieMarkup(f.sides,reveal?v:null)}<small>${reveal&&f.mode!=='normal'?(selected[i]?'采用':'舍弃'):`D${f.sides}`}</small></div>`).join('')}</div>${f.mode!=='normal'?`<p class="dice-mode">${f.mode==='advantage'?'优势 · 取较高值':'劣势 · 取较低值'}</p>`:''}<div class="dice-outcome" role="status" aria-live="polite">${result?`<h3><span aria-hidden="true">${f.success===false?'×':f.critical?'✦':'✓'}</span> ${feedbackVerdict(f)}</h3><p class="dice-formula">${html(feedbackFormula(f))}</p>${detail?`<p>${detail}</p>`:''}${f.kind==='damage'?'<small>重击仅翻倍伤害骰，加值只计算一次。</small>':''}${effects&&f.consequences.length?`<ul class="dice-consequences" aria-label="本次行动后果">${f.consequences.map(t=>`<li>${html(t)}</li>`).join('')}</ul>`:''}`:`<p>${phase==='rolling'?'骰子正在翻滚…':'点数已落定…'}</p>`}</div></article>`;
  }
  async play(frames:DiceFeedback[],review=false):Promise<void>{
-  if(!frames.length)return;this.cancel(false);const token=++this.generation;this.active=true;this.frames=structuredClone(frames);this.index=0;this.phase='rolling';this.summary=false;this.skipped=false;this.focusBefore=document.activeElement instanceof HTMLElement?document.activeElement:undefined;
+  if(!frames.length)return;this.cancel(false);const token=++this.generation;this.active=true;this.frames=structuredClone(frames);this.index=0;this.phase='rolling';this.summary=false;this.skipped=false;this.focusOnRender=true;this.focusBefore=document.activeElement instanceof HTMLElement?document.activeElement:undefined;
   const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   try{
    if(review||reduced){this.summary=true;this.phase='result';this.render();await this.wait();}
    else for(this.index=0;this.index<this.frames.length;this.index++){
     this.phase='rolling';this.render();await this.wait(760);if(token!==this.generation)return;if(this.skipped)break;
     this.phase='landed';this.render();await this.wait(260);if(token!==this.generation)return;if(this.skipped)break;
-    this.phase='result';this.sound(this.frames[this.index].success!==false);this.render();await this.wait(this.index===this.frames.length-1?2200:850);if(token!==this.generation)return;if(this.skipped)break;
+    this.phase='result';this.sound(this.frames[this.index].success!==false);this.render();if(this.index<this.frames.length-1)await this.wait(850);if(token!==this.generation)return;if(this.skipped)break;
    }
    if(token!==this.generation)return;
-   if(this.skipped){this.summary=true;this.phase='result';this.render();await this.wait();}
+   this.summary=true;this.phase='result';this.render();await this.wait();
   }finally{if(token===this.generation)this.cancel();}
  }
- cancel(restoreFocus=true):void {this.generation++;this.release();this.active=false;this.host.remove();this.root.querySelector<HTMLElement>('.adventure-shell')?.removeAttribute('inert');if(restoreFocus){const target=this.focusBefore?.isConnected?this.focusBefore:this.root.querySelector<HTMLElement>('#adventure-map');target?.focus({preventScroll:true});}this.focusBefore=undefined;}
- dispose():void {this.cancel(false);void this.context?.close().catch(()=>{});}
+ cancel(restoreFocus=true):void {this.generation++;this.release();this.active=false;this.host.remove();if(restoreFocus){const target=this.focusBefore?.isConnected?this.focusBefore:this.root.querySelector<HTMLElement>('#adventure-map');target?.focus({preventScroll:true});}this.focusBefore=undefined;}
+ dispose():void {this.cancel(false);this.root.removeEventListener('scroll',this.onScroll,true);void this.context?.close().catch(()=>{});}
 }

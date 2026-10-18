@@ -24,10 +24,10 @@ async function displayed(page:Page,id:string){return page.locator(`[data-battle-
 async function centered(page:Page,id:string){const p=await page.locator(`[data-battle-actor="${id}"] ellipse`).evaluate(el=>{const p=new DOMPoint(0,-38).matrixTransform((el as SVGGraphicsElement).getScreenCTM()!);return {x:p.x,y:p.y,cx:innerWidth/2,cy:innerHeight/2};});expect(Math.abs(p.x-p.cx)).toBeLessThan(.2);expect(Math.abs(p.y-p.cy)).toBeLessThan(.2);}
 
 test('成员头像在左、行动在下、日志在左下，操作和日志可独立收起',async({page},info)=>{
- await fixture(page);const roster=(await page.locator('.battle-roster').boundingBox())!,actions=(await page.locator('.battle-action-panel').boundingBox())!,logs=(await page.locator('.battle-journal').boundingBox())!,viewport=page.viewportSize()!;
+ await fixture(page);const roster=(await page.locator('.battle-roster-ally').boundingBox())!,actions=(await page.locator('.battle-action-panel').boundingBox())!,logs=(await page.locator('.battle-journal').boundingBox())!,viewport=page.viewportSize()!;
  expect(roster.x).toBeLessThan(30);expect(roster.x+roster.width).toBeLessThan(viewport.width/2);expect(actions.y).toBeGreaterThan(viewport.height/2);expect(logs.x).toBeLessThan(30);expect(logs.y).toBeGreaterThan(roster.y+roster.height);await expect(page.locator('[data-roster-actor]')).toHaveCount(2);
  const before=await state(page);await page.locator('#battle-log-toggle').click();await expect(page.locator('.battle-log-scroll')).toBeHidden();await page.locator('#battle-log-toggle').click();await expect(page.locator('.battle-log-scroll')).toBeVisible();await page.locator('#battle-panel-toggle').click();await expect(page.locator('.battle-action-panel .panel-body')).toBeHidden();await page.locator('#battle-panel-toggle').click();expect(await state(page)).toEqual(before);
- for(const member of await page.locator('[data-roster-actor]').all())expect((await member.boundingBox())!.width).toBeGreaterThan(roster.width*.75);
+ for(const member of await page.locator('[data-roster-actor]').all())expect((await member.boundingBox())!.width).toBeGreaterThan(roster.width*.65);
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);await painted(page);await page.screenshot({path:info.outputPath('battle-layout.png'),fullPage:true});
 });
 test('玩家沿实际绕障路线跑步，镜头和脚下标记同步，移动只提交一次',async({page},info)=>{

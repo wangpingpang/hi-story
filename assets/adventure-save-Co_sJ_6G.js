@@ -1,0 +1,1 @@
+function e(e){let t=`hi-story:adventure:world-v2`;return{read:()=>e.getItem(t),write:n=>{e.setItem(t,n)}}}export{e as createBrowserSavePort};

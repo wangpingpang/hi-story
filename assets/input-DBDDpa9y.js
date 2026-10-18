@@ -1,0 +1,1 @@
+function e(e,t,n=crypto.randomUUID()){return{commandId:n,runId:e.adventure.runId,actorId:e.character.actorId,eventInstanceId:e.eventInstanceId,revision:e.adventure.revision,choiceId:t}}export{e as choiceCommand};

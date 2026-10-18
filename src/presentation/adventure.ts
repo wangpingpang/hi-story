@@ -17,10 +17,11 @@ import {renderCombatSkills} from './combat-skills';
 import { WorldScene,renderWorldHits,worldHeight,drawMinimap,playerCameraFocus,worldGridKey as gridKey } from './world-scene';
 import {DiceFeedbackPresenter,readDicePreferences,saveDicePreferences,dicePreferenceMarkup,compactFeedbackMarkup,type DiceTheme} from './dice-feedback';
 type Panel='interaction'|'quests'|'inventory'|'journal'|'settings'|'';
+const DEFAULT_SCENE_ZOOM=1.5;
 export function mountAdventure(root:HTMLElement,app:AdventureApplication):()=>void {
  let panel:Panel='interaction',npcId='',message='',busy=false,removeKeys=()=>{},unsubscribe=()=>{},destroyed=false;
  const dicePrefs=readDicePreferences(),dicePresenter=new DiceFeedbackPresenter(root,dicePrefs);let battleFeedbackVisible=false;let recentFrames:DiceFeedback[]=[],observedRunId=app.query().snapshot?.runId;
- let camera={x:0,y:0,zoom:window.innerWidth<700?1.45:1.25};let dragging=false,dragMoved=false,last={x:0,y:0};
+ let camera={x:0,y:0,zoom:DEFAULT_SCENE_ZOOM};let dragging=false,dragMoved=false,last={x:0,y:0};
  let weather:Weather|undefined,shownRoll='',newRoll=false,rollUntil=0,battleWasActive=false,battlePanelCollapsed=false,exploreZoom=camera.zoom;
  let legacySave:string|null=null;try{legacySave=localStorage.getItem('hi-story:adventure:v010');}catch{}
  if(legacySave&&app.query().snapshot?.revision===0)message='旧版进度已保留；本次开启五倍山谷，可在“旅程”导出旧档。';
@@ -103,7 +104,7 @@ export function mountAdventure(root:HTMLElement,app:AdventureApplication):()=>vo
   scene.motionArt.motion.dialogue(panel==='interaction'?npcId:'');
   const environment=environmentFor(s.seed,s.story.time,weather),classId=a.profession?.build.classes[0]?.classId??({warden:'paladin',ranger:'ranger',scholar:'wizard',envoy:'bard'} as const)[a.archetype],professionName=a.profession?professions.classes.find(c=>c.id===classId)?.name:undefined;
   if(lastRoll&&lastRoll.id!==shownRoll){shownRoll=lastRoll.id;rollUntil=performance.now()+750;}newRoll=performance.now()<rollUntil;
-  if(isBattle!==battleWasActive){if(isBattle){battlePanelCollapsed=false;exploreZoom=camera.zoom;camera.zoom=small?.7:1.15;}else camera.zoom=exploreZoom;battleWasActive=isBattle;}
+  if(isBattle!==battleWasActive){if(isBattle){battlePanelCollapsed=false;exploreZoom=camera.zoom;camera.zoom=DEFAULT_SCENE_ZOOM;}else camera.zoom=exploreZoom;battleWasActive=isBattle;}
   const battlePosition=isBattle?battlePlayback.sample(s.playerActorId,performance.now())?.position:undefined;scene.setBattleFocus(battlePosition);
   const focus=playerCameraFocus(s,undefined,battlePosition);
   const displayPositions=Object.fromEntries((b?.participants??[]).map(p=>[p.actorId,battlePlayback.sample(p.actorId,performance.now())?.position??p.position]));

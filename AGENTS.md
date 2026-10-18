@@ -1,5 +1,9 @@
 # 项目约定
 
+## 2026-10-18 默认场景缩放
+
+分支 `codex/default-scene-zoom` 继承74656ea，探索和战斗默认统一1.5倍，桌面和窄屏一致。保留手动缩放和人物居中，离开战斗恢复进入前的探索缩放；纯表现参数，产品0.6.0/schema5/save1保持。实际验证见 `docs/default-scene-zoom-validation.md`，线上未更新。
+
 ## 2026-10-18 人物附加阴影修正候选
 
 当前增量分支 `codex/fix-character-shadow`，继承7a67f8a。移除世界Canvas和旧SVG人物的额外实心地面阴影，以及战斗共用人物图像CSS投影；完整素材帧及其原有阴影保持原样，玩家/敌方的描边定位圈继续保留。只改表现，不修改素材、规则或schema5/save1。桌面/375px共22项浏览器用例、类型/边界/构建通过。实际检查及提交状态见 `docs/character-shadow-validation.md`，线上仍v0.5.0。

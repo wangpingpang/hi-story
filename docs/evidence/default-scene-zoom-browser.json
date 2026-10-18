@@ -1,0 +1,397 @@
+{
+  "config": {
+    "argv": [
+      "D:\\work\\node\\node-24-lts\\node.exe",
+      "F:\\codexWorkSpace\\hi-story\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "tests/e2e/player-camera.spec.ts",
+      "tests/e2e/external-character-game.spec.ts"
+    ],
+    "configFile": "F:\\codexWorkSpace\\hi-story\\playwright.config.ts",
+    "rootDir": "F:/codexWorkSpace/hi-story/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "F:/codexWorkSpace/hi-story/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "F:/codexWorkSpace/hi-story/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "F:/codexWorkSpace/hi-story/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "narrow",
+        "name": "narrow",
+        "testDir": "F:/codexWorkSpace/hi-story/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 90000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "F:\\codexWorkSpace\\hi-story\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "desktop",
+        "testDir": "F:\\codexWorkSpace\\hi-story\\tests\\e2e",
+        "snapshotDir": "F:\\codexWorkSpace\\hi-story\\tests\\e2e",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 90000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4173",
+          "launchOptions": {
+            "executablePath": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+            "args": []
+          },
+          "trace": "retain-on-failure",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "F:\\codexWorkSpace\\hi-story\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "narrow",
+        "testDir": "F:\\codexWorkSpace\\hi-story\\tests\\e2e",
+        "snapshotDir": "F:\\codexWorkSpace\\hi-story\\tests\\e2e",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 90000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4173",
+          "launchOptions": {
+            "executablePath": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+            "args": []
+          },
+          "trace": "retain-on-failure",
+          "viewport": {
+            "width": 375,
+            "height": 812
+          },
+          "isMobile": true,
+          "hasTouch": true
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "narrow"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "docs/evidence/default-scene-zoom-browser.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.0",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run preview -- --host 127.0.0.1 --port 4173 --strictPort",
+      "url": "http://127.0.0.1:4173",
+      "reuseExistingServer": false
+    }
+  },
+  "suites": [
+    {
+      "title": "external-character-game.spec.ts",
+      "file": "external-character-game.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "新冒险只加载外部人物；切换外形保持规则进度与人物中心",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4273,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:59:31.315Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "model-requests",
+                      "contentType": "application/json",
+                      "body": "eyJtb2RlbHMiOlsicm9sZS0xMDI0Iiwicm9sZS0xMjE2Il0sInJlcXVlc3RzIjpbImh0dHA6Ly8xMjcuMC4wLjE6NDE3My9hc3NldHMvY2hhcmFjdGVycy9tb2xpYmFpa2Uvc291cmNlLWNhdGFsb2cuanNvbiIsImh0dHA6Ly8xMjcuMC4wLjE6NDE3My9hc3NldHMvY2hhcmFjdGVycy9tb2xpYmFpa2Uvcm9sZS0xMDI0L21hbmlmZXN0Lmpzb24iLCJodHRwOi8vMTI3LjAuMC4xOjQxNzMvYXNzZXRzL2NoYXJhY3RlcnMvbW9saWJhaWtlL3JvbGUtMTI0MC9tYW5pZmVzdC5qc29uIiwiaHR0cDovLzEyNy4wLjAuMTo0MTczL2Fzc2V0cy9jaGFyYWN0ZXJzL21vbGliYWlrZS9yb2xlLTEwMjQvYWN0aW9uLTAud2VicCIsImh0dHA6Ly8xMjcuMC4wLjE6NDE3My9hc3NldHMvY2hhcmFjdGVycy9tb2xpYmFpa2Uvcm9sZS0xMjQwL2FjdGlvbi0wLndlYnAiLCJodHRwOi8vMTI3LjAuMC4xOjQxNzMvYXNzZXRzL2NoYXJhY3RlcnMvbW9saWJhaWtlL3JvbGUtMTAyNC9hY3Rpb24tMS53ZWJwIiwiaHR0cDovLzEyNy4wLjAuMTo0MTczL2Fzc2V0cy9jaGFyYWN0ZXJzL21vbGliYWlrZS9zb3VyY2UtY2F0YWxvZy5qc29uIiwiaHR0cDovLzEyNy4wLjAuMTo0MTczL2Fzc2V0cy9jaGFyYWN0ZXJzL21vbGliYWlrZS9yb2xlLTEwMjQvbWFuaWZlc3QuanNvbiIsImh0dHA6Ly8xMjcuMC4wLjE6NDE3My9hc3NldHMvY2hhcmFjdGVycy9tb2xpYmFpa2Uvcm9sZS0xMjE2L21hbmlmZXN0Lmpzb24iLCJodHRwOi8vMTI3LjAuMC4xOjQxNzMvYXNzZXRzL2NoYXJhY3RlcnMvbW9saWJhaWtlL3JvbGUtMTI0MC9tYW5pZmVzdC5qc29uIiwiaHR0cDovLzEyNy4wLjAuMTo0MTczL2Fzc2V0cy9jaGFyYWN0ZXJzL21vbGliYWlrZS9yb2xlLTEyMTYvYWN0aW9uLTAud2VicCIsImh0dHA6Ly8xMjcuMC4wLjE6NDE3My9hc3NldHMvY2hhcmFjdGVycy9tb2xpYmFpa2Uvcm9sZS0xMjQwL2FjdGlvbi0wLndlYnAiXSwiZXJyb3JzIjpbXX0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a1015412f32b0a081748-5f30f7cf2e6261adcef6",
+          "file": "external-character-game.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "新冒险只加载外部人物；切换外形保持规则进度与人物中心",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4466,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T16:00:02.248Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "model-requests",
+                      "contentType": "application/json",
+                      "body": "eyJtb2RlbHMiOlsicm9sZS0xMDI0Iiwicm9sZS0xMjE2Il0sInJlcXVlc3RzIjpbImh0dHA6Ly8xMjcuMC4wLjE6NDE3My9hc3NldHMvY2hhcmFjdGVycy9tb2xpYmFpa2Uvc291cmNlLWNhdGFsb2cuanNvbiIsImh0dHA6Ly8xMjcuMC4wLjE6NDE3My9hc3NldHMvY2hhcmFjdGVycy9tb2xpYmFpa2Uvcm9sZS0xMDI0L21hbmlmZXN0Lmpzb24iLCJodHRwOi8vMTI3LjAuMC4xOjQxNzMvYXNzZXRzL2NoYXJhY3RlcnMvbW9saWJhaWtlL3JvbGUtMTI0MC9tYW5pZmVzdC5qc29uIiwiaHR0cDovLzEyNy4wLjAuMTo0MTczL2Fzc2V0cy9jaGFyYWN0ZXJzL21vbGliYWlrZS9yb2xlLTEwMjQvYWN0aW9uLTAud2VicCIsImh0dHA6Ly8xMjcuMC4wLjE6NDE3My9hc3NldHMvY2hhcmFjdGVycy9tb2xpYmFpa2Uvcm9sZS0xMjQwL2FjdGlvbi0wLndlYnAiLCJodHRwOi8vMTI3LjAuMC4xOjQxNzMvYXNzZXRzL2NoYXJhY3RlcnMvbW9saWJhaWtlL3JvbGUtMTAyNC9hY3Rpb24tMS53ZWJwIiwiaHR0cDovLzEyNy4wLjAuMTo0MTczL2Fzc2V0cy9jaGFyYWN0ZXJzL21vbGliYWlrZS9zb3VyY2UtY2F0YWxvZy5qc29uIiwiaHR0cDovLzEyNy4wLjAuMTo0MTczL2Fzc2V0cy9jaGFyYWN0ZXJzL21vbGliYWlrZS9yb2xlLTEwMjQvbWFuaWZlc3QuanNvbiIsImh0dHA6Ly8xMjcuMC4wLjE6NDE3My9hc3NldHMvY2hhcmFjdGVycy9tb2xpYmFpa2Uvcm9sZS0xMjE2L21hbmlmZXN0Lmpzb24iLCJodHRwOi8vMTI3LjAuMC4xOjQxNzMvYXNzZXRzL2NoYXJhY3RlcnMvbW9saWJhaWtlL3JvbGUtMTI0MC9tYW5pZmVzdC5qc29uIiwiaHR0cDovLzEyNy4wLjAuMTo0MTczL2Fzc2V0cy9jaGFyYWN0ZXJzL21vbGliYWlrZS9yb2xlLTEyNDAvYWN0aW9uLTAud2VicCIsImh0dHA6Ly8xMjcuMC4wLjE6NDE3My9hc3NldHMvY2hhcmFjdGVycy9tb2xpYmFpa2Uvcm9sZS0xMjE2L2FjdGlvbi0wLndlYnAiXSwiZXJyb3JzIjpbXX0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a1015412f32b0a081748-9b8670f0b202176bc6ff",
+          "file": "external-character-game.spec.ts",
+          "line": 4,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "player-camera.spec.ts",
+      "file": "player-camera.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "人物在移动的每帧保持居中，拖动不脱离，缩放和屏幕变化仍居中",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 18177,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:59:35.881Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9424899abda3420493cc-a6d14a8894ae496dcc1b",
+          "file": "player-camera.spec.ts",
+          "line": 17,
+          "column": 1
+        },
+        {
+          "title": "自动步行和战术移动同样跟随人物，退出战斗后恢复世界人物中心",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7448,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:59:54.072Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9424899abda3420493cc-4ef8de8ca8c45f0c4a13",
+          "file": "player-camera.spec.ts",
+          "line": 27,
+          "column": 1
+        },
+        {
+          "title": "人物在移动的每帧保持居中，拖动不脱离，缩放和屏幕变化仍居中",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 18377,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T16:00:07.013Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9424899abda3420493cc-fd12b2d4a2474758b20f",
+          "file": "player-camera.spec.ts",
+          "line": 17,
+          "column": 1
+        },
+        {
+          "title": "自动步行和战术移动同样跟随人物，退出战斗后恢复世界人物中心",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7397,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T16:00:25.403Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9424899abda3420493cc-93b781084ed335123694",
+          "file": "player-camera.spec.ts",
+          "line": 27,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-18T15:59:29.893Z",
+    "duration": 63378.308,
+    "expected": 6,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

@@ -1,5 +1,7 @@
 # hi-story
 
+2026-10-18 新版[人物素材馆](https://wangpingpang.github.io/hi-story/?view=character-library)已上线：28 人、19 类动作、8 个方向，默认风格一/空手；原人物工坊与动作工坊入口已转入新馆。发布提交 `ce39953`，695 个公网文件及桌面/375px 真实交互复验通过，详见 [v0.5.0 验收与发布](docs/external-character-validation.md)。
+
 本地继续开发入口：[Windows / macOS / Linux 本地开发](docs/local-development.md) · [GitHub 与跨会话材料核对](docs/local-handoff-audit.md)。2026-10-18 本地交接分支 `codex/local-development-handoff`（尚未推送）包含当前 v0.5.0 人物接入；`main` 仍是项目介绍，不能作为完整代码下载入口。内部动作/形态制作规范随私有交接材料保留，不上传公开仓库。
 
 当前迭代 **v0.5.0 外部人物模型**：默认冒险撤下旧人物部件生成与骨骼装配接线，改用用户指定的魔力百科动画，新增 `?view=character-library` 人物素材馆。旧人物/动作工坊入口统一转到新馆；姓名、性格、规则和存档继续沿用。[素材协议与来源](外部人物素材接入说明.md) · [实际验证及发布状态](docs/external-character-validation.md)。下方旧版本工坊与骨骼说明是历史记录。

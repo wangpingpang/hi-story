@@ -53,3 +53,13 @@
 用户转为本地开发，本轮不发布网站。此前未提交的外部人物实现与说明随本地 `codex/local-development-handoff` 保存（尚未推送GitHub），不改变原 `codex/fix-scene-freeze` 或 `main`。本轮重跑23文件336项逻辑、类型、模块边界、生产构建全部通过；695文件与既有release manifest逐项一致。再次核对28人、4256组、21368帧、560个WebP全部被正确引用。
 
 22项核心Playwright用例仅成功列出，本轮执行0项：云端没有可用Chromium，浏览器下载端点不可达。此前本地浏览器证据保留，不能当成本轮执行。Windows开发脚本与浏览器路径选择已经适配，真实Windows首次执行仍需在本机完成。详细交接、GitHub归档与未完成项见 `docs/local-handoff-audit.md` 和 `docs/local-development.md`。
+
+## 2026-10-18 Windows 复验与线上发布
+
+本轮用户要求更新线上人物素材馆，已恢复交接包并在 Windows、Node 24.16.0 与本机 Chrome 上实际复验。336 项逻辑测试、类型、模块边界、构建全部通过；人物馆/外部人物/镜头 18 项、真实战斗后探索 2 项、慢设备响应 2 项浏览器检查通过，覆盖桌面与 375px。695 个生产文件逐项匹配原验收清单。
+
+修复 `tooling/boundaries.mjs` 对 Windows 反斜杠路径的误判，本机检查保持原有边界约束。公网验证器增加逐路径有限重试与进度输出；初次 Node 下载旧版大 PNG 遇到网络超时，Windows 下大文件改用原生 HTTP 下载、其他下载失败时也可切换该方式，所有返回字节继续按原清单校验 SHA-256。最终公网检查成功，未放宽资源哈希或页面交互断言。
+
+发布提交为 [`ce39953dd5b221c0550c5be73347b9b60bcbd1f1`](https://github.com/wangpingpang/hi-story/commit/ce39953dd5b221c0550c5be73347b9b60bcbd1f1)，位于 `gh-pages`；[Pages #39115009820](https://github.com/wangpingpang/hi-story/actions/runs/39115009820) completed/success。公开入口为 <https://wangpingpang.github.io/hi-story/?view=character-library>，线上 28 人/19 动作/8 方向与默认风格一/空手已核实。
+
+最终公网验证：695 个文件 SHA-256 一致；1440×1000 与 375×812 的名册、北向攻击、外形选择、返回冒险、实际连续移动、人物居中、刷新恢复和无横向溢出均通过，页面错误、HTTP 失败和请求失败均为 0。证据位于本机 `_handoff/audit/public-20261018/external-character-public-validation.json` 及同目录截图。原交接时“未发布/未运行 Windows”是历史状态；源码维护分支 `codex/publish-character-library` 及原交接/归档源码仍未推送，不能把本次静态网站发布当作全部源码同步。

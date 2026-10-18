@@ -1,5 +1,13 @@
 # GitHub Pages 发布
 
+## 2026-10-18 v0.5.0 人物素材馆
+
+新版入口：<https://wangpingpang.github.io/hi-story/?view=character-library>。已将交接包中通过验收的 695 个构建文件和 `.nojekyll` 发布到 `gh-pages@ce39953dd5b221c0550c5be73347b9b60bcbd1f1`，保留上一版发布历史。包含 28 人、19 类动作、8 方向、默认风格一/空手；主冒险采用新人物，旧人物/动作工坊入口转入素材馆。
+
+[Pages 构建与部署 #39115009820](https://github.com/wangpingpang/hi-story/actions/runs/39115009820) completed/success。695 个公网文件逐一与验收清单比对 SHA-256 一致；1440×1000 和 375×812 实际选人、北向攻击、返回冒险、连续移动、人物居中和刷新恢复通过，无页面错误、HTTP 失败或请求失败。详细验证见 `external-character-validation.md` 最新发布记录，本机证据在 `_handoff/audit/public-20261018/`。
+
+本轮只发布公开 `dist` 产物；源码维护分支 `codex/publish-character-library` 仍在本地，原始交接源码/归档分支未补推。下文为较早版本的历史发布记录。
+
 公开地址：https://wangpingpang.github.io/hi-story/
 
 2026-10-13 用户授权公开发布后，将已验收的 dist 原样提交到独立 `gh-pages` 分支；发布提交 `31082c3a1278b66b4716d4a620873fd8775cb291`，产品源码提交 `2bd0f51b43bfacbdb2e4e9b757efd82c127857ea`。没有合并 main、创建持久密钥、修改账户权限或使用付费服务。

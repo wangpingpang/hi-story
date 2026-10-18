@@ -1,18 +1,44 @@
 import {chromium} from '@playwright/test';
 import {readFileSync,writeFileSync,mkdirSync} from 'node:fs';
 import {createHash} from 'node:crypto';
+import {execFile} from 'node:child_process';
+import {promisify} from 'node:util';
 import assert from 'node:assert/strict';
 
 const manifest=JSON.parse(readFileSync('docs/evidence/external-character-release-manifest.json','utf8'));
 const site=process.env.HI_STORY_SITE||'https://wangpingpang.github.io/hi-story/';
 const evidence=process.env.HI_STORY_EVIDENCE_DIR||'docs/evidence';mkdirSync(evidence,{recursive:true});
 const sha=bytes=>createHash('sha256').update(bytes).digest('hex');
-const files=[];let cursor=0;
+const files=[],assetFetchRetries=[],assetTransports=[];let cursor=0;
+const execute=promisify(execFile);
+async function readWindowsAsset(file){
+ const url=new URL(file.path,site).href.replaceAll("'","''");
+ const command=`$ErrorActionPreference='Stop';$response=Invoke-WebRequest -Uri '${url}' -UseBasicParsing -TimeoutSec 30;[Convert]::ToBase64String($response.RawContentStream.ToArray())`;
+ const encoded=Buffer.from(command,'utf16le').toString('base64');
+ const {stdout}=await execute('powershell.exe',['-NoProfile','-NonInteractive','-EncodedCommand',encoded],{windowsHide:true,timeout:40000,maxBuffer:20*1024*1024});
+ assetTransports.push({path:file.path,transport:'Windows HTTP'});
+ return Buffer.from(stdout.trim(),'base64');
+}
+async function readPublishedAsset(file){
+ for(let attempt=1;attempt<=3;attempt++){
+  try{
+   // Windows' native HTTP stack also handles the large legacy PNGs reliably.
+   if(process.platform==='win32'&&(file.bytes>=1024*1024||attempt>1))return await readWindowsAsset(file);
+   const response=await fetch(new URL(file.path,site),{signal:AbortSignal.timeout(30000)});
+   assert.equal(response.status,200,file.path);
+   return Buffer.from(await response.arrayBuffer());
+  }catch(error){
+   assetFetchRetries.push({path:file.path,attempt,error:String(error)});
+   if(attempt===3)throw new Error(`Could not download ${file.path} after ${attempt} attempts`,{cause:error});
+   console.warn(`Retry ${attempt}/2: ${file.path}: ${String(error)}`);
+  }
+ }
+}
 // Compare the exact tested build, including all local character atlases.
 await Promise.all(Array.from({length:4},async()=>{while(cursor<manifest.files.length){
- const file=manifest.files[cursor++],response=await fetch(new URL(file.path,site),{signal:AbortSignal.timeout(30000)});
- assert.equal(response.status,200,file.path);const bytes=Buffer.from(await response.arrayBuffer());
+ const file=manifest.files[cursor++],bytes=await readPublishedAsset(file);
  assert.equal(sha(bytes),file.sha256,file.path);files.push({path:file.path,bytes:bytes.length});
+ if(files.length%100===0)console.log(`Verified ${files.length}/${manifest.files.length} published files.`);
 }}));
 // Playwright proxies loopback explicitly when a proxy is configured. A local
 // preview must stay direct; the remote publication still uses the host proxy.
@@ -56,6 +82,6 @@ try{
    throw error;
   }finally{await context.close();}
  }
- writeFileSync(`${evidence}/external-character-public-validation.json`,JSON.stringify({status:'passed',checkedAt:new Date().toISOString(),site,buildId:manifest.buildId,verifiedFiles:files.length,results},null,2)+'\n');
+ writeFileSync(`${evidence}/external-character-public-validation.json`,JSON.stringify({status:'passed',checkedAt:new Date().toISOString(),site,buildId:manifest.buildId,verifiedFiles:files.length,assetFetchRetries,assetTransports,results},null,2)+'\n');
  console.log(`PASS: ${files.length} published files match the tested build; desktop and narrow live interactions pass.`);
 }finally{await browser.close();}

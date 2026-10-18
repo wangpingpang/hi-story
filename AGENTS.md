@@ -2,7 +2,7 @@
 
 ## 2026-10-18 本地开发交接
 
-本地交接入口为 `codex/local-development-handoff`，包含 v0.5.0 外部人物接入；原 `main` 仅项目介绍。先读 `docs/local-development.md` 与 `docs/local-handoff-audit.md`，再读模块说明。`_handoff/` 仅供本地恢复全分支历史、原始附件与独立工坊，含内部制作规范，已被 Git 忽略；不得整体加入公开仓库。后续本地自测通过后再推送，上传不等于发布。此节是当前交接入口，下方开发分支和验收状态为各阶段记录。
+本地交接入口为 `codex/local-development-handoff`（尚未推送），包含 v0.5.0 外部人物接入；原 `main` 仅项目介绍。先读 `docs/local-development.md` 与 `docs/local-handoff-audit.md`，再读模块说明。`_handoff/` 仅供本地恢复全分支历史、原始附件与独立工坊，含内部制作规范，已被 Git 忽略；不得整体加入公开仓库。后续本地自测通过后再推送，上传不等于发布。此节是当前交接入口，下方开发分支和验收状态为各阶段记录。
 
 ## v0.5.0 外部人物素材接入
 

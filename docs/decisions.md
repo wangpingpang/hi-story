@@ -178,4 +178,7 @@ D015：采用profession-equipment/1，36专精/102设计/5透明图集，独立�
 
 ## 2026-10-18 转为本地开发
 
-用户要求核对全部会话材料并转移到 Windows `F:\codexWorkSpace\hi-story` 继续开发。保留所有 GitHub 分支历史，不覆盖 main 与其他开发窗口；以 `codex/local-development-handoff` 提交此前未上传的 v0.5.0 外部人物代码、532 动作图集、28 头像及对应说明。Windows 本地入口与 Playwright 浏览器解析兼容由 `docs/local-development.md` 描述，不改变游戏规则、数据归属或存档版本。原始附件、内部动作/形态制作规范和独立 Site 源码仅随本地 `_handoff/` 交接，防止将内部规范误发公开仓库。各模块同步与未完成项见 `docs/local-handoff-audit.md`；本轮自测记录随交接包保留。
+用户要求核对全部会话材料并转移到 Windows `F:\codexWorkSpace\hi-story` 继续开发。保留所有 GitHub 分支历史，不覆盖 main 与其他开发窗口；以本地 `codex/local-development-handoff` 提交此前未上传的 v0.5.0 外部人物代码、532 动作图集、28 头像及对应说明。Windows 本地入口与 Playwright 浏览器解析兼容由 `docs/local-development.md` 描述，不改变游戏规则、数据归属或存档版本。原始附件、内部动作/形态制作规范和独立 Site 源码仅随本地 `_handoff/` 交接，防止将内部规范误发公开仓库。各模块同步与未完成项见 `docs/local-handoff-audit.md`；本轮自测记录随交接包保留。
+
+
+本地交接补记：命令行缺Git凭证、连接器批量内容上传未完成，本轮未创建新远程分支。交接/归档提交及完整历史放入本地bundle，用户在本机登录GitHub后可推送；不得报告已同步或已发布。

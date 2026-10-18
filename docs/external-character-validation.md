@@ -50,6 +50,6 @@
 
 ## 2026-10-18 本地开发交接复核
 
-用户转为本地开发，本轮不发布网站。此前未提交的外部人物实现与说明随 `codex/local-development-handoff` 保存，不改变原 `codex/fix-scene-freeze` 或 `main`。本轮重跑23文件336项逻辑、类型、模块边界、生产构建全部通过；695文件与既有release manifest逐项一致。再次核对28人、4256组、21368帧、560个WebP全部被正确引用。
+用户转为本地开发，本轮不发布网站。此前未提交的外部人物实现与说明随本地 `codex/local-development-handoff` 保存（尚未推送GitHub），不改变原 `codex/fix-scene-freeze` 或 `main`。本轮重跑23文件336项逻辑、类型、模块边界、生产构建全部通过；695文件与既有release manifest逐项一致。再次核对28人、4256组、21368帧、560个WebP全部被正确引用。
 
 22项核心Playwright用例仅成功列出，本轮执行0项：云端没有可用Chromium，浏览器下载端点不可达。此前本地浏览器证据保留，不能当成本轮执行。Windows开发脚本与浏览器路径选择已经适配，真实Windows首次执行仍需在本机完成。详细交接、GitHub归档与未完成项见 `docs/local-handoff-audit.md` 和 `docs/local-development.md`。

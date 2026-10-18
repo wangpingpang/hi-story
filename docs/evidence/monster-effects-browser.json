@@ -1,0 +1,2086 @@
+{
+  "config": {
+    "argv": [
+      "D:\\work\\node\\node-24-lts\\node.exe",
+      "F:\\codexWorkSpace\\hi-story\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "tests/e2e/monster-effects.spec.ts",
+      "tests/e2e/battle-layout.spec.ts",
+      "tests/e2e/combat-skills.spec.ts",
+      "tests/e2e/external-character-game.spec.ts",
+      "tests/e2e/character-library.spec.ts",
+      "tests/e2e/player-camera.spec.ts",
+      "tests/e2e/scene-responsiveness.spec.ts"
+    ],
+    "configFile": "F:\\codexWorkSpace\\hi-story\\playwright.config.ts",
+    "rootDir": "F:/codexWorkSpace/hi-story/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "F:/codexWorkSpace/hi-story/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "F:/codexWorkSpace/hi-story/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "F:/codexWorkSpace/hi-story/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "narrow",
+        "name": "narrow",
+        "testDir": "F:/codexWorkSpace/hi-story/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 90000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "F:\\codexWorkSpace\\hi-story\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "desktop",
+        "testDir": "F:\\codexWorkSpace\\hi-story\\tests\\e2e",
+        "snapshotDir": "F:\\codexWorkSpace\\hi-story\\tests\\e2e",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 90000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4173",
+          "launchOptions": {
+            "executablePath": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+            "args": []
+          },
+          "trace": "retain-on-failure",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "F:\\codexWorkSpace\\hi-story\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "narrow",
+        "testDir": "F:\\codexWorkSpace\\hi-story\\tests\\e2e",
+        "snapshotDir": "F:\\codexWorkSpace\\hi-story\\tests\\e2e",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 90000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4173",
+          "launchOptions": {
+            "executablePath": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+            "args": []
+          },
+          "trace": "retain-on-failure",
+          "viewport": {
+            "width": 375,
+            "height": 812
+          },
+          "isMobile": true,
+          "hasTouch": true
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "narrow"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "docs/evidence/monster-effects-browser.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.0",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run preview -- --host 127.0.0.1 --port 4173 --strictPort",
+      "url": "http://127.0.0.1:4173",
+      "reuseExistingServer": false
+    }
+  },
+  "suites": [
+    {
+      "title": "battle-layout.spec.ts",
+      "file": "battle-layout.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "成员头像在左、行动在下、日志在左下，操作和日志可独立收起",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3985,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:06:11.865Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "57209c86e9cadef30d8b-53e65c9e497d653fdb43",
+          "file": "battle-layout.spec.ts",
+          "line": 26,
+          "column": 1
+        },
+        {
+          "title": "玩家沿实际绕障路线跑步，镜头和脚下标记同步，移动只提交一次",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5916,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:06:17.849Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "57209c86e9cadef30d8b-105b67922db453de5393",
+          "file": "battle-layout.spec.ts",
+          "line": 33,
+          "column": 1
+        },
+        {
+          "title": "敌方结束回合时跑步接近，日志更新后仍可使用战技",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4931,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:06:23.780Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "57209c86e9cadef30d8b-c7c2c9fd1464d824102c",
+          "file": "battle-layout.spec.ts",
+          "line": 41,
+          "column": 1
+        },
+        {
+          "title": "下方元素法术施放同步左侧资源和日志，刷新不再次扣除",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 11324,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:06:28.726Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "57209c86e9cadef30d8b-f71fdb1edefda60317fd",
+          "file": "battle-layout.spec.ts",
+          "line": 46,
+          "column": 1
+        },
+        {
+          "title": "跑步中刷新直接恢复已提交终点，不重播或额外消耗",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4188,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:06:40.069Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "57209c86e9cadef30d8b-bb680f53074473ab1c49",
+          "file": "battle-layout.spec.ts",
+          "line": 51,
+          "column": 1
+        },
+        {
+          "title": "成员头像在左、行动在下、日志在左下，操作和日志可独立收起",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3650,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:09:03.763Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "57209c86e9cadef30d8b-f4a1cc4ec620f777c17b",
+          "file": "battle-layout.spec.ts",
+          "line": 26,
+          "column": 1
+        },
+        {
+          "title": "玩家沿实际绕障路线跑步，镜头和脚下标记同步，移动只提交一次",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5280,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:09:09.402Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "57209c86e9cadef30d8b-7e4a18fa95fe58db8762",
+          "file": "battle-layout.spec.ts",
+          "line": 33,
+          "column": 1
+        },
+        {
+          "title": "敌方结束回合时跑步接近，日志更新后仍可使用战技",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4949,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:09:14.696Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "57209c86e9cadef30d8b-d64599c56a3000f903d2",
+          "file": "battle-layout.spec.ts",
+          "line": 41,
+          "column": 1
+        },
+        {
+          "title": "下方元素法术施放同步左侧资源和日志，刷新不再次扣除",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10937,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:09:19.658Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "57209c86e9cadef30d8b-e718acf9695a32a473a8",
+          "file": "battle-layout.spec.ts",
+          "line": 46,
+          "column": 1
+        },
+        {
+          "title": "跑步中刷新直接恢复已提交终点，不重播或额外消耗",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4180,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:09:30.611Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "57209c86e9cadef30d8b-4d59d17f31b4ca881b3b",
+          "file": "battle-layout.spec.ts",
+          "line": 51,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "character-library.spec.ts",
+      "file": "character-library.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "人物名册、真实动画、八向预览和暂停在桌面与窄屏可用",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1615,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:06:44.329Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fed06240f694adb6daf1-c967101a2aba04460701",
+          "file": "character-library.spec.ts",
+          "line": 6,
+          "column": 1
+        },
+        {
+          "title": "快速换人物时，较早的加载结果不能覆盖最后选择",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 870,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:06:45.954Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fed06240f694adb6daf1-9dbb2d7d6b9848ccb069",
+          "file": "character-library.spec.ts",
+          "line": 29,
+          "column": 1
+        },
+        {
+          "title": "图集读取失败能重试，且不会显示上一个人物残帧",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 442,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:06:46.835Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fed06240f694adb6daf1-dc4caa140eda9ae3abe7",
+          "file": "character-library.spec.ts",
+          "line": 39,
+          "column": 1
+        },
+        {
+          "title": "旧入口 character-generator 已切换人物素材馆",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 411,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:06:47.288Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fed06240f694adb6daf1-1f3262637697660dd224",
+          "file": "character-library.spec.ts",
+          "line": 46,
+          "column": 63
+        },
+        {
+          "title": "旧入口 character-motion 已切换人物素材馆",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 403,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:06:47.710Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fed06240f694adb6daf1-b4f118938b118a267ba3",
+          "file": "character-library.spec.ts",
+          "line": 46,
+          "column": 63
+        },
+        {
+          "title": "选择旅人仅改变外观，返回后冒险位置和人物资料保留",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2458,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:06:48.126Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fed06240f694adb6daf1-f45a2d1fc327ca4ed5b7",
+          "file": "character-library.spec.ts",
+          "line": 51,
+          "column": 1
+        },
+        {
+          "title": "人物名册、真实动画、八向预览和暂停在桌面与窄屏可用",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1391,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:09:34.870Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fed06240f694adb6daf1-08ab75a0b9cda91fb42c",
+          "file": "character-library.spec.ts",
+          "line": 6,
+          "column": 1
+        },
+        {
+          "title": "快速换人物时，较早的加载结果不能覆盖最后选择",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 881,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:09:36.271Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fed06240f694adb6daf1-7f628e94b735d68ad7c8",
+          "file": "character-library.spec.ts",
+          "line": 29,
+          "column": 1
+        },
+        {
+          "title": "图集读取失败能重试，且不会显示上一个人物残帧",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 438,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:09:37.163Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fed06240f694adb6daf1-bd45e7f7c65539447efe",
+          "file": "character-library.spec.ts",
+          "line": 39,
+          "column": 1
+        },
+        {
+          "title": "旧入口 character-generator 已切换人物素材馆",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 374,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:09:37.612Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fed06240f694adb6daf1-8741ffec5b3b7e1a1260",
+          "file": "character-library.spec.ts",
+          "line": 46,
+          "column": 63
+        },
+        {
+          "title": "旧入口 character-motion 已切换人物素材馆",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 394,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:09:38.000Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fed06240f694adb6daf1-e1d22dbb2ed676cb0ff7",
+          "file": "character-library.spec.ts",
+          "line": 46,
+          "column": 63
+        },
+        {
+          "title": "选择旅人仅改变外观，返回后冒险位置和人物资料保留",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2455,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:09:38.404Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fed06240f694adb6daf1-db2178f5e9bb8c41f2aa",
+          "file": "character-library.spec.ts",
+          "line": 51,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "combat-skills.spec.ts",
+      "file": "combat-skills.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "选择元素法术与目标、确认施放、刷新恢复同一行动和资源",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 12232,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:06:50.610Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6afd4a4bb666884ebdbc-3d5edd3119b793d56b5f",
+          "file": "combat-skills.spec.ts",
+          "line": 27,
+          "column": 1
+        },
+        {
+          "title": "治疗目标排除敌人，资源不足和障碍原因可见，选择不结算",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 11598,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:07:04.508Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6afd4a4bb666884ebdbc-dc8d731b9661c8b29cc4",
+          "file": "combat-skills.spec.ts",
+          "line": 42,
+          "column": 1
+        },
+        {
+          "title": "从职业选择经真实行走发起战斗，技能入口在收起和关闭面板后可用",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6495,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:07:16.124Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6afd4a4bb666884ebdbc-53d6a0f4cd4ef184e7a9",
+          "file": "combat-skills.spec.ts",
+          "line": 52,
+          "column": 1
+        },
+        {
+          "title": "旧四模板提供明确职业入口，打开选择不会改造当前存档",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4053,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:07:22.634Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6afd4a4bb666884ebdbc-0fdca959208b289d1a0e",
+          "file": "combat-skills.spec.ts",
+          "line": 60,
+          "column": 1
+        },
+        {
+          "title": "选择元素法术与目标、确认施放、刷新恢复同一行动和资源",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 11915,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:09:40.895Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6afd4a4bb666884ebdbc-4712f8b777045d1a655a",
+          "file": "combat-skills.spec.ts",
+          "line": 27,
+          "column": 1
+        },
+        {
+          "title": "治疗目标排除敌人，资源不足和障碍原因可见，选择不结算",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 11707,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:09:54.373Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6afd4a4bb666884ebdbc-0586e2a9229fedcb0132",
+          "file": "combat-skills.spec.ts",
+          "line": 42,
+          "column": 1
+        },
+        {
+          "title": "从职业选择经真实行走发起战斗，技能入口在收起和关闭面板后可用",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6367,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:10:06.094Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6afd4a4bb666884ebdbc-ab487112d719063a5d2e",
+          "file": "combat-skills.spec.ts",
+          "line": 52,
+          "column": 1
+        },
+        {
+          "title": "旧四模板提供明确职业入口，打开选择不会改造当前存档",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4132,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:10:12.475Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6afd4a4bb666884ebdbc-05f5f830baf655430e86",
+          "file": "combat-skills.spec.ts",
+          "line": 60,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "external-character-game.spec.ts",
+      "file": "external-character-game.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "新冒险只加载外部人物；切换外形保持规则进度与人物中心",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3756,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:07:26.750Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "model-requests",
+                      "contentType": "application/json",
+                      "body": "eyJtb2RlbHMiOlsicm9sZS0xMDI0Iiwicm9sZS0xMjE2Il0sInJlcXVlc3RzIjpbImh0dHA6Ly8xMjcuMC4wLjE6NDE3My9hc3NldHMvY2hhcmFjdGVycy9tb2xpYmFpa2Uvc291cmNlLWNhdGFsb2cuanNvbiIsImh0dHA6Ly8xMjcuMC4wLjE6NDE3My9hc3NldHMvY2hhcmFjdGVycy9tb2xpYmFpa2Uvcm9sZS0xMDI0L21hbmlmZXN0Lmpzb24iLCJodHRwOi8vMTI3LjAuMC4xOjQxNzMvYXNzZXRzL2NoYXJhY3RlcnMvbW9saWJhaWtlL3JvbGUtMTI0MC9tYW5pZmVzdC5qc29uIiwiaHR0cDovLzEyNy4wLjAuMTo0MTczL2Fzc2V0cy9jaGFyYWN0ZXJzL21vbGliYWlrZS9yb2xlLTEwMjQvYWN0aW9uLTAud2VicCIsImh0dHA6Ly8xMjcuMC4wLjE6NDE3My9hc3NldHMvY2hhcmFjdGVycy9tb2xpYmFpa2Uvcm9sZS0xMjQwL2FjdGlvbi0wLndlYnAiLCJodHRwOi8vMTI3LjAuMC4xOjQxNzMvYXNzZXRzL2NoYXJhY3RlcnMvbW9saWJhaWtlL3JvbGUtMTAyNC9hY3Rpb24tMS53ZWJwIiwiaHR0cDovLzEyNy4wLjAuMTo0MTczL2Fzc2V0cy9jaGFyYWN0ZXJzL21vbGliYWlrZS9zb3VyY2UtY2F0YWxvZy5qc29uIiwiaHR0cDovLzEyNy4wLjAuMTo0MTczL2Fzc2V0cy9jaGFyYWN0ZXJzL21vbGliYWlrZS9yb2xlLTEwMjQvbWFuaWZlc3QuanNvbiIsImh0dHA6Ly8xMjcuMC4wLjE6NDE3My9hc3NldHMvY2hhcmFjdGVycy9tb2xpYmFpa2Uvcm9sZS0xMjE2L21hbmlmZXN0Lmpzb24iLCJodHRwOi8vMTI3LjAuMC4xOjQxNzMvYXNzZXRzL2NoYXJhY3RlcnMvbW9saWJhaWtlL3JvbGUtMTI0MC9tYW5pZmVzdC5qc29uIiwiaHR0cDovLzEyNy4wLjAuMTo0MTczL2Fzc2V0cy9jaGFyYWN0ZXJzL21vbGliYWlrZS9yb2xlLTEyNDAvYWN0aW9uLTAud2VicCIsImh0dHA6Ly8xMjcuMC4wLjE6NDE3My9hc3NldHMvY2hhcmFjdGVycy9tb2xpYmFpa2Uvcm9sZS0xMjE2L2FjdGlvbi0wLndlYnAiXSwiZXJyb3JzIjpbXX0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a1015412f32b0a081748-5f30f7cf2e6261adcef6",
+          "file": "external-character-game.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "新冒险只加载外部人物；切换外形保持规则进度与人物中心",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3774,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:10:16.672Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "model-requests",
+                      "contentType": "application/json",
+                      "body": "eyJtb2RlbHMiOlsicm9sZS0xMDI0Iiwicm9sZS0xMjE2Il0sInJlcXVlc3RzIjpbImh0dHA6Ly8xMjcuMC4wLjE6NDE3My9hc3NldHMvY2hhcmFjdGVycy9tb2xpYmFpa2Uvc291cmNlLWNhdGFsb2cuanNvbiIsImh0dHA6Ly8xMjcuMC4wLjE6NDE3My9hc3NldHMvY2hhcmFjdGVycy9tb2xpYmFpa2Uvcm9sZS0xMDI0L21hbmlmZXN0Lmpzb24iLCJodHRwOi8vMTI3LjAuMC4xOjQxNzMvYXNzZXRzL2NoYXJhY3RlcnMvbW9saWJhaWtlL3JvbGUtMTI0MC9tYW5pZmVzdC5qc29uIiwiaHR0cDovLzEyNy4wLjAuMTo0MTczL2Fzc2V0cy9jaGFyYWN0ZXJzL21vbGliYWlrZS9yb2xlLTEwMjQvYWN0aW9uLTAud2VicCIsImh0dHA6Ly8xMjcuMC4wLjE6NDE3My9hc3NldHMvY2hhcmFjdGVycy9tb2xpYmFpa2Uvcm9sZS0xMjQwL2FjdGlvbi0wLndlYnAiLCJodHRwOi8vMTI3LjAuMC4xOjQxNzMvYXNzZXRzL2NoYXJhY3RlcnMvbW9saWJhaWtlL3JvbGUtMTAyNC9hY3Rpb24tMS53ZWJwIiwiaHR0cDovLzEyNy4wLjAuMTo0MTczL2Fzc2V0cy9jaGFyYWN0ZXJzL21vbGliYWlrZS9zb3VyY2UtY2F0YWxvZy5qc29uIiwiaHR0cDovLzEyNy4wLjAuMTo0MTczL2Fzc2V0cy9jaGFyYWN0ZXJzL21vbGliYWlrZS9yb2xlLTEwMjQvbWFuaWZlc3QuanNvbiIsImh0dHA6Ly8xMjcuMC4wLjE6NDE3My9hc3NldHMvY2hhcmFjdGVycy9tb2xpYmFpa2Uvcm9sZS0xMjE2L21hbmlmZXN0Lmpzb24iLCJodHRwOi8vMTI3LjAuMC4xOjQxNzMvYXNzZXRzL2NoYXJhY3RlcnMvbW9saWJhaWtlL3JvbGUtMTI0MC9tYW5pZmVzdC5qc29uIiwiaHR0cDovLzEyNy4wLjAuMTo0MTczL2Fzc2V0cy9jaGFyYWN0ZXJzL21vbGliYWlrZS9yb2xlLTEyNDAvYWN0aW9uLTAud2VicCIsImh0dHA6Ly8xMjcuMC4wLjE6NDE3My9hc3NldHMvY2hhcmFjdGVycy9tb2xpYmFpa2Uvcm9sZS0xMjE2L2FjdGlvbi0wLndlYnAiXSwiZXJyb3JzIjpbXX0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a1015412f32b0a081748-9b8670f0b202176bc6ff",
+          "file": "external-character-game.spec.ts",
+          "line": 4,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "monster-effects.spec.ts",
+      "file": "monster-effects.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "哨塔真实唤醒、靠近、挑战魔物，模型/头像与刷新一致且不替换人物",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4428,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:07:30.543Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "91784aaad49d31d38582-fa823ff7bce7457171cd",
+          "file": "monster-effects.spec.ts",
+          "line": 28,
+          "column": 1
+        },
+        {
+          "title": "fire施法真实出现对应特效，完成与刷新不重复扣资源",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5229,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:07:36.554Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "91784aaad49d31d38582-95d1e2aec93f18db4c4e",
+          "file": "monster-effects.spec.ts",
+          "line": 34,
+          "column": 111
+        },
+        {
+          "title": "ice施法真实出现对应特效，完成与刷新不重复扣资源",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5316,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:07:41.800Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "91784aaad49d31d38582-1b8072f52b3cd5134ada",
+          "file": "monster-effects.spec.ts",
+          "line": 34,
+          "column": 111
+        },
+        {
+          "title": "lightning施法真实出现对应特效，完成与刷新不重复扣资源",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5202,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:07:47.128Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "91784aaad49d31d38582-8eb9452477ce387bab42",
+          "file": "monster-effects.spec.ts",
+          "line": 34,
+          "column": 111
+        },
+        {
+          "title": "wind施法真实出现对应特效，完成与刷新不重复扣资源",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5231,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:07:52.346Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "91784aaad49d31d38582-cb8c8cff70eae821300e",
+          "file": "monster-effects.spec.ts",
+          "line": 34,
+          "column": 111
+        },
+        {
+          "title": "魔物施法使用图鉴06动作，特效与骰子可以正常结束",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3930,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:07:57.594Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "91784aaad49d31d38582-d479144219a52187f1be",
+          "file": "monster-effects.spec.ts",
+          "line": 38,
+          "column": 1
+        },
+        {
+          "title": "治疗光环只显示真实治疗，减少动态效果与中途刷新不重复结算",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4014,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:08:01.548Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "91784aaad49d31d38582-5f3460112839c56174f9",
+          "file": "monster-effects.spec.ts",
+          "line": 41,
+          "column": 1
+        },
+        {
+          "title": "击倒目标的最后一发仍播放，失败素材请求不会卡住已提交战斗",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8142,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:08:05.575Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "91784aaad49d31d38582-01a704fcfdeae2adb7aa",
+          "file": "monster-effects.spec.ts",
+          "line": 44,
+          "column": 1
+        },
+        {
+          "title": "哨塔真实唤醒、靠近、挑战魔物，模型/头像与刷新一致且不替换人物",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4263,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:10:20.480Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "91784aaad49d31d38582-c1e604bc54001be2e649",
+          "file": "monster-effects.spec.ts",
+          "line": 28,
+          "column": 1
+        },
+        {
+          "title": "fire施法真实出现对应特效，完成与刷新不重复扣资源",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4989,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:10:26.332Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "91784aaad49d31d38582-3ba4cfa5d8b9850a1d37",
+          "file": "monster-effects.spec.ts",
+          "line": 34,
+          "column": 111
+        },
+        {
+          "title": "ice施法真实出现对应特效，完成与刷新不重复扣资源",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4967,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:10:31.336Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "91784aaad49d31d38582-8523fb82db24ce0c6417",
+          "file": "monster-effects.spec.ts",
+          "line": 34,
+          "column": 111
+        },
+        {
+          "title": "lightning施法真实出现对应特效，完成与刷新不重复扣资源",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4900,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:10:36.314Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "91784aaad49d31d38582-94cea4df766e01f729c9",
+          "file": "monster-effects.spec.ts",
+          "line": 34,
+          "column": 111
+        },
+        {
+          "title": "wind施法真实出现对应特效，完成与刷新不重复扣资源",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4919,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:10:41.228Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "91784aaad49d31d38582-91de55cb91a412b8af40",
+          "file": "monster-effects.spec.ts",
+          "line": 34,
+          "column": 111
+        },
+        {
+          "title": "魔物施法使用图鉴06动作，特效与骰子可以正常结束",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3761,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:10:46.161Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "91784aaad49d31d38582-3baa318c200770d41952",
+          "file": "monster-effects.spec.ts",
+          "line": 38,
+          "column": 1
+        },
+        {
+          "title": "治疗光环只显示真实治疗，减少动态效果与中途刷新不重复结算",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3527,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:10:49.935Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "91784aaad49d31d38582-34c92c0eca6e23778968",
+          "file": "monster-effects.spec.ts",
+          "line": 41,
+          "column": 1
+        },
+        {
+          "title": "击倒目标的最后一发仍播放，失败素材请求不会卡住已提交战斗",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8182,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:10:53.477Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "91784aaad49d31d38582-a1fe6d8f34ebe9a5c963",
+          "file": "monster-effects.spec.ts",
+          "line": 44,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "player-camera.spec.ts",
+      "file": "player-camera.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "人物在移动的每帧保持居中，拖动不脱离，缩放和屏幕变化仍居中",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 19197,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:08:13.777Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9424899abda3420493cc-a6d14a8894ae496dcc1b",
+          "file": "player-camera.spec.ts",
+          "line": 17,
+          "column": 1
+        },
+        {
+          "title": "自动步行和战术移动同样跟随人物，退出战斗后恢复世界人物中心",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7705,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:08:32.986Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9424899abda3420493cc-4ef8de8ca8c45f0c4a13",
+          "file": "player-camera.spec.ts",
+          "line": 27,
+          "column": 1
+        },
+        {
+          "title": "人物在移动的每帧保持居中，拖动不脱离，缩放和屏幕变化仍居中",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 18537,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:11:01.724Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9424899abda3420493cc-fd12b2d4a2474758b20f",
+          "file": "player-camera.spec.ts",
+          "line": 17,
+          "column": 1
+        },
+        {
+          "title": "自动步行和战术移动同样跟随人物，退出战斗后恢复世界人物中心",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7609,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:11:20.273Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9424899abda3420493cc-93b781084ed335123694",
+          "file": "player-camera.spec.ts",
+          "line": 27,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "scene-responsiveness.spec.ts",
+      "file": "scene-responsiveness.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "慢速设备仍可响应：静态场景复用、真实移动停止、菜单和刷新恢复",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 21925,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:08:40.718Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "responsiveness",
+                      "contentType": "application/json",
+                      "body": "eyJjcHVTbG93ZG93biI6NCwidmlld3BvcnQiOnsid2lkdGgiOjE0NDAsImhlaWdodCI6MTAwMH0sImlkbGUiOnsiZnJhbWVzIjoyMiwiaW1hZ2VDYWxscyI6NTI4LCJtZWFuSW1hZ2VDYWxscyI6MjQsIm1heEhlYXJ0YmVhdEdhcCI6NjMuMzk5OTk5OTc2MTU4MTQsImxpdmVQcm9wcyI6MjB9LCJtZW51TGF0ZW5jeSI6NjkxLCJtb3ZlUmV2aXNpb25zIjo4LCJlcnJvcnMiOltdfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "975340d47b35a2d9e7e7-cb2d4ab4485041e91973",
+          "file": "scene-responsiveness.spec.ts",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "慢速设备仍可响应：静态场景复用、真实移动停止、菜单和刷新恢复",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 21898,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T15:11:27.905Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "responsiveness",
+                      "contentType": "application/json",
+                      "body": "eyJjcHVTbG93ZG93biI6NCwidmlld3BvcnQiOnsid2lkdGgiOjM3NSwiaGVpZ2h0Ijo4MTJ9LCJpZGxlIjp7ImZyYW1lcyI6MjEsImltYWdlQ2FsbHMiOjUwNCwibWVhbkltYWdlQ2FsbHMiOjI0LCJtYXhIZWFydGJlYXRHYXAiOjU2LjgwMDAwMDAxMTkyMDkzLCJsaXZlUHJvcHMiOjIwfSwibWVudUxhdGVuY3kiOjczMywibW92ZVJldmlzaW9ucyI6NywiZXJyb3JzIjpbXX0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "975340d47b35a2d9e7e7-2823c7634eb5f35a4253",
+          "file": "scene-responsiveness.spec.ts",
+          "line": 5,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-18T15:06:10.065Z",
+    "duration": 340518.79,
+    "expected": 54,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

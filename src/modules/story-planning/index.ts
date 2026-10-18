@@ -32,3 +32,4 @@ export { createStoryMapRequest, createStorySpatialPlan, parseStorySpatialCatalog
 export type { StorySpatialPlan, StorySpatialCatalog } from './spatial';
 
 export * from './adventure';
+export {MONSTER_ENCOUNTERS_VERSION,MONSTER_ENCOUNTERS,monsterEncounter,makeMonsterNPC,validateMonsterNPC} from './monsters';

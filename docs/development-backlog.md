@@ -1,5 +1,9 @@
 # 六模块开发任务与交接
 
+## 2026-10-18 独立魔物与法术特效
+
+分支 `codex/combat-monster-effects` 继承eb6f196。哨塔附近主动唤醒两只独立魔物再靠近挑战；128组752帧含真实施法与冲刺，未复制源站数值。火冰雷风奥术35帧CC0素材与项目治疗SVG进入已提交战斗反馈，未命中/成功豁免有不同显示，特效期间临时收起底部内容。可选monsterId绑定、monster-encounters/1与combat-effects/1均有验证边界，schema5/save1保持。实际检查见 [验证记录](monster-effects-validation.md)。线上仍v0.5.0；范围/持续状态、抗性、伙伴调度、全图鉴与完整逐攻击时间线待后续。
+
 ## 2026-10-18 战斗跑步与界面布局
 
 分支 `codex/battle-running-layout` 继承4334160。玩家绕障移动与活动战斗的NPC接近沿实际路线跑步，人物中心镜头同步显示位置；左侧头像状态、底部行动/魔法技能、左下独立日志已接入。临时 `combat-movement/1` 随成功提交返回，不改变schema5/save1，恢复只读终点。验证见 [本轮记录](battle-layout-validation.md)。独立魔法特效、怪物素材、伙伴调度和逐攻击事件时间线继续后续，线上仍v0.5.0。

@@ -5,7 +5,7 @@ import type { AdventureCondition, AdventureEffect } from '../../contracts/advent
 import { seedHash, requireValue } from '../../contracts/demo';
 import type { Skill, Archetype, VisualCell } from '../runtime/index';
 export const ADVENTURE_CONTENT_VERSION='adventure-content/2';
-export interface AdventureNPC {id:string;name:string;role:string;profile:GeneratedCharacter;alive:boolean;trust:number;attitude:'friendly'|'neutral'|'hostile';location:string;trait:string}
+export interface AdventureNPC {id:string;name:string;role:string;profile:GeneratedCharacter;alive:boolean;trust:number;attitude:'friendly'|'neutral'|'hostile';location:string;trait:string;monsterId?:string}
 export interface AdventureStory {seed:string;plotId:string;goal:string;background:string;time:number;deadline:number;npcs:AdventureNPC[];ending:string;outcome?:'success'|'failed';log:{id:string;text:string}[];personality:Record<string,number>;planned:string[]}
 export interface AdventureChoice {id:string;text:string;time:number;gold:number;items:Record<string,number>;check?:{skill:Skill;dc:number};success:AdventureEffect[];failure:AdventureEffect[]}
 export interface AdventureEventTemplate {id:string;title:string;anchorId:string;when:AdventureCondition;choices:AdventureChoice[]}

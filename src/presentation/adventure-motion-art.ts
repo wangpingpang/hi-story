@@ -1,5 +1,5 @@
 import {AdventureMotion} from '../application/adventure-motion';
-import type {AdventureSnapshot} from '../application';
+import {monsterModelFor,type AdventureSnapshot} from '../application';
 import type {DeepReadonly} from '../contracts';
 import {DEFAULT_CHARACTER_MODEL,CHARACTER_PLACEHOLDER_URL,SPRITE_DIRECTIONS,loadModelCatalog,loadCharacterModel,loadSpriteAtlas,peekModelCatalog,peekCharacterModel,peekSpriteAtlas,resolveClipFrame,mapGameAction,readSelectedModel,stableNpcModel,normalizedSpriteGeometry} from './external-character-models';
 /** One imported visual identity for the map, tactical scene and portraits. No legacy rig fallback. */
@@ -7,6 +7,7 @@ export class AdventureMotionArt {
  readonly motion=new AdventureMotion();
  ready=false;
  private playerId='';private runId='';
+ private monsterModels=new Map<string,string>();
  private frames=new Map<string,{image:HTMLCanvasElement;pivot:[number,number]}>();
  private urls=new WeakMap<HTMLCanvasElement,string>();
  private portraits=new Map<string,string>();
@@ -17,8 +18,9 @@ export class AdventureMotionArt {
   if(this.pending.has(key)||(this.failures.get(key)??0)>performance.now())return;
   this.pending.add(key);void load().then(()=>{this.failures.delete(key);}).catch(()=>{this.failures.set(key,performance.now()+5000);}).finally(()=>{this.pending.delete(key);});
  }
- observe(s:DeepReadonly<AdventureSnapshot>){if(s.runId!==this.runId){this.reset();this.runId=s.runId;}this.playerId=s.playerActorId;this.motion.observe(s,performance.now());}
+ observe(s:DeepReadonly<AdventureSnapshot>){if(s.runId!==this.runId){this.reset();this.runId=s.runId;}this.playerId=s.playerActorId;this.monsterModels.clear();for(const a of Object.values(s.runtime.actors)){const model=monsterModelFor(s,a.actorId);if(model)this.monsterModels.set(a.actorId,model);}this.motion.observe(s,performance.now());}
  modelId(actorId:string){
+  const monster=this.monsterModels.get(actorId);if(monster)return monster;
   const catalog=peekModelCatalog();if(!catalog){this.ensure('catalog',()=>loadModelCatalog().then(()=>{this.ready=true;}));return DEFAULT_CHARACTER_MODEL;}
   const ids=catalog.characters.map(c=>c.id).sort();return actorId===this.playerId?(ids.includes(readSelectedModel())?readSelectedModel():DEFAULT_CHARACTER_MODEL):stableNpcModel(actorId,ids);
  }

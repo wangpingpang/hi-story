@@ -11,3 +11,7 @@ export type {ProfessionSkillOption} from '../modules/runtime';
 export {COMBAT_MOVEMENT_VERSION} from '../modules/runtime';
 export type {CombatMovementFeedback} from '../modules/runtime';
 export {BattleMovementPlayback} from './battle-movement';
+export {monsterModelFor} from './adventure-monsters';
+export {collectCombatEffects,COMBAT_EFFECTS_VERSION} from './combat-effects';
+export type {CombatEffect,CombatEffectKind} from './combat-effects';
+export {MONSTER_ENCOUNTERS_VERSION} from '../modules/story-planning';

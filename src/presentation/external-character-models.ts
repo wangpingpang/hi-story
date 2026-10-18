@@ -19,7 +19,7 @@ const modelIdPattern=/^role-\d{4,6}$/;
 export function readSelectedModel():string{try{const value=localStorage.getItem(CHARACTER_MODEL_PREFERENCE);return value&&modelIdPattern.test(value)?value:DEFAULT_CHARACTER_MODEL;}catch{return DEFAULT_CHARACTER_MODEL;}}
 export function selectModel(id:string):void{if(!modelIdPattern.test(id))throw Error('人物编号无效');try{localStorage.setItem(CHARACTER_MODEL_PREFERENCE,id);}catch{throw Error('浏览器未能保存人物选择，请允许本地存储后重试。');}}
 export function characterAssetUrl(path:string):string{
- if(!/^assets\/characters\/molibaike\/[a-zA-Z0-9/_-]+\.(?:json|webp)$/.test(path))throw Error('人物素材路径无效');
+ if(!/^assets\/(?:characters|monsters)\/molibaike\/[a-zA-Z0-9/_-]+\.(?:json|webp)$/.test(path))throw Error('人物素材路径无效');
  return `${import.meta.env.BASE_URL}${path}`;
 }
 export function stableNpcModel(actorId:string,ids:readonly string[]):string{
@@ -58,9 +58,9 @@ export async function loadModelCatalog():Promise<ModelCatalog>{
  catalogPending=json<ModelCatalog>('assets/characters/molibaike/source-catalog.json').then(value=>{if(value.version!=='molibaike-catalog/1'||!Array.isArray(value.characters)||!value.characters.length)throw Error('人物目录格式无效');catalog=value;return value;}).finally(()=>{catalogPending=undefined;});return catalogPending;
 }
 export async function loadCharacterModel(id:string):Promise<ModelManifest>{
- if(!modelIdPattern.test(id))throw Error('人物编号无效');const cached=manifests.get(id);if(cached)return touch(manifests,id,cached,MANIFEST_CACHE_LIMIT);const pending=manifestPending.get(id);if(pending)return pending;
- const promise=loadModelCatalog().then(value=>{const model=value.characters.find(c=>c.id===id);if(!model)throw Error('人物不在当前素材目录中');return json<ModelManifest>(model.manifestUrl);}).then(value=>{
-  if(value.version!=='molibaike-character/1'||value.characterId!==id||!Number.isFinite(value.standHeight)||value.standHeight!<=0||!value.clips||!value.atlases?.length)throw Error('人物动画数据无效');
+ const monster=['monster-2827','monster-2942'].includes(id);if(!modelIdPattern.test(id)&&!monster)throw Error('人物编号无效');const cached=manifests.get(id);if(cached)return touch(manifests,id,cached,MANIFEST_CACHE_LIMIT);const pending=manifestPending.get(id);if(pending)return pending;
+ const promise=(monster?json<ModelManifest>(`assets/monsters/molibaike/${id}/manifest.json`):loadModelCatalog().then(value=>{const model=value.characters.find(c=>c.id===id);if(!model)throw Error('人物不在当前素材目录中');return json<ModelManifest>(model.manifestUrl);})).then(value=>{
+  if(value.version!==(monster?'molibaike-monster/1':'molibaike-character/1')||value.characterId!==id||!Number.isFinite(value.standHeight)||value.standHeight!<=0||!value.clips||!value.atlases?.length)throw Error('人物动画数据无效');
   for(const clip of Object.values(value.clips)){const atlas=value.atlases.find(a=>a.id===clip.atlasId);if(!atlas||atlas.url!==clip.atlasUrl||!clip.frames.length||!(clip.durationMs>0))throw Error('人物图集引用无效');characterAssetUrl(clip.atlasUrl);for(const frame of clip.frames){const [x,y,w,h]=frame.rect;if(![x,y,w,h,...frame.pivot,frame.durationMs].every(Number.isFinite)||x<0||y<0||w<=0||h<=0||x+w>atlas.width||y+h>atlas.height||frame.durationMs<=0)throw Error('人物动画帧超出图集');}}
   return touch(manifests,id,value,MANIFEST_CACHE_LIMIT);
  }).finally(()=>{manifestPending.delete(id);});manifestPending.set(id,promise);return promise;

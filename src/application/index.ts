@@ -5,3 +5,5 @@ export type { AdventureSnapshot, AdventureView, AdventurePorts, SavePort } from 
 export {collectDiceFeedback,diceConsequences,DICE_FEEDBACK_VERSION} from './dice-feedback';
 export type {DiceFeedback} from './dice-feedback';
 export type {AdventureEquipmentView,EquipmentItemView,EquipmentSlot,EquipmentCombatProfile} from './adventure-equipment';
+export {PROFESSION_COMBAT_OPTIONS_VERSION} from '../modules/runtime';
+export type {ProfessionSkillOption} from '../modules/runtime';

@@ -6,7 +6,7 @@ export const PROFESSION_SKILLS = ['athletics','acrobatics','sleight','stealth','
 export type ProfessionCheckSkill = typeof PROFESSION_SKILLS[number];
 export type ArmorTraining = 'light'|'medium'|'heavy'|'shield';
 export interface SkillExecution {
-  kind:'attack'|'save'|'heal'|'unarmed';dice:number;sides:number;range:number;
+  kind:'attack'|'save'|'heal'|'unarmed'|'weapon';dice:number;sides:number;range:number;
   damageType?:string;saveAbility?:ProfessionAbility;addAbility?:boolean;attacks?:number;
 }
 export interface ProfessionSkillDefinition {

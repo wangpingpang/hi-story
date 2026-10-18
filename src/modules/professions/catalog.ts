@@ -26,7 +26,7 @@ export function createProfessionCatalog(input:unknown):ProfessionCatalog {
     function addSkill(s:ProfessionSkillDefinition,branch:string|null):void {
       requireValue(s&&idOK(s.id)&&!Object.hasOwn(skills,s.id)&&s.classId===c.id&&s.branch===branch&&integer(s.level,1,12)&&integer(s.cost,0,3+Math.ceil(s.level/2)),'INVALID_PROFESSION_CATALOG','技能定义或引用无效。');
       requireValue(['name','type','action','range','check','duration','effect','failure','scaling','kind','components'].every(k=>textOK(s[k as keyof ProfessionSkillDefinition])),'INVALID_PROFESSION_CATALOG','技能字段不完整。');
-      if(s.execution){const e=s.execution;requireValue(['attack','save','heal','unarmed'].includes(e.kind)&&integer(e.dice,1,10)&&integer(e.sides,2,12)&&integer(e.range,1,12)&&(e.kind!=='save'||ABILITY_IDS.includes(e.saveAbility as ProfessionAbility))&&(e.attacks===undefined||integer(e.attacks,1,2))&&(e.addAbility===undefined||typeof e.addAbility==='boolean')&&s.action==='主行动','INVALID_PROFESSION_CATALOG','技能执行配置无效。');}
+      if(s.execution){const e=s.execution;requireValue(['attack','save','heal','unarmed','weapon'].includes(e.kind)&&integer(e.dice,1,10)&&[4,6,8,10,12].includes(e.sides)&&integer(e.range,1,12)&&(e.kind!=='save'||ABILITY_IDS.includes(e.saveAbility as ProfessionAbility))&&(e.attacks===undefined||integer(e.attacks,1,2))&&(e.addAbility===undefined||typeof e.addAbility==='boolean')&&s.action==='主行动','INVALID_PROFESSION_CATALOG','技能执行配置无效。');}
       skills[s.id]=s;
     }
     for(const s of c.skills)addSkill(s,null);

@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-18",
+  "branch": "codex/combat-skill-choices",
+  "base": "28a8d47",
+  "environment": "Windows / Node 24.16.0",
+  "command": "npm.cmd test",
+  "startTimeLocal": "2026-10-18 20:54:04 +08:00",
+  "durationSeconds": 233.6,
+  "testFilesPassed": 25,
+  "testsPassed": 384,
+  "testsFailed": 0,
+  "newSkillTests": 22,
+  "checks": {
+    "typecheck": "passed",
+    "moduleBoundaries": "passed",
+    "productionBuild": "passed"
+  },
+  "note": "Summary of actually executed full Vitest run; earlier failing development runs are not included in the passing count."
+}

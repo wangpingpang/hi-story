@@ -11,6 +11,7 @@ import { generateAdventureQuests, adventureQuestCatalog } from '../modules/quest
 import type { DemoCommand, OperationResult } from './game-application';
 import {createAdventureEquipment,grantAdventureEquipment} from '../modules/things';
 import {adventureCombatStats} from '../modules/runtime';
+import {queryAdventureProfessionSkills} from '../modules/runtime';
 import {EQUIPMENT_VERSION,EQUIPMENT_SLOTS,getEquipment,type EquipmentSlot} from '../modules/equipment';
 import {adventureEquipmentView,validateAdventureEquipmentBinding,changeAdventureLoadout,buyAdventureEquipment} from './adventure-equipment';
 export interface AdventureSnapshot {schemaVersion:5;version:'0.6.0';adventureId:string;runId:string;seed:string;revision:number;status:'active'|'waiting-result'|'ended';playerActorId:string;versions:{contracts:string;content:string;rules:string;map:string;equipment:typeof EQUIPMENT_VERSION;professions?:typeof PROFESSION_VERSION};story:AdventureStory;runtime:AdventureRuntime;things:AdventureThings;receipts:Record<string,{fingerprint:string;revision:number;commandId:string}>}
@@ -38,6 +39,7 @@ export class AdventureApplication {
  queryProfessions(){return freeze(structuredClone({version:PROFESSION_VERSION,classes:listProfessions(),execution:professionExecutionStatus()}));}
  professionSetup(classId:string):AdventureProfessionInitialization {const abilities=defaultProfessionAbilities(classId);return {player:{build:createProfessionBuild([{classId,level:1}],abilities),abilities}};}
  queryProfessionSkills(){const a=this.current?.runtime.actors[this.current.playerActorId];return freeze(structuredClone(a?.profession?availableProfessionSkills(a.profession.build,a.abilities).filter(s=>Boolean(s.execution)):[]));}
+ queryProfessionSkillOptions(){const s=this.current;if(!s)return freeze([]);const options=queryAdventureProfessionSkills(s.runtime,s.playerActorId);if(s.status==='ended')for(const option of options){option.allowed=false;option.reason='冒险已经结束。';for(const target of option.targets){target.allowed=false;target.reason=option.reason;}}return freeze(options);}
  queryCombatStats(){requireValue(this.current,'NO_ACTIVE_RUN','请先开始冒险。');return freeze(structuredClone(adventureCombatStats(this.current.runtime.actors[this.current.playerActorId])));}
  queryEquipment(){requireValue(this.current,'NO_ACTIVE_RUN','请先开始冒险。');return freeze(adventureEquipmentView(this.current));}
  private open(options:{seed:string;archetype?:Archetype;background?:string;professions?:AdventureProfessionInitialization},epoch:number,restarting=true):Promise<OperationResult<DeepReadonly<AdventureView>>> {

@@ -1,0 +1,105 @@
+{
+  "date": "2026-10-18",
+  "source": "_handoff/audit/combat-skills-browser-20261018.json",
+  "note": "Only 14 equipment/HD2D regression cases from the first batch. New skill tests are recorded separately after correcting the fixture URL seed.",
+  "tests": [
+    {
+      "title": "购买、配装、真实战斗、导出导入、刷新和卸下形成完整流程",
+      "file": "equipment-gameplay.spec.ts",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 48254
+    },
+    {
+      "title": "真实探索奖励只给一件匕首，穿戴并刷新后保留",
+      "file": "equipment-gameplay.spec.ts",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 23079
+    },
+    {
+      "title": "双手武器与盾牌的冲突在操作前可见，非法选项禁用且状态不变",
+      "file": "equipment-gameplay.spec.ts",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 15386
+    },
+    {
+      "title": "通过导入界面继续线上真实 v0.5.0 存档，坏存档不覆盖进度",
+      "file": "equipment-gameplay.spec.ts",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 2382
+    },
+    {
+      "title": "购买、配装、真实战斗、导出导入、刷新和卸下形成完整流程",
+      "file": "equipment-gameplay.spec.ts",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 45935
+    },
+    {
+      "title": "真实探索奖励只给一件匕首，穿戴并刷新后保留",
+      "file": "equipment-gameplay.spec.ts",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 23022
+    },
+    {
+      "title": "双手武器与盾牌的冲突在操作前可见，非法选项禁用且状态不变",
+      "file": "equipment-gameplay.spec.ts",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 15273
+    },
+    {
+      "title": "通过导入界面继续线上真实 v0.5.0 存档，坏存档不覆盖进度",
+      "file": "equipment-gameplay.spec.ts",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 2307
+    },
+    {
+      "title": "新建筑可从画面点击，沿真实路线步行抵达并打开互动",
+      "file": "hd2d.spec.ts",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 17923
+    },
+    {
+      "title": "HD-2D 场景素材与天气浮层可用，天气不改存档",
+      "file": "hd2d.spec.ts",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 2096
+    },
+    {
+      "title": "职业选择、技能入口、真实休息与刷新恢复",
+      "file": "hd2d.spec.ts",
+      "project": "desktop",
+      "status": "passed",
+      "durationMs": 2227
+    },
+    {
+      "title": "新建筑可从画面点击，沿真实路线步行抵达并打开互动",
+      "file": "hd2d.spec.ts",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 17234
+    },
+    {
+      "title": "HD-2D 场景素材与天气浮层可用，天气不改存档",
+      "file": "hd2d.spec.ts",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 1767
+    },
+    {
+      "title": "职业选择、技能入口、真实休息与刷新恢复",
+      "file": "hd2d.spec.ts",
+      "project": "narrow",
+      "status": "passed",
+      "durationMs": 2162
+    }
+  ]
+}

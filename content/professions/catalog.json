@@ -1,6 +1,6 @@
 {
   "version": "class-framework/1",
-  "source": "hi-story职业之书v1.0，2026-10-15归档；具体技能为原创设计。",
+  "source": "hi-story职业之书v1.0，2026-10-15归档；2026-10-18追加18项一级战斗能力；具体技能为原创设计。",
   "classes": [
     {
       "id": "fighter",
@@ -252,6 +252,30 @@
           "kind": "技法",
           "components": "按技能描述",
           "classId": "fighter"
+        },
+        {
+          "id": "fighter-weapon-strike",
+          "name": "奋力斩击",
+          "execution": {
+            "kind": "weapon",
+            "dice": 1,
+            "sides": 6,
+            "range": 1
+          },
+          "check": "武器攻击对AC",
+          "range": "当前武器射程内可见敌人",
+          "effect": "进行一次武器攻击；命中造成当前武器伤害，额外1d6伤害。使用当前装备的命中、伤害与射程。",
+          "scaling": "职业5、9级额外伤害各+1d6；本技能只攻击一次",
+          "failure": "未命中无伤害，仍消耗资源与主行动",
+          "kind": "技法",
+          "classId": "fighter",
+          "type": "战斗",
+          "level": 1,
+          "branch": null,
+          "action": "主行动",
+          "cost": 1,
+          "duration": "即时",
+          "components": "动作"
         }
       ],
       "specs": [
@@ -740,6 +764,30 @@
           "kind": "技法",
           "components": "按技能描述",
           "classId": "barbarian"
+        },
+        {
+          "id": "barbarian-weapon-strike",
+          "name": "蛮力猛击",
+          "execution": {
+            "kind": "weapon",
+            "dice": 1,
+            "sides": 6,
+            "range": 1
+          },
+          "check": "武器攻击对AC",
+          "range": "当前武器射程内可见敌人",
+          "effect": "进行一次武器攻击；命中造成当前武器伤害，额外1d6伤害。使用当前装备的命中、伤害与射程。",
+          "scaling": "职业5、9级额外伤害各+1d6；本技能只攻击一次",
+          "failure": "未命中无伤害，仍消耗资源与主行动",
+          "kind": "技法",
+          "classId": "barbarian",
+          "type": "战斗",
+          "level": 1,
+          "branch": null,
+          "action": "主行动",
+          "cost": 1,
+          "duration": "即时",
+          "components": "动作"
         }
       ],
       "specs": [
@@ -1233,6 +1281,30 @@
           "kind": "技法",
           "components": "按技能描述",
           "classId": "rogue"
+        },
+        {
+          "id": "rogue-weapon-strike",
+          "name": "精准突刺",
+          "execution": {
+            "kind": "weapon",
+            "dice": 1,
+            "sides": 6,
+            "range": 1
+          },
+          "check": "武器攻击对AC",
+          "range": "当前武器射程内可见敌人",
+          "effect": "进行一次武器攻击；命中造成当前武器伤害，额外1d6伤害。使用当前装备的命中、伤害与射程。",
+          "scaling": "职业5、9级额外伤害各+1d6；本技能只攻击一次",
+          "failure": "未命中无伤害，仍消耗资源与主行动",
+          "kind": "技法",
+          "classId": "rogue",
+          "type": "战斗",
+          "level": 1,
+          "branch": null,
+          "action": "主行动",
+          "cost": 1,
+          "duration": "即时",
+          "components": "动作"
         }
       ],
       "specs": [
@@ -1726,6 +1798,30 @@
           "kind": "技法",
           "components": "按技能描述",
           "classId": "monk"
+        },
+        {
+          "id": "monk-focused-palm",
+          "name": "凝气掌",
+          "execution": {
+            "kind": "unarmed",
+            "dice": 2,
+            "sides": 6,
+            "range": 1
+          },
+          "check": "敏捷技能攻击对AC",
+          "range": "1格内可见敌人",
+          "effect": "进行一次徒手技能攻击，命中造成2d6伤害，不叠加武器伤害。",
+          "scaling": "职业5级伤害骰升d8，9级升d10",
+          "failure": "未命中无伤害",
+          "kind": "技法",
+          "classId": "monk",
+          "type": "战斗",
+          "level": 1,
+          "branch": null,
+          "action": "主行动",
+          "cost": 1,
+          "duration": "即时",
+          "components": "动作"
         }
       ],
       "specs": [
@@ -2226,6 +2322,55 @@
           "kind": "技法",
           "components": "按技能描述",
           "classId": "ranger"
+        },
+        {
+          "id": "ranger-weapon-strike",
+          "name": "贯穿射击",
+          "execution": {
+            "kind": "weapon",
+            "dice": 1,
+            "sides": 6,
+            "range": 1
+          },
+          "check": "武器攻击对AC",
+          "range": "当前武器射程内可见敌人",
+          "effect": "进行一次武器攻击；命中造成当前武器伤害，额外1d6伤害。使用当前装备的命中、伤害与射程。",
+          "scaling": "职业5、9级额外伤害各+1d6；本技能只攻击一次",
+          "failure": "未命中无伤害，仍消耗资源与主行动",
+          "kind": "技法",
+          "classId": "ranger",
+          "type": "战斗",
+          "level": 1,
+          "branch": null,
+          "action": "主行动",
+          "cost": 1,
+          "duration": "即时",
+          "components": "动作"
+        },
+        {
+          "id": "ranger-mend",
+          "name": "野地救护",
+          "execution": {
+            "kind": "heal",
+            "dice": 1,
+            "sides": 6,
+            "range": 3,
+            "addAbility": true
+          },
+          "check": "无",
+          "range": "3格内受伤的存活友方；战斗外可治疗人物",
+          "effect": "恢复1d6+本职业施法属性修正生命，最低1；不能治疗敌人或复活倒地者。",
+          "scaling": "职业5、9级各+1d6",
+          "failure": "目标满生命、倒地、超出范围或不在视线内时不能使用",
+          "kind": "法术",
+          "classId": "ranger",
+          "type": "战斗",
+          "level": 1,
+          "branch": null,
+          "action": "主行动",
+          "cost": 1,
+          "duration": "即时",
+          "components": "语言、动作"
         }
       ],
       "specs": [
@@ -2720,6 +2865,30 @@
           "kind": "法术",
           "components": "语言、动作",
           "classId": "paladin"
+        },
+        {
+          "id": "paladin-weapon-strike",
+          "name": "誓约重击",
+          "execution": {
+            "kind": "weapon",
+            "dice": 1,
+            "sides": 6,
+            "range": 1
+          },
+          "check": "武器攻击对AC",
+          "range": "当前武器射程内可见敌人",
+          "effect": "进行一次武器攻击；命中造成当前武器伤害，额外1d6伤害。使用当前装备的命中、伤害与射程。",
+          "scaling": "职业5、9级额外伤害各+1d6；本技能只攻击一次",
+          "failure": "未命中无伤害，仍消耗资源与主行动",
+          "kind": "技法",
+          "classId": "paladin",
+          "type": "战斗",
+          "level": 1,
+          "branch": null,
+          "action": "主行动",
+          "cost": 1,
+          "duration": "即时",
+          "components": "动作"
         }
       ],
       "specs": [
@@ -3222,6 +3391,31 @@
           "kind": "法术",
           "components": "语言、动作",
           "classId": "cleric"
+        },
+        {
+          "id": "cleric-mend",
+          "name": "微光治愈",
+          "execution": {
+            "kind": "heal",
+            "dice": 1,
+            "sides": 6,
+            "range": 3,
+            "addAbility": true
+          },
+          "check": "无",
+          "range": "3格内受伤的存活友方；战斗外可治疗人物",
+          "effect": "恢复1d6+本职业施法属性修正生命，最低1；不能治疗敌人或复活倒地者。",
+          "scaling": "职业5、9级各+1d6",
+          "failure": "目标满生命、倒地、超出范围或不在视线内时不能使用",
+          "kind": "法术",
+          "classId": "cleric",
+          "type": "战斗",
+          "level": 1,
+          "branch": null,
+          "action": "主行动",
+          "cost": 1,
+          "duration": "即时",
+          "components": "语言、动作"
         }
       ],
       "specs": [
@@ -3714,6 +3908,31 @@
           "kind": "法术",
           "components": "语言、动作",
           "classId": "druid"
+        },
+        {
+          "id": "druid-mend",
+          "name": "草木疗愈",
+          "execution": {
+            "kind": "heal",
+            "dice": 1,
+            "sides": 6,
+            "range": 3,
+            "addAbility": true
+          },
+          "check": "无",
+          "range": "3格内受伤的存活友方；战斗外可治疗人物",
+          "effect": "恢复1d6+本职业施法属性修正生命，最低1；不能治疗敌人或复活倒地者。",
+          "scaling": "职业5、9级各+1d6",
+          "failure": "目标满生命、倒地、超出范围或不在视线内时不能使用",
+          "kind": "法术",
+          "classId": "druid",
+          "type": "战斗",
+          "level": 1,
+          "branch": null,
+          "action": "主行动",
+          "cost": 1,
+          "duration": "即时",
+          "components": "语言、动作"
         }
       ],
       "specs": [
@@ -4204,6 +4423,31 @@
           "kind": "法术",
           "components": "语言、动作",
           "classId": "bard"
+        },
+        {
+          "id": "bard-mend",
+          "name": "安抚歌谣",
+          "execution": {
+            "kind": "heal",
+            "dice": 1,
+            "sides": 6,
+            "range": 3,
+            "addAbility": true
+          },
+          "check": "无",
+          "range": "3格内受伤的存活友方；战斗外可治疗人物",
+          "effect": "恢复1d6+本职业施法属性修正生命，最低1；不能治疗敌人或复活倒地者。",
+          "scaling": "职业5、9级各+1d6",
+          "failure": "目标满生命、倒地、超出范围或不在视线内时不能使用",
+          "kind": "法术",
+          "classId": "bard",
+          "type": "战斗",
+          "level": 1,
+          "branch": null,
+          "action": "主行动",
+          "cost": 1,
+          "duration": "即时",
+          "components": "语言、动作"
         }
       ],
       "specs": [
@@ -4698,6 +4942,107 @@
           "kind": "法术",
           "components": "语言、动作",
           "classId": "wizard"
+        },
+        {
+          "id": "wizard-fire",
+          "name": "火焰弹",
+          "execution": {
+            "kind": "attack",
+            "dice": 2,
+            "sides": 6,
+            "range": 6,
+            "damageType": "fire"
+          },
+          "check": "技能攻击对AC",
+          "range": "6格内可见敌人",
+          "effect": "技能攻击命中造成2d6火焰伤害。",
+          "scaling": "职业5、9级各+1d6",
+          "failure": "未命中无伤害",
+          "kind": "法术",
+          "classId": "wizard",
+          "type": "战斗",
+          "level": 1,
+          "branch": null,
+          "action": "主行动",
+          "cost": 1,
+          "duration": "即时",
+          "components": "语言、动作"
+        },
+        {
+          "id": "wizard-frost",
+          "name": "冰霜刺",
+          "execution": {
+            "kind": "attack",
+            "dice": 2,
+            "sides": 6,
+            "range": 6,
+            "damageType": "cold"
+          },
+          "check": "技能攻击对AC",
+          "range": "6格内可见敌人",
+          "effect": "技能攻击命中造成2d6寒冷伤害。",
+          "scaling": "职业5、9级各+1d6",
+          "failure": "未命中无伤害",
+          "kind": "法术",
+          "classId": "wizard",
+          "type": "战斗",
+          "level": 1,
+          "branch": null,
+          "action": "主行动",
+          "cost": 1,
+          "duration": "即时",
+          "components": "语言、动作"
+        },
+        {
+          "id": "wizard-lightning",
+          "name": "雷光击",
+          "execution": {
+            "kind": "save",
+            "dice": 2,
+            "sides": 6,
+            "range": 6,
+            "damageType": "lightning",
+            "saveAbility": "dex"
+          },
+          "check": "敏捷豁免",
+          "range": "6格内可见敌人",
+          "effect": "目标敏捷豁免失败受到2d6闪电伤害；成功不受伤害。",
+          "scaling": "职业5、9级各+1d6",
+          "failure": "豁免成功无伤害",
+          "kind": "法术",
+          "classId": "wizard",
+          "type": "战斗",
+          "level": 1,
+          "branch": null,
+          "action": "主行动",
+          "cost": 1,
+          "duration": "即时",
+          "components": "语言、动作"
+        },
+        {
+          "id": "wizard-wind",
+          "name": "风刃",
+          "execution": {
+            "kind": "attack",
+            "dice": 2,
+            "sides": 6,
+            "range": 6,
+            "damageType": "wind"
+          },
+          "check": "技能攻击对AC",
+          "range": "6格内可见敌人",
+          "effect": "技能攻击命中造成2d6风刃伤害。",
+          "scaling": "职业5、9级各+1d6",
+          "failure": "未命中无伤害",
+          "kind": "法术",
+          "classId": "wizard",
+          "type": "战斗",
+          "level": 1,
+          "branch": null,
+          "action": "主行动",
+          "cost": 1,
+          "duration": "即时",
+          "components": "语言、动作"
         }
       ],
       "specs": [
@@ -5184,6 +5529,107 @@
           "kind": "法术",
           "components": "语言、动作",
           "classId": "sorcerer"
+        },
+        {
+          "id": "sorcerer-fire",
+          "name": "火焰弹",
+          "execution": {
+            "kind": "attack",
+            "dice": 2,
+            "sides": 6,
+            "range": 6,
+            "damageType": "fire"
+          },
+          "check": "技能攻击对AC",
+          "range": "6格内可见敌人",
+          "effect": "技能攻击命中造成2d6火焰伤害。",
+          "scaling": "职业5、9级各+1d6",
+          "failure": "未命中无伤害",
+          "kind": "法术",
+          "classId": "sorcerer",
+          "type": "战斗",
+          "level": 1,
+          "branch": null,
+          "action": "主行动",
+          "cost": 1,
+          "duration": "即时",
+          "components": "语言、动作"
+        },
+        {
+          "id": "sorcerer-frost",
+          "name": "冰霜刺",
+          "execution": {
+            "kind": "attack",
+            "dice": 2,
+            "sides": 6,
+            "range": 6,
+            "damageType": "cold"
+          },
+          "check": "技能攻击对AC",
+          "range": "6格内可见敌人",
+          "effect": "技能攻击命中造成2d6寒冷伤害。",
+          "scaling": "职业5、9级各+1d6",
+          "failure": "未命中无伤害",
+          "kind": "法术",
+          "classId": "sorcerer",
+          "type": "战斗",
+          "level": 1,
+          "branch": null,
+          "action": "主行动",
+          "cost": 1,
+          "duration": "即时",
+          "components": "语言、动作"
+        },
+        {
+          "id": "sorcerer-lightning",
+          "name": "雷光击",
+          "execution": {
+            "kind": "save",
+            "dice": 2,
+            "sides": 6,
+            "range": 6,
+            "damageType": "lightning",
+            "saveAbility": "dex"
+          },
+          "check": "敏捷豁免",
+          "range": "6格内可见敌人",
+          "effect": "目标敏捷豁免失败受到2d6闪电伤害；成功不受伤害。",
+          "scaling": "职业5、9级各+1d6",
+          "failure": "豁免成功无伤害",
+          "kind": "法术",
+          "classId": "sorcerer",
+          "type": "战斗",
+          "level": 1,
+          "branch": null,
+          "action": "主行动",
+          "cost": 1,
+          "duration": "即时",
+          "components": "语言、动作"
+        },
+        {
+          "id": "sorcerer-wind",
+          "name": "风刃",
+          "execution": {
+            "kind": "attack",
+            "dice": 2,
+            "sides": 6,
+            "range": 6,
+            "damageType": "wind"
+          },
+          "check": "技能攻击对AC",
+          "range": "6格内可见敌人",
+          "effect": "技能攻击命中造成2d6风刃伤害。",
+          "scaling": "职业5、9级各+1d6",
+          "failure": "未命中无伤害",
+          "kind": "法术",
+          "classId": "sorcerer",
+          "type": "战斗",
+          "level": 1,
+          "branch": null,
+          "action": "主行动",
+          "cost": 1,
+          "duration": "即时",
+          "components": "语言、动作"
         }
       ],
       "specs": [

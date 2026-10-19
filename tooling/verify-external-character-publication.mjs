@@ -5,7 +5,7 @@ import {execFile} from 'node:child_process';
 import {promisify} from 'node:util';
 import assert from 'node:assert/strict';
 
-const manifest=JSON.parse(readFileSync('docs/evidence/external-character-release-manifest.json','utf8'));
+const manifest=JSON.parse(readFileSync(process.env.HI_STORY_RELEASE_MANIFEST||'docs/evidence/external-character-release-manifest.json','utf8'));
 const site=process.env.HI_STORY_SITE||'https://wangpingpang.github.io/hi-story/';
 const evidence=process.env.HI_STORY_EVIDENCE_DIR||'docs/evidence';mkdirSync(evidence,{recursive:true});
 const sha=bytes=>createHash('sha256').update(bytes).digest('hex');

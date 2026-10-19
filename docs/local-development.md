@@ -1,5 +1,9 @@
 # Windows 本地开发与交接
 
+### 2026-10-19 v0.6.0 累计发布入口
+
+`codex/publish-v060-combat` 汇总至ebe0502，准备发布当前装备与战斗体验。阶段候选文档保留原记录，最新发布、存档兼容和公网验证状态统一见 [发布记录](v060-combat-publication.md)。
+
 ### 2026-10-18 人物阴影修正
 
 `codex/fix-character-shadow` 接续7a67f8a。人物和怪物保留素材内的阴影，探索与战斗不再叠加额外椭圆/CSS投影；脚下定位及阵营描边圈保留，无需新建旅程。只改显示，schema5/save1保持，检查见 [验证记录](character-shadow-validation.md)，线上未更新。

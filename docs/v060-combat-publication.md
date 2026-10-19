@@ -1,6 +1,6 @@
 # v0.6.0 战斗增量线上发布
 
-日期：2026-10-19。发布源码分支 `codex/publish-v060-combat`，基于已推送的ebe0502，包含此前装备、技能、怪物/特效、战斗跑步、双侧状态/手动骰子、阴影修正和1.5倍缩放。发布前线上为v0.5.0、gh-pages@ce39953。下方为本轮执行记录，部署及公网结果完成后补记。
+日期：2026-10-19。发布源码分支 `codex/publish-v060-combat`，基于已推送的ebe0502，包含此前装备、技能、怪物/特效、战斗跑步、双侧状态/手动骰子、阴影修正和1.5倍缩放。发布前线上为v0.5.0、gh-pages@ce39953，现已部署v0.6.0；公网核验结果见下方实际记录。
 
 ## 构建与范围
 
@@ -20,9 +20,26 @@
 
 ## 发布方式与公网验收
 
+源码a2d4511249e2e2efe32174ede3536689633949c9；部署 [gh-pages@8e71489](https://github.com/wangpingpang/hi-story/commit/8e714890d09cdd545ec7c18f93fb9f51cefd8164)，父提交ce39953，保留原发布历史。[Pages #39180433879](https://github.com/wangpingpang/hi-story/actions/runs/39180433879)已完成且success，[部署证据](evidence/v060-combat-pages-deployment.json)保留SHA、发布树和buildId。后续记录与核验等待修正不改变已验收的产品构建。
+
 静态文件使用独立Git索引从dist建立发布树，逐个读取树内blob复验清单后，以既有gh-pages提交为父提交正常推送，保留发布历史；不强制推送，不切换/重置源码工作区，不把_handoff内部资料放入发布树。
 
 既有人物馆核验器新增 `HI_STORY_RELEASE_MANIFEST` 参数，本轮使用新清单核对全部公网资源；默认行为继续读取旧人物发布清单，历史核验不变。新增 `tooling/verify-v060-combat-publication.mjs` 对公网页面检查本轮行为。
+
+实际公网验收全部通过：
+
+- 721/721文件SHA-256与已验收构建一致，buildId一致；[资源与人物馆结果](evidence/v060-combat-public/external-character-public-validation.json)。
+- 1440×1000与375×812的人物馆28人/19动作/8方向、北向攻击预览、外形选择、真实连续移动、人物居中和刷新恢复通过；页面错误、HTTP失败与请求失败均为0。
+- 同两种尺寸分别完成v0.6.0版本和默认1.5倍、真实旧存档升级、受控魔物战斗导入、红色敌栏、无额外CSS人物投影、手动缩放、实际跑步、火法和一次资源消耗、20秒手动骰子等待及刷新不重播；[战斗结果](evidence/v060-combat-public/combat-public-validation.json)，两种尺寸各10组检查，页面/HTTP错误为0。
+- 已实际打开核对线上世界、人物馆、375px火法与小骰子截图。初始世界图用于核对玩家与场景缩放，完整NPC显示另以[人物馆返回并刷新后的游戏截图](evidence/v060-combat-public/external-public-game-1440.png)核对；初始加载可暂显示占位符。截图等待修正不改变部署产物。
+
+![线上375px火焰弹](evidence/v060-combat-public/fire-375.png)
+
+![线上375px手动骰子](evidence/v060-combat-public/dice-375.png)
+
+其他截图：[桌面世界](evidence/v060-combat-public/world-1440.png)、[375px世界](evidence/v060-combat-public/world-375.png)、[桌面火法](evidence/v060-combat-public/fire-1440.png)、[桌面小骰子](evidence/v060-combat-public/dice-1440.png)。
+
+线上入口：[暮光山谷 v0.6.0](https://wangpingpang.github.io/hi-story/)。无需清除原存档；旧四模板保持原模式，职业能力按前述入口明确启用。发布完成不代表未实现的伙伴/范围状态等后续规则已提供。
 
 ```powershell
 $env:CHROMIUM_PATH='C:\Program Files\Google\Chrome\Application\chrome.exe'

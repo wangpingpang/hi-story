@@ -47,6 +47,10 @@ try{
    assert((await page.goto(site+'?view=demo',{waitUntil:'networkidle',timeout:60000})).ok());
    await expect(page.locator('.adventure-shell')).toHaveAttribute('data-version','0.6.0');await painted();await zoom(1.5);
    await page.getByRole('button',{name:'关闭浮层',exact:true}).click();
+   // The canvas status describes the player. Visible NPCs may still be loading
+   // their first atlas, so let those requests and the next paint finish too.
+   await page.waitForLoadState('networkidle');await page.clock.runFor(500);
+   await page.waitForLoadState('networkidle');await page.clock.runFor(100);
    await page.screenshot({path:`${evidence}/world-${viewport.width}.png`});
    await importSave('v050.json',legacyBytes);await expect.poll(async()=>(await read()).seed).toBe(legacy.seed);
    const migrated=await read();assert.equal(migrated.schemaVersion,5);same(migrated.runtime,legacy.runtime,'Legacy runtime changed during migration');same(migrated.story,legacy.story,'Legacy story changed during migration');assert.equal(migrated.things.equipment.owned.length,0);

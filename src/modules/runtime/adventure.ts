@@ -80,14 +80,33 @@ export function registerAdventureActor(state:AdventureRuntime,npc:{id:string;pro
 }
 function battleDie(b:TacticalBattle,sides:number):number {const r=nextDie(b.rng,sides);b.rng=r.rng;return r.value;}
 function playerTurn(b:TacticalBattle,professionMode=false){if(professionMode){b.movement=4;b.action=true;b.guard=false;b.log.push(`第 ${b.round} 回合：移动固定4格，行动 1。`);return;}const die=battleDie(b,4);b.movement=die+2;recordRoll(b,{kind:'movement',actorId:b.participants[0].actorId,sides:4,dice:[die],bonus:2,total:b.movement});b.action=true;b.guard=false;b.log.push(`第 ${b.round} 回合：移动 d4+2 = ${b.movement}，行动 1。`);}
+/** Only used when the existing approach is blocked; normal AI steps and RNG stay intact. */
+function enemyAttackRoute(s:AdventureRuntime,actorId:string):Point[]|null {
+ const b=s.encounter!,enemy=b.participants.find(p=>p.actorId===actorId)!,player=b.participants[0],actor=s.actors[actorId],stats=adventureCombatStats(actor);
+ const canAttack=(point:Point)=>manhattan(point,player.position)<=stats.range&&(!(actor.profession||stats.weapon)||professionLineOfSight({...s,encounter:{...b,participants:b.participants.map(p=>p.actorId===actorId?{...p,position:point}:p)}},actorId,s.playerActorId));
+ const from=enemy.position,queue=[from],parents=new Map<string,Point|null>([[positionKey(from),null]]);
+ for(let i=0;i<queue.length;i++){
+  const point=queue[i];
+  if(canAttack(point)){const path:Point[]=[];let cursor:Point|null=point;while(cursor){path.unshift({...cursor});cursor=parents.get(positionKey(cursor))!;}return path;}
+  for(const next of [{x:point.x-1,y:point.y},{x:point.x+1,y:point.y},{x:point.x,y:point.y-1},{x:point.x,y:point.y+1}]){
+   if(next.x<0||next.x>=9||next.y<0||next.y>=7||parents.has(positionKey(next))||b.obstacles.some(p=>manhattan(p,next)===0)||b.participants.some(p=>p.actorId!==actorId&&s.actors[p.actorId].hp>0&&manhattan(p.position,next)===0))continue;
+   parents.set(positionKey(next),point);queue.push(next);
+  }
+ }
+ return null;
+}
 function enemyTurn(s:AdventureRuntime,phase: 'all'|'before'|'after'='all',moves:CombatMovementRecord[]=[]):void {
  const b=s.encounter!,player=s.actors[s.playerActorId],pc=b.participants[0];
  for(const enemy of [...b.participants.slice(1)].sort((a,c)=>c.initiative-a.initiative)){
   const actor=s.actors[enemy.actorId];if(actor.hp===0||(phase==='before'&&enemy.initiative<=pc.initiative)||(phase==='after'&&enemy.initiative>pc.initiative))continue;
-  const path=[{...enemy.position}];
-  for(let i=0;i<(actor.profession?4:3)&&manhattan(enemy.position,pc.position)>adventureCombatStats(actor).range;i++){
+  const origin={...enemy.position},budget=actor.profession?4:3,stats=adventureCombatStats(actor);let path=[origin];
+  // Probe the original greedy route to its end before spending any movement. A
+  // short prefix can look closer while leading back into a dead end next turn.
+  for(let i=0;i<63&&manhattan(enemy.position,pc.position)>stats.range;i++){
    const p=enemy.position;const candidates=[{x:p.x-1,y:p.y},{x:p.x+1,y:p.y},{x:p.x,y:p.y-1},{x:p.x,y:p.y+1}].filter(q=>q.x>=0&&q.x<9&&q.y>=0&&q.y<7&&!b.obstacles.some(o=>manhattan(o,q)===0)&&!b.participants.some(c=>s.actors[c.actorId].hp>0&&manhattan(c.position,q)===0)).sort((a,c)=>manhattan(a,pc.position)-manhattan(c,pc.position));if(candidates[0]&&manhattan(candidates[0],pc.position)<manhattan(p,pc.position)){enemy.position=candidates[0];path.push({...enemy.position});}else break;
   }
+  const blocked=manhattan(enemy.position,pc.position)>stats.range||((actor.profession||stats.weapon)&&!professionLineOfSight(s,actor.actorId,player.actorId));
+  enemy.position=origin;if(blocked)path=enemyAttackRoute(s,actor.actorId)??[origin];path=path.slice(0,budget+1);enemy.position={...path.at(-1)!};
   if(path.length>1){moves.push({actorId:actor.actorId,path});b.log.push(`${actor.profile.name}移动${path.length-1}格。`);}
   if(manhattan(enemy.position,pc.position)<=adventureCombatStats(actor).range){for(let hit=0;hit<professionBasicAttackCount(actor)&&player.hp>0;hit++)strike(s,actor,player,b.guard?2:0);}else b.log.push(`${actor.profile.name}调整站位。`);
   if(player.hp===0){b.status='defeat';b.log.push('你倒下了，冒险结束。');break;}

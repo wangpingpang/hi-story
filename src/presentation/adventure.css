@@ -6,3 +6,6 @@
 @media(max-width:700px){.position-label{position:fixed;left:12px;top:172px;bottom:auto;margin:0;font-size:9px}}
 .combat-skill-picker{margin:12px 0;padding:12px;border:1px solid #aebd954d;border-radius:6px;overflow-wrap:anywhere}.combat-skill-picker .profession-skill{grid-template-columns:repeat(2,minmax(0,1fr));margin:8px 0}.combat-skill-picker button{min-width:0;width:100%;white-space:normal}.combat-skill-picker [aria-pressed=true]{border-color:#e2c987;background:#506247}.combat-skill-picker strong,.combat-skill-picker small{display:block}.combat-skill-picker .selected-skill p{font-size:12px}.combat-skill-picker label{display:block;margin:12px 0 5px}.combat-skill-picker select{margin-bottom:10px}.combat-skill-picker .skill-unavailable,.combat-skill-picker .skill-selection-status{color:#e1b799;font-size:11px}.combat-skill-picker .skill-selection-status{margin-bottom:0}#combat-skills-toggle{width:100%;margin-top:10px}
 .combat-actions[hidden]{display:none}
+
+/* Unavailable actions must retain a readable explanation. */
+.adventure-choices button:disabled{opacity:1;cursor:not-allowed}.adventure-choices button:disabled strong{color:#aebeb4}.adventure-choices .choice-unavailable{color:#edcd89}

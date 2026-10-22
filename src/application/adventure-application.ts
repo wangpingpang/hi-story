@@ -6,11 +6,11 @@ import { generateMap } from '../modules/world';
 import { createAdventureStory, adventureSpatialRequest, adventureVisualPlan, adventureCatalog, ADVENTURE_CONTENT_VERSION, changeAdventureTrust, makeAdventureNPC, type AdventureStory } from '../modules/story-planning';
 import { createAdventureRuntime, validateAdventureRuntime, moveAdventureRuntime, walkAdventureRuntime, findAdventureRoute, validateRuntimeAccess, rollSkill, changeHP, setDoor, registerAdventureActor, beginEncounter, tacticalAction, combatReachable, canInteract, positionKey, ARCHETYPES, SKILLS, DND_RULES_VERSION, type AdventureRuntime, type Archetype, type Skill, restAdventureProfession, useAdventureProfessionSkill, type AdventureProfessionInitialization, PROFESSION_ADVENTURE_RULES_VERSION } from '../modules/runtime';
 import { PROFESSION_VERSION, listProfessions, getProfessionSkill, professionExecutionStatus,availableProfessionSkills,createProfessionBuild,defaultProfessionAbilities } from '../modules/professions';
-import { createAdventureThings, bindAdventureChoices, resolveAdventureChoice, conditionMet, changeAdventureItem, changeAdventureGold, addAdventureFact, addAdventureEvent, addSocialEvents, updateAdventureTasks, validateAdventureThings, validateAdventureContent, ADVENTURE_ITEMS, type AdventureThings, type BoundAdventureChoice } from '../modules/things';
+import { createAdventureThings, bindAdventureChoices, resolveAdventureChoice, conditionMet, changeAdventureItem, changeAdventureGold, addAdventureFact, addAdventureEvent, addSocialEvents, updateAdventureTasks, closeAdventureTasks, validateAdventureThings, validateAdventureContent, ADVENTURE_ITEMS, type AdventureThings, type BoundAdventureChoice } from '../modules/things';
 import { generateAdventureQuests, adventureQuestCatalog } from '../modules/quest-generation';
 import type { DemoCommand, OperationResult } from './game-application';
 import {createAdventureEquipment,grantAdventureEquipment} from '../modules/things';
-import {adventureCombatStats,tacticalActionWithMovement,type CombatMovementFeedback} from '../modules/runtime';
+import {adventureCombatStats,adventureBasicAttack,tacticalActionWithMovement,type CombatMovementFeedback} from '../modules/runtime';
 import {queryAdventureProfessionSkills} from '../modules/runtime';
 import {EQUIPMENT_VERSION,EQUIPMENT_SLOTS,getEquipment,type EquipmentSlot} from '../modules/equipment';
 import {adventureEquipmentView,validateAdventureEquipmentBinding,changeAdventureLoadout,buyAdventureEquipment} from './adventure-equipment';
@@ -20,6 +20,8 @@ export interface AdventureSnapshot {schemaVersion:5;version:'0.6.0';adventureId:
 export interface SavePort {read():string|null;write(value:string):void}
 export interface AdventurePorts {storage?:SavePort;beforeCommit?:(state:DeepReadonly<AdventureSnapshot>)=>void|Promise<void>}
 export interface AdventureView {snapshot?:AdventureSnapshot;choices:BoundAdventureChoice[];items:typeof ADVENTURE_ITEMS;archetypes:typeof ARCHETYPES;skills:typeof SKILLS;questCatalog:typeof adventureQuestCatalog;objectiveHint:string;busy:boolean;saveError:string;saved:boolean}
+export const ADVENTURE_QUEST_OPTIONS_VERSION='adventure-quest-options/1';
+export interface AdventureQuestOption {version:typeof ADVENTURE_QUEST_OPTIONS_VERSION;questId:string;title:string;allowed:boolean;reason:string}
 const errorResult=(error:unknown):Extract<OperationResult<never>,{ok:false}>=>({ok:false,error:{code:error instanceof GameError?error.code:'DOMAIN_REJECTED',message:error instanceof Error?error.message:'操作失败。'}});
 const text=(x:unknown,max=120)=>typeof x==='string'&&x.length>0&&x.length<=max&&!/[\x00-\x1f]/.test(x);
 const samePoint=(a:{x:number;y:number},b:{x:number;y:number})=>a.x===b.x&&a.y===b.y;
@@ -39,11 +41,26 @@ export class AdventureApplication {
  planRoute(to:{x:number;y:number}){const s=this.current;requireValue(s&&s.status==='active','NO_ACTIVE_RUN','当前不能移动。');return freeze(findAdventureRoute(s.runtime,to));}
  queryCombatMovement(){const s=this.current;if(s?.runtime.encounter?.status!=='active')return [];const cells:{x:number;y:number;cost:number}[]=[];for(let y=0;y<7;y++)for(let x=0;x<9;x++){const cost=combatReachable(s.runtime,{x,y});if(cost!==null&&cost>0)cells.push({x,y,cost});}return freeze(cells);}
  queryMonsterEncounters(){return freeze(queryMonsterEncounters(this.current));}
+ queryQuestOptions(){return freeze(this.current?this.questOptions(this.current):[]);}
+ private questFailure(s:AdventureSnapshot,questId:string):string {
+  if(questId==='herbalist'&&!s.things.facts.includes('herb-delivered')){if(!s.story.npcs.find(n=>n.id==='npc-1')?.alive)return '营地医者已经离场，无法再交付草药。';if(s.things.facts.includes('herb-kept'))return '你选择保留草药，这份交付委托已经结束。';}
+  if(questId==='shortcut'&&!s.things.facts.includes('gate-open')&&s.things.facts.includes('detour'))return '你选择绕行，恢复捷径的委托已经结束。';
+  if(questId==='pact'&&!s.things.facts.includes('pact-chain-done')&&(s.things.facts.includes('pact-broken')||!s.story.npcs.find(n=>n.id==='npc-0')?.alive))return '承诺已破裂或委托人物已离场。';
+  return '';
+ }
+ private questOptions(s:AdventureSnapshot):AdventureQuestOption[] {return adventureQuestCatalog.filter(q=>q.initial&&!s.things.tasks.some(t=>t.blueprint.id===q.id)).map(q=>{const reason=s.status==='ended'?'冒险已经结束。':s.runtime.encounter?.status==='active'?'请先结束当前战斗。':!s.runtime.visitedAnchorIds.includes('market')?'抵达商道营地后才能接取委托。':this.questFailure(s,q.id);return {version:ADVENTURE_QUEST_OPTIONS_VERSION,questId:q.id,title:q.title,allowed:!reason,reason};});}
+ private reconcileQuestClosure(s:AdventureSnapshot):void {
+  if(!s.story.ending)for(const id of ['herbalist-recover','gate-recover']){const followup=adventureCatalog.followups.find(f=>f.id===id)!;if(!s.things.followups.includes(id)&&conditionMet(followup.when,{things:s.things,runtime:s.runtime,story:s.story})){s.things.followups.push(id);s.story.planned.push(id);for(const effect of followup.effects)this.effect(s,effect);}}
+  for(const task of s.things.tasks)if(task.status==='active'){const reason=this.questFailure(s,task.blueprint.id);if(reason){task.status='failed';task.reason=reason;}}
+  if(!s.story.npcs.find(n=>n.id==='npc-1')?.alive)for(const event of s.things.events)if(['herbalist','herbalist-recover'].includes(event.templateId)&&event.status!=='settled')event.status='cancelled';
+  if(s.story.outcome==='failed')for(const task of s.things.tasks)if(task.blueprint.main&&task.status!=='failed'){task.status='failed';task.rewarded=false;task.reason=s.story.ending||'本局已经结束。';}
+ }
  queryProfessions(){return freeze(structuredClone({version:PROFESSION_VERSION,classes:listProfessions(),execution:professionExecutionStatus()}));}
  professionSetup(classId:string):AdventureProfessionInitialization {const abilities=defaultProfessionAbilities(classId);return {player:{build:createProfessionBuild([{classId,level:1}],abilities),abilities}};}
  queryProfessionSkills(){const a=this.current?.runtime.actors[this.current.playerActorId];return freeze(structuredClone(a?.profession?availableProfessionSkills(a.profession.build,a.abilities).filter(s=>Boolean(s.execution)):[]));}
  queryProfessionSkillOptions(){const s=this.current;if(!s)return freeze([]);const options=queryAdventureProfessionSkills(s.runtime,s.playerActorId);if(s.status==='ended')for(const option of options){option.allowed=false;option.reason='冒险已经结束。';for(const target of option.targets){target.allowed=false;target.reason=option.reason;}}return freeze(options);}
  queryCombatStats(){requireValue(this.current,'NO_ACTIVE_RUN','请先开始冒险。');return freeze(structuredClone(adventureCombatStats(this.current.runtime.actors[this.current.playerActorId])));}
+ queryBasicAttack(){requireValue(this.current,'NO_ACTIVE_RUN','请先开始冒险。');return freeze(adventureBasicAttack(this.current.runtime.actors[this.current.playerActorId]));}
  queryEquipment(){requireValue(this.current,'NO_ACTIVE_RUN','请先开始冒险。');return freeze(adventureEquipmentView(this.current));}
  private open(options:{seed:string;archetype?:Archetype;background?:string;professions?:AdventureProfessionInitialization},epoch:number,restarting=true):Promise<OperationResult<DeepReadonly<AdventureView>>> {
   try{options=structuredClone(options);}catch(error){return Promise.resolve(errorResult(error));}
@@ -72,8 +89,8 @@ export class AdventureApplication {
   for(const npc of s.story.npcs){const actor=Object.values(s.runtime.actors).find(a=>a.storyNpcId===npc.id);requireValue(actor,'INVALID_BINDING','人物绑定丢失。');npc.alive=actor.hp>0;}
   if(s.runtime.actors[s.playerActorId].hp===0||s.story.time>s.story.deadline){s.story.outcome='failed';s.story.ending=s.runtime.actors[s.playerActorId].hp===0?'你在冒险中倒下，主线失败。':'旅程期限已到，暮光塔关闭了入口。';}
   if(!s.story.ending)for(let i=0;i<8;i++){const due=adventureCatalog.followups.filter(f=>!s.things.followups.includes(f.id)&&conditionMet(f.when,{things:s.things,runtime:s.runtime,story:s.story}));if(!due.length)break;for(const f of due){s.things.followups.push(f.id);for(const e of f.effects)this.effect(s,e);s.story.planned.push(f.id);}}
+  this.reconcileQuestClosure(s);
   const rewards=updateAdventureTasks({things:s.things,runtime:s.runtime,story:s.story});for(const e of rewards)this.effect(s,e);
-  for(const task of s.things.tasks)if(task.status==='active'&&task.blueprint.id==='pact'&&(s.things.facts.includes('pact-broken')||!s.story.npcs.find(n=>n.id==='npc-0')?.alive)){task.status='failed';task.reason='承诺已破裂或委托人物已离场。';}
   for(const event of s.things.events){if(event.npcId&&!s.story.npcs.find(n=>n.id===event.npcId)?.alive&&event.status!=='settled')event.status='cancelled';else if(event.status==='prepared')event.status='ready';}
   if(s.story.ending){s.status='ended';for(const task of s.things.tasks)if(task.blueprint.main&&task.status==='active'){task.status=s.story.outcome==='success'?'success':'failed';task.reason=s.story.ending;}}
   else s.status=s.runtime.encounter?.status==='active'?'waiting-result':'active';
@@ -96,7 +113,7 @@ export class AdventureApplication {
    'equipment.equip':()=>{record(p,['instanceId','slot']);requireValue(text(p.instanceId)&& (p.slot===undefined||EQUIPMENT_SLOTS.includes(p.slot as EquipmentSlot)),'INVALID_COMMAND','实物或槽位无效。');changeAdventureLoadout(s,p.instanceId as string,p.slot as EquipmentSlot|undefined);const item=s.things.equipment.owned.find(i=>i.instanceId===p.instanceId)!;s.story.log.push({id:c.commandId,text:`已穿戴${getEquipment(item.definitionId).name}，战斗属性已重新计算。`});},
    'equipment.unequip':()=>{record(p,['slot']);requireValue(EQUIPMENT_SLOTS.includes(p.slot as EquipmentSlot),'INVALID_COMMAND','槽位无效。');changeAdventureLoadout(s,undefined,p.slot as EquipmentSlot);s.story.log.push({id:c.commandId,text:'已卸下装备，实物保留在背包中。'});},
    'inventory.use':()=>{record(p,['itemId']);requireValue(p.itemId==='potion','INVALID_ITEM','此物品需要在对应事件中使用。');const player=s.runtime.actors[s.playerActorId];requireValue(player.hp>0&&player.hp<player.maxHp,'INVALID_TARGET','当前无需治疗。');if(s.runtime.encounter?.status==='active')s.runtime=tacticalAction(s.runtime,'use');changeAdventureItem(s.things,'potion',-1);s.runtime=changeHP(s.runtime,s.playerActorId,10);s.story.log.push({id:c.commandId,text:'消耗一瓶生命药剂，恢复至 '+s.runtime.actors[s.playerActorId].hp+' 点生命。'});},
-   'quest.accept':()=>{record(p,['questId']);requireValue(text(p.questId)&&s.runtime.visitedAnchorIds.includes('market'),'OUT_OF_RANGE','抵达商道营地后才能接取委托。');requireValue(!s.things.tasks.some(q=>q.blueprint.id===p.questId),'TASK_ALREADY_EXISTS','该任务已经接取。');this.effect(s,{kind:'quest',questId:p.questId as string});},
+   'quest.accept':()=>{record(p,['questId']);requireValue(text(p.questId)&&s.runtime.visitedAnchorIds.includes('market'),'OUT_OF_RANGE','抵达商道营地后才能接取委托。');requireValue(!s.things.tasks.some(q=>q.blueprint.id===p.questId),'TASK_ALREADY_EXISTS','该任务已经接取。');const option=this.questOptions(s).find(q=>q.questId===p.questId);requireValue(option?.allowed,'OPTION_UNAVAILABLE',option?.reason??'这份委托需要通过对应的故事事件开启。');this.effect(s,{kind:'quest',questId:p.questId as string});},
    'quest.abandon':()=>{record(p,['questId']);const task=s.things.tasks.find(q=>q.blueprint.id===p.questId);requireValue(task&&!task.blueprint.main&&task.status==='active','INVALID_TASK','只有进行中的支线可以放弃。');task.status='abandoned';task.reason='玩家主动放弃。';},
    'npc.gift':()=>{record(p,['npcId']);const actor=Object.values(s.runtime.actors).find(a=>a.storyNpcId===p.npcId);requireValue(actor&&actor.hp>0&&canInteract(s.runtime,actor.position),'OUT_OF_RANGE','靠近可见人物后赠送物资。');changeAdventureItem(s.things,'supply',-1);s.story=changeAdventureTrust(s.story,p.npcId as string,2);s.story.log.push({id:c.commandId,text:'赠送物资，人物态度与后续交涉难度发生变化。'});},
    'npc.attack':()=>{record(p,['npcId']);const actor=Object.values(s.runtime.actors).find(a=>a.storyNpcId===p.npcId);requireValue(actor&&actor.hp>0&&canInteract(s.runtime,actor.position),'OUT_OF_RANGE','靠近人物后才能发起遭遇。');const ids=[actor.actorId];if(p.npcId==='npc-2'&&seedHash(s.seed+':encounter')%3===2){this.effect(s,{kind:'spawn',npcId:'sentinel',anchorId:'goal'});ids.push(Object.values(s.runtime.actors).find(a=>a.storyNpcId==='sentinel')!.actorId);}s.runtime=beginEncounter(s.runtime,ids,`${s.adventureId}:battle:${s.runtime.combatSequence+1}`,s.seed);s.story=changeAdventureTrust(s.story,p.npcId as string,-2);},
@@ -119,7 +136,7 @@ export class AdventureApplication {
  restore(data:string):Promise<OperationResult<DeepReadonly<AdventureView>>> {
    let state:AdventureSnapshot;try{requireValue(typeof data==='string'&&data.length<=8_000_000,'INVALID_SAVE','存档过大或类型无效。');const parsed=JSON.parse(data);requireValue(parsed.format==='hi-story-save/1'&&parsed.payload&&parsed.checksum===seedHash(canonical(parsed.payload)).toString(16),'INVALID_SAVE','存档格式或完整性检查失败。');const payload=parsed.payload;
     if(payload.schemaVersion===4){requireValue(payload.version==='0.2.1'&&payload.versions?.contracts==='demo-contract/4'&&payload.versions.equipment===undefined&&payload.things?.equipment===undefined&&Object.values(payload.runtime?.actors??{}).every((a:any)=>a.equipmentCombat===undefined),'INCOMPATIBLE_SAVE','旧版存档结构不兼容。');payload.schemaVersion=5;payload.version='0.6.0';payload.versions.contracts='demo-contract/5';payload.versions.equipment=EQUIPMENT_VERSION;payload.things.equipment=createAdventureEquipment();}
-    state=payload;this.validate(state);state.runId=`session:${crypto.randomUUID()}`;state.receipts={};}catch(error){return Promise.resolve(errorResult(error instanceof SyntaxError?new GameError('INVALID_SAVE','存档内容不是有效的 JSON。'):error));}
+    state=payload;this.validate(state);this.reconcileQuestClosure(state);closeAdventureTasks({things:state.things,runtime:state.runtime,story:state.story});this.validate(state);state.runId=`session:${crypto.randomUUID()}`;state.receipts={};}catch(error){return Promise.resolve(errorResult(error instanceof SyntaxError?new GameError('INVALID_SAVE','存档内容不是有效的 JSON。'):error));}
   const epoch=++this.epoch;return this.queue(async()=>{try{this.checkEpoch(epoch);await this.ports.beforeCommit?.(freeze(structuredClone(state)));this.checkEpoch(epoch);this.current=state;this.persist();this.notify();return {ok:true,value:this.query()};}catch(error){return errorResult(error);}});
  }
  private validate(s:AdventureSnapshot):void {

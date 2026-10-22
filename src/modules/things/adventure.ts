@@ -12,7 +12,7 @@ export interface AdventureEvent {id:string;templateId:string;npcId?:string;statu
 export interface AdventureTask {blueprint:AdventureQuestBlueprint;status:'active'|'success'|'failed'|'abandoned';rewarded:boolean;reason:string}
 export interface AdventureThings {gold:number;inventory:Record<string,number>;facts:string[];events:AdventureEvent[];tasks:AdventureTask[];settlements:string[];followups:string[];equipment:AdventureEquipmentInventory}
 export interface ConditionContext {things:AdventureThings;runtime:AdventureRuntime;story:AdventureStory}
-export interface BoundAdventureChoice {eventId:string;choiceId:string;title:string;text:string;anchorId?:string;npcId?:string;allowed:boolean;reason:string;time:number;gold:number;items:Record<string,number>;check?:{skill:string;label:string;dc:number;mode:CheckResult['mode'];modifier:number;proficiency:number}}
+export interface BoundAdventureChoice {eventId:string;choiceId:string;title:string;text:string;anchorId?:string;npcId?:string;inRange:boolean;allowed:boolean;reason:string;time:number;gold:number;items:Record<string,number>;check?:{skill:string;label:string;dc:number;mode:CheckResult['mode'];modifier:number;proficiency:number}}
 export function validateAdventureCondition(c:AdventureCondition,depth=0,budget={left:128}):void {
  requireValue(c&&typeof c==='object'&&depth<=8&&--budget.left>=0,'INVALID_CONDITION','条件结构超出限制。');
  if(c.kind==='all'||c.kind==='any'){requireValue(Array.isArray(c.conditions)&&c.conditions.length<=32,'INVALID_CONDITION','组合条件无效。');c.conditions.forEach(x=>validateAdventureCondition(x,depth+1,budget));}
@@ -42,12 +42,12 @@ export function bindAdventureChoices(ctx:ConditionContext):BoundAdventureChoice[
   for(const c of t.choices){let reason='',dc=c.check?.dc??0,mode:CheckResult['mode']='normal';const items={...c.items};
    if(npc){dc+=npc.attitude==='hostile'?2:npc.attitude==='friendly'?-2:0;if(c.check?.skill==='deception')dc=Math.max(dc,10+abilityModifier(actor!.abilities.wis)+(actor!.skills.includes('insight')?actor!.proficiency:0));if(s.facts.includes(`${npc.id}:insight:success`)||npc.attitude==='friendly')mode='advantage';else if(npc.attitude==='hostile')mode='disadvantage';}
    if(c.check?.skill==='arcana'&&s.inventory.torch>0){mode='advantage';items.torch=(items.torch??0)+1;}
-   if(!canInteract(r,point))reason='靠近可见人物或地点后互动。';
+   const inRange=canInteract(r,point);if(!inRange)reason='靠近可见人物或地点后互动。';
    if(story.ending||r.encounter?.status==='active')reason='当前不能进行探索互动。';
    if(s.gold<c.gold)reason='金币不足。';
    for(const [id,n]of Object.entries(items))if(s.inventory[id]<n)reason=`缺少${ADVENTURE_ITEMS.find(i=>i.id===id)?.name??id}。`;
-   if(t.id==='tower-door'){const plot=adventureCatalog.mainlines.find(p=>p.id===story.plotId)!;if(!r.visitedAnchorIds.includes('goal'))reason='需要真实抵达暮光塔目标格。';if(!s.inventory[plot.requiredItem])reason=`缺少目标物品：${ADVENTURE_ITEMS.find(i=>i.id===plot.requiredItem)!.name}。`;items[plot.requiredItem]=1;}
-   result.push({eventId:e.id,choiceId:c.id,title:t.title,text:c.text,anchorId:anchor?.id,npcId:e.npcId,allowed:!reason,reason,time:c.time,gold:c.gold,items,...(c.check?{check:{skill:c.check.skill,label:SKILLS[c.check.skill].label,dc,mode,modifier:abilityModifier(player.abilities[SKILLS[c.check.skill].ability]),proficiency:player.skills.includes(c.check.skill)?player.proficiency:0}}:{})});
+   if(t.id==='tower-door'){const plot=adventureCatalog.mainlines.find(p=>p.id===story.plotId)!;if(!r.visitedAnchorIds.includes('goal'))reason='需要真实抵达暮光塔目标格。';if(!s.inventory[plot.requiredItem])reason=`缺少目标物品：${ADVENTURE_ITEMS.find(i=>i.id===plot.requiredItem)!.name}。`;if(story.time+c.time>story.deadline)reason='剩余时间不足以完成交付。';items[plot.requiredItem]=1;}
+   result.push({eventId:e.id,choiceId:c.id,title:t.title,text:c.text,anchorId:anchor?.id,npcId:e.npcId,inRange,allowed:!reason,reason,time:c.time,gold:c.gold,items,...(c.check?{check:{skill:c.check.skill,label:SKILLS[c.check.skill].label,dc,mode,modifier:abilityModifier(player.abilities[SKILLS[c.check.skill].ability]),proficiency:player.skills.includes(c.check.skill)?player.proficiency:0}}:{})});
   }
  }return result;
 }
@@ -57,7 +57,14 @@ export function resolveAdventureChoice(ctx:ConditionContext,eventId:string,choic
 export function changeAdventureItem(s:AdventureThings,id:string,amount:number):void {requireValue(Object.hasOwn(s.inventory,id)&&Number.isSafeInteger(amount)&&Math.abs(amount)<=99,'INVALID_ITEM','物品效果无效。');const count=s.inventory[id]+amount;requireValue(Number.isSafeInteger(count)&&count>=0&&count<=99,'INSUFFICIENT_ITEMS','物品数量不足或超出限制。');s.inventory[id]=count;}
 export function changeAdventureGold(s:AdventureThings,amount:number):void {const next=s.gold+amount;requireValue(Number.isSafeInteger(amount)&&Number.isSafeInteger(next)&&next>=0&&next<=100000,'INSUFFICIENT_GOLD','金币不足或无效。');s.gold=next;}
 export function addAdventureFact(s:AdventureThings,id:string):void {requireValue(typeof id==='string'&&id.length<=120,'INVALID_FACT','事实编号无效。');if(!s.facts.includes(id)){requireValue(s.facts.length<2000,'CONTENT_LIMIT','事实数量超出限制。');s.facts.push(id);}}
-export function updateAdventureTasks(ctx:ConditionContext):AdventureEffect[] {const effects:AdventureEffect[]=[];for(const task of ctx.things.tasks){if(task.status==='active'&&conditionMet(task.blueprint.condition,ctx)){task.status='success';task.reason='已通过真实行动满足目标条件。';}if(task.status==='success'&&!task.rewarded){task.rewarded=true;effects.push(...structuredClone(task.blueprint.reward));}if(ctx.story.outcome==='failed'&&task.status==='active'){task.status='failed';task.reason='本局已经结束。';}}return effects;}
+/** Close unfinished tasks without awarding or replaying any historical effects. */
+export function closeAdventureTasks(ctx:ConditionContext):void {
+ for(const task of ctx.things.tasks){if(task.status!=='active')continue;
+  if(ctx.story.outcome==='failed'){task.status='failed';task.reason='本局已经结束，任务未完成。';}
+  else if(ctx.story.outcome==='success'&&!task.blueprint.main){task.status='abandoned';task.reason='主线已经完成，本次旅程结束，未完成的委托已关闭。';}
+ }
+}
+export function updateAdventureTasks(ctx:ConditionContext):AdventureEffect[] {const effects:AdventureEffect[]=[];for(const task of ctx.things.tasks){if(task.status==='active'&&conditionMet(task.blueprint.condition,ctx)){task.status='success';task.reason='已通过真实行动满足目标条件。';}if(task.status==='success'&&!task.rewarded){task.rewarded=true;effects.push(...structuredClone(task.blueprint.reward));}}closeAdventureTasks(ctx);return effects;}
 export function validateAdventureThings(s:AdventureThings):void {
  validateAdventureEquipment(s.equipment);
  requireValue(Number.isSafeInteger(s.gold)&&s.gold>=0&&s.gold<=100000&&s.events.length<=128&&s.tasks.length<=32&&s.facts.length<=2000,'INVALID_THINGS','物品/事件状态无效。');

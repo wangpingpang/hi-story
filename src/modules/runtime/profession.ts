@@ -120,11 +120,15 @@ export function useAdventureProfessionSkill(state:AdventureRuntime,actorId:strin
   const next=structuredClone(state);resolve(next,actorId,skillId,targetId);if(next.encounter?.status==='active'){next.encounter.action=false;if(next.encounter.participants.slice(1).every(p=>next.actors[p.actorId].hp===0)){next.encounter.status='victory';next.encounter.log.push('战斗胜利。');}}return next;
 }
 export function tryProfessionBasicAttack(s:AdventureRuntime,actorId:string,targetId:string):boolean {
-  const a=s.actors[actorId];if(!a.profession)return false;
-  const primary=a.profession.build.classes[0];if(!primary)return false;
-  const skill=getProfession(primary.classId).skills.filter(k=>k.level<=primary.level&&k.cost===0&&['attack','save'].includes(k.execution?.kind??''))[0];
+  const skill=professionBasicSkill(s.actors[actorId]);
   if(!skill)return false;resolve(s,actorId,skill.id,targetId);return true;
 }
-export function professionBasicAttackCount(actor:AdventureActor):number {if(actor.equipmentCombat?.weapon)return actor.professionCombat?.attacks??1;const primary=actor.profession?.build.classes[0];return primary&&getProfession(primary.classId).skills.some(k=>k.level<=primary.level&&k.cost===0&&['attack','save'].includes(k.execution?.kind??''))?1:actor.professionCombat?.attacks??1;}
+/** Shared default-attack selection for execution and its read-only display. */
+export function professionBasicSkill(actor:AdventureActor):Readonly<ProfessionSkillDefinition>|undefined {
+  if(actor.equipmentCombat?.weapon)return undefined;
+  const primary=actor.profession?.build.classes[0];
+  return primary?getProfession(primary.classId).skills.find(k=>k.level<=primary.level&&k.cost===0&&['attack','save'].includes(k.execution?.kind??'')):undefined;
+}
+export function professionBasicAttackCount(actor:AdventureActor):number {return professionBasicSkill(actor)?1:actor.professionCombat?.attacks??1;}
 export function defaultAdventureProfession(classId:string):ProfessionSetup {getProfession(classId);return {build:{version:PROFESSION_VERSION,classes:[{classId,level:1}]}};}
 export type { ProfessionRuntimeState };

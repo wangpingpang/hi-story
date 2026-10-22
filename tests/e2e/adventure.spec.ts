@@ -48,14 +48,18 @@ test('检定失败开启补救事件，保持主线可行',async({page})=>{
  await open(page,await checkSeed('arcana',12,false,'advantage'));await go(page,'shrine');await choose(page,'shrine','study');await choose(page,'shrine-recover','recover');expect((await state(page)).things.inventory.seal).toBe(1);
 });
 test('战斗胜利、战败与逃离都回传人物和目标',async({page})=>{
+ // Movement playback now precedes dice; advance the paused clock through both.
+ await page.removeLocatorHandler(page.getByRole('dialog',{name:'骰子检定反馈',exact:true}));
+ const ready=async()=>{await expect.poll(async()=>{await page.clock.runFor(100);const close=page.getByRole('button',{name:'关闭本次骰子结果',exact:true}).first();if(await close.isVisible())await close.click();return page.locator('.adventure-shell').getAttribute('aria-busy');},{timeout:15000}).toBe('false');};
  for(const outcome of ['victory','defeat','fled']){
   await open(page,`battle-outcome-${outcome}`);await near(page,'npc-0');await panel(page,'interaction');await page.locator('[data-npc="npc-0"]').click();await page.locator('[data-fight="npc-0"]').click();
+  await ready();
   for(let i=0;i<40&&(await state(page)).runtime.encounter?.status==='active';i++){
    await expect(page.locator('.adventure-shell')).toHaveAttribute('aria-busy','false');
    if(outcome==='victory'){
-    await expect(page.locator('.adventure-shell')).toHaveAttribute('aria-busy','false');const attack=page.locator('[data-attack]').first();if(await attack.isEnabled())await attack.click();else if((await state(page)).runtime.encounter!.action){const live=await state(page),battle=live.runtime.encounter!,from=battle.participants[0].position,target=battle.participants[1].position;const dx=Math.sign(target.x-from.x),dy=Math.sign(target.y-from.y);await page.locator(`[data-battle-point="${from.x+dx},${from.y+(dx?0:dy)}"]`).click();if(await attack.isEnabled())await attack.click();}
+    await expect(page.locator('.adventure-shell')).toHaveAttribute('aria-busy','false');const attack=page.locator('[data-attack]').first();if(await attack.isEnabled())await attack.click();else if((await state(page)).runtime.encounter!.action){const live=await state(page),battle=live.runtime.encounter!,from=battle.participants[0].position,target=battle.participants[1].position;const dx=Math.sign(target.x-from.x),dy=Math.sign(target.y-from.y);await page.locator(`[data-battle-point="${from.x+dx},${from.y+(dx?0:dy)}"]`).click();await ready();if(await attack.isEnabled())await attack.click();}
    }else if(outcome==='fled'&&await page.locator('[data-combat="flee"]').isEnabled())await page.locator('[data-combat="flee"]').click();
-   if((await state(page)).runtime.encounter?.status==='active')await page.locator('[data-combat="end"]').click();
+   await ready();if((await state(page)).runtime.encounter?.status==='active'){await page.locator('[data-combat="end"]').click();await ready();}
   }
   const s=await state(page);expect(s.runtime.encounter?.status).toBe(outcome);if(outcome==='defeat')expect(s.status).toBe('ended');if(outcome==='victory')expect(s.story.npcs.find(n=>n.id==='npc-0')?.alive).toBe(false);
  }

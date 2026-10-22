@@ -955,8 +955,8 @@
       "title": "散落的草药包",
       "anchorId": "market",
       "when": {
-        "kind": "all",
-        "conditions": []
+        "kind": "alive",
+        "npcId": "npc-1"
       },
       "choices": [
         {
@@ -1118,6 +1118,80 @@
               "kind": "item",
               "itemId": "seal",
               "amount": 1
+            }
+          ],
+          "failure": []
+        }
+      ]
+    },
+    {
+      "id": "herbalist-recover",
+      "title": "草药援助的补救",
+      "anchorId": "market",
+      "when": {
+        "kind": "all",
+        "conditions": [
+          {
+            "kind": "alive",
+            "npcId": "npc-1"
+          },
+          {
+            "kind": "not",
+            "condition": {
+              "kind": "fact",
+              "id": "herb-delivered"
+            }
+          }
+        ]
+      },
+      "choices": [
+        {
+          "id": "recover",
+          "text": "重新整理一份银叶草，交给营地医者",
+          "time": 0.5,
+          "gold": 0,
+          "items": {
+            "herb": 1
+          },
+          "success": [
+            {
+              "kind": "fact",
+              "id": "herb-delivered"
+            }
+          ],
+          "failure": []
+        }
+      ]
+    },
+    {
+      "id": "gate-recover",
+      "title": "修复未通行的捷径",
+      "anchorId": "gate",
+      "when": {
+        "kind": "not",
+        "condition": {
+          "kind": "fact",
+          "id": "gate-open"
+        }
+      },
+      "choices": [
+        {
+          "id": "recover",
+          "text": "改用绳索固定倒木，修复捷径",
+          "time": 0.5,
+          "gold": 0,
+          "items": {
+            "rope": 1
+          },
+          "success": [
+            {
+              "kind": "door",
+              "id": "shortcut",
+              "open": true
+            },
+            {
+              "kind": "fact",
+              "id": "gate-open"
             }
           ],
           "failure": []
@@ -1350,6 +1424,32 @@
         {
           "kind": "fact",
           "id": "guardian-bypass"
+        }
+      ]
+    },
+    {
+      "id": "herbalist-recover",
+      "when": {
+        "kind": "fact",
+        "id": "herb-attempted"
+      },
+      "effects": [
+        {
+          "kind": "event",
+          "templateId": "herbalist-recover"
+        }
+      ]
+    },
+    {
+      "id": "gate-recover",
+      "when": {
+        "kind": "fact",
+        "id": "gate-checked"
+      },
+      "effects": [
+        {
+          "kind": "event",
+          "templateId": "gate-recover"
         }
       ]
     }

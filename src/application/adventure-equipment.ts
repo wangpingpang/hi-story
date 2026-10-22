@@ -1,7 +1,7 @@
 import {canonical, requireValue} from '../contracts/demo';
 import {getEquipment, getEquipmentAtlas, validateEquipmentLoadout, equipItem, unequipItem, deriveEquipmentCombat, EQUIPMENT_SLOTS, type EquipmentContext, type EquipmentDefinition, type EquipmentSlot} from '../modules/equipment';
 import {createProfessionBuild} from '../modules/professions';
-import {adventureCombatStats, setAdventureEquipmentCombat, canInteract, type EquipmentCombatProfile} from '../modules/runtime';
+import {adventureCombatStats, adventureBasicAttack, setAdventureEquipmentCombat, canInteract, type EquipmentCombatProfile, type BasicAttackProfile} from '../modules/runtime';
 import {grantAdventureEquipment, changeAdventureGold} from '../modules/things';
 import type {AdventureSnapshot} from './adventure-application';
 
@@ -58,19 +58,19 @@ export function buyAdventureEquipment(s:AdventureSnapshot,definitionId:string,co
  const price=equipmentShopPrice(s,offer.price);changeAdventureGold(s.things,-price);grantAdventureEquipment(s.things.equipment,definitionId,sourceId);
  s.story.log.push({id:commandId,text:`花费${price}金币购买${getEquipment(definitionId).name}，已放入装备背包。`});
 }
-export interface EquipmentItemView {instanceId:string;definition:Readonly<EquipmentDefinition>;equippedSlot?:EquipmentSlot;reason:string;preview?:EquipmentCombatProfile}
+export interface EquipmentItemView {instanceId:string;definition:Readonly<EquipmentDefinition>;equippedSlot?:EquipmentSlot;reason:string;preview?:EquipmentCombatProfile;previewAttack?:BasicAttackProfile}
 export interface AdventureEquipmentView {
- combat:EquipmentCombatProfile;base:EquipmentCombatProfile;slots:{id:EquipmentSlot;label:string;instanceId?:string;name?:string}[];
- owned:EquipmentItemView[];shop:{definition:Readonly<EquipmentDefinition>;price:number;reason:string;equipReason:string;preview?:EquipmentCombatProfile}[];
+ combat:EquipmentCombatProfile;base:EquipmentCombatProfile;basicAttack:BasicAttackProfile;slots:{id:EquipmentSlot;label:string;instanceId?:string;name?:string}[];
+ owned:EquipmentItemView[];shop:{definition:Readonly<EquipmentDefinition>;price:number;reason:string;equipReason:string;preview?:EquipmentCombatProfile;previewAttack?:BasicAttackProfile}[];
  locked:boolean;shopReason:string;
 }
 export function adventureEquipmentView(s:AdventureSnapshot):AdventureEquipmentView {
  const a=s.runtime.actors[s.playerActorId],context=adventureEquipmentContext(s),loadout=s.things.equipment.loadout,locked=s.status!=='active',shopReason=equipmentShopReason(s);
- const preview=(instanceId:string,ctx=context)=>{try{const next=equipItem(loadout,ctx,instanceId);return {reason:'',preview:deriveAdventureEquipment(s,next,ctx)??adventureCombatStats({...a,equipmentCombat:undefined})};}catch(error){return {reason:error instanceof Error?error.message:'无法穿戴。'};}};
- return {combat:adventureCombatStats(a),base:adventureCombatStats({...a,equipmentCombat:undefined}),locked,shopReason,
+ const preview=(instanceId:string,ctx=context)=>{try{const next=equipItem(loadout,ctx,instanceId),projection=deriveAdventureEquipment(s,next,ctx);return {reason:'',preview:projection??adventureCombatStats({...a,equipmentCombat:undefined}),previewAttack:adventureBasicAttack({...a,equipmentCombat:projection})};}catch(error){return {reason:error instanceof Error?error.message:'无法穿戴。'};}};
+ return {combat:adventureCombatStats(a),base:adventureCombatStats({...a,equipmentCombat:undefined}),basicAttack:adventureBasicAttack(a),locked,shopReason,
  slots:EQUIPMENT_SLOTS.map(id=>({id,label:EQUIPMENT_SLOT_LABELS[id],...(loadout.slots[id]?{instanceId:loadout.slots[id],name:getEquipment(context.owned.find(i=>i.instanceId===loadout.slots[id])!.definitionId).name}:{})})),
  owned:context.owned.map(i=>({instanceId:i.instanceId,definition:getEquipment(i.definitionId),equippedSlot:EQUIPMENT_SLOTS.find(slot=>loadout.slots[slot]===i.instanceId),...preview(i.instanceId)})),
- shop:ADVENTURE_EQUIPMENT_SHOP.map(offer=>{const price=equipmentShopPrice(s,offer.price),p=preview('preview:shop',{...context,owned:[...context.owned,{instanceId:'preview:shop',definitionId:offer.definitionId}]});return {definition:getEquipment(offer.definitionId),price,reason:shopReason||(s.things.gold<price?'金币不足。':context.owned.length>=500?'装备背包已满。':''),equipReason:p.reason,preview:p.preview};})};
+ shop:ADVENTURE_EQUIPMENT_SHOP.map(offer=>{const price=equipmentShopPrice(s,offer.price),p=preview('preview:shop',{...context,owned:[...context.owned,{instanceId:'preview:shop',definitionId:offer.definitionId}]});return {definition:getEquipment(offer.definitionId),price,reason:shopReason||(s.things.gold<price?'金币不足。':context.owned.length>=500?'装备背包已满。':''),equipReason:p.reason,preview:p.preview,previewAttack:p.previewAttack};})};
 }
 export {getEquipmentAtlas};
 export type {EquipmentSlot, EquipmentCombatProfile};

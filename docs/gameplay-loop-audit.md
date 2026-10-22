@@ -52,6 +52,6 @@
 - 浏览器：40个不同桌面/375px用例分两批通过：26项既有装备/技能/跑步回归，14项本轮闭环与战斗胜败/逃跑。不是整套历史浏览器用例一次全跑。报告分别为 `evidence/gameplay-closure-combat-regression.json` 和 `evidence/gameplay-closure-browser-final.json`。
 - 类型、模块边界、生产构建和差异格式检查通过；另一次独立只读复核未发现新增奖励/恢复阻断问题。
 - 已目视核对桌面补救任务和窄屏材料提示；截图等待实际场景绘制，避免冻结时钟造成空背景证据。代表截图见下方。
-- 分支 `codex/gameplay-loop-audit`；源码提交信息在提交后补记。线上仍是 `gh-pages@8e71489`，本轮未部署。
+- 分支 `codex/gameplay-loop-audit`；源码实现与模块说明、测试证据同提交 `1e16f6d8fdc5592973a5dbf8f4dee3a1a76177cf`；本行仅补记其提交身份。线上仍是 `gh-pages@8e71489`，本轮未部署。
 
 [桌面补救任务](evidence/gameplay-loop-audit/desktop-recovered-quest.png) · [真实普通法术属性](evidence/gameplay-loop-audit/desktop-basic-attack.png) · [窄屏材料提示](evidence/gameplay-loop-audit/narrow-missing-material.png) · [窄屏期限提示](evidence/gameplay-loop-audit/narrow-deadline.png)

@@ -1,5 +1,7 @@
 # 2026-10-22 玩法闭环自检与优化
 
+2026-10-24后续更新：用户要求发布，本轮修复已部署至 `gh-pages@8d25e3a`，Pages40001811707成功；公网验收与实际发布状态见 [发布报告](gameplay-closure-publication.md)。下文“未部署”保留为10月22日候选阶段记录。
+
 ## 范围与状态
 
 用户要求“很多项目依然不能闭环，先自检一下，然后自我优化”。本轮从已发布源码 `codex/publish-v060-combat@5d535d4` 建立 `codex/gameplay-loop-audit`，按真实可执行流程审计探索、任务、装备、战斗和恢复。产品仍为0.6.0，schema5 / demo-contract5 / save1保持。

@@ -1,0 +1,47 @@
+{
+  "status": "passed",
+  "checkedAt": "2026-10-23T18:17:52.223Z",
+  "site": "https://wangpingpang.github.io/hi-story/",
+  "results": [
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "checks": [
+        "v0.6.0 and default 1.5x",
+        "real v0.5.0 save recovery",
+        "validated monster fixture through import UI",
+        "left ally and red enemy",
+        "original sprite shadow only",
+        "manual zoom",
+        "running movement",
+        "fire spell and resource once",
+        "small ally dice held 20s until manual close",
+        "refresh does not replay or spend twice"
+      ],
+      "errors": [],
+      "httpFailures": []
+    },
+    {
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "checks": [
+        "v0.6.0 and default 1.5x",
+        "real v0.5.0 save recovery",
+        "validated monster fixture through import UI",
+        "left ally and red enemy",
+        "original sprite shadow only",
+        "manual zoom",
+        "running movement",
+        "fire spell and resource once",
+        "small ally dice held 20s until manual close",
+        "refresh does not replay or spend twice"
+      ],
+      "errors": [],
+      "httpFailures": []
+    }
+  ]
+}

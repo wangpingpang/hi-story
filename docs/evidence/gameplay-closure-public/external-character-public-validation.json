@@ -1,0 +1,182 @@
+{
+  "status": "passed",
+  "checkedAt": "2026-10-23T18:22:51.248Z",
+  "site": "https://wangpingpang.github.io/hi-story/",
+  "buildId": "262f59015e15395d1d2a18dddf432cc12554812c789e125e8f8e2bacba030867",
+  "verifiedFiles": 721,
+  "assetFetchRetries": [
+    {
+      "path": "assets/adventure-BIjTwot7.js",
+      "attempt": 1,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "path": "assets/adventure-DjjEfuTM.css",
+      "attempt": 1,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "path": "assets/application-Bn-vYKYD.js",
+      "attempt": 1,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "path": "assets/characters/molibaike/role-1000/action-1.webp",
+      "attempt": 1,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "path": "assets/characters/molibaike/role-1000/action-11.webp",
+      "attempt": 1,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "path": "assets/characters/molibaike/role-1024/action-12.webp",
+      "attempt": 1,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "path": "assets/world/weather-v1.webp",
+      "attempt": 1,
+      "error": "TimeoutError: The operation was aborted due to timeout"
+    }
+  ],
+  "assetTransports": [
+    {
+      "path": "assets/adventure-BIjTwot7.js",
+      "transport": "Windows HTTP"
+    },
+    {
+      "path": "assets/adventure-DjjEfuTM.css",
+      "transport": "Windows HTTP"
+    },
+    {
+      "path": "assets/characters/character-parts-v1.png",
+      "transport": "Windows HTTP"
+    },
+    {
+      "path": "assets/application-Bn-vYKYD.js",
+      "transport": "Windows HTTP"
+    },
+    {
+      "path": "assets/characters/female-parts-v1.png",
+      "transport": "Windows HTTP"
+    },
+    {
+      "path": "assets/characters/molibaike/role-1000/action-1.webp",
+      "transport": "Windows HTTP"
+    },
+    {
+      "path": "assets/characters/molibaike/role-1000/action-11.webp",
+      "transport": "Windows HTTP"
+    },
+    {
+      "path": "assets/characters/molibaike/role-1024/action-12.webp",
+      "transport": "Windows HTTP"
+    },
+    {
+      "path": "assets/characters/v3/accessory.png",
+      "transport": "Windows HTTP"
+    },
+    {
+      "path": "assets/characters/v3/body-female-stocky.png",
+      "transport": "Windows HTTP"
+    },
+    {
+      "path": "assets/characters/v3/body-female.png",
+      "transport": "Windows HTTP"
+    },
+    {
+      "path": "assets/characters/v3/body-male.png",
+      "transport": "Windows HTTP"
+    },
+    {
+      "path": "assets/characters/v3/face.png",
+      "transport": "Windows HTTP"
+    },
+    {
+      "path": "assets/characters/v3/hair.png",
+      "transport": "Windows HTTP"
+    },
+    {
+      "path": "assets/characters/v3/pants.png",
+      "transport": "Windows HTTP"
+    },
+    {
+      "path": "assets/characters/v3/shoes.png",
+      "transport": "Windows HTTP"
+    },
+    {
+      "path": "assets/characters/v3/top.png",
+      "transport": "Windows HTTP"
+    },
+    {
+      "path": "assets/equipment/armor-01.png",
+      "transport": "Windows HTTP"
+    },
+    {
+      "path": "assets/equipment/armor-02.png",
+      "transport": "Windows HTTP"
+    },
+    {
+      "path": "assets/equipment/armor-03.png",
+      "transport": "Windows HTTP"
+    },
+    {
+      "path": "assets/equipment/shared-01.png",
+      "transport": "Windows HTTP"
+    },
+    {
+      "path": "assets/equipment/weapons-01.png",
+      "transport": "Windows HTTP"
+    },
+    {
+      "path": "assets/world/weather-v1.webp",
+      "transport": "Windows HTTP"
+    }
+  ],
+  "results": [
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "model": "role-1432",
+      "checks": [
+        "28 characters / 19 actions / 8 directions",
+        "northern attack preview",
+        "visual preference selection",
+        "actual continuous movement",
+        "centered camera",
+        "refresh preserves runtime",
+        "no overflow or page errors"
+      ],
+      "centerError": 0.000020877235010619282,
+      "errors": [],
+      "failed": [],
+      "consoleMessages": [],
+      "requestFailures": []
+    },
+    {
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "model": "role-1432",
+      "checks": [
+        "28 characters / 19 actions / 8 directions",
+        "northern attack preview",
+        "visual preference selection",
+        "actual continuous movement",
+        "centered camera",
+        "refresh preserves runtime",
+        "no overflow or page errors"
+      ],
+      "centerError": 0.00001635344308204808,
+      "errors": [],
+      "failed": [],
+      "consoleMessages": [],
+      "requestFailures": []
+    }
+  ]
+}

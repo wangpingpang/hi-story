@@ -19,4 +19,28 @@
 
 独立Git索引从已验收dist创建静态树，逐个读取树内blob核对SHA-256后，以现有`gh-pages@8e71489`为父提交正常推送，保留发布历史，不覆盖源码工作区。发布树只含清单内的静态文件，不包括源码、测试报告或`_handoff`内部资料。
 
-发布提交、Pages状态与公网核验结果将在实际完成后补记。
+部署源码为 `cb149b6bc8e67a5151dc13b6746fdfb3ceb59ae6`，静态部署 [gh-pages@8d25e3a](https://github.com/wangpingpang/hi-story/commit/8d25e3a76f39add1fa86b6548133b4a30233f949)，父提交为8e71489。[Pages #40001811707](https://github.com/wangpingpang/hi-story/actions/runs/40001811707)已完成且success；同SHA另一次Pages任务40001808778为cancelled，未把它报告成成功。身份与buildId见 [部署证据](evidence/gameplay-closure-pages-deployment.json)。
+
+## 实际公网验收
+
+- 桌面1440×1000及375×812的闭环流程12/12通过，约141秒，无重试/跳过，见 [公网浏览器报告](evidence/gameplay-closure-release-public-browser.json)。覆盖人物列表实际靠近、缺材料提示→补货→回到地点完成、不可逆委托终态/错序接取、法术真实属性、失败补救/一次耗材和奖励、39.9小时时限提示，均包含刷新核对。
+- 地点进度先由同版应用的真实命令生成，再通过公网导入入口恢复；期限边界在已完成路线的有效快照中设置剩余时间，并完整校验。上述受控边界用例与网页实际操作区分记录，不冒充全部历史整局都从开局走完。
+- 既有公网战斗核验在两种尺寸均通过，每种10组：真实v0.5.0存档升级、魔物导入、红色敌栏、1.5倍默认与手动缩放、原素材阴影、实际跑步、火焰弹一次扣资源、小骰子等待20秒后手动关闭、刷新不重播。见 [战斗证据](evidence/gameplay-closure-public/combat-public-validation.json)。页面与HTTP错误均为0。
+- 已目视核对实际公网375px小骰子和桌面补救任务截图。
+- 721/721个公网文件SHA-256与本轮已验收构建一致，buildId一致；人物馆两种尺寸各7组检查通过，涵盖28人/19动作/8方向、北向攻击、外形选择、实际连续移动、人物居中、刷新恢复和无溢出。页面/HTTP/请求失败均为0，见 [资源与人物馆结果](evidence/gameplay-closure-public/external-character-public-validation.json)。
+- 资源下载核验发生7次Node HTTP瞬时失败/超时，按既有重试策略改用Windows HTTP成功，最终无文件缺失或哈希差异；共23个文件使用Windows HTTP，逐项记录保留在结果中。这不计为页面流程失败，也未放宽校验。
+
+[桌面补救任务](evidence/gameplay-closure-public/closure-recovered-desktop.png) · [375px材料提示](evidence/gameplay-closure-public/closure-material-narrow.png) · [375px期限提示](evidence/gameplay-closure-public/closure-deadline-narrow.png) · [实际法术属性](evidence/gameplay-closure-public/closure-basic-attack-desktop.png) · [375px手动骰子](evidence/gameplay-closure-public/dice-375.png)
+
+线上入口：[暮光山谷](https://wangpingpang.github.io/hi-story/)。刷新页面即可载入，原存档继续使用。
+
+```powershell
+$env:CHROMIUM_PATH='C:\Program Files\Google\Chrome\Application\chrome.exe'
+$env:PLAYWRIGHT_BASE_URL='https://wangpingpang.github.io/hi-story/'
+$env:PLAYWRIGHT_REPORT_PATH='docs/evidence/gameplay-closure-release-public-browser.json'
+npm run test:e2e:closure
+$env:HI_STORY_RELEASE_MANIFEST='docs/evidence/gameplay-closure-release-manifest.json'
+$env:HI_STORY_EVIDENCE_DIR='docs/evidence/gameplay-closure-public'
+node tooling/verify-external-character-publication.mjs
+node tooling/verify-v060-combat-publication.mjs
+```

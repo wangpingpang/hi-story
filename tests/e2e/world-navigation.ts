@@ -2,7 +2,7 @@ import {expect,type Page} from '@playwright/test';
 import type {AdventureSnapshot} from '../../src/application';
 export const SAVE_KEY='hi-story:adventure:world-v2';
 export async function state(page:Page):Promise<AdventureSnapshot>{return page.evaluate(key=>JSON.parse(localStorage.getItem(key)!).payload,SAVE_KEY);}
-export async function open(page:Page,seed:string){await page.goto(`/?view=demo&seed=${seed}`);await expect(page.locator('.adventure-shell')).toBeVisible();return state(page);}
+export async function open(page:Page,seed:string){await page.goto(`./?view=demo&seed=${encodeURIComponent(seed)}`);await expect(page.locator('.adventure-shell')).toBeVisible();return state(page);}
 export async function finishTravel(page:Page,target:{x:number;y:number}){
  for(let i=0;i<200;i++){
   const s=await state(page),p=s.runtime.actors[s.playerActorId].position;if(Math.hypot(p.x-target.x,p.y-target.y)<1e-5)return;

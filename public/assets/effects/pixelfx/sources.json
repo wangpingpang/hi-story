@@ -1,0 +1,230 @@
+{
+  "repository": "https://github.com/patch-gg/pixelfx",
+  "commit": "5294518ce7c72e48b6100a744596e0acf57f2826",
+  "files": [
+    {
+      "path": "LICENSE",
+      "gitBlobSha1": "74eff5d22b4195a2b1690d1c769fd5f2537e7cf6",
+      "sha256": "0a77565a50c3462831244452f129c38d2adc4fd07897cbeba8adc943f958604e",
+      "bytes": 1093,
+      "url": "https://raw.githubusercontent.com/patch-gg/pixelfx/5294518ce7c72e48b6100a744596e0acf57f2826/LICENSE"
+    },
+    {
+      "path": "NOTICE.md",
+      "gitBlobSha1": "bd049df57f92b448b6b106e0fc01fc71cbdb8dd2",
+      "sha256": "d12932473f98b1a3f0b5820ae23d568b52e39294ba7c2d60c0649a93a808af3b",
+      "bytes": 620,
+      "url": "https://raw.githubusercontent.com/patch-gg/pixelfx/5294518ce7c72e48b6100a744596e0acf57f2826/NOTICE.md"
+    },
+    {
+      "path": "package.json",
+      "gitBlobSha1": "01b5440f8112247d60a24f7232d22c1a6ad43469",
+      "sha256": "a0663052563c9e8cf1c5aceee3f57efd9d3031fd6ea51db4d4816705c1f00264",
+      "bytes": 538,
+      "url": "https://raw.githubusercontent.com/patch-gg/pixelfx/5294518ce7c72e48b6100a744596e0acf57f2826/package.json"
+    },
+    {
+      "path": "src/core/act.js",
+      "gitBlobSha1": "731e56c89512650bb56dcc9318e495a2b14dd85e",
+      "sha256": "b4fdeaf8af30c709748bb221c3b3854cc0438f2ce6c6d99f0324e3b3701b9f71",
+      "bytes": 24016,
+      "url": "https://raw.githubusercontent.com/patch-gg/pixelfx/5294518ce7c72e48b6100a744596e0acf57f2826/src/core/act.js"
+    },
+    {
+      "path": "src/core/actor.js",
+      "gitBlobSha1": "d6824aceada5fd8f696df4312f0ec4486f82b06b",
+      "sha256": "5c867a24a88e93520d020b77190f12db265eb8fc357136ce3d92de05e19e63c2",
+      "bytes": 4375,
+      "url": "https://raw.githubusercontent.com/patch-gg/pixelfx/5294518ce7c72e48b6100a744596e0acf57f2826/src/core/actor.js"
+    },
+    {
+      "path": "src/core/chain.js",
+      "gitBlobSha1": "c816e89170277c16d2820548c2b31ace6f797e0d",
+      "sha256": "5014a0eae326f1855f5e320308ad370dbc342d2f1051df3665866401956bfef9",
+      "bytes": 2137,
+      "url": "https://raw.githubusercontent.com/patch-gg/pixelfx/5294518ce7c72e48b6100a744596e0acf57f2826/src/core/chain.js"
+    },
+    {
+      "path": "src/core/color.js",
+      "gitBlobSha1": "60cdedd3352b3a682ef0391f4b3957918b5756d3",
+      "sha256": "4e63f3074df7c1e138f721959858d12e4f6ccc2bf4f8e98c576efbae51241e54",
+      "bytes": 5283,
+      "url": "https://raw.githubusercontent.com/patch-gg/pixelfx/5294518ce7c72e48b6100a744596e0acf57f2826/src/core/color.js"
+    },
+    {
+      "path": "src/core/font.js",
+      "gitBlobSha1": "1aa816b802fff7beb490548eeb792049ec824da0",
+      "sha256": "c094f1d3a9f94478a255f1cc81aa7ccd2c2ba7a97fc1227a29d268acc1f2ec7c",
+      "bytes": 5399,
+      "url": "https://raw.githubusercontent.com/patch-gg/pixelfx/5294518ce7c72e48b6100a744596e0acf57f2826/src/core/font.js"
+    },
+    {
+      "path": "src/core/fx.js",
+      "gitBlobSha1": "1acacba6e8cf7c7ded76c5cfc8b02c128f8f1fc7",
+      "sha256": "a959c5f7b1c15ba8e07cb26e5b1ccc0bce0aef54ca14cf01f9d6e794cf4e5a0b",
+      "bytes": 5107,
+      "url": "https://raw.githubusercontent.com/patch-gg/pixelfx/5294518ce7c72e48b6100a744596e0acf57f2826/src/core/fx.js"
+    },
+    {
+      "path": "src/core/index.js",
+      "gitBlobSha1": "14b3144cb33068271221f1766994b627660d5d93",
+      "sha256": "ef5966a6365dbbe8a990867b6c7f3fc61922428e5f2e61262a3a430c119bf02d",
+      "bytes": 908,
+      "url": "https://raw.githubusercontent.com/patch-gg/pixelfx/5294518ce7c72e48b6100a744596e0acf57f2826/src/core/index.js"
+    },
+    {
+      "path": "src/core/math.js",
+      "gitBlobSha1": "90356680e4696072b6fc8faedcc9ac15ef42ae9d",
+      "sha256": "da45e1ed43f7d119dd80fbe97c7de2b35b4ea95dea8781671c296ee5942ac0bc",
+      "bytes": 6102,
+      "url": "https://raw.githubusercontent.com/patch-gg/pixelfx/5294518ce7c72e48b6100a744596e0acf57f2826/src/core/math.js"
+    },
+    {
+      "path": "src/core/painter.js",
+      "gitBlobSha1": "4f397dbf558e29ad04fcba9e45488b4ee588bb39",
+      "sha256": "5b8ada6a25cdf1e63ae3684cc56276c61306558dc0a3a827a6a39ab038f74681",
+      "bytes": 16717,
+      "url": "https://raw.githubusercontent.com/patch-gg/pixelfx/5294518ce7c72e48b6100a744596e0acf57f2826/src/core/painter.js"
+    },
+    {
+      "path": "src/core/particles.js",
+      "gitBlobSha1": "345c67fbea7cfa5f03e1591bb428a18abdd0263b",
+      "sha256": "867e58baf522278b4aad383c7224c599cff9ba93268b5eac9485a39a3809477b",
+      "bytes": 3242,
+      "url": "https://raw.githubusercontent.com/patch-gg/pixelfx/5294518ce7c72e48b6100a744596e0acf57f2826/src/core/particles.js"
+    },
+    {
+      "path": "src/core/poses.js",
+      "gitBlobSha1": "c6a9daa3b945405b53d7d49ff072bb0a8499f1e8",
+      "sha256": "829f9b59ac883061afb9e952d6b608363ec7678bd00b026c538046685af88139",
+      "bytes": 2236,
+      "url": "https://raw.githubusercontent.com/patch-gg/pixelfx/5294518ce7c72e48b6100a744596e0acf57f2826/src/core/poses.js"
+    },
+    {
+      "path": "src/core/rig.js",
+      "gitBlobSha1": "525b7145624f53722fde335503cdf271d3958ca5",
+      "sha256": "5af3f455b18f9feb9f060732fb457529c6c76975a309c72171aa4e88b31aa70c",
+      "bytes": 28452,
+      "url": "https://raw.githubusercontent.com/patch-gg/pixelfx/5294518ce7c72e48b6100a744596e0acf57f2826/src/core/rig.js"
+    },
+    {
+      "path": "src/core/scene.js",
+      "gitBlobSha1": "04b61a341eaf062c46ad5dfe028428ec909db33f",
+      "sha256": "520a465f771829162dde114880224eb30efbab3cff859cb8a24a28e49d8e198c",
+      "bytes": 1683,
+      "url": "https://raw.githubusercontent.com/patch-gg/pixelfx/5294518ce7c72e48b6100a744596e0acf57f2826/src/core/scene.js"
+    },
+    {
+      "path": "src/core/shapes.js",
+      "gitBlobSha1": "a59200b40f137b5852b1f8917dc6c7209f6ffe45",
+      "sha256": "3e28f77e25b3083949f083c74304ead6826b7b1da20a658ccb114ab531fc8898",
+      "bytes": 2225,
+      "url": "https://raw.githubusercontent.com/patch-gg/pixelfx/5294518ce7c72e48b6100a744596e0acf57f2826/src/core/shapes.js"
+    },
+    {
+      "path": "src/core/sim.js",
+      "gitBlobSha1": "68f1a7097a6cf263b03d61a5144cfdb3938e4850",
+      "sha256": "517febe05b72de9d07e3596c019b9bb01e1f97a74089a30fa80e9e98849ba4b0",
+      "bytes": 19530,
+      "url": "https://raw.githubusercontent.com/patch-gg/pixelfx/5294518ce7c72e48b6100a744596e0acf57f2826/src/core/sim.js"
+    },
+    {
+      "path": "src/fx/arcane/_lib.js",
+      "gitBlobSha1": "ce40f1a53c5ae66184faf4a38ea3409f8d455541",
+      "sha256": "08615fc869f6b6a171f630fdccc42696cb14639ec7ccb93bc350130549bcf37a",
+      "bytes": 8608,
+      "url": "https://raw.githubusercontent.com/patch-gg/pixelfx/5294518ce7c72e48b6100a744596e0acf57f2826/src/fx/arcane/_lib.js"
+    },
+    {
+      "path": "src/fx/arcane/mana-burst.js",
+      "gitBlobSha1": "85b6735b58c0b932db53a20953879ea58d1ea26e",
+      "sha256": "5e13cd03df803020cdae40c62b9113548d41ca1a1c268c6221616413840b06ee",
+      "bytes": 6567,
+      "url": "https://raw.githubusercontent.com/patch-gg/pixelfx/5294518ce7c72e48b6100a744596e0acf57f2826/src/fx/arcane/mana-burst.js"
+    },
+    {
+      "path": "src/fx/fire/_lib.js",
+      "gitBlobSha1": "f39107f588c1e887b29e7e7c798bb53b89626531",
+      "sha256": "ffa1d5e92b65c7bbac94baa63a0f1dff9feb249c084552ed149876bcf42191da",
+      "bytes": 17250,
+      "url": "https://raw.githubusercontent.com/patch-gg/pixelfx/5294518ce7c72e48b6100a744596e0acf57f2826/src/fx/fire/_lib.js"
+    },
+    {
+      "path": "src/fx/fire/fire-ring.js",
+      "gitBlobSha1": "94591eab6f9e00c1b3bcfc5cf23bb6af0574d6f9",
+      "sha256": "6c61ba5dfef87b36c4bb3c8e3b3a10f2d8e40c10f093b0077d623f1bbccca832",
+      "bytes": 8486,
+      "url": "https://raw.githubusercontent.com/patch-gg/pixelfx/5294518ce7c72e48b6100a744596e0acf57f2826/src/fx/fire/fire-ring.js"
+    },
+    {
+      "path": "src/fx/holy/_lib.js",
+      "gitBlobSha1": "fbf39afb15e8ca554c0ea472cf92bbb476b33cee",
+      "sha256": "6768e3763ff7c5d5294308cb92137319a979ff365881dc3b101f3f2a01e6ec27",
+      "bytes": 8983,
+      "url": "https://raw.githubusercontent.com/patch-gg/pixelfx/5294518ce7c72e48b6100a744596e0acf57f2826/src/fx/holy/_lib.js"
+    },
+    {
+      "path": "src/fx/holy/heal-aoe.js",
+      "gitBlobSha1": "5e7c9d9fa3dccdc9a73c541397f1dcc06a43f75c",
+      "sha256": "f9e9d5523abdff4a003d6661a2bcbca7432897018592b5c86a3c72efea8d6c3a",
+      "bytes": 8071,
+      "url": "https://raw.githubusercontent.com/patch-gg/pixelfx/5294518ce7c72e48b6100a744596e0acf57f2826/src/fx/holy/heal-aoe.js"
+    },
+    {
+      "path": "src/fx/ice/_lib.js",
+      "gitBlobSha1": "1a65e9d66a449ec346d2e8c2d36180e81d731f4b",
+      "sha256": "a81ae57b7f90a1e8266cf2f7f6f11dd4551a088220ddeac03d4539dfb40e5782",
+      "bytes": 16487,
+      "url": "https://raw.githubusercontent.com/patch-gg/pixelfx/5294518ce7c72e48b6100a744596e0acf57f2826/src/fx/ice/_lib.js"
+    },
+    {
+      "path": "src/fx/ice/snowflake-burst.js",
+      "gitBlobSha1": "26d60c74a7b850479cca215709d76e5c1514dc55",
+      "sha256": "7a7820355463f86b0d77e9a60fa52006fb75e994de4d8b0d647c542ce653216c",
+      "bytes": 6534,
+      "url": "https://raw.githubusercontent.com/patch-gg/pixelfx/5294518ce7c72e48b6100a744596e0acf57f2826/src/fx/ice/snowflake-burst.js"
+    },
+    {
+      "path": "src/fx/lightning/_lib.js",
+      "gitBlobSha1": "0d41c83b5f154235588d80143f2d4fd7537c4886",
+      "sha256": "6fa0eba00e706590865c0cadbcb0c79b07ae934f0f40dbf72426e45b51ccf487",
+      "bytes": 10421,
+      "url": "https://raw.githubusercontent.com/patch-gg/pixelfx/5294518ce7c72e48b6100a744596e0acf57f2826/src/fx/lightning/_lib.js"
+    },
+    {
+      "path": "src/fx/lightning/zap-hit.js",
+      "gitBlobSha1": "cf5a8d0dcc8f77e70291697c63068c2a6e35cdde",
+      "sha256": "ad93c93f57babccc82ac1a20c7027b1f950e417b5e5a6969b35445ed23fff83a",
+      "bytes": 6506,
+      "url": "https://raw.githubusercontent.com/patch-gg/pixelfx/5294518ce7c72e48b6100a744596e0acf57f2826/src/fx/lightning/zap-hit.js"
+    },
+    {
+      "path": "src/fx/nature/_lib.js",
+      "gitBlobSha1": "e773ce96af094c90ce01d0f476de1348d7645cb6",
+      "sha256": "680109e1707dea41439ee1a632dc983336227c7834a83571452c124e0b37d322",
+      "bytes": 15435,
+      "url": "https://raw.githubusercontent.com/patch-gg/pixelfx/5294518ce7c72e48b6100a744596e0acf57f2826/src/fx/nature/_lib.js"
+    },
+    {
+      "path": "src/fx/nature/tornado.js",
+      "gitBlobSha1": "a2efc88293cd3be0a6a45e6b12a53d25d34304c3",
+      "sha256": "3c001cf25bc81fa512189f77df0e61fd8b8e61216c0af15c1dde39ed176d5074",
+      "bytes": 9496,
+      "url": "https://raw.githubusercontent.com/patch-gg/pixelfx/5294518ce7c72e48b6100a744596e0acf57f2826/src/fx/nature/tornado.js"
+    },
+    {
+      "path": "tools/lib/fxlib.mjs",
+      "gitBlobSha1": "5c6231641eb9baa04b0d9e354cebae3ae508d37c",
+      "sha256": "4667773a1b83c9c64498006caa7349f65c9f19ddc61be94e72ba94554faa6431",
+      "bytes": 13018,
+      "url": "https://raw.githubusercontent.com/patch-gg/pixelfx/5294518ce7c72e48b6100a744596e0acf57f2826/tools/lib/fxlib.mjs"
+    },
+    {
+      "path": "tools/lib/png.mjs",
+      "gitBlobSha1": "df029bbb942106fe710311c5431a3605340eb588",
+      "sha256": "19da8ce363e7a4722fa49f06dd9066e07e83262c24da14a496b39a793111ed7c",
+      "bytes": 1521,
+      "url": "https://raw.githubusercontent.com/patch-gg/pixelfx/5294518ce7c72e48b6100a744596e0acf57f2826/tools/lib/png.mjs"
+    }
+  ]
+}

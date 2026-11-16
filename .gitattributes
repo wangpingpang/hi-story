@@ -1,0 +1,5 @@
+# PixelFX provenance and offline verification compare the exact exported bytes.
+/public/assets/effects/pixelfx/*.json text eol=lf
+/public/assets/effects/pixelfx/*.md text eol=lf
+/public/assets/effects/pixelfx/LICENSE text eol=lf
+/public/assets/effects/pixelfx/*.webp -text

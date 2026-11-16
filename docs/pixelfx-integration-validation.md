@@ -1,5 +1,7 @@
 # PixelFX 战斗特效接入验证
 
+六类特效已随开局预加载发布至`gh-pages@c2a831e`，实际部署与公网验收见 [发布记录](asset-preload-publication.md)。下文保留原接入阶段记录。
+
 后续 `codex/adventure-asset-preload` 已将本页所述按需加载扩展为开局准备六类图集；战斗补载的2500ms预算保持。该增量验证见 [开局素材准备](asset-preload-validation.md)，本页保留原PixelFX接入阶段的测量与验证记录。
 
 2026-11-17，分支 `codex/pixelfx-combat-integration`，基于素材登记提交 `1d44040`。用户要求实际接入素材。本轮沿用产品0.6.0、`combat-effects/1`、schema5/save1；未部署线上，发布版本仍以 `docs/gameplay-closure-publication.md` 为准。

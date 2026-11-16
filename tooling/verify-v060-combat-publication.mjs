@@ -42,7 +42,9 @@ try{
   const zoom=expected=>expect.poll(async()=>{await page.clock.runFor(100);return page.locator('#adventure-map').evaluate(svg=>innerWidth/svg.viewBox.baseVal.width);}).toBeCloseTo(expected,3);
   const ready=()=>expect.poll(async()=>{await page.clock.runFor(100);return page.locator('.adventure-shell').getAttribute('aria-busy');}).toBe('false');
   const importSave=async(name,bytes)=>{await page.locator('[data-panel="settings"]').click();await page.locator('#adventure-import').setInputFiles({name,mimeType:'application/json',buffer:bytes});};
-  const dice=async()=>{await expect.poll(async()=>{await page.clock.runFor(100);return page.locator('.dice-actor-panel').count();}).toBeGreaterThan(0);const skip=page.getByRole('button',{name:'跳过动画',exact:true});if(await skip.isVisible())await skip.click();await expect(page.getByRole('button',{name:'继续冒险',exact:true})).toBeVisible();};
+  // A paused browser clock must advance enough for the 1200ms PixelFX sequence;
+  // default poll backoff can advance less than 1s during its 5s real-time budget.
+  const dice=async()=>{let advanced=0;await expect.poll(async()=>{await page.clock.runFor(100);advanced+=100;return page.locator('.dice-actor-panel').count();},{intervals:[100]}).toBeGreaterThan(0);const skip=page.getByRole('button',{name:'跳过动画',exact:true});if(await skip.isVisible())await skip.click();await expect(page.getByRole('button',{name:'继续冒险',exact:true})).toBeVisible();return advanced;};
   try{
    assert((await page.goto(site+'?view=demo',{waitUntil:'networkidle',timeout:60000})).ok());
    await expect(page.locator('.adventure-shell')).toHaveAttribute('data-version','0.6.0');await painted();await zoom(1.5);
@@ -66,8 +68,10 @@ try{
    await page.locator('[data-battle-point="1,2"]').click();await expect.poll(async()=>(await read()).runtime.encounter.movement).toBe(3);await page.clock.runFor(75);
    await expect(page.locator(`[data-battle-actor="${id}"]`)).toHaveAttribute('data-running','true');await ready();
    await page.locator('#combat-skills-toggle').click();await page.locator('[data-select-profession-skill="wizard-fire"]').click();await page.locator('#profession-target').selectOption(enemy);await page.locator('[data-profession-skill="wizard-fire"]').click();
-   await expect.poll(async()=>{await page.clock.runFor(30);return page.locator('[data-combat-effect="fire"]').count();}).toBe(1);await page.clock.runFor(300);
-   await page.screenshot({path:`${evidence}/fire-${viewport.width}.png`});await dice();
+   await expect.poll(async()=>{await page.clock.runFor(30);return page.locator('[data-combat-effect="fire"]').count();}).toBe(1);
+   await expect(page.locator('[data-combat-effect="fire"]')).toHaveAttribute('data-effect-source','pixelfx');
+   await expect(page.locator('[data-combat-effect="fire"] image')).toHaveAttribute('href',/\/assets\/effects\/pixelfx\/fire\.webp$/);await page.clock.runFor(300);
+   await page.screenshot({path:`${evidence}/fire-${viewport.width}.png`});const diceClockAdvanceMs=await dice();
    const committed=await read();assert.equal(committed.runtime.actors[id].profession.resources.wizard,3);await page.clock.runFor(20000);
    await expect(page.getByRole('button',{name:'继续冒险',exact:true})).toBeVisible();same(await read(),committed,'Dice presentation changed committed save');
    const pane=await page.locator(`[data-dice-actor="${id}"]`).boundingBox();assert(pane.x>=left.x+left.width&&pane.x+pane.width<=viewport.width);
@@ -76,7 +80,7 @@ try{
    await expect.poll(async()=>{await page.clock.runFor(100);return page.locator('[data-battle-actor] image').evaluateAll(els=>els.length===2&&els.every(e=>e.getAttribute('data-character-status')==='ready'));}).toBe(true);
    same((await read()).runtime,committed.runtime,'Refresh changed committed runtime');await expect(page.locator('.dice-feedback-host')).toHaveCount(0);
    assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));assert.deepEqual(errors,[]);assert.deepEqual(httpFailures,[]);
-   results.push({viewport,checks:['v0.6.0 and default 1.5x','real v0.5.0 save recovery','validated monster fixture through import UI','left ally and red enemy','original sprite shadow only','manual zoom','running movement','fire spell and resource once','small ally dice held 20s until manual close','refresh does not replay or spend twice'],errors,httpFailures});
+   results.push({viewport,checks:['v0.6.0 and default 1.5x','real v0.5.0 save recovery','validated monster fixture through import UI','left ally and red enemy','original sprite shadow only','manual zoom','running movement','PixelFX fire spell and resource once','small ally dice held 20s until manual close','refresh does not replay or spend twice'],diceClockAdvanceMs,errors,httpFailures});
   }catch(error){await page.screenshot({path:`${evidence}/failure-${viewport.width}.png`,fullPage:true}).catch(()=>{});writeFileSync(`${evidence}/failure-${viewport.width}.json`,JSON.stringify({site,error:String(error),errors,httpFailures},null,2));throw error;}
   finally{await context.close();}
  }

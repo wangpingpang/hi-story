@@ -1,0 +1,19 @@
+{
+  "version": "hi-story-pages-deployment/1",
+  "checkedAt": "2026-11-16T18:55:47.7596225Z",
+  "site": "https://wangpingpang.github.io/hi-story/",
+  "source": "3c89124ccfaa79ad86f3ea20aa9818d1dd0deb7e",
+  "parent": "8d25e3a76f39add1fa86b6548133b4a30233f949",
+  "tree": "9f59f4a550ecc336a337727180a3e1010ac5a636",
+  "deployment": "c2a831ea8f04d3fcc993d677e8bffce24b7dc69b",
+  "buildId": "aec18f038facac22e7988f901e4575f3ed5b4d9dbdcb59741e97bf3d098cd087",
+  "verifiedFiles": 733,
+  "pages": {
+    "url": "https://github.com/wangpingpang/hi-story/actions/runs/43933730756",
+    "conclusion": "success",
+    "id": 43933730756,
+    "status": "completed",
+    "headSha": "c2a831ea8f04d3fcc993d677e8bffce24b7dc69b"
+  },
+  "otherRuns": []
+}

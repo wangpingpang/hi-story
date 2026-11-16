@@ -1,5 +1,9 @@
 # GitHub Pages 发布
 
+## 2026-11-17 开局素材预加载与 PixelFX
+
+已将验收的733文件发布到`gh-pages@c2a831e`，源码`3c89124`，保留原发布父提交`8d25e3a`；[Pages #43933730756](https://github.com/wangpingpang/hi-story/actions/runs/43933730756) completed/success。公网733文件SHA-256与构建一致。增加开局素材准备及六类PixelFX视觉，产品0.6.0/schema5/save1保持，旧档继续使用。完整验证、首次失败和限制见 [本轮发布记录](asset-preload-publication.md)，源码入口`codex/publish-asset-preload`。下方为此前发布历史。
+
 ## 2026-10-18 v0.5.0 人物素材馆
 
 新版入口：<https://wangpingpang.github.io/hi-story/?view=character-library>。已将交接包中通过验收的 695 个构建文件和 `.nojekyll` 发布到 `gh-pages@ce39953dd5b221c0550c5be73347b9b60bcbd1f1`，保留上一版发布历史。包含 28 人、19 类动作、8 方向、默认风格一/空手；主冒险采用新人物，旧人物/动作工坊入口转入素材馆。

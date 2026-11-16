@@ -1,0 +1,118 @@
+{
+  "status": "passed",
+  "checkedAt": "2026-11-16T18:57:36.360Z",
+  "site": "https://wangpingpang.github.io/hi-story/",
+  "buildId": "aec18f038facac22e7988f901e4575f3ed5b4d9dbdcb59741e97bf3d098cd087",
+  "verifiedFiles": 733,
+  "assetFetchRetries": [],
+  "assetTransports": [
+    {
+      "path": "assets/characters/character-parts-v1.png",
+      "transport": "Windows HTTP"
+    },
+    {
+      "path": "assets/characters/female-parts-v1.png",
+      "transport": "Windows HTTP"
+    },
+    {
+      "path": "assets/characters/v3/accessory.png",
+      "transport": "Windows HTTP"
+    },
+    {
+      "path": "assets/characters/v3/body-female-stocky.png",
+      "transport": "Windows HTTP"
+    },
+    {
+      "path": "assets/characters/v3/body-female.png",
+      "transport": "Windows HTTP"
+    },
+    {
+      "path": "assets/characters/v3/body-male.png",
+      "transport": "Windows HTTP"
+    },
+    {
+      "path": "assets/characters/v3/face.png",
+      "transport": "Windows HTTP"
+    },
+    {
+      "path": "assets/characters/v3/hair.png",
+      "transport": "Windows HTTP"
+    },
+    {
+      "path": "assets/characters/v3/pants.png",
+      "transport": "Windows HTTP"
+    },
+    {
+      "path": "assets/characters/v3/shoes.png",
+      "transport": "Windows HTTP"
+    },
+    {
+      "path": "assets/characters/v3/top.png",
+      "transport": "Windows HTTP"
+    },
+    {
+      "path": "assets/equipment/armor-01.png",
+      "transport": "Windows HTTP"
+    },
+    {
+      "path": "assets/equipment/armor-02.png",
+      "transport": "Windows HTTP"
+    },
+    {
+      "path": "assets/equipment/armor-03.png",
+      "transport": "Windows HTTP"
+    },
+    {
+      "path": "assets/equipment/shared-01.png",
+      "transport": "Windows HTTP"
+    },
+    {
+      "path": "assets/equipment/weapons-01.png",
+      "transport": "Windows HTTP"
+    }
+  ],
+  "results": [
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "model": "role-1432",
+      "checks": [
+        "28 characters / 19 actions / 8 directions",
+        "northern attack preview",
+        "visual preference selection",
+        "actual continuous movement",
+        "centered camera",
+        "refresh preserves runtime",
+        "no overflow or page errors"
+      ],
+      "centerError": 0.000020877235010619282,
+      "errors": [],
+      "failed": [],
+      "consoleMessages": [],
+      "requestFailures": []
+    },
+    {
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "model": "role-1432",
+      "checks": [
+        "28 characters / 19 actions / 8 directions",
+        "northern attack preview",
+        "visual preference selection",
+        "actual continuous movement",
+        "centered camera",
+        "refresh preserves runtime",
+        "no overflow or page errors"
+      ],
+      "centerError": 0.000020497387577284703,
+      "errors": [],
+      "failed": [],
+      "consoleMessages": [],
+      "requestFailures": []
+    }
+  ]
+}

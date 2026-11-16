@@ -1,5 +1,7 @@
 # 开局素材准备验证
 
+后续已按用户要求发布至`gh-pages@c2a831e`，实际部署与公网验收见 [发布记录](asset-preload-publication.md)。下文保留开发候选阶段的测试范围、首次失败和缓存限制。
+
 2026-11-17，分支 `codex/adventure-asset-preload`，基于PixelFX接入提交 `0314f5e`。用户希望先下载一部分素材再开始游戏。本轮为候选源码，未部署线上；产品0.6.0/schema5/save1及既有素材协议不变。
 
 ## 实际行为

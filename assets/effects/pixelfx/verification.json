@@ -1,0 +1,4430 @@
+{
+  "version": "pixelfx-verification/1",
+  "sourceCommit": "5294518ce7c72e48b6100a744596e0acf57f2826",
+  "effects": {
+    "fire": {
+      "frames": [
+        {
+          "rgbaSha256": "96c94d0826105fe47c587fd79e8869ce5edbfbacdddab9f4f30c5fecba2ca6a3",
+          "visiblePixels": 0,
+          "alphaBounds": null
+        },
+        {
+          "rgbaSha256": "ea06de093771b7af05e9a39667366093de08faede771aca646b0d72789ac5eb8",
+          "visiblePixels": 272,
+          "alphaBounds": [
+            100,
+            58,
+            143,
+            97
+          ]
+        },
+        {
+          "rgbaSha256": "c23539f4b078ba0d9e5cfb0b4afbffdddae7206a921e49b62109c1b51d31b725",
+          "visiblePixels": 422,
+          "alphaBounds": [
+            98,
+            64,
+            138,
+            99
+          ]
+        },
+        {
+          "rgbaSha256": "bb593f66ef8910a6fc288830f8810365e3fa7b360c02f00b7053b680de1ff19f",
+          "visiblePixels": 639,
+          "alphaBounds": [
+            78,
+            72,
+            135,
+            102
+          ]
+        },
+        {
+          "rgbaSha256": "2ae39b46a9253e72fd6b4fd655d6f3e839fd969f36ace444920dbd1f9d47bdfe",
+          "visiblePixels": 815,
+          "alphaBounds": [
+            81,
+            74,
+            128,
+            104
+          ]
+        },
+        {
+          "rgbaSha256": "ba6cae21ea042db861d33cd99a3e87ad5c8b964d47745b49c67c6b6ad5637ee0",
+          "visiblePixels": 1053,
+          "alphaBounds": [
+            86,
+            72,
+            145,
+            106
+          ]
+        },
+        {
+          "rgbaSha256": "6e343ca5f9336c8d24066700a28a515e4403f312bf7239301c7d10aacdb98cb1",
+          "visiblePixels": 1313,
+          "alphaBounds": [
+            90,
+            70,
+            147,
+            109
+          ]
+        },
+        {
+          "rgbaSha256": "cee0b6c4023d13cef6c171d230edb0a431b5ab47d115a448ed41be054ab54f77",
+          "visiblePixels": 1560,
+          "alphaBounds": [
+            90,
+            67,
+            145,
+            111
+          ]
+        },
+        {
+          "rgbaSha256": "2713322525725b745de35ceeab8369db842af464268f95f6e8df48f6aac55f59",
+          "visiblePixels": 1825,
+          "alphaBounds": [
+            88,
+            65,
+            139,
+            113
+          ]
+        },
+        {
+          "rgbaSha256": "9ce54c9f8e98eca2efed147786629f8169287e4b1af2cd040c3c7da7ab3a4e6a",
+          "visiblePixels": 15838,
+          "alphaBounds": [
+            33,
+            7,
+            191,
+            127
+          ]
+        },
+        {
+          "rgbaSha256": "30c83ac57a3a60845470bf1bb8fd2e3cd9a3b659c9eddf88d46f6d0202358587",
+          "visiblePixels": 16706,
+          "alphaBounds": [
+            31,
+            5,
+            193,
+            127
+          ]
+        },
+        {
+          "rgbaSha256": "27028c66526d38874b4164234137de4d858876107f0e8b1b4ee7362ee0b92c74",
+          "visiblePixels": 16706,
+          "alphaBounds": [
+            31,
+            5,
+            193,
+            127
+          ]
+        },
+        {
+          "rgbaSha256": "b570bafe695e50b289b9db750ac75977d529f77681ed6b8f2aa6fd06f1cba5a1",
+          "visiblePixels": 16706,
+          "alphaBounds": [
+            31,
+            5,
+            193,
+            127
+          ]
+        },
+        {
+          "rgbaSha256": "e6bed76d743c62badfbd3c42cfed25820204bf3d0d0e9956684c926095fc2665",
+          "visiblePixels": 16706,
+          "alphaBounds": [
+            31,
+            5,
+            193,
+            127
+          ]
+        },
+        {
+          "rgbaSha256": "dc147b117fc84e1cb9b667a596164fb9d9bf55ee5088449a73d9e2f08581bfd7",
+          "visiblePixels": 16706,
+          "alphaBounds": [
+            31,
+            5,
+            193,
+            127
+          ]
+        },
+        {
+          "rgbaSha256": "967b534c1eb0bf4c3d9dddcfb0526a96e281f844e14dd9be3e3bde989c94e7ed",
+          "visiblePixels": 16706,
+          "alphaBounds": [
+            31,
+            5,
+            193,
+            127
+          ]
+        },
+        {
+          "rgbaSha256": "34654e7384a6fbac8e16029dab476e582b12373824f009bde047c40b7871637f",
+          "visiblePixels": 16706,
+          "alphaBounds": [
+            31,
+            5,
+            193,
+            127
+          ]
+        },
+        {
+          "rgbaSha256": "67ef674fdf175599dc64e3c08e7fba9b0a0bc1b0a857ce253c3240385c4419ba",
+          "visiblePixels": 16706,
+          "alphaBounds": [
+            31,
+            5,
+            193,
+            127
+          ]
+        },
+        {
+          "rgbaSha256": "f74f5bd28e2a005cfc362fea93939c2e161dbf5c0c585a3b542e7fe531fedf7c",
+          "visiblePixels": 16746,
+          "alphaBounds": [
+            29,
+            5,
+            195,
+            127
+          ]
+        },
+        {
+          "rgbaSha256": "2e63e4845cc4ad85cb02ef0da624c64cc0bb1adc399f36552cc9de5886baaeb0",
+          "visiblePixels": 16928,
+          "alphaBounds": [
+            24,
+            5,
+            200,
+            127
+          ]
+        },
+        {
+          "rgbaSha256": "c48c553bfdb7391457628ec5f2d069012f1e2b28120739ffa164504f217c8833",
+          "visiblePixels": 17164,
+          "alphaBounds": [
+            21,
+            5,
+            203,
+            127
+          ]
+        },
+        {
+          "rgbaSha256": "da14acd00b414c2c30465efb31ae93e5f4b7eacca54654dc6598233a7818dfab",
+          "visiblePixels": 17406,
+          "alphaBounds": [
+            17,
+            5,
+            207,
+            127
+          ]
+        },
+        {
+          "rgbaSha256": "4725d336d14633db422ba624ef49afd5844b2c438f5e503f9419da525316ea27",
+          "visiblePixels": 17618,
+          "alphaBounds": [
+            15,
+            5,
+            209,
+            127
+          ]
+        },
+        {
+          "rgbaSha256": "0c9d7e3aece3b89a56b3c339991e66d18b37f8d231f5115502581ce73bf5c4e0",
+          "visiblePixels": 17802,
+          "alphaBounds": [
+            12,
+            5,
+            212,
+            127
+          ]
+        },
+        {
+          "rgbaSha256": "e7f94fbfe05448cf916b1c5f6b5983dd141dfe702721e674551f4a311f531fcb",
+          "visiblePixels": 17930,
+          "alphaBounds": [
+            11,
+            5,
+            213,
+            127
+          ]
+        },
+        {
+          "rgbaSha256": "1b9bf6d86db9f781f8b617f074dcab04c7689311319c035f950a968e276671a1",
+          "visiblePixels": 18040,
+          "alphaBounds": [
+            9,
+            5,
+            215,
+            127
+          ]
+        },
+        {
+          "rgbaSha256": "efce0f19de86d4f4dbe101212fd1d4398114c87409a67b95e63f54f750df9ebb",
+          "visiblePixels": 18120,
+          "alphaBounds": [
+            8,
+            5,
+            216,
+            127
+          ]
+        },
+        {
+          "rgbaSha256": "23fd7b876676b1131fc8c5e0953da8bf50b1c72672f24676a891e769ebeecc3d",
+          "visiblePixels": 18146,
+          "alphaBounds": [
+            7,
+            5,
+            217,
+            127
+          ]
+        },
+        {
+          "rgbaSha256": "a105c3f46d417459db465d548d898ece78370a48585defe3a45aaffb173a3447",
+          "visiblePixels": 18170,
+          "alphaBounds": [
+            7,
+            5,
+            217,
+            127
+          ]
+        },
+        {
+          "rgbaSha256": "459afb719d78c4a25d18d3daee27197bd7faf0fa9e86d446ba7e6a19f84d631c",
+          "visiblePixels": 18176,
+          "alphaBounds": [
+            7,
+            5,
+            217,
+            127
+          ]
+        },
+        {
+          "rgbaSha256": "8523cfdccfccce58016b6214e89a42b3fb472ec9fe5fc642423987211db72fa7",
+          "visiblePixels": 18172,
+          "alphaBounds": [
+            6,
+            5,
+            218,
+            127
+          ]
+        },
+        {
+          "rgbaSha256": "13b7b881ae4df9a0811d7a16fc51751f8f055bdb9b6104088b112a4291e7493d",
+          "visiblePixels": 18130,
+          "alphaBounds": [
+            6,
+            5,
+            218,
+            127
+          ]
+        },
+        {
+          "rgbaSha256": "ba5f922cf5e77e0f3c5f3a8f5665e714f394b9e66ee15fd4aaee6a943fbf70c7",
+          "visiblePixels": 18104,
+          "alphaBounds": [
+            6,
+            5,
+            218,
+            127
+          ]
+        },
+        {
+          "rgbaSha256": "db311c670ab60201b5cd5edeecbd619dd62778a72dcaa209515df1a1ddbb7a60",
+          "visiblePixels": 18070,
+          "alphaBounds": [
+            6,
+            6,
+            218,
+            127
+          ]
+        },
+        {
+          "rgbaSha256": "75199520a8f5e8e58558688e1f0bde2dfd702967b0fea9bd78beb831662217fd",
+          "visiblePixels": 18014,
+          "alphaBounds": [
+            6,
+            6,
+            218,
+            127
+          ]
+        },
+        {
+          "rgbaSha256": "f4b546db3556014b763002103ea3a6d77f6546fbe48d3d26474da3c343176caa",
+          "visiblePixels": 17954,
+          "alphaBounds": [
+            6,
+            6,
+            218,
+            127
+          ]
+        },
+        {
+          "rgbaSha256": "90091377c412400eaedaa45672f640eb909a0a48cfbc57c37e0adadc71a729e9",
+          "visiblePixels": 17892,
+          "alphaBounds": [
+            6,
+            6,
+            218,
+            127
+          ]
+        },
+        {
+          "rgbaSha256": "79d60363dc7f9dad01f5d2a21bab75e499a7b92b71467ba85fc6d95fe5afb837",
+          "visiblePixels": 17832,
+          "alphaBounds": [
+            6,
+            6,
+            218,
+            127
+          ]
+        },
+        {
+          "rgbaSha256": "3fc622e5f5d2ccfdb1813835dcce2eafc36b5fccaa38e3491c8be3ab6c21bac2",
+          "visiblePixels": 17750,
+          "alphaBounds": [
+            6,
+            7,
+            218,
+            127
+          ]
+        },
+        {
+          "rgbaSha256": "80404fba9de07a85dd6889f223870f6efbc90c8d0fc890aefe178ffba2925335",
+          "visiblePixels": 17678,
+          "alphaBounds": [
+            6,
+            7,
+            218,
+            127
+          ]
+        },
+        {
+          "rgbaSha256": "0c3ccff236688f71fc4e0af1e54d1c5cb0173809c6389d2a749ce2063887e77c",
+          "visiblePixels": 17616,
+          "alphaBounds": [
+            6,
+            7,
+            218,
+            127
+          ]
+        },
+        {
+          "rgbaSha256": "78bcda8782c7aebe87ad24bcbe4bef62f51e5457b4f7e08499630e92024c9f76",
+          "visiblePixels": 17505,
+          "alphaBounds": [
+            6,
+            8,
+            218,
+            127
+          ]
+        },
+        {
+          "rgbaSha256": "a32a9620b4de0c5754ea2f3e934e57fa7f50b3d7c6a9469347c25b94d5016106",
+          "visiblePixels": 17425,
+          "alphaBounds": [
+            6,
+            8,
+            218,
+            127
+          ]
+        },
+        {
+          "rgbaSha256": "ed2ba46e36803a764d0681bc3b5936d8cd031e0aff1acc111c1c86aeadfe2968",
+          "visiblePixels": 17361,
+          "alphaBounds": [
+            6,
+            8,
+            218,
+            127
+          ]
+        },
+        {
+          "rgbaSha256": "48477616ce7002f777f25a85ab1ccf17ef12b6d229c544cb8d6ebee4c67cd6e8",
+          "visiblePixels": 17215,
+          "alphaBounds": [
+            7,
+            9,
+            217,
+            127
+          ]
+        },
+        {
+          "rgbaSha256": "e6a6d31b525c5ab70cd921f4e19b112f33a6a867b0b5529bfd687d67ae691024",
+          "visiblePixels": 17099,
+          "alphaBounds": [
+            7,
+            9,
+            217,
+            127
+          ]
+        },
+        {
+          "rgbaSha256": "6d78ddceef352c06191c788ed51ea9a61db925e94be1bce25bb40ccae56ad122",
+          "visiblePixels": 16988,
+          "alphaBounds": [
+            7,
+            10,
+            217,
+            127
+          ]
+        },
+        {
+          "rgbaSha256": "a35d244547b35fcf615cf293e58597c15b284d4ad01e5a822e11cf31fb5aaf5a",
+          "visiblePixels": 16863,
+          "alphaBounds": [
+            7,
+            10,
+            217,
+            127
+          ]
+        },
+        {
+          "rgbaSha256": "4a2465bc3ddc19e115dec32f1a865f7ece8c087073d9dffd336044a4d28b0c34",
+          "visiblePixels": 16699,
+          "alphaBounds": [
+            7,
+            11,
+            217,
+            127
+          ]
+        },
+        {
+          "rgbaSha256": "f59945926d97e9651c22bd76e8ae1fd43ce5b071af1f9e0b7c70b9bd78d5333e",
+          "visiblePixels": 16498,
+          "alphaBounds": [
+            7,
+            12,
+            217,
+            127
+          ]
+        },
+        {
+          "rgbaSha256": "4d5a05dc87ca3f280ea5c3002746abe949dea27ee36ad2334b0e0c9208a94fc5",
+          "visiblePixels": 16301,
+          "alphaBounds": [
+            7,
+            13,
+            217,
+            127
+          ]
+        },
+        {
+          "rgbaSha256": "67184cdba78e211f5613c6c7715f04cb7a1ea5c606c109af7b4d3441c4bd40a0",
+          "visiblePixels": 16113,
+          "alphaBounds": [
+            7,
+            13,
+            217,
+            127
+          ]
+        },
+        {
+          "rgbaSha256": "79bba20580dc051cb967b7eab439897b0bc9d6bc76770f28138977beaaacc3fd",
+          "visiblePixels": 15879,
+          "alphaBounds": [
+            7,
+            14,
+            217,
+            127
+          ]
+        },
+        {
+          "rgbaSha256": "a186ba1187eaaa1f20e600d1bd4683fbd5893fa8b642ba49cf547ff2e7ac8bac",
+          "visiblePixels": 15585,
+          "alphaBounds": [
+            7,
+            16,
+            217,
+            126
+          ]
+        },
+        {
+          "rgbaSha256": "14f4e2966e42fe51374afd726f92d858a6065ef0728d984518bdac7d67370600",
+          "visiblePixels": 15226,
+          "alphaBounds": [
+            7,
+            17,
+            217,
+            126
+          ]
+        },
+        {
+          "rgbaSha256": "b2cc6141631359e6007dea358e37dbdfcf52a9efd6517786735c639bc553a580",
+          "visiblePixels": 14932,
+          "alphaBounds": [
+            7,
+            19,
+            217,
+            126
+          ]
+        },
+        {
+          "rgbaSha256": "b058e67b0ed678c52609414346ddd61847c3bfe05b02a7907de6f93899a6deb9",
+          "visiblePixels": 14553,
+          "alphaBounds": [
+            8,
+            20,
+            216,
+            126
+          ]
+        },
+        {
+          "rgbaSha256": "8037ce338111bf420ea49e4c82c5957689269bd24612d95a460a5cb0700dd10e",
+          "visiblePixels": 14078,
+          "alphaBounds": [
+            8,
+            22,
+            216,
+            126
+          ]
+        },
+        {
+          "rgbaSha256": "ea0ff0ce0fe993a17559fb533ae81a1840767b7ac0dfe9f8ef4dcf7f3adecbe2",
+          "visiblePixels": 13522,
+          "alphaBounds": [
+            8,
+            25,
+            216,
+            125
+          ]
+        },
+        {
+          "rgbaSha256": "769b235ac0dd9387495c7905f02ab1a9dd22041a4f4c12c969abe7e19b6f0c9c",
+          "visiblePixels": 12873,
+          "alphaBounds": [
+            8,
+            28,
+            216,
+            125
+          ]
+        },
+        {
+          "rgbaSha256": "a9455bf73be68ce1c6dde2f9c5f00ccec420d6194a339b8990ca1db37fdc2699",
+          "visiblePixels": 12126,
+          "alphaBounds": [
+            8,
+            32,
+            216,
+            125
+          ]
+        },
+        {
+          "rgbaSha256": "1f293480375a1f7b694f11e2e16bb2831c81a6aa295fbca9128f79a2d8ff6ef1",
+          "visiblePixels": 11128,
+          "alphaBounds": [
+            9,
+            37,
+            215,
+            124
+          ]
+        },
+        {
+          "rgbaSha256": "f5ce5faa69a234c4fb9585786233a92d4e835d01e36d6cbc6931d9ef4326eaff",
+          "visiblePixels": 10277,
+          "alphaBounds": [
+            9,
+            39,
+            215,
+            124
+          ]
+        },
+        {
+          "rgbaSha256": "ed8da799ae3b78e703b1033938fe1a224b65620a2dd3f2c652e93e5de0a31d7f",
+          "visiblePixels": 9073,
+          "alphaBounds": [
+            9,
+            38,
+            215,
+            119
+          ]
+        },
+        {
+          "rgbaSha256": "180651cb2c339058c647d7ca0c4c5a39a6c8585552810cfc4716e9b9d6172d45",
+          "visiblePixels": 8100,
+          "alphaBounds": [
+            10,
+            38,
+            214,
+            117
+          ]
+        },
+        {
+          "rgbaSha256": "dffe640b072caa9433a3ae98dc007d796c6ff25a7722b48d53a3b9fcb23a6c7f",
+          "visiblePixels": 7812,
+          "alphaBounds": [
+            11,
+            37,
+            213,
+            117
+          ]
+        },
+        {
+          "rgbaSha256": "dcceed20320bb288a51b5913d9cab31e815b1d5aecf0b8bb96dbb9c124feb269",
+          "visiblePixels": 7553,
+          "alphaBounds": [
+            11,
+            36,
+            213,
+            116
+          ]
+        },
+        {
+          "rgbaSha256": "4dd0a9c47a336efb5eaff6f014ca26df5aa9d89d8f3ae90ce9ce57c31fcbe19a",
+          "visiblePixels": 7153,
+          "alphaBounds": [
+            12,
+            36,
+            212,
+            115
+          ]
+        },
+        {
+          "rgbaSha256": "bd8ad9c32a0eb4b9db1deaea3e4b65f2de540aeb5a07db7e28186528c9149220",
+          "visiblePixels": 6720,
+          "alphaBounds": [
+            13,
+            35,
+            211,
+            114
+          ]
+        },
+        {
+          "rgbaSha256": "ac2e7afd4af16fb303833506db3c57c6e98031aba74ed20f1c31b7486ed6df2f",
+          "visiblePixels": 6206,
+          "alphaBounds": [
+            15,
+            35,
+            209,
+            112
+          ]
+        },
+        {
+          "rgbaSha256": "880d4dc6b38deb84c727058c5f68308268bc3645a0bcfb9d7b7b094650e1814e",
+          "visiblePixels": 5701,
+          "alphaBounds": [
+            18,
+            34,
+            206,
+            111
+          ]
+        },
+        {
+          "rgbaSha256": "ac7e501dde45016b1d0ef25ba4b3792cf01cb63af79b99c3e8ab14712c86db1d",
+          "visiblePixels": 5565,
+          "alphaBounds": [
+            20,
+            34,
+            206,
+            111
+          ]
+        },
+        {
+          "rgbaSha256": "c700109616913ebec808e6d463b0dea8e141c8d4971775a0831bb67ee6c05fec",
+          "visiblePixels": 5521,
+          "alphaBounds": [
+            20,
+            33,
+            206,
+            111
+          ]
+        },
+        {
+          "rgbaSha256": "170738d002a913dcb753415c17658eabee5da9a48d002c65333e9489d222276b",
+          "visiblePixels": 5514,
+          "alphaBounds": [
+            20,
+            32,
+            206,
+            110
+          ]
+        },
+        {
+          "rgbaSha256": "10e084a804d354c8510be78aec999ad2a01843172dfe7e01f68e18723bce2f55",
+          "visiblePixels": 5457,
+          "alphaBounds": [
+            20,
+            42,
+            206,
+            110
+          ]
+        },
+        {
+          "rgbaSha256": "1249f0a7d1e323fddffd9806fd56ded0a12aeb22f1e22d8efcb6d58d9946c494",
+          "visiblePixels": 5466,
+          "alphaBounds": [
+            20,
+            41,
+            206,
+            110
+          ]
+        },
+        {
+          "rgbaSha256": "d8dd62dee11df1e06b01d7860304622e709f87197abb2e3c1c92d44b97270667",
+          "visiblePixels": 5449,
+          "alphaBounds": [
+            20,
+            41,
+            206,
+            110
+          ]
+        },
+        {
+          "rgbaSha256": "c9029ae6574ee262f595d7f6e4e46923652f41026ebf863224feebf04164b479",
+          "visiblePixels": 5456,
+          "alphaBounds": [
+            20,
+            40,
+            206,
+            110
+          ]
+        },
+        {
+          "rgbaSha256": "4e407c0d5c5ba4ee8d9c108b136d52a541984332690578f33af653c25cb60b89",
+          "visiblePixels": 5443,
+          "alphaBounds": [
+            20,
+            40,
+            206,
+            110
+          ]
+        },
+        {
+          "rgbaSha256": "c5ca16a9dff4c4f78a76de601faf7edd5e6e8e7ef8b57a26dccaf9661d00d1be",
+          "visiblePixels": 5446,
+          "alphaBounds": [
+            20,
+            39,
+            206,
+            110
+          ]
+        },
+        {
+          "rgbaSha256": "ed9b7104ca8c0172af8e74249b1f0badf20b07babc36ef826b070da196a0f981",
+          "visiblePixels": 5441,
+          "alphaBounds": [
+            20,
+            39,
+            206,
+            110
+          ]
+        },
+        {
+          "rgbaSha256": "54a2bf0070c2d13523043eee23592201c66f25bb2f1459937386f8340642f1f3",
+          "visiblePixels": 5414,
+          "alphaBounds": [
+            20,
+            38,
+            205,
+            110
+          ]
+        },
+        {
+          "rgbaSha256": "10441c311bff76b1e3eea0edadd0332d895573e8d165bc440d18d3db71885f69",
+          "visiblePixels": 5415,
+          "alphaBounds": [
+            20,
+            37,
+            205,
+            110
+          ]
+        },
+        {
+          "rgbaSha256": "cd71f3a91cef75a34ca7c156f8f542bb9de59861b4675add3c1b5776b3c3a06a",
+          "visiblePixels": 5416,
+          "alphaBounds": [
+            20,
+            37,
+            205,
+            110
+          ]
+        },
+        {
+          "rgbaSha256": "e4427b2a21ec382b3c4a518d25185bb3852d30ffadabebf166ee59611b5a1b25",
+          "visiblePixels": 5405,
+          "alphaBounds": [
+            20,
+            42,
+            205,
+            110
+          ]
+        },
+        {
+          "rgbaSha256": "077b858c0fabef26fcce577bd002958756e1bdc8e5cd5b47cc18c27c1988201e",
+          "visiblePixels": 5386,
+          "alphaBounds": [
+            20,
+            42,
+            205,
+            110
+          ]
+        },
+        {
+          "rgbaSha256": "228cacf9a64ba7b48a52340eecd725ee496cb99e99c26429552b61e99c4c5550",
+          "visiblePixels": 5387,
+          "alphaBounds": [
+            20,
+            41,
+            205,
+            110
+          ]
+        },
+        {
+          "rgbaSha256": "26decc7b49f4c715b6b69953ed070ebeb51f3e29f853bc91a4904b72865a89e4",
+          "visiblePixels": 5391,
+          "alphaBounds": [
+            20,
+            41,
+            204,
+            110
+          ]
+        },
+        {
+          "rgbaSha256": "5fbf92c80574efb622b339758ee99d43fb6d3ad284fad23da958acde9b8022bd",
+          "visiblePixels": 5376,
+          "alphaBounds": [
+            20,
+            41,
+            204,
+            110
+          ]
+        },
+        {
+          "rgbaSha256": "ba5a3aaf94a7b432714a2435a812721926068990615859495bee961246f32bf8",
+          "visiblePixels": 5350,
+          "alphaBounds": [
+            20,
+            52,
+            204,
+            110
+          ]
+        },
+        {
+          "rgbaSha256": "0cefb02810315a314fcc60aaebbfe4d32cc0cffeade20a60161f3f81fa4a2e49",
+          "visiblePixels": 5344,
+          "alphaBounds": [
+            20,
+            52,
+            204,
+            110
+          ]
+        },
+        {
+          "rgbaSha256": "3b440b547a54f4a7a7e03b9a38581a65eeee8e0807b1dd5c330f80deda685454",
+          "visiblePixels": 5342,
+          "alphaBounds": [
+            20,
+            51,
+            204,
+            110
+          ]
+        },
+        {
+          "rgbaSha256": "15825924f8ed543502970a98ad7a4c0c58c9eb5d99eb63cf053a27d47b3870f3",
+          "visiblePixels": 5345,
+          "alphaBounds": [
+            20,
+            51,
+            204,
+            110
+          ]
+        },
+        {
+          "rgbaSha256": "e81a285bb0a157fd9c2d08967a76a775fb99c3f32245867685e5ac508b942d34",
+          "visiblePixels": 5331,
+          "alphaBounds": [
+            20,
+            50,
+            204,
+            110
+          ]
+        },
+        {
+          "rgbaSha256": "048e75593e6d03fc9e309865b2fd25aac04f4d9cd5161df77e416c2f38090c62",
+          "visiblePixels": 5331,
+          "alphaBounds": [
+            20,
+            50,
+            204,
+            110
+          ]
+        },
+        {
+          "rgbaSha256": "36be3448952b47527f0d1d41073ce4d62cec188acd3e484cbd9085572093b4f1",
+          "visiblePixels": 5318,
+          "alphaBounds": [
+            20,
+            57,
+            204,
+            110
+          ]
+        },
+        {
+          "rgbaSha256": "67877be6ffcd01f70bcce776fe0b4ae62ce49e8c472aafe31b8e90777f5b5098",
+          "visiblePixels": 5318,
+          "alphaBounds": [
+            20,
+            57,
+            204,
+            110
+          ]
+        },
+        {
+          "rgbaSha256": "73b96ece75e9e3b42e4e2959f46d19c1e44f5c815c54d4706486931e9d10815e",
+          "visiblePixels": 5318,
+          "alphaBounds": [
+            20,
+            56,
+            204,
+            110
+          ]
+        },
+        {
+          "rgbaSha256": "73621f9fc9e2d1f708e68650edded3ee5e424d13bf0f2f9bcaba6ac2f27edc1b",
+          "visiblePixels": 5316,
+          "alphaBounds": [
+            20,
+            56,
+            204,
+            110
+          ]
+        },
+        {
+          "rgbaSha256": "78fd1b13b962563d965b31e0209b9897ad15fa286d5be984e65f28f97c1ba0dd",
+          "visiblePixels": 5318,
+          "alphaBounds": [
+            20,
+            55,
+            204,
+            110
+          ]
+        },
+        {
+          "rgbaSha256": "558685af250cc3ef2df9962a56190f38b469509f3032fb9ab3fea67f4c0ff4c5",
+          "visiblePixels": 5316,
+          "alphaBounds": [
+            20,
+            55,
+            204,
+            110
+          ]
+        },
+        {
+          "rgbaSha256": "eae32469281a14503c860e15883729a39a7266ff8d99c780de52d9e698f0ba02",
+          "visiblePixels": 5312,
+          "alphaBounds": [
+            20,
+            74,
+            204,
+            110
+          ]
+        },
+        {
+          "rgbaSha256": "a235ae76419285cf8fdee21982218bfe75f1dff9f6b461db3ce67f07b95fa296",
+          "visiblePixels": 5312,
+          "alphaBounds": [
+            20,
+            74,
+            204,
+            110
+          ]
+        },
+        {
+          "rgbaSha256": "74cdb30d27625455e8e1d544d07837a69a4c137350277bb1dfe625cef160fa50",
+          "visiblePixels": 5312,
+          "alphaBounds": [
+            20,
+            74,
+            204,
+            110
+          ]
+        },
+        {
+          "rgbaSha256": "ccfed61127ebc93a3a691538cd5771e7865ddb48d3c79b0b645aa4f5b616da74",
+          "visiblePixels": 5312,
+          "alphaBounds": [
+            20,
+            74,
+            204,
+            110
+          ]
+        },
+        {
+          "rgbaSha256": "8341f8176157fcb176d682560013cc953e964eea75ad1a3188dde7a8b89b89e5",
+          "visiblePixels": 5312,
+          "alphaBounds": [
+            20,
+            74,
+            204,
+            110
+          ]
+        },
+        {
+          "rgbaSha256": "58d3ce834aceb2d0c9b5296e1c58be91b3083f999b1ed0fd2261b4ae2afde672",
+          "visiblePixels": 5312,
+          "alphaBounds": [
+            20,
+            74,
+            204,
+            110
+          ]
+        },
+        {
+          "rgbaSha256": "f423392f55953d918b7c574d4e1d17e205824f5acf877ec020e0d05abc089715",
+          "visiblePixels": 5312,
+          "alphaBounds": [
+            20,
+            74,
+            204,
+            110
+          ]
+        },
+        {
+          "rgbaSha256": "224e9ddb099a2cc71b75169298051e2eef2716bb6a6de784883aa1de255a4b26",
+          "visiblePixels": 5312,
+          "alphaBounds": [
+            20,
+            74,
+            204,
+            110
+          ]
+        },
+        {
+          "rgbaSha256": "5a220cca9af78315781833be7e42dfea6b78978495242547bf4263d09aa25353",
+          "visiblePixels": 5312,
+          "alphaBounds": [
+            20,
+            74,
+            204,
+            110
+          ]
+        },
+        {
+          "rgbaSha256": "cf2b499f5df555b85d09e0dd629e2a4c40d720f3fe1e1d96e9b7200369628710",
+          "visiblePixels": 5312,
+          "alphaBounds": [
+            20,
+            74,
+            204,
+            110
+          ]
+        },
+        {
+          "rgbaSha256": "96c94d0826105fe47c587fd79e8869ce5edbfbacdddab9f4f30c5fecba2ca6a3",
+          "visiblePixels": 0,
+          "alphaBounds": null
+        },
+        {
+          "rgbaSha256": "96c94d0826105fe47c587fd79e8869ce5edbfbacdddab9f4f30c5fecba2ca6a3",
+          "visiblePixels": 0,
+          "alphaBounds": null
+        },
+        {
+          "rgbaSha256": "96c94d0826105fe47c587fd79e8869ce5edbfbacdddab9f4f30c5fecba2ca6a3",
+          "visiblePixels": 0,
+          "alphaBounds": null
+        },
+        {
+          "rgbaSha256": "96c94d0826105fe47c587fd79e8869ce5edbfbacdddab9f4f30c5fecba2ca6a3",
+          "visiblePixels": 0,
+          "alphaBounds": null
+        },
+        {
+          "rgbaSha256": "96c94d0826105fe47c587fd79e8869ce5edbfbacdddab9f4f30c5fecba2ca6a3",
+          "visiblePixels": 0,
+          "alphaBounds": null
+        },
+        {
+          "rgbaSha256": "96c94d0826105fe47c587fd79e8869ce5edbfbacdddab9f4f30c5fecba2ca6a3",
+          "visiblePixels": 0,
+          "alphaBounds": null
+        },
+        {
+          "rgbaSha256": "96c94d0826105fe47c587fd79e8869ce5edbfbacdddab9f4f30c5fecba2ca6a3",
+          "visiblePixels": 0,
+          "alphaBounds": null
+        }
+      ],
+      "sheetRgbaSha256": "09b0c774cb842c3c5268c040494705ba55b05b4150928cfd8d22dd390281b8f5",
+      "frameCount": 118,
+      "byteLength": 979694,
+      "sha256": "856fc98c848169a3fdf13df1f8af0f6ff4bebed3a37f3f6f8f86d8589c1480f8",
+      "pixelRoundTrip": true
+    },
+    "ice": {
+      "frames": [
+        {
+          "rgbaSha256": "215073188e6cde86053a09b508517b0bc7687baded545f2fb57ec2054cea6ca0",
+          "visiblePixels": 156,
+          "alphaBounds": [
+            63,
+            51,
+            77,
+            65
+          ]
+        },
+        {
+          "rgbaSha256": "aa67b9e4f632f54a0560f433cbebda694b6305d4764140048b3e31eab9ee2bd9",
+          "visiblePixels": 428,
+          "alphaBounds": [
+            46,
+            26,
+            102,
+            68
+          ]
+        },
+        {
+          "rgbaSha256": "8802c8f355725665c78582206d29433954784ddf5e35c966aff723beeda38cf1",
+          "visiblePixels": 790,
+          "alphaBounds": [
+            53,
+            14,
+            99,
+            93
+          ]
+        },
+        {
+          "rgbaSha256": "311dd1de29e9fe0bf64a6367e95bead2954195edebd9ebc8ad3a0e89cb1bf01f",
+          "visiblePixels": 1033,
+          "alphaBounds": [
+            35,
+            24,
+            93,
+            87
+          ]
+        },
+        {
+          "rgbaSha256": "a5e57efc65b134d3d1cbad0c5ec500263f3cc0cc8004684e882ac863684cbefe",
+          "visiblePixels": 1285,
+          "alphaBounds": [
+            44,
+            20,
+            88,
+            84
+          ]
+        },
+        {
+          "rgbaSha256": "c15ab66539c6e5ebf31bb74592041ecc652515becbc1d29225c4821ad5fe23fe",
+          "visiblePixels": 12612,
+          "alphaBounds": [
+            5,
+            2,
+            135,
+            118
+          ]
+        },
+        {
+          "rgbaSha256": "46ddf56a6cd5e7c2939f3de53202a11dcb2aa4123b7e907e126a39232e78a288",
+          "visiblePixels": 12020,
+          "alphaBounds": [
+            7,
+            2,
+            133,
+            117
+          ]
+        },
+        {
+          "rgbaSha256": "7375f13efecb91a89a8ab1e427cdbf03d820df0a8c82f7c887e7c8ba72de0da0",
+          "visiblePixels": 11390,
+          "alphaBounds": [
+            9,
+            2,
+            131,
+            116
+          ]
+        },
+        {
+          "rgbaSha256": "60e21d5112443fef5455fc1fbc7b9ae424fbb106f59f1b9209f943939b33f90f",
+          "visiblePixels": 10732,
+          "alphaBounds": [
+            11,
+            3,
+            129,
+            116
+          ]
+        },
+        {
+          "rgbaSha256": "1b757e76bac3170f0bc76b1faf4a8c99a521229e866a8a7a875e186f545fbb1b",
+          "visiblePixels": 10054,
+          "alphaBounds": [
+            13,
+            4,
+            127,
+            115
+          ]
+        },
+        {
+          "rgbaSha256": "bfbc7d770f1b8c90560b1fd363314a563da039f6f581c01929ad76561e7ec81c",
+          "visiblePixels": 9360,
+          "alphaBounds": [
+            15,
+            4,
+            125,
+            113
+          ]
+        },
+        {
+          "rgbaSha256": "f61cc68d47c0a0a83c22c1648ce0957ac3fa06d47fa149cbe4ba62497f3496fe",
+          "visiblePixels": 8596,
+          "alphaBounds": [
+            18,
+            6,
+            122,
+            110
+          ]
+        },
+        {
+          "rgbaSha256": "6c7c834f48a8afc183e305c51233ef28ce03d518c1547f8f3d5fb0e78881bad4",
+          "visiblePixels": 7860,
+          "alphaBounds": [
+            20,
+            8,
+            120,
+            108
+          ]
+        },
+        {
+          "rgbaSha256": "56f81afe92daf923b16a94920135c919f41c976bda13de259a70fe4f05e3af1c",
+          "visiblePixels": 7120,
+          "alphaBounds": [
+            22,
+            10,
+            118,
+            106
+          ]
+        },
+        {
+          "rgbaSha256": "b8c2bc5d60f8ff2f2ae6217f1b453aadda5d1f07fc1430850ab72409aa8f5863",
+          "visiblePixels": 6384,
+          "alphaBounds": [
+            25,
+            13,
+            115,
+            103
+          ]
+        },
+        {
+          "rgbaSha256": "f7350d941902c9c4f5e2b9ab3e31c73c24f76f91ef687dface12955795e4f2a8",
+          "visiblePixels": 5681,
+          "alphaBounds": [
+            25,
+            11,
+            112,
+            103
+          ]
+        },
+        {
+          "rgbaSha256": "185df9291e4bd0d3d7c5f4158933fb198137589618007b9416f4d1287d64f7d5",
+          "visiblePixels": 5181,
+          "alphaBounds": [
+            30,
+            7,
+            115,
+            107
+          ]
+        },
+        {
+          "rgbaSha256": "952e994226357b8e585083e5f124eea169d565c557061abe573e8068f8622437",
+          "visiblePixels": 5125,
+          "alphaBounds": [
+            30,
+            7,
+            111,
+            111
+          ]
+        },
+        {
+          "rgbaSha256": "66b2455ac0dab116e1b5e7af64b55e1838511f4071b4215916d4923dcaca1fdf",
+          "visiblePixels": 5100,
+          "alphaBounds": [
+            30,
+            5,
+            111,
+            114
+          ]
+        },
+        {
+          "rgbaSha256": "2079d942285ad7dff08679b81caf727adbf208053241dbb4f224822d788731a1",
+          "visiblePixels": 5069,
+          "alphaBounds": [
+            30,
+            18,
+            111,
+            116
+          ]
+        },
+        {
+          "rgbaSha256": "4ca0d799b129d0ce08ca14ac3be6d2d8f89c65545459e0701e6a03f4f3ea77de",
+          "visiblePixels": 5045,
+          "alphaBounds": [
+            30,
+            18,
+            111,
+            98
+          ]
+        },
+        {
+          "rgbaSha256": "306726342861d99e9598003f74238d5f408239f74cff909c50c15acda6eda6af",
+          "visiblePixels": 5034,
+          "alphaBounds": [
+            30,
+            18,
+            111,
+            98
+          ]
+        },
+        {
+          "rgbaSha256": "a824c3dd572f69e3d789a7fd86c47106861afc4bb076b693912f6ad9eb45708f",
+          "visiblePixels": 5002,
+          "alphaBounds": [
+            30,
+            18,
+            110,
+            98
+          ]
+        },
+        {
+          "rgbaSha256": "8c0819e325284f7f8b3a4044d71f5ff2e2d9a5c83a0e8e0f96fc556c9c14f076",
+          "visiblePixels": 4965,
+          "alphaBounds": [
+            31,
+            19,
+            109,
+            97
+          ]
+        },
+        {
+          "rgbaSha256": "ce2c51e5dba7b40371bb17357822e910b24dc8741ebc6ea1a1a5de20bef91e01",
+          "visiblePixels": 4976,
+          "alphaBounds": [
+            31,
+            19,
+            109,
+            97
+          ]
+        },
+        {
+          "rgbaSha256": "11f24dfbd940ce06db69f3551fc58b080f2707405ec15e331e5a4e1b2404c2d4",
+          "visiblePixels": 4959,
+          "alphaBounds": [
+            30,
+            19,
+            109,
+            97
+          ]
+        },
+        {
+          "rgbaSha256": "f6d33f19b6b8985088fd5aec213e1d7e86b60beac0cc2d522b5fce9473802ea3",
+          "visiblePixels": 4947,
+          "alphaBounds": [
+            30,
+            19,
+            109,
+            97
+          ]
+        },
+        {
+          "rgbaSha256": "85f297080ad3234304e7a261fa3259ce81561fd8e0aa2687c5765d61dd9338e7",
+          "visiblePixels": 4934,
+          "alphaBounds": [
+            29,
+            19,
+            109,
+            97
+          ]
+        },
+        {
+          "rgbaSha256": "3d71f2d7ff4fa3d6e3ce10f4e291c968ddb139f853893ccfaa1c3206a8828f74",
+          "visiblePixels": 4898,
+          "alphaBounds": [
+            29,
+            19,
+            109,
+            97
+          ]
+        },
+        {
+          "rgbaSha256": "a6aa8a9295d13e689e9778a76599e7b3ec53f6df8d4b627c6f6eb3361f84e890",
+          "visiblePixels": 4892,
+          "alphaBounds": [
+            29,
+            19,
+            108,
+            96
+          ]
+        },
+        {
+          "rgbaSha256": "2e68ec5922c668621d7ed554e7e80d82cdf2740938af1350b5a169d2e78324f5",
+          "visiblePixels": 4867,
+          "alphaBounds": [
+            28,
+            18,
+            108,
+            96
+          ]
+        },
+        {
+          "rgbaSha256": "0dd2ed27a1b73867cebd30777b1ad03daeab0280dd035f8006b195b5bdd1a69f",
+          "visiblePixels": 4843,
+          "alphaBounds": [
+            28,
+            18,
+            109,
+            96
+          ]
+        },
+        {
+          "rgbaSha256": "90a10c883b3be14b44938a68c04bb937fd857ad0de4fcf5711ebcb8633f9501f",
+          "visiblePixels": 4818,
+          "alphaBounds": [
+            28,
+            18,
+            109,
+            96
+          ]
+        },
+        {
+          "rgbaSha256": "c4536bdcb736d85a647a2a3de4c2d38d5b3e3c904fa61a60a8b1a99ef0dd6161",
+          "visiblePixels": 4793,
+          "alphaBounds": [
+            27,
+            19,
+            109,
+            95
+          ]
+        },
+        {
+          "rgbaSha256": "a546ba44473a0d1e9267fe026f487b457c17b4aebae241049cb33f2e38e6b1a5",
+          "visiblePixels": 4775,
+          "alphaBounds": [
+            27,
+            19,
+            109,
+            95
+          ]
+        },
+        {
+          "rgbaSha256": "85e62069c447b84c438e405f9584361ba719a07f46f0ea550dba3ba7fc56176c",
+          "visiblePixels": 4739,
+          "alphaBounds": [
+            27,
+            19,
+            110,
+            95
+          ]
+        },
+        {
+          "rgbaSha256": "c8aede498b0cc1a253acd87838ad73c63bfb42c3e23a54a6135a6428eec6a8ba",
+          "visiblePixels": 4712,
+          "alphaBounds": [
+            27,
+            19,
+            110,
+            96
+          ]
+        },
+        {
+          "rgbaSha256": "0da8df673de6728be3cdba8c93491b175c0fa70668610ec9d4a47c6cac6ad0bc",
+          "visiblePixels": 4680,
+          "alphaBounds": [
+            26,
+            19,
+            110,
+            96
+          ]
+        },
+        {
+          "rgbaSha256": "0afc7b9104f917fe221b408ce8b0745f24737ff3147e5eb18be2195a56023651",
+          "visiblePixels": 4649,
+          "alphaBounds": [
+            26,
+            19,
+            110,
+            97
+          ]
+        },
+        {
+          "rgbaSha256": "12980052b3b14b472f266f2131f56aab2345d69eb267ee3b1da9a960a50afb18",
+          "visiblePixels": 4642,
+          "alphaBounds": [
+            26,
+            19,
+            111,
+            97
+          ]
+        },
+        {
+          "rgbaSha256": "7c719990d346e05258ec264fd78a3525a3e479823d59d386c44bc02211c64f0d",
+          "visiblePixels": 4623,
+          "alphaBounds": [
+            26,
+            19,
+            111,
+            97
+          ]
+        },
+        {
+          "rgbaSha256": "741d4e76c21ac923d4b02a45bdec1c3fe96a101e3b7d011ccd629a870293abf9",
+          "visiblePixels": 4613,
+          "alphaBounds": [
+            26,
+            20,
+            111,
+            98
+          ]
+        },
+        {
+          "rgbaSha256": "f57d064846e7785de2daa0b73eb6e789427d39291688790c54bd9e3021901a77",
+          "visiblePixels": 4683,
+          "alphaBounds": [
+            26,
+            20,
+            111,
+            98
+          ]
+        },
+        {
+          "rgbaSha256": "f8547636d2431637516e4ac1e5475e800297944f57654be074688af47c897a9b",
+          "visiblePixels": 4680,
+          "alphaBounds": [
+            25,
+            20,
+            111,
+            98
+          ]
+        },
+        {
+          "rgbaSha256": "c8da63d5599a8d3577c8c71696e9379d8029f99f6e6852e126ba6eadea3ac62e",
+          "visiblePixels": 4662,
+          "alphaBounds": [
+            25,
+            20,
+            111,
+            99
+          ]
+        },
+        {
+          "rgbaSha256": "9618f93ded31f98010a3c5618ee4dc496366203eeb9775b1fc68eb8d945b676f",
+          "visiblePixels": 4650,
+          "alphaBounds": [
+            25,
+            20,
+            112,
+            99
+          ]
+        },
+        {
+          "rgbaSha256": "bdc2b93d29f7c8c491e3865b3016e010638ed9d417144e04515d63e84c9f2b4a",
+          "visiblePixels": 4608,
+          "alphaBounds": [
+            25,
+            21,
+            112,
+            100
+          ]
+        },
+        {
+          "rgbaSha256": "af296dab8188d5ae25abcc64b71230f1a1391d172b67483bd771c2c206f5a433",
+          "visiblePixels": 4616,
+          "alphaBounds": [
+            25,
+            21,
+            112,
+            100
+          ]
+        },
+        {
+          "rgbaSha256": "3e9615f88e8f40e2330c966231db5d33ff1d691b28e8ff70b159c8a12aac38bb",
+          "visiblePixels": 4496,
+          "alphaBounds": [
+            25,
+            21,
+            112,
+            100
+          ]
+        },
+        {
+          "rgbaSha256": "2648f19c0ad2122e9528abbf29a1fe0000c34bcb5d06cb7513391147c32e1cfc",
+          "visiblePixels": 4187,
+          "alphaBounds": [
+            25,
+            21,
+            112,
+            101
+          ]
+        },
+        {
+          "rgbaSha256": "8ed01d7e91c4b6e344c35e09a5af1137d6e04d7a8efdb09ee4fa8ab4a76902e0",
+          "visiblePixels": 4027,
+          "alphaBounds": [
+            25,
+            22,
+            112,
+            101
+          ]
+        },
+        {
+          "rgbaSha256": "ad0016db97f013ef11c3ff51f4c99c92cd510f2c0e3d0f74227aa2ae5cfd135c",
+          "visiblePixels": 4011,
+          "alphaBounds": [
+            25,
+            22,
+            112,
+            101
+          ]
+        },
+        {
+          "rgbaSha256": "400d65e0ef30b816cc79c53d6b9299bbd6667297ac1c2071c52a3a8df9f82eea",
+          "visiblePixels": 4002,
+          "alphaBounds": [
+            25,
+            22,
+            112,
+            102
+          ]
+        },
+        {
+          "rgbaSha256": "4ec6c92ab9d720fe85e2e4f6ca323c1938420326c5885eeaa07fa2c87d1abe0d",
+          "visiblePixels": 3967,
+          "alphaBounds": [
+            25,
+            22,
+            112,
+            102
+          ]
+        },
+        {
+          "rgbaSha256": "f0c15ed01b0153676432ba431d503f1ce5d8f6b4832f0fb82115cb95fd1afb51",
+          "visiblePixels": 3977,
+          "alphaBounds": [
+            25,
+            23,
+            112,
+            102
+          ]
+        },
+        {
+          "rgbaSha256": "af4967839073e389b2955da45a08d3d4c2fc84bfaf28c38bdf326d9962967b85",
+          "visiblePixels": 3981,
+          "alphaBounds": [
+            25,
+            23,
+            112,
+            103
+          ]
+        },
+        {
+          "rgbaSha256": "746829020e3c8e2954ae5c9d86ba5e95111cb343c2b927296d2e066d75ae9092",
+          "visiblePixels": 3988,
+          "alphaBounds": [
+            25,
+            23,
+            112,
+            103
+          ]
+        },
+        {
+          "rgbaSha256": "75776755cb170e5309d4a5fa4bdb6ee0b77e410efa043b101696a17879e6df05",
+          "visiblePixels": 3983,
+          "alphaBounds": [
+            25,
+            24,
+            112,
+            103
+          ]
+        },
+        {
+          "rgbaSha256": "1173c8308c980a3f7e8d5cc83d64f6ef81f93606208645a735148863e62fc2ed",
+          "visiblePixels": 3988,
+          "alphaBounds": [
+            25,
+            24,
+            112,
+            104
+          ]
+        },
+        {
+          "rgbaSha256": "0baba32846e187acfbc95d97190d68c839ac353f6ace177991b27f5d844d5072",
+          "visiblePixels": 3964,
+          "alphaBounds": [
+            25,
+            24,
+            112,
+            104
+          ]
+        },
+        {
+          "rgbaSha256": "a01916a336f808b99a4676d0e94e00f83342730cbf19f92f60a77b61e8c47425",
+          "visiblePixels": 3945,
+          "alphaBounds": [
+            25,
+            24,
+            112,
+            104
+          ]
+        },
+        {
+          "rgbaSha256": "3e0068d901398edb2d2121fcc3559f3862bbdfc682b9c9c4ee1961220bfbda1a",
+          "visiblePixels": 3921,
+          "alphaBounds": [
+            26,
+            25,
+            112,
+            104
+          ]
+        },
+        {
+          "rgbaSha256": "44b5914c55f4e3503215a5dca1e78d95f9215ceac18ab3a1640cb64071f8de7c",
+          "visiblePixels": 3911,
+          "alphaBounds": [
+            26,
+            25,
+            112,
+            105
+          ]
+        },
+        {
+          "rgbaSha256": "4e40dfcf916ab06ed6b809df4ec621f5be75983c15c46b1ab3bc70a4e18abd70",
+          "visiblePixels": 3867,
+          "alphaBounds": [
+            26,
+            25,
+            111,
+            105
+          ]
+        },
+        {
+          "rgbaSha256": "3fa41877f552bb22a32b7c8def36509f9822119e0c9b30dc9bbb3888976af875",
+          "visiblePixels": 3828,
+          "alphaBounds": [
+            26,
+            26,
+            111,
+            105
+          ]
+        },
+        {
+          "rgbaSha256": "644a43cbf5f85b65b4df93da136f9a94c60a340cc5b0ee2739e05b00bb359a38",
+          "visiblePixels": 3794,
+          "alphaBounds": [
+            26,
+            26,
+            111,
+            106
+          ]
+        },
+        {
+          "rgbaSha256": "001c098ee6f49ea1992b7da509840231b69cb3f06657c2ffad323555bf7a2dea",
+          "visiblePixels": 3763,
+          "alphaBounds": [
+            26,
+            26,
+            111,
+            106
+          ]
+        },
+        {
+          "rgbaSha256": "33bf252a54a7025e422816b9af697967216c85e69468d1c4eaaa60b3c4d61ed7",
+          "visiblePixels": 3748,
+          "alphaBounds": [
+            26,
+            27,
+            111,
+            106
+          ]
+        },
+        {
+          "rgbaSha256": "b1e25f3cd09c3f35108011caed85e9739831b4fcea9b3462d9165329314ad721",
+          "visiblePixels": 3695,
+          "alphaBounds": [
+            26,
+            27,
+            111,
+            107
+          ]
+        },
+        {
+          "rgbaSha256": "d442c32056afcbe5da5694a536d4eaf8ac533119974ab995ef7f13e0e7c2956c",
+          "visiblePixels": 3628,
+          "alphaBounds": [
+            27,
+            28,
+            111,
+            107
+          ]
+        },
+        {
+          "rgbaSha256": "dc8bb552e51b156014aac277df44470c99c24498edd37687331dcd7d6b490310",
+          "visiblePixels": 3560,
+          "alphaBounds": [
+            27,
+            29,
+            111,
+            107
+          ]
+        },
+        {
+          "rgbaSha256": "4b58de28c989242f68331140ea23ecfd11ec63031c2321adbe0be5c438097819",
+          "visiblePixels": 3498,
+          "alphaBounds": [
+            27,
+            30,
+            110,
+            108
+          ]
+        },
+        {
+          "rgbaSha256": "4ddf376f6a19b8c1508ff8da422fd444bd346cac8dff25b3a66bcf62e3d53e46",
+          "visiblePixels": 3429,
+          "alphaBounds": [
+            27,
+            31,
+            110,
+            108
+          ]
+        },
+        {
+          "rgbaSha256": "364c2dfbd6d38daca0bc00b4447727add8c4bc6c63a3b394cced2f9a2b61ee2c",
+          "visiblePixels": 3247,
+          "alphaBounds": [
+            28,
+            32,
+            110,
+            108
+          ]
+        },
+        {
+          "rgbaSha256": "aa40aad9a8f0fa9b4614e6f9dcf857e808ca54c157cada3d153565514c9d6d3d",
+          "visiblePixels": 3071,
+          "alphaBounds": [
+            29,
+            32,
+            110,
+            109
+          ]
+        },
+        {
+          "rgbaSha256": "eafdab0acf2a22ab519cdbb57e367a9816df277dd05b548066d2d73624d98e8f",
+          "visiblePixels": 2922,
+          "alphaBounds": [
+            31,
+            32,
+            110,
+            109
+          ]
+        },
+        {
+          "rgbaSha256": "15434fba18b695ee63946e32bb61749ea0a18c185b244747e9a1e9ead8f5bc53",
+          "visiblePixels": 2687,
+          "alphaBounds": [
+            32,
+            35,
+            110,
+            109
+          ]
+        },
+        {
+          "rgbaSha256": "796d0e9778f77f707adfa5b0d2d047baccadf15bbe6de63143fa163a51287ca0",
+          "visiblePixels": 2468,
+          "alphaBounds": [
+            34,
+            35,
+            109,
+            109
+          ]
+        },
+        {
+          "rgbaSha256": "d1036cccb7f54f3396a6beeb798467c7edc5910e168dbb5c5ae5a5f51c67a497",
+          "visiblePixels": 2202,
+          "alphaBounds": [
+            35,
+            35,
+            108,
+            109
+          ]
+        },
+        {
+          "rgbaSha256": "52f68be00e2c0ba192a153037a53a22af198d7f7ac6a0c4100f8e922b249ea0f",
+          "visiblePixels": 1868,
+          "alphaBounds": [
+            36,
+            35,
+            107,
+            109
+          ]
+        },
+        {
+          "rgbaSha256": "dec190a552c49e91d2c3d090313d5425afc1c8e0f6abbfcf55a2fdf46a5e9122",
+          "visiblePixels": 1590,
+          "alphaBounds": [
+            38,
+            37,
+            106,
+            109
+          ]
+        },
+        {
+          "rgbaSha256": "9bbd0857d11edbc56b0a95148da867ecfdf3124df0cd7fb1ba527d6d9dacc4a1",
+          "visiblePixels": 1348,
+          "alphaBounds": [
+            39,
+            37,
+            105,
+            109
+          ]
+        },
+        {
+          "rgbaSha256": "a8cf636ca4eb6a5b1330a23af9bf9859adf38e2314978a34f3b531cf268914c7",
+          "visiblePixels": 1130,
+          "alphaBounds": [
+            41,
+            37,
+            104,
+            109
+          ]
+        },
+        {
+          "rgbaSha256": "d8efe09c843b89fcfbda2e8a55e3cd22b234cb1ebd8c83f7a3fb34bffafcf3ef",
+          "visiblePixels": 873,
+          "alphaBounds": [
+            42,
+            53,
+            103,
+            109
+          ]
+        },
+        {
+          "rgbaSha256": "334f229115e06cba253d53a5d0b39b92531a5ece71f43811b55009ab88a7bb3b",
+          "visiblePixels": 777,
+          "alphaBounds": [
+            42,
+            54,
+            102,
+            109
+          ]
+        },
+        {
+          "rgbaSha256": "a48459aab9375b8979275ed2e2c01f39e29588c9a5306476c568e1681176e5e1",
+          "visiblePixels": 652,
+          "alphaBounds": [
+            43,
+            55,
+            102,
+            109
+          ]
+        },
+        {
+          "rgbaSha256": "d4327b0ebb4f87ff429a68865066f42ab45c0954eac324650ff22f941d9706b2",
+          "visiblePixels": 502,
+          "alphaBounds": [
+            60,
+            55,
+            103,
+            109
+          ]
+        },
+        {
+          "rgbaSha256": "16ea188a342c6b595b24f22ffe040d4ab798f50e02f92eced07c23a6474e4609",
+          "visiblePixels": 376,
+          "alphaBounds": [
+            60,
+            55,
+            103,
+            107
+          ]
+        },
+        {
+          "rgbaSha256": "74f4a9e7856217ca8cf7c158d46e40e7573cee91611d16e76b6e708df9a2a991",
+          "visiblePixels": 279,
+          "alphaBounds": [
+            62,
+            55,
+            102,
+            106
+          ]
+        },
+        {
+          "rgbaSha256": "b406fb30cb7d4bbe901d1b81129ea8a2a608b95a86651290d089265a93797fcf",
+          "visiblePixels": 243,
+          "alphaBounds": [
+            62,
+            55,
+            102,
+            105
+          ]
+        },
+        {
+          "rgbaSha256": "b221e5ef03c85bb19640df331090e14ff53318ac1c09453ba5dfcef4611a7c06",
+          "visiblePixels": 171,
+          "alphaBounds": [
+            62,
+            59,
+            99,
+            102
+          ]
+        },
+        {
+          "rgbaSha256": "2934fe166bd50bc1c7cee5e9c0a735cf779e194e77cf1778c74447b37a5acf02",
+          "visiblePixels": 91,
+          "alphaBounds": [
+            89,
+            59,
+            99,
+            87
+          ]
+        },
+        {
+          "rgbaSha256": "5cd21686c9adb66be50435c86f7d96dd30e449a41048e9eaa2c1eadde849e001",
+          "visiblePixels": 81,
+          "alphaBounds": [
+            89,
+            60,
+            99,
+            86
+          ]
+        },
+        {
+          "rgbaSha256": "f17c642e16953a24b0ff6488acf3780984b1b64b1b3d4df70a281ed2c53f42cf",
+          "visiblePixels": 67,
+          "alphaBounds": [
+            90,
+            60,
+            99,
+            86
+          ]
+        },
+        {
+          "rgbaSha256": "d603ff7c620bd463dd9308de84e6513cec587d750dd3669b418491c7709a76e8",
+          "visiblePixels": 0,
+          "alphaBounds": null
+        },
+        {
+          "rgbaSha256": "d603ff7c620bd463dd9308de84e6513cec587d750dd3669b418491c7709a76e8",
+          "visiblePixels": 0,
+          "alphaBounds": null
+        },
+        {
+          "rgbaSha256": "d603ff7c620bd463dd9308de84e6513cec587d750dd3669b418491c7709a76e8",
+          "visiblePixels": 0,
+          "alphaBounds": null
+        }
+      ],
+      "sheetRgbaSha256": "c62682c2a2a347266638b5a5f0093b407ab653381b4394f6682f8d5561f17c38",
+      "frameCount": 97,
+      "byteLength": 317732,
+      "sha256": "bcc9221514678745332364fd60291bd5e0f266ff5a27a2d810befb69940a3a98",
+      "pixelRoundTrip": true
+    },
+    "lightning": {
+      "frames": [
+        {
+          "rgbaSha256": "06c32e7aa15b7bca2ae14bb457c1e1a5dec153e6648718566d88d42ebf08af8b",
+          "visiblePixels": 469,
+          "alphaBounds": [
+            1,
+            31,
+            23,
+            57
+          ]
+        },
+        {
+          "rgbaSha256": "fa51e9d6d79d35e398f64de134bc2302a356af45b99f116f5cea3087047f1518",
+          "visiblePixels": 1581,
+          "alphaBounds": [
+            1,
+            27,
+            67,
+            62
+          ]
+        },
+        {
+          "rgbaSha256": "31fc0ef5de04a81ab94e3f3ea10dc587c5cbdb4f80d56177af2023aa0ecab706",
+          "visiblePixels": 9588,
+          "alphaBounds": [
+            1,
+            4,
+            130,
+            108
+          ]
+        },
+        {
+          "rgbaSha256": "74188b8918bcbb0d478c1f8dfdbc40905499e529749b8c5ea055423614401bb9",
+          "visiblePixels": 8420,
+          "alphaBounds": [
+            2,
+            6,
+            126,
+            106
+          ]
+        },
+        {
+          "rgbaSha256": "bf5370aaa2b7e2e0e4c2f5994541a53954aed20e997399368d3673841e6b23a3",
+          "visiblePixels": 7452,
+          "alphaBounds": [
+            2,
+            9,
+            123,
+            103
+          ]
+        },
+        {
+          "rgbaSha256": "2414db831add901e3a745561e3679afabdbabbc0028e8df418d04ff74ee02ed9",
+          "visiblePixels": 6509,
+          "alphaBounds": [
+            2,
+            13,
+            119,
+            99
+          ]
+        },
+        {
+          "rgbaSha256": "1e058a472843c93a71a47ed7e52bf70c9905bca744dca495cb15e5e3f2163a5a",
+          "visiblePixels": 5575,
+          "alphaBounds": [
+            2,
+            17,
+            115,
+            95
+          ]
+        },
+        {
+          "rgbaSha256": "dc237bf876ca58d8c653aba1a9deb377f3f79149986f032af560c0ba1515c45d",
+          "visiblePixels": 4598,
+          "alphaBounds": [
+            3,
+            21,
+            111,
+            91
+          ]
+        },
+        {
+          "rgbaSha256": "7237d126900be8a7ec08ffcdd4565f0d75e6d8d75b5aa7893c54aa8c75deb663",
+          "visiblePixels": 3584,
+          "alphaBounds": [
+            3,
+            23,
+            108,
+            85
+          ]
+        },
+        {
+          "rgbaSha256": "b1689bdd4bfe3efc385316795c4801e69c0082dc6acfda815b86aa23233d4dd7",
+          "visiblePixels": 2396,
+          "alphaBounds": [
+            4,
+            23,
+            112,
+            85
+          ]
+        },
+        {
+          "rgbaSha256": "e728f561eb3c59c6771f67c2d4b028a0b22497d96cd39db1e4ca60c9ba6b9599",
+          "visiblePixels": 1592,
+          "alphaBounds": [
+            50,
+            23,
+            114,
+            76
+          ]
+        },
+        {
+          "rgbaSha256": "30ae0011e7905437eb799cb32a488c7be95dbbedeb5b502da79107236e523c09",
+          "visiblePixels": 1383,
+          "alphaBounds": [
+            51,
+            23,
+            115,
+            76
+          ]
+        },
+        {
+          "rgbaSha256": "fd47ae9e12f2f377afd91ab3108a70bc089b006e3b7cad7f15a5aaeb35854e4c",
+          "visiblePixels": 1298,
+          "alphaBounds": [
+            51,
+            23,
+            103,
+            76
+          ]
+        },
+        {
+          "rgbaSha256": "507c1bcb673afece7e0af4c2cbe8aa81ac6663686dd3744bf3a0714897ed0adb",
+          "visiblePixels": 1174,
+          "alphaBounds": [
+            51,
+            23,
+            103,
+            76
+          ]
+        },
+        {
+          "rgbaSha256": "bb872b9b3a992ec60f46cb421a72d281fec6d308ce84d31669a63ab0e3b4f3de",
+          "visiblePixels": 1140,
+          "alphaBounds": [
+            51,
+            23,
+            103,
+            76
+          ]
+        },
+        {
+          "rgbaSha256": "de8928ee3bfb7dff7db44acd1e0e768d0ee9c8fe7a81c10b3d8ac9bfdb7d9084",
+          "visiblePixels": 1066,
+          "alphaBounds": [
+            51,
+            23,
+            103,
+            76
+          ]
+        },
+        {
+          "rgbaSha256": "43d280d4ed1af36f248f0f8bc9c3a2f67bcd38f981880bbcc8a09822a22a4966",
+          "visiblePixels": 1029,
+          "alphaBounds": [
+            51,
+            23,
+            103,
+            76
+          ]
+        },
+        {
+          "rgbaSha256": "0c231692498709532dd3b2be06cbc470763ced3a8f580d9f794287938cec4f77",
+          "visiblePixels": 882,
+          "alphaBounds": [
+            51,
+            23,
+            103,
+            75
+          ]
+        },
+        {
+          "rgbaSha256": "b24fa472da3186d547a86bc24a034974806612c4d7e904ebc35b3f1c24058dd4",
+          "visiblePixels": 534,
+          "alphaBounds": [
+            51,
+            23,
+            103,
+            75
+          ]
+        },
+        {
+          "rgbaSha256": "e2959b28524e1784fe1df612d1f16b38e9b716ca71cc7a39865a64cbc8418076",
+          "visiblePixels": 436,
+          "alphaBounds": [
+            51,
+            23,
+            103,
+            75
+          ]
+        },
+        {
+          "rgbaSha256": "1ad72a3f23f7908f45023831e9cb931d41cbe2fd85341ba859d5bed6edc8b282",
+          "visiblePixels": 430,
+          "alphaBounds": [
+            51,
+            23,
+            103,
+            75
+          ]
+        },
+        {
+          "rgbaSha256": "8071c62eae7ff60bf0b866777d517f3e36f1b99331af7a313b35f1bdc2002dec",
+          "visiblePixels": 411,
+          "alphaBounds": [
+            51,
+            23,
+            103,
+            75
+          ]
+        },
+        {
+          "rgbaSha256": "237de76fad3c286f75912cbaac8b2c83ac49f08a77d8b95447ef9f2ccdc4fee5",
+          "visiblePixels": 407,
+          "alphaBounds": [
+            51,
+            23,
+            103,
+            75
+          ]
+        },
+        {
+          "rgbaSha256": "ae5f108fc84a2e9d9e7aae44efcf2f622c062d87e46a9ba015a53b0c5048fa38",
+          "visiblePixels": 331,
+          "alphaBounds": [
+            51,
+            23,
+            103,
+            75
+          ]
+        },
+        {
+          "rgbaSha256": "28d7910321f0a6667daced11d65c9e0efb9ec7157622cdbba87c1b28a0bf651a",
+          "visiblePixels": 305,
+          "alphaBounds": [
+            51,
+            23,
+            103,
+            75
+          ]
+        },
+        {
+          "rgbaSha256": "940b5b8a1af4880aacbde562fa6c31999345fb510ebf57e98e50e615c45a6356",
+          "visiblePixels": 181,
+          "alphaBounds": [
+            51,
+            23,
+            103,
+            75
+          ]
+        },
+        {
+          "rgbaSha256": "b91d5778e69bba2408879aa447b240c85a531bf4718a6b1ba979c652a134b7f4",
+          "visiblePixels": 16,
+          "alphaBounds": [
+            60,
+            36,
+            101,
+            73
+          ]
+        },
+        {
+          "rgbaSha256": "ca8a4b28e8b434e231027bf5d9952a7d32014111151ed7e3e2efc0b6fe934a0a",
+          "visiblePixels": 0,
+          "alphaBounds": null
+        }
+      ],
+      "sheetRgbaSha256": "0aac7e727c65ba0392ce98abb95b7e20e97970425d0f5b27fabfda9613045782",
+      "frameCount": 28,
+      "byteLength": 66828,
+      "sha256": "0d7dd1bc9a53cadbb49118f8060099ebd6152e8c9eaa077fb4f0abbb9b041823",
+      "pixelRoundTrip": true
+    },
+    "wind": {
+      "frames": [
+        {
+          "rgbaSha256": "cbfe861e4e00e592e28b317abc4b6ae06dcd3d9fd7413b3d46c5fa511a2646aa",
+          "visiblePixels": 6703,
+          "alphaBounds": [
+            22,
+            23,
+            138,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "a08944e715e5a427795519345f82467bb15ab629d687f36720a7190a06be4984",
+          "visiblePixels": 6686,
+          "alphaBounds": [
+            28,
+            23,
+            137,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "71d43f6a602acc107925b86a151dc25d2e87206e171d06cf77f4ad915960c14b",
+          "visiblePixels": 6659,
+          "alphaBounds": [
+            46,
+            22,
+            137,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "99eb95c9c8dc960efd89e1f5aa4e1dd8e51028cc85b3751d601b3cd202146b17",
+          "visiblePixels": 6587,
+          "alphaBounds": [
+            44,
+            22,
+            134,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "9e5c2576159648a331ce9bc521659ca585e2a007de5a8911e4f80ffb02e91845",
+          "visiblePixels": 6578,
+          "alphaBounds": [
+            44,
+            21,
+            147,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "9f6ed43ba15b6e16393fa6afbe4522c3855f0d74dd2627423fe7bed2febb0bb8",
+          "visiblePixels": 6501,
+          "alphaBounds": [
+            44,
+            21,
+            132,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "774cd4171e353615b591921ce5d027231d4617c6f452dfca1303e329d57d1759",
+          "visiblePixels": 6559,
+          "alphaBounds": [
+            44,
+            21,
+            132,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "d324b5373b09087599b459210fcf3e53ecee6b348cd22c71b11873e0e251106c",
+          "visiblePixels": 6631,
+          "alphaBounds": [
+            43,
+            21,
+            132,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "54d22942319e90f9067dee88497908de6beddd3e3a1734e22740a53fbc9f61f5",
+          "visiblePixels": 6732,
+          "alphaBounds": [
+            43,
+            20,
+            131,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "a62ed9feaa6d9c2e02e4b9eae8952b02ec365bdce041ce0faff26677ed22bc70",
+          "visiblePixels": 6857,
+          "alphaBounds": [
+            41,
+            20,
+            133,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "9e7e7df70f015a810f28163043b6a3b28675cf23d534caef1e89671493a5b1aa",
+          "visiblePixels": 6932,
+          "alphaBounds": [
+            26,
+            20,
+            135,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "bbbb1505b97ea63f73deaf1adb0d6a14f801c2389945d3d879d3f94e18859cef",
+          "visiblePixels": 6677,
+          "alphaBounds": [
+            43,
+            20,
+            127,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "06eb8ee6d67d6639c2a534c5e964962d94fa3257bbd81050f4bf61c8c26637cb",
+          "visiblePixels": 6696,
+          "alphaBounds": [
+            44,
+            20,
+            129,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "2d66356bdcd9fbceb30cf65e78898a00314b428e8fcd3c30eb074a0cab5b2b3f",
+          "visiblePixels": 6685,
+          "alphaBounds": [
+            45,
+            20,
+            132,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "1bf35e6e717f9cf73ebf99d9cf67dc6b372d2c90e82e686062bc1e73bffd47a7",
+          "visiblePixels": 6776,
+          "alphaBounds": [
+            46,
+            20,
+            135,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "39ab63afa034ac4390d6c9ef9ba5459c2a5f5254ff0cea15beb09f71f4c3bc7a",
+          "visiblePixels": 6793,
+          "alphaBounds": [
+            47,
+            20,
+            136,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "0cc1eef724172d5a92c456fc149d8b411c4128ab237f557c472f4d807dd63d9a",
+          "visiblePixels": 6807,
+          "alphaBounds": [
+            48,
+            21,
+            145,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "cce491788c3cdc7f9a4ab5b9676c67c089e7bbe96379518aa7c4866328f1dd1b",
+          "visiblePixels": 6838,
+          "alphaBounds": [
+            49,
+            21,
+            161,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "0b34fe3fa60507bafb596447bec3718a1134ef16c84ca4ecc2327d07e6d5aafd",
+          "visiblePixels": 6815,
+          "alphaBounds": [
+            50,
+            20,
+            165,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "940ff6af44e3fcc22c42746734172d3826a885b258a7a4142a2821c3a1510aef",
+          "visiblePixels": 6749,
+          "alphaBounds": [
+            51,
+            20,
+            141,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "30ee8c3733fd1aaaaf53ec2e1f6b5caf891233b83348ec5bd2cf6d48cb771a9f",
+          "visiblePixels": 6782,
+          "alphaBounds": [
+            52,
+            19,
+            142,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "f79d25e2add6995b22eade45ed28732f98ff0a5594a7adde1198b494c90bdd01",
+          "visiblePixels": 6791,
+          "alphaBounds": [
+            54,
+            19,
+            151,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "8c038dafb1e63a013d484a6cacc68b2b613c6aedde4b7b90574d67739a32ab66",
+          "visiblePixels": 6768,
+          "alphaBounds": [
+            58,
+            19,
+            165,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "a024b7cf64cdf86f6d0be137b940930ac5770680d35c66b88d0c8f114d488b8a",
+          "visiblePixels": 6720,
+          "alphaBounds": [
+            61,
+            19,
+            161,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "0828a6a8c61af9fe69be9a6fe4661f278506ded30cd5bd2736952805e2a07f50",
+          "visiblePixels": 6772,
+          "alphaBounds": [
+            62,
+            19,
+            146,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "2a48c265e022643ca04394956d8c41aa49594227df1717727eb281a0bd867a54",
+          "visiblePixels": 6577,
+          "alphaBounds": [
+            62,
+            19,
+            146,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "1f00e07c84bedfc73a69686090a78a5e5dd5e3dee0abc7d6ece64c221111cae4",
+          "visiblePixels": 6572,
+          "alphaBounds": [
+            63,
+            20,
+            147,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "9f4391590c6110dc13aa900128c8c8ec91a041e74c0c02a188511a67b8afaf8a",
+          "visiblePixels": 6539,
+          "alphaBounds": [
+            62,
+            21,
+            153,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "7ba72c7f3b8f479cd02ceac4b768db7547408f5aa3a9e3baea0d7aeab927ddf4",
+          "visiblePixels": 6492,
+          "alphaBounds": [
+            63,
+            22,
+            161,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "40d7a3064ece50c17de4cf17f031c453da3f01f492e953e1a21cef7fa2b7d951",
+          "visiblePixels": 6512,
+          "alphaBounds": [
+            63,
+            23,
+            163,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "8acd288a967608b34f4493b8cdda9c1b2dac1b852adace153841a8e332fdeeaf",
+          "visiblePixels": 6520,
+          "alphaBounds": [
+            63,
+            24,
+            148,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "3441b004b62f019f59ec1cd4397dd671fafef8567ecbe3f513f23d826d041ce2",
+          "visiblePixels": 6539,
+          "alphaBounds": [
+            63,
+            25,
+            159,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "76603ef7b997d8cafe67d516321c9d0548294094165cc9966bd53d8ff5edf7a0",
+          "visiblePixels": 6534,
+          "alphaBounds": [
+            63,
+            25,
+            171,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "22e24088200aece896fce60fd79a43ab4b4ca45f4630c86a630a1023d1e50a17",
+          "visiblePixels": 6357,
+          "alphaBounds": [
+            63,
+            25,
+            148,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "9cc94682398937b6b74b830d63cd88a2317b2fb6f38ae8ad82378a3df92c2d07",
+          "visiblePixels": 6295,
+          "alphaBounds": [
+            63,
+            25,
+            148,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "d2c58f3abc0b8e34514a44ed7c15d823f5a0b9657b8d252beb1c7eeb1c74f01b",
+          "visiblePixels": 6315,
+          "alphaBounds": [
+            38,
+            25,
+            147,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "d186ad938225f11a721904ba659798945387992ba280e91d6cfcbd00cde977f6",
+          "visiblePixels": 11409,
+          "alphaBounds": [
+            48,
+            2,
+            158,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "e1567e549fa35cba91e2c5f59ff07b305c622eaaccee364bf69df77abde89234",
+          "visiblePixels": 13324,
+          "alphaBounds": [
+            40,
+            1,
+            166,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "9bdd70bbe77eaaa694dd0353e636e28f69e81e29f6995f4da20188cd80c79bfb",
+          "visiblePixels": 12606,
+          "alphaBounds": [
+            40,
+            1,
+            163,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "6438604cbd4589a47fc71a44aa3ef84706c6e8d014d3b236743e0b068b8f8e26",
+          "visiblePixels": 6307,
+          "alphaBounds": [
+            36,
+            22,
+            142,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "4b00d3966df7b385c99e3c7e2d90c1cdbd1f106bebd8e99669d82d166f53bd4f",
+          "visiblePixels": 6375,
+          "alphaBounds": [
+            53,
+            20,
+            143,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "e3252b1b1afc5595a82d4fdf1db3d51821dedbfc808ec8d38aaa58a9f2b861ef",
+          "visiblePixels": 12162,
+          "alphaBounds": [
+            46,
+            1,
+            162,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "894f241fdbf641694d7d891a08010408488c42a9b2e8b7f09863b8bc40c8e5dd",
+          "visiblePixels": 11415,
+          "alphaBounds": [
+            44,
+            2,
+            159,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "ce2ac9bd7a77423d060169ea47293ba16aaac358eefa8a72b05594014075a484",
+          "visiblePixels": 6512,
+          "alphaBounds": [
+            56,
+            20,
+            144,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "58636cc9bd98a7b8c2a47868d4d7d4e48be9f9684247f06bd4c4e4a7c7beadba",
+          "visiblePixels": 6577,
+          "alphaBounds": [
+            60,
+            23,
+            144,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "9a1ebeb0666613a5f7a8b807e3386c38305f45167bc582fe3dcea55be53e09fe",
+          "visiblePixels": 6639,
+          "alphaBounds": [
+            60,
+            22,
+            145,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "7e08991fcfa97cca10891a84efefbffb1eb9f769b402552c7f8001a3289aa086",
+          "visiblePixels": 6702,
+          "alphaBounds": [
+            60,
+            22,
+            145,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "244a727bbe272f3b0bdee07eeb8e718d5aeb7f9bc9eb46f7606c092881f522cc",
+          "visiblePixels": 6707,
+          "alphaBounds": [
+            58,
+            21,
+            145,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "cbb90a7a0605b41dccf7309ce143a57175b69fcac58c35bd31c098f496608129",
+          "visiblePixels": 6752,
+          "alphaBounds": [
+            48,
+            20,
+            144,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "99df0ff0a428b7ef412ee697a262c006592ba47884a5c9e14811694600aa4fa1",
+          "visiblePixels": 6798,
+          "alphaBounds": [
+            48,
+            20,
+            144,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "2d2bae8526714246d61452ae282211169f16d5e36ee77156d95fe0abe0d6f075",
+          "visiblePixels": 6782,
+          "alphaBounds": [
+            58,
+            19,
+            145,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "f996e774ecc53616087cd9b8704199a19ed0b3c4ca0f7e14eb2b12c814f25d4e",
+          "visiblePixels": 6771,
+          "alphaBounds": [
+            59,
+            19,
+            147,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "4513b4b7968df37007b938cb9af181ccd5eb2efc7614a7b504843a2cde9b399a",
+          "visiblePixels": 6770,
+          "alphaBounds": [
+            58,
+            19,
+            147,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "5e602dbd5f8c3d23732a557874449e8e97a92cf190d775f751ebd2b13bd7d58f",
+          "visiblePixels": 6795,
+          "alphaBounds": [
+            57,
+            19,
+            147,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "db43f3f094900bff13ad822165f4d9dfd7c5db500c56314d5b7695ac78cbb0a0",
+          "visiblePixels": 6875,
+          "alphaBounds": [
+            56,
+            19,
+            146,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "737fd45bf7946fa5ce1ec362b45829beed21a27efd223da0817b80fdd4ded634",
+          "visiblePixels": 6897,
+          "alphaBounds": [
+            55,
+            19,
+            144,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "d7f1385403636794402beb807f395acaabcd19ba4a34e44d4b94ea6da1054baa",
+          "visiblePixels": 6855,
+          "alphaBounds": [
+            54,
+            20,
+            143,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "57e5d614482a1ccca8e298df8c7de0eaef32f01c066613c351e5e24b4b586620",
+          "visiblePixels": 6764,
+          "alphaBounds": [
+            52,
+            21,
+            142,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "f80c060c7f5f0c2418d8e4bf553ebeaf347ae538439438240153c19fdf0d566d",
+          "visiblePixels": 6714,
+          "alphaBounds": [
+            49,
+            22,
+            141,
+            166
+          ]
+        },
+        {
+          "rgbaSha256": "8e95680b580246e07a5b4903382a12585f33c542c871ed8d2b7578b34077aa33",
+          "visiblePixels": 6744,
+          "alphaBounds": [
+            32,
+            23,
+            139,
+            166
+          ]
+        }
+      ],
+      "sheetRgbaSha256": "280167dc800d2d58d478b3d39abd6d04cc534c2af3ce979f2809eb38c6419a19",
+      "frameCount": 60,
+      "byteLength": 654202,
+      "sha256": "23441ea9939245a53841fd567120aeea7f2e2b224693b0fba639df70d36841dc",
+      "pixelRoundTrip": true
+    },
+    "arcane": {
+      "frames": [
+        {
+          "rgbaSha256": "6803c6d448fe86255ec90bcbb6f4beb39e9e55ec289fdb8e35e7aafe2d47a8ca",
+          "visiblePixels": 256,
+          "alphaBounds": [
+            95,
+            87,
+            113,
+            105
+          ]
+        },
+        {
+          "rgbaSha256": "7b50f67661f98ed3638e16e31d76209133286b512001e3fcd9be38da534bb678",
+          "visiblePixels": 2659,
+          "alphaBounds": [
+            58,
+            52,
+            152,
+            146
+          ]
+        },
+        {
+          "rgbaSha256": "300e26075bf6b528acb6df1287d844c656e769291bdd099b8cda29f54278f0c8",
+          "visiblePixels": 3833,
+          "alphaBounds": [
+            66,
+            64,
+            147,
+            147
+          ]
+        },
+        {
+          "rgbaSha256": "bad0b7106ebd048a4783c1743892f7d04265eb94263dab8b7fd986463356686a",
+          "visiblePixels": 4287,
+          "alphaBounds": [
+            68,
+            62,
+            156,
+            148
+          ]
+        },
+        {
+          "rgbaSha256": "46983926a956b3ae8b7daf3bf2431562d8c715fcc9bbd66bdbd3105756e4151c",
+          "visiblePixels": 4574,
+          "alphaBounds": [
+            66,
+            52,
+            148,
+            148
+          ]
+        },
+        {
+          "rgbaSha256": "339a1e59616177e718240eb9274481f7f6daeb4d2ff175e626c831ecb908261b",
+          "visiblePixels": 4878,
+          "alphaBounds": [
+            65,
+            57,
+            143,
+            148
+          ]
+        },
+        {
+          "rgbaSha256": "3b72e1b173f2284880267583ba55cff744f5306bd66a2ded2a427eed8017c2ad",
+          "visiblePixels": 4990,
+          "alphaBounds": [
+            64,
+            66,
+            144,
+            149
+          ]
+        },
+        {
+          "rgbaSha256": "916e7c7a8bbe9e4b3176e5e25b33766856a4a1b1c97798b2cc1fa69a5cb45b01",
+          "visiblePixels": 22232,
+          "alphaBounds": [
+            16,
+            2,
+            192,
+            149
+          ]
+        },
+        {
+          "rgbaSha256": "c0c4bb445e7addaffca43d7eb68908b645915e995d3700809f6645f6d1f671cc",
+          "visiblePixels": 21072,
+          "alphaBounds": [
+            19,
+            3,
+            189,
+            149
+          ]
+        },
+        {
+          "rgbaSha256": "94740b925cff3158c106e0c1e7886063455be486fffb2520d850181e1cdb7e16",
+          "visiblePixels": 19882,
+          "alphaBounds": [
+            22,
+            4,
+            186,
+            149
+          ]
+        },
+        {
+          "rgbaSha256": "4ed181f9b3a1acaea7ef9644c0aa04b318a11b0e7f038b8519a9b869d4783ae4",
+          "visiblePixels": 18636,
+          "alphaBounds": [
+            25,
+            5,
+            183,
+            149
+          ]
+        },
+        {
+          "rgbaSha256": "dbea33f259818b07e0a08753465dcdc81c9aa669b68dd757831f176f66c23126",
+          "visiblePixels": 17318,
+          "alphaBounds": [
+            28,
+            8,
+            180,
+            149
+          ]
+        },
+        {
+          "rgbaSha256": "df19b05ce9730bd6ac29733e2a5c50871cfc7da611b94e9a29e76520b3ed92d0",
+          "visiblePixels": 16024,
+          "alphaBounds": [
+            32,
+            12,
+            176,
+            149
+          ]
+        },
+        {
+          "rgbaSha256": "71b34e89c11df5d2740fa160477d52e4006a9c66c6ef45d7c2bd90b7d356bee5",
+          "visiblePixels": 14776,
+          "alphaBounds": [
+            35,
+            15,
+            173,
+            149
+          ]
+        },
+        {
+          "rgbaSha256": "faf041f22a95402ff91f8891037cfb6b549260802cb3f59580dd4d61836657fb",
+          "visiblePixels": 13532,
+          "alphaBounds": [
+            39,
+            19,
+            169,
+            149
+          ]
+        },
+        {
+          "rgbaSha256": "338546286e5f8e2334c346143a9dacd7f691480cad405280287fc0f961242505",
+          "visiblePixels": 12400,
+          "alphaBounds": [
+            43,
+            23,
+            166,
+            149
+          ]
+        },
+        {
+          "rgbaSha256": "58b07b31f278ef174c239b969dde88cda3229f0714469ae1d02de84bf5384b3a",
+          "visiblePixels": 11459,
+          "alphaBounds": [
+            40,
+            27,
+            172,
+            149
+          ]
+        },
+        {
+          "rgbaSha256": "998b12a02d3ff4be1ce5f5ba8141f44b291038cbcfc8f8683c7d8c97a142b6fb",
+          "visiblePixels": 10712,
+          "alphaBounds": [
+            35,
+            20,
+            178,
+            149
+          ]
+        },
+        {
+          "rgbaSha256": "93d0a9294a79ec77bc81d5f3f42219b32d46c0acbc2e3b08033590bf8448b035",
+          "visiblePixels": 9929,
+          "alphaBounds": [
+            29,
+            14,
+            169,
+            149
+          ]
+        },
+        {
+          "rgbaSha256": "63fe0d41ebdf85887f1878a7e9f6d84d007d30afaa851e954f95dc57b992262e",
+          "visiblePixels": 9470,
+          "alphaBounds": [
+            24,
+            8,
+            174,
+            149
+          ]
+        },
+        {
+          "rgbaSha256": "081442276d3a1abc1d0297c9ffb4077dd388742e760179f859c0a5dfc9997faa",
+          "visiblePixels": 9732,
+          "alphaBounds": [
+            19,
+            4,
+            177,
+            149
+          ]
+        },
+        {
+          "rgbaSha256": "86c8f8526bdae0e6c0d445547c07cddd59b46713b128a7b79dd9f462e5cc21b8",
+          "visiblePixels": 9234,
+          "alphaBounds": [
+            14,
+            6,
+            169,
+            149
+          ]
+        },
+        {
+          "rgbaSha256": "1680c7f825cbb312daaf76aee9cd73f4814e24e26fe7995a6d87eca3d713f299",
+          "visiblePixels": 9600,
+          "alphaBounds": [
+            38,
+            30,
+            170,
+            149
+          ]
+        },
+        {
+          "rgbaSha256": "3dda2bb56d0059480105596a8278c959f60bc7c098edc508e9a24fcf291f036e",
+          "visiblePixels": 8941,
+          "alphaBounds": [
+            38,
+            30,
+            170,
+            149
+          ]
+        },
+        {
+          "rgbaSha256": "a0921964b9260aa2845aba2c7201e5954c5a251dd9774553050f9d868fbaa3d5",
+          "visiblePixels": 8354,
+          "alphaBounds": [
+            38,
+            30,
+            169,
+            149
+          ]
+        },
+        {
+          "rgbaSha256": "7afcd52224c0fa12cc99bbec2cc02371a31caef85f5183c407d3c46dc6859599",
+          "visiblePixels": 7982,
+          "alphaBounds": [
+            56,
+            42,
+            170,
+            149
+          ]
+        },
+        {
+          "rgbaSha256": "2ccaed1b9fcc18c11304af3e463776aaa71cbae3f1dce521fee918cb5bdf0c11",
+          "visiblePixels": 8116,
+          "alphaBounds": [
+            56,
+            41,
+            174,
+            149
+          ]
+        },
+        {
+          "rgbaSha256": "6148971c460b12245cd6b4aa423dc877deaa45976b0401760bd37f574ad5fb2f",
+          "visiblePixels": 7508,
+          "alphaBounds": [
+            56,
+            41,
+            172,
+            149
+          ]
+        },
+        {
+          "rgbaSha256": "79a6970e3ddafbf5c0e937847476b7876299ec8ecfaaf0ac29faaf7f0b5e5a76",
+          "visiblePixels": 7162,
+          "alphaBounds": [
+            55,
+            41,
+            169,
+            148
+          ]
+        },
+        {
+          "rgbaSha256": "693ecdc01da3be2782b7c3dee481b1db8b74968707a93acd17ba2195b5880ee6",
+          "visiblePixels": 6753,
+          "alphaBounds": [
+            55,
+            40,
+            169,
+            148
+          ]
+        },
+        {
+          "rgbaSha256": "167c3244ee0b1950aa8f8ce9fbae459c10f6a165328859ede6d0c043e0ce7d86",
+          "visiblePixels": 6337,
+          "alphaBounds": [
+            55,
+            38,
+            173,
+            148
+          ]
+        },
+        {
+          "rgbaSha256": "f8c8a0c2a05d66fe5f685395a21eebb17f7e605ea8c356d48c6ad401abd70512",
+          "visiblePixels": 7274,
+          "alphaBounds": [
+            39,
+            36,
+            177,
+            148
+          ]
+        },
+        {
+          "rgbaSha256": "3e42b2891338317df0ded6a2c47c79e54bb0328896a393b05dda93734f3a068e",
+          "visiblePixels": 6601,
+          "alphaBounds": [
+            41,
+            35,
+            181,
+            148
+          ]
+        },
+        {
+          "rgbaSha256": "a3ebe95ef46eeb2168906c62c916975ab759c36e5b72c0af423cf37946acc832",
+          "visiblePixels": 6085,
+          "alphaBounds": [
+            44,
+            33,
+            183,
+            148
+          ]
+        },
+        {
+          "rgbaSha256": "e651a4fd8f433f76556953fc2233a247724c9b1632956e8c95cd28db3324e56e",
+          "visiblePixels": 6964,
+          "alphaBounds": [
+            33,
+            32,
+            180,
+            148
+          ]
+        },
+        {
+          "rgbaSha256": "4724e0861388951c09675e4e8a2d25661e515d2193f51931465bc22087b7940c",
+          "visiblePixels": 6499,
+          "alphaBounds": [
+            35,
+            46,
+            167,
+            147
+          ]
+        },
+        {
+          "rgbaSha256": "8b8edeeee2459356d77d715a9a66d73e0d8fe0c60ca0b33c231366872361be74",
+          "visiblePixels": 7249,
+          "alphaBounds": [
+            38,
+            34,
+            164,
+            147
+          ]
+        },
+        {
+          "rgbaSha256": "73f17f1ad4e01a37c965b5476f143dae719da1299b4a6d7b176984d7b290c575",
+          "visiblePixels": 6220,
+          "alphaBounds": [
+            41,
+            36,
+            163,
+            146
+          ]
+        },
+        {
+          "rgbaSha256": "62ba21e883ed700ce9977d5c8de73dd09fb47faa9150afd05638676e352b1676",
+          "visiblePixels": 4841,
+          "alphaBounds": [
+            38,
+            39,
+            164,
+            146
+          ]
+        },
+        {
+          "rgbaSha256": "5d9a03436e6df465ff1bcefaec33d870d8a136b3a8796fcde4529c5633d03288",
+          "visiblePixels": 2575,
+          "alphaBounds": [
+            36,
+            40,
+            164,
+            129
+          ]
+        },
+        {
+          "rgbaSha256": "a3bbe6f008f9d015688647607dc1819aae9b2291214b9d59327f74fa7d82633e",
+          "visiblePixels": 1568,
+          "alphaBounds": [
+            38,
+            37,
+            132,
+            126
+          ]
+        },
+        {
+          "rgbaSha256": "ac8d332ee8689dfafd0f45dd97c831ecd16db2e2c72fdbc4eb3e571802d0c2f0",
+          "visiblePixels": 935,
+          "alphaBounds": [
+            36,
+            35,
+            133,
+            125
+          ]
+        },
+        {
+          "rgbaSha256": "06fe3ee706b6a03e89347964ec14d4616b6f95384d449891a62c5397213f89a9",
+          "visiblePixels": 709,
+          "alphaBounds": [
+            44,
+            33,
+            134,
+            124
+          ]
+        },
+        {
+          "rgbaSha256": "4696ce1fc6eece74d63d0629db8ce6e3208b18e774c3775d390eba2a9cced057",
+          "visiblePixels": 647,
+          "alphaBounds": [
+            42,
+            32,
+            134,
+            124
+          ]
+        },
+        {
+          "rgbaSha256": "b5a0d73fe00af3dc2a3ec67e41eced3fabb9b30c768729127afeab0172375553",
+          "visiblePixels": 554,
+          "alphaBounds": [
+            40,
+            32,
+            113,
+            111
+          ]
+        },
+        {
+          "rgbaSha256": "9bfa2b25644b833cee785d68fdb9584aa9360d0506bbf5ceb3d645576f56cd55",
+          "visiblePixels": 462,
+          "alphaBounds": [
+            39,
+            32,
+            114,
+            111
+          ]
+        },
+        {
+          "rgbaSha256": "65a008cd00a02d985983cbf32fd8a03e70311c912339b40166d88c3316ec2829",
+          "visiblePixels": 307,
+          "alphaBounds": [
+            46,
+            33,
+            105,
+            109
+          ]
+        },
+        {
+          "rgbaSha256": "1d9c4915a4dd8d8b01efa28640b74cd9320ac3bc11bf56d669c93d9961ff0542",
+          "visiblePixels": 200,
+          "alphaBounds": [
+            46,
+            39,
+            87,
+            110
+          ]
+        },
+        {
+          "rgbaSha256": "29aa194cd05d6ff6fca72075508393923ce255c70e2773760f13b7b0fba73666",
+          "visiblePixels": 170,
+          "alphaBounds": [
+            45,
+            38,
+            87,
+            111
+          ]
+        },
+        {
+          "rgbaSha256": "266a53e08eefe3c5a3039d33ae01aa4dc921676b9bb2c18c0e319b79c6f24de7",
+          "visiblePixels": 73,
+          "alphaBounds": [
+            44,
+            36,
+            87,
+            111
+          ]
+        },
+        {
+          "rgbaSha256": "be5be7c2c21e6aabf13bca361b7e0aa7384a8da31bbd3f158e0f7b6444feb973",
+          "visiblePixels": 52,
+          "alphaBounds": [
+            43,
+            35,
+            87,
+            111
+          ]
+        },
+        {
+          "rgbaSha256": "c5487d5e260aaee34a909b6da3dfe70e1e049b583b8e33adb839a36aa9ed9b47",
+          "visiblePixels": 29,
+          "alphaBounds": [
+            44,
+            34,
+            87,
+            61
+          ]
+        },
+        {
+          "rgbaSha256": "e72872a5e8e4f96e90e1961aacfdb421351ee84cf9af799e3583926a89337ab4",
+          "visiblePixels": 14,
+          "alphaBounds": [
+            82,
+            33,
+            86,
+            37
+          ]
+        },
+        {
+          "rgbaSha256": "26513bb9943a0abb06b61ad65b1919b7821df9eebba82b0487b8cbae43522550",
+          "visiblePixels": 0,
+          "alphaBounds": null
+        },
+        {
+          "rgbaSha256": "26513bb9943a0abb06b61ad65b1919b7821df9eebba82b0487b8cbae43522550",
+          "visiblePixels": 0,
+          "alphaBounds": null
+        }
+      ],
+      "sheetRgbaSha256": "595e9d6b4c3fce9e2e08827b204325ec4c7dfada1061e5a445c5d415c5b997b9",
+      "frameCount": 55,
+      "byteLength": 360826,
+      "sha256": "1bfa7f24e39f3100a481550e5eaed674730ffc558e15ce9cec159db3d3cc1c3a",
+      "pixelRoundTrip": true
+    },
+    "healing": {
+      "frames": [
+        {
+          "rgbaSha256": "fdc50c16d74ed047934179d4de492a37199305a96eb1c81fb9df5435ecf12360",
+          "visiblePixels": 156,
+          "alphaBounds": [
+            121,
+            94,
+            135,
+            108
+          ]
+        },
+        {
+          "rgbaSha256": "4c7bed797d44efa14177ea77435229d927e4e32838571b748bc726e5b4aaf087",
+          "visiblePixels": 371,
+          "alphaBounds": [
+            87,
+            90,
+            167,
+            109
+          ]
+        },
+        {
+          "rgbaSha256": "27fe98c4896e1f8e303cec77bd492b7230f47b27e77ec812e97863bdda6781c2",
+          "visiblePixels": 585,
+          "alphaBounds": [
+            91,
+            90,
+            168,
+            112
+          ]
+        },
+        {
+          "rgbaSha256": "35a4e05594d5a3b7a6f58c985ada325d4022e6439859502044ca8a57e33cd411",
+          "visiblePixels": 761,
+          "alphaBounds": [
+            94,
+            88,
+            164,
+            114
+          ]
+        },
+        {
+          "rgbaSha256": "7614ce4ef60e43406dfdcee0dd3c9adc663071cb2a85fddc33c3d31585b1776b",
+          "visiblePixels": 921,
+          "alphaBounds": [
+            100,
+            86,
+            159,
+            116
+          ]
+        },
+        {
+          "rgbaSha256": "7edaa86414beb37374f205cf91e7384764179e5431a8d2bcc80b2d5ab22e8f94",
+          "visiblePixels": 1110,
+          "alphaBounds": [
+            85,
+            85,
+            171,
+            117
+          ]
+        },
+        {
+          "rgbaSha256": "a13513e19b10e05f835ef60a195a6f3a636418039683cb55491faecb633fc3ea",
+          "visiblePixels": 1243,
+          "alphaBounds": [
+            91,
+            83,
+            175,
+            119
+          ]
+        },
+        {
+          "rgbaSha256": "4d33ee606013c8e72450af9fe2440aa8f45b7b44ba51559c2c5a88bfdf098d62",
+          "visiblePixels": 1416,
+          "alphaBounds": [
+            94,
+            81,
+            170,
+            121
+          ]
+        },
+        {
+          "rgbaSha256": "4c2f8330eb4472982e5ce2fa9fae1a450b18b30838346588a7f09ca4ddb68bcf",
+          "visiblePixels": 1612,
+          "alphaBounds": [
+            85,
+            79,
+            164,
+            123
+          ]
+        },
+        {
+          "rgbaSha256": "83ea0d0998a384f550dddd0499f6f5aead979e86ae7fc5cdb2d627dc2cd92445",
+          "visiblePixels": 13684,
+          "alphaBounds": [
+            58,
+            18,
+            198,
+            135
+          ]
+        },
+        {
+          "rgbaSha256": "895fbc0b53407e8cc23e954ed3b5f569649d32f40961a714cc8f3fd19cbd0e08",
+          "visiblePixels": 12960,
+          "alphaBounds": [
+            60,
+            20,
+            196,
+            135
+          ]
+        },
+        {
+          "rgbaSha256": "cdd158e5c0655d74084f2d12995ac81c1b4ce291cf1bc9d3fc143488d3e44719",
+          "visiblePixels": 12238,
+          "alphaBounds": [
+            63,
+            23,
+            193,
+            135
+          ]
+        },
+        {
+          "rgbaSha256": "ed75735beaa48e64239cc8234546da04016e9b84c94e3e25d2f112defb8b9f75",
+          "visiblePixels": 11522,
+          "alphaBounds": [
+            65,
+            25,
+            191,
+            135
+          ]
+        },
+        {
+          "rgbaSha256": "88408ecdf1067432732ea6bddf052ad85150d40ae2126d05bbd354769cc2891f",
+          "visiblePixels": 10796,
+          "alphaBounds": [
+            67,
+            27,
+            189,
+            135
+          ]
+        },
+        {
+          "rgbaSha256": "b1ca90bb75575fc1ba85a9fbb7b1a60cc55ca00be79557b4876cb0596766740c",
+          "visiblePixels": 10084,
+          "alphaBounds": [
+            70,
+            30,
+            186,
+            135
+          ]
+        },
+        {
+          "rgbaSha256": "2ff85b1ae06260f28bdc7862171fc5b3cdf5b9fa39f63da9c021bb100fc53c2d",
+          "visiblePixels": 9760,
+          "alphaBounds": [
+            64,
+            32,
+            192,
+            134
+          ]
+        },
+        {
+          "rgbaSha256": "f3b5da405f0c823a2c3c55a2bada71d6f1e8557db44c199941c5966347e0b3be",
+          "visiblePixels": 9620,
+          "alphaBounds": [
+            57,
+            35,
+            199,
+            134
+          ]
+        },
+        {
+          "rgbaSha256": "b74cdb16bbcb4d290406e2379eb240f304ec94cb0cc648fce2fa75c5e74c7e63",
+          "visiblePixels": 9530,
+          "alphaBounds": [
+            51,
+            38,
+            205,
+            133
+          ]
+        },
+        {
+          "rgbaSha256": "12ef6b9320d3d418d62b113120d8d0ee445d67688372a363ebd32b60f1768332",
+          "visiblePixels": 9495,
+          "alphaBounds": [
+            46,
+            38,
+            210,
+            132
+          ]
+        },
+        {
+          "rgbaSha256": "770c3449c1a6dba5a65a53039a664909541fc0e865ecd70e9525ed37a49a0716",
+          "visiblePixels": 9416,
+          "alphaBounds": [
+            41,
+            37,
+            215,
+            132
+          ]
+        },
+        {
+          "rgbaSha256": "1bdd427d47f4102cb35500687cb5853c11718beeea150e24b8f6525a79451b16",
+          "visiblePixels": 9268,
+          "alphaBounds": [
+            37,
+            37,
+            219,
+            131
+          ]
+        },
+        {
+          "rgbaSha256": "6e4434ae857752844d5b1a7b21104c49cfae18fc297419084c8ad0b635f3104a",
+          "visiblePixels": 9267,
+          "alphaBounds": [
+            33,
+            34,
+            223,
+            132
+          ]
+        },
+        {
+          "rgbaSha256": "eb12d1a14bb117622cde329a045c21e845c730c9e7222d72d6af2dd540c9d370",
+          "visiblePixels": 9200,
+          "alphaBounds": [
+            29,
+            29,
+            227,
+            132
+          ]
+        },
+        {
+          "rgbaSha256": "dadec5e687a484e25f378ed14510476d62542b042d8ca692ac0c11ab0b8a8c24",
+          "visiblePixels": 9240,
+          "alphaBounds": [
+            26,
+            25,
+            230,
+            132
+          ]
+        },
+        {
+          "rgbaSha256": "27101805087effd2ab9a1910742f20222bb46015a4e239c30316b807d3df84a3",
+          "visiblePixels": 9211,
+          "alphaBounds": [
+            23,
+            21,
+            233,
+            133
+          ]
+        },
+        {
+          "rgbaSha256": "2832bb80a217a36193171f33e25fb8ca315d672f31cd49affee67f7597d46189",
+          "visiblePixels": 9603,
+          "alphaBounds": [
+            21,
+            18,
+            235,
+            133
+          ]
+        },
+        {
+          "rgbaSha256": "fa313084dc40ae5a4eed49b876b35387b892ca1459b19f0a7ca14d36921dfbd7",
+          "visiblePixels": 9895,
+          "alphaBounds": [
+            19,
+            60,
+            237,
+            133
+          ]
+        },
+        {
+          "rgbaSha256": "53fee7f6d9e50500a1ea5e6a7be3b5be52e60dec48b557a688789873b3e34903",
+          "visiblePixels": 10274,
+          "alphaBounds": [
+            17,
+            61,
+            239,
+            133
+          ]
+        },
+        {
+          "rgbaSha256": "7988a0a15ec8dc420e21b00c1130e4c50e93c68eeaec94c0e5bd5eeca28dad91",
+          "visiblePixels": 10613,
+          "alphaBounds": [
+            16,
+            60,
+            240,
+            134
+          ]
+        },
+        {
+          "rgbaSha256": "e7711f77c60e34663bab75b7ab21aa5854cf1a5d8a7668bd203e67f14b3ce58d",
+          "visiblePixels": 11002,
+          "alphaBounds": [
+            14,
+            59,
+            242,
+            134
+          ]
+        },
+        {
+          "rgbaSha256": "4a4217223de3bfeb262b4e93425a662d5ed68b87acf7ceb2aabeb5cda5be0aa3",
+          "visiblePixels": 11247,
+          "alphaBounds": [
+            13,
+            59,
+            243,
+            134
+          ]
+        },
+        {
+          "rgbaSha256": "bd94758d4da3b07d35f3a35f7ae5a429991959262d638b3b9cc3f5f0a8f155e5",
+          "visiblePixels": 11505,
+          "alphaBounds": [
+            12,
+            58,
+            244,
+            134
+          ]
+        },
+        {
+          "rgbaSha256": "c77f31a0d8cbdb1aebf8ba06b9e5fbbdfa0359e4a4c0f0766d438774d59975d8",
+          "visiblePixels": 11746,
+          "alphaBounds": [
+            12,
+            58,
+            244,
+            134
+          ]
+        },
+        {
+          "rgbaSha256": "2d710f7d10908f4ff519923f9e007330838f8ed14204bbb8c6ad28d29483a702",
+          "visiblePixels": 11932,
+          "alphaBounds": [
+            11,
+            57,
+            245,
+            134
+          ]
+        },
+        {
+          "rgbaSha256": "260a63060247c05b8e54f38c5193e7b95f52cb37ff6a699009fa76f7c8f921e9",
+          "visiblePixels": 12053,
+          "alphaBounds": [
+            11,
+            56,
+            245,
+            134
+          ]
+        },
+        {
+          "rgbaSha256": "9f7dcdd0bfd15abff6574bf6122a3191366b9581ab1022ac1ed51a0194edd0c2",
+          "visiblePixels": 12211,
+          "alphaBounds": [
+            11,
+            55,
+            245,
+            134
+          ]
+        },
+        {
+          "rgbaSha256": "ded10ada9412b20a3604a056d7851db308231b38d9f7814fd0f9ed7592766b11",
+          "visiblePixels": 12365,
+          "alphaBounds": [
+            11,
+            54,
+            245,
+            134
+          ]
+        },
+        {
+          "rgbaSha256": "691881773e00cd1daa9dfed8197d5564786d776c7cd35084a477a5750dba7d9a",
+          "visiblePixels": 12435,
+          "alphaBounds": [
+            11,
+            53,
+            245,
+            134
+          ]
+        },
+        {
+          "rgbaSha256": "c5a00d714441f50dfee6f6a636f219cd91dabe3639fa3a00a1f91cd5379224e9",
+          "visiblePixels": 12537,
+          "alphaBounds": [
+            11,
+            52,
+            245,
+            134
+          ]
+        },
+        {
+          "rgbaSha256": "4cbef088683afa3cb0c311ae4f8c2a74895bd9f12129f172b1858a9a0b90ba66",
+          "visiblePixels": 12540,
+          "alphaBounds": [
+            11,
+            51,
+            245,
+            134
+          ]
+        },
+        {
+          "rgbaSha256": "8944ee0ebaf07d6cf153102c719e4e5893e761152838b365b17a95b7bac4e80f",
+          "visiblePixels": 12493,
+          "alphaBounds": [
+            11,
+            51,
+            245,
+            133
+          ]
+        },
+        {
+          "rgbaSha256": "24b9bcf986a8a942906c399cfa8f85bf4eccaee05d42198394d14c1b2e39dfa1",
+          "visiblePixels": 12458,
+          "alphaBounds": [
+            11,
+            50,
+            245,
+            133
+          ]
+        },
+        {
+          "rgbaSha256": "d842a793cd3885d7872010624d19c08d47fe1ec5c6ff8be7aeea99b8b78a4503",
+          "visiblePixels": 12348,
+          "alphaBounds": [
+            12,
+            50,
+            244,
+            133
+          ]
+        },
+        {
+          "rgbaSha256": "a751b4d807ec65e050616cc81f68a509df16d23de819d4d06005cafcb3e853a7",
+          "visiblePixels": 12158,
+          "alphaBounds": [
+            12,
+            50,
+            244,
+            133
+          ]
+        },
+        {
+          "rgbaSha256": "f069ba9f10482b6c8cde18ab9fe36d316f40a15cbc1504380d538d51836c524c",
+          "visiblePixels": 11695,
+          "alphaBounds": [
+            13,
+            49,
+            243,
+            132
+          ]
+        },
+        {
+          "rgbaSha256": "df47b8dafcce3baf87a40091b84c3a672fafbabd55323608e374c04e7e1b8ddb",
+          "visiblePixels": 10973,
+          "alphaBounds": [
+            15,
+            49,
+            241,
+            132
+          ]
+        },
+        {
+          "rgbaSha256": "9f63de12eb70ac29b312a99e91c89126c8a0b4c9247792ea15ffc07944c7cc2c",
+          "visiblePixels": 9600,
+          "alphaBounds": [
+            20,
+            49,
+            236,
+            128
+          ]
+        },
+        {
+          "rgbaSha256": "6bed8df1794cf4e9990b945e2e57d8ea9b10235700309c14cb7719b69a1d8c69",
+          "visiblePixels": 8450,
+          "alphaBounds": [
+            23,
+            48,
+            235,
+            124
+          ]
+        },
+        {
+          "rgbaSha256": "854ac99d727b37c8b0a89d15f9ef7db226a7ec8190f6dc6faeb4da97a2c3b787",
+          "visiblePixels": 7500,
+          "alphaBounds": [
+            23,
+            48,
+            235,
+            124
+          ]
+        },
+        {
+          "rgbaSha256": "bcb23a7d00e13cb21706cf73ca5586ec85373b99a52a64432516ba00526e07bf",
+          "visiblePixels": 6246,
+          "alphaBounds": [
+            23,
+            48,
+            235,
+            124
+          ]
+        },
+        {
+          "rgbaSha256": "f60598a98deeeb0faa5f038d3295c00d299a40712e8365599c7a2a5a9b436e71",
+          "visiblePixels": 4887,
+          "alphaBounds": [
+            23,
+            48,
+            235,
+            124
+          ]
+        },
+        {
+          "rgbaSha256": "1b84b19abc50e20b16e2212c92884398384cd20c68c9cd3955d22c6e3820334a",
+          "visiblePixels": 3664,
+          "alphaBounds": [
+            23,
+            48,
+            235,
+            124
+          ]
+        },
+        {
+          "rgbaSha256": "8804c4bda6cee35010ee987bfae9896c853f66b9d9c17bb1cf395e0e2cbcce95",
+          "visiblePixels": 3608,
+          "alphaBounds": [
+            24,
+            48,
+            235,
+            123
+          ]
+        },
+        {
+          "rgbaSha256": "9ce538bdc7552af4a4a7fa7f3c53b45c745b9d243dd6bd79748e014e94a37853",
+          "visiblePixels": 3454,
+          "alphaBounds": [
+            24,
+            47,
+            235,
+            122
+          ]
+        },
+        {
+          "rgbaSha256": "cc7ccc2eeba96a2156a7945c22cf347804966d99de422e73c44f7fd4a9846673",
+          "visiblePixels": 3129,
+          "alphaBounds": [
+            24,
+            47,
+            235,
+            121
+          ]
+        },
+        {
+          "rgbaSha256": "d70101f3c4a10807eec08871fe13246d876371d9a5edcc23a2890c1e65389703",
+          "visiblePixels": 2781,
+          "alphaBounds": [
+            25,
+            47,
+            235,
+            121
+          ]
+        },
+        {
+          "rgbaSha256": "f55450f79dd01cf7bdc5a7e97c969dba104839ee263aa320176f6d0cc3a783c4",
+          "visiblePixels": 2644,
+          "alphaBounds": [
+            26,
+            46,
+            235,
+            120
+          ]
+        },
+        {
+          "rgbaSha256": "dc3bbbc72845c88385eac2446e2d2050527731dcc1363a659805173b6e5cde9c",
+          "visiblePixels": 2144,
+          "alphaBounds": [
+            26,
+            46,
+            235,
+            119
+          ]
+        },
+        {
+          "rgbaSha256": "cf22bf8ec9b4d9edce8ce15f6dac54324a198b1c49185a632cfdd9003e7e6464",
+          "visiblePixels": 1865,
+          "alphaBounds": [
+            26,
+            46,
+            236,
+            118
+          ]
+        },
+        {
+          "rgbaSha256": "feaa6a687d7c0b6b1bf0f9bd27198ebb280a718866ff3a8e887893f2b369fcf2",
+          "visiblePixels": 1654,
+          "alphaBounds": [
+            26,
+            46,
+            236,
+            118
+          ]
+        },
+        {
+          "rgbaSha256": "5bd993533173fc5ba979979510b16987fb582b88a333fa23d9d20a1f9f8a9d40",
+          "visiblePixels": 1446,
+          "alphaBounds": [
+            26,
+            46,
+            236,
+            117
+          ]
+        },
+        {
+          "rgbaSha256": "917d66fadbd78b2f60101355e8c20646aec6bec15985617256f84d53c1e8f629",
+          "visiblePixels": 1293,
+          "alphaBounds": [
+            26,
+            46,
+            236,
+            116
+          ]
+        },
+        {
+          "rgbaSha256": "a73452dd4590dcaeea5e8d1ea04061a2936460c78f3700846999e42a3bddae9e",
+          "visiblePixels": 1225,
+          "alphaBounds": [
+            26,
+            46,
+            236,
+            116
+          ]
+        },
+        {
+          "rgbaSha256": "1db5deada19c60f1d59a2ca5967e720308a98764488f5eec9bb56ed25be7eb5b",
+          "visiblePixels": 1155,
+          "alphaBounds": [
+            25,
+            46,
+            236,
+            115
+          ]
+        },
+        {
+          "rgbaSha256": "6e48e3f6eeab993ca52ecae4e5259dd3476b35ad091b5f6896ddc3cf95487098",
+          "visiblePixels": 1169,
+          "alphaBounds": [
+            25,
+            46,
+            236,
+            114
+          ]
+        },
+        {
+          "rgbaSha256": "acf2f67a188b643af75d2f1e571f6821f691b823bf3885ec930efc53a7896339",
+          "visiblePixels": 1061,
+          "alphaBounds": [
+            25,
+            46,
+            235,
+            113
+          ]
+        },
+        {
+          "rgbaSha256": "35abedacc1b8ebd3dfd6ccdcf4fd6cb16bed0b4836111432d8cfa239b708c806",
+          "visiblePixels": 685,
+          "alphaBounds": [
+            58,
+            46,
+            233,
+            113
+          ]
+        },
+        {
+          "rgbaSha256": "c7e1ffe08278cfdf72b407123ea01df4e9b413bb960a62cb80bedd0f7f0bbf79",
+          "visiblePixels": 470,
+          "alphaBounds": [
+            34,
+            47,
+            218,
+            112
+          ]
+        },
+        {
+          "rgbaSha256": "65126506df246018136f36ccd8569620440ff2c59df0b87ea4114cc2306dee03",
+          "visiblePixels": 361,
+          "alphaBounds": [
+            25,
+            81,
+            218,
+            111
+          ]
+        },
+        {
+          "rgbaSha256": "105e3f8afb3c85b5bf0a81a41459971a9a9d5c49c01d2cfe16244e9829c90fb2",
+          "visiblePixels": 317,
+          "alphaBounds": [
+            26,
+            70,
+            219,
+            111
+          ]
+        },
+        {
+          "rgbaSha256": "5db7197e9d1f05477462394d48c1c5c07a3b80857af65ddb7db3af9b153a959c",
+          "visiblePixels": 247,
+          "alphaBounds": [
+            57,
+            80,
+            219,
+            110
+          ]
+        },
+        {
+          "rgbaSha256": "9a373b71979896941743fb1dfc2fd3f3af97a2cf61cf812c03e4f30ee19736e2",
+          "visiblePixels": 175,
+          "alphaBounds": [
+            70,
+            80,
+            220,
+            109
+          ]
+        },
+        {
+          "rgbaSha256": "c8ca412ab929d333df701fd6b156c08ecb797237846bf1fd916e357cf03b6d8a",
+          "visiblePixels": 180,
+          "alphaBounds": [
+            33,
+            80,
+            220,
+            109
+          ]
+        },
+        {
+          "rgbaSha256": "b771b3b50efb3277a981f35c2c581efed6ffe7c9997d6bccb9cc8eec37ab1ba6",
+          "visiblePixels": 135,
+          "alphaBounds": [
+            34,
+            77,
+            191,
+            107
+          ]
+        },
+        {
+          "rgbaSha256": "3d94f6ade45854f23882d581dcd73239c962198de4f542a965c0e35517fa3022",
+          "visiblePixels": 87,
+          "alphaBounds": [
+            65,
+            78,
+            191,
+            106
+          ]
+        },
+        {
+          "rgbaSha256": "32253bb0040d8764ea80dd3624ffb4e3176e4b3db96a80682a77fa61bd697500",
+          "visiblePixels": 99,
+          "alphaBounds": [
+            65,
+            79,
+            221,
+            104
+          ]
+        },
+        {
+          "rgbaSha256": "64f5d1de9f6e50ee3289aa02c90d168546e4d80655bd41bb9fb68dca496edabe",
+          "visiblePixels": 92,
+          "alphaBounds": [
+            73,
+            78,
+            222,
+            105
+          ]
+        },
+        {
+          "rgbaSha256": "0a70f36a0ba87f9c66a318ac8d69a0bf998f78dd27360c3e04eb77df5cd17dfc",
+          "visiblePixels": 65,
+          "alphaBounds": [
+            56,
+            85,
+            192,
+            100
+          ]
+        },
+        {
+          "rgbaSha256": "cd248e1cc2c0a9b30154d49ca21c8cbe35098927e06f6411b863bafdb5ce0c15",
+          "visiblePixels": 0,
+          "alphaBounds": null
+        },
+        {
+          "rgbaSha256": "8e1847c6408a5c920f85187c405f67e4a78443c7457be2b968418d0be18f8f5a",
+          "visiblePixels": 33,
+          "alphaBounds": [
+            131,
+            79,
+            221,
+            90
+          ]
+        },
+        {
+          "rgbaSha256": "25b8021bc487408cdabaac7d29b052f750221f5ab056f108f2e8869be0032070",
+          "visiblePixels": 47,
+          "alphaBounds": [
+            131,
+            84,
+            193,
+            98
+          ]
+        },
+        {
+          "rgbaSha256": "15601628a05cf57ddbf2d7a8e553e45b680e3fbd9e5a31a6704ebdaeefcc6904",
+          "visiblePixels": 46,
+          "alphaBounds": [
+            132,
+            83,
+            194,
+            98
+          ]
+        },
+        {
+          "rgbaSha256": "76da138b7bc5ee6765e95fa1d8c24bb0e2e7c4a8df3e86466bbe1cd42e85c305",
+          "visiblePixels": 17,
+          "alphaBounds": [
+            189,
+            92,
+            194,
+            97
+          ]
+        },
+        {
+          "rgbaSha256": "cd248e1cc2c0a9b30154d49ca21c8cbe35098927e06f6411b863bafdb5ce0c15",
+          "visiblePixels": 0,
+          "alphaBounds": null
+        },
+        {
+          "rgbaSha256": "f8322e6cbe349c44febb7a28fac5697aaacc2a6733f56ff48b0ee07fcb900908",
+          "visiblePixels": 8,
+          "alphaBounds": [
+            134,
+            83,
+            137,
+            86
+          ]
+        },
+        {
+          "rgbaSha256": "4e714d91d816e39227864ac2a2fa3c718d9cf9826cf50c87a0a5fd695a4710ba",
+          "visiblePixels": 1,
+          "alphaBounds": [
+            136,
+            84,
+            137,
+            85
+          ]
+        },
+        {
+          "rgbaSha256": "cd248e1cc2c0a9b30154d49ca21c8cbe35098927e06f6411b863bafdb5ce0c15",
+          "visiblePixels": 0,
+          "alphaBounds": null
+        },
+        {
+          "rgbaSha256": "cd248e1cc2c0a9b30154d49ca21c8cbe35098927e06f6411b863bafdb5ce0c15",
+          "visiblePixels": 0,
+          "alphaBounds": null
+        }
+      ],
+      "sheetRgbaSha256": "64cf300f109ac14251fe2258218d6da0967b465ca457d760cd5e443ab1eb828e",
+      "frameCount": 88,
+      "byteLength": 554488,
+      "sha256": "6e7785d4d6d37230056780bd9788e13a8bbf446c3f0986a796d785487ac8ba8e",
+      "pixelRoundTrip": true
+    }
+  }
+}

@@ -45,7 +45,16 @@ export class WorldScene{
  private props:SceneProp[]=[];private sceneryLayer=document.createElement('canvas');
  private weather:Weather='sun';private scenery:ScenicProp[]=[];private route:readonly {x:number;y:number}[]=[];
  private offset={x:0,y:100};private lastTime=0;private paintCost=0;private dirty=true;
- constructor(){this.canvas.className='world-canvas';this.canvas.setAttribute('aria-hidden','true');this.canvas.dataset.art='loading';void loadWorldArt().then(()=>{this.loaded=true;this.cache='';this.propImages.clear();}).catch(()=>{this.canvas.dataset.error='art-load';}).finally(()=>{this.artPending=false;this.dirty=true;});this.frame=requestAnimationFrame(t=>this.paint(t));}
+ private artGeneration=0;
+ constructor(options:{loadArt?:boolean}={}){this.canvas.className='world-canvas';this.canvas.setAttribute('aria-hidden','true');this.canvas.dataset.art='loading';if(options.loadArt!==false)void this.prepareArt().catch(()=>{});this.frame=requestAnimationFrame(t=>this.paint(t));}
+ async prepareArt(signal?:AbortSignal){
+  const generation=++this.artGeneration;this.artPending=true;
+  try{await loadWorldArt(signal);if(generation!==this.artGeneration)return;this.loaded=true;this.cache='';this.propImages.clear();delete this.canvas.dataset.error;}
+  catch(error){if(generation===this.artGeneration)this.canvas.dataset.error='art-load';throw error;}
+  finally{if(generation===this.artGeneration){this.artPending=false;this.dirty=true;}}
+ }
+ /** First playable frame is drawn synchronously after its assets are ready. */
+ renderNow(){cancelAnimationFrame(this.frame);this.paint(performance.now(),true);}
  setRoute(route:readonly {x:number;y:number}[]){this.route=route;this.dirty=true;}
  setBattleFocus(point:{x:number;y:number}|undefined){if(this.battleFocus?.x===point?.x&&this.battleFocus?.y===point?.y)return;this.battleFocus=point;this.dirty=true;if(this.s&&this.svg?.isConnected)this.syncView(this.s);}
  setState(s:DeepReadonly<AdventureSnapshot>,camera:{x:number;y:number;zoom:number},svg:SVGSVGElement,weather:Weather){
@@ -112,11 +121,11 @@ export class WorldScene{
   for(const key of s.runtime.explored){const [x,y]=key.split(',').map(Number),p=projectIso(x,y,s.runtime.visual[key]?.height??0);c.fillStyle=visible.has(key)?'#000':'#0005';c.beginPath();c.ellipse(p.x,p.y-25,54,52,0,0,Math.PI*2);c.fill();}
   this.softFog.width=this.fog.width;this.softFog.height=this.fog.height;const blurred=this.softFog.getContext('2d')!;blurred.filter='blur(4px)';blurred.drawImage(this.fog,0,0);
  }
- private paint(now:number){
+ private paint(now:number,force=false){
   if(this.stopped)return;this.frame=requestAnimationFrame(t=>this.paint(t));const s=this.s;if(!s||!this.svg||!this.canvas.isConnected||this.canvas.hidden||document.hidden||this.artPending)return;
   const a=s.runtime.actors[s.playerActorId],moving=Math.hypot(a.position.x-this.actor.x,a.position.y-this.actor.y)>.00001||Math.abs(this.target.zoom-this.camera.zoom)>.00001;
   const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches,interval=Math.max(reduced?150:moving||this.dirty?30:120,this.paintCost*2);
-  if(now-this.lastTime<interval)return;const started=performance.now(),warm=this.cache===s.runId+':'+this.loaded;
+  if(!force&&now-this.lastTime<interval)return;const started=performance.now(),warm=this.cache===s.runId+':'+this.loaded;
   const dt=Math.min(.05,(now-(this.lastTime||now))/1000);this.lastTime=now;this.dirty=false;const factor=reduced?1:1-Math.exp(-24*dt);
   const approach=(value:number,target:number)=>Math.abs(target-value)<.00001?target:value+(target-value)*factor;
   this.camera.zoom=approach(this.camera.zoom,this.target.zoom);

@@ -25,7 +25,7 @@ test('慢速设备仍可响应：静态场景复用、真实移动停止、菜�
  await page.waitForTimeout(350);expect((await state(page)).runtime.actors[moved.playerActorId].position).toEqual(moved.runtime.actors[moved.playerActorId].position);
  const clickStart=Date.now();await page.locator('[data-panel="inventory"]').click();await expect(page.getByRole('dialog')).toBeVisible();const menuLatency=Date.now()-clickStart;expect(menuLatency).toBeLessThan(1500);
  await page.locator('[data-panel="settings"]').click();await page.locator('#adventure-save').click();const saved=await state(page);
- await page.screenshot({path:`/tmp/${info.project.name}-scene-responsive.png`});
+ await page.screenshot({path:info.outputPath('scene-responsive.png')});
  await page.goto('?view=demo');await page.locator('.world-canvas[data-art="ready"]').waitFor();expect((await state(page)).runtime).toEqual(saved.runtime);expect(errors).toEqual([]);
  await info.attach('responsiveness',{body:JSON.stringify({cpuSlowdown:4,viewport:info.project.use.viewport,idle,menuLatency,moveRevisions:moved.revision-before.revision,errors}),contentType:'application/json'});
 });

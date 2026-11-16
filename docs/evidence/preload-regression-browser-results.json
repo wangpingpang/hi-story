@@ -1,0 +1,1245 @@
+{
+  "config": {
+    "argv": [
+      "D:\\work\\node\\node-24-lts\\node.exe",
+      "F:\\codexWorkSpace\\hi-story\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "tests/e2e/gameplay-closure.spec.ts",
+      "tests/e2e/character-library.spec.ts",
+      "tests/e2e/external-character-game.spec.ts",
+      "tests/e2e/scene-responsiveness.spec.ts"
+    ],
+    "configFile": "F:\\codexWorkSpace\\hi-story\\playwright.config.ts",
+    "rootDir": "F:/codexWorkSpace/hi-story/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "F:/codexWorkSpace/hi-story/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "F:/codexWorkSpace/hi-story/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "F:/codexWorkSpace/hi-story/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "narrow",
+        "name": "narrow",
+        "testDir": "F:/codexWorkSpace/hi-story/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 90000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "F:\\codexWorkSpace\\hi-story\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "desktop",
+        "testDir": "F:\\codexWorkSpace\\hi-story\\tests\\e2e",
+        "snapshotDir": "F:\\codexWorkSpace\\hi-story\\tests\\e2e",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 90000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4173",
+          "launchOptions": {
+            "executablePath": "C:/Program Files/Google/Chrome/Application/chrome.exe",
+            "args": []
+          },
+          "trace": "retain-on-failure",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "F:\\codexWorkSpace\\hi-story\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "narrow",
+        "testDir": "F:\\codexWorkSpace\\hi-story\\tests\\e2e",
+        "snapshotDir": "F:\\codexWorkSpace\\hi-story\\tests\\e2e",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 90000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4173",
+          "launchOptions": {
+            "executablePath": "C:/Program Files/Google/Chrome/Application/chrome.exe",
+            "args": []
+          },
+          "trace": "retain-on-failure",
+          "viewport": {
+            "width": 375,
+            "height": 812
+          },
+          "isMobile": true,
+          "hasTouch": true
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "narrow"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "docs/evidence/preload-regression-browser-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.0",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run preview -- --host 127.0.0.1 --port 4173 --strictPort",
+      "url": "http://127.0.0.1:4173",
+      "reuseExistingServer": false
+    }
+  },
+  "suites": [
+    {
+      "title": "character-library.spec.ts",
+      "file": "character-library.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "人物名册、真实动画、八向预览和暂停在桌面与窄屏可用",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1810,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T18:32:09.730Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fed06240f694adb6daf1-c967101a2aba04460701",
+          "file": "character-library.spec.ts",
+          "line": 6,
+          "column": 1
+        },
+        {
+          "title": "快速换人物时，较早的加载结果不能覆盖最后选择",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 846,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T18:32:11.827Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fed06240f694adb6daf1-9dbb2d7d6b9848ccb069",
+          "file": "character-library.spec.ts",
+          "line": 29,
+          "column": 1
+        },
+        {
+          "title": "图集读取失败能重试，且不会显示上一个人物残帧",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 10439,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[data-cl-status]')\nExpected substring: \u001b[32m\"加载失败\"\u001b[39m\nReceived string:    \u001b[31m\"素材图像读取失败，请重试\"\u001b[39m\nTimeout: 10000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('[data-cl-status]') with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-cl-status]')\u001b[22m\n\u001b[2m    23 × locator resolved to <p role=\"status\" data-cl-status=\"\" data-error=\"true\" aria-live=\"polite\">素材图像读取失败，请重试</p>\u001b[22m\n\u001b[2m       - unexpected value \"素材图像读取失败，请重试\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[data-cl-status]')\nExpected substring: \u001b[32m\"加载失败\"\u001b[39m\nReceived string:    \u001b[31m\"素材图像读取失败，请重试\"\u001b[39m\nTimeout: 10000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('[data-cl-status]') with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-cl-status]')\u001b[22m\n\u001b[2m    23 × locator resolved to <p role=\"status\" data-cl-status=\"\" data-error=\"true\" aria-live=\"polite\">素材图像读取失败，请重试</p>\u001b[22m\n\u001b[2m       - unexpected value \"素材图像读取失败，请重试\"\u001b[22m\n\n    at F:\\codexWorkSpace\\hi-story\\tests\\e2e\\character-library.spec.ts:42:108",
+                    "location": {
+                      "file": "F:\\codexWorkSpace\\hi-story\\tests\\e2e\\character-library.spec.ts",
+                      "column": 108,
+                      "line": 42
+                    },
+                    "snippet": "  40 |  let fail=true;await page.route('**/role-1024/action-0.webp',async route=>{if(fail){fail=false;await route.fulfill({status:503,body:'temporary failure'});}else await route.continue();});\n  41 |  await page.goto('?view=character-library');await expect(page.locator(canvas)).toHaveAttribute('data-ready','error');\n> 42 |  await expect(page.locator('[data-cl-use]')).toBeDisabled();await expect(page.locator('[data-cl-status]')).toContainText('加载失败');\n     |                                                                                                            ^\n  43 |  await page.getByRole('button',{name:'重新加载',exact:true}).click();await expect(page.locator(canvas)).toHaveAttribute('data-ready','ready');await expect(page.locator('[data-cl-use]')).toBeEnabled();\n  44 | });\n  45 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "F:\\codexWorkSpace\\hi-story\\tests\\e2e\\character-library.spec.ts",
+                        "column": 108,
+                        "line": 42
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[data-cl-status]')\nExpected substring: \u001b[32m\"加载失败\"\u001b[39m\nReceived string:    \u001b[31m\"素材图像读取失败，请重试\"\u001b[39m\nTimeout: 10000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('[data-cl-status]') with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-cl-status]')\u001b[22m\n\u001b[2m    23 × locator resolved to <p role=\"status\" data-cl-status=\"\" data-error=\"true\" aria-live=\"polite\">素材图像读取失败，请重试</p>\u001b[22m\n\u001b[2m       - unexpected value \"素材图像读取失败，请重试\"\u001b[22m\n\n\n  40 |  let fail=true;await page.route('**/role-1024/action-0.webp',async route=>{if(fail){fail=false;await route.fulfill({status:503,body:'temporary failure'});}else await route.continue();});\n  41 |  await page.goto('?view=character-library');await expect(page.locator(canvas)).toHaveAttribute('data-ready','error');\n> 42 |  await expect(page.locator('[data-cl-use]')).toBeDisabled();await expect(page.locator('[data-cl-status]')).toContainText('加载失败');\n     |                                                                                                            ^\n  43 |  await page.getByRole('button',{name:'重新加载',exact:true}).click();await expect(page.locator(canvas)).toHaveAttribute('data-ready','ready');await expect(page.locator('[data-cl-use]')).toBeEnabled();\n  44 | });\n  45 |\n    at F:\\codexWorkSpace\\hi-story\\tests\\e2e\\character-library.spec.ts:42:108"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T18:32:12.694Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "F:\\codexWorkSpace\\hi-story\\test-results\\character-library-图集读取失败能重试，且不会显示上一个人物残帧-desktop\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "F:\\codexWorkSpace\\hi-story\\test-results\\character-library-图集读取失败能重试，且不会显示上一个人物残帧-desktop\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "F:\\codexWorkSpace\\hi-story\\tests\\e2e\\character-library.spec.ts",
+                    "column": 108,
+                    "line": 42
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "fed06240f694adb6daf1-dc4caa140eda9ae3abe7",
+          "file": "character-library.spec.ts",
+          "line": 39,
+          "column": 1
+        },
+        {
+          "title": "旧入口 character-generator 已切换人物素材馆",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 558,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T18:32:23.774Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fed06240f694adb6daf1-1f3262637697660dd224",
+          "file": "character-library.spec.ts",
+          "line": 46,
+          "column": 63
+        },
+        {
+          "title": "旧入口 character-motion 已切换人物素材馆",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 397,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T18:32:24.615Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fed06240f694adb6daf1-b4f118938b118a267ba3",
+          "file": "character-library.spec.ts",
+          "line": 46,
+          "column": 63
+        },
+        {
+          "title": "选择旅人仅改变外观，返回后冒险位置和人物资料保留",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3510,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T18:32:25.029Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fed06240f694adb6daf1-f45a2d1fc327ca4ed5b7",
+          "file": "character-library.spec.ts",
+          "line": 51,
+          "column": 1
+        },
+        {
+          "title": "人物名册、真实动画、八向预览和暂停在桌面与窄屏可用",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1662,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T18:33:45.415Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fed06240f694adb6daf1-08ab75a0b9cda91fb42c",
+          "file": "character-library.spec.ts",
+          "line": 6,
+          "column": 1
+        },
+        {
+          "title": "快速换人物时，较早的加载结果不能覆盖最后选择",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 861,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T18:33:47.358Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fed06240f694adb6daf1-7f628e94b735d68ad7c8",
+          "file": "character-library.spec.ts",
+          "line": 29,
+          "column": 1
+        },
+        {
+          "title": "图集读取失败能重试，且不会显示上一个人物残帧",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 10400,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[data-cl-status]')\nExpected substring: \u001b[32m\"加载失败\"\u001b[39m\nReceived string:    \u001b[31m\"素材图像读取失败，请重试\"\u001b[39m\nTimeout: 10000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('[data-cl-status]') with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-cl-status]')\u001b[22m\n\u001b[2m    24 × locator resolved to <p role=\"status\" data-cl-status=\"\" data-error=\"true\" aria-live=\"polite\">素材图像读取失败，请重试</p>\u001b[22m\n\u001b[2m       - unexpected value \"素材图像读取失败，请重试\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[data-cl-status]')\nExpected substring: \u001b[32m\"加载失败\"\u001b[39m\nReceived string:    \u001b[31m\"素材图像读取失败，请重试\"\u001b[39m\nTimeout: 10000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('[data-cl-status]') with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-cl-status]')\u001b[22m\n\u001b[2m    24 × locator resolved to <p role=\"status\" data-cl-status=\"\" data-error=\"true\" aria-live=\"polite\">素材图像读取失败，请重试</p>\u001b[22m\n\u001b[2m       - unexpected value \"素材图像读取失败，请重试\"\u001b[22m\n\n    at F:\\codexWorkSpace\\hi-story\\tests\\e2e\\character-library.spec.ts:42:108",
+                    "location": {
+                      "file": "F:\\codexWorkSpace\\hi-story\\tests\\e2e\\character-library.spec.ts",
+                      "column": 108,
+                      "line": 42
+                    },
+                    "snippet": "  40 |  let fail=true;await page.route('**/role-1024/action-0.webp',async route=>{if(fail){fail=false;await route.fulfill({status:503,body:'temporary failure'});}else await route.continue();});\n  41 |  await page.goto('?view=character-library');await expect(page.locator(canvas)).toHaveAttribute('data-ready','error');\n> 42 |  await expect(page.locator('[data-cl-use]')).toBeDisabled();await expect(page.locator('[data-cl-status]')).toContainText('加载失败');\n     |                                                                                                            ^\n  43 |  await page.getByRole('button',{name:'重新加载',exact:true}).click();await expect(page.locator(canvas)).toHaveAttribute('data-ready','ready');await expect(page.locator('[data-cl-use]')).toBeEnabled();\n  44 | });\n  45 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "F:\\codexWorkSpace\\hi-story\\tests\\e2e\\character-library.spec.ts",
+                        "column": 108,
+                        "line": 42
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[data-cl-status]')\nExpected substring: \u001b[32m\"加载失败\"\u001b[39m\nReceived string:    \u001b[31m\"素材图像读取失败，请重试\"\u001b[39m\nTimeout: 10000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('[data-cl-status]') with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-cl-status]')\u001b[22m\n\u001b[2m    24 × locator resolved to <p role=\"status\" data-cl-status=\"\" data-error=\"true\" aria-live=\"polite\">素材图像读取失败，请重试</p>\u001b[22m\n\u001b[2m       - unexpected value \"素材图像读取失败，请重试\"\u001b[22m\n\n\n  40 |  let fail=true;await page.route('**/role-1024/action-0.webp',async route=>{if(fail){fail=false;await route.fulfill({status:503,body:'temporary failure'});}else await route.continue();});\n  41 |  await page.goto('?view=character-library');await expect(page.locator(canvas)).toHaveAttribute('data-ready','error');\n> 42 |  await expect(page.locator('[data-cl-use]')).toBeDisabled();await expect(page.locator('[data-cl-status]')).toContainText('加载失败');\n     |                                                                                                            ^\n  43 |  await page.getByRole('button',{name:'重新加载',exact:true}).click();await expect(page.locator(canvas)).toHaveAttribute('data-ready','ready');await expect(page.locator('[data-cl-use]')).toBeEnabled();\n  44 | });\n  45 |\n    at F:\\codexWorkSpace\\hi-story\\tests\\e2e\\character-library.spec.ts:42:108"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T18:33:48.234Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "F:\\codexWorkSpace\\hi-story\\test-results\\character-library-图集读取失败能重试，且不会显示上一个人物残帧-narrow\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "F:\\codexWorkSpace\\hi-story\\test-results\\character-library-图集读取失败能重试，且不会显示上一个人物残帧-narrow\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "F:\\codexWorkSpace\\hi-story\\tests\\e2e\\character-library.spec.ts",
+                    "column": 108,
+                    "line": 42
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "fed06240f694adb6daf1-bd45e7f7c65539447efe",
+          "file": "character-library.spec.ts",
+          "line": 39,
+          "column": 1
+        },
+        {
+          "title": "旧入口 character-generator 已切换人物素材馆",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 685,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T18:33:59.286Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fed06240f694adb6daf1-8741ffec5b3b7e1a1260",
+          "file": "character-library.spec.ts",
+          "line": 46,
+          "column": 63
+        },
+        {
+          "title": "旧入口 character-motion 已切换人物素材馆",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 485,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T18:34:00.254Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fed06240f694adb6daf1-e1d22dbb2ed676cb0ff7",
+          "file": "character-library.spec.ts",
+          "line": 46,
+          "column": 63
+        },
+        {
+          "title": "选择旅人仅改变外观，返回后冒险位置和人物资料保留",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3902,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T18:34:00.758Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fed06240f694adb6daf1-db2178f5e9bb8c41f2aa",
+          "file": "character-library.spec.ts",
+          "line": 51,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "external-character-game.spec.ts",
+      "file": "external-character-game.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "新冒险只加载外部人物；切换外形保持规则进度与人物中心",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3873,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T18:32:28.571Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "model-requests",
+                      "contentType": "application/json",
+                      "body": "eyJtb2RlbHMiOlsicm9sZS0xMDI0Iiwicm9sZS0xMjE2Il0sInJlcXVlc3RzIjpbImh0dHA6Ly8xMjcuMC4wLjE6NDE3My9hc3NldHMvY2hhcmFjdGVycy9tb2xpYmFpa2Uvc291cmNlLWNhdGFsb2cuanNvbiIsImh0dHA6Ly8xMjcuMC4wLjE6NDE3My9hc3NldHMvY2hhcmFjdGVycy9tb2xpYmFpa2Uvcm9sZS0xMDI0L21hbmlmZXN0Lmpzb24iLCJodHRwOi8vMTI3LjAuMC4xOjQxNzMvYXNzZXRzL2NoYXJhY3RlcnMvbW9saWJhaWtlL3JvbGUtMTI0MC9tYW5pZmVzdC5qc29uIiwiaHR0cDovLzEyNy4wLjAuMTo0MTczL2Fzc2V0cy9jaGFyYWN0ZXJzL21vbGliYWlrZS9yb2xlLTEwMjQvYWN0aW9uLTAud2VicCIsImh0dHA6Ly8xMjcuMC4wLjE6NDE3My9hc3NldHMvY2hhcmFjdGVycy9tb2xpYmFpa2Uvcm9sZS0xMDI0L2FjdGlvbi0xLndlYnAiLCJodHRwOi8vMTI3LjAuMC4xOjQxNzMvYXNzZXRzL2NoYXJhY3RlcnMvbW9saWJhaWtlL3JvbGUtMTAyNC9hY3Rpb24tMy53ZWJwIiwiaHR0cDovLzEyNy4wLjAuMTo0MTczL2Fzc2V0cy9jaGFyYWN0ZXJzL21vbGliYWlrZS9yb2xlLTEwMjQvYWN0aW9uLTUud2VicCIsImh0dHA6Ly8xMjcuMC4wLjE6NDE3My9hc3NldHMvY2hhcmFjdGVycy9tb2xpYmFpa2Uvcm9sZS0xMDI0L2FjdGlvbi02LndlYnAiLCJodHRwOi8vMTI3LjAuMC4xOjQxNzMvYXNzZXRzL2NoYXJhY3RlcnMvbW9saWJhaWtlL3JvbGUtMTAyNC9hY3Rpb24tOC53ZWJwIiwiaHR0cDovLzEyNy4wLjAuMTo0MTczL2Fzc2V0cy9jaGFyYWN0ZXJzL21vbGliYWlrZS9yb2xlLTEwMjQvYWN0aW9uLTkud2VicCIsImh0dHA6Ly8xMjcuMC4wLjE6NDE3My9hc3NldHMvY2hhcmFjdGVycy9tb2xpYmFpa2Uvcm9sZS0xMDI0L2FjdGlvbi0xMC53ZWJwIiwiaHR0cDovLzEyNy4wLjAuMTo0MTczL2Fzc2V0cy9jaGFyYWN0ZXJzL21vbGliYWlrZS9yb2xlLTEwMjQvYWN0aW9uLTE2LndlYnAiLCJodHRwOi8vMTI3LjAuMC4xOjQxNzMvYXNzZXRzL2NoYXJhY3RlcnMvbW9saWJhaWtlL3JvbGUtMTI0MC9hY3Rpb24tMC53ZWJwIiwiaHR0cDovLzEyNy4wLjAuMTo0MTczL2Fzc2V0cy9jaGFyYWN0ZXJzL21vbGliYWlrZS9yb2xlLTEyNDAvYWN0aW9uLTEud2VicCIsImh0dHA6Ly8xMjcuMC4wLjE6NDE3My9hc3NldHMvY2hhcmFjdGVycy9tb2xpYmFpa2Uvcm9sZS0xMjQwL2FjdGlvbi0xMC53ZWJwIiwiaHR0cDovLzEyNy4wLjAuMTo0MTczL2Fzc2V0cy9jaGFyYWN0ZXJzL21vbGliYWlrZS9yb2xlLTEyNDAvYWN0aW9uLTE2LndlYnAiLCJodHRwOi8vMTI3LjAuMC4xOjQxNzMvYXNzZXRzL2NoYXJhY3RlcnMvbW9saWJhaWtlL3NvdXJjZS1jYXRhbG9nLmpzb24iLCJodHRwOi8vMTI3LjAuMC4xOjQxNzMvYXNzZXRzL2NoYXJhY3RlcnMvbW9saWJhaWtlL3JvbGUtMTIxNi9tYW5pZmVzdC5qc29uIiwiaHR0cDovLzEyNy4wLjAuMTo0MTczL2Fzc2V0cy9jaGFyYWN0ZXJzL21vbGliYWlrZS9yb2xlLTEyNDAvbWFuaWZlc3QuanNvbiIsImh0dHA6Ly8xMjcuMC4wLjE6NDE3My9hc3NldHMvY2hhcmFjdGVycy9tb2xpYmFpa2Uvcm9sZS0xMjE2L2FjdGlvbi0wLndlYnAiLCJodHRwOi8vMTI3LjAuMC4xOjQxNzMvYXNzZXRzL2NoYXJhY3RlcnMvbW9saWJhaWtlL3JvbGUtMTIxNi9hY3Rpb24tMS53ZWJwIiwiaHR0cDovLzEyNy4wLjAuMTo0MTczL2Fzc2V0cy9jaGFyYWN0ZXJzL21vbGliYWlrZS9yb2xlLTEyMTYvYWN0aW9uLTMud2VicCIsImh0dHA6Ly8xMjcuMC4wLjE6NDE3My9hc3NldHMvY2hhcmFjdGVycy9tb2xpYmFpa2Uvcm9sZS0xMjE2L2FjdGlvbi01LndlYnAiLCJodHRwOi8vMTI3LjAuMC4xOjQxNzMvYXNzZXRzL2NoYXJhY3RlcnMvbW9saWJhaWtlL3JvbGUtMTIxNi9hY3Rpb24tNi53ZWJwIiwiaHR0cDovLzEyNy4wLjAuMTo0MTczL2Fzc2V0cy9jaGFyYWN0ZXJzL21vbGliYWlrZS9yb2xlLTEyMTYvYWN0aW9uLTgud2VicCIsImh0dHA6Ly8xMjcuMC4wLjE6NDE3My9hc3NldHMvY2hhcmFjdGVycy9tb2xpYmFpa2Uvcm9sZS0xMjE2L2FjdGlvbi05LndlYnAiLCJodHRwOi8vMTI3LjAuMC4xOjQxNzMvYXNzZXRzL2NoYXJhY3RlcnMvbW9saWJhaWtlL3JvbGUtMTIxNi9hY3Rpb24tMTAud2VicCIsImh0dHA6Ly8xMjcuMC4wLjE6NDE3My9hc3NldHMvY2hhcmFjdGVycy9tb2xpYmFpa2Uvcm9sZS0xMjE2L2FjdGlvbi0xNi53ZWJwIiwiaHR0cDovLzEyNy4wLjAuMTo0MTczL2Fzc2V0cy9jaGFyYWN0ZXJzL21vbGliYWlrZS9yb2xlLTEyNDAvYWN0aW9uLTAud2VicCIsImh0dHA6Ly8xMjcuMC4wLjE6NDE3My9hc3NldHMvY2hhcmFjdGVycy9tb2xpYmFpa2Uvcm9sZS0xMjQwL2FjdGlvbi0xLndlYnAiLCJodHRwOi8vMTI3LjAuMC4xOjQxNzMvYXNzZXRzL2NoYXJhY3RlcnMvbW9saWJhaWtlL3JvbGUtMTI0MC9hY3Rpb24tMTAud2VicCIsImh0dHA6Ly8xMjcuMC4wLjE6NDE3My9hc3NldHMvY2hhcmFjdGVycy9tb2xpYmFpa2Uvcm9sZS0xMjQwL2FjdGlvbi0xNi53ZWJwIl0sImVycm9ycyI6W119"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a1015412f32b0a081748-5f30f7cf2e6261adcef6",
+          "file": "external-character-game.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "新冒险只加载外部人物；切换外形保持规则进度与人物中心",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3852,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T18:34:04.693Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "model-requests",
+                      "contentType": "application/json",
+                      "body": "eyJtb2RlbHMiOlsicm9sZS0xMDI0Iiwicm9sZS0xMjE2Il0sInJlcXVlc3RzIjpbImh0dHA6Ly8xMjcuMC4wLjE6NDE3My9hc3NldHMvY2hhcmFjdGVycy9tb2xpYmFpa2Uvc291cmNlLWNhdGFsb2cuanNvbiIsImh0dHA6Ly8xMjcuMC4wLjE6NDE3My9hc3NldHMvY2hhcmFjdGVycy9tb2xpYmFpa2Uvcm9sZS0xMDI0L21hbmlmZXN0Lmpzb24iLCJodHRwOi8vMTI3LjAuMC4xOjQxNzMvYXNzZXRzL2NoYXJhY3RlcnMvbW9saWJhaWtlL3JvbGUtMTI0MC9tYW5pZmVzdC5qc29uIiwiaHR0cDovLzEyNy4wLjAuMTo0MTczL2Fzc2V0cy9jaGFyYWN0ZXJzL21vbGliYWlrZS9yb2xlLTEwMjQvYWN0aW9uLTAud2VicCIsImh0dHA6Ly8xMjcuMC4wLjE6NDE3My9hc3NldHMvY2hhcmFjdGVycy9tb2xpYmFpa2Uvcm9sZS0xMDI0L2FjdGlvbi0xLndlYnAiLCJodHRwOi8vMTI3LjAuMC4xOjQxNzMvYXNzZXRzL2NoYXJhY3RlcnMvbW9saWJhaWtlL3JvbGUtMTAyNC9hY3Rpb24tMy53ZWJwIiwiaHR0cDovLzEyNy4wLjAuMTo0MTczL2Fzc2V0cy9jaGFyYWN0ZXJzL21vbGliYWlrZS9yb2xlLTEwMjQvYWN0aW9uLTUud2VicCIsImh0dHA6Ly8xMjcuMC4wLjE6NDE3My9hc3NldHMvY2hhcmFjdGVycy9tb2xpYmFpa2Uvcm9sZS0xMDI0L2FjdGlvbi02LndlYnAiLCJodHRwOi8vMTI3LjAuMC4xOjQxNzMvYXNzZXRzL2NoYXJhY3RlcnMvbW9saWJhaWtlL3JvbGUtMTAyNC9hY3Rpb24tOC53ZWJwIiwiaHR0cDovLzEyNy4wLjAuMTo0MTczL2Fzc2V0cy9jaGFyYWN0ZXJzL21vbGliYWlrZS9yb2xlLTEwMjQvYWN0aW9uLTkud2VicCIsImh0dHA6Ly8xMjcuMC4wLjE6NDE3My9hc3NldHMvY2hhcmFjdGVycy9tb2xpYmFpa2Uvcm9sZS0xMDI0L2FjdGlvbi0xMC53ZWJwIiwiaHR0cDovLzEyNy4wLjAuMTo0MTczL2Fzc2V0cy9jaGFyYWN0ZXJzL21vbGliYWlrZS9yb2xlLTEwMjQvYWN0aW9uLTE2LndlYnAiLCJodHRwOi8vMTI3LjAuMC4xOjQxNzMvYXNzZXRzL2NoYXJhY3RlcnMvbW9saWJhaWtlL3JvbGUtMTI0MC9hY3Rpb24tMC53ZWJwIiwiaHR0cDovLzEyNy4wLjAuMTo0MTczL2Fzc2V0cy9jaGFyYWN0ZXJzL21vbGliYWlrZS9yb2xlLTEyNDAvYWN0aW9uLTEud2VicCIsImh0dHA6Ly8xMjcuMC4wLjE6NDE3My9hc3NldHMvY2hhcmFjdGVycy9tb2xpYmFpa2Uvcm9sZS0xMjQwL2FjdGlvbi0xMC53ZWJwIiwiaHR0cDovLzEyNy4wLjAuMTo0MTczL2Fzc2V0cy9jaGFyYWN0ZXJzL21vbGliYWlrZS9yb2xlLTEyNDAvYWN0aW9uLTE2LndlYnAiLCJodHRwOi8vMTI3LjAuMC4xOjQxNzMvYXNzZXRzL2NoYXJhY3RlcnMvbW9saWJhaWtlL3NvdXJjZS1jYXRhbG9nLmpzb24iLCJodHRwOi8vMTI3LjAuMC4xOjQxNzMvYXNzZXRzL2NoYXJhY3RlcnMvbW9saWJhaWtlL3JvbGUtMTIxNi9tYW5pZmVzdC5qc29uIiwiaHR0cDovLzEyNy4wLjAuMTo0MTczL2Fzc2V0cy9jaGFyYWN0ZXJzL21vbGliYWlrZS9yb2xlLTEyNDAvbWFuaWZlc3QuanNvbiIsImh0dHA6Ly8xMjcuMC4wLjE6NDE3My9hc3NldHMvY2hhcmFjdGVycy9tb2xpYmFpa2Uvcm9sZS0xMjE2L2FjdGlvbi0wLndlYnAiLCJodHRwOi8vMTI3LjAuMC4xOjQxNzMvYXNzZXRzL2NoYXJhY3RlcnMvbW9saWJhaWtlL3JvbGUtMTIxNi9hY3Rpb24tMS53ZWJwIiwiaHR0cDovLzEyNy4wLjAuMTo0MTczL2Fzc2V0cy9jaGFyYWN0ZXJzL21vbGliYWlrZS9yb2xlLTEyMTYvYWN0aW9uLTMud2VicCIsImh0dHA6Ly8xMjcuMC4wLjE6NDE3My9hc3NldHMvY2hhcmFjdGVycy9tb2xpYmFpa2Uvcm9sZS0xMjE2L2FjdGlvbi01LndlYnAiLCJodHRwOi8vMTI3LjAuMC4xOjQxNzMvYXNzZXRzL2NoYXJhY3RlcnMvbW9saWJhaWtlL3JvbGUtMTIxNi9hY3Rpb24tNi53ZWJwIiwiaHR0cDovLzEyNy4wLjAuMTo0MTczL2Fzc2V0cy9jaGFyYWN0ZXJzL21vbGliYWlrZS9yb2xlLTEyMTYvYWN0aW9uLTgud2VicCIsImh0dHA6Ly8xMjcuMC4wLjE6NDE3My9hc3NldHMvY2hhcmFjdGVycy9tb2xpYmFpa2Uvcm9sZS0xMjE2L2FjdGlvbi05LndlYnAiLCJodHRwOi8vMTI3LjAuMC4xOjQxNzMvYXNzZXRzL2NoYXJhY3RlcnMvbW9saWJhaWtlL3JvbGUtMTIxNi9hY3Rpb24tMTAud2VicCIsImh0dHA6Ly8xMjcuMC4wLjE6NDE3My9hc3NldHMvY2hhcmFjdGVycy9tb2xpYmFpa2Uvcm9sZS0xMjE2L2FjdGlvbi0xNi53ZWJwIiwiaHR0cDovLzEyNy4wLjAuMTo0MTczL2Fzc2V0cy9jaGFyYWN0ZXJzL21vbGliYWlrZS9yb2xlLTEyNDAvYWN0aW9uLTAud2VicCIsImh0dHA6Ly8xMjcuMC4wLjE6NDE3My9hc3NldHMvY2hhcmFjdGVycy9tb2xpYmFpa2Uvcm9sZS0xMjQwL2FjdGlvbi0xLndlYnAiLCJodHRwOi8vMTI3LjAuMC4xOjQxNzMvYXNzZXRzL2NoYXJhY3RlcnMvbW9saWJhaWtlL3JvbGUtMTI0MC9hY3Rpb24tMTAud2VicCIsImh0dHA6Ly8xMjcuMC4wLjE6NDE3My9hc3NldHMvY2hhcmFjdGVycy9tb2xpYmFpa2Uvcm9sZS0xMjQwL2FjdGlvbi0xNi53ZWJwIl0sImVycm9ycyI6W119"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a1015412f32b0a081748-9b8670f0b202176bc6ff",
+          "file": "external-character-game.spec.ts",
+          "line": 4,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "gameplay-closure.spec.ts",
+      "file": "gameplay-closure.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "人物列表可自动靠近交谈，点击不会停留在不可用对话",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3371,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T18:32:32.595Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "f5bbf6fc655059a5169b-11ba5b3ed8e2baec1243",
+          "file": "gameplay-closure.spec.ts",
+          "line": 22,
+          "column": 1
+        },
+        {
+          "title": "缺材料行动显示原因，真实补货后可回到地点完成",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 15832,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T18:32:38.437Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "f5bbf6fc655059a5169b-f31415610914a83e385c",
+          "file": "gameplay-closure.spec.ts",
+          "line": 31,
+          "column": 1
+        },
+        {
+          "title": "任务不可逆分叉显示终态，错序接取保留原因，刷新不重领奖",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10846,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T18:32:54.283Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "f5bbf6fc655059a5169b-e40e81e136045b4e90f4",
+          "file": "gameplay-closure.spec.ts",
+          "line": 42,
+          "column": 1
+        },
+        {
+          "title": "施法职业背包显示实际普通攻击，法术伤害无虚构属性加值",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6000,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T18:33:05.142Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "f5bbf6fc655059a5169b-a089d341b7a60184d8fa",
+          "file": "gameplay-closure.spec.ts",
+          "line": 53,
+          "column": 1
+        },
+        {
+          "title": "失败后的补救入口可执行，消耗和奖励刷新后只保留一次",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5315,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T18:33:11.155Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "f5bbf6fc655059a5169b-5f658d4905372beb6db6",
+          "file": "gameplay-closure.spec.ts",
+          "line": 64,
+          "column": 1
+        },
+        {
+          "title": "临近截止时间的交付显示完整耗时限制，拒绝后不丢物品",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7200,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T18:33:16.485Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "f5bbf6fc655059a5169b-5ed80ef6f3d099057c16",
+          "file": "gameplay-closure.spec.ts",
+          "line": 74,
+          "column": 1
+        },
+        {
+          "title": "人物列表可自动靠近交谈，点击不会停留在不可用对话",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3165,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T18:34:08.677Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "f5bbf6fc655059a5169b-9263891a59bd66584182",
+          "file": "gameplay-closure.spec.ts",
+          "line": 22,
+          "column": 1
+        },
+        {
+          "title": "缺材料行动显示原因，真实补货后可回到地点完成",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 15738,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T18:34:14.623Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "f5bbf6fc655059a5169b-75a24b85bd4c20cb9ccf",
+          "file": "gameplay-closure.spec.ts",
+          "line": 31,
+          "column": 1
+        },
+        {
+          "title": "任务不可逆分叉显示终态，错序接取保留原因，刷新不重领奖",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10719,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T18:34:30.375Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "f5bbf6fc655059a5169b-92472b9eb36936dc1c2b",
+          "file": "gameplay-closure.spec.ts",
+          "line": 42,
+          "column": 1
+        },
+        {
+          "title": "施法职业背包显示实际普通攻击，法术伤害无虚构属性加值",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5761,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T18:34:41.108Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "f5bbf6fc655059a5169b-b2a1a28f8a055c1ad7b2",
+          "file": "gameplay-closure.spec.ts",
+          "line": 53,
+          "column": 1
+        },
+        {
+          "title": "失败后的补救入口可执行，消耗和奖励刷新后只保留一次",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5133,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T18:34:46.884Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "f5bbf6fc655059a5169b-08aeff52adee0d0928f4",
+          "file": "gameplay-closure.spec.ts",
+          "line": 64,
+          "column": 1
+        },
+        {
+          "title": "临近截止时间的交付显示完整耗时限制，拒绝后不丢物品",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6436,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T18:34:52.030Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "f5bbf6fc655059a5169b-d2520c4d4b765382fd69",
+          "file": "gameplay-closure.spec.ts",
+          "line": 74,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "scene-responsiveness.spec.ts",
+      "file": "scene-responsiveness.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "慢速设备仍可响应：静态场景复用、真实移动停止、菜单和刷新恢复",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 20849,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T18:33:23.763Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "responsiveness",
+                      "contentType": "application/json",
+                      "body": "eyJjcHVTbG93ZG93biI6NCwidmlld3BvcnQiOnsid2lkdGgiOjE0NDAsImhlaWdodCI6MTAwMH0sImlkbGUiOnsiZnJhbWVzIjoyMSwiaW1hZ2VDYWxscyI6NTA0LCJtZWFuSW1hZ2VDYWxscyI6MjQsIm1heEhlYXJ0YmVhdEdhcCI6NTguMjk5OTk5OTk3MDE5NzcsImxpdmVQcm9wcyI6MjB9LCJtZW51TGF0ZW5jeSI6NTk0LCJtb3ZlUmV2aXNpb25zIjo2LCJlcnJvcnMiOltdfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "975340d47b35a2d9e7e7-cb2d4ab4485041e91973",
+          "file": "scene-responsiveness.spec.ts",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "慢速设备仍可响应：静态场景复用、真实移动停止、菜单和刷新恢复",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 21424,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T18:34:58.547Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "responsiveness",
+                      "contentType": "application/json",
+                      "body": "eyJjcHVTbG93ZG93biI6NCwidmlld3BvcnQiOnsid2lkdGgiOjM3NSwiaGVpZ2h0Ijo4MTJ9LCJpZGxlIjp7ImZyYW1lcyI6MjEsImltYWdlQ2FsbHMiOjUwNCwibWVhbkltYWdlQ2FsbHMiOjI0LCJtYXhIZWFydGJlYXRHYXAiOjYzLjI5OTk5OTk5NzAxOTc3LCJsaXZlUHJvcHMiOjIwfSwibWVudUxhdGVuY3kiOjU1OSwibW92ZVJldmlzaW9ucyI6NywiZXJyb3JzIjpbXX0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "975340d47b35a2d9e7e7-2823c7634eb5f35a4253",
+          "file": "scene-responsiveness.spec.ts",
+          "line": 5,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-16T18:32:08.099Z",
+    "duration": 192364.418,
+    "expected": 26,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

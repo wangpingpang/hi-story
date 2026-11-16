@@ -1,5 +1,7 @@
 # hi-story
 
+2026-11-17 新增[开局素材预加载候选](https://github.com/wangpingpang/hi-story/tree/codex/adventure-asset-preload)：先准备场景、人物常用动作和六类PixelFX特效，显示真实进度，完成后自动进入；失败可重试，也可先进入按需补载。继承PixelFX接入，未更新线上。[验证与范围](docs/asset-preload-validation.md)。
+
 线上已更新 **[v0.6.0 装备与战斗](https://wangpingpang.github.io/hi-story/)**：实际装备、魔法/技能选择、怪物与元素特效、跑步移动、双侧状态栏和手动骰子、原素材阴影及默认1.5倍场景。支持现有v0.5.0存档继续。40项最终浏览器回归、721个公网文件哈希及桌面/375px实际交互通过；[发布记录](docs/v060-combat-publication.md)。人物造型仍使用现有完整动画，职业能力通过“旅程→职业规则→生成新旅程”启用。
 
 当前完整开发源码与发布记录：[codex/publish-v060-combat](https://github.com/wangpingpang/hi-story/tree/codex/publish-v060-combat)，保留此前交接、Windows修复与各候选增量的历史。`main`仍仅有项目介绍；独立工坊的归档分支仍单独保留。下方各旧版候选和发布状态为历史记录。

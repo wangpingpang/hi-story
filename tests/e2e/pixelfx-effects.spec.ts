@@ -60,6 +60,15 @@ async function effectVisible(page:Page,kind:string){
  await expect(effect.locator('image')).toHaveAttribute('href',new RegExp(`/assets/effects/pixelfx/${kind}\\.webp$`));
  return effect;
 }
+// Startup now warms the effect cache. Reload through the real preparation screen
+// with the fault already installed, then explicitly choose degraded entry.
+async function coldFaultEntry(page:Page,requested:()=>number){
+ await page.reload({waitUntil:'domcontentloaded'});
+ await expect(page.locator('[data-asset-loading]')).toBeVisible();
+ await expect.poll(requested).toBeGreaterThan(0);
+ await page.locator('#asset-load-continue').click();
+ await expect(page.locator('.adventure-shell')).toBeVisible();
+}
 async function ready(page:Page){
  await expect.poll(async()=>{
   await page.clock.runFor(100);
@@ -69,9 +78,11 @@ async function ready(page:Page){
  },{timeout:10000}).toBe('false');
  await expect(page.locator('[data-combat-effect]')).toHaveCount(0);
 }
-async function unchangedAfterRestore(page:Page,committed:AdventureSnapshot){
+async function unchangedAfterRestore(page:Page,committed:AdventureSnapshot,degraded=false){
  await ready(page);expect(await state(page)).toEqual(committed);
- await page.reload();await expect(page.locator('.adventure-shell')).toHaveAttribute('aria-busy','false');
+ await page.reload({waitUntil:'domcontentloaded'});
+ if(degraded)await page.locator('#asset-load-continue').click();
+ await expect(page.locator('.adventure-shell')).toHaveAttribute('aria-busy','false');
  expect(restorableFacts(await state(page))).toEqual(restorableFacts(committed));
  await expect(page.locator('[data-combat-effect]')).toHaveCount(0);
  await expect(page.locator('.dice-feedback-host')).toHaveCount(0);
@@ -160,36 +171,39 @@ test('减少动态的治疗使用非空预览帧且保持静止，中途刷新�
 
 for(const fault of ['invalid-manifest','invalid-image','image-timeout'] as const){
  test(`PixelFX ${fault}不会阻塞骰子及后续操作，已提交状态可恢复`,async({page})=>{
-  const {id,enemy}=await fixture(page),before=await state(page);
-  let requested=false,release:()=>void=()=>{};
+  const {id,enemy}=await fixture(page);
+  let requests=0,release:()=>void=()=>{};
   const held=new Promise<void>(resolve=>{release=resolve;});
-  if(fault==='invalid-manifest')await page.route('**/assets/effects/pixelfx/manifest.json',route=>route.fulfill({contentType:'application/json',body:JSON.stringify({version:'broken',effects:{}})}));
+  if(fault==='invalid-manifest')await page.route('**/assets/effects/pixelfx/manifest.json',route=>{requests++;return route.fulfill({contentType:'application/json',body:JSON.stringify({version:'broken',effects:{}})});});
   else await page.route('**/assets/effects/pixelfx/fire.webp',async route=>{
-   requested=true;if(fault==='image-timeout'){await held;await route.abort().catch(()=>{});}
+   requests++;if(fault==='image-timeout'){await held;await route.abort().catch(()=>{});}
    else await route.fulfill({contentType:'image/webp',body:'invalid image bytes'});
   });
   try{
+   await coldFaultEntry(page,()=>requests);const before=await state(page),preloadRequests=requests;
    await cast(page,'wizard-fire',enemy);
    await expect.poll(async()=>(await state(page)).revision).toBe(before.revision+1);
-   if(fault!=='invalid-manifest')await expect.poll(()=>requested).toBe(true);
+   await expect.poll(()=>requests).toBeGreaterThan(preloadRequests);
    const committed=await checkOneCast(page,before,id);
    if(fault==='image-timeout')await page.clock.runFor(2600);
    await expect.poll(async()=>{await page.clock.runFor(100);return page.getByRole('button',{name:'关闭本次骰子结果',exact:true}).count();},{timeout:7000}).toBeGreaterThan(0);
    await expect(page.locator('[data-combat-effect]')).toHaveCount(0);
-   await unchangedAfterRestore(page,committed);
+   await unchangedAfterRestore(page,committed,true);
   }finally{release();}
  });
 }
 
 for(const phase of ['loading','playing'] as const){
  test(`PixelFX ${phase}的隐藏事件取消路径可结束，迟到资源不重播`,async({page})=>{
-  const {id,enemy}=await fixture(page),before=await state(page);
-  let heldRoute:Route|undefined,release:()=>void=()=>{};
+  const {id,enemy}=await fixture(page);
+  let heldRoute:Route|undefined,requests=0,release:()=>void=()=>{};
   const held=new Promise<void>(resolve=>{release=resolve;});
-  if(phase==='loading')await page.route('**/assets/effects/pixelfx/fire.webp',async route=>{heldRoute=route;await held;await route.continue().catch(()=>{});});
+  if(phase==='loading')await page.route('**/assets/effects/pixelfx/fire.webp',async route=>{requests++;heldRoute=route;await held;await route.continue().catch(()=>{});});
   try{
+   if(phase==='loading')await coldFaultEntry(page,()=>requests);
+   const before=await state(page),preloadRequests=requests;
    await cast(page,'wizard-fire',enemy);
-   if(phase==='loading')await expect.poll(()=>Boolean(heldRoute)).toBe(true);else await effectVisible(page,'fire');
+   if(phase==='loading'){await expect.poll(()=>requests).toBeGreaterThan(preloadRequests);expect(heldRoute).toBeDefined();}else await effectVisible(page,'fire');
    const committed=await checkOneCast(page,before,id);
    // Explicit event-path simulation, not evidence of a real OS background transition.
    await page.evaluate(()=>{Object.defineProperty(document,'hidden',{configurable:true,get:()=>true});document.dispatchEvent(new Event('visibilitychange'));});

@@ -1,4 +1,5 @@
 import './presentation/style.css';
+import './presentation/adventure-loading.css';
 
 async function boot() {
  const params=new URLSearchParams(location.search),route=params.get('view');
@@ -8,6 +9,7 @@ async function boot() {
   document.title='人物素材馆 · hi-story';await mountCharacterLibrary(root);return;
  }
  if(!route||route==='demo'){
+  root.innerHTML='<main class="adventure-loading"><section class="adventure-loading-card"><p class="adventure-loading-brand">hi·story</p><h1>准备你的旅程</h1><p role="status">正在读取冒险进度…</p></section></main>';
   const [{createAdventureApplication},{mountAdventure},{createBrowserSavePort}]=await Promise.all([
    import('./application'),import('./presentation/adventure'),import('./infrastructure/adventure-save'),
   ]);

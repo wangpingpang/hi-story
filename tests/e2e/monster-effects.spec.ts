@@ -43,5 +43,10 @@ test('治疗光环只显示真实治疗，减少动态效果与中途刷新不�
 });
 test('击倒目标的最后一发仍播放，失败素材请求不会卡住已提交战斗',async({page})=>{
  const {enemy}=await fixture(page,{battle:true,hp:1,roll:20});await page.locator('#combat-skills-toggle').click();await page.locator('[data-select-profession-skill="wizard-fire"]').click();await page.locator('#profession-target').selectOption(enemy);await page.locator('[data-profession-skill="wizard-fire"]').click();await expect.poll(async()=>{await page.clock.runFor(30);return page.locator('[data-combat-effect="fire"]').count();}).toBe(1);expect((await state(page)).runtime.encounter!.status).toBe('victory');await ready(page);await expect(page.locator('.battle-mode')).toHaveCount(0);
- await page.reload();await fixture(page,{battle:true});await page.route('**/assets/effects/pixelfx/**',route=>route.abort());await page.locator('#combat-skills-toggle').click();await page.locator('[data-select-profession-skill="wizard-fire"]').click();const target=(await state(page)).runtime.encounter!.participants[1].actorId;await page.locator('#profession-target').selectOption(target);await page.locator('[data-profession-skill="wizard-fire"]').click();await ready(page);expect((await state(page)).runtime.actors[(await state(page)).playerActorId].profession!.resources.wizard).toBe(3);
+ await page.reload();await fixture(page,{battle:true});let failedRequests=0;
+ await page.route('**/assets/effects/pixelfx/**',route=>{failedRequests++;return route.abort();});
+ // Clear the successful in-page warm cache and use the real degraded-entry option.
+ await page.reload({waitUntil:'domcontentloaded'});await expect.poll(()=>failedRequests).toBeGreaterThan(0);
+ await page.locator('#asset-load-continue').click();await expect(page.locator('.adventure-shell')).toBeVisible();
+ await page.locator('#combat-skills-toggle').click();await page.locator('[data-select-profession-skill="wizard-fire"]').click();const target=(await state(page)).runtime.encounter!.participants[1].actorId;await page.locator('#profession-target').selectOption(target);await page.locator('[data-profession-skill="wizard-fire"]').click();await ready(page);expect((await state(page)).runtime.actors[(await state(page)).playerActorId].profession!.resources.wizard).toBe(3);
 });

@@ -9,6 +9,7 @@ import './hd2d.css';
 import './battle.css';
 import {renderBattleRoster,renderBattleLog} from './battle-hud';
 import {CombatEffectsPresenter} from './combat-effects';
+import {prepareAdventureAssets,type AssetPreparationProgress} from './adventure-assets';
 import {renderMonsterEncounters} from './monster-encounters';
 import {environmentFor,type Weather} from './environment';
 import {equipmentGallery} from './equipment-gallery';
@@ -29,14 +30,45 @@ export function mountAdventure(root:HTMLElement,app:AdventureApplication):()=>vo
  const professions=app.queryProfessions();
  const battlePlayback=new BattleMovementPlayback();let movementFrame=0,cancelMovement=()=>{},battleLogCollapsed=false;
  const combatEffects=new CombatEffectsPresenter();
- const scene=new WorldScene();let route:{x:number;y:number}[]=[],keys=new Set<string>(),pointerDirection:{x:number;y:number}|undefined,stepping=false;
+ const scene=new WorldScene({loadArt:false});let route:{x:number;y:number}[]=[],keys=new Set<string>(),pointerDirection:{x:number;y:number}|undefined,stepping=false;
+ let preparation:{controller:AbortController;progress:AssetPreparationProgress;failed:boolean}|undefined;
  const deltas:Record<string,[number,number]>={ArrowUp:[0,-1],ArrowDown:[0,1],ArrowLeft:[-1,0],ArrowRight:[1,0],w:[0,-1],s:[0,1],a:[-1,0],d:[1,0]};
  let arrival:{npcId?:string}|undefined;
  const stopWalking=()=>{route=[];arrival=undefined;keys.clear();pointerDirection=undefined;scene.setRoute(route);};
+ function drawPreparation(){
+  if(!preparation||destroyed)return;
+  if(!root.querySelector('[data-asset-loading]')){
+   root.innerHTML='<main class="adventure-loading" data-asset-loading><section class="adventure-loading-card" aria-labelledby="asset-loading-title"><p class="adventure-loading-brand">hi·story</p><h1 id="asset-loading-title">准备你的旅程</h1><p data-loading-status role="status" aria-live="polite"></p><progress id="asset-load-progress" aria-label="素材准备进度"></progress><p data-loading-count></p><p class="adventure-loading-note">先准备场景、人物动作和战斗特效，完成后自动进入。浏览器会尽量复用已缓存的素材。</p><div class="adventure-loading-actions"><button id="asset-load-retry" hidden>重试加载</button><button id="asset-load-continue">先进入游戏</button></div><p class="adventure-loading-note">先进入游戏时，未完成的素材会在需要时继续加载。</p></section></main>';
+   root.querySelector<HTMLButtonElement>('#asset-load-retry')!.onclick=()=>startPreparation();
+   root.querySelector<HTMLButtonElement>('#asset-load-continue')!.onclick=()=>finishPreparation(true);
+  }
+  const {progress,failed}=preparation,host=root.querySelector<HTMLElement>('[data-asset-loading]')!;
+  host.dataset.loadState=failed?'failed':'loading';
+  root.querySelector<HTMLElement>('[data-loading-status]')!.textContent=failed?'部分素材尚未准备好。可以重试，也可以先进入游戏。':progress.label;
+  const meter=root.querySelector<HTMLProgressElement>('#asset-load-progress')!;
+  if(progress.total){meter.max=progress.total;meter.value=progress.completed;}else meter.removeAttribute('value');
+  root.querySelector<HTMLElement>('[data-loading-count]')!.textContent=progress.total?`已准备 ${progress.completed} / ${progress.total}`:'正在确认本次旅程所需素材';
+  root.querySelector<HTMLButtonElement>('#asset-load-retry')!.hidden=!failed;
+ }
+ function finishPreparation(skip=false){
+  if(!preparation||destroyed)return;const active=preparation;preparation=undefined;active.controller.abort();
+  if(skip){message='已进入旅程，未完成素材会按需补载。';void scene.prepareArt().catch(()=>{});}
+  draw();paintBattle();scene.renderNow();
+ }
+ function startPreparation(){
+  const snapshot=app.query().snapshot;if(!snapshot||destroyed)return;
+  preparation?.controller.abort();stopWalking();cancelMovement();combatEffects.cancel();
+  const active={controller:new AbortController(),progress:{completed:0,total:0,label:'正在读取本次旅程所需素材'},failed:false};preparation=active;drawPreparation();
+  const timeout=window.setTimeout(()=>active.controller.abort(Error('素材准备超时')),30000);
+  void prepareAdventureAssets(snapshot,active.controller.signal,progress=>{if(preparation===active&&!destroyed){active.progress=progress;drawPreparation();}},signal=>scene.prepareArt(signal))
+   .then(()=>{if(preparation===active&&!destroyed)finishPreparation();})
+   .catch(()=>{if(preparation===active&&!destroyed){active.controller.abort();active.failed=true;drawPreparation();}})
+   .finally(()=>window.clearTimeout(timeout));
+ }
  const arrive=()=>{const target=arrival;arrival=undefined;if(!target){message='已抵达。点击人物靠近交谈，或按 E 互动。';draw();return;}panel='interaction';npcId=target.npcId??'';message=target.npcId?'已走到人物身边。请选择交涉方式。':'已抵达目的地。';draw();};
  const command=(type:string,payload:Record<string,unknown>):DemoCommand=>{const s=app.query().snapshot!;return {commandId:crypto.randomUUID(),runId:s.runId,actorId:s.playerActorId,expectedRevision:s.revision,type,payload};};
  async function submit(type:string,payload:Record<string,unknown>):Promise<boolean>{
-  if(busy)return false;const before=app.query().snapshot;if(!before)return false;if(type!=='world.walk')stopWalking();const envelope=command(type,payload);if(type!=='world.walk')dicePresenter.primeAudio();busy=true;if(type!=='world.walk')draw();let played=false;
+  if(busy||preparation)return false;const before=app.query().snapshot;if(!before)return false;if(type!=='world.walk')stopWalking();const envelope=command(type,payload);if(type!=='world.walk')dicePresenter.primeAudio();busy=true;if(type!=='world.walk')draw();let played=false;
   try{const result=await app.dispatch(envelope);if(destroyed||app.query().snapshot?.runId!==before.runId)return false;
    message=result.ok?(type==='world.walk'?'沿道路行进中 · Esc 停下':'操作已完成。'):result.error.message;if(result.ok&&type==='world.walk')npcId='';
    const after=app.query().snapshot,frames=result.ok&&!result.duplicate&&after?collectDiceFeedback(before,after):[];
@@ -54,7 +86,7 @@ export function mountAdventure(root:HTMLElement,app:AdventureApplication):()=>vo
  }
 
  async function walkTo(to:{x:number;y:number},after?:{npcId?:string}){
-  stopWalking();const s=app.query().snapshot!;if(busy||s.status!=='active')return;
+  stopWalking();const s=app.query().snapshot!;if(busy||preparation||s.status!=='active')return;
   try{route=app.planRoute(to).map(p=>({...p}));if(!route.length&&Math.hypot(to.x-s.runtime.actors[s.playerActorId].position.x,to.y-s.runtime.actors[s.playerActorId].position.y)>1e-6){message='目的地被阻挡，暂时找不到通路。';draw();return;}arrival=after;panel='';npcId='';message=route.length?'正在步行前往目的地 · Esc 停下':'已抵达。';scene.setRoute(route);if(!route.length)arrive();draw();}
   catch(error){message=error instanceof Error?error.message:'无法前往';draw();}
  }
@@ -65,7 +97,7 @@ export function mountAdventure(root:HTMLElement,app:AdventureApplication):()=>vo
   const paths=candidates.flatMap(target=>{try{const path=app.planRoute(target);return path.length||Math.hypot(target.x-player.position.x,target.y-player.position.y)<1e-6?[{target,cost:path.length}]:[];}catch{return [];}}).sort((a,b)=>a.cost-b.cost);
   if(paths.length)void walkTo(paths[0].target,{npcId:id});else{message='暂时无法走到人物身边。';draw();}
  }
- async function tick(){if(destroyed||stepping||busy||document.hidden)return;const s=app.query().snapshot;if(!s||s.status!=='active'){stopWalking();return;}const p=s.runtime.actors[s.playerActorId].position;let dx=pointerDirection?.x??0,dy=pointerDirection?.y??0;
+ async function tick(){if(destroyed||stepping||busy||preparation||document.hidden)return;const s=app.query().snapshot;if(!s||s.status!=='active'){stopWalking();return;}const p=s.runtime.actors[s.playerActorId].position;let dx=pointerDirection?.x??0,dy=pointerDirection?.y??0;
   for(const key of keys){const d=deltas[key];if(d){dx+=d[0];dy+=d[1];}}
   if(dx||dy){route=[];arrival=undefined;const n=Math.max(1,Math.hypot(dx,dy));dx/=n;dy/=n;}
   else if(route.length){while(route.length&&Math.hypot(route[0].x-p.x,route[0].y-p.y)<.000001)route.shift();if(!route.length){scene.setRoute(route);arrive();return;}const target=route[0],distance=Math.hypot(target.x-p.x,target.y-p.y);dx=(target.x-p.x)/Math.max(.32,distance);dy=(target.y-p.y)/Math.max(.32,distance);}
@@ -73,6 +105,7 @@ export function mountAdventure(root:HTMLElement,app:AdventureApplication):()=>vo
   stepping=true;try{const ok=await submit('world.walk',{dx,dy,seconds:.1}),next=app.query().snapshot!,q=next.runtime.actors[next.playerActorId].position;if(!ok||Math.hypot(q.x-p.x,q.y-p.y)<.000001)stopWalking();}finally{stepping=false;}
  }
  const paintBattle=()=>{
+  if(preparation)return;
   const s=app.query().snapshot;if(!s||s.runtime.encounter?.status!=='active')return;const now=performance.now();
   scene.setBattleFocus(battlePlayback.sample(s.playerActorId,now)?.position);
   for(const c of s.runtime.encounter.participants){
@@ -86,7 +119,7 @@ export function mountAdventure(root:HTMLElement,app:AdventureApplication):()=>vo
   if(skillMenuOpen){const option=app.queryProfessionSkillOptions().find(s=>s.id===selectedSkillId),target=option?.targets.find(t=>t.actorId===actorId);if(target?.allowed){selectedTargetId=actorId;message='技能目标已选择，请确认使用。';}else message=target?.reason??'该人物不能作为技能目标。';draw();return;}
   const s=app.query().snapshot!;if(actorId!==s.playerActorId)void submit('combat.action',{action:'attack',targetId:actorId});
  }
- const onKey=(e:KeyboardEvent)=>{if(busy)return;if(e.target instanceof HTMLInputElement||e.target instanceof HTMLTextAreaElement||e.target instanceof HTMLSelectElement||e.target instanceof HTMLElement&&e.target.isContentEditable)return;
+ const onKey=(e:KeyboardEvent)=>{if(busy||preparation)return;if(e.target instanceof HTMLInputElement||e.target instanceof HTMLTextAreaElement||e.target instanceof HTMLSelectElement||e.target instanceof HTMLElement&&e.target.isContentEditable)return;
   if(e.key==='Escape'){stopWalking();panel='';npcId='';message='已停下。点击人物靠近交谈，或按 E 互动。';draw();return;}
   if(e.key.toLowerCase()==='e'){e.preventDefault();const s=app.query().snapshot!;if(s.runtime.encounter?.status==='active')return;const p=s.runtime.actors[s.playerActorId].position,npc=Object.values(s.runtime.actors).find(a=>a.storyNpcId&&a.hp>0&&Math.hypot(a.position.x-p.x,a.position.y-p.y)<=1.12);if(npc)approachNpc(npc.storyNpcId!);else{stopWalking();panel='interaction';draw();}return;}
   if(e.key==='Enter'&&e.target instanceof SVGElement){const cell=e.target.closest<SVGElement>('[data-battle-point]'),enemy=e.target.closest<SVGElement>('[data-battle-actor]');if(cell){const [x,y]=cell.dataset.battlePoint!.split(',').map(Number);void submit('combat.action',{action:'move',x,y});return;}if(enemy){battleTarget(enemy.dataset.battleActor!);return;}const actor=e.target.closest<SVGElement>('[data-actor]'),anchor=e.target.closest<SVGElement>('[data-anchor]');if(actor&&actor.dataset.actor!=='player'){approachNpc(actor.dataset.actor!);}else if(anchor){const s=app.query().snapshot!,a=s.runtime.map.anchors.find(a=>a.id===anchor.dataset.anchor)!;void walkTo({...a.position},{});}return;}
@@ -97,6 +130,7 @@ export function mountAdventure(root:HTMLElement,app:AdventureApplication):()=>vo
  window.addEventListener('keydown',onKey);window.addEventListener('keyup',onKeyUp);window.addEventListener('blur',stopWalking);window.addEventListener('pointerup',onPointerUp);window.addEventListener('pointercancel',onPointerUp);document.addEventListener('visibilitychange',onVisibility);
  removeKeys=()=>{window.clearInterval(timer);window.removeEventListener('keydown',onKey);window.removeEventListener('keyup',onKeyUp);window.removeEventListener('blur',stopWalking);window.removeEventListener('pointerup',onPointerUp);window.removeEventListener('pointercancel',onPointerUp);document.removeEventListener('visibilitychange',onVisibility);};
  function draw(walking=false):void {
+  if(preparation){drawPreparation();return;}
   if(destroyed)return;const view=app.query(),s=view.snapshot;if(!s){root.innerHTML='<main class="adventure-shell"><p role="status">冒险正在准备。</p></main>';return;}
   const a=s.runtime.actors[s.playerActorId],b=s.runtime.encounter,isBattle=b?.status==='active',showBattleRoster=isBattle||battleFeedbackVisible,lastRoll=s.runtime.checks.at(-1),small=window.innerWidth<700,combat=app.queryBasicAttack();
   if(skillRunId!==s.runId){skillRunId=s.runId;selectedSkillId='';selectedTargetId='';skillMenuOpen=false;}
@@ -198,5 +232,5 @@ export function mountAdventure(root:HTMLElement,app:AdventureApplication):()=>vo
    for(let level=0;level<=3;level++){const world=unprojectIso(screen.x,screen.y,level),x=Math.round(world.x),y=Math.round(world.y),key=`${x},${y}`,v=s.runtime.visual[key];if(!v||!s.runtime.map.cells[y]?.[x]?.walkable||!s.runtime.explored.includes(key))continue;const actual=projectIso(x,y,v.height),distance=Math.hypot(screen.x-actual.x,(screen.y-actual.y)*2);if(distance<=40&&(!best||distance<best.distance))best={x,y,distance};}if(best)void walkTo({x:best.x,y:best.y});};
 
  }
- const resize=()=>draw();window.addEventListener('resize',resize);unsubscribe=app.subscribe(()=>{const id=app.query().snapshot?.runId;if(id!==observedRunId){cancelMovement();combatEffects.cancel();stopWalking();observedRunId=id;dicePresenter.cancel(false);recentFrames=[];battleFeedbackVisible=false;busy=false;}if(!busy)draw();});draw();return ()=>{destroyed=true;cancelMovement();combatEffects.cancel();dicePresenter.dispose();stopWalking();scene.dispose();removeKeys();unsubscribe();window.removeEventListener('resize',resize);app.dispose();};
+ const resize=()=>draw();window.addEventListener('resize',resize);unsubscribe=app.subscribe(()=>{const id=app.query().snapshot?.runId;if(id!==observedRunId){cancelMovement();combatEffects.cancel();stopWalking();observedRunId=id;dicePresenter.cancel(false);recentFrames=[];battleFeedbackVisible=false;busy=false;startPreparation();}if(!busy)draw();});startPreparation();return ()=>{destroyed=true;preparation?.controller.abort();preparation=undefined;cancelMovement();combatEffects.cancel();dicePresenter.dispose();stopWalking();scene.dispose();removeKeys();unsubscribe();window.removeEventListener('resize',resize);app.dispose();};
 }
